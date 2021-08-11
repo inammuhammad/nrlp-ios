@@ -1,0 +1,6 @@
+framework module Pods_NRLP_NRLPUITests {
+  umbrella header "Pods-NRLP-NRLPUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

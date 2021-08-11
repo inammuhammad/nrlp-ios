@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add Beneficiary View Controller-->
+        <scene sceneID="C0m-e9-7B2">
+            <objects>
+                <viewController storyboardIdentifier="AddBeneficiaryViewController" id="u8j-vF-E5p" customClass="AddBeneficiaryViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y6w-Qj-JVw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7yh-1f-zlH">
+                                <rect key="frame" x="16" y="44" width="382" height="736"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="AGO-UH-tg2">
+                                        <rect key="frame" x="0.0" y="30" width="382" height="392"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="960-Wm-gwe" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="aZo-LF-fHY"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPn-Hg-fOn" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="104" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="QLc-8p-ODq"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Alias"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OmE-EZ-SFQ" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="208" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="6uY-5R-FdD"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kji-eU-PMm" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="312" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="Ncr-UU-eb4"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="AGO-UH-tg2" firstAttribute="leading" secondItem="7yh-1f-zlH" secondAttribute="leading" id="2vg-Zx-blN"/>
+                                    <constraint firstItem="AGO-UH-tg2" firstAttribute="top" secondItem="7yh-1f-zlH" secondAttribute="top" constant="30" id="MSl-RF-F1d"/>
+                                    <constraint firstItem="AGO-UH-tg2" firstAttribute="centerX" secondItem="7yh-1f-zlH" secondAttribute="centerX" id="c8I-Ck-Eha"/>
+                                    <constraint firstAttribute="bottom" secondItem="AGO-UH-tg2" secondAttribute="bottom" id="fEm-S9-YbP"/>
+                                    <constraint firstAttribute="trailing" secondItem="AGO-UH-tg2" secondAttribute="trailing" id="i1Y-0c-ur2"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-Kj-c7q" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NcF-cH-V0a"/>
+                                </constraints>
+                                <state key="normal" title="Add Beneficiary"/>
+                                <connections>
+                                    <action selector="addBeneficiaryClicked:" destination="u8j-vF-E5p" eventType="touchUpInside" id="lbL-qK-GfU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hWq-wd-kRP" firstAttribute="bottom" secondItem="7A8-Kj-c7q" secondAttribute="bottom" constant="16" id="3aQ-Xs-7nP"/>
+                            <constraint firstItem="hWq-wd-kRP" firstAttribute="trailing" secondItem="7yh-1f-zlH" secondAttribute="trailing" constant="16" id="8Ev-jB-m0L"/>
+                            <constraint firstItem="7yh-1f-zlH" firstAttribute="leading" secondItem="hWq-wd-kRP" secondAttribute="leading" constant="16" id="br8-Ac-RR8"/>
+                            <constraint firstItem="7A8-Kj-c7q" firstAttribute="trailing" secondItem="7yh-1f-zlH" secondAttribute="trailing" id="oEU-fm-h5G"/>
+                            <constraint firstItem="7A8-Kj-c7q" firstAttribute="top" secondItem="7yh-1f-zlH" secondAttribute="bottom" constant="16" id="qXk-rF-y1b"/>
+                            <constraint firstItem="7A8-Kj-c7q" firstAttribute="leading" secondItem="7yh-1f-zlH" secondAttribute="leading" id="snQ-M3-VZo"/>
+                            <constraint firstItem="7yh-1f-zlH" firstAttribute="top" secondItem="hWq-wd-kRP" secondAttribute="top" id="vMq-zT-1TX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hWq-wd-kRP"/>
+                    </view>
+                    <connections>
+                        <outlet property="addBeneficiaryButton" destination="7A8-Kj-c7q" id="9Ev-aw-whY"/>
+                        <outlet property="aliasTextField" destination="PPn-Hg-fOn" id="Uyr-rp-GSJ"/>
+                        <outlet property="cnicTextField" destination="960-Wm-gwe" id="4jQ-Il-JFa"/>
+                        <outlet property="countryTextField" destination="OmE-EZ-SFQ" id="4Wz-Ov-G3J"/>
+                        <outlet property="mobileTextField" destination="kji-eU-PMm" id="yOL-9y-3fi"/>
+                        <outlet property="scrollViewBottomConstraint" destination="qXk-rF-y1b" id="dXf-Vs-Iwd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jwi-kA-4nU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="121.73913043478262" y="160.71428571428569"/>
+        </scene>
+    </scenes>
+</document>

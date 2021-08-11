@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--ProfileOTP View Controller-->
+        <scene sceneID="3Hj-Ob-MY9">
+            <objects>
+                <viewController storyboardIdentifier="ProfileOTPViewController" id="Ceh-z6-TUt" customClass="ProfileOTPViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VZE-El-6nc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsW-ou-Myt" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="61h-Oa-1XM"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapVerifyButton:" destination="Ceh-z6-TUt" eventType="touchUpInside" id="xEC-g6-nTT"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent you a code on your phone number +923318448764" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Au3-9B-0em">
+                                <rect key="frame" x="16" y="84" width="382" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fda-Al-KRp">
+                                <rect key="frame" x="16" y="125" width="382" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="a90-zw-rff">
+                                <rect key="frame" x="87" y="181" width="240" height="48"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9PY-Hd-ppq" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9PY-Hd-ppq" secondAttribute="height" multiplier="1:1" id="RuY-9a-cqy"/>
+                                            <constraint firstAttribute="width" constant="48" id="myG-Re-DMm"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jry-3D-Jpm" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="64" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wb1-f7-tm8" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="128" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ifh-HF-43Z" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIl-LS-CTD">
+                                <rect key="frame" x="87" y="245" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="2hi-zC-xLc">
+                                <rect key="frame" x="100" y="289.5" width="214" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bkr-PT-A8E">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ux0-ZZ-1q1">
+                                        <rect key="frame" x="164" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dxg-tg-SwN">
+                                <rect key="frame" x="86.5" y="363.5" width="241" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Didn't receive the OTP?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y4y-Fn-Wf1">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qbz-Ou-0qU">
+                                        <rect key="frame" x="160" y="0.0" width="81" height="30"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="ResendOTP">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapResendOtpButton:" destination="Ceh-z6-TUt" eventType="touchUpInside" id="J3l-80-qyG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Mq-fr-Yfi">
+                                <rect key="frame" x="16" y="425.5" width="382" height="52.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLx-5q-Ta0">
+                                        <rect key="frame" x="170" y="16" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="hLx-5q-Ta0" firstAttribute="centerX" secondItem="3Mq-fr-Yfi" secondAttribute="centerX" id="3Hb-Xb-NhO"/>
+                                    <constraint firstItem="hLx-5q-Ta0" firstAttribute="top" secondItem="3Mq-fr-Yfi" secondAttribute="top" constant="16" id="4v6-TL-14G"/>
+                                    <constraint firstItem="hLx-5q-Ta0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Mq-fr-Yfi" secondAttribute="leading" constant="24" id="CVn-re-e2N"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hLx-5q-Ta0" secondAttribute="trailing" constant="24" id="DOu-86-rNI"/>
+                                    <constraint firstAttribute="bottom" secondItem="hLx-5q-Ta0" secondAttribute="bottom" constant="16" id="edr-nJ-IbP"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2hi-zC-xLc" firstAttribute="top" secondItem="bIl-LS-CTD" secondAttribute="bottom" constant="24" id="0r4-Qe-VSG"/>
+                            <constraint firstItem="Dxg-tg-SwN" firstAttribute="centerX" secondItem="VZE-El-6nc" secondAttribute="centerX" id="4lI-um-9yW"/>
+                            <constraint firstItem="fda-Al-KRp" firstAttribute="leading" secondItem="MVS-j7-QYp" secondAttribute="leading" constant="16" id="71N-Y8-0HF"/>
+                            <constraint firstItem="2hi-zC-xLc" firstAttribute="centerX" secondItem="VZE-El-6nc" secondAttribute="centerX" id="DGC-c6-BeI"/>
+                            <constraint firstItem="MVS-j7-QYp" firstAttribute="trailing" secondItem="fda-Al-KRp" secondAttribute="trailing" constant="16" id="DpW-Ly-yLo"/>
+                            <constraint firstItem="3Mq-fr-Yfi" firstAttribute="top" secondItem="Dxg-tg-SwN" secondAttribute="bottom" constant="32" id="GXT-aL-KeP"/>
+                            <constraint firstItem="RsW-ou-Myt" firstAttribute="leading" secondItem="MVS-j7-QYp" secondAttribute="leading" constant="16" id="MhB-h4-pcd"/>
+                            <constraint firstItem="fda-Al-KRp" firstAttribute="top" secondItem="Au3-9B-0em" secondAttribute="bottom" id="O6R-jh-Yto"/>
+                            <constraint firstItem="MVS-j7-QYp" firstAttribute="bottom" secondItem="RsW-ou-Myt" secondAttribute="bottom" constant="16" id="PKf-pR-r5g"/>
+                            <constraint firstItem="Au3-9B-0em" firstAttribute="top" secondItem="MVS-j7-QYp" secondAttribute="top" constant="40" id="aP3-17-t9A"/>
+                            <constraint firstItem="bIl-LS-CTD" firstAttribute="leading" secondItem="a90-zw-rff" secondAttribute="leading" id="auL-0s-xrX"/>
+                            <constraint firstItem="Au3-9B-0em" firstAttribute="leading" secondItem="MVS-j7-QYp" secondAttribute="leading" constant="16" id="gG4-MQ-g01"/>
+                            <constraint firstItem="MVS-j7-QYp" firstAttribute="trailing" secondItem="RsW-ou-Myt" secondAttribute="trailing" constant="16" id="gc9-In-tjG"/>
+                            <constraint firstItem="Dxg-tg-SwN" firstAttribute="top" secondItem="2hi-zC-xLc" secondAttribute="bottom" constant="24" id="gdy-v2-Yqw"/>
+                            <constraint firstItem="a90-zw-rff" firstAttribute="centerX" secondItem="VZE-El-6nc" secondAttribute="centerX" id="h6R-8t-zdC"/>
+                            <constraint firstItem="bIl-LS-CTD" firstAttribute="top" secondItem="a90-zw-rff" secondAttribute="bottom" constant="16" id="iNU-IK-uHi"/>
+                            <constraint firstItem="3Mq-fr-Yfi" firstAttribute="leading" secondItem="MVS-j7-QYp" secondAttribute="leading" constant="16" id="ivj-5Y-1sq"/>
+                            <constraint firstItem="MVS-j7-QYp" firstAttribute="trailing" secondItem="3Mq-fr-Yfi" secondAttribute="trailing" constant="16" id="te4-2R-YeQ"/>
+                            <constraint firstItem="a90-zw-rff" firstAttribute="top" secondItem="fda-Al-KRp" secondAttribute="bottom" constant="56" id="wcA-4B-4Gx"/>
+                            <constraint firstItem="MVS-j7-QYp" firstAttribute="trailing" secondItem="Au3-9B-0em" secondAttribute="trailing" constant="16" id="xDb-JA-4ea"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MVS-j7-QYp"/>
+                    </view>
+                    <connections>
+                        <outlet property="codeExpireLabel" destination="bkr-PT-A8E" id="so0-xU-phA"/>
+                        <outlet property="codeExpireTimerLabel" destination="ux0-ZZ-1q1" id="Ilg-Sj-jfW"/>
+                        <outlet property="headerLabel" destination="Au3-9B-0em" id="x4J-6l-M42"/>
+                        <outlet property="notReceiveOtpLabel" destination="y4y-Fn-Wf1" id="0dV-cA-oj7"/>
+                        <outlet property="otpItemStack" destination="a90-zw-rff" id="4Nh-DK-XF7"/>
+                        <outlet property="resendCodeInfoLabel" destination="hLx-5q-Ta0" id="7zA-Aa-7hQ"/>
+                        <outlet property="resendOtpButton" destination="qbz-Ou-0qU" id="oDt-mb-Y2o"/>
+                        <outlet property="resendVerificationCodeInfoView" destination="3Mq-fr-Yfi" id="ab3-NT-h8j"/>
+                        <outlet property="verificationCodeErrorLabel" destination="bIl-LS-CTD" id="acY-Ys-biK"/>
+                        <outlet property="verifyCTAButton" destination="RsW-ou-Myt" id="qLd-1i-FPb"/>
+                        <outletCollection property="codeTextFields" destination="9PY-Hd-ppq" collectionClass="NSMutableArray" id="DeZ-OM-xF3"/>
+                        <outletCollection property="codeTextFields" destination="jry-3D-Jpm" collectionClass="NSMutableArray" id="FPt-uM-lKe"/>
+                        <outletCollection property="codeTextFields" destination="wb1-f7-tm8" collectionClass="NSMutableArray" id="MHP-Sh-hcu"/>
+                        <outletCollection property="codeTextFields" destination="ifh-HF-43Z" collectionClass="NSMutableArray" id="cDV-JL-MYc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="voK-uh-cyV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="83" y="172"/>
+        </scene>
+    </scenes>
+</document>

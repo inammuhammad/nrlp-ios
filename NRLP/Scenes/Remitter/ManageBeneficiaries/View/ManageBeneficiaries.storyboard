@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Manage Beneficiaries View Controller-->
+        <scene sceneID="Cl6-pu-b4y">
+            <objects>
+                <viewController storyboardIdentifier="ManageBeneficiariesViewController" id="eJQ-Ah-L2C" customClass="ManageBeneficiariesViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JEv-oM-q6W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cyw-r6-whd">
+                                <rect key="frame" x="16" y="74" width="382" height="698"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtn-nE-I33" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Voc-Ya-4nM"/>
+                                </constraints>
+                                <state key="normal" title="Add Beneficiary"/>
+                                <connections>
+                                    <action selector="addButtonClicked:" destination="eJQ-Ah-L2C" eventType="touchUpInside" id="bSc-Gm-4KQ"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3WL-5l-Xhq">
+                                <rect key="frame" x="16" y="318.5" width="382" height="259.5"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noBeneficiaryFound" translatesAutoresizingMaskIntoConstraints="NO" id="gbZ-qa-vtR">
+                                        <rect key="frame" x="121" y="0.0" width="140" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="gbZ-qa-vtR" secondAttribute="height" multiplier="1:1" id="GDG-VV-y4e"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No beneficiaries found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OV7-vd-zVb">
+                                        <rect key="frame" x="24" y="170" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add beneficiaries to transfer loyality points with loved ones" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHp-Gp-bT8">
+                                        <rect key="frame" x="24" y="202.5" width="334" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="OV7-vd-zVb" secondAttribute="trailing" constant="24" id="631-96-OAk"/>
+                                    <constraint firstItem="gbZ-qa-vtR" firstAttribute="top" secondItem="3WL-5l-Xhq" secondAttribute="top" id="8iC-1v-clO"/>
+                                    <constraint firstItem="OV7-vd-zVb" firstAttribute="top" secondItem="gbZ-qa-vtR" secondAttribute="bottom" constant="30" id="9g5-0Q-BkJ"/>
+                                    <constraint firstItem="pHp-Gp-bT8" firstAttribute="top" secondItem="OV7-vd-zVb" secondAttribute="bottom" constant="12" id="DFV-3g-4GH"/>
+                                    <constraint firstItem="pHp-Gp-bT8" firstAttribute="leading" secondItem="3WL-5l-Xhq" secondAttribute="leading" constant="24" id="WPP-Lv-dEX"/>
+                                    <constraint firstItem="gbZ-qa-vtR" firstAttribute="width" secondItem="3WL-5l-Xhq" secondAttribute="width" multiplier="0.366492" id="Wr7-OA-yWt"/>
+                                    <constraint firstAttribute="trailing" secondItem="pHp-Gp-bT8" secondAttribute="trailing" constant="24" id="cXN-cR-qGD"/>
+                                    <constraint firstItem="OV7-vd-zVb" firstAttribute="leading" secondItem="3WL-5l-Xhq" secondAttribute="leading" constant="24" id="tQr-g9-iiz"/>
+                                    <constraint firstItem="gbZ-qa-vtR" firstAttribute="centerX" secondItem="3WL-5l-Xhq" secondAttribute="centerX" id="uc3-iU-I4e"/>
+                                    <constraint firstAttribute="bottom" secondItem="pHp-Gp-bT8" secondAttribute="bottom" constant="16" id="xWj-bD-VoG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3WL-5l-Xhq" firstAttribute="leading" secondItem="iP5-Tj-CVq" secondAttribute="leading" constant="16" id="1sP-6c-Yxc"/>
+                            <constraint firstItem="iP5-Tj-CVq" firstAttribute="trailing" secondItem="3WL-5l-Xhq" secondAttribute="trailing" constant="16" id="F1K-ga-MVG"/>
+                            <constraint firstItem="iP5-Tj-CVq" firstAttribute="trailing" secondItem="Cyw-r6-whd" secondAttribute="trailing" constant="16" id="H7m-gO-FTu"/>
+                            <constraint firstItem="Cyw-r6-whd" firstAttribute="top" secondItem="iP5-Tj-CVq" secondAttribute="top" constant="30" id="Uce-OR-mpi"/>
+                            <constraint firstItem="xtn-nE-I33" firstAttribute="leading" secondItem="Cyw-r6-whd" secondAttribute="leading" id="bcN-jA-5ss"/>
+                            <constraint firstItem="iP5-Tj-CVq" firstAttribute="bottom" secondItem="xtn-nE-I33" secondAttribute="bottom" constant="16" id="e6i-VP-MCN"/>
+                            <constraint firstItem="xtn-nE-I33" firstAttribute="top" secondItem="Cyw-r6-whd" secondAttribute="bottom" constant="24" id="eAa-l2-zte"/>
+                            <constraint firstItem="xtn-nE-I33" firstAttribute="trailing" secondItem="Cyw-r6-whd" secondAttribute="trailing" id="iGn-Ay-3RA"/>
+                            <constraint firstItem="Cyw-r6-whd" firstAttribute="leading" secondItem="iP5-Tj-CVq" secondAttribute="leading" constant="16" id="tuV-ZS-mhY"/>
+                            <constraint firstItem="3WL-5l-Xhq" firstAttribute="centerY" secondItem="JEv-oM-q6W" secondAttribute="centerY" id="vl8-gE-kly"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iP5-Tj-CVq"/>
+                    </view>
+                    <connections>
+                        <outlet property="addBeneficiaryButton" destination="xtn-nE-I33" id="NAL-gX-qCA"/>
+                        <outlet property="beneficiaryTable" destination="Cyw-r6-whd" id="CLO-ms-7us"/>
+                        <outlet property="noItemsDescription" destination="pHp-Gp-bT8" id="Kiu-r8-6c8"/>
+                        <outlet property="noItemsHeading" destination="OV7-vd-zVb" id="HZF-q1-rFY"/>
+                        <outlet property="noItemsImg" destination="gbZ-qa-vtR" id="jfY-QN-6Bw"/>
+                        <outlet property="noItemsView" destination="3WL-5l-Xhq" id="13A-vL-cDb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2p4-pT-CPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="528" y="333"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="noBeneficiaryFound" width="140" height="133"/>
+    </resources>
+</document>

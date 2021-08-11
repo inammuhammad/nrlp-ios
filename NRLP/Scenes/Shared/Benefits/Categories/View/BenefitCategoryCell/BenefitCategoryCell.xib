@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="BenefitCategoryCell" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="BenefitCategoryCell" customModule="NRLP" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YhK-XT-4rB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="28"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpR-UW-ZL7">
+                                <rect key="frame" x="16" y="16" width="288" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="kpR-UW-ZL7" secondAttribute="bottom" constant="16" id="0WW-ET-S4H"/>
+                            <constraint firstItem="kpR-UW-ZL7" firstAttribute="top" secondItem="YhK-XT-4rB" secondAttribute="top" constant="16" id="Kwd-DB-bEe"/>
+                            <constraint firstItem="kpR-UW-ZL7" firstAttribute="left" secondItem="YhK-XT-4rB" secondAttribute="left" constant="16" id="W8d-9C-zcn"/>
+                            <constraint firstAttribute="right" secondItem="kpR-UW-ZL7" secondAttribute="right" constant="16" id="ySJ-KV-drh"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YhK-XT-4rB" firstAttribute="left" secondItem="H2p-sc-9uM" secondAttribute="left" id="A7O-LI-2dT"/>
+                    <constraint firstAttribute="bottom" secondItem="YhK-XT-4rB" secondAttribute="bottom" constant="16" id="DSS-TC-4jH"/>
+                    <constraint firstAttribute="right" secondItem="YhK-XT-4rB" secondAttribute="right" id="Dkg-S1-cfA"/>
+                    <constraint firstItem="YhK-XT-4rB" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="yNr-y5-FGp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="categroryLabel" destination="kpR-UW-ZL7" id="SYz-GT-JQR"/>
+                <outlet property="parentView" destination="YhK-XT-4rB" id="HFw-az-mmb"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="107.8125"/>
+        </tableViewCell>
+    </objects>
+</document>

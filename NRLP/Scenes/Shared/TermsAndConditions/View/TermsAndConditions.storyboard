@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Terms And Conditions View Controller-->
+        <scene sceneID="qYu-Zb-X3c">
+            <objects>
+                <viewController storyboardIdentifier="TermsAndConditionsViewController" id="lvs-0x-KO4" customClass="TermsAndConditionsViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pZR-QR-VRS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qX5-Ct-5k6" customClass="ProgressBarView" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="8"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="duW-F1-1PU"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wo4-AK-nC5">
+                                <rect key="frame" x="16" y="82" width="382" height="780"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="vFi-OO-laB">
+                                        <rect key="frame" x="0.0" y="16" width="382" height="174"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg6-hj-mlr">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lra-0V-cO8" customClass="CheckBox" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="32" width="382" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" placeholder="YES" id="xfN-Pt-Pcg"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="fmd-hN-DZU">
+                                                <rect key="frame" x="0.0" y="124" width="382" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OBD-eg-Dba" userLabel="I" customClass="SecondaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="182" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="o2X-I2-z5w"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="didTapDeclineTermsAndCondition:" destination="lvs-0x-KO4" eventType="touchUpInside" id="few-WG-bEf"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Xh-Jm-1Ey" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                                        <rect key="frame" x="200" y="0.0" width="182" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="hDV-T8-ULj"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <connections>
+                                                            <action selector="didTapRegisterButton:" destination="lvs-0x-KO4" eventType="touchUpInside" id="iKk-CC-8rp"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vFi-OO-laB" firstAttribute="centerX" secondItem="wo4-AK-nC5" secondAttribute="centerX" id="1cZ-Fh-u4N"/>
+                                    <constraint firstItem="vFi-OO-laB" firstAttribute="leading" secondItem="wo4-AK-nC5" secondAttribute="leading" id="AkL-g5-wVr"/>
+                                    <constraint firstAttribute="trailing" secondItem="vFi-OO-laB" secondAttribute="trailing" id="CVh-sT-asp"/>
+                                    <constraint firstItem="vFi-OO-laB" firstAttribute="top" secondItem="wo4-AK-nC5" secondAttribute="top" constant="16" id="NRu-W4-TLl"/>
+                                    <constraint firstAttribute="bottom" secondItem="vFi-OO-laB" secondAttribute="bottom" constant="16" id="tnU-0r-6WK"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tAf-ch-7g1" firstAttribute="trailing" secondItem="qX5-Ct-5k6" secondAttribute="trailing" id="67Z-Qf-m8R"/>
+                            <constraint firstItem="tAf-ch-7g1" firstAttribute="bottom" secondItem="wo4-AK-nC5" secondAttribute="bottom" id="8nd-ZM-8m7"/>
+                            <constraint firstItem="tAf-ch-7g1" firstAttribute="trailing" secondItem="wo4-AK-nC5" secondAttribute="trailing" constant="16" id="Jpd-TC-URV"/>
+                            <constraint firstItem="qX5-Ct-5k6" firstAttribute="top" secondItem="tAf-ch-7g1" secondAttribute="top" id="bKx-Sp-f8a"/>
+                            <constraint firstItem="wo4-AK-nC5" firstAttribute="top" secondItem="qX5-Ct-5k6" secondAttribute="bottom" constant="30" id="dn3-qO-Nd1"/>
+                            <constraint firstItem="qX5-Ct-5k6" firstAttribute="leading" secondItem="tAf-ch-7g1" secondAttribute="leading" id="qLc-Yk-Flp"/>
+                            <constraint firstItem="wo4-AK-nC5" firstAttribute="leading" secondItem="tAf-ch-7g1" secondAttribute="leading" constant="16" id="w6q-Md-dWg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tAf-ch-7g1"/>
+                    </view>
+                    <connections>
+                        <outlet property="declineTermsAndConditionButton" destination="OBD-eg-Dba" id="RmL-CB-WHC"/>
+                        <outlet property="progressBar" destination="qX5-Ct-5k6" id="pA3-nF-t95"/>
+                        <outlet property="registerCTAButton" destination="0Xh-Jm-1Ey" id="Qbg-S6-s66"/>
+                        <outlet property="termsAndConditionCheckBox" destination="lra-0V-cO8" id="gEp-MG-wfg"/>
+                        <outlet property="termsAndConditionText" destination="Bg6-hj-mlr" id="6kK-8c-ygV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9bu-dc-hBm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36.231884057971016" y="142.63392857142856"/>
+        </scene>
+    </scenes>
+</document>

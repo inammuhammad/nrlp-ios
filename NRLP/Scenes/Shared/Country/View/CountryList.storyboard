@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Country List View Controller-->
+        <scene sceneID="2H8-pd-kn5">
+            <objects>
+                <viewController storyboardIdentifier="CountryListViewController" id="3ml-wX-8Qe" customClass="CountryListViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tcL-9a-2NQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyP-ZN-4vt" customClass="ProgressBarView" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="8"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="KYa-aA-nMJ"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ltY-Ka-aN5">
+                                <rect key="frame" x="16" y="64" width="382" height="798"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ltY-Ka-aN5" firstAttribute="top" secondItem="jyP-ZN-4vt" secondAttribute="bottom" constant="12" id="5L1-bl-jn9"/>
+                            <constraint firstItem="E0F-6e-z4X" firstAttribute="trailing" secondItem="ltY-Ka-aN5" secondAttribute="trailing" constant="16" id="NWE-Ts-YtA"/>
+                            <constraint firstItem="E0F-6e-z4X" firstAttribute="bottom" secondItem="ltY-Ka-aN5" secondAttribute="bottom" id="Y9D-Oi-u4E"/>
+                            <constraint firstItem="ltY-Ka-aN5" firstAttribute="leading" secondItem="E0F-6e-z4X" secondAttribute="leading" constant="16" id="hmd-tc-OfE"/>
+                            <constraint firstItem="jyP-ZN-4vt" firstAttribute="leading" secondItem="E0F-6e-z4X" secondAttribute="leading" id="jSD-VL-lqK"/>
+                            <constraint firstItem="jyP-ZN-4vt" firstAttribute="top" secondItem="E0F-6e-z4X" secondAttribute="top" id="rrf-LG-NQo"/>
+                            <constraint firstItem="E0F-6e-z4X" firstAttribute="trailing" secondItem="jyP-ZN-4vt" secondAttribute="trailing" id="v4O-dS-UZF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="E0F-6e-z4X"/>
+                    </view>
+                    <connections>
+                        <outlet property="progressBarView" destination="jyP-ZN-4vt" id="Cdc-bK-Y2b"/>
+                        <outlet property="tableView" destination="ltY-Ka-aN5" id="tmB-dq-9Pi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQe-q8-OMm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36.231884057971016" y="142.63392857142856"/>
+        </scene>
+    </scenes>
+</document>

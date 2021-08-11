@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profile View Controller-->
+        <scene sceneID="V5H-9X-bvr">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="dLI-el-daa" customClass="ProfileViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="04F-fQ-5Jr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xgX-DH-QEh">
+                                <rect key="frame" x="0.0" y="76" width="414" height="692"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="VKT-vp-8rB">
+                                        <rect key="frame" x="16" y="0.0" width="382" height="496"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQg-nf-WMH" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="61a-gw-WYY"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT7-Wx-Wxc" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="104" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="Ixj-eh-efp"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQt-FV-kLs" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="208" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="sWG-vL-LAn"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXC-Fl-0t8" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="312" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="bZE-rt-0kR"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wa2-LU-bWX" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="416" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="Psr-7y-X5F"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="VKT-vp-8rB" firstAttribute="leading" secondItem="xgX-DH-QEh" secondAttribute="leading" constant="16" id="Ae6-rK-r5g"/>
+                                    <constraint firstAttribute="bottom" secondItem="VKT-vp-8rB" secondAttribute="bottom" id="BCb-4T-tOh"/>
+                                    <constraint firstItem="VKT-vp-8rB" firstAttribute="centerX" secondItem="xgX-DH-QEh" secondAttribute="centerX" id="Dqa-i4-QGX"/>
+                                    <constraint firstItem="VKT-vp-8rB" firstAttribute="top" secondItem="xgX-DH-QEh" secondAttribute="top" id="IRX-Du-f3h"/>
+                                    <constraint firstAttribute="trailing" secondItem="VKT-vp-8rB" secondAttribute="trailing" constant="16" id="Vbq-61-zWc"/>
+                                </constraints>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qEs-L9-d3d">
+                                <rect key="frame" x="16" y="792" width="382" height="50"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-bq-9n6" customClass="SecondaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="gSv-Qg-sGc"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="cancelButtonPressed:" destination="dLI-el-daa" eventType="touchUpInside" id="Lyi-fS-gYx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dan-V4-ZQQ" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Vet-s0-3Oi"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="dLI-el-daa" eventType="touchUpInside" id="O0I-mt-gmr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="xgX-DH-QEh" secondAttribute="trailing" id="88E-3A-itW"/>
+                            <constraint firstItem="5Gr-tx-oqX" firstAttribute="bottom" secondItem="qEs-L9-d3d" secondAttribute="bottom" constant="20" id="BS0-XZ-qwj"/>
+                            <constraint firstItem="qEs-L9-d3d" firstAttribute="top" secondItem="xgX-DH-QEh" secondAttribute="bottom" constant="24" id="Heb-qu-Us2"/>
+                            <constraint firstItem="xgX-DH-QEh" firstAttribute="leading" secondItem="04F-fQ-5Jr" secondAttribute="leading" id="WE3-QP-Czc"/>
+                            <constraint firstItem="qEs-L9-d3d" firstAttribute="leading" secondItem="5Gr-tx-oqX" secondAttribute="leading" constant="16" id="Z7b-lB-qPd"/>
+                            <constraint firstItem="5Gr-tx-oqX" firstAttribute="trailing" secondItem="qEs-L9-d3d" secondAttribute="trailing" constant="16" id="lBz-RX-Bb6"/>
+                            <constraint firstItem="xgX-DH-QEh" firstAttribute="top" secondItem="5Gr-tx-oqX" secondAttribute="top" constant="32" id="qHw-25-UCl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5Gr-tx-oqX"/>
+                    </view>
+                    <connections>
+                        <outlet property="bottomCTAButtonStack" destination="qEs-L9-d3d" id="s3K-4w-dzW"/>
+                        <outlet property="cancelButton" destination="iAn-bq-9n6" id="SdO-em-1ZU"/>
+                        <outlet property="cnicTextView" destination="bT7-Wx-Wxc" id="ymh-Vp-w9H"/>
+                        <outlet property="countryTextView" destination="hXC-Fl-0t8" id="UGM-yY-MXq"/>
+                        <outlet property="editButton" destination="dan-V4-ZQQ" id="iWp-l2-zlT"/>
+                        <outlet property="emailTextView" destination="ZQt-FV-kLs" id="Yhh-Ua-sLb"/>
+                        <outlet property="fullNameTextView" destination="tQg-nf-WMH" id="hKj-By-rrs"/>
+                        <outlet property="mobileTextView" destination="Wa2-LU-bWX" id="h5g-A7-rd2"/>
+                        <outlet property="scrollViewBottomConstraint" destination="Heb-qu-Us2" id="aqO-To-Ij4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q3C-uc-6k2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="145" y="165"/>
+        </scene>
+    </scenes>
+</document>

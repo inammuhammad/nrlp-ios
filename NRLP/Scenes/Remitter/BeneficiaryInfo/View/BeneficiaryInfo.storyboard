@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Beneficiary Info View Controller-->
+        <scene sceneID="U2u-oj-PJd">
+            <objects>
+                <viewController storyboardIdentifier="BeneficiaryInfoViewController" id="krq-Ld-v7Y" customClass="BeneficiaryInfoViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F75-eM-LOR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJw-hh-0AG" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="74" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Hln-YJ-lS5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC Number"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5T1-fF-NDB" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="178" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="4L9-mb-S3E"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Alias"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMd-rt-Hzu" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="282" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="i3V-gL-c8C"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arU-dD-vP7" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="SX7-GN-SWo"/>
+                                </constraints>
+                                <state key="normal" title="Delete Beneficiary"/>
+                                <connections>
+                                    <action selector="deleteBeneficiaryPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="loZ-DU-J1R"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="5T1-fF-NDB" firstAttribute="top" secondItem="PJw-hh-0AG" secondAttribute="bottom" constant="24" id="AsM-Ks-H1M"/>
+                            <constraint firstItem="5T1-fF-NDB" firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" id="Yaf-Fg-WGr"/>
+                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="leading" secondItem="5T1-fF-NDB" secondAttribute="leading" id="b8C-9n-DLo"/>
+                            <constraint firstItem="arU-dD-vP7" firstAttribute="leading" secondItem="HMd-rt-Hzu" secondAttribute="leading" id="dCX-SB-HE1"/>
+                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="trailing" secondItem="5T1-fF-NDB" secondAttribute="trailing" id="faU-fu-rii"/>
+                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="top" secondItem="5T1-fF-NDB" secondAttribute="bottom" constant="24" id="l1c-ha-Clc"/>
+                            <constraint firstItem="Jpa-yb-KaD" firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" constant="16" id="lZ5-ST-rwh"/>
+                            <constraint firstItem="PJw-hh-0AG" firstAttribute="leading" secondItem="Jpa-yb-KaD" secondAttribute="leading" constant="16" id="qtR-6o-N33"/>
+                            <constraint firstItem="5T1-fF-NDB" firstAttribute="leading" secondItem="PJw-hh-0AG" secondAttribute="leading" id="riT-6W-Bvc"/>
+                            <constraint firstItem="Jpa-yb-KaD" firstAttribute="bottom" secondItem="arU-dD-vP7" secondAttribute="bottom" constant="16" id="sRv-L6-0RC"/>
+                            <constraint firstItem="PJw-hh-0AG" firstAttribute="top" secondItem="Jpa-yb-KaD" secondAttribute="top" constant="30" id="uVe-Ex-Iht"/>
+                            <constraint firstItem="arU-dD-vP7" firstAttribute="trailing" secondItem="HMd-rt-Hzu" secondAttribute="trailing" id="xVl-wO-QUI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jpa-yb-KaD"/>
+                    </view>
+                    <connections>
+                        <outlet property="aliasTextField" destination="5T1-fF-NDB" id="nqb-iM-Ggc"/>
+                        <outlet property="cnicTextField" destination="PJw-hh-0AG" id="I8F-Bt-eQs"/>
+                        <outlet property="deleteBeneficiaryButton" destination="arU-dD-vP7" id="CfQ-TZ-qYR"/>
+                        <outlet property="mobileTextField" destination="HMd-rt-Hzu" id="7AB-vD-XGx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7sy-Z7-SwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="133"/>
+        </scene>
+    </scenes>
+</document>
