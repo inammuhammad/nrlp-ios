@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "C8EC3D94-78A6-4AF4-82AB-E4A23C850AD8"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B5EC7D4F-DA1D-48A3-A67A-550C08518035"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NRLP/Scenes/Shared/Registration/View/RegistrationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "bindViewModelOutput()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B5EC7D4F-DA1D-48A3-A67A-550C08518035 - b173da7dbc918cd7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NRLP.RegistrationViewController.bindViewModelOutput() -&gt; ()"
+                  moduleName = "NRLP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bilaliqbal/Downloads/venturedive-1link-nrlp-ios-8445b4ed166f/NRLP/Scenes/Shared/Registration/View/RegistrationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  uuid = "B5EC7D4F-DA1D-48A3-A67A-550C08518035 - a946dafa43818444"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (NRLP.RegistrationViewModel.Output) -&gt; () in NRLP.RegistrationViewController.bindViewModelOutput() -&gt; ()"
+                  moduleName = "NRLP"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bilaliqbal/Downloads/venturedive-1link-nrlp-ios-8445b4ed166f/NRLP/Scenes/Shared/Registration/View/RegistrationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "360">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24C3C98C-A602-4B7B-A72E-7137ED601249"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NRLP/Scenes/Shared/Registration/View/RegistrationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "bindViewModelOutput()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8DFCA603-FBD2-41AA-8E88-7C0973458661"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NRLP/Scenes/Shared/Registration/ViewModel/RegistrationScreenViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "282"
+            endingLineNumber = "282"
+            landmarkName = "validateDataWithRegex()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
