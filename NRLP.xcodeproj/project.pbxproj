@@ -564,6 +564,8 @@
 		BC7E7E9824C055A10026F341 /* GenerateStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9724C055A10026F341 /* GenerateStatementViewController.swift */; };
 		BC7E7E9B24C068590026F341 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */; };
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
+		E10924C026C7C8BF004D19A6 /* PassportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BE26C7C8BF004D19A6 /* PassportType.swift */; };
+		E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */; };
 		E7547A5C24EFC18C002F35A9 /* BeneficiaryVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6E75E24B4AB5200577421 /* BeneficiaryVerificationRouter.swift */; };
 		E7547A5D24EFC2C9002F35A9 /* BeneficiaryVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6E76024B4B61500577421 /* BeneficiaryVerificationService.swift */; };
 		E7547A5E24EFC333002F35A9 /* LoginModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9A22924B308E700CAAA32 /* LoginModuleBuilder.swift */; };
@@ -1185,6 +1187,8 @@
 		BC7E7E9724C055A10026F341 /* GenerateStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateStatementViewController.swift; sourceTree = "<group>"; };
 		BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
+		E10924BE26C7C8BF004D19A6 /* PassportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportType.swift; sourceTree = "<group>"; };
+		E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportTypePickerItemModel.swift; sourceTree = "<group>"; };
 		E7FB36B32500BC6400EE8FFA /* CountryServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceMock.swift; sourceTree = "<group>"; };
 		E7FB36B52500BCF500EE8FFA /* BeneficiaryVerificationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryVerificationServiceMock.swift; sourceTree = "<group>"; };
 		E7FB36BB2500C35C00EE8FFA /* TermsAndConditionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionServiceMock.swift; sourceTree = "<group>"; };
@@ -1773,6 +1777,8 @@
 		207C3DA424B5B07300298C0C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				E10924BE26C7C8BF004D19A6 /* PassportType.swift */,
+				E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */,
 				207C3DA024B5B01400298C0C /* AccountTypePickerItemModel.swift */,
 				207C3DA224B5B06D00298C0C /* AccountType.swift */,
 			);
@@ -5032,6 +5038,7 @@
 				207C3DEB24B6F89E00298C0C /* AlertViewModel.swift in Sources */,
 				202BDDA424BD753B00335DBB /* BaseDataStore.swift in Sources */,
 				207C3E2B24B834CD00298C0C /* HomeCellCardType.swift in Sources */,
+				E10924C026C7C8BF004D19A6 /* PassportType.swift in Sources */,
 				9F8D825024C86AA900BB1C26 /* ForgotPasswordViewModel.swift in Sources */,
 				200F1A1624BEC758001411D9 /* SideMenuModuleBuilder.swift in Sources */,
 				207C3E2524B76ED500298C0C /* UIWindowExtension.swift in Sources */,
@@ -5117,6 +5124,7 @@
 				9FF6F0CD24BDC45000E375A2 /* TransferSuccessViewModel.swift in Sources */,
 				9F8AE2AE24DAD6EE00F1E468 /* ProfileOTPModuleBuilder.swift in Sources */,
 				20D8402D24B4734B00F5D749 /* UserModel.swift in Sources */,
+				E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */,
 				2046B91E24D9AC9500E2C4CB /* LogoutService.swift in Sources */,
 				207C3D9824B5AE7400298C0C /* CountryListViewController.swift in Sources */,
 				9F00F9A924B4771F008AA81E /* AddBeneficiaryModel.swift in Sources */,

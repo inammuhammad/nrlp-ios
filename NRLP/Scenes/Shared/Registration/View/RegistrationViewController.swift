@@ -20,6 +20,14 @@ class RegistrationViewController: BaseViewController {
         pickerView.viewModel = viewModel.accountTypePickerViewModel
         return pickerView
     }()
+    
+    private lazy var passportItemPickerView: ItemPickerView! = {
+        var pickerView = ItemPickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = viewModel.passportTypePickerViewModel
+        return pickerView
+    }()
+    
     @IBOutlet private weak var progressBarView: ProgressBarView! {
         didSet {
             progressBarView.completedPercentage = 0.25
@@ -59,6 +67,34 @@ class RegistrationViewController: BaseViewController {
             }
         }
     }
+    
+    @IBOutlet weak var passportTypeTextView: LabelledTextview! {
+        didSet {
+            passportTypeTextView.titleLabelText = "Passport Type".localized
+            passportTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            passportTypeTextView.placeholderText = "Select Passport Type".localized
+            passportTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            passportTypeTextView.inputTextFieldInputPickerView = passportItemPickerView
+        }
+    }
+    
+    @IBOutlet weak var passportNumberTextView: LabelledTextview! {
+        didSet {
+            passportNumberTextView.titleLabelText = "Enter Passport Number".localized
+            passportNumberTextView.placeholderText = "Passport Number".localized
+            passportNumberTextView.textViewDescription = StringConstants.ErrorString.passportNumberError.localized
+            passportNumberTextView.inputFieldMinLength = 3
+            passportNumberTextView.inputFieldMaxLength = 20
+            passportNumberTextView.editTextKeyboardType = .default
+            passportNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.passportRegex, invalidFormatError: StringConstants.ErrorString.passportNumberError.localized)
+            passportNumberTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.passportNumber = updatedText
+            }
+            self.passportNumberTextView.isHidden = true
+        }
+    }
+    
     @IBOutlet private weak var countryTextView: LabelledTextview! {
         didSet {
             countryTextView.titleLabelText = "Country of Residence".localized
@@ -172,10 +208,17 @@ extension RegistrationViewController {
                 self.reEnterPasswordTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .accountTypeTextField(let errorState, let errorMsg):
                 self.accountTypeTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .passportTypeTextField(errorState: let errorState, error: let errorMsg):
+                self.passportTypeTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .showPassportNumberField(isVisible: let isVisible):
+                self.passportNumberTextView.isHidden = !isVisible
+                self.passportNumberTextView.inputText = ""
             case .updateCountry(let name):
                 self.countryTextView.inputText = name
             case .updateAccountType(let accountType):
                 self.accountTypeTextView.inputText = accountType
+            case .updatePassportType(passportType: let passportType):
+                self.passportTypeTextView.inputText = passportType
             case .updateMobileCode(let code, let numberLength):
                 self.mobileNumberTextView.leadingText = code
                 self.mobileNumberTextView.inputFieldMinLength = numberLength
@@ -189,6 +232,8 @@ extension RegistrationViewController {
                 self.progressBarView.completedPercentage = toProgress
             case .focusField(let field):
                 self.focus(field: field)
+            case .passportNumberTextField(errorState: let errorState, error: let errorMsg):
+                self.passportNumberTextView.updateStateTo(isError: errorState, error: errorMsg)
             }
         }
     }
@@ -207,6 +252,8 @@ extension RegistrationViewController {
             passwordTextView.becomeFirstResponder()
         case .rePassword:
             reEnterPasswordTextView.becomeFirstResponder()
+        case .passportNumber:
+            passportNumberTextView.becomeFirstResponder()
         }
     }
 
@@ -247,7 +294,11 @@ extension RegistrationViewController: ItemPickerViewDelegate {
     }
 
     func didTapDoneButton(with selectedItem: PickerItemModel?) {
-        viewModel.didSelect(accountType: selectedItem as? AccountTypePickerItemModel)
+        if let item = selectedItem as? PassportTypePickerItemModel {
+            viewModel.didSelectPassportType(passportType: item)
+        } else {
+            viewModel.didSelect(accountType: selectedItem as? AccountTypePickerItemModel)
+        }
         self.view.endEditing(true)
     }
 }

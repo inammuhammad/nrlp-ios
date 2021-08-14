@@ -13,21 +13,24 @@ typealias RegistrationViewModelOutput = (RegistrationViewModel.Output) -> Void
 protocol RegistrationViewModelProtocol {
     var output: RegistrationViewModelOutput? { get set}
     var accountTypePickerViewModel: ItemPickerViewModel { get }
+    var passportTypePickerViewModel: ItemPickerViewModel { get }
     var name: String? { get set }
     var cnic: String? { get set }
     var mobileNumber: String? { get set }
     var email: String? { get set }
     var paassword: String? { get set }
     var rePaassword: String? { get set }
+    var passportNumber: String? { get set }
 
     func nextButtonPressed()
     func countryTextFieldTapped()
+    func didSelectPassportType(passportType: PassportTypePickerItemModel?)
     func didSelect(accountType: AccountTypePickerItemModel?)
     func didReEnteredPassword(rePaassword: String)
 }
 
 class RegistrationViewModel: RegistrationViewModelProtocol {
-
+    
     enum RegistrationFormInputFieldType {
         case fullName
         case cnic
@@ -35,6 +38,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         case email
         case password
         case rePassword
+        case passportNumber
     }
     
     private var router: RegistrationRouter
@@ -88,11 +92,28 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
             validateRequiredFields()
         }
     }
-
+    
+    var passportType: PassportType? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var passportNumber: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    
     var accountTypePickerViewModel: ItemPickerViewModel {
         return ItemPickerViewModel(data: [AccountTypePickerItemModel(title: AccountType.remitter.getTitle(), key: AccountType.remitter.rawValue), AccountTypePickerItemModel(title: AccountType.beneficiary.getTitle(), key: AccountType.beneficiary.rawValue)])
     }
 
+    var passportTypePickerViewModel: ItemPickerViewModel {
+        return ItemPickerViewModel(data: [PassportTypePickerItemModel(title: PassportType.international.getTitle(), key: PassportType.international.rawValue), PassportTypePickerItemModel(title: PassportType.pakistani.getTitle(), key: PassportType.pakistani.rawValue)])
+    }
+    
     init(router: RegistrationRouter) {
         self.router = router
     }
@@ -129,6 +150,12 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         }
     }
 
+    func didSelectPassportType(passportType: PassportTypePickerItemModel?) {
+        self.passportType = passportType?.passportType
+        output?(.updatePassportType(passportType: self.passportType?.getTitle() ?? ""))
+        output?(.showPassportNumberField(isVisible: true))
+    }
+    
     func didSelect(accountType: AccountTypePickerItemModel?) {
         self.accountType = accountType?.accountType
         output?(.updateAccountType(accountType: self.accountType?.getTitle() ?? ""))
@@ -158,8 +185,12 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         case emailTextField(errorState: Bool, error: String?)
         case passwordTextField(errorState: Bool, error: String?)
         case rePasswordTextField(errorState: Bool, error: String?)
+        case passportNumberTextField(errorState: Bool, error: String?)
         case accountTypeTextField(errorState: Bool, error: String?)
+        case passportTypeTextField(errorState: Bool, error: String?)
         case updateAccountType(accountType: String)
+        case updatePassportType(passportType: String)
+        case showPassportNumberField(isVisible: Bool)
         case updateProgressBar(toProgress: Float)
         case focusField(type: RegistrationFormInputFieldType)
     }
@@ -171,7 +202,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
 
 extension RegistrationViewModel {
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true || accountType == nil {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true || passportNumber?.isBlank ?? true || accountType == nil || passportType == nil  {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))
@@ -247,11 +278,27 @@ extension RegistrationViewModel {
             isValid = false
             errorTopField = errorTopField ?? .rePassword
         }
+        
+        if passportNumber == nil || passportNumber?.isEmpty ?? true || passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
+            output?(.passportNumberTextField(errorState: false, error: nil))
+        } else {
+            output?(.passportNumberTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
+            isValid = false
+            errorTopField = errorTopField ?? .passportNumber
+        }
 
         if accountType != nil {
             output?(.accountTypeTextField(errorState: false, error: nil))
         } else {
             output?(.accountTypeTextField(errorState: true, error: StringConstants.ErrorString.accountTypeError.localized))
+            isValid = false
+        }
+        
+        if passportType != nil {
+            output?(.passportTypeTextField(errorState: false, error: nil))
+        } else {
+            output?(.accountTypeTextField(errorState: true, error: StringConstants.ErrorString.passortTypeError.localized))
+            output?(.showPassportNumberField(isVisible: false))
             isValid = false
         }
 
