@@ -166,7 +166,7 @@ any queries regarding any of our terms, please contact us.</p>
         static var reEnterPaasswordError = "Both passwords do not match"
         static var accountTypeError = "Select User Type"
         static var passortTypeError = "Select Passport Type"
-        static var passportNumberError = "Invalid format for passport number"
+        static var passportNumberError = "Please enter a valid passport number"
         static var referenceNumberError = "Please enter a valid reference number"
         static var transactionAmountError = "Enter a valid amount"
         static var registrationCodeError = "Please enter a valid registration code"
