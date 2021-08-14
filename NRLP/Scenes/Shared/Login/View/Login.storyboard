@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TLC-HL-kLK">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="Q3e-Ce-u3a">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" id="TLC-HL-kLK" customClass="LoginViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gan-Kd-HBJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="National Remittance Loyalty Program" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJT-M1-1cK" customClass="PrimaryHeaderTitle" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="70" width="382" height="39.5"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uxc-x0-AeN" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="133.5" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="xGj-1L-75f"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wui-Ov-QlY" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="237.5" width="382" height="70.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70.5" placeholder="YES" id="0xg-SV-9aU"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Password"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="********"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="secureEntry" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="09W-rX-Mwp">
+                                <rect key="frame" x="79" y="782" width="256.5" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGp-Kp-B4X">
+                                        <rect key="frame" x="0.0" y="0.0" width="191.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mco-m6-4e0">
+                                        <rect key="frame" x="199.5" y="0.0" width="57" height="30"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Register">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="registerButtonPressed:" destination="TLC-HL-kLK" eventType="touchUpInside" id="OWw-9X-AB2"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uia-vC-Wgs" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="716" width="382" height="50"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="AP5-sN-y6a"/>
+                                </constraints>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="TLC-HL-kLK" eventType="touchUpInside" id="bHB-3R-GUC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Phu-2P-zCe">
+                                <rect key="frame" x="352" y="324" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="forgotPasswordButtonClicked:" destination="TLC-HL-kLK" eventType="touchUpInside" id="GpI-aI-xp8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKx-4d-nzg">
+                                <rect key="frame" x="184" y="820" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapAboutButton:" destination="TLC-HL-kLK" eventType="touchUpInside" id="t7P-eP-lxO"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="beS-yj-59s" customClass="RadioButtonView" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="370" width="382" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="ucV-a2-T2f"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remitIcon" translatesAutoresizingMaskIntoConstraints="NO" id="1Is-U7-0c5">
+                                <rect key="frame" x="301" y="41.5" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Is-U7-0c5" secondAttribute="height" id="bKD-Be-r9X"/>
+                                    <constraint firstAttribute="width" constant="97" id="tar-Xa-kGJ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Jam-Y0-i4h"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Uxc-x0-AeN" firstAttribute="top" secondItem="mJT-M1-1cK" secondAttribute="bottom" constant="24" id="17d-Kb-RxU"/>
+                            <constraint firstItem="uia-vC-Wgs" firstAttribute="leading" secondItem="Uxc-x0-AeN" secondAttribute="leading" id="2Ri-iS-1v0"/>
+                            <constraint firstItem="Jam-Y0-i4h" firstAttribute="trailing" secondItem="mJT-M1-1cK" secondAttribute="trailing" constant="16" id="4AG-5m-ehO"/>
+                            <constraint firstItem="uia-vC-Wgs" firstAttribute="trailing" secondItem="mJT-M1-1cK" secondAttribute="trailing" id="4ej-is-KHF"/>
+                            <constraint firstItem="Jam-Y0-i4h" firstAttribute="bottom" secondItem="VKx-4d-nzg" secondAttribute="bottom" constant="12" id="5mA-TA-5Qz"/>
+                            <constraint firstItem="Wui-Ov-QlY" firstAttribute="trailing" secondItem="mJT-M1-1cK" secondAttribute="trailing" id="6aE-04-Y4R"/>
+                            <constraint firstItem="VKx-4d-nzg" firstAttribute="centerX" secondItem="Gan-Kd-HBJ" secondAttribute="centerX" id="7xM-aR-H10"/>
+                            <constraint firstAttribute="trailing" secondItem="1Is-U7-0c5" secondAttribute="trailing" constant="16" id="AJ5-NX-FFB"/>
+                            <constraint firstItem="Wui-Ov-QlY" firstAttribute="top" secondItem="Uxc-x0-AeN" secondAttribute="bottom" constant="24" id="DhB-vm-7Et"/>
+                            <constraint firstItem="Wui-Ov-QlY" firstAttribute="width" secondItem="Uxc-x0-AeN" secondAttribute="width" id="DhR-NP-reC"/>
+                            <constraint firstItem="1Is-U7-0c5" firstAttribute="centerY" secondItem="mJT-M1-1cK" secondAttribute="centerY" id="MVE-f5-wvW"/>
+                            <constraint firstItem="beS-yj-59s" firstAttribute="trailing" secondItem="mJT-M1-1cK" secondAttribute="trailing" id="Mpg-JR-d8k"/>
+                            <constraint firstItem="Wui-Ov-QlY" firstAttribute="leading" secondItem="mJT-M1-1cK" secondAttribute="leading" id="Ohb-aZ-41p"/>
+                            <constraint firstItem="Phu-2P-zCe" firstAttribute="trailing" secondItem="Wui-Ov-QlY" secondAttribute="trailing" id="Swb-QT-EG4"/>
+                            <constraint firstItem="09W-rX-Mwp" firstAttribute="top" secondItem="uia-vC-Wgs" secondAttribute="bottom" constant="16" id="V2c-o3-HaG"/>
+                            <constraint firstItem="Phu-2P-zCe" firstAttribute="top" secondItem="Wui-Ov-QlY" secondAttribute="bottom" constant="16" id="WAl-MM-wx2"/>
+                            <constraint firstItem="Uxc-x0-AeN" firstAttribute="leading" secondItem="mJT-M1-1cK" secondAttribute="leading" id="YDh-ok-vFQ"/>
+                            <constraint firstItem="beS-yj-59s" firstAttribute="leading" secondItem="mJT-M1-1cK" secondAttribute="leading" id="daK-LC-NYI"/>
+                            <constraint firstItem="09W-rX-Mwp" firstAttribute="centerX" secondItem="Gan-Kd-HBJ" secondAttribute="centerX" id="eEJ-d6-pQO"/>
+                            <constraint firstItem="VKx-4d-nzg" firstAttribute="top" secondItem="09W-rX-Mwp" secondAttribute="bottom" constant="8" id="jz7-HQ-rQd"/>
+                            <constraint firstItem="mJT-M1-1cK" firstAttribute="top" secondItem="Jam-Y0-i4h" secondAttribute="top" constant="26" id="khG-n5-UN5"/>
+                            <constraint firstItem="mJT-M1-1cK" firstAttribute="leading" secondItem="Jam-Y0-i4h" secondAttribute="leading" constant="16" id="oii-fS-Xxf"/>
+                            <constraint firstItem="beS-yj-59s" firstAttribute="top" secondItem="Phu-2P-zCe" secondAttribute="bottom" constant="16" id="pIi-Zl-DZP"/>
+                            <constraint firstItem="Uxc-x0-AeN" firstAttribute="trailing" secondItem="mJT-M1-1cK" secondAttribute="trailing" id="svi-mE-va2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aboutNRLPButton" destination="VKx-4d-nzg" id="gih-Mm-Jaz"/>
+                        <outlet property="accountLabel" destination="qGp-Kp-B4X" id="zP5-3N-yOZ"/>
+                        <outlet property="accountTypeRadioButton" destination="beS-yj-59s" id="7Xz-VB-byU"/>
+                        <outlet property="cnicLabelTextView" destination="Uxc-x0-AeN" id="aMR-M9-VkB"/>
+                        <outlet property="forgotPasswordButton" destination="Phu-2P-zCe" id="R0r-qA-IcY"/>
+                        <outlet property="headerLabel" destination="mJT-M1-1cK" id="wl0-NV-Cuj"/>
+                        <outlet property="loginButton" destination="uia-vC-Wgs" id="WHM-Hj-OCz"/>
+                        <outlet property="passwordLabelTextView" destination="Wui-Ov-QlY" id="q0T-Nv-cO6"/>
+                        <outlet property="registerButton" destination="mco-m6-4e0" id="CC6-j7-Yer"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6FL-Rv-r77" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298.55072463768118" y="10.714285714285714"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="mJT-M1-1cK">
+            <size key="intrinsicContentSize" width="153.5" height="39.5"/>
+        </designable>
+        <designable name="uia-vC-Wgs">
+            <size key="intrinsicContentSize" width="38" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="remitIcon" width="1024.5" height="1024"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

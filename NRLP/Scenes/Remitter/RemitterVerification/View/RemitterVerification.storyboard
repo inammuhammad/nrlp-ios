@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Remitter Verification View Controller-->
+        <scene sceneID="Vrs-I2-AVd">
+            <objects>
+                <viewController storyboardIdentifier="RemitterVerificationViewController" id="rbl-M4-ojP" customClass="RemitterVerificationViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J83-2Y-ejr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkG-MI-8kq" customClass="ProgressBarView" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="8"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="anT-4K-Gbq"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your most recent Remittance Transaction Reference Number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RdD-Ud-FuA">
+                                <rect key="frame" x="16" y="84" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="P5d-Yf-jmf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8X3-xk-MzW" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="158" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="dVg-7p-K4M"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Reference Number"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uzy-4N-11X" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="266" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="kcH-ug-a33"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Transaction Amount"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="BeneficiaryVerificationViewController" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DqY-mD-Qp7" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MvB-wp-v5y"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="rbl-M4-ojP" eventType="touchUpInside" id="oT8-EW-BkE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="8X3-xk-MzW" firstAttribute="leading" secondItem="RdD-Ud-FuA" secondAttribute="leading" id="0Rb-A8-BKN"/>
+                            <constraint firstItem="uzy-4N-11X" firstAttribute="height" secondItem="8X3-xk-MzW" secondAttribute="height" id="8QH-cf-I3Q"/>
+                            <constraint firstItem="RkG-MI-8kq" firstAttribute="trailing" secondItem="THa-OQ-CJJ" secondAttribute="trailing" id="Dr9-w1-BH7"/>
+                            <constraint firstItem="8X3-xk-MzW" firstAttribute="trailing" secondItem="RdD-Ud-FuA" secondAttribute="trailing" id="Ffe-Vm-AkR"/>
+                            <constraint firstItem="uzy-4N-11X" firstAttribute="top" secondItem="8X3-xk-MzW" secondAttribute="bottom" constant="28" id="Hif-GH-81F"/>
+                            <constraint firstItem="8X3-xk-MzW" firstAttribute="top" secondItem="RdD-Ud-FuA" secondAttribute="bottom" constant="24" id="MMn-Xu-VUo"/>
+                            <constraint firstItem="THa-OQ-CJJ" firstAttribute="trailing" secondItem="RdD-Ud-FuA" secondAttribute="trailing" constant="16" id="OPd-Wy-QGu"/>
+                            <constraint firstItem="uzy-4N-11X" firstAttribute="centerX" secondItem="8X3-xk-MzW" secondAttribute="centerX" id="SKF-ey-k6G"/>
+                            <constraint firstItem="uzy-4N-11X" firstAttribute="width" secondItem="8X3-xk-MzW" secondAttribute="width" id="Tkb-Zq-0NP"/>
+                            <constraint firstItem="DqY-mD-Qp7" firstAttribute="leading" secondItem="8X3-xk-MzW" secondAttribute="leading" id="Tln-nq-pXN"/>
+                            <constraint firstItem="RdD-Ud-FuA" firstAttribute="top" secondItem="RkG-MI-8kq" secondAttribute="bottom" constant="32" id="Ukv-SQ-Vbm"/>
+                            <constraint firstItem="THa-OQ-CJJ" firstAttribute="trailing" secondItem="RdD-Ud-FuA" secondAttribute="trailing" constant="16" id="aY6-3X-sH7"/>
+                            <constraint firstItem="RkG-MI-8kq" firstAttribute="top" secondItem="THa-OQ-CJJ" secondAttribute="top" id="eRe-Pq-amG"/>
+                            <constraint firstItem="DqY-mD-Qp7" firstAttribute="trailing" secondItem="8X3-xk-MzW" secondAttribute="trailing" id="fOb-QS-rsB"/>
+                            <constraint firstItem="THa-OQ-CJJ" firstAttribute="bottom" secondItem="DqY-mD-Qp7" secondAttribute="bottom" constant="16" id="fwC-eZ-Ts5"/>
+                            <constraint firstItem="RdD-Ud-FuA" firstAttribute="leading" secondItem="THa-OQ-CJJ" secondAttribute="leading" constant="16" id="jHj-rb-Xsa"/>
+                            <constraint firstItem="RkG-MI-8kq" firstAttribute="leading" secondItem="THa-OQ-CJJ" secondAttribute="leading" id="yOh-qD-c5p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="THa-OQ-CJJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="RdD-Ud-FuA" id="P5o-9C-NRQ"/>
+                        <outlet property="nextButton" destination="DqY-mD-Qp7" id="1Zo-qj-l7u"/>
+                        <outlet property="progressBar" destination="RkG-MI-8kq" id="KVd-Vb-fvU"/>
+                        <outlet property="referenceNumberLabelTextView" destination="8X3-xk-MzW" id="jpR-di-Mof"/>
+                        <outlet property="transactionAmountLabelTextView" destination="uzy-4N-11X" id="8KM-xx-vch"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NrD-9B-Nda" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88" y="146"/>
+        </scene>
+    </scenes>
+</document>

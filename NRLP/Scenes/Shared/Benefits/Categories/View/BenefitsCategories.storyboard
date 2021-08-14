@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Benefits Categories View Controller-->
+        <scene sceneID="A84-Hx-m3E">
+            <objects>
+                <viewController storyboardIdentifier="BenefitsCategoriesViewController" id="z2p-G9-2tF" customClass="BenefitsCategoriesViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hYa-VT-izE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anT-QO-d4I">
+                                <rect key="frame" x="16" y="80" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aaB-Ot-mWN">
+                                <rect key="frame" x="122" y="125" width="170" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aaB-Ot-mWN" secondAttribute="height" multiplier="131:80" id="tMS-4y-eHA"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="quU-9I-TOX">
+                                <rect key="frame" x="16" y="253" width="382" height="593"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="anT-QO-d4I" firstAttribute="leading" secondItem="IK8-K0-J3N" secondAttribute="leading" constant="16" id="0OC-AA-l5T"/>
+                            <constraint firstItem="aaB-Ot-mWN" firstAttribute="centerX" secondItem="anT-QO-d4I" secondAttribute="centerX" id="IBc-LV-BIQ"/>
+                            <constraint firstItem="IK8-K0-J3N" firstAttribute="trailing" secondItem="anT-QO-d4I" secondAttribute="trailing" constant="16" id="L6u-Kf-xLY"/>
+                            <constraint firstItem="quU-9I-TOX" firstAttribute="left" secondItem="anT-QO-d4I" secondAttribute="left" id="LXS-lq-3CZ"/>
+                            <constraint firstItem="quU-9I-TOX" firstAttribute="right" secondItem="anT-QO-d4I" secondAttribute="right" id="MkC-x1-V5e"/>
+                            <constraint firstItem="IK8-K0-J3N" firstAttribute="trailing" secondItem="aaB-Ot-mWN" secondAttribute="trailing" constant="122" id="Xeg-f5-nDG"/>
+                            <constraint firstItem="aaB-Ot-mWN" firstAttribute="leading" secondItem="IK8-K0-J3N" secondAttribute="leading" constant="122" id="aOe-3T-jGc"/>
+                            <constraint firstItem="anT-QO-d4I" firstAttribute="top" secondItem="IK8-K0-J3N" secondAttribute="top" constant="36" id="gSl-nk-HbA"/>
+                            <constraint firstItem="aaB-Ot-mWN" firstAttribute="top" secondItem="anT-QO-d4I" secondAttribute="bottom" constant="24" id="nyc-E3-hd2"/>
+                            <constraint firstItem="quU-9I-TOX" firstAttribute="top" secondItem="aaB-Ot-mWN" secondAttribute="bottom" constant="24" id="sM3-6I-DJh"/>
+                            <constraint firstItem="IK8-K0-J3N" firstAttribute="bottom" secondItem="quU-9I-TOX" secondAttribute="bottom" constant="16" id="uvY-lJ-d7y"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="IK8-K0-J3N"/>
+                    </view>
+                    <connections>
+                        <outlet property="partnerImage" destination="aaB-Ot-mWN" id="cto-SL-V8W"/>
+                        <outlet property="tableView" destination="quU-9I-TOX" id="QDs-Pu-1Tc"/>
+                        <outlet property="titleLabel" destination="anT-QO-d4I" id="IK0-Ne-3rG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p5M-7G-Ahw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10" y="47"/>
+        </scene>
+    </scenes>
+</document>

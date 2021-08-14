@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Beneficiary Verification View Controller-->
+        <scene sceneID="8PU-YW-HJJ">
+            <objects>
+                <viewController storyboardIdentifier="BeneficiaryVerificationViewController" id="3mS-9n-n5H" customClass="BeneficiaryVerificationViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oLJ-0L-uXZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iy3-xp-dcm" customClass="ProgressBarView" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="8"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="jB7-Z8-rpe"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter registration code received on SMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4G-NP-GC8">
+                                <rect key="frame" x="16" y="82" width="382" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="xPf-3n-5AI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ja6-b0-ODG">
+                                <rect key="frame" x="16" y="130" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="W0z-In-uin">
+                                <rect key="frame" x="87" y="182.5" width="240" height="48"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K0F-8J-3pf" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="48" id="DtU-os-Mtm"/>
+                                            <constraint firstAttribute="width" secondItem="K0F-8J-3pf" secondAttribute="height" multiplier="1:1" id="MlW-du-lBU"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Qk-3c-jY8" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="64" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hNV-nn-YcA" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="128" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEy-1W-Vy6" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KaA-K6-6rn">
+                                <rect key="frame" x="87" y="246.5" width="42" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="BeneficiaryVerificationViewController" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEJ-OO-wqe" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="nCx-3p-sax"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonPressed:" destination="3mS-9n-n5H" eventType="touchUpInside" id="nwZ-wR-yxi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="i4G-NP-GC8" firstAttribute="leading" secondItem="fQW-qu-fto" secondAttribute="leading" constant="16" id="642-Bj-K9X"/>
+                            <constraint firstItem="KaA-K6-6rn" firstAttribute="top" secondItem="W0z-In-uin" secondAttribute="bottom" constant="16" id="C72-mg-sK8"/>
+                            <constraint firstItem="Ja6-b0-ODG" firstAttribute="top" secondItem="i4G-NP-GC8" secondAttribute="bottom" constant="24" id="H2s-DU-Jjd"/>
+                            <constraint firstItem="fQW-qu-fto" firstAttribute="trailing" secondItem="i4G-NP-GC8" secondAttribute="trailing" constant="16" id="HIt-qF-0MA"/>
+                            <constraint firstItem="Iy3-xp-dcm" firstAttribute="trailing" secondItem="fQW-qu-fto" secondAttribute="trailing" id="I8B-lg-mlf"/>
+                            <constraint firstItem="W0z-In-uin" firstAttribute="centerX" secondItem="oLJ-0L-uXZ" secondAttribute="centerX" id="IiT-Y4-cIn"/>
+                            <constraint firstItem="KaA-K6-6rn" firstAttribute="leading" secondItem="W0z-In-uin" secondAttribute="leading" id="TKP-fQ-8NG"/>
+                            <constraint firstAttribute="trailing" secondItem="i4G-NP-GC8" secondAttribute="trailing" constant="16" id="Uju-Eo-OGB"/>
+                            <constraint firstItem="fQW-qu-fto" firstAttribute="trailing" secondItem="cEJ-OO-wqe" secondAttribute="trailing" constant="16" id="ZsR-J4-hJP"/>
+                            <constraint firstItem="cEJ-OO-wqe" firstAttribute="leading" secondItem="fQW-qu-fto" secondAttribute="leading" constant="16" id="aEA-By-bsw"/>
+                            <constraint firstItem="Ja6-b0-ODG" firstAttribute="leading" secondItem="i4G-NP-GC8" secondAttribute="leading" id="cim-ST-BA9"/>
+                            <constraint firstItem="W0z-In-uin" firstAttribute="top" secondItem="Ja6-b0-ODG" secondAttribute="bottom" constant="32" id="jRz-c3-Aro"/>
+                            <constraint firstItem="i4G-NP-GC8" firstAttribute="leading" secondItem="oLJ-0L-uXZ" secondAttribute="leading" constant="16" id="lik-CA-qLs"/>
+                            <constraint firstItem="i4G-NP-GC8" firstAttribute="top" secondItem="Iy3-xp-dcm" secondAttribute="bottom" constant="30" id="oq4-qk-uHq"/>
+                            <constraint firstItem="Iy3-xp-dcm" firstAttribute="leading" secondItem="fQW-qu-fto" secondAttribute="leading" id="qT7-A1-ZYt"/>
+                            <constraint firstItem="Iy3-xp-dcm" firstAttribute="top" secondItem="fQW-qu-fto" secondAttribute="top" id="wRk-22-w2j"/>
+                            <constraint firstItem="fQW-qu-fto" firstAttribute="bottom" secondItem="cEJ-OO-wqe" secondAttribute="bottom" constant="16" id="xvL-xn-YuV"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fQW-qu-fto"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLable" destination="i4G-NP-GC8" id="CeV-FL-4DH"/>
+                        <outlet property="nextButton" destination="cEJ-OO-wqe" id="I2S-uo-mFX"/>
+                        <outlet property="otpItemStack" destination="W0z-In-uin" id="1L8-Si-Q4T"/>
+                        <outlet property="progressBar" destination="Iy3-xp-dcm" id="Q2S-qJ-foB"/>
+                        <outlet property="registrationCodeLabel" destination="Ja6-b0-ODG" id="4Hg-gU-uub"/>
+                        <outlet property="verificationCodeErrorLabel" destination="KaA-K6-6rn" id="sny-cM-m18"/>
+                        <outletCollection property="codeTextFields" destination="K0F-8J-3pf" collectionClass="NSMutableArray" id="9JW-ar-yL8"/>
+                        <outletCollection property="codeTextFields" destination="8Qk-3c-jY8" collectionClass="NSMutableArray" id="AZg-p7-SFD"/>
+                        <outletCollection property="codeTextFields" destination="hNV-nn-YcA" collectionClass="NSMutableArray" id="yop-Vd-6tX"/>
+                        <outletCollection property="codeTextFields" destination="gEy-1W-Vy6" collectionClass="NSMutableArray" id="yUd-m6-ZhH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tlW-SI-OJW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-129" y="-11"/>
+        </scene>
+    </scenes>
+</document>

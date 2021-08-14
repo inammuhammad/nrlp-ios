@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="CM3-MW-ZaY">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="xvI-Zg-wM6" customClass="HomeViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5p4-39-AFu">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homeListBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Xkt-vp-WgD">
+                                <rect key="frame" x="82.5" y="510" width="374.5" height="352"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Xkt-vp-WgD" secondAttribute="height" multiplier="339:319" id="8S8-ME-GVc"/>
+                                </constraints>
+                            </imageView>
+                            <collectionView multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="G88-1Z-LTx">
+                                <rect key="frame" x="16" y="44" width="382" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="10" id="5F5-kv-ENe">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="G88-1Z-LTx" firstAttribute="top" secondItem="1kd-47-TdW" secondAttribute="top" id="7UD-JN-lIg"/>
+                            <constraint firstItem="1kd-47-TdW" firstAttribute="trailing" secondItem="G88-1Z-LTx" secondAttribute="trailing" constant="16" id="AQE-NK-tPO"/>
+                            <constraint firstItem="1kd-47-TdW" firstAttribute="trailing" secondItem="Xkt-vp-WgD" secondAttribute="trailing" constant="-43" id="Dzq-6w-pHO"/>
+                            <constraint firstItem="Xkt-vp-WgD" firstAttribute="width" secondItem="5p4-39-AFu" secondAttribute="width" multiplier="339:375" id="O3A-f3-7wM"/>
+                            <constraint firstItem="1kd-47-TdW" firstAttribute="bottom" secondItem="Xkt-vp-WgD" secondAttribute="bottom" id="g7q-yf-3dq"/>
+                            <constraint firstItem="1kd-47-TdW" firstAttribute="bottom" secondItem="G88-1Z-LTx" secondAttribute="bottom" id="mOY-HK-Sah"/>
+                            <constraint firstItem="G88-1Z-LTx" firstAttribute="leading" secondItem="1kd-47-TdW" secondAttribute="leading" constant="16" id="reE-cK-cog"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1kd-47-TdW"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="G88-1Z-LTx" id="XAu-FJ-nkC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pPM-J7-VNI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="141" y="173"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="homeListBackground" width="296" height="319"/>
+    </resources>
+</document>

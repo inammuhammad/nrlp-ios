@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Transfer Points View Controller-->
+        <scene sceneID="6fH-MV-PDn">
+            <objects>
+                <viewController storyboardIdentifier="TransferPointsViewController" id="0np-B6-6Uc" customClass="TransferPointsViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8SB-SU-LCG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pG8-qK-gdu" customClass="LoyaltyCardView" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="80" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="uEc-Gs-zSc"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gyk-oo-Fs9" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="188" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="Cky-wZ-v98"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Select Beneficiary"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Select Options"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isTappable" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="trailingIcon" value="downArrow"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXS-Do-ORj" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="296" width="382" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" placeholder="YES" id="hG9-UC-3fV"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Enter Points"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxx"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVc-k7-U0i" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Rjf-tV-B1i"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="transferButtonPressed:" destination="0np-B6-6Uc" eventType="touchUpInside" id="EOh-HK-xno"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pbo-d4-NAM">
+                                <rect key="frame" x="16" y="278" width="382" height="350"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noBeneficiaryFound" translatesAutoresizingMaskIntoConstraints="NO" id="VWS-YN-DBQ">
+                                        <rect key="frame" x="121" y="0.0" width="140" height="140"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="VWS-YN-DBQ" secondAttribute="height" multiplier="1:1" id="yHm-2a-1t4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No beneficiaries found" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrW-KV-9hn">
+                                        <rect key="frame" x="24" y="170" width="334" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your beneficiaries have not activated their accounts yet. Once they are active you will be able to transfer the points." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbx-6q-sPC">
+                                        <rect key="frame" x="24" y="202.5" width="334" height="61"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="rbx-6q-sPC" firstAttribute="leading" secondItem="Pbo-d4-NAM" secondAttribute="leading" constant="24" id="1vV-yi-5wS"/>
+                                    <constraint firstAttribute="height" constant="350" id="XwZ-ql-OYf"/>
+                                    <constraint firstItem="VWS-YN-DBQ" firstAttribute="centerX" secondItem="Pbo-d4-NAM" secondAttribute="centerX" id="ZPt-eO-ood"/>
+                                    <constraint firstItem="VWS-YN-DBQ" firstAttribute="top" secondItem="Pbo-d4-NAM" secondAttribute="top" id="d4n-cc-naJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="rbx-6q-sPC" secondAttribute="trailing" constant="24" id="kLP-aF-R2z"/>
+                                    <constraint firstItem="UrW-KV-9hn" firstAttribute="top" secondItem="VWS-YN-DBQ" secondAttribute="bottom" constant="30" id="nIg-Yv-ihb"/>
+                                    <constraint firstItem="rbx-6q-sPC" firstAttribute="top" secondItem="UrW-KV-9hn" secondAttribute="bottom" constant="12" id="nbi-iN-v7S"/>
+                                    <constraint firstAttribute="trailing" secondItem="UrW-KV-9hn" secondAttribute="trailing" constant="24" id="poY-aW-hCj"/>
+                                    <constraint firstItem="UrW-KV-9hn" firstAttribute="leading" secondItem="Pbo-d4-NAM" secondAttribute="leading" constant="24" id="skk-Hl-xcb"/>
+                                    <constraint firstItem="VWS-YN-DBQ" firstAttribute="width" secondItem="Pbo-d4-NAM" secondAttribute="width" multiplier="0.366492" id="xrQ-jq-WVB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pG8-qK-gdu" firstAttribute="leading" secondItem="p0w-s8-NPG" secondAttribute="leading" constant="16" id="AK3-Pc-fXE"/>
+                            <constraint firstItem="Gyk-oo-Fs9" firstAttribute="trailing" secondItem="pG8-qK-gdu" secondAttribute="trailing" id="Az1-IE-Kth"/>
+                            <constraint firstItem="TXS-Do-ORj" firstAttribute="top" secondItem="Gyk-oo-Fs9" secondAttribute="bottom" constant="28" id="Ery-Og-eBD"/>
+                            <constraint firstItem="TXS-Do-ORj" firstAttribute="leading" secondItem="Gyk-oo-Fs9" secondAttribute="leading" id="L4b-Vw-rab"/>
+                            <constraint firstItem="p0w-s8-NPG" firstAttribute="trailing" secondItem="pG8-qK-gdu" secondAttribute="trailing" constant="16" id="Lzu-eo-sRx"/>
+                            <constraint firstItem="BVc-k7-U0i" firstAttribute="trailing" secondItem="pG8-qK-gdu" secondAttribute="trailing" id="PI1-MU-1IA"/>
+                            <constraint firstItem="BVc-k7-U0i" firstAttribute="leading" secondItem="pG8-qK-gdu" secondAttribute="leading" id="Scf-iT-g4A"/>
+                            <constraint firstItem="Gyk-oo-Fs9" firstAttribute="leading" secondItem="pG8-qK-gdu" secondAttribute="leading" id="YRa-Fb-fj7"/>
+                            <constraint firstItem="Gyk-oo-Fs9" firstAttribute="top" secondItem="pG8-qK-gdu" secondAttribute="bottom" constant="28" id="dhb-eI-pAu"/>
+                            <constraint firstItem="pG8-qK-gdu" firstAttribute="top" secondItem="p0w-s8-NPG" secondAttribute="top" constant="36" id="eje-pk-dg4"/>
+                            <constraint firstItem="p0w-s8-NPG" firstAttribute="bottom" secondItem="BVc-k7-U0i" secondAttribute="bottom" constant="16" id="fIg-n9-S07"/>
+                            <constraint firstItem="p0w-s8-NPG" firstAttribute="trailing" secondItem="Pbo-d4-NAM" secondAttribute="trailing" constant="16" id="hRI-t7-rCu"/>
+                            <constraint firstItem="TXS-Do-ORj" firstAttribute="trailing" secondItem="Gyk-oo-Fs9" secondAttribute="trailing" id="kHY-xQ-X3H"/>
+                            <constraint firstItem="Pbo-d4-NAM" firstAttribute="centerY" secondItem="p0w-s8-NPG" secondAttribute="centerY" id="ogG-4H-5bn"/>
+                            <constraint firstItem="Pbo-d4-NAM" firstAttribute="leading" secondItem="p0w-s8-NPG" secondAttribute="leading" constant="16" id="sQC-pu-Nda"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p0w-s8-NPG"/>
+                    </view>
+                    <connections>
+                        <outlet property="beneficiaryDropdown" destination="Gyk-oo-Fs9" id="fLk-8s-G9w"/>
+                        <outlet property="loyaltyPointsView" destination="pG8-qK-gdu" id="rhg-tl-G19"/>
+                        <outlet property="notFoundDescription" destination="rbx-6q-sPC" id="B6j-Ur-i2J"/>
+                        <outlet property="notFoundTitle" destination="UrW-KV-9hn" id="fbA-uu-lfr"/>
+                        <outlet property="notFoundView" destination="Pbo-d4-NAM" id="a1C-no-hR0"/>
+                        <outlet property="pointsAmountTextArea" destination="TXS-Do-ORj" id="lae-eW-dQd"/>
+                        <outlet property="transferButton" destination="BVc-k7-U0i" id="WLv-w9-5k0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k7t-U5-Jqr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="341" y="198"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="downArrow" width="16" height="16"/>
+        <image name="noBeneficiaryFound" width="140" height="133"/>
+    </resources>
+</document>

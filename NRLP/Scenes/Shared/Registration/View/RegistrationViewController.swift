@@ -1,0 +1,259 @@
+//
+//  RegistrationViewController.swift
+//  1Link-NRLP
+//
+//  Created by VenD on 07/07/2020.
+//  Copyright © 2020 VentureDive. All rights reserved.
+//
+
+import UIKit
+
+class RegistrationViewController: BaseViewController {
+
+    var viewModel: RegistrationViewModelProtocol!
+
+    @IBOutlet private weak var scrollView: UIScrollView!
+    @IBOutlet private weak var scrollViewBottomConstraint: NSLayoutConstraint!
+    private lazy var itemPickerView: ItemPickerView! = {
+        var pickerView = ItemPickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = viewModel.accountTypePickerViewModel
+        return pickerView
+    }()
+    @IBOutlet private weak var progressBarView: ProgressBarView! {
+        didSet {
+            progressBarView.completedPercentage = 0.25
+        }
+    }
+    @IBOutlet private weak var registrationCTAButton: PrimaryCTAButton! {
+        didSet {
+            registrationCTAButton.setTitle("Next".localized, for: .normal)
+        }
+    }
+    @IBOutlet private weak var fullNameTextView: LabelledTextview! {
+        didSet {
+            fullNameTextView.titleLabelText = "Full Name".localized
+            fullNameTextView.placeholderText = "Muhammad Ali".localized
+            fullNameTextView.autoCapitalizationType = .words
+            fullNameTextView.inputFieldMaxLength = 50
+            fullNameTextView.editTextKeyboardType = .asciiCapable
+            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            fullNameTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.name = updatedText
+            }
+        }
+    }
+    @IBOutlet private weak var cnicTextView: LabelledTextview! {
+        didSet {
+            cnicTextView.titleLabelText = "CNIC/NICOP".localized
+            cnicTextView.placeholderText = "xxxxx-xxxxxxx-x".localized
+            cnicTextView.editTextKeyboardType = .asciiCapableNumberPad
+            cnicTextView.inputFieldMinLength = 13
+            cnicTextView.inputFieldMaxLength = 13
+            cnicTextView.formatValidator = CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
+            cnicTextView.formatter = CNICFormatter()
+            cnicTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.cnic = updatedText
+            }
+        }
+    }
+    @IBOutlet private weak var countryTextView: LabelledTextview! {
+        didSet {
+            countryTextView.titleLabelText = "Country of Residence".localized
+            countryTextView.placeholderText = "Select Country".localized
+            countryTextView.isEditable = false
+            countryTextView.isTappable = true
+            countryTextView.editTextKeyboardType = .asciiCapable
+            countryTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            countryTextView.onTextFieldTapped = { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.countryTextFieldTapped()
+            }
+        }
+    }
+    @IBOutlet private weak var mobileNumberTextView: LabelledTextview! {
+        didSet {
+            mobileNumberTextView.titleLabelText = "Mobile Number".localized
+            mobileNumberTextView.placeholderText = "+xx xxx xxx xxxx".localized
+            mobileNumberTextView.editTextKeyboardType = .asciiCapableNumberPad
+            mobileNumberTextView.isEditable = false
+            mobileNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError.localized)
+            mobileNumberTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.mobileNumber = updatedText
+            }
+        }
+    }
+    @IBOutlet private weak var emailAddressTextView: LabelledTextview! {
+        didSet {
+            emailAddressTextView.titleLabelText = "Email Address (Optional)".localized
+            emailAddressTextView.placeholderText = "abc@abc.com".localized
+            emailAddressTextView.editTextKeyboardType = .emailAddress
+            emailAddressTextView.formatValidator = FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError.localized)
+            emailAddressTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.email = updatedText
+            }
+        }
+    }
+    @IBOutlet private weak var passwordTextView: LabelledTextview! {
+        didSet {
+            passwordTextView.titleLabelText = "Password".localized
+            passwordTextView.placeholderText = "Password@123".localized
+            passwordTextView.secureEntry = true
+            passwordTextView.textViewDescription = StringConstants.ErrorString.createPaasswordError.localized
+            passwordTextView.editTextKeyboardType = .asciiCapable
+            passwordTextView.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.createPaasswordError.localized)
+            passwordTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.paassword = updatedText
+            }
+        }
+    }
+    @IBOutlet private weak var reEnterPasswordTextView: LabelledTextview! {
+        didSet {
+            reEnterPasswordTextView.titleLabelText = "Re-Enter Password".localized
+            reEnterPasswordTextView.placeholderText = "Password@123".localized
+            reEnterPasswordTextView.secureEntry = true
+            reEnterPasswordTextView.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.reEnterPaasswordError.localized)
+            reEnterPasswordTextView.editTextKeyboardType = .asciiCapable
+            reEnterPasswordTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.rePaassword = updatedText
+            }
+            reEnterPasswordTextView.onTextFieldFocusChange = { [weak self] password in
+                guard let self = self else { return }
+                self.viewModel.didReEnteredPassword(rePaassword: password ?? "")
+            }
+        }
+    }
+    @IBOutlet private weak var accountTypeTextView: LabelledTextview! {
+        didSet {
+            accountTypeTextView.titleLabelText = "User Type".localized
+            accountTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            accountTypeTextView.placeholderText = "Select User Type".localized
+            accountTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            accountTypeTextView.inputTextFieldInputPickerView = itemPickerView
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupView()
+        bindViewModelOutput()
+        setupKeyboardNotification()
+    }
+}
+
+// MARK: Setup View and Bindings
+extension RegistrationViewController {
+    private func bindViewModelOutput() {
+        viewModel.output = { [unowned self] output in
+            switch output {
+            case .showError(let error):
+                self.showAlert(with: error)
+            case .nextButtonState(let enableState):
+                self.registrationCTAButton.isEnabled = enableState
+            case .nameTextField(let errorState, let errorMsg):
+                self.fullNameTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .cnicTextField(let errorState, let errorMsg):
+                self.cnicTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .countryTextField(let errorState, let errorMsg):
+                self.countryTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .mobileNumberTextField(let errorState, let errorMsg):
+                self.mobileNumberTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .emailTextField(let errorState, let errorMsg):
+                self.emailAddressTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .passwordTextField(let errorState, let errorMsg):
+                self.passwordTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .rePasswordTextField(let errorState, let errorMsg):
+                self.reEnterPasswordTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .accountTypeTextField(let errorState, let errorMsg):
+                self.accountTypeTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .updateCountry(let name):
+                self.countryTextView.inputText = name
+            case .updateAccountType(let accountType):
+                self.accountTypeTextView.inputText = accountType
+            case .updateMobileCode(let code, let numberLength):
+                self.mobileNumberTextView.leadingText = code
+                self.mobileNumberTextView.inputFieldMinLength = numberLength
+                self.mobileNumberTextView.inputFieldMaxLength = numberLength
+                self.mobileNumberTextView.isEditable = true
+                self.mobileNumberTextView.inputText = ""
+                self.mobileNumberTextView.becomeFirstResponder()
+            case .updateMobilePlaceholder(let placeholder):
+                self.mobileNumberTextView.placeholderText = placeholder
+            case .updateProgressBar(let toProgress):
+                self.progressBarView.completedPercentage = toProgress
+            case .focusField(let field):
+                self.focus(field: field)
+            }
+        }
+    }
+    
+    private func focus(field: RegistrationViewModel.RegistrationFormInputFieldType) {
+        switch field {
+        case .fullName:
+            fullNameTextView.becomeFirstResponder()
+        case .cnic:
+            cnicTextView.becomeFirstResponder()
+        case .mobile:
+            mobileNumberTextView.becomeFirstResponder()
+        case .email:
+            emailAddressTextView.becomeFirstResponder()
+        case .password:
+            passwordTextView.becomeFirstResponder()
+        case .rePassword:
+            reEnterPasswordTextView.becomeFirstResponder()
+        }
+    }
+
+    private func setupView() {
+        self.title = "Register an account".localized
+    }
+
+    private func setupKeyboardNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(sender:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    @objc
+    private func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            scrollViewBottomConstraint.constant = keyboardSize.height
+        }
+    }
+
+    @objc
+    private func keyboardWillHide(sender: NSNotification) {
+        scrollViewBottomConstraint.constant = 16
+    }
+}
+
+// MARK: Button Actions
+extension RegistrationViewController {
+    @IBAction
+    private func didTapNextButton(_ sender: Any) {
+        viewModel.nextButtonPressed()
+    }
+}
+
+extension RegistrationViewController: ItemPickerViewDelegate {
+    func didTapCancelButton() {
+        self.view.endEditing(true)
+    }
+
+    func didTapDoneButton(with selectedItem: PickerItemModel?) {
+        viewModel.didSelect(accountType: selectedItem as? AccountTypePickerItemModel)
+        self.view.endEditing(true)
+    }
+}
+
+extension RegistrationViewController: Initializable {
+    static var storyboardName: UIStoryboard.Name {
+        return UIStoryboard.Name.registration
+    }
+}

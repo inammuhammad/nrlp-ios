@@ -1,0 +1,3 @@
+To find Application CheckSum (application_version) in api header run following command in terminal.
+
+find -s [PATH_TO_PROJECT_FOLDER] -type f -exec md5 -q {} \; | md5
