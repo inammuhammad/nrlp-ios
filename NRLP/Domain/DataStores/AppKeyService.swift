@@ -25,8 +25,7 @@ class AppKeyService: BaseDataStore, AppKeyServiceProtocol {
         networking.remove(headerKeys: ["random_key", "user_type", "session_key"])
         var headers: [String: String] = APIRequestHeader().processRequestHeader()
         if let key = RequestKeyGenerator.get32DigitsKey(cnic: cnic, accountType: type) {
-//            headers["random_key"] = key
-            headers["random_key"] = "15570063310075128033212010082242"
+            headers["random_key"] = key
             networking.add(headers: headers)
         }
         headers["user_type"] = type.rawValue
