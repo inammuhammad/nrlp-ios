@@ -15,6 +15,9 @@ struct VerifyReferenceNumberRequestModel: Codable {
     let nicNicop: String
     let referenceNo: String
     let userType: String
+    var residentID: String?
+    let passportType: String
+    let passportNumber: String
 
     enum CodingKeys: String, CodingKey {
         case amount = "amount"
@@ -22,6 +25,9 @@ struct VerifyReferenceNumberRequestModel: Codable {
         case nicNicop = "nic_nicop"
         case referenceNo = "reference_no"
         case userType = "user_type"
+        case residentID = "resident_id"
+        case passportType = "passport_type"
+        case passportNumber = "passport_id"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -31,6 +37,9 @@ struct VerifyReferenceNumberRequestModel: Codable {
         try container.encode(referenceNo.aesEncrypted(), forKey: .referenceNo)
         try container.encode(userType, forKey: .userType)
         try container.encode(nicNicop.aesEncrypted(), forKey: .nicNicop)
+        try container.encode(residentID?.aesEncrypted(), forKey: .residentID)
+        try container.encode(passportType.aesEncrypted(), forKey: .passportType)
+        try container.encode(passportNumber.aesEncrypted(), forKey: .passportNumber)
     }
 
 }

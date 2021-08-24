@@ -67,6 +67,19 @@ class RegistrationViewController: BaseViewController {
             }
         }
     }
+    @IBOutlet private weak var residentIDTextView: LabelledTextview! {
+        didSet {
+            residentIDTextView.titleLabelText = "Resident ID".localized
+            residentIDTextView.placeholderText = "Resident ID".localized
+            residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
+            residentIDTextView.inputFieldMinLength = 25
+            residentIDTextView.inputFieldMaxLength = 25
+            residentIDTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.residentID = updatedText
+            }
+        }
+    }
     
     @IBOutlet weak var passportTypeTextView: LabelledTextview! {
         didSet {
@@ -196,6 +209,8 @@ extension RegistrationViewController {
                 self.fullNameTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .cnicTextField(let errorState, let errorMsg):
                 self.cnicTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .residentTextField(errorState: let errorState, error: let errorMsg):
+                self.residentIDTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .countryTextField(let errorState, let errorMsg):
                 self.countryTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .mobileNumberTextField(let errorState, let errorMsg):
@@ -244,6 +259,8 @@ extension RegistrationViewController {
             fullNameTextView.becomeFirstResponder()
         case .cnic:
             cnicTextView.becomeFirstResponder()
+        case .residentID:
+            residentIDTextView.becomeFirstResponder()
         case .mobile:
             mobileNumberTextView.becomeFirstResponder()
         case .email:

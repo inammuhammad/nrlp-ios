@@ -16,6 +16,7 @@ protocol RegistrationViewModelProtocol {
     var passportTypePickerViewModel: ItemPickerViewModel { get }
     var name: String? { get set }
     var cnic: String? { get set }
+    var residentID: String? { get set }
     var mobileNumber: String? { get set }
     var email: String? { get set }
     var paassword: String? { get set }
@@ -34,6 +35,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
     enum RegistrationFormInputFieldType {
         case fullName
         case cnic
+        case residentID
         case mobile
         case email
         case password
@@ -51,6 +53,12 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
     }
 
     var cnic: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var residentID: String? {
         didSet {
             validateRequiredFields()
         }
@@ -128,7 +136,8 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
             }
             return
         }
-        let registerModel = RegisterRequestModel(accountType: accountType!.rawValue, cnicNicop: cnic!, email: email ?? "", fullName: name!, mobileNo: (country?.code ?? "") + (mobileNumber ?? ""), paassword: paassword!, registrationCode: nil, transactionAmount: nil, transactionRefNo: nil)
+        let residentIDValue = residentID == "" ? nil : residentID
+        let registerModel = RegisterRequestModel(accountType: accountType!.rawValue, cnicNicop: cnic!, email: email ?? "", fullName: name!, mobileNo: (country?.code ?? "") + (mobileNumber ?? ""), paassword: paassword!, passportType: passportType?.rawValue ?? "", passportNumber: passportNumber ?? "", registrationCode: nil, transactionAmount: residentIDValue, transactionRefNo: "", residentID: "")
         switch accountType {
         case .beneficiary:
             router.navigateToBeneficiaryVerificationScreen(model: registerModel)
@@ -180,6 +189,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         case nextButtonState(enableState: Bool)
         case nameTextField(errorState: Bool, error: String?)
         case cnicTextField(errorState: Bool, error: String?)
+        case residentTextField(errorState: Bool, error: String?)
         case countryTextField(errorState: Bool, error: String?)
         case mobileNumberTextField(errorState: Bool, error: String?)
         case emailTextField(errorState: Bool, error: String?)
@@ -202,7 +212,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
 
 extension RegistrationViewModel {
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true || passportNumber?.isBlank ?? true || accountType == nil || passportType == nil  {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true || passportNumber?.isBlank ?? true || accountType == nil || passportType == nil  || residentID?.isBlank ?? true {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))
@@ -302,6 +312,13 @@ extension RegistrationViewModel {
             isValid = false
         }
 
+        if residentID == nil || residentID?.isBlank == true || residentID?.count != 25 {
+            output?(.residentTextField(errorState: true, error: StringConstants.ErrorString.residentIdError))
+            isValid = false
+        } else {
+            output?(.residentTextField(errorState: false, error: nil))
+        }
+        
         return (isValid, errorTopField)
     }
 }

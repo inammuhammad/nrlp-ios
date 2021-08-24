@@ -9,8 +9,8 @@
 import Foundation
 
 enum PassportType: String {
-    case international
-    case pakistani
+    case international = "international"
+    case pakistani = "pakistani"
 
     func getTitle() -> String {
         switch self {

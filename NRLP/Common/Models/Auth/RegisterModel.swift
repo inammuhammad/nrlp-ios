@@ -16,9 +16,12 @@ struct RegisterRequestModel: Codable {
     let fullName: String
     let mobileNo: String
     let paassword: String
+    let passportType: String
+    let passportNumber: String
     var registrationCode: String?
     var transactionAmount: String?
     var transactionRefNo: String?
+    var residentID: String?
 
     enum CodingKeys: String, CodingKey {
         case accountType = "user_type"
@@ -30,6 +33,9 @@ struct RegisterRequestModel: Codable {
         case registrationCode = "registration_code"
         case transactionAmount = "amount"
         case transactionRefNo = "reference_no"
+        case residentID = "resident_id"
+        case passportType = "passport_type"
+        case passportNumber = "passport_id"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -43,6 +49,9 @@ struct RegisterRequestModel: Codable {
         try container.encode(registrationCode?.aesEncrypted(), forKey: .registrationCode)
         try container.encode(transactionAmount, forKey: .transactionAmount)
         try container.encode(transactionRefNo?.aesEncrypted(), forKey: .transactionRefNo)
+        try container.encode(residentID?.aesEncrypted(), forKey: .residentID)
+        try container.encode(passportType.aesEncrypted(), forKey: .passportType)
+        try container.encode(passportNumber.aesEncrypted(), forKey: .passportNumber)
     }
 }
 

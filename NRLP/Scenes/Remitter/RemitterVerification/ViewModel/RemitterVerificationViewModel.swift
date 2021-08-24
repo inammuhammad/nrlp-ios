@@ -60,7 +60,7 @@ class RemitterVerificationViewModel: RemitterVerificationViewModelProtocol {
             return
         }
 
-        let requestModel = VerifyReferenceNumberRequestModel(amount: self.transactionAmount ?? "0", mobileNo: registerModel.mobileNo, nicNicop: registerModel.cnicNicop, referenceNo: self.referenceNumber ?? "0000", userType: registerModel.accountType)
+        let requestModel = VerifyReferenceNumberRequestModel(amount: self.transactionAmount ?? "0", mobileNo: registerModel.mobileNo, nicNicop: registerModel.cnicNicop, referenceNo: self.referenceNumber ?? "0000", userType: registerModel.accountType, residentID: registerModel.residentID ?? "", passportType: registerModel.passportType, passportNumber: registerModel.passportNumber)
 
         output?(.showActivityIndicator(show: true))
         service.dispatchForKey(cnic: requestModel.nicNicop, type: .remitter) {[weak self] (error) in
