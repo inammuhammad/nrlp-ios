@@ -13,6 +13,13 @@ class ProfileViewController: BaseViewController {
     var viewModel: ProfileViewModelProtocol!
     var editingEnabled: Bool = false
     
+    private lazy var passportItemPickerView: ItemPickerView! = {
+        var pickerView = ItemPickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = viewModel.passportTypePickerViewModel
+        return pickerView
+    }()
+    
     @IBOutlet weak var bottomCTAButtonStack: UIStackView!
     @IBOutlet private weak var fullNameTextView: LabelledTextview! {
         didSet {
@@ -34,6 +41,50 @@ class ProfileViewController: BaseViewController {
             cnicTextView.formatter = CNICFormatter()
             cnicTextView.isEditable = false
             cnicTextView.formatValidator = FormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
+        }
+    }
+    
+    @IBOutlet private weak var residentIDTextView: LabelledTextview! {
+        didSet {
+            residentIDTextView.titleLabelText = "Resident ID".localized
+            residentIDTextView.placeholderText = "Resident ID".localized
+            residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
+            residentIDTextView.inputFieldMinLength = 25
+            residentIDTextView.inputFieldMaxLength = 25
+            passportNumberTextView.isEditable = false
+            residentIDTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.residentID = updatedText
+            }
+        }
+    }
+    
+    @IBOutlet weak var passportTypeTextView: LabelledTextview! {
+        didSet {
+            passportTypeTextView.titleLabelText = "Passport Type".localized
+            passportTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            passportTypeTextView.placeholderText = "Select Passport Type".localized
+            passportTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            passportTypeTextView.inputTextFieldInputPickerView = passportItemPickerView
+            self.passportTypeTextView.isHidden = true
+        }
+    }
+    
+    @IBOutlet weak var passportNumberTextView: LabelledTextview! {
+        didSet {
+            passportNumberTextView.titleLabelText = "Passport Number".localized
+            passportNumberTextView.placeholderText = "Passport Number".localized
+//            passportNumberTextView.textViewDescription = StringConstants.ErrorString.passportNumberError.localized
+            passportNumberTextView.inputFieldMinLength = 3
+            passportNumberTextView.inputFieldMaxLength = 20
+            passportNumberTextView.editTextKeyboardType = .default
+            passportNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.passportRegex, invalidFormatError: StringConstants.ErrorString.passportNumberError.localized)
+            passportNumberTextView.isEditable = false
+            passportNumberTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.passportNumber = updatedText
+            }
+//            self.passportNumberTextView.isHidden = true
         }
     }
     
@@ -107,6 +158,9 @@ class ProfileViewController: BaseViewController {
         countryTextView.updateStateTo(isError: false, error: nil)
         mobileTextView.updateStateTo(isError: false, error: nil)
         emailTextView.updateStateTo(isError: false, error: nil)
+        residentIDTextView.updateStateTo(isError: false, error: nil)
+        passportTypeTextView.updateStateTo(isError: false, error: nil)
+        passportNumberTextView.updateStateTo(isError: false, error: nil)
         enabledEditing(enable: false)
     }
     
@@ -115,6 +169,9 @@ class ProfileViewController: BaseViewController {
         emailTextView.isEditable = enable
         mobileTextView.isEditable = enable
         countryTextView.isEditable = enable
+        passportTypeTextView.isEditable = enable
+        passportNumberTextView.isEditable = enable
+        residentIDTextView.isEditable = enable
         
         if enable {
             editButton.setTitle("Save".localized, for: .normal)
@@ -165,8 +222,10 @@ extension ProfileViewController {
             case .nextButtonState(let enableState):
                 self.editButton.isEnabled = enableState
             case .editingEnabled:
+                self.passportTypeTextView.isHidden = false
                 self.enabledEditing(enable: true)
             case .editingReset:
+                self.passportTypeTextView.isHidden = true
                 self.resetEditing()
             case .setUser(let user):
                 self.setUser(user: user)
@@ -178,6 +237,15 @@ extension ProfileViewController {
                 self.showAlert(with: error)
             case .setMobileNumber(let number):
                 self.mobileTextView.inputText = number
+            case .updatePassportType(passportType: let passportType):
+                self.passportTypeTextView.inputText = passportType
+                self.passportNumberTextView.inputText = ""
+            case .passportNumberTextField(errorState: let errorState, error: let error):
+                self.passportNumberTextView.updateStateTo(isError: errorState, error: error)
+            case .passportTypeTextField(errorState: let errorState, error: let error):
+                self.passportTypeTextView.updateStateTo(isError: errorState, error: error)
+            case .residentIDTextField(errorState: let errorState, error: let error):
+                self.residentIDTextView.updateStateTo(isError: errorState, error: error)
             }
         }
     }
@@ -192,6 +260,9 @@ extension ProfileViewController {
         fullNameTextView.inputText = user.fullName
         cnicTextView.inputText = "\(user.cnicNicop)"
         emailTextView.inputText = user.email
+        passportTypeTextView.inputText = user.passportType?.rawValue.capitalized
+        passportNumberTextView.inputText = user.passportNumber
+        residentIDTextView.inputText = user.residentID
     }
     
     @IBAction func cancelButtonPressed(_ sender: SecondaryCTAButton) {
@@ -220,5 +291,18 @@ extension ProfileViewController {
 extension ProfileViewController: Initializable {
     static var storyboardName: UIStoryboard.Name {
         return UIStoryboard.Name.profile
+    }
+}
+
+extension ProfileViewController: ItemPickerViewDelegate {
+    func didTapCancelButton() {
+        self.view.endEditing(true)
+    }
+    
+    func didTapDoneButton(with selectedItem: PickerItemModel?) {
+        if let item = selectedItem as? PassportTypePickerItemModel {
+            viewModel.didSelectPassportType(passportType: item)
+        }
+        self.view.endEditing(true)
     }
 }

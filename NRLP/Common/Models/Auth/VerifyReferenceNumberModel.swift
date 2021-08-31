@@ -38,7 +38,7 @@ struct VerifyReferenceNumberRequestModel: Codable {
         try container.encode(userType, forKey: .userType)
         try container.encode(nicNicop.aesEncrypted(), forKey: .nicNicop)
         try container.encode(residentID?.aesEncrypted(), forKey: .residentID)
-        try container.encode(passportType.aesEncrypted(), forKey: .passportType)
+        try container.encode(passportType, forKey: .passportType)
         try container.encode(passportNumber.aesEncrypted(), forKey: .passportNumber)
     }
 

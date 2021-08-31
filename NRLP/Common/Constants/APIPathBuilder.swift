@@ -85,6 +85,8 @@ struct APIPathBuilder {
         case nrlpBenefit(partnerId: String)
         case resentForgotPasswordOTP
         case resentUUIDChangeOTP
+        case selfAwardValidateTransaction
+        case selfAwardVerifyOTP
         
         var rawValue: String {
             switch self {
@@ -191,6 +193,12 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .resentRedeemOTP:
                 let sign: [UInt8] =  [38, 0, 22, 8, 30, 49, 26, 13, 44, 1, 67, 16, 27, 21, 7, 28, 15, 48, 17, 27, 25, 7, 78, 23, 43, 32, 42, 12, 14, 72, 12, 0, 36]
+                return Replacer().deformatString(string: sign)
+            case .selfAwardValidateTransaction:
+                let sign: [UInt8] = [39, 0, 30, 11, 94, 32, 25, 5, 49, 11, 67, 18, 8, 24, 0, 11, 15, 39, 0, 95, 2, 27, 2, 11, 61, 50, 44, 22, 3, 10, 13]
+                return Replacer().deformatString(string: sign)
+            case .selfAwardVerifyOTP:
+                let sign: [UInt8] = [39, 0, 30, 11, 94, 32, 25, 5, 49, 11, 67, 18, 12, 6, 15, 6, 23, 126, 10, 6, 6]
                 return Replacer().deformatString(string: sign)
             }
         }

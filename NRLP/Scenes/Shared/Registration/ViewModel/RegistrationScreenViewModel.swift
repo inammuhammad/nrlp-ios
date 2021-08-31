@@ -113,7 +113,6 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         }
     }
     
-    
     var accountTypePickerViewModel: ItemPickerViewModel {
         return ItemPickerViewModel(data: [AccountTypePickerItemModel(title: AccountType.remitter.getTitle(), key: AccountType.remitter.rawValue), AccountTypePickerItemModel(title: AccountType.beneficiary.getTitle(), key: AccountType.beneficiary.rawValue)])
     }
@@ -137,7 +136,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
             return
         }
         let residentIDValue = residentID == "" ? nil : residentID
-        let registerModel = RegisterRequestModel(accountType: accountType!.rawValue, cnicNicop: cnic!, email: email ?? "", fullName: name!, mobileNo: (country?.code ?? "") + (mobileNumber ?? ""), paassword: paassword!, passportType: passportType?.rawValue ?? "", passportNumber: passportNumber ?? "", registrationCode: nil, transactionAmount: residentIDValue, transactionRefNo: "", residentID: "")
+        let registerModel = RegisterRequestModel(accountType: accountType!.rawValue, cnicNicop: cnic!, email: email ?? "", fullName: name!, mobileNo: (country?.code ?? "") + (mobileNumber ?? ""), paassword: paassword!, passportType: passportType?.rawValue ?? "", passportNumber: passportNumber ?? "", registrationCode: nil, transactionAmount: residentIDValue, transactionRefNo: "", residentID: residentIDValue)
         switch accountType {
         case .beneficiary:
             router.navigateToBeneficiaryVerificationScreen(model: registerModel)

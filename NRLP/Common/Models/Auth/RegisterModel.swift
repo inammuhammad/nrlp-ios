@@ -50,7 +50,7 @@ struct RegisterRequestModel: Codable {
         try container.encode(transactionAmount, forKey: .transactionAmount)
         try container.encode(transactionRefNo?.aesEncrypted(), forKey: .transactionRefNo)
         try container.encode(residentID?.aesEncrypted(), forKey: .residentID)
-        try container.encode(passportType.aesEncrypted(), forKey: .passportType)
+        try container.encode(passportType, forKey: .passportType)
         try container.encode(passportNumber.aesEncrypted(), forKey: .passportNumber)
     }
 }

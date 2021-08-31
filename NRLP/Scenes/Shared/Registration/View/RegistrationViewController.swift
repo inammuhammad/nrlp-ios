@@ -95,7 +95,7 @@ class RegistrationViewController: BaseViewController {
         didSet {
             passportNumberTextView.titleLabelText = "Enter Passport Number".localized
             passportNumberTextView.placeholderText = "Passport Number".localized
-            passportNumberTextView.textViewDescription = StringConstants.ErrorString.passportNumberError.localized
+//            passportNumberTextView.textViewDescription = StringConstants.ErrorString.passportNumberError.localized
             passportNumberTextView.inputFieldMinLength = 3
             passportNumberTextView.inputFieldMaxLength = 20
             passportNumberTextView.editTextKeyboardType = .default

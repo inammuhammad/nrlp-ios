@@ -63,5 +63,7 @@ extension UIStoryboard {
         case contactUs = "ContactUs"
         case profile = "Profile"
         case profileOTP = "ProfileOTP"
+        case selfAward = "SelfAward"
+        case selfAwardOTP = "SelfAwardOTP"
     }
 }

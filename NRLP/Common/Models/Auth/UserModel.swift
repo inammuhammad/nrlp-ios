@@ -26,6 +26,18 @@ struct UserModel: Codable {
     private var currentPointsBalance: String?
     var userCountry: Country?
     
+    var residentID: String?
+    var passportTypeValue: String?
+    
+    var passportType: PassportType? {
+        if let type = passportTypeValue {
+            return PassportType(rawValue: type)
+        }
+        return nil
+    }
+    
+    var passportNumber: String?
+    
     var loyaltyLevel: LoyaltyType {
         return LoyaltyType(rawValue: loyaltyType.lowercased()) ?? .bronze
     }
@@ -59,6 +71,9 @@ struct UserModel: Codable {
         case createdAt = "created_at"
         case updatedAt = "updated_at"
         case currentPointsBalance = "current_points_balance"
+        case residentID = "resident_id"
+        case passportTypeValue = "passport_type"
+        case passportNumber = "passport_id"
     }
     
     init() {
@@ -75,6 +90,9 @@ struct UserModel: Codable {
         self.updatedAt = ""
         self.isActive = 0
         self.isDeleted = 0
+        self.residentID = ""
+        self.passportTypeValue = ""
+        self.passportNumber = ""
     }
 
     mutating func update(from userModel: UserModel) {
@@ -91,5 +109,8 @@ struct UserModel: Codable {
         self.updatedAt = userModel.updatedAt ?? updatedAt
         self.isActive = userModel.isActive ?? isActive
         self.isDeleted = userModel.isDeleted ?? isDeleted
+        self.residentID = userModel.residentID?.aesDecrypted() ?? residentID
+        self.passportTypeValue = userModel.passportTypeValue ?? passportTypeValue
+        self.passportNumber = userModel.passportNumber?.aesDecrypted() ?? passportNumber
     }
 }

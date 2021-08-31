@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Bold.ttf">
+            <string>Roboto-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Self AwardOTP View Controller-->
+        <scene sceneID="IK5-OJ-EXF">
+            <objects>
+                <viewController storyboardIdentifier="SelfAwardOTPViewController" id="vpZ-AD-izK" customClass="SelfAwardOTPViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tLE-Ma-5m2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lz3-EQ-dz4" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HlB-06-3gU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="didTapVerifyButton:" destination="vpZ-AD-izK" eventType="touchUpInside" id="eWY-rg-tNe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We have sent you a code on your phone number +923318448764" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEE-Ms-Rbv">
+                                <rect key="frame" x="16" y="84" width="382" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="590-6i-7Ja">
+                                <rect key="frame" x="16" y="125" width="382" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="lL1-5B-wGE">
+                                <rect key="frame" x="87" y="181" width="240" height="48"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CZD-DH-ZQ0" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="CZD-DH-ZQ0" secondAttribute="height" multiplier="1:1" id="PgY-pz-Nru"/>
+                                            <constraint firstAttribute="width" constant="48" id="l5m-RI-uyM"/>
+                                        </constraints>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7K6-23-Vho" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="64" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oBV-qr-N8J" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="128" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YEt-Tg-tdB" customClass="CodeVerifyTextField" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="192" y="0.0" width="48" height="48"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Bold" family="Roboto" pointSize="24"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgw-OY-QzM">
+                                <rect key="frame" x="87" y="245" width="41.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="QDB-XZ-8lZ">
+                                <rect key="frame" x="100" y="289.5" width="214" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hL-qT-Vht">
+                                        <rect key="frame" x="0.0" y="0.0" width="152" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KZB-4J-Gm6">
+                                        <rect key="frame" x="164" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="NTN-nK-BiV">
+                                <rect key="frame" x="86.5" y="363.5" width="241.5" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Didn't receive the OTP?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gQG-E8-a3w">
+                                        <rect key="frame" x="0.0" y="0.0" width="152.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqk-w6-K3w">
+                                        <rect key="frame" x="160.5" y="0.0" width="81" height="30"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="ResendOTP">
+                                                    <attributes>
+                                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        <integer key="NSUnderline" value="1"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapResendOtpButton:" destination="vpZ-AD-izK" eventType="touchUpInside" id="crb-ZO-TGU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrE-kA-ggl">
+                                <rect key="frame" x="16" y="425.5" width="382" height="52.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFb-l2-zJ4">
+                                        <rect key="frame" x="170.5" y="16" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="sFb-l2-zJ4" firstAttribute="centerX" secondItem="hrE-kA-ggl" secondAttribute="centerX" id="9u8-dI-OfW"/>
+                                    <constraint firstItem="sFb-l2-zJ4" firstAttribute="top" secondItem="hrE-kA-ggl" secondAttribute="top" constant="16" id="Ru7-i3-HOO"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sFb-l2-zJ4" secondAttribute="trailing" constant="24" id="YYZ-gQ-PXY"/>
+                                    <constraint firstItem="sFb-l2-zJ4" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hrE-kA-ggl" secondAttribute="leading" constant="24" id="gHS-gA-E81"/>
+                                    <constraint firstAttribute="bottom" secondItem="sFb-l2-zJ4" secondAttribute="bottom" constant="16" id="wFX-Kd-I6X"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aM7-T1-qi9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aM7-T1-qi9" firstAttribute="trailing" secondItem="590-6i-7Ja" secondAttribute="trailing" constant="16" id="7Vr-6S-KUt"/>
+                            <constraint firstItem="hrE-kA-ggl" firstAttribute="top" secondItem="NTN-nK-BiV" secondAttribute="bottom" constant="32" id="AsN-Fr-BrK"/>
+                            <constraint firstItem="aM7-T1-qi9" firstAttribute="trailing" secondItem="lz3-EQ-dz4" secondAttribute="trailing" constant="16" id="LvE-sL-zid"/>
+                            <constraint firstItem="590-6i-7Ja" firstAttribute="top" secondItem="ZEE-Ms-Rbv" secondAttribute="bottom" id="Nur-hs-1kq"/>
+                            <constraint firstItem="QDB-XZ-8lZ" firstAttribute="centerX" secondItem="tLE-Ma-5m2" secondAttribute="centerX" id="Q4Z-It-0hJ"/>
+                            <constraint firstItem="lL1-5B-wGE" firstAttribute="centerX" secondItem="tLE-Ma-5m2" secondAttribute="centerX" id="TMr-Gw-nhO"/>
+                            <constraint firstItem="aM7-T1-qi9" firstAttribute="trailing" secondItem="ZEE-Ms-Rbv" secondAttribute="trailing" constant="16" id="UXe-ss-JXr"/>
+                            <constraint firstItem="lL1-5B-wGE" firstAttribute="top" secondItem="590-6i-7Ja" secondAttribute="bottom" constant="56" id="Xxk-fP-7ew"/>
+                            <constraint firstItem="ZEE-Ms-Rbv" firstAttribute="top" secondItem="aM7-T1-qi9" secondAttribute="top" constant="40" id="YEo-zm-FcT"/>
+                            <constraint firstItem="590-6i-7Ja" firstAttribute="leading" secondItem="aM7-T1-qi9" secondAttribute="leading" constant="16" id="YHd-K5-tsK"/>
+                            <constraint firstItem="lz3-EQ-dz4" firstAttribute="leading" secondItem="aM7-T1-qi9" secondAttribute="leading" constant="16" id="cHN-m7-Btf"/>
+                            <constraint firstItem="jgw-OY-QzM" firstAttribute="top" secondItem="lL1-5B-wGE" secondAttribute="bottom" constant="16" id="f4b-r7-ojD"/>
+                            <constraint firstItem="aM7-T1-qi9" firstAttribute="bottom" secondItem="lz3-EQ-dz4" secondAttribute="bottom" constant="16" id="fow-os-dRo"/>
+                            <constraint firstItem="QDB-XZ-8lZ" firstAttribute="top" secondItem="jgw-OY-QzM" secondAttribute="bottom" constant="24" id="iGT-j4-K8f"/>
+                            <constraint firstItem="jgw-OY-QzM" firstAttribute="leading" secondItem="lL1-5B-wGE" secondAttribute="leading" id="k3M-uo-09F"/>
+                            <constraint firstItem="NTN-nK-BiV" firstAttribute="top" secondItem="QDB-XZ-8lZ" secondAttribute="bottom" constant="24" id="oVg-vX-NKm"/>
+                            <constraint firstItem="hrE-kA-ggl" firstAttribute="leading" secondItem="aM7-T1-qi9" secondAttribute="leading" constant="16" id="omu-QS-zfE"/>
+                            <constraint firstItem="NTN-nK-BiV" firstAttribute="centerX" secondItem="tLE-Ma-5m2" secondAttribute="centerX" id="s3b-5u-Hup"/>
+                            <constraint firstItem="aM7-T1-qi9" firstAttribute="trailing" secondItem="hrE-kA-ggl" secondAttribute="trailing" constant="16" id="u3P-Um-dlr"/>
+                            <constraint firstItem="ZEE-Ms-Rbv" firstAttribute="leading" secondItem="aM7-T1-qi9" secondAttribute="leading" constant="16" id="zKO-1d-R44"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="codeExpireLabel" destination="6hL-qT-Vht" id="8Tb-qi-COK"/>
+                        <outlet property="codeExpireTimerLabel" destination="KZB-4J-Gm6" id="GAf-4X-7De"/>
+                        <outlet property="headerLabel" destination="ZEE-Ms-Rbv" id="VC3-ZX-LSd"/>
+                        <outlet property="notReceiveOtpLabel" destination="gQG-E8-a3w" id="Wyh-yx-7fU"/>
+                        <outlet property="otpItemStack" destination="lL1-5B-wGE" id="hge-Yh-GW0"/>
+                        <outlet property="resendCodeInfoLabel" destination="sFb-l2-zJ4" id="r2R-3H-CRL"/>
+                        <outlet property="resendOtpButton" destination="yqk-w6-K3w" id="2mg-SM-JEy"/>
+                        <outlet property="resendVerificationCodeInfoView" destination="hrE-kA-ggl" id="HbH-6Q-6Zt"/>
+                        <outlet property="verificationCodeErrorLabel" destination="jgw-OY-QzM" id="cbp-li-c3Z"/>
+                        <outlet property="verifyCTAButton" destination="lz3-EQ-dz4" id="eGa-50-iFP"/>
+                        <outletCollection property="codeTextFields" destination="CZD-DH-ZQ0" collectionClass="NSMutableArray" id="Nqb-Ou-xYo"/>
+                        <outletCollection property="codeTextFields" destination="7K6-23-Vho" collectionClass="NSMutableArray" id="G8x-g3-5A2"/>
+                        <outletCollection property="codeTextFields" destination="oBV-qr-N8J" collectionClass="NSMutableArray" id="urA-NG-jX1"/>
+                        <outletCollection property="codeTextFields" destination="YEt-Tg-tdB" collectionClass="NSMutableArray" id="bYs-pa-Isy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZCL-BM-MO1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="83" y="172"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="7K6-23-Vho">
+            <size key="intrinsicContentSize" width="7" height="29.5"/>
+        </designable>
+        <designable name="CZD-DH-ZQ0">
+            <size key="intrinsicContentSize" width="7" height="29.5"/>
+        </designable>
+        <designable name="YEt-Tg-tdB">
+            <size key="intrinsicContentSize" width="7" height="29.5"/>
+        </designable>
+        <designable name="lz3-EQ-dz4">
+            <size key="intrinsicContentSize" width="46" height="30"/>
+        </designable>
+        <designable name="oBV-qr-N8J">
+            <size key="intrinsicContentSize" width="7" height="29.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

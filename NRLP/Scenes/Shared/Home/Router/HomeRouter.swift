@@ -62,4 +62,9 @@ class HomeRouter {
     func navigateToContactUs() {
         self.navigationController?.pushViewController(ContactUsBuilder().build(), animated: true)
     }
+
+    func navigateToSelfAward() {
+        let viewController = SelfAwardViewController.getInstance()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
 }

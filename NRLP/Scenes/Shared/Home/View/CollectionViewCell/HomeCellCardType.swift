@@ -15,6 +15,7 @@ enum HomeCellCardType {
     case managePoints
     case viewStatement
     case nrlpBenefits
+    case selfAward
 
     func getTitle() -> String {
         switch self {
@@ -26,6 +27,8 @@ enum HomeCellCardType {
             return "View Statement".localized
         case .nrlpBenefits:
             return "View NRLP Benefits".localized
+        case .selfAward:
+            return "Self Award Points".localized
         default:
             return ""
         }
@@ -41,6 +44,8 @@ enum HomeCellCardType {
             return #imageLiteral(resourceName: "home-loyalty-statement")
         case .nrlpBenefits:
             return #imageLiteral(resourceName: "benefits")
+        case .selfAward:
+            return UIImage(named: "selfAwardPoints") ?? UIImage()
         default:
             return UIImage()
         }

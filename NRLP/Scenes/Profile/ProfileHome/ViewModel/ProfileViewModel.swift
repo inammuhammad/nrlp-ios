@@ -18,7 +18,12 @@ protocol ProfileViewModelProtocol {
     var mobileNumber: String? { get set }
     var email: String? { get set }
     var country: Country? { get set }
+    var passportTypePickerViewModel: ItemPickerViewModel { get }
+    var passportNumber: String? { get set }
+    var passportType: PassportType? { get set }
+    var residentID: String? { get set }
     
+    func didSelectPassportType(passportType: PassportTypePickerItemModel?)
     func editButtonPressed()
     func cancelButtonPressed()
     func saveButtonPressed()
@@ -61,8 +66,30 @@ class ProfileViewModel: ProfileViewModelProtocol {
         }
     }
     
+    var residentID: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var passportType: PassportType? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var passportNumber: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var userEditedNumberWithCode: String {
         ((country?.code ?? "0") + (mobileNumber ?? ""))
+    }
+    
+    var passportTypePickerViewModel: ItemPickerViewModel {
+        return ItemPickerViewModel(data: [PassportTypePickerItemModel(title: PassportType.international.getTitle(), key: PassportType.international.rawValue), PassportTypePickerItemModel(title: PassportType.pakistani.getTitle(), key: PassportType.pakistani.rawValue)])
     }
     
     init(router: ProfileRouter,
@@ -88,6 +115,9 @@ class ProfileViewModel: ProfileViewModelProtocol {
                     user.email = user.email == "null" ? "" : user.email
                     self.email = user.email
                     self.user = user
+                    self.passportNumber = user.passportNumber
+                    self.passportType = user.passportType
+                    self.residentID = user.residentID
                     self.output?(.setUser(user: user))
                     self.fetchCountries()
                 } else {
@@ -183,7 +213,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
     
     func sendOtp() {
         self.output?(.showActivityIndicator(show: true))
-        userProfileService.updateUserSendOTP(requestModel: UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber())) {[weak self] (result) in
+        userProfileService.updateUserSendOTP(requestModel: UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID())) {[weak self] (result) in
             guard let self = self else { return }
             self.output?(.showActivityIndicator(show: false))
             switch result {
@@ -196,13 +226,13 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func moveToOTPScreen() {
-        let requestModel = UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber())
+        let requestModel = UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID())
         let model = ProfileUpdateModel(profileUpdateRequestModel: requestModel, userModel: user)
         router.navigateToOTPScreen(model: model)
     }
     
     func getRequestModel() -> UpdateProfileSendOTPRequestModel {
-        return UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber())
+        return UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID())
     }
     
     func moveToSuccessScreen() {
@@ -233,16 +263,42 @@ class ProfileViewModel: ProfileViewModelProtocol {
         return usrEmail
     }
     
+    func getResidentID() -> String? {
+        var usrResidentID = residentID
+        usrResidentID = usrResidentID == user.residentID ? nil : usrResidentID
+        return usrResidentID
+    }
+    
+    func getPassportNumber() -> String? {
+        var usrPassportNumber = passportNumber
+        usrPassportNumber = usrPassportNumber == user.passportNumber ? nil : usrPassportNumber
+        return usrPassportNumber
+    }
+    
+    func getPassportType() -> String? {
+        var usrPassportType = passportType?.rawValue
+        if user.passportNumber == passportNumber {
+           return nil
+        }
+        return usrPassportType
+    }
+    
     func getNumber() -> String? {
         var mobNumber: String? =  userEditedNumberWithCode
         mobNumber = mobNumber == ((user.userCountry?.code ?? "0") + (user.mobileNo ?? "")) ? nil : mobNumber ?? ""
         return mobNumber
     }
     
+    func didSelectPassportType(passportType: PassportTypePickerItemModel?) {
+        self.passportType = passportType?.passportType
+        output?(.updatePassportType(passportType: self.passportType?.getTitle() ?? ""))
+    }
+    
     enum Output {
         case updateCountry(country: Country?)
         case updateMobileCode(code: String, length: Int)
         case updateMobilePlaceholder(placeholder: String)
+        case updatePassportType(passportType: String)
         case nextButtonState(enableState: Bool)
         case nameTextField(errorState: Bool, error: String?)
         case cnicTextField(errorState: Bool, error: String?)
@@ -256,13 +312,16 @@ class ProfileViewModel: ProfileViewModelProtocol {
         case showActivityIndicator(show: Bool)
         case showError(error: APIResponseError)
         case setMobileNumber(number: String)
+        case passportNumberTextField(errorState: Bool, error: String?)
+        case passportTypeTextField(errorState: Bool, error: String?)
+        case residentIDTextField(errorState: Bool, error: String?)
     }
 }
 
 extension ProfileViewModel {
     private func validateRequiredFields() {
         let userMobileNumberWithCode = ((user?.userCountry?.code ?? "0") + (user?.mobileNo ?? ""))
-        if userEditedNumberWithCode == userMobileNumberWithCode && user?.email == email && editState {
+        if userEditedNumberWithCode == userMobileNumberWithCode && user?.email == email && editState && user.passportType == passportType && user.passportNumber == passportNumber && user.residentID == residentID{
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))
@@ -290,6 +349,27 @@ extension ProfileViewModel {
             output?(.emailTextField(errorState: false, error: nil))
         } else {
             output?(.emailTextField(errorState: true, error: StringConstants.ErrorString.emailError.localized))
+            isValid = false
+        }
+        
+        if passportNumber != nil || !(passportNumber?.isEmpty ?? true) || passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
+            output?(.passportNumberTextField(errorState: false, error: nil))
+        } else {
+            output?(.passportNumberTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
+            isValid = false
+        }
+        
+        if !(passportType?.rawValue.isEmpty ?? true) {
+            output?(.passportTypeTextField(errorState: false, error: nil))
+        } else {
+            output?(.passportTypeTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
+            isValid = false
+        }
+        
+        if residentID != nil || !(residentID?.isEmpty ?? true) {
+            output?(.residentIDTextField(errorState: false, error: nil))
+        } else {
+            output?(.residentIDTextField(errorState: true, error: StringConstants.ErrorString.residentIdError.localized))
             isValid = false
         }
         

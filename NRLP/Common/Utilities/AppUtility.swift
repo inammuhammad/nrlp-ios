@@ -41,4 +41,13 @@ final class AppUtility {
            onFailture("Cant open Website")
        }
     }
+    
+    static func getPrettyJson(data: Data) -> String {
+        if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers),
+           let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {
+            return String(decoding: jsonData, as: UTF8.self)
+        } else {
+            return "json data malformed"
+        }
+    }
 }

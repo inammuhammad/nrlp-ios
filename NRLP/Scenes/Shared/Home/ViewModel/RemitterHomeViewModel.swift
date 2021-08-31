@@ -25,6 +25,7 @@ class RemitterHomeViewModel: HomeViewModel {
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
+        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
     }
     
     private func setupDataForEnglish() {
@@ -32,6 +33,7 @@ class RemitterHomeViewModel: HomeViewModel {
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
+        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
     }
 
     override func didTapItem(at index: Int) {
@@ -47,6 +49,8 @@ class RemitterHomeViewModel: HomeViewModel {
             router.navigateToViewStatement(userModel: userModel)
         case .nrlpBenefits:
            router.navigateToNRLPBenefits()
+        case .selfAward:
+            router.navigateToSelfAward()
             //showComingSoonAlert()
         }
     }

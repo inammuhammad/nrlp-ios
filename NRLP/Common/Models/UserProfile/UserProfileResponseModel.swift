@@ -12,3 +12,7 @@ struct UserProfileResponseModel: Codable {
     let message: String
     let data: UserModel?
 }
+
+struct SelfAwardValidateResponseModel: Codable {
+    let message: String
+}

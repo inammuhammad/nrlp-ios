@@ -55,19 +55,45 @@ struct UpdateProfileRequestModel: Codable {
 struct UpdateProfileSendOTPRequestModel: Codable {
     let email: String?
     let mobileNumber: String?
+    let passportType: String?
+    let passportNumber: String?
+    let residentID: String?
     
     enum CodingKeys: String, CodingKey {
         case email
         case mobileNumber = "mobile_no"
+        case passportType = "passport_type"
+        case passportNumber = "passport_id"
+        case residentID = "resident_id"
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(email?.aesEncrypted(), forKey: .email)
         try container.encodeIfPresent(mobileNumber, forKey: .mobileNumber)
+        try container.encodeIfPresent(passportType, forKey: .passportType)
+        try container.encodeIfPresent(passportNumber?.aesEncrypted(), forKey: .passportNumber)
+        try container.encodeIfPresent(residentID?.aesEncrypted(), forKey: .residentID)
     }
 }
 
 struct UpdateProfileSendOTPResponseModel: Codable {
     let message: String
+}
+
+
+// Verify OTP Service
+struct SelfAwardVerifyOTPRequestModel: Codable {
+
+    let otp: String!
+
+    enum CodingKeys: String, CodingKey {
+
+        case otp = "otp"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(otp.aesEncrypted(), forKey: .otp)
+    }
 }
