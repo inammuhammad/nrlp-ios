@@ -17,7 +17,7 @@ class BeneficiaryVerificationRouter {
     }
     
     func navigateToNextScreen(registerModel: RegisterRequestModel) {
-        let nextVC = TermsAndConditionsModuleBuilder().build(with: self.navigationController, model: registerModel)
+        let nextVC = TermsAndConditionsModuleBuilder().build(with: self.navigationController, model: registerModel, isFromBeneficiary: true)
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

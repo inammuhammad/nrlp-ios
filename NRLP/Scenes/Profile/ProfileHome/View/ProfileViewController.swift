@@ -12,6 +12,7 @@ class ProfileViewController: BaseViewController {
 
     var viewModel: ProfileViewModelProtocol!
     var editingEnabled: Bool = false
+    var isBeneficiary = false
     
     private lazy var passportItemPickerView: ItemPickerView! = {
         var pickerView = ItemPickerView()
@@ -169,9 +170,12 @@ class ProfileViewController: BaseViewController {
         emailTextView.isEditable = enable
         mobileTextView.isEditable = enable
         countryTextView.isEditable = enable
-        passportTypeTextView.isEditable = enable
-        passportNumberTextView.isEditable = enable
-        residentIDTextView.isEditable = enable
+        if !isBeneficiary {
+            passportTypeTextView.isEditable = enable
+            passportNumberTextView.isEditable = enable
+            residentIDTextView.isEditable = enable
+            self.passportTypeTextView.isHidden = false
+        }
         
         if enable {
             editButton.setTitle("Save".localized, for: .normal)
@@ -222,7 +226,6 @@ extension ProfileViewController {
             case .nextButtonState(let enableState):
                 self.editButton.isEnabled = enableState
             case .editingEnabled:
-                self.passportTypeTextView.isHidden = false
                 self.enabledEditing(enable: true)
             case .editingReset:
                 self.passportTypeTextView.isHidden = true
@@ -257,6 +260,12 @@ extension ProfileViewController {
     }
     
     func setUser(user: UserModel) {
+        if user.type?.lowercased() == AccountType.beneficiary.rawValue.lowercased() {
+            self.passportNumberTextView.isHidden = true
+            self.passportTypeTextView.isHidden = true
+            self.residentIDTextView.isHidden = true
+            isBeneficiary = true
+        }
         fullNameTextView.inputText = user.fullName
         cnicTextView.inputText = "\(user.cnicNicop)"
         emailTextView.inputText = user.email

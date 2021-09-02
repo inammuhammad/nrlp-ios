@@ -16,8 +16,8 @@ struct RegisterRequestModel: Codable {
     let fullName: String
     let mobileNo: String
     let paassword: String
-    let passportType: String
-    let passportNumber: String
+    var passportType: String
+    var passportNumber: String
     var registrationCode: String?
     var transactionAmount: String?
     var transactionRefNo: String?

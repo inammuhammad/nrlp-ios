@@ -36,10 +36,15 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
     init(with router: TermsAndConditionRouter,
          model: RegisterRequestModel,
          termsAndConditionService: TermsAndConditionServiceProtocol,
-         registerUserService: RegisterUserService) {
+         registerUserService: RegisterUserService, isFromBeneficiary: Bool = false) {
 
         self.router = router
         self.model = model
+        if isFromBeneficiary {
+            self.model.residentID = "-"
+            self.model.passportType = "-"
+            self.model.passportNumber = "-"
+        }
         self.termsAndConditionService = termsAndConditionService
         self.registerUserService = registerUserService
     }

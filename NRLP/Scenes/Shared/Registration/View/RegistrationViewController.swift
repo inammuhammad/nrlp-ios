@@ -72,7 +72,7 @@ class RegistrationViewController: BaseViewController {
             residentIDTextView.titleLabelText = "Resident ID".localized
             residentIDTextView.placeholderText = "Resident ID".localized
             residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
-            residentIDTextView.inputFieldMinLength = 25
+            residentIDTextView.inputFieldMinLength = 1
             residentIDTextView.inputFieldMaxLength = 25
             residentIDTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
@@ -249,6 +249,16 @@ extension RegistrationViewController {
                 self.focus(field: field)
             case .passportNumberTextField(errorState: let errorState, error: let errorMsg):
                 self.passportNumberTextView.updateStateTo(isError: errorState, error: errorMsg)
+            case .showNewFields(isRemitter: let isRemitter):
+                if isRemitter {
+                    residentIDTextView.isHidden = false
+                    passportTypeTextView.isHidden = false
+                    passportNumberTextView.isHidden = false
+                } else {
+                    residentIDTextView.isHidden = true
+                    passportTypeTextView.isHidden = true
+                    passportNumberTextView.isHidden = true
+                }
             }
         }
     }

@@ -166,6 +166,11 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
     
     func didSelect(accountType: AccountTypePickerItemModel?) {
         self.accountType = accountType?.accountType
+        if accountType?.accountType == AccountType.remitter {
+            output?(.showNewFields(isRemitter: true))
+        } else {
+            output?(.showNewFields(isRemitter: false))
+        }
         output?(.updateAccountType(accountType: self.accountType?.getTitle() ?? ""))
     }
 
@@ -202,6 +207,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         case showPassportNumberField(isVisible: Bool)
         case updateProgressBar(toProgress: Float)
         case focusField(type: RegistrationFormInputFieldType)
+        case showNewFields(isRemitter: Bool)
     }
 
     deinit {
@@ -211,10 +217,18 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
 
 extension RegistrationViewModel {
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true || passportNumber?.isBlank ?? true || accountType == nil || passportType == nil  || residentID?.isBlank ?? true {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true  || accountType == nil  {
             output?(.nextButtonState(enableState: false))
         } else {
-            output?(.nextButtonState(enableState: true))
+            if accountType == .remitter {
+                if passportType == nil  || residentID?.isBlank ?? true || passportNumber?.isBlank ?? true {
+                    output?(.nextButtonState(enableState: false))
+                } else {
+                    output?(.nextButtonState(enableState: true))
+                }
+            } else {
+                output?(.nextButtonState(enableState: true))
+            }
         }
     }
 
@@ -287,14 +301,6 @@ extension RegistrationViewModel {
             isValid = false
             errorTopField = errorTopField ?? .rePassword
         }
-        
-        if passportNumber == nil || passportNumber?.isEmpty ?? true || passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
-            output?(.passportNumberTextField(errorState: false, error: nil))
-        } else {
-            output?(.passportNumberTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
-            isValid = false
-            errorTopField = errorTopField ?? .passportNumber
-        }
 
         if accountType != nil {
             output?(.accountTypeTextField(errorState: false, error: nil))
@@ -303,21 +309,31 @@ extension RegistrationViewModel {
             isValid = false
         }
         
-        if passportType != nil {
-            output?(.passportTypeTextField(errorState: false, error: nil))
-        } else {
-            output?(.accountTypeTextField(errorState: true, error: StringConstants.ErrorString.passortTypeError.localized))
-            output?(.showPassportNumberField(isVisible: false))
-            isValid = false
-        }
+        if accountType == .remitter {
+            if passportType != nil {
+                output?(.passportTypeTextField(errorState: false, error: nil))
+            } else {
+                output?(.accountTypeTextField(errorState: true, error: StringConstants.ErrorString.passortTypeError.localized))
+                output?(.showPassportNumberField(isVisible: false))
+                isValid = false
+            }
 
-        if residentID == nil || residentID?.isBlank == true || residentID?.count != 25 {
-            output?(.residentTextField(errorState: true, error: StringConstants.ErrorString.residentIdError))
-            isValid = false
-        } else {
-            output?(.residentTextField(errorState: false, error: nil))
+            if residentID == nil || residentID?.isBlank == true || residentID?.count != 25 {
+                output?(.residentTextField(errorState: true, error: StringConstants.ErrorString.residentIdError))
+                isValid = false
+            } else {
+                output?(.residentTextField(errorState: false, error: nil))
+            }
+            
+            if passportNumber == nil || passportNumber?.isEmpty ?? true || passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
+                output?(.passportNumberTextField(errorState: false, error: nil))
+            } else {
+                output?(.passportNumberTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
+                isValid = false
+                errorTopField = errorTopField ?? .passportNumber
+            }
         }
-        
+                
         return (isValid, errorTopField)
     }
 }

@@ -98,7 +98,6 @@ extension NetworkManager: Networking {
                 print("=====PARAMETERS=====")
                 print("\n \(AppUtility.getPrettyJson(data: params))")
                 
-                
             }
             
             let dataRequest = sessionManager.request(urlRequest)

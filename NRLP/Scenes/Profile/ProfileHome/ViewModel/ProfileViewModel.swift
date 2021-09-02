@@ -265,20 +265,20 @@ class ProfileViewModel: ProfileViewModelProtocol {
     
     func getResidentID() -> String? {
         var usrResidentID = residentID
-        usrResidentID = usrResidentID == user.residentID ? nil : usrResidentID
+        usrResidentID = usrResidentID == user.residentID ? "-" : usrResidentID
         return usrResidentID
     }
     
     func getPassportNumber() -> String? {
         var usrPassportNumber = passportNumber
-        usrPassportNumber = usrPassportNumber == user.passportNumber ? nil : usrPassportNumber
+        usrPassportNumber = usrPassportNumber == user.passportNumber ? "-" : usrPassportNumber
         return usrPassportNumber
     }
     
     func getPassportType() -> String? {
-        var usrPassportType = passportType?.rawValue
+        let usrPassportType = passportType?.rawValue
         if user.passportNumber == passportNumber {
-           return nil
+           return "a"
         }
         return usrPassportType
     }
@@ -352,27 +352,28 @@ extension ProfileViewModel {
             isValid = false
         }
         
-        if passportNumber != nil || !(passportNumber?.isEmpty ?? true) || passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
-            output?(.passportNumberTextField(errorState: false, error: nil))
-        } else {
-            output?(.passportNumberTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
-            isValid = false
+        if user.type?.lowercased() == AccountType.remitter.rawValue.lowercased() {
+            if passportNumber != nil || !(passportNumber?.isEmpty ?? true) || passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
+                output?(.passportNumberTextField(errorState: false, error: nil))
+            } else {
+                output?(.passportNumberTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
+                isValid = false
+            }
+            
+            if !(passportType?.rawValue.isEmpty ?? true) {
+                output?(.passportTypeTextField(errorState: false, error: nil))
+            } else {
+                output?(.passportTypeTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
+                isValid = false
+            }
+            
+            if residentID != nil || !(residentID?.isEmpty ?? true) {
+                output?(.residentIDTextField(errorState: false, error: nil))
+            } else {
+                output?(.residentIDTextField(errorState: true, error: StringConstants.ErrorString.residentIdError.localized))
+                isValid = false
+            }
         }
-        
-        if !(passportType?.rawValue.isEmpty ?? true) {
-            output?(.passportTypeTextField(errorState: false, error: nil))
-        } else {
-            output?(.passportTypeTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
-            isValid = false
-        }
-        
-        if residentID != nil || !(residentID?.isEmpty ?? true) {
-            output?(.residentIDTextField(errorState: false, error: nil))
-        } else {
-            output?(.residentIDTextField(errorState: true, error: StringConstants.ErrorString.residentIdError.localized))
-            isValid = false
-        }
-        
         return isValid
     }
 }

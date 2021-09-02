@@ -11,12 +11,12 @@ import UIKit
 
 class TermsAndConditionsModuleBuilder {
 
-    func build(with navigationController: UINavigationController?, model: RegisterRequestModel) -> UIViewController {
+    func build(with navigationController: UINavigationController?, model: RegisterRequestModel, isFromBeneficiary: Bool = false) -> UIViewController {
 
         let viewController = TermsAndConditionsViewController.getInstance()
 
         let coordinator = TermsAndConditionRouter(navigationController: navigationController)
-        let viewModel = TermsAndConditionViewModel(with: coordinator, model: model, termsAndConditionService: TermsAndConditionService(), registerUserService: RegisterUserService())
+        let viewModel = TermsAndConditionViewModel(with: coordinator, model: model, termsAndConditionService: TermsAndConditionService(), registerUserService: RegisterUserService(), isFromBeneficiary: isFromBeneficiary)
 
         viewController.viewModel = viewModel
 

@@ -18,7 +18,12 @@ struct RequestBuilder<Parameter: Encodable> {
     
      init(path: APIPathBuilder, parameters: Parameter, headers: [String: String]? = nil, shouldHash: Bool = true) {
         self.path = path
-        self.headers =  APIRequestHeader().getHeaders(path.encryptionStatus, initialValue: headers)
+        if let notNullHeaders = headers {
+            self.headers =  APIRequestHeader().getHeaders(path.encryptionStatus, initialValue: notNullHeaders)
+            
+        } else {
+            self.headers = APIRequestHeader().getHeaders(path.encryptionStatus, initialValue: APIRequestHeader().processRequestHeader())
+        }
         self.parameters = parameters
         self.hashedParamaters = shouldHash ? HashRequestWrapper(payload: parameters) : nil
     }
