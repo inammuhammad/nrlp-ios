@@ -318,7 +318,7 @@ extension RegistrationViewModel {
                 isValid = false
             }
 
-            if residentID == nil || residentID?.isBlank == true || residentID?.count != 25 {
+            if residentID == nil || residentID?.isBlank == true {
                 output?(.residentTextField(errorState: true, error: StringConstants.ErrorString.residentIdError))
                 isValid = false
             } else {

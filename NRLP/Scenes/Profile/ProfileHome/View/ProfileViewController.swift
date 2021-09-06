@@ -50,7 +50,7 @@ class ProfileViewController: BaseViewController {
             residentIDTextView.titleLabelText = "Resident ID".localized
             residentIDTextView.placeholderText = "Resident ID".localized
             residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
-            residentIDTextView.inputFieldMinLength = 25
+            residentIDTextView.inputFieldMinLength = 1
             residentIDTextView.inputFieldMaxLength = 25
             passportNumberTextView.isEditable = false
             residentIDTextView.onTextFieldChanged = { [weak self] updatedText in
