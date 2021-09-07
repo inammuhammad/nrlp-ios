@@ -117,9 +117,11 @@ class SelfAwardViewController: BaseViewController {
         if let amount = self.transactionAmount, let date = self.date, let referenceNo = self.referenceNumber {
             showActivityIndicator(show: true)
             let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
             let newDate = dateFormatter.date(from: date)
-            dateFormatter.dateFormat = "dd/MM/yyyy"
-            let newDateStr = dateFormatter.string(from: newDate ?? Date())
+            let dateFormatterOutput = DateFormatter()
+            dateFormatterOutput.dateFormat = "yyyyMMdd"
+            let newDateStr = dateFormatterOutput.string(from: newDate ?? Date())
             let service = SelfAwardOTPService()
             let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, transactionDate: newDateStr)
 
