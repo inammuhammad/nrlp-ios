@@ -164,10 +164,10 @@ class RegistrationViewController: BaseViewController {
     }
     @IBOutlet private weak var reEnterPasswordTextView: LabelledTextview! {
         didSet {
-            reEnterPasswordTextView.titleLabelText = "Re-Enter Password".localized
+            reEnterPasswordTextView.titleLabelText = "Re-Enter Password *".localized
             reEnterPasswordTextView.placeholderText = "Password@123".localized
             reEnterPasswordTextView.secureEntry = true
-            passwordTextView.isPasswordField = true
+            reEnterPasswordTextView.isPasswordField = true
             reEnterPasswordTextView.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.reEnterPaasswordError.localized)
             reEnterPasswordTextView.editTextKeyboardType = .asciiCapable
             reEnterPasswordTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -182,7 +182,7 @@ class RegistrationViewController: BaseViewController {
     }
     @IBOutlet private weak var accountTypeTextView: LabelledTextview! {
         didSet {
-            accountTypeTextView.titleLabelText = "User Type".localized
+            accountTypeTextView.titleLabelText = "User Type *".localized
             accountTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
             accountTypeTextView.placeholderText = "Select User Type".localized
             accountTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
