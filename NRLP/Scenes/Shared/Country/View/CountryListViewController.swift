@@ -26,6 +26,13 @@ class CountryListViewController: BaseViewController {
             progressBarView.completedPercentage = 0.25
         }
     }
+    @IBOutlet weak var searchBar: UISearchBar! {
+        didSet {
+            searchBar.placeholder = "Search Country"
+            searchBar.delegate = self
+        }
+    }
+    
     private func registerNib() {
         tableView.register(nibWithCellClass: CountryListTableViewCell.self)
     }
@@ -64,6 +71,9 @@ extension CountryListViewController {
     
     private func setupView() {
         self.title = "Select Country".localized
+        searchBar.barStyle = .default
+        searchBar.setTextFieldBackgroundColor(UIColor.green)
+        searchBar.setTextFieldFont(UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regularOnlyEnglish, size: .mediumFontSize))
     }
 }
 
@@ -81,6 +91,7 @@ extension CountryListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.searchBar.endEditing(true)
         onCountrySelection?(viewModel.getCountryName(at: indexPath.row))
         viewModel.didSelectedCountry()
     }
@@ -89,5 +100,19 @@ extension CountryListViewController: UITableViewDelegate, UITableViewDataSource 
 extension CountryListViewController: Initializable {
     static var storyboardName: UIStoryboard.Name {
         return UIStoryboard.Name.countryList
+    }
+}
+
+extension CountryListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.searchTextDidChange(text: searchText)
+        viewModel.isSearching = true
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.isSearching = false
+        self.searchBar.text = ""
+        tableView.reloadData()
     }
 }

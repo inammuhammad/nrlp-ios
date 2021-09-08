@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HPSimplified-regular.ttf">
+            <string>HPSimplified-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Self Award View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -18,14 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-m7-W4H" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                <rect key="frame" x="16" y="168" width="382" height="80"/>
+                                <rect key="frame" x="16" y="212.5" width="382" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="gIA-2a-2f4"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmw-47-OjC" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                <rect key="frame" x="16" y="272" width="382" height="80"/>
+                                <rect key="frame" x="16" y="316.5" width="382" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="BBQ-Qr-HVd"/>
@@ -39,24 +44,34 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wo6-Mt-Dbh" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                <rect key="frame" x="16" y="64" width="382" height="80"/>
+                                <rect key="frame" x="16" y="108.5" width="382" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="37N-9P-iPH"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction within 1 year is eligible for self awarding" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfY-uN-VDq">
+                                <rect key="frame" x="16" y="64" width="382" height="20"/>
+                                <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wo6-Mt-Dbh" firstAttribute="top" secondItem="pfY-uN-VDq" secondAttribute="bottom" constant="24.5" id="25t-bS-uct"/>
                             <constraint firstItem="KOU-m7-W4H" firstAttribute="top" secondItem="wo6-Mt-Dbh" secondAttribute="bottom" constant="24" id="2pD-mR-wOn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wo6-Mt-Dbh" secondAttribute="trailing" constant="16" id="358-Z8-jyl"/>
-                            <constraint firstItem="wo6-Mt-Dbh" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="DBD-xz-pEF"/>
                             <constraint firstItem="cmw-47-OjC" firstAttribute="top" secondItem="KOU-m7-W4H" secondAttribute="bottom" constant="24" id="L3m-eM-TVV"/>
+                            <constraint firstItem="pfY-uN-VDq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="OPB-V6-DoM"/>
+                            <constraint firstItem="pfY-uN-VDq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="RQH-Lq-cH7"/>
                             <constraint firstItem="KOU-m7-W4H" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="Rc6-A5-6Wh"/>
                             <constraint firstItem="wo6-Mt-Dbh" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="TcD-Dx-zw5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5iH-Vc-mM9" secondAttribute="bottom" constant="20" id="XQq-Vd-I8g"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pfY-uN-VDq" secondAttribute="trailing" constant="16" id="eO0-Th-nf8"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5iH-Vc-mM9" secondAttribute="trailing" constant="16" id="gIP-h0-mwJ"/>
+                            <constraint firstItem="pfY-uN-VDq" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="gln-4f-zpJ"/>
                             <constraint firstItem="cmw-47-OjC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="hbG-Mr-ixg"/>
                             <constraint firstItem="KOU-m7-W4H" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="jd5-Bd-3C9"/>
                             <constraint firstItem="5iH-Vc-mM9" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="jjT-Pe-rt6"/>
@@ -78,6 +93,9 @@
     <designables>
         <designable name="5iH-Vc-mM9">
             <size key="intrinsicContentSize" width="46" height="30"/>
+        </designable>
+        <designable name="pfY-uN-VDq">
+            <size key="intrinsicContentSize" width="366.5" height="20"/>
         </designable>
     </designables>
     <resources>

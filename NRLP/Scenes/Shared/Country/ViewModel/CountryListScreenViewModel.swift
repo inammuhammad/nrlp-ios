@@ -13,13 +13,16 @@ typealias CountryViewModelOutput = (CountryListViewModel.Output) -> Void
 protocol CountryListViewModelProtocol {
     var output: CountryViewModelOutput? { get set }
     var numberOfRows: Int { get }
-
+    var isSearching: Bool? { get set }
+    
+    func searchTextDidChange(text: String)
     func viewModelDidLoad()
     func getCountryName(at index: Int) -> Country
     func didSelectedCountry()
 }
 
 class CountryListViewModel: CountryListViewModelProtocol {
+    var isSearching: Bool?
 
     var output: CountryViewModelOutput?
     private var router: CountryListRouter!
@@ -27,6 +30,7 @@ class CountryListViewModel: CountryListViewModelProtocol {
     private var hideProgressBar: Bool!
 
     private var countries: [Country] = []
+    private var filteredCountries: [Country] = []
 
     init(with service: CountryService = CountryService(),
          router: CountryListRouter,
@@ -61,6 +65,10 @@ class CountryListViewModel: CountryListViewModelProtocol {
     func didSelectedCountry() {
         router.popToPreviousScreen()
     }
+    
+    func searchTextDidChange(text: String) {
+        filteredCountries = countries.filter { $0.country.starts(with: text) }
+    }
 
     enum Output {
         case showError(error: APIResponseError)
@@ -77,10 +85,16 @@ class CountryListViewModel: CountryListViewModelProtocol {
 // MARK: DataSource related methods
 extension CountryListViewModel {
     var numberOfRows: Int {
+        if isSearching ?? false {
+            return filteredCountries.count
+        }
         return countries.count
     }
 
     func getCountryName(at index: Int) -> Country {
+        if isSearching ?? false {
+            return filteredCountries[index]
+        }
         return countries[index]
     }
 }

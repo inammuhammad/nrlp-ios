@@ -573,6 +573,7 @@
 		E1EBF69B26DE834A000B1734 /* SelfAwardSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */; };
 		E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F232C026D9FC06000F8051 /* SelfAward.storyboard */; };
 		E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */; };
+		E1FC3EFE26E8B127009B76FB /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3EFD26E8B127009B76FB /* UISearchBar+Extension.swift */; };
 		E7547A5C24EFC18C002F35A9 /* BeneficiaryVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6E75E24B4AB5200577421 /* BeneficiaryVerificationRouter.swift */; };
 		E7547A5D24EFC2C9002F35A9 /* BeneficiaryVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6E76024B4B61500577421 /* BeneficiaryVerificationService.swift */; };
 		E7547A5E24EFC333002F35A9 /* LoginModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9A22924B308E700CAAA32 /* LoginModuleBuilder.swift */; };
@@ -1203,6 +1204,7 @@
 		E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardSuccessViewModel.swift; sourceTree = "<group>"; };
 		E1F232C026D9FC06000F8051 /* SelfAward.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelfAward.storyboard; sourceTree = "<group>"; };
 		E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewController.swift; sourceTree = "<group>"; };
+		E1FC3EFD26E8B127009B76FB /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
 		E7FB36B32500BC6400EE8FFA /* CountryServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceMock.swift; sourceTree = "<group>"; };
 		E7FB36B52500BCF500EE8FFA /* BeneficiaryVerificationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryVerificationServiceMock.swift; sourceTree = "<group>"; };
 		E7FB36BB2500C35C00EE8FFA /* TermsAndConditionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionServiceMock.swift; sourceTree = "<group>"; };
@@ -1656,6 +1658,7 @@
 				202EA1F425DA53FB0053B9C9 /* Date+Extensions.swift */,
 				203238F025E8C58D00F045E7 /* Data+Extension.swift */,
 				203238F525E8C62700F045E7 /* Collection+Extension.swift */,
+				E1FC3EFD26E8B127009B76FB /* UISearchBar+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -5060,6 +5063,7 @@
 				2030723024C9C9CC00C0DC67 /* FAQViewController.swift in Sources */,
 				2030722E24C9C9BD00C0DC67 /* FAQModuleBuilder.swift in Sources */,
 				2030722F24C9C9BD00C0DC67 /* FAQViewModel.swift in Sources */,
+				E1FC3EFE26E8B127009B76FB /* UISearchBar+Extension.swift in Sources */,
 				2046B92124D9B00500E2C4CB /* LogoutModel.swift in Sources */,
 				20FB373324C806900046C573 /* LoyaltyStatementSuccessRouter.swift in Sources */,
 				20FB373424C806900046C573 /* LoyaltyStatementSuccessViewModel.swift in Sources */,
@@ -5501,7 +5505,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 43;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -5876,7 +5880,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 43;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -5904,7 +5908,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 42;
+				CURRENT_PROJECT_VERSION = 43;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

@@ -47,7 +47,8 @@ class SelfAwardViewController: BaseViewController {
     @IBOutlet private weak var transactionAmountLabelTextView: LabelledTextview! {
         didSet {
             transactionAmountLabelTextView.editTextKeyboardType = .decimalPad
-            transactionAmountLabelTextView.titleLabelText = "Transaction Amount".localized
+            transactionAmountLabelTextView.titleLabel.numberOfLines = 0
+            transactionAmountLabelTextView.titleLabelText = "Transaction Amount \nEnter exact amount as per your transaction receipt".localized
             transactionAmountLabelTextView.placeholderText = "xx,xxx".localized
             transactionAmountLabelTextView.leadingText = "PKR "
             transactionAmountLabelTextView.inputFieldMaxLength = 13

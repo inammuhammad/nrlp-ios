@@ -17,7 +17,7 @@ typealias TextFieldFocusChangeCallBack = ((String?) -> Void)
 class LabelledTextview: CustomNibView {
     
     //IBOutlets
-    @IBOutlet private  weak var titleLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private  weak var inputTextField: UITextFieldPadding!
     @IBOutlet private  weak var errorIconImageView: UIImageView!
     @IBOutlet private weak var trailingImageView: UIImageView!
@@ -233,6 +233,14 @@ class LabelledTextview: CustomNibView {
         }
     }
     
+    var isPasswordField: Bool = false {
+        didSet {
+            if isPasswordField {
+                setupPasswordTextView()
+            }
+        }
+    }
+    
     var textViewDescription: String? = nil {
         didSet {
             setNormalState()
@@ -282,6 +290,29 @@ class LabelledTextview: CustomNibView {
     override func becomeFirstResponder() -> Bool {
         super.becomeFirstResponder()
         return inputTextField.becomeFirstResponder()
+    }
+    
+    @objc private func showPassword() {
+        secureEntry = !secureEntry
+        if secureEntry {
+            trailingIcon = #imageLiteral(resourceName: "showPassword")
+        } else {
+            trailingIcon = #imageLiteral(resourceName: "hidePassword")
+        }
+        trailingImageView.tintColor = UIColor.lightGray
+        trailingImageView.image = trailingImageView.image?.withRenderingMode(.alwaysTemplate)
+    }
+    
+    private func setupPasswordTextView() {
+        if secureEntry {
+            trailingIcon = #imageLiteral(resourceName: "showPassword")
+        } else {
+            trailingIcon = #imageLiteral(resourceName: "hidePassword")
+        }
+        trailingImageView.isUserInteractionEnabled = true
+        trailingImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showPassword)))
+        trailingImageView.tintColor = UIColor.lightGray
+        trailingImageView.image = trailingImageView.image?.withRenderingMode(.alwaysTemplate)
     }
     
     private func updateTextViewStyle() {

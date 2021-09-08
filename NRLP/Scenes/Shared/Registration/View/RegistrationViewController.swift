@@ -40,7 +40,7 @@ class RegistrationViewController: BaseViewController {
     }
     @IBOutlet private weak var fullNameTextView: LabelledTextview! {
         didSet {
-            fullNameTextView.titleLabelText = "Full Name".localized
+            fullNameTextView.titleLabelText = "Full Name *".localized
             fullNameTextView.placeholderText = "Muhammad Ali".localized
             fullNameTextView.autoCapitalizationType = .words
             fullNameTextView.inputFieldMaxLength = 50
@@ -54,7 +54,7 @@ class RegistrationViewController: BaseViewController {
     }
     @IBOutlet private weak var cnicTextView: LabelledTextview! {
         didSet {
-            cnicTextView.titleLabelText = "CNIC/NICOP".localized
+            cnicTextView.titleLabelText = "CNIC/NICOP *".localized
             cnicTextView.placeholderText = "xxxxx-xxxxxxx-x".localized
             cnicTextView.editTextKeyboardType = .asciiCapableNumberPad
             cnicTextView.inputFieldMinLength = 13
@@ -69,7 +69,7 @@ class RegistrationViewController: BaseViewController {
     }
     @IBOutlet private weak var residentIDTextView: LabelledTextview! {
         didSet {
-            residentIDTextView.titleLabelText = "Resident ID".localized
+            residentIDTextView.titleLabelText = "Resident ID *".localized
             residentIDTextView.placeholderText = "Resident ID".localized
             residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
             residentIDTextView.inputFieldMinLength = 1
@@ -83,7 +83,7 @@ class RegistrationViewController: BaseViewController {
     
     @IBOutlet weak var passportTypeTextView: LabelledTextview! {
         didSet {
-            passportTypeTextView.titleLabelText = "Passport Type".localized
+            passportTypeTextView.titleLabelText = "Passport Type *".localized
             passportTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
             passportTypeTextView.placeholderText = "Select Passport Type".localized
             passportTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
@@ -93,7 +93,7 @@ class RegistrationViewController: BaseViewController {
     
     @IBOutlet weak var passportNumberTextView: LabelledTextview! {
         didSet {
-            passportNumberTextView.titleLabelText = "Enter Passport Number".localized
+            passportNumberTextView.titleLabelText = "Enter Passport Number *".localized
             passportNumberTextView.placeholderText = "Passport Number".localized
 //            passportNumberTextView.textViewDescription = StringConstants.ErrorString.passportNumberError.localized
             passportNumberTextView.inputFieldMinLength = 3
@@ -110,7 +110,7 @@ class RegistrationViewController: BaseViewController {
     
     @IBOutlet private weak var countryTextView: LabelledTextview! {
         didSet {
-            countryTextView.titleLabelText = "Country of Residence".localized
+            countryTextView.titleLabelText = "Country of Residence *".localized
             countryTextView.placeholderText = "Select Country".localized
             countryTextView.isEditable = false
             countryTextView.isTappable = true
@@ -124,7 +124,7 @@ class RegistrationViewController: BaseViewController {
     }
     @IBOutlet private weak var mobileNumberTextView: LabelledTextview! {
         didSet {
-            mobileNumberTextView.titleLabelText = "Mobile Number".localized
+            mobileNumberTextView.titleLabelText = "Mobile Number *".localized
             mobileNumberTextView.placeholderText = "+xx xxx xxx xxxx".localized
             mobileNumberTextView.editTextKeyboardType = .asciiCapableNumberPad
             mobileNumberTextView.isEditable = false
@@ -149,9 +149,10 @@ class RegistrationViewController: BaseViewController {
     }
     @IBOutlet private weak var passwordTextView: LabelledTextview! {
         didSet {
-            passwordTextView.titleLabelText = "Password".localized
+            passwordTextView.titleLabelText = "Password *".localized
             passwordTextView.placeholderText = "Password@123".localized
             passwordTextView.secureEntry = true
+            passwordTextView.isPasswordField = true
             passwordTextView.textViewDescription = StringConstants.ErrorString.createPaasswordError.localized
             passwordTextView.editTextKeyboardType = .asciiCapable
             passwordTextView.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.createPaasswordError.localized)
@@ -166,6 +167,7 @@ class RegistrationViewController: BaseViewController {
             reEnterPasswordTextView.titleLabelText = "Re-Enter Password".localized
             reEnterPasswordTextView.placeholderText = "Password@123".localized
             reEnterPasswordTextView.secureEntry = true
+            passwordTextView.isPasswordField = true
             reEnterPasswordTextView.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.reEnterPaasswordError.localized)
             reEnterPasswordTextView.editTextKeyboardType = .asciiCapable
             reEnterPasswordTextView.onTextFieldChanged = { [weak self] updatedText in

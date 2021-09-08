@@ -47,9 +47,10 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordLabelTextView: LabelledTextview! {
         didSet {
             passwordLabelTextView.editTextKeyboardType = .asciiCapable
+            passwordLabelTextView.isPasswordField = true
             passwordLabelTextView.titleLabelText = "Password".localized
             passwordLabelTextView.placeholderText = "Password@123".localized
-            passwordLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.loginPaasswordRegex, invalidFormatError: StringConstants.ErrorString.paasswordError.localized)
+            passwordLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.paasswordError.localized)
         }
     }
     @IBOutlet weak var loginButton: PrimaryCTAButton! {
