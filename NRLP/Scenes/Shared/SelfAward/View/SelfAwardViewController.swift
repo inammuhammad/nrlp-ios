@@ -114,7 +114,7 @@ class SelfAwardViewController: BaseViewController {
     private func showInitialAlert() {
         let alert: AlertViewModel
         let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .remitterInfo, alertTitle: "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.", alertDescription: "For further assistance, you may contact +92-21-111-116757", alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.", alertDescription: "For further assistance, you may contact +92-21-111-116757", alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         self.showAlert(with: alert)
     }
     
