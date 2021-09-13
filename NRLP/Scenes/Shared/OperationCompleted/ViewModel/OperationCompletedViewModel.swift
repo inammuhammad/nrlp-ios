@@ -18,10 +18,11 @@ enum OperationCompletedType {
     case loyaltyRedeemCompleted
     case profileUpdateCompleted
     case selfAwardCompleted(message: String)
+    case redemptionSuccessful(message: String)
 
     func getIllustrationName() -> String {
         switch self {
-        case .registrationCompleted, .transferCompleted, .loyaltyRedeemCompleted, .forgetPassword, .changePassword, .profileUpdateCompleted, .loyaltyStatement, .selfAwardCompleted:
+        case .registrationCompleted, .transferCompleted, .loyaltyRedeemCompleted, .forgetPassword, .changePassword, .profileUpdateCompleted, .loyaltyStatement, .selfAwardCompleted, .redemptionSuccessful:
             return "successIcon"
         }
     }
@@ -44,6 +45,8 @@ enum OperationCompletedType {
             return "Redeemed Successfully".localized
         case .selfAwardCompleted:
             return "Points Awarded".localized
+        case .redemptionSuccessful:
+            return "Redemption Successful"
         }
     }
 
@@ -71,6 +74,8 @@ enum OperationCompletedType {
             result = "You have successfully updated your profile.".localized
         case .selfAwardCompleted(message: let message):
             result = message
+        case .redemptionSuccessful(message: let message):
+            result = message
         default:
             result = ""
         }
@@ -85,7 +90,7 @@ enum OperationCompletedType {
         switch self {
         case .forgetPassword:
             return "Go to Login".localized
-        case .transferCompleted, .registrationCompleted, .changePassword, .loyaltyRedeemCompleted, .profileUpdateCompleted, .loyaltyStatement, .selfAwardCompleted:
+        case .transferCompleted, .registrationCompleted, .changePassword, .loyaltyRedeemCompleted, .profileUpdateCompleted, .loyaltyStatement, .selfAwardCompleted, .redemptionSuccessful:
             return "Done".localized
         }
     }

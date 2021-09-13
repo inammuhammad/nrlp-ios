@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HPSimplified-bold.ttf">
+            <string>HPSimplified-Bold</string>
+        </array>
+        <array key="HPSimplified-regular.ttf">
+            <string>HPSimplified-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--RedemptionFBR View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RedemptionFBRViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="RedemptionFBRViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYl-9L-AAO" customClass="LoyaltyCardView" customModule="NRLP" customModuleProvider="target">
+                                <rect key="frame" x="20" y="77" width="374" height="107.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107.5" placeholder="YES" id="PNE-3B-N95"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Federal Bureau of Revenue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyS-Ru-g0S">
+                                <rect key="frame" x="103.5" y="204.5" width="207" height="56"/>
+                                <fontDescription key="fontDescription" name="HPSimplified-Bold" family="HP Simplified" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvS-oK-qGz">
+                                <rect key="frame" x="20" y="403.5" width="374" height="99"/>
+                                <string key="text">To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.
+
+If you already have a PSID please continue.</string>
+                                <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="amk-y9-jRq">
+                                <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPs-HL-WwA" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="awk-Iv-6Ht"/>
+                                        </constraints>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="r4Q-VU-fbl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rt-5j-3kP" customClass="SecondaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="204" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="eE2-an-LEw"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bVO-GR-p2r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5rt-5j-3kP" firstAttribute="width" secondItem="hPs-HL-WwA" secondAttribute="width" id="Zb8-eQ-EJy"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zvS-oK-qGz" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="1TR-0B-xQm"/>
+                            <constraint firstItem="amk-y9-jRq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="9cb-eL-Kcv"/>
+                            <constraint firstItem="lyS-Ru-g0S" firstAttribute="top" secondItem="YYl-9L-AAO" secondAttribute="bottom" constant="20" id="Hpx-vC-t42"/>
+                            <constraint firstItem="lyS-Ru-g0S" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.5" id="JCd-AY-IHc"/>
+                            <constraint firstItem="zvS-oK-qGz" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="KTg-tP-IRG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zvS-oK-qGz" secondAttribute="trailing" constant="20" id="QIj-ZO-eNu"/>
+                            <constraint firstItem="zvS-oK-qGz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="UoR-DY-HwC"/>
+                            <constraint firstItem="YYl-9L-AAO" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="20" id="WsN-X6-BuM"/>
+                            <constraint firstItem="lyS-Ru-g0S" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Zzq-zp-vtX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YYl-9L-AAO" secondAttribute="trailing" constant="20" id="ccB-lR-Ta5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="amk-y9-jRq" secondAttribute="bottom" constant="40" id="ce1-lP-JQs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="amk-y9-jRq" secondAttribute="trailing" constant="20" id="foJ-Ds-JZz"/>
+                            <constraint firstItem="YYl-9L-AAO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="33" id="oVF-Ms-UDO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="5rt-5j-3kP" id="o8T-pY-hkV"/>
+                        <outlet property="descLbl" destination="zvS-oK-qGz" id="3hK-H2-939"/>
+                        <outlet property="nextBtn" destination="hPs-HL-WwA" id="cb4-sO-q6v"/>
+                        <outlet property="pointsView" destination="YYl-9L-AAO" id="uBP-eF-4U6"/>
+                        <outlet property="titleLbl" destination="lyS-Ru-g0S" id="erw-eY-XMj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="105.80357142857143"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="5rt-5j-3kP">
+            <size key="intrinsicContentSize" width="48" height="30"/>
+        </designable>
+        <designable name="hPs-HL-WwA">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -61,6 +61,10 @@ class RedeemViewModel: RedeemViewModelProtocol {
 
     func didSelectOption(index: Int) {
         let partner = self.partners[index]
+        
+        // NAVIGATE TO FBR TRIGGER
+        
+//        router.navigateToFBR(user: user)
         router.navigateToCategory(partner: partner, user: user)
     }
 

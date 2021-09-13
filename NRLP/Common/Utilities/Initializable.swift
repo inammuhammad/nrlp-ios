@@ -65,5 +65,7 @@ extension UIStoryboard {
         case profileOTP = "ProfileOTP"
         case selfAward = "SelfAward"
         case selfAwardOTP = "SelfAwardOTP"
+        case redemptionFBR = "RedemptionFBR"
+        case redemptionPSID = "RedemptionPSID"
     }
 }

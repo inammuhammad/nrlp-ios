@@ -574,6 +574,16 @@
 		E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F232C026D9FC06000F8051 /* SelfAward.storyboard */; };
 		E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */; };
 		E1FC3EFE26E8B127009B76FB /* UISearchBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3EFD26E8B127009B76FB /* UISearchBar+Extension.swift */; };
+		E1FC3F0326EA1B1A009B76FB /* RedemptionFBR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1FC3F0226EA1B1A009B76FB /* RedemptionFBR.storyboard */; };
+		E1FC3F0526EA1B33009B76FB /* RedemptionFBRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F0426EA1B33009B76FB /* RedemptionFBRViewController.swift */; };
+		E1FC3F0826EA202D009B76FB /* RedemptionFBRBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F0726EA202D009B76FB /* RedemptionFBRBuilder.swift */; };
+		E1FC3F0B26EA20C2009B76FB /* RedemptionFBRRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F0A26EA20C2009B76FB /* RedemptionFBRRouter.swift */; };
+		E1FC3F0E26EA219B009B76FB /* RedemptionFBRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F0D26EA219B009B76FB /* RedemptionFBRViewModel.swift */; };
+		E1FC3F1626EA3C8B009B76FB /* RedemptionPSID.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1FC3F1526EA3C8B009B76FB /* RedemptionPSID.storyboard */; };
+		E1FC3F1826EA3CB5009B76FB /* RedemptionPSIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F1726EA3CB5009B76FB /* RedemptionPSIDViewController.swift */; };
+		E1FC3F1A26EA3CF2009B76FB /* RedemptionPSIDRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F1926EA3CF2009B76FB /* RedemptionPSIDRouter.swift */; };
+		E1FC3F1C26EA49CA009B76FB /* RedemptionPSIDBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F1B26EA49CA009B76FB /* RedemptionPSIDBuilder.swift */; };
+		E1FC3F1E26EA4A49009B76FB /* RedemptionPSIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F1D26EA4A49009B76FB /* RedemptionPSIDViewModel.swift */; };
 		E7547A5C24EFC18C002F35A9 /* BeneficiaryVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6E75E24B4AB5200577421 /* BeneficiaryVerificationRouter.swift */; };
 		E7547A5D24EFC2C9002F35A9 /* BeneficiaryVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6E76024B4B61500577421 /* BeneficiaryVerificationService.swift */; };
 		E7547A5E24EFC333002F35A9 /* LoginModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9A22924B308E700CAAA32 /* LoginModuleBuilder.swift */; };
@@ -1205,6 +1215,16 @@
 		E1F232C026D9FC06000F8051 /* SelfAward.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelfAward.storyboard; sourceTree = "<group>"; };
 		E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewController.swift; sourceTree = "<group>"; };
 		E1FC3EFD26E8B127009B76FB /* UISearchBar+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+Extension.swift"; sourceTree = "<group>"; };
+		E1FC3F0226EA1B1A009B76FB /* RedemptionFBR.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionFBR.storyboard; sourceTree = "<group>"; };
+		E1FC3F0426EA1B33009B76FB /* RedemptionFBRViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionFBRViewController.swift; sourceTree = "<group>"; };
+		E1FC3F0726EA202D009B76FB /* RedemptionFBRBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionFBRBuilder.swift; sourceTree = "<group>"; };
+		E1FC3F0A26EA20C2009B76FB /* RedemptionFBRRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionFBRRouter.swift; sourceTree = "<group>"; };
+		E1FC3F0D26EA219B009B76FB /* RedemptionFBRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionFBRViewModel.swift; sourceTree = "<group>"; };
+		E1FC3F1526EA3C8B009B76FB /* RedemptionPSID.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionPSID.storyboard; sourceTree = "<group>"; };
+		E1FC3F1726EA3CB5009B76FB /* RedemptionPSIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPSIDViewController.swift; sourceTree = "<group>"; };
+		E1FC3F1926EA3CF2009B76FB /* RedemptionPSIDRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPSIDRouter.swift; sourceTree = "<group>"; };
+		E1FC3F1B26EA49CA009B76FB /* RedemptionPSIDBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPSIDBuilder.swift; sourceTree = "<group>"; };
+		E1FC3F1D26EA4A49009B76FB /* RedemptionPSIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPSIDViewModel.swift; sourceTree = "<group>"; };
 		E7FB36B32500BC6400EE8FFA /* CountryServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceMock.swift; sourceTree = "<group>"; };
 		E7FB36B52500BCF500EE8FFA /* BeneficiaryVerificationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryVerificationServiceMock.swift; sourceTree = "<group>"; };
 		E7FB36BB2500C35C00EE8FFA /* TermsAndConditionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionServiceMock.swift; sourceTree = "<group>"; };
@@ -4138,6 +4158,8 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E1FC3F0F26EA3727009B76FB /* PSID */,
+				E1FC3EFF26EA1AE4009B76FB /* FBR */,
 				E1EBF69926DE8339000B1734 /* SelfAwardSuccess */,
 				E17F1D5926DAB3A4001D15D9 /* SelfAwardOTP */,
 				E1F232BE26D9FBEF000F8051 /* SelfAward */,
@@ -4477,7 +4499,7 @@
 		E1EBF69926DE8339000B1734 /* SelfAwardSuccess */ = {
 			isa = PBXGroup;
 			children = (
-				E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */,
+				E1FC3F0026EA1AFB009B76FB /* ViewModel */,
 			);
 			path = SelfAwardSuccess;
 			sourceTree = "<group>";
@@ -4497,6 +4519,102 @@
 				E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E1FC3EFF26EA1AE4009B76FB /* FBR */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F0C26EA2165009B76FB /* ViewModel */,
+				E1FC3F0926EA209F009B76FB /* Router */,
+				E1FC3F0626EA2015009B76FB /* Builder */,
+				E1FC3F0126EA1B0C009B76FB /* View */,
+			);
+			path = FBR;
+			sourceTree = "<group>";
+		};
+		E1FC3F0026EA1AFB009B76FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1FC3F0126EA1B0C009B76FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F0226EA1B1A009B76FB /* RedemptionFBR.storyboard */,
+				E1FC3F0426EA1B33009B76FB /* RedemptionFBRViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1FC3F0626EA2015009B76FB /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F0726EA202D009B76FB /* RedemptionFBRBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1FC3F0926EA209F009B76FB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F0A26EA20C2009B76FB /* RedemptionFBRRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1FC3F0C26EA2165009B76FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F0D26EA219B009B76FB /* RedemptionFBRViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1FC3F0F26EA3727009B76FB /* PSID */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F1326EA373D009B76FB /* Builder */,
+				E1FC3F1226EA373A009B76FB /* Router */,
+				E1FC3F1126EA3735009B76FB /* ViewModel */,
+				E1FC3F1026EA372F009B76FB /* View */,
+			);
+			path = PSID;
+			sourceTree = "<group>";
+		};
+		E1FC3F1026EA372F009B76FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F1526EA3C8B009B76FB /* RedemptionPSID.storyboard */,
+				E1FC3F1726EA3CB5009B76FB /* RedemptionPSIDViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1FC3F1126EA3735009B76FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F1D26EA4A49009B76FB /* RedemptionPSIDViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1FC3F1226EA373A009B76FB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F1926EA3CF2009B76FB /* RedemptionPSIDRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1FC3F1326EA373D009B76FB /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F1B26EA49CA009B76FB /* RedemptionPSIDBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -4651,6 +4769,7 @@
 				2030724D24C9F58200C0DC67 /* angle-mask@2x.png in Resources */,
 				2030724B24C9F58200C0DC67 /* error@3x.png in Resources */,
 				207D5E6924BC60DF00222594 /* HPSimplified-regular.ttf in Resources */,
+				E1FC3F1626EA3C8B009B76FB /* RedemptionPSID.storyboard in Resources */,
 				9F75D43F24E5445C0082364E /* Benefits.storyboard in Resources */,
 				9F8D826C24C86AB500BB1C26 /* ForgotPasswordNewPass.storyboard in Resources */,
 				9FDA3AAC24E0A15300B2AB67 /* Language.storyboard in Resources */,
@@ -4673,6 +4792,7 @@
 				9F653AD824CB0CD300810DBD /* RedeemOTP.storyboard in Resources */,
 				9F75D46524E5F6140082364E /* BenefitsCategories.storyboard in Resources */,
 				20782D6124B4732700422AEB /* RadioButtonItemView.xib in Resources */,
+				E1FC3F0326EA1B1A009B76FB /* RedemptionFBR.storyboard in Resources */,
 				BC7E7E9624C055540026F341 /* GenerateStatement.storyboard in Resources */,
 				9FE9D91624DD623E00FFE3AC /* ContactUsListTableViewCell.xib in Resources */,
 				2046B92524DAB6C700E2C4CB /* Localizable.strings in Resources */,
@@ -5063,6 +5183,7 @@
 				2030723024C9C9CC00C0DC67 /* FAQViewController.swift in Sources */,
 				2030722E24C9C9BD00C0DC67 /* FAQModuleBuilder.swift in Sources */,
 				2030722F24C9C9BD00C0DC67 /* FAQViewModel.swift in Sources */,
+				E1FC3F1A26EA3CF2009B76FB /* RedemptionPSIDRouter.swift in Sources */,
 				E1FC3EFE26E8B127009B76FB /* UISearchBar+Extension.swift in Sources */,
 				2046B92124D9B00500E2C4CB /* LogoutModel.swift in Sources */,
 				20FB373324C806900046C573 /* LoyaltyStatementSuccessRouter.swift in Sources */,
@@ -5075,6 +5196,7 @@
 				9FF6F0D124BDC47700E375A2 /* TransferSuccessBuilder.swift in Sources */,
 				9FF2C85F24D2B7A800527CD3 /* Category.swift in Sources */,
 				207C3DD024B5D9FA00298C0C /* CheckBox.swift in Sources */,
+				E1FC3F0826EA202D009B76FB /* RedemptionFBRBuilder.swift in Sources */,
 				9F75D45F24E5F5EC0082364E /* BenefitsCategoriesRouter.swift in Sources */,
 				208EF7F024E144C600E43B0B /* ChangePasswordViewController.swift in Sources */,
 				20E56FBE24B4AE0E00BF3B15 /* PrimaryCTAButton.swift in Sources */,
@@ -5089,8 +5211,10 @@
 				9F8D823E24C83FB400BB1C26 /* ChangePasswordSuccessViewModel.swift in Sources */,
 				20D8402B24B4734B00F5D749 /* VerifyReferenceNumberModel.swift in Sources */,
 				2095D2F324E6991B001C5A48 /* LoyaltyCardViewModel.swift in Sources */,
+				E1FC3F1E26EA4A49009B76FB /* RedemptionPSIDViewModel.swift in Sources */,
 				207C3D8224B58B9900298C0C /* CountryService.swift in Sources */,
 				2018CB1924B6CE5700FABCF9 /* UIView+Extensions.swift in Sources */,
+				E1FC3F0E26EA219B009B76FB /* RedemptionFBRViewModel.swift in Sources */,
 				2074D5F424CFEDA100006731 /* SideMenuTableHeaderViewModel.swift in Sources */,
 				2030721B24C87FDA00C0DC67 /* FaqService.swift in Sources */,
 				9F8AE2B524DAD6EE00F1E468 /* ProfileSuccessViewModel.swift in Sources */,
@@ -5102,6 +5226,7 @@
 				2030725824C9F58200C0DC67 /* NRPLProgressHUD.swift in Sources */,
 				20782D6624B47A6200422AEB /* RadioButtonItemModel.swift in Sources */,
 				9F653AC324CB0CD300810DBD /* RedeemListTableViewCell.swift in Sources */,
+				E1FC3F1C26EA49CA009B76FB /* RedemptionPSIDBuilder.swift in Sources */,
 				9F653AD024CB0CD300810DBD /* RedeemConfirmViewModel.swift in Sources */,
 				207C3E3624B8510A00298C0C /* FormatterProtocol.swift in Sources */,
 				207C3D9424B5AE6C00298C0C /* CountryListScreenRouter.swift in Sources */,
@@ -5111,6 +5236,7 @@
 				207C3DAD24B5BD3200298C0C /* OTPViewController.swift in Sources */,
 				20A23B9E24E689EE00470CA3 /* ImageDownloaderService.swift in Sources */,
 				20E56FC424B4B6BA00BF3B15 /* RegistrationScreenViewModel.swift in Sources */,
+				E1FC3F0B26EA20C2009B76FB /* RedemptionFBRRouter.swift in Sources */,
 				202EA1EB25DA30DB0053B9C9 /* IPAddressManager.swift in Sources */,
 				207C3E0224B73B1C00298C0C /* BeneficiaryHomeViewModel.swift in Sources */,
 				9F8565E124C029BD001B68CE /* LoyaltyStatementModel.swift in Sources */,
@@ -5131,6 +5257,7 @@
 				9F6D737224B5F06D00B45F0F /* BeneficiaryInfoBuilder.swift in Sources */,
 				200F1A1D24BEC855001411D9 /* AppContainerViewController.swift in Sources */,
 				2068912425D4F0E30076A437 /* AppKeyService.swift in Sources */,
+				E1FC3F0526EA1B33009B76FB /* RedemptionFBRViewController.swift in Sources */,
 				9F8AE2AF24DAD6EE00F1E468 /* ProfileOTPRouter.swift in Sources */,
 				A1B9A22624B3086A00CAAA32 /* LoginViewController.swift in Sources */,
 				E17F1D5E26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift in Sources */,
@@ -5209,6 +5336,7 @@
 				207C3DFA24B726F700298C0C /* HomeViewModel.swift in Sources */,
 				9FF6F0CD24BDC45000E375A2 /* TransferSuccessViewModel.swift in Sources */,
 				E1EBF69B26DE834A000B1734 /* SelfAwardSuccessViewModel.swift in Sources */,
+				E1FC3F1826EA3CB5009B76FB /* RedemptionPSIDViewController.swift in Sources */,
 				9F8AE2AE24DAD6EE00F1E468 /* ProfileOTPModuleBuilder.swift in Sources */,
 				20D8402D24B4734B00F5D749 /* UserModel.swift in Sources */,
 				E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */,
