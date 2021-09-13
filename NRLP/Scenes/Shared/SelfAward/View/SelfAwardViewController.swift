@@ -33,6 +33,8 @@ class SelfAwardViewController: BaseViewController {
         didSet {
             referenceNumberLabelTextView.titleLabelText = "Reference Number".localized
             referenceNumberLabelTextView.placeholderText = "xxxxxxxxxxxxxx"
+            referenceNumberLabelTextView.showHelpBtn = true
+            referenceNumberLabelTextView.helpLabelText = "Transaction within 1 year is eligible for self awarding".localized
             referenceNumberLabelTextView.inputFieldMaxLength = 25
             referenceNumberLabelTextView.editTextKeyboardType = .asciiCapable
             referenceNumberLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.referenceNumberRegex, invalidFormatError: StringConstants.ErrorString.referenceNumberError.localized)
@@ -40,6 +42,10 @@ class SelfAwardViewController: BaseViewController {
                 guard let self = self else { return }
                 self.referenceNumber = updatedText
                 self.validateFields()
+            }
+            referenceNumberLabelTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
             }
         }
     }
@@ -51,6 +57,8 @@ class SelfAwardViewController: BaseViewController {
             transactionAmountLabelTextView.titleLabelText = "Transaction Amount \nEnter exact amount as per your transaction receipt".localized
             transactionAmountLabelTextView.placeholderText = "xx,xxx".localized
             transactionAmountLabelTextView.leadingText = "PKR "
+            transactionAmountLabelTextView.showHelpBtn = true
+            transactionAmountLabelTextView.helpLabelText = "Enter exact amount as per you transaction receipt".localized
             transactionAmountLabelTextView.inputFieldMaxLength = 13
             transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
             transactionAmountLabelTextView.formatter = CurrencyFormatter()
@@ -58,6 +66,10 @@ class SelfAwardViewController: BaseViewController {
                 guard let self = self else { return }
                 self.transactionAmount = updatedText
                 self.validateFields()
+            }
+            transactionAmountLabelTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
             }
         }
     }
@@ -67,6 +79,8 @@ class SelfAwardViewController: BaseViewController {
             remittanceDateTextView.titleLabelText = "Date of Remittance".localized
             remittanceDateTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
             remittanceDateTextView.placeholderText = "YYYY-MM-DD".localized
+            remittanceDateTextView.showHelpBtn = true
+            remittanceDateTextView.helpLabelText = "Enter date on which transaction is made".localized
             remittanceDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             let datePicker = UIDatePicker()
             datePicker.datePickerMode = .date
@@ -78,6 +92,10 @@ class SelfAwardViewController: BaseViewController {
             datePicker.maximumDate = Date()
             datePicker.addTarget(self, action: #selector(dateSelected(_:)), for: .valueChanged)
             remittanceDateTextView.inputTextFieldInputPickerView = datePicker
+            remittanceDateTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     
@@ -85,11 +103,19 @@ class SelfAwardViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        showInitialAlert()
         setupUI()
     }
     
     private func setupUI() {
         self.title = "Self Award Points".localized
+    }
+    
+    private func showInitialAlert() {
+        let alert: AlertViewModel
+        let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
+        alert = AlertViewModel(alertHeadingImage: .remitterInfo, alertTitle: "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.", alertDescription: "For further assistance, you may contact +92-21-111-116757", alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        self.showAlert(with: alert)
     }
     
     private func validateFields() {
