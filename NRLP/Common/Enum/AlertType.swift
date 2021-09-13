@@ -19,4 +19,5 @@ enum AlertIllustrationType: String {
     case noInternet = "noInternetDialog"
     case languageChange = "languageAlertIcon"
     case comingSoon = "comingsoonAlertIcon"
+    case remitterInfo = "remitterInfoIcon"
 }

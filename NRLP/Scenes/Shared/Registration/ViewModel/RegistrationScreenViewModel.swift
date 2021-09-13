@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 typealias RegistrationViewModelOutput = (RegistrationViewModel.Output) -> Void
 
@@ -135,7 +136,8 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
             }
             return
         }
-        let residentIDValue = residentID == "" ? nil : residentID
+        
+        let residentIDValue = (residentID?.isEmpty ?? false) ? nil : residentID
         let registerModel = RegisterRequestModel(accountType: accountType!.rawValue, cnicNicop: cnic!, email: email ?? "", fullName: name!, mobileNo: (country?.code ?? "") + (mobileNumber ?? ""), paassword: paassword!, passportType: passportType?.rawValue ?? "", passportNumber: passportNumber ?? "", registrationCode: nil, transactionAmount: residentIDValue, transactionRefNo: "", residentID: residentIDValue)
         switch accountType {
         case .beneficiary:
@@ -168,6 +170,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         self.accountType = accountType?.accountType
         if accountType?.accountType == AccountType.remitter {
             output?(.showNewFields(isRemitter: true))
+            output?(.showRemitterPopup(viewModel: getAlert()))
         } else {
             output?(.showNewFields(isRemitter: false))
         }
@@ -208,8 +211,9 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         case updateProgressBar(toProgress: Float)
         case focusField(type: RegistrationFormInputFieldType)
         case showNewFields(isRemitter: Bool)
+        case showRemitterPopup(viewModel: AlertViewModel)
     }
-
+    
     deinit {
         print("I am getting deinit \(String(describing: self))")
     }
@@ -217,7 +221,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
 
 extension RegistrationViewModel {
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true  || accountType == nil  {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true  || accountType == nil {
             output?(.nextButtonState(enableState: false))
         } else {
             if accountType == .remitter {
@@ -335,5 +339,26 @@ extension RegistrationViewModel {
         }
                 
         return (isValid, errorTopField)
+    }
+    
+    private func getRemitterAlertDescription() -> NSAttributedString {
+
+        let regularAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .smallFontSize)]
+
+        let attributePart1 = NSMutableAttributedString(string: "For further assistance, you may contact +92-21-111-116757".localized, attributes: regularAttributes)
+        
+        let alertDesctiption = NSMutableAttributedString()
+        alertDesctiption.append(attributePart1)
+        
+        return alertDesctiption
+    }
+    
+    private func getAlert() -> AlertViewModel {
+        let alert: AlertViewModel
+
+        let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
+
+        alert = AlertViewModel(alertHeadingImage: .remitterInfo, alertTitle: "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\nthe National Remittance\nLoyalty Program.".localized, alertDescription: nil, alertAttributedDescription: getRemitterAlertDescription(), primaryButton: okButton)
+        return alert
     }
 }
