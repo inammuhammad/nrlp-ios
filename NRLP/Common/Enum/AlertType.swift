@@ -20,5 +20,6 @@ enum AlertIllustrationType: String {
     case languageChange = "languageAlertIcon"
     case comingSoon = "comingsoonAlertIcon"
     case remitterInfo = "remitterInfoIcon"
+    case selfAward = "selfAwardPoints"
     case noImage = ""
 }
