@@ -15,6 +15,11 @@ struct LoyaltyPointsTableCellViewModel {
         return  statement.name ?? statement.status ?? ""
     }
     
+    var transactionIDTitle: String {
+        return  statement.transaction_id ?? ""
+    }
+
+    
     var formattedPoints: String {
         let statementPoints = statement.points.double
         let formater = PointsFormatter()

@@ -15,6 +15,7 @@ struct Statement: Codable {
     let points: String
     let date: String
     let name: String?
+    let transaction_id: String?
 
     lazy var formattedCreatedDate: String = {
         return DateFormat().formatDateString(dateString: date) ?? ""

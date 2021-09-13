@@ -21,6 +21,12 @@ class LoyaltyPointsTableViewCell: UITableViewCell {
             dateLabel.textColor = .black
         }
     }
+    @IBOutlet private weak var transactionIDLabel: UILabel! {
+        didSet {
+            transactionIDLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.lightOnlyEnglish, size: 11)
+            transactionIDLabel.textColor = .black
+        }
+    }
     @IBOutlet private weak var amountLabel: UILabel! {
         didSet {
             amountLabel.textColor = .black
@@ -66,6 +72,7 @@ class LoyaltyPointsTableViewCell: UITableViewCell {
         self.viewModel = cellViewModel
         remittanceInfoLabel.text = viewModel.infoTitle  //statement.status
         dateLabel.text = viewModel.getCreatedData()
+        transactionIDLabel.text = viewModel.transactionIDTitle
         setAs(earned: viewModel.isEarned, amount: viewModel.formattedPoints)
         
         self.layoutMargins = UIEdgeInsets.zero
