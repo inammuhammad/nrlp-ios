@@ -47,8 +47,8 @@ class ProfileViewController: BaseViewController {
     
     @IBOutlet private weak var residentIDTextView: LabelledTextview! {
         didSet {
-            residentIDTextView.titleLabelText = "Resident ID".localized
-            residentIDTextView.placeholderText = "Resident ID".localized
+            residentIDTextView.titleLabelText = "Unique ID".localized
+            residentIDTextView.placeholderText = "Unique ID".localized
             residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
             residentIDTextView.inputFieldMinLength = 1
             residentIDTextView.inputFieldMaxLength = 25
