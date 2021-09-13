@@ -60,7 +60,7 @@ class AddBeneficiaryViewController: BaseViewController {
     }
     @IBOutlet private weak var mobileTextField: LabelledTextview! {
         didSet {
-            mobileTextField.titleLabelText = "Mobile Number".localized
+            mobileTextField.titleLabelText = "Beneficiary Mobile Number".localized
             mobileTextField.placeholderText = "+xx xxx xxx xxxx".localized
             mobileTextField.editTextKeyboardType = .asciiCapableNumberPad
             mobileTextField.isEditable = false
