@@ -11,6 +11,12 @@ import UIKit
 class AddBeneficiaryViewController: BaseViewController {
 
     var viewModel: AddBeneficiaryViewModelProtocol!
+    private lazy var itemPickerView: ItemPickerView! = {
+        var pickerView = ItemPickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = viewModel.relationshipPickerViewModel
+        return pickerView
+    }()
     @IBOutlet private weak var scrollViewBottomConstraint: NSLayoutConstraint!
 
     @IBOutlet private weak var cnicTextField: LabelledTextview! {
@@ -68,6 +74,29 @@ class AddBeneficiaryViewController: BaseViewController {
             mobileTextField.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.mobileNumber = updatedText
+            }
+        }
+    }
+    @IBOutlet private weak var chooseBeneficiaryRelationshipTextField: LabelledTextview! {
+        didSet {
+            chooseBeneficiaryRelationshipTextField.titleLabelText = "Beneficiary Relation Type *".localized
+            chooseBeneficiaryRelationshipTextField.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            chooseBeneficiaryRelationshipTextField.placeholderText = "Select Beneficiary Relation Type".localized
+            chooseBeneficiaryRelationshipTextField.editTextCursorColor = .init(white: 1, alpha: 0)
+            chooseBeneficiaryRelationshipTextField.inputTextFieldInputPickerView = itemPickerView
+            
+        }
+    }
+    
+    @IBOutlet private weak var beneficiaryRelationshipTextField: LabelledTextview! {
+        didSet {
+            beneficiaryRelationshipTextField.titleLabelText = "Beneficiary Relation *".localized
+            beneficiaryRelationshipTextField.placeholderText = "Enter Beneficiary Relation ".localized
+            beneficiaryRelationshipTextField.editTextKeyboardType = .alphabet
+            beneficiaryRelationshipTextField.isEditable = true
+            beneficiaryRelationshipTextField.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.beneficiaryRelation = updatedText
             }
         }
     }
@@ -133,6 +162,10 @@ extension AddBeneficiaryViewController {
                 self.mobileTextField.becomeFirstResponder()
             case .updateCountry(let countryName):
                 self.countryTextField.inputText = countryName
+            case .updateRelationshipType(inputText: let inputText):
+                self.chooseBeneficiaryRelationshipTextField.inputText = inputText
+            case .showBeneficiaryTextField(isVisible: let isVisible):
+                self.beneficiaryRelationshipTextField.isHidden = !isVisible
             }
         }
     }
@@ -168,5 +201,16 @@ extension AddBeneficiaryViewController {
 extension AddBeneficiaryViewController: Initializable {
     static var storyboardName: UIStoryboard.Name {
         return UIStoryboard.Name.addBeneficiary
+    }
+}
+
+extension AddBeneficiaryViewController: ItemPickerViewDelegate {
+    func didTapCancelButton() {
+        self.view.endEditing(true)
+    }
+
+    func didTapDoneButton(with selectedItem: PickerItemModel?) {
+        viewModel.didSelect(relationshipTypeItem: selectedItem as? RelationshipTypePickerItemModel)
+        self.view.endEditing(true)
     }
 }

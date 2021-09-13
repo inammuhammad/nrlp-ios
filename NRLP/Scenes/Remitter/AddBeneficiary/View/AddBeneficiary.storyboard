@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +21,11 @@
                                 <rect key="frame" x="16" y="44" width="382" height="736"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="AGO-UH-tg2">
-                                        <rect key="frame" x="0.0" y="30" width="382" height="392"/>
+                                        <rect key="frame" x="0.0" y="30" width="382" height="496"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="960-Wm-gwe" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="aZo-LF-fHY"/>
                                                 </constraints>
@@ -35,7 +36,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PPn-Hg-fOn" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="104" width="382" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="QLc-8p-ODq"/>
                                                 </constraints>
@@ -46,16 +47,38 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OmE-EZ-SFQ" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="208" width="382" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="6uY-5R-FdD"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kji-eU-PMm" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="312" width="382" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="Ncr-UU-eb4"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w2p-el-SGV" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="416" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="zbS-wU-sgU"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEx-9v-ivq" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="496" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="pcQ-mP-cwx"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
@@ -73,7 +96,7 @@
                                     <constraint firstAttribute="trailing" secondItem="AGO-UH-tg2" secondAttribute="trailing" id="i1Y-0c-ur2"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-Kj-c7q" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7A8-Kj-c7q" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
                                 <rect key="frame" x="16" y="796" width="382" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="NcF-cH-V0a"/>
@@ -84,7 +107,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="hWq-wd-kRP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hWq-wd-kRP" firstAttribute="bottom" secondItem="7A8-Kj-c7q" secondAttribute="bottom" constant="16" id="3aQ-Xs-7nP"/>
                             <constraint firstItem="hWq-wd-kRP" firstAttribute="trailing" secondItem="7yh-1f-zlH" secondAttribute="trailing" constant="16" id="8Ev-jB-m0L"/>
@@ -94,11 +118,12 @@
                             <constraint firstItem="7A8-Kj-c7q" firstAttribute="leading" secondItem="7yh-1f-zlH" secondAttribute="leading" id="snQ-M3-VZo"/>
                             <constraint firstItem="7yh-1f-zlH" firstAttribute="top" secondItem="hWq-wd-kRP" secondAttribute="top" id="vMq-zT-1TX"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="hWq-wd-kRP"/>
                     </view>
                     <connections>
                         <outlet property="addBeneficiaryButton" destination="7A8-Kj-c7q" id="9Ev-aw-whY"/>
                         <outlet property="aliasTextField" destination="PPn-Hg-fOn" id="Uyr-rp-GSJ"/>
+                        <outlet property="beneficiaryRelationshipTextField" destination="CEx-9v-ivq" id="VoX-oP-o9g"/>
+                        <outlet property="chooseBeneficiaryRelationshipTextField" destination="w2p-el-SGV" id="rav-17-8Vr"/>
                         <outlet property="cnicTextField" destination="960-Wm-gwe" id="4jQ-Il-JFa"/>
                         <outlet property="countryTextField" destination="OmE-EZ-SFQ" id="4Wz-Ov-G3J"/>
                         <outlet property="mobileTextField" destination="kji-eU-PMm" id="yOL-9y-3fi"/>
@@ -110,4 +135,14 @@
             <point key="canvasLocation" x="121.73913043478262" y="160.71428571428569"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="7A8-Kj-c7q">
+            <size key="intrinsicContentSize" width="108" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

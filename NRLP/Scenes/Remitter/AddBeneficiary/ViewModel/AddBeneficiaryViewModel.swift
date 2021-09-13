@@ -13,17 +13,45 @@ typealias AddBeneficiaryViewModelOutput = (AddBeneficiaryViewModel.Output) -> Vo
 
 protocol AddBeneficiaryViewModelProtocol {
     var output: AddBeneficiaryViewModelOutput? { get set}
+    var relationshipPickerViewModel: ItemPickerViewModel { get }
     var name: String? { get set }
     var cnic: String? { get set }
     var mobileNumber: String? { get set }
+    var beneficiaryRelation: String? { get set }
 
     func addButtonPressed()
     func openCountryPicker()
+    func didSelect(relationshipTypeItem: RelationshipTypePickerItemModel?)
 
 }
 
 class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
-
+    
+    func didSelect(relationshipTypeItem: RelationshipTypePickerItemModel?) {
+        if let relationshipType = relationshipTypeItem?.relationshipType {
+            if relationshipType.getTitle().lowercased() == RelationshipType.other.getTitle().lowercased() {
+                // SHOW NEXT TEXTFIELD
+                output?(.showBeneficiaryTextField(isVisible: true))
+            } else {
+                // SET TEXTFIELD
+                beneficiaryRelation = relationshipType.getTitle()
+                output?(.showBeneficiaryTextField(isVisible: false))
+                output?(.updateRelationshipType(inputText: relationshipType.getTitle()))
+            }
+        }
+    }
+    
+    var relationshipPickerViewModel: ItemPickerViewModel {
+        var array: [PickerItemModel] = [PickerItemModel]()
+        array.append(RelationshipTypePickerItemModel(title: RelationshipType.mother.getTitle(), key: RelationshipType.mother.rawValue))
+        array.append(RelationshipTypePickerItemModel(title: RelationshipType.father.getTitle(), key: RelationshipType.father.rawValue))
+        array.append(RelationshipTypePickerItemModel(title: RelationshipType.child.getTitle(), key: RelationshipType.child.rawValue))
+        array.append(RelationshipTypePickerItemModel(title: RelationshipType.friend.getTitle(), key: RelationshipType.friend.rawValue))
+        array.append(RelationshipTypePickerItemModel(title: RelationshipType.spouse.getTitle(), key: RelationshipType.spouse.rawValue))
+        array.append(RelationshipTypePickerItemModel(title: RelationshipType.other.getTitle(), key: RelationshipType.other.rawValue))
+        return ItemPickerViewModel(data: array)
+    }
+    
     func openCountryPicker() {
         router.navigateToCountryPicker(with: { [weak self] selectedCountry in
             if selectedCountry != self?.country {
@@ -58,7 +86,13 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
             validateRequiredFields()
         }
     }
-
+    
+    var beneficiaryRelation: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     init(router: AddBeneficiaryRouter, service: ManageBeneficiaryServiceProtocol) {
         self.router = router
         self.service = service
@@ -70,7 +104,7 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
         }
         output?(.showActivityIndicator(show: true))
         let mobNumber = "\(country?.code ?? "")\(mobileNumber ?? "")"
-        service.addBeneficiary(beneficiary: AddBeneficiaryRequestModel(beneficiaryAlias: name, beneficiaryMobileNo: mobNumber, beneficiaryNicNicop: cnic)) { [weak self] (result) in
+        service.addBeneficiary(beneficiary: AddBeneficiaryRequestModel(beneficiaryAlias: name, beneficiaryMobileNo: mobNumber, beneficiaryNicNicop: cnic, beneficiaryRelation: beneficiaryRelation)) { [weak self] (result) in
             self?.output?(.showActivityIndicator(show: false))
             guard let self = self else { return }
             self.output?(.showActivityIndicator(show: false))
@@ -100,6 +134,8 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
         case updateMobileCode(code: String)
         case updateMobilePlaceholder(placeholder: String, length: Int)
         case updateCountry(countryName: String)
+        case updateRelationshipType(inputText: String)
+        case showBeneficiaryTextField(isVisible: Bool)
     }
 
     deinit {
@@ -109,7 +145,7 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
 
 extension AddBeneficiaryViewModel {
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || mobileNumber?.isBlank ?? true {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || mobileNumber?.isBlank ?? true || beneficiaryRelation?.isBlank ?? true {
             output?(.addButtonState(enableState: false))
         } else {
             output?(.addButtonState(enableState: true))
