@@ -12,6 +12,7 @@ import UIKit
 typealias TextFieldChangedCallBack = ((String?) -> Void)
 typealias TextFieldTappedCallBack = (() -> Void)
 typealias TextFieldFocusChangeCallBack = ((String?) -> Void)
+typealias HelpButtonTappedCallBack = ((AlertViewModel) -> Void)
 
 @IBDesignable
 class LabelledTextview: CustomNibView {
@@ -26,19 +27,16 @@ class LabelledTextview: CustomNibView {
     @IBOutlet private weak var helpBtn: UIButton!
     
     @IBAction func helpBtnAction(_ sender: Any) {
-        if let button = sender as? UIButton {
-            button.isSelected = !button.isSelected
-            if button.isSelected {
-                helpLbl.isHidden = false
-            } else {
-                helpLbl.isHidden = true
-            }
-        }
+        let alert: AlertViewModel
+        let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
+        alert = AlertViewModel(alertHeadingImage: .comingSoon, alertTitle: helpLabelText, alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        onHelpBtnPressed?(alert)
     }
     
     var onTextFieldChanged: TextFieldChangedCallBack?
     var onTextFieldTapped: TextFieldTappedCallBack?
     var onTextFieldFocusChange: TextFieldFocusChangeCallBack?
+    var onHelpBtnPressed: HelpButtonTappedCallBack?
     
     private var tap: UITapGestureRecognizer?
     
