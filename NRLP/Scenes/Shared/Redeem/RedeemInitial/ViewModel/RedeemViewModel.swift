@@ -65,7 +65,11 @@ class RedeemViewModel: RedeemViewModelProtocol {
         // NAVIGATE TO FBR TRIGGER
         
 //        router.navigateToFBR(user: user)
-        router.navigateToCategory(partner: partner, user: user)
+        if partner.partnerName.lowercased() == "FBR".lowercased() {
+            router.navigateToFBR(user: user)
+        } else if partner.partnerName.lowercased() == "CAA".lowercased() {
+            router.navigateToCategory(partner: partner, user: user)
+        }
     }
 
     deinit {
