@@ -44,6 +44,8 @@ class RegistrationViewController: BaseViewController {
             fullNameTextView.placeholderText = "Muhammad Ali".localized
             fullNameTextView.autoCapitalizationType = .words
             fullNameTextView.inputFieldMaxLength = 50
+            fullNameTextView.showHelpBtn = true
+            fullNameTextView.helpLabelText = "Please enter your Full Name as per CNIC/NICOP".localized
             fullNameTextView.editTextKeyboardType = .asciiCapable
             fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
             fullNameTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -69,8 +71,10 @@ class RegistrationViewController: BaseViewController {
     }
     @IBOutlet private weak var residentIDTextView: LabelledTextview! {
         didSet {
-            residentIDTextView.titleLabelText = "Resident ID *".localized
-            residentIDTextView.placeholderText = "Resident ID".localized
+            residentIDTextView.titleLabelText = "Unique ID *".localized
+            residentIDTextView.placeholderText = "Unique ID".localized
+            residentIDTextView.showHelpBtn = true
+            residentIDTextView.helpLabelText = "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)  ".localized
             residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
             residentIDTextView.inputFieldMinLength = 1
             residentIDTextView.inputFieldMaxLength = 25
@@ -86,6 +90,8 @@ class RegistrationViewController: BaseViewController {
             passportTypeTextView.titleLabelText = "Passport Type *".localized
             passportTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
             passportTypeTextView.placeholderText = "Select Passport Type".localized
+            passportTypeTextView.showHelpBtn = true
+            passportTypeTextView.helpLabelText = "Please select your passport type".localized
             passportTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             passportTypeTextView.inputTextFieldInputPickerView = passportItemPickerView
         }
@@ -95,6 +101,8 @@ class RegistrationViewController: BaseViewController {
         didSet {
             passportNumberTextView.titleLabelText = "Enter Passport Number *".localized
             passportNumberTextView.placeholderText = "Passport Number".localized
+            passportNumberTextView.showHelpBtn = true
+            passportNumberTextView.helpLabelText = "Please enter your passport number".localized
 //            passportNumberTextView.textViewDescription = StringConstants.ErrorString.passportNumberError.localized
             passportNumberTextView.inputFieldMinLength = 3
             passportNumberTextView.inputFieldMaxLength = 20
@@ -114,6 +122,8 @@ class RegistrationViewController: BaseViewController {
             countryTextView.placeholderText = "Select Country".localized
             countryTextView.isEditable = false
             countryTextView.isTappable = true
+            countryTextView.showHelpBtn = true
+            countryTextView.helpLabelText = "Please select your Residence Country".localized
             countryTextView.editTextKeyboardType = .asciiCapable
             countryTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             countryTextView.onTextFieldTapped = { [weak self] in
@@ -127,6 +137,8 @@ class RegistrationViewController: BaseViewController {
             mobileNumberTextView.titleLabelText = "Mobile Number *".localized
             mobileNumberTextView.placeholderText = "+xx xxx xxx xxxx".localized
             mobileNumberTextView.editTextKeyboardType = .asciiCapableNumberPad
+            mobileNumberTextView.showHelpBtn = true
+            mobileNumberTextView.helpLabelText = "Please enter your Mobile Number ".localized
             mobileNumberTextView.isEditable = false
             mobileNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError.localized)
             mobileNumberTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -151,6 +163,8 @@ class RegistrationViewController: BaseViewController {
         didSet {
             passwordTextView.titleLabelText = "Password *".localized
             passwordTextView.placeholderText = "Password@123".localized
+            passwordTextView.showHelpBtn = true
+            passwordTextView.helpLabelText = "Please enter a Password".localized
             passwordTextView.secureEntry = true
             passwordTextView.isPasswordField = true
             passwordTextView.textViewDescription = StringConstants.ErrorString.createPaasswordError.localized
@@ -166,6 +180,8 @@ class RegistrationViewController: BaseViewController {
         didSet {
             reEnterPasswordTextView.titleLabelText = "Re-Enter Password *".localized
             reEnterPasswordTextView.placeholderText = "Password@123".localized
+            reEnterPasswordTextView.showHelpBtn = true
+            reEnterPasswordTextView.helpLabelText = "Please re-enter the Password".localized
             reEnterPasswordTextView.secureEntry = true
             reEnterPasswordTextView.isPasswordField = true
             reEnterPasswordTextView.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.reEnterPaasswordError.localized)
@@ -184,6 +200,8 @@ class RegistrationViewController: BaseViewController {
         didSet {
             accountTypeTextView.titleLabelText = "User Type *".localized
             accountTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            accountTypeTextView.showHelpBtn = true
+            accountTypeTextView.helpLabelText = "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds".localized
             accountTypeTextView.placeholderText = "Select User Type".localized
             accountTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             accountTypeTextView.inputTextFieldInputPickerView = itemPickerView

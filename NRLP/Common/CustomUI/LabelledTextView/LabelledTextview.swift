@@ -22,6 +22,19 @@ class LabelledTextview: CustomNibView {
     @IBOutlet private  weak var errorIconImageView: UIImageView!
     @IBOutlet private weak var trailingImageView: UIImageView!
     @IBOutlet private weak var bottomDescriptionLabel: UILabel!
+    @IBOutlet private weak var helpLbl: UILabel!
+    @IBOutlet private weak var helpBtn: UIButton!
+    
+    @IBAction func helpBtnAction(_ sender: Any) {
+        if let button = sender as? UIButton {
+            button.isSelected = !button.isSelected
+            if button.isSelected {
+                helpLbl.isHidden = false
+            } else {
+                helpLbl.isHidden = true
+            }
+        }
+    }
     
     var onTextFieldChanged: TextFieldChangedCallBack?
     var onTextFieldTapped: TextFieldTappedCallBack?
@@ -33,6 +46,26 @@ class LabelledTextview: CustomNibView {
     var formatValidator: FormatValidatorProtocol?
     
     //IBInspectable
+    @IBInspectable
+    var showHelpBtn: Bool = false {
+        didSet {
+            if showHelpBtn {
+                helpBtn.isHidden = false
+            } else {
+                helpBtn.isHidden = true
+            }
+        }
+    }
+    
+    @IBInspectable
+    var helpLabelText: String? {
+        get {
+            helpLbl.text
+        } set {
+            helpLbl.text = newValue
+        }
+    }
+    
     @IBInspectable
     var titleLabelText: String? {
         get {
@@ -72,6 +105,23 @@ class LabelledTextview: CustomNibView {
             titleLabel.font
         } set {
             titleLabel.font = newValue
+        }
+    }
+    
+    @IBInspectable
+    var helpLabelTextColor: UIColor? {
+        get {
+            helpLbl.textColor
+        } set {
+            helpLbl.textColor = newValue
+        }
+    }
+    
+    var helpLabelFont: UIFont? {
+        get {
+            helpLbl.font
+        } set {
+            helpLbl.font = newValue
         }
     }
     
@@ -279,6 +329,7 @@ class LabelledTextview: CustomNibView {
         setupDefaultTitleLabelStyle()
         setupDefaultTextViewStyle()
         setupDefaultErrorStyle()
+        setupHelpLabelStyle()
         setNormalState()
         
         inputTextField.textAlignment = .left
@@ -338,6 +389,12 @@ class LabelledTextview: CustomNibView {
         //Need to use Dimens
         titleLabelFont = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: CommonFontSizes.smallFontSize.rawValue)
         titleLabelTextColor = UIColor.init(commonColor: .appGreen)
+    }
+    
+    private func setupHelpLabelStyle() {
+        //Need to use Dimens
+        helpLabelFont = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: CommonFontSizes.smallFontSize.rawValue)
+        helpLabelTextColor = UIColor.init(commonColor: .appDarkGray)
     }
     
     private func setupDefaultTextViewStyle() {
