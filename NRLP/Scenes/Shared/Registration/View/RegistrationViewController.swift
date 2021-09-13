@@ -52,6 +52,10 @@ class RegistrationViewController: BaseViewController {
                 guard let self = self else { return }
                 self.viewModel.name = updatedText
             }
+            fullNameTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     @IBOutlet private weak var cnicTextView: LabelledTextview! {
@@ -82,6 +86,10 @@ class RegistrationViewController: BaseViewController {
                 guard let self = self else { return }
                 self.viewModel.residentID = updatedText
             }
+            residentIDTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     
@@ -94,6 +102,10 @@ class RegistrationViewController: BaseViewController {
             passportTypeTextView.helpLabelText = "Please select your passport type".localized
             passportTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             passportTypeTextView.inputTextFieldInputPickerView = passportItemPickerView
+            passportTypeTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     
@@ -113,6 +125,10 @@ class RegistrationViewController: BaseViewController {
                 self.viewModel.passportNumber = updatedText
             }
             self.passportNumberTextView.isHidden = true
+            passportNumberTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     
@@ -130,6 +146,10 @@ class RegistrationViewController: BaseViewController {
                 guard let self = self else { return }
                 self.viewModel.countryTextFieldTapped()
             }
+            countryTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     @IBOutlet private weak var mobileNumberTextView: LabelledTextview! {
@@ -144,6 +164,10 @@ class RegistrationViewController: BaseViewController {
             mobileNumberTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.mobileNumber = updatedText
+            }
+            mobileNumberTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
             }
         }
     }
@@ -174,6 +198,10 @@ class RegistrationViewController: BaseViewController {
                 guard let self = self else { return }
                 self.viewModel.paassword = updatedText
             }
+            passwordTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     @IBOutlet private weak var reEnterPasswordTextView: LabelledTextview! {
@@ -194,6 +222,10 @@ class RegistrationViewController: BaseViewController {
                 guard let self = self else { return }
                 self.viewModel.didReEnteredPassword(rePaassword: password ?? "")
             }
+            reEnterPasswordTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     @IBOutlet private weak var accountTypeTextView: LabelledTextview! {
@@ -205,6 +237,10 @@ class RegistrationViewController: BaseViewController {
             accountTypeTextView.placeholderText = "Select User Type".localized
             accountTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             accountTypeTextView.inputTextFieldInputPickerView = itemPickerView
+            accountTypeTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
 

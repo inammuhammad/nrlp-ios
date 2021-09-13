@@ -29,12 +29,18 @@ class RemitterVerificationViewController: BaseViewController, UITextFieldDelegat
         didSet {
             referenceNumberLabelTextView.titleLabelText = "Reference Number".localized
             referenceNumberLabelTextView.placeholderText = "xxxxxxxxxxxxxx"
+            referenceNumberLabelTextView.showHelpBtn = true
+            referenceNumberLabelTextView.helpLabelText = "Transaction within 1 year is eligible for self awarding".localized
             referenceNumberLabelTextView.inputFieldMaxLength = 25
             referenceNumberLabelTextView.editTextKeyboardType = .asciiCapable
             referenceNumberLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.referenceNumberRegex, invalidFormatError: StringConstants.ErrorString.referenceNumberError.localized)
             referenceNumberLabelTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.referenceNumber = updatedText
+            }
+            referenceNumberLabelTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
             }
         }
     }
@@ -45,12 +51,18 @@ class RemitterVerificationViewController: BaseViewController, UITextFieldDelegat
             transactionAmountLabelTextView.titleLabelText = "Transaction Amount".localized
             transactionAmountLabelTextView.placeholderText = "xx,xxx".localized
             transactionAmountLabelTextView.leadingText = "PKR "
+            transactionAmountLabelTextView.showHelpBtn = true
+            transactionAmountLabelTextView.helpLabelText = "Enter exact amount as per you transaction receipt".localized
             transactionAmountLabelTextView.inputFieldMaxLength = 13
             transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
             transactionAmountLabelTextView.formatter = CurrencyFormatter()
             transactionAmountLabelTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.transactionAmount = updatedText
+            }
+            transactionAmountLabelTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
             }
         }
     }

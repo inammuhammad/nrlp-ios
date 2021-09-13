@@ -584,6 +584,7 @@
 		E1FC3F1A26EA3CF2009B76FB /* RedemptionPSIDRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F1926EA3CF2009B76FB /* RedemptionPSIDRouter.swift */; };
 		E1FC3F1C26EA49CA009B76FB /* RedemptionPSIDBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F1B26EA49CA009B76FB /* RedemptionPSIDBuilder.swift */; };
 		E1FC3F1E26EA4A49009B76FB /* RedemptionPSIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F1D26EA4A49009B76FB /* RedemptionPSIDViewModel.swift */; };
+		E1FC3F2226EF79D1009B76FB /* RelationshipTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1FC3F2126EF79D1009B76FB /* RelationshipTypePickerItemModel.swift */; };
 		E7547A5C24EFC18C002F35A9 /* BeneficiaryVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6E75E24B4AB5200577421 /* BeneficiaryVerificationRouter.swift */; };
 		E7547A5D24EFC2C9002F35A9 /* BeneficiaryVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FC6E76024B4B61500577421 /* BeneficiaryVerificationService.swift */; };
 		E7547A5E24EFC333002F35A9 /* LoginModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B9A22924B308E700CAAA32 /* LoginModuleBuilder.swift */; };
@@ -1225,6 +1226,7 @@
 		E1FC3F1926EA3CF2009B76FB /* RedemptionPSIDRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPSIDRouter.swift; sourceTree = "<group>"; };
 		E1FC3F1B26EA49CA009B76FB /* RedemptionPSIDBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPSIDBuilder.swift; sourceTree = "<group>"; };
 		E1FC3F1D26EA4A49009B76FB /* RedemptionPSIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPSIDViewModel.swift; sourceTree = "<group>"; };
+		E1FC3F2126EF79D1009B76FB /* RelationshipTypePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationshipTypePickerItemModel.swift; sourceTree = "<group>"; };
 		E7FB36B32500BC6400EE8FFA /* CountryServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryServiceMock.swift; sourceTree = "<group>"; };
 		E7FB36B52500BCF500EE8FFA /* BeneficiaryVerificationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryVerificationServiceMock.swift; sourceTree = "<group>"; };
 		E7FB36BB2500C35C00EE8FFA /* TermsAndConditionServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionServiceMock.swift; sourceTree = "<group>"; };
@@ -3844,6 +3846,7 @@
 		9FB1DD1C24B6F667002BF688 /* AddBeneficiary */ = {
 			isa = PBXGroup;
 			children = (
+				E1FC3F2026EF79BB009B76FB /* Entity */,
 				9FB1DD2024B6F68C002BF688 /* Builder */,
 				9FB1DD1F24B6F684002BF688 /* Router */,
 				9FB1DD1E24B6F67E002BF688 /* ViewModel */,
@@ -4617,6 +4620,14 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		E1FC3F2026EF79BB009B76FB /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E1FC3F2126EF79D1009B76FB /* RelationshipTypePickerItemModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -5213,6 +5224,7 @@
 				2095D2F324E6991B001C5A48 /* LoyaltyCardViewModel.swift in Sources */,
 				E1FC3F1E26EA4A49009B76FB /* RedemptionPSIDViewModel.swift in Sources */,
 				207C3D8224B58B9900298C0C /* CountryService.swift in Sources */,
+				E1FC3F2226EF79D1009B76FB /* RelationshipTypePickerItemModel.swift in Sources */,
 				2018CB1924B6CE5700FABCF9 /* UIView+Extensions.swift in Sources */,
 				E1FC3F0E26EA219B009B76FB /* RedemptionFBRViewModel.swift in Sources */,
 				2074D5F424CFEDA100006731 /* SideMenuTableHeaderViewModel.swift in Sources */,
