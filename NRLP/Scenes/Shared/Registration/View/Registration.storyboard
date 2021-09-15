@@ -41,9 +41,6 @@
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sl1-tH-EOH" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="304" width="382" height="86"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="86" placeholder="YES" id="OJL-3J-A42"/>
-                                                </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MvI-tl-2wA" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="414" width="382" height="128"/>

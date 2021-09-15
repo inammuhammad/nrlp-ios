@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lt3-Jj-RhL">
-                                <rect key="frame" x="40" y="236.5" width="334" height="423"/>
+                                <rect key="frame" x="40" y="224.5" width="334" height="447"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="4Z8-Us-tL4">
-                                        <rect key="frame" x="16" y="44" width="302" height="363"/>
+                                        <rect key="frame" x="16" y="44" width="302" height="387"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Zm-Lf-csK">
                                                 <rect key="frame" x="0.0" y="0.0" width="302" height="215"/>
@@ -29,7 +30,7 @@
                                                 <rect key="frame" x="0.0" y="239" width="302" height="50"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQ9-Ld-HKY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="302" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="302" height="34"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -41,7 +42,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstItem="iJl-Yq-tDb" firstAttribute="top" secondItem="zQ9-Ld-HKY" secondAttribute="bottom" constant="16" id="5ez-dg-Fza"/>
                                                     <constraint firstAttribute="trailing" secondItem="zQ9-Ld-HKY" secondAttribute="trailing" id="85J-gP-WeF"/>
@@ -52,17 +53,43 @@
                                                     <constraint firstAttribute="bottom" secondItem="iJl-Yq-tDb" secondAttribute="bottom" id="iC0-5o-6Dn"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EVT-sI-F4T">
-                                                <rect key="frame" x="0.0" y="313" width="302" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="bhD-9C-Huy">
+                                                <rect key="frame" x="0.0" y="313" width="302" height="0.0"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5r-9o-k1i" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcR-Du-FJV" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="302" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="COM-xf-I9G"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9w9-ZN-2C0" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="302" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="Hdg-rR-aJT"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkc-Ze-1LY" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="302" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="J2w-yn-nOt"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="EVT-sI-F4T">
+                                                <rect key="frame" x="0.0" y="337" width="302" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5r-9o-k1i" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="147" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
                                                             <action selector="didTapPrimaryButton:" destination="b54-2X-TM3" eventType="touchUpInside" id="fnz-no-qf8"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUo-e9-7km" customClass="SecondaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUo-e9-7km" customClass="SecondaryCTAButton" customModule="NRLP" customModuleProvider="target">
                                                         <rect key="frame" x="155" y="0.0" width="147" height="50"/>
                                                         <state key="normal" title="Button"/>
                                                         <connections>
@@ -77,7 +104,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="4Z8-Us-tL4" secondAttribute="trailing" constant="16" id="afR-eD-30d"/>
                                     <constraint firstItem="4Z8-Us-tL4" firstAttribute="leading" secondItem="Lt3-Jj-RhL" secondAttribute="leading" constant="16" id="bhm-gD-2Hq"/>
@@ -86,6 +113,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Riz-6Y-Dh5"/>
                         <color key="backgroundColor" red="0.094117647058823528" green="0.094117647058823528" blue="0.094117647058823528" alpha="0.5" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Lt3-Jj-RhL" firstAttribute="leading" secondItem="Riz-6Y-Dh5" secondAttribute="leading" constant="40" id="52q-Hf-ei1"/>
@@ -93,15 +121,18 @@
                             <constraint firstItem="1Zm-Lf-csK" firstAttribute="height" secondItem="zyY-EC-jfm" secondAttribute="height" multiplier="160/667" id="VlF-O8-Z0r"/>
                             <constraint firstItem="Lt3-Jj-RhL" firstAttribute="centerY" secondItem="zyY-EC-jfm" secondAttribute="centerY" id="neA-oy-mPx"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Riz-6Y-Dh5"/>
                     </view>
                     <connections>
                         <outlet property="alertContainerView" destination="Lt3-Jj-RhL" id="4JL-5m-jhF"/>
                         <outlet property="alertDescriptionLabel" destination="iJl-Yq-tDb" id="2Rc-lb-i0t"/>
                         <outlet property="alertImageView" destination="1Zm-Lf-csK" id="24C-VK-bPc"/>
                         <outlet property="alertTitleLabel" destination="zQ9-Ld-HKY" id="em3-jo-19y"/>
+                        <outlet property="bottomTextField" destination="Mkc-Ze-1LY" id="4H8-ue-Qeg"/>
+                        <outlet property="middleTextField" destination="9w9-ZN-2C0" id="vgk-iD-YH8"/>
                         <outlet property="primaryCTAButton" destination="K5r-9o-k1i" id="Imd-sU-5NH"/>
                         <outlet property="secondaryCTAButton" destination="iUo-e9-7km" id="BEw-Vg-bLb"/>
+                        <outlet property="textFieldStackView" destination="bhD-9C-Huy" id="XG1-hg-Gym"/>
+                        <outlet property="topTextField" destination="AcR-Du-FJV" id="j7y-H7-sT3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="spl-YE-ISj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -109,4 +140,17 @@
             <point key="canvasLocation" x="128" y="167"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="K5r-9o-k1i">
+            <size key="intrinsicContentSize" width="46" height="30"/>
+        </designable>
+        <designable name="iUo-e9-7km">
+            <size key="intrinsicContentSize" width="46" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

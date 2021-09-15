@@ -69,6 +69,8 @@ class RedeemViewModel: RedeemViewModelProtocol {
             router.navigateToFBR(user: user)
         } else if partner.partnerName.lowercased() == "CAA".lowercased() {
             router.navigateToCategory(partner: partner, user: user)
+        } else if partner.partnerName.lowercased() == "Passport".lowercased() {
+            router.navigateToCategory(partner: partner, user: user)
         }
     }
 

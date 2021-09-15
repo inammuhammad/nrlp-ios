@@ -56,6 +56,8 @@ class RedeemServiceViewController: BaseViewController {
                 self.lblEnterPoint.text = String(format: "Select Redemption Service at %@".localized, partnerName)
             case .updateLoyaltyCard(let viewModel):
                 self.topContainerView.populate(with: viewModel)
+            case .navigateToFinishScreen(partner: let partner, transactionID: let transactionID):
+                RedeemConfirmRouter(navigationController: self.navigationController).goToFinishScreen(transactionId: transactionID, partner: partner)
             }
         }
     }

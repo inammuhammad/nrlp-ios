@@ -30,7 +30,12 @@ class AlertViewController: UIViewController {
        }
     @IBOutlet private weak var primaryCTAButton: PrimaryCTAButton!
     @IBOutlet private weak var secondaryCTAButton: SecondaryCTAButton!
-
+    
+    @IBOutlet weak var topTextField: LabelledTextview!
+    @IBOutlet weak var middleTextField: LabelledTextview!
+    @IBOutlet weak var bottomTextField: LabelledTextview!
+    @IBOutlet weak var textFieldStackView: UIStackView!
+    
     private var alertViewModel: AlertViewModel!
     private var error: APIResponseError?
     
@@ -134,6 +139,7 @@ extension AlertViewController {
         setupAlertPrimaryActionButtons()
         setupAlertSecondaryActionButtons()
         setupFonts()
+        setupTextFields()
     }
 
     private func setupAlertTitleLabel() {
@@ -155,6 +161,57 @@ extension AlertViewController {
             secondaryCTAButton.isHidden = false
         } else {
             secondaryCTAButton.isHidden = true
+        }
+    }
+    
+    private func setupTextFields() {
+        topTextField.isHidden = true
+        middleTextField.isHidden = true
+        bottomTextField.isHidden = true
+        
+        if alertViewModel.topTextField != nil {
+            topTextField.isHidden = false
+            topTextField.titleLabelText = alertViewModel.topTextField?.titleLabelText
+            topTextField.placeholderText = alertViewModel.topTextField?.placeholderText
+            topTextField.inputText = alertViewModel.topTextField?.inputText
+            topTextField.inputFieldMaxLength = alertViewModel.topTextField?.inputFieldMaxLength
+            topTextField.inputFieldMinLength = alertViewModel.topTextField?.inputFieldMinLength
+            topTextField.editTextKeyboardType = alertViewModel.topTextField?.editKeyboardType ?? .alphabet
+            topTextField.formatValidator = alertViewModel.topTextField?.formatValidator
+            topTextField.onTextFieldChanged = { [weak self] text in
+                self?.alertViewModel.topTextField?.onTextFieldChanged?(text ?? "")
+            }
+            topTextField.formatter = alertViewModel.topTextField?.formatter
+        }
+        
+        if alertViewModel.middleTextField != nil {
+            middleTextField.isHidden = false
+            middleTextField.titleLabelText = alertViewModel.middleTextField?.titleLabelText
+            middleTextField.placeholderText = alertViewModel.middleTextField?.placeholderText
+            middleTextField.inputText = alertViewModel.middleTextField?.inputText
+            middleTextField.inputFieldMaxLength = alertViewModel.middleTextField?.inputFieldMaxLength
+            middleTextField.inputFieldMinLength = alertViewModel.middleTextField?.inputFieldMinLength
+            middleTextField.editTextKeyboardType = alertViewModel.middleTextField?.editKeyboardType ?? .alphabet
+            middleTextField.formatValidator = alertViewModel.middleTextField?.formatValidator
+            middleTextField.onTextFieldChanged = { [weak self] text in
+                self?.alertViewModel.middleTextField?.onTextFieldChanged?(text ?? "")
+            }
+            middleTextField.formatter = alertViewModel.middleTextField?.formatter
+        }
+        
+        if alertViewModel.bottomTextField != nil {
+            bottomTextField.isHidden = false
+            bottomTextField.titleLabelText = alertViewModel.bottomTextField?.titleLabelText
+            bottomTextField.placeholderText = alertViewModel.bottomTextField?.placeholderText
+            bottomTextField.inputText = alertViewModel.bottomTextField?.inputText
+            bottomTextField.inputFieldMaxLength = alertViewModel.bottomTextField?.inputFieldMaxLength
+            bottomTextField.inputFieldMinLength = alertViewModel.bottomTextField?.inputFieldMinLength
+            bottomTextField.editTextKeyboardType = alertViewModel.bottomTextField?.editKeyboardType ?? .alphabet
+            bottomTextField.formatValidator = alertViewModel.bottomTextField?.formatValidator
+            bottomTextField.onTextFieldChanged = { [weak self] text in
+                self?.alertViewModel.bottomTextField?.onTextFieldChanged?(text ?? "")
+            }
+            bottomTextField.formatter = alertViewModel.bottomTextField?.formatter
         }
     }
 }
