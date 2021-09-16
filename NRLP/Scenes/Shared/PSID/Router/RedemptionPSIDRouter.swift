@@ -16,12 +16,13 @@ class RedemptionPSIDRouter {
         self.navigationController = navigationController
     }
     
-    func navigateToSuccessScreen(psid: String) {
+    func navigateToSuccessScreen(psid: String, amount: String, flowType: RedemptionFlowType) {
         print("NAVIGATE TO PSID")
 //        self.navigationController?.pushViewController(, animated: true)
         if let nav = self.navigationController {
             let vc = OperationCompletedViewController.getInstance()
-            vc.viewModel = RedemptionPSIDSuccessViewModel(with: nav, message: "You have redeemed 5,900 Points against\nPSID \(psid) successfully at FBR")
+            let message = getSuccessMessage(psid: psid, amount: amount, flowType: flowType)
+            vc.viewModel = RedemptionPSIDSuccessViewModel(with: nav, message: message)
             nav.pushViewController(vc, animated: true)
             
         }
@@ -31,6 +32,15 @@ class RedemptionPSIDRouter {
         if let navController = self.navigationController {
             let viewControllers: [UIViewController] = navController.viewControllers as [UIViewController]
             navController.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+        }
+    }
+    
+    private func getSuccessMessage(psid: String, amount: String, flowType: RedemptionFlowType) -> String {
+        switch flowType {
+        case .FBR:
+            return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at FBR"
+        case .PIA:
+            return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at PIA"
         }
     }
 }

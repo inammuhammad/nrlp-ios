@@ -37,6 +37,10 @@ class RedemptionFBRViewController: BaseViewController {
             switch output {
             case.updateLoyaltyPoints(viewModel: let viewModel):
                 self.pointsView.populate(with: viewModel)
+            case .setTitle(text: let text):
+                titleLbl.text = text
+            case .setDescription(text: let text):
+                descLbl.text = text
             }
         }
     }

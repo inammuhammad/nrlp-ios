@@ -13,6 +13,10 @@ class RedeemRouter {
     }
     
     func navigateToFBR(user: UserModel) {
-        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, model: user), animated: true)
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, model: user, flowType: .FBR), animated: true)
+    }
+    
+    func navigateToPIA(user: UserModel) {
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, model: user, flowType: .PIA), animated: true)
     }
 }

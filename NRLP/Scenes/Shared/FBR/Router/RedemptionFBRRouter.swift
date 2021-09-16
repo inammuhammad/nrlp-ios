@@ -16,9 +16,9 @@ class RedemptionFBRRouter {
         self.navigationController = navigationController
     }
     
-    func navigateToPSIDScreen(user: UserModel) {
+    func navigateToPSIDScreen(user: UserModel, flowType: RedemptionFlowType) {
         print("NAVIGATE TO PSID")
-        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, model: user), animated: true)
+        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, model: user, flowType: flowType), animated: true)
     }
     
     func navigateBack() {

@@ -22,16 +22,18 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
     
     private var router: RedemptionFBRRouter
     private var user: UserModel
+    private var flowType: RedemptionFlowType
     
     var output: RedemptionFBRViewModelOutput?
     
-    init(router: RedemptionFBRRouter, user: UserModel) {
+    init(router: RedemptionFBRRouter, user: UserModel, flowType: RedemptionFlowType) {
         self.router = router
         self.user = user
+        self.flowType = flowType
     }
     
     func nextButtonPressed() {
-        router.navigateToPSIDScreen(user: self.user)
+        router.navigateToPSIDScreen(user: self.user, flowType: flowType)
     }
     
     func cancelButtonPressed() {
@@ -40,10 +42,40 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
     
     func viewDidLoad() {
         output?(.updateLoyaltyPoints(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)")))
+        setTitle(type: flowType)
+        setDescription(type: flowType)
     }
     
     enum Output {
         case updateLoyaltyPoints(viewModel: LoyaltyCardViewModel)
+        case setTitle(text: String)
+        case setDescription(text: String)
     }
     
+    func setTitle(type: RedemptionFlowType) {
+        var title = ""
+        switch type {
+        case .FBR:
+            title = "Federal Bureau of Revenue"
+        case .PIA:
+            title = "PIA"
+        }
+        output?(.setTitle(text: title))
+    }
+    
+    func setDescription(type: RedemptionFlowType) {
+        var desc = ""
+        switch type {
+        case .FBR:
+            desc = "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue."
+        case .PIA:
+            desc = "To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue."
+        }
+        output?(.setDescription(text: desc))
+    }
+}
+
+enum RedemptionFlowType {
+    case FBR
+    case PIA
 }

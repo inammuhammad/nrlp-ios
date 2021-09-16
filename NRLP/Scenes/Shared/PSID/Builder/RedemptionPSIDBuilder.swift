@@ -11,12 +11,12 @@ import UIKit
 
 class RedemptionPSIDBuilder {
     
-    func build(with navigationController: UINavigationController?, model: UserModel) -> UIViewController {
+    func build(with navigationController: UINavigationController?, model: UserModel, flowType: RedemptionFlowType) -> UIViewController {
         
         let viewController = RedemptionPSIDViewController.getInstance()
             
         let coordinator = RedemptionPSIDRouter(navigationController: navigationController)
-        let viewModel = RedemptionPSIDViewModel(router: coordinator, user: model)
+        let viewModel = RedemptionPSIDViewModel(router: coordinator, user: model, flowType: flowType)
         viewController.viewModel = viewModel
         
         return viewController

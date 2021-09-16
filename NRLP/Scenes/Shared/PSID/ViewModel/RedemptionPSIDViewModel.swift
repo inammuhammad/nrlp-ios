@@ -29,26 +29,31 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
     
     private var router: RedemptionPSIDRouter
     private var user: UserModel
+    private var flowType: RedemptionFlowType
     
     var output: RedemptionPSIDViewModelOutput?
     
-    init(router: RedemptionPSIDRouter, user: UserModel) {
+    init(router: RedemptionPSIDRouter, user: UserModel, flowType: RedemptionFlowType) {
         self.router = router
         self.user = user
+        self.flowType = flowType
     }
     
     func nextButtonPressed() {
         print("NAVIGATE TO POPUP")
         let alert: AlertViewModel
-
+        var amount = "5,900"
+        var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here", inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: CurrencyFormatter()) { text in
+            amount = text
+        }
         let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: nil)
         let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: { [weak self] in
 
             guard let self = self else { return }
-            self.router.navigateToSuccessScreen(psid: self.psidText ?? "")
+            self.router.navigateToSuccessScreen(psid: self.psidText ?? "", amount: amount, flowType: self.flowType)
         })
-
-        alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: getConfirmAlertDescription(), primaryButton: confirmButton, secondaryButton: cancelButton)
+        topTextField = flowType == .FBR ? nil : topTextField
+        alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: getConfirmAlertDescription(), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
         output?(.showAlert(alert: alert))
         
     }

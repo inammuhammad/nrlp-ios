@@ -11,12 +11,12 @@ import UIKit
 
 class RedemptionFBRBuilder {
     
-    func build(with navigationController: UINavigationController?, model: UserModel) -> UIViewController {
+    func build(with navigationController: UINavigationController?, model: UserModel, flowType: RedemptionFlowType) -> UIViewController {
         
         let viewController = RedemptionFBRViewController.getInstance()
             
         let coordinator = RedemptionFBRRouter(navigationController: navigationController)
-        let viewModel = RedemptionFBRViewModel(router: coordinator, user: model)
+        let viewModel = RedemptionFBRViewModel(router: coordinator, user: model, flowType: flowType)
         viewController.viewModel = viewModel
         
         return viewController
