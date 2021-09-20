@@ -33,8 +33,8 @@ class LoyaltyPointsViewModel: LoyaltyPointsViewModelProtocol {
         return statements.count
     }
     
-    var loyaltyCardGradientStyle: (light: CommonColor, dark: CommonColor) {
-        return userModel.loyaltyLevel.gradientColor
+    var loyaltyCardImageStyle: UIImage? {
+        return userModel.loyaltyLevel.cardImage
     }
 
     init(router: LoyaltyPointsRouter,

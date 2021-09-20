@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct HomeCollectionViewLoyaltyCellDataModel: HomeCollectionViewCellDataModelProtocol {
 
@@ -23,8 +24,8 @@ struct HomeCollectionViewLoyaltyCellDataModel: HomeCollectionViewCellDataModelPr
         return formater.format(string: loyaltyPoints)
     }
     
-    var loyaltyCardGradientStyle: (CommonColor, CommonColor) {
-        return loyaltyType.gradientColor
+    var loyaltyCardImageStyle: UIImage? {
+        return loyaltyType.cardImage
     }
     
     var loyaltyTitle: String {
@@ -34,9 +35,18 @@ struct HomeCollectionViewLoyaltyCellDataModel: HomeCollectionViewCellDataModelPr
     var loyaltyThemeColor: CommonColor {
         return loyaltyType.themeColor
     }
+    
+    var user: UserModel
+    
+    var remittedAmount: String
+    
+    var remittedDate: String
 
-    init(with loyaltyPoints: String, loyaltyType: LoyaltyType) {
+    init(with loyaltyPoints: String, loyaltyType: LoyaltyType, user: UserModel, remittedDate: String, remittedAmount: String) {
         self.loyaltyPoints = CurrencyFormatter().format(string: loyaltyPoints)
         self.loyaltyType = loyaltyType
+        self.user = user
+        self.remittedDate = remittedDate
+        self.remittedAmount = remittedAmount
     }
 }

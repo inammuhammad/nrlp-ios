@@ -13,68 +13,52 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
 
     @IBOutlet weak var loyaltyTypeImageIcon: UIImageView! {
         didSet {
-            let icon = #imageLiteral(resourceName: "loyaltyTypeIcon")
+            let icon = #imageLiteral(resourceName: "greenCard")
             loyaltyTypeImageIcon.image = icon
         }
     }
-    @IBOutlet weak var arrowIconForward: UIImageView! {
-        didSet {
-            let icon = #imageLiteral(resourceName: "arrowForwardWhite")
-            arrowIconForward.image = icon
-        }
-    }
-    @IBOutlet weak var loyaltyTypeView: UIView! {
-        didSet {
-            loyaltyTypeView.cornerRadius = 2
-        }
-    }
+
     @IBOutlet private weak var loyaltyPointLabel: UILabel! {
         didSet {
-            loyaltyPointLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.boldOnlyEnglish, size: .extraUltraLargeFontSize)
             loyaltyPointLabel.textColor = .white
         }
     }
-    @IBOutlet weak var loyaltyTypeLabel: UILabel! {
+    @IBOutlet weak var nameLabel: UILabel! {
         didSet {
-            loyaltyTypeLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regularOnlyEnglish, size: .smallFontSize)
-            loyaltyTypeLabel.textColor = .white
+            nameLabel.textColor = .white
         }
     }
     @IBOutlet private weak var loyaltyPointTitleLabel: UILabel! {
         didSet {
-            loyaltyPointTitleLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
             loyaltyPointTitleLabel.textColor = .white
-            loyaltyPointTitleLabel.text = "Current Point Balance".localized
         }
     }
-    @IBOutlet private weak var redeemYourPointLabel: UILabel! {
+    @IBOutlet weak var amountRemittanceLbl: UILabel! {
         didSet {
-            redeemYourPointLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
-            redeemYourPointLabel.textColor = .white
-            redeemYourPointLabel.text = "Redeem Your Points".localized
+            amountRemittanceLbl.textColor = .white
         }
     }
-    @IBOutlet private weak var containerView: UIView! {
+    @IBOutlet weak var dateRemittanceLbl: UILabel! {
         didSet {
-            containerView.cornerRadius = CommonDimens.unit1x.rawValue
+            dateRemittanceLbl.textColor = .white
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if AppConstants.appLanguage == .urdu && AppConstants.systemLanguage == .urdu {
-            arrowIconForward.transform.rotated(by: .pi)
-        }
     }
 
+    @IBAction func redeemBtnAction(_ sender: Any) {
+    }
+    
     func populate(with data: HomeCollectionViewCellDataModelProtocol) {
         if let data = data as? HomeCollectionViewLoyaltyCellDataModel {
             loyaltyPointLabel.text = data.formattedPoints
-            
-            let gradientStyle = data.loyaltyCardGradientStyle
-            containerView.setupGradient(colors: [UIColor.init(commonColor: gradientStyle.1).cgColor, UIColor.init(commonColor: gradientStyle.0).cgColor])
-            loyaltyTypeView.backgroundColor = UIColor.init(commonColor: data.loyaltyThemeColor)
-            loyaltyTypeLabel.text = data.loyaltyTitle
+            nameLabel.text = data.user.fullName
+            loyaltyTypeImageIcon.image = data.loyaltyCardImageStyle
+            // REMITTANCE DATE AND REMITTANCE AMOUNT FIX
+            amountRemittanceLbl.text = "USD 25000"
+            dateRemittanceLbl.text = "11/20"
         }
     }
 }

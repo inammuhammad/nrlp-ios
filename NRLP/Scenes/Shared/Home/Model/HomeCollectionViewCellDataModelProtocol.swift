@@ -31,7 +31,7 @@ enum HomeCollectionViewCellSize {
     func getCellHeight() -> Double {
         switch self {
         case .full:
-            return 152
+            return 250
         case .half:
             return getCellWidth() * (165/163)
         }

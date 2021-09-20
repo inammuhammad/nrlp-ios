@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import UIKit
 
 struct LoyaltyCardViewModel {
     private var loyaltyType: LoyaltyType
     private var userPoints: String
     
-    var gradientStyle: (light: CommonColor, dark: CommonColor) {
-        return loyaltyType.gradientColor
+    var imageStyle: UIImage? {
+        return loyaltyType.cardImage
     }
     
     var formattedPoints: String {

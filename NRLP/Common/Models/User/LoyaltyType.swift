@@ -7,32 +7,28 @@
 //
 
 import Foundation
+import UIKit
 
 enum LoyaltyType: String, Codable {
     case bronze
-    case silver
     case gold
     case platinum
     
-    var gradientColor: (light: CommonColor, dark: CommonColor) {
+    var cardImage: UIImage? {
         switch self {
         case .bronze:
-            return (CommonColor.appLoyaltyGradientLightBronze, CommonColor.appLoyaltyGradientDarkBronze)
-        case .silver:
-            return (CommonColor.appLoyaltyGradientLightSilver, CommonColor.appLoyaltyGradientDarkSilver)
+            return #imageLiteral(resourceName: "greenCard")
         case .gold:
-            return (CommonColor.appLoyaltyGradientLightGold, CommonColor.appLoyaltyGradientDarkGold)
+            return #imageLiteral(resourceName: "goldCard")
         case .platinum:
-            return (CommonColor.appLoyaltyGradientLightPlatinum, CommonColor.appLoyaltyGradientDarkPlatinum)
+            return #imageLiteral(resourceName: "platinumCard")
         }
     }
     
     var title: String {
         switch self {
         case .bronze:
-            return "Bronze"
-        case .silver:
-            return "Silver"
+            return "Green"
         case .gold:
             return "Gold"
         case .platinum:
@@ -44,8 +40,6 @@ enum LoyaltyType: String, Codable {
         switch self {
         case .bronze:
             return CommonColor.appLoyaltyThemeBronze
-        case .silver:
-            return CommonColor.appLoyaltyThemeSilver
         case .gold:
             return CommonColor.appLoyaltyThemeGold
         case .platinum:

@@ -11,9 +11,10 @@ import UIKit
 class LoyaltyCardView: CustomNibView {
 
     private var viewModel: LoyaltyCardViewModel!
-    @IBOutlet weak var containerView: UIView! {
+    
+    @IBOutlet weak var cardImage: UIImageView! {
         didSet {
-            containerView.cornerRadius = CommonDimens.unit1x.rawValue
+            cardImage.image = #imageLiteral(resourceName: "greenCard")
         }
     }
     @IBOutlet weak var pointsLabel: UILabel! {
@@ -22,31 +23,14 @@ class LoyaltyCardView: CustomNibView {
             pointsLabel.textColor = .white
         }
     }
-    @IBOutlet weak var descriptionLabel: UILabel! {
-        didSet {
-            descriptionLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
-            descriptionLabel.textColor = .white
-            descriptionLabel.text = "Current Point Balance".localized
-        }
-    }
     
     func populate(with viewModel: LoyaltyCardViewModel) {
         self.viewModel = viewModel
         setupView()
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if let gradientStyle = viewModel?.gradientStyle {
-            print(containerView.frame)
-            containerView.setupGradient(colors: [UIColor.init(commonColor: gradientStyle.dark).cgColor, UIColor.init(commonColor: gradientStyle.light).cgColor])
-        }
-    }
-    
     override func setupView() {
         pointsLabel.text = viewModel?.formattedPoints
-        if let gradientStyle = viewModel?.gradientStyle {
-            containerView.setupGradient(colors: [UIColor.init(commonColor: gradientStyle.dark).cgColor, UIColor.init(commonColor: gradientStyle.light).cgColor])
-        }
+        cardImage.image = viewModel?.imageStyle
     }
 }

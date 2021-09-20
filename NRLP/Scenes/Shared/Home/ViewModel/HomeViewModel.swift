@@ -76,7 +76,7 @@ class HomeViewModel: HomeViewModelProtocol {
 
     internal func setupCollectionViewData() {
         self.collectionViewItemData = [
-            HomeCollectionViewLoyaltyCellDataModel(with: "\(Int(userModel.roundedLoyaltyPoints) )", loyaltyType: userModel.loyaltyLevel)
+            HomeCollectionViewLoyaltyCellDataModel(with: "\(Int(userModel.roundedLoyaltyPoints) )", loyaltyType: userModel.loyaltyLevel, user: userModel, remittedDate: userModel.updatedAt ?? "", remittedAmount: userModel.loyaltyPoints ?? "")
         ]
     }
 
