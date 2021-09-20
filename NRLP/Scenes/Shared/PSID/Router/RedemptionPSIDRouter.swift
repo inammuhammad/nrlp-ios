@@ -38,9 +38,9 @@ class RedemptionPSIDRouter {
     private func getSuccessMessage(psid: String, amount: String, flowType: RedemptionFlowType) -> String {
         switch flowType {
         case .FBR:
-            return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at FBR"
+            return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at FBR".localized
         case .PIA:
-            return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at PIA"
+            return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at PIA".localized
         }
     }
 }

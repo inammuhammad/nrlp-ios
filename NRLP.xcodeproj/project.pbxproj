@@ -4161,7 +4161,6 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E1FC3F2326F0B968009B76FB /* DIGP */,
 				E1FC3F0F26EA3727009B76FB /* PSID */,
 				E1FC3EFF26EA1AE4009B76FB /* FBR */,
 				E1EBF69926DE8339000B1734 /* SelfAwardSuccess */,
@@ -4627,45 +4626,6 @@
 				E1FC3F2126EF79D1009B76FB /* RelationshipTypePickerItemModel.swift */,
 			);
 			path = Entity;
-			sourceTree = "<group>";
-		};
-		E1FC3F2326F0B968009B76FB /* DIGP */ = {
-			isa = PBXGroup;
-			children = (
-				E1FC3F2726F0B979009B76FB /* Builder */,
-				E1FC3F2626F0B974009B76FB /* Router */,
-				E1FC3F2526F0B971009B76FB /* ViewModel */,
-				E1FC3F2426F0B96D009B76FB /* View */,
-			);
-			path = DIGP;
-			sourceTree = "<group>";
-		};
-		E1FC3F2426F0B96D009B76FB /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E1FC3F2526F0B971009B76FB /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E1FC3F2626F0B974009B76FB /* Router */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		E1FC3F2726F0B979009B76FB /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Builder;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -5685,7 +5645,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6060,7 +6020,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -6088,7 +6048,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 46;
+				CURRENT_PROJECT_VERSION = 47;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

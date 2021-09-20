@@ -46,7 +46,7 @@ enum OperationCompletedType {
         case .selfAwardCompleted:
             return "Points Awarded".localized
         case .redemptionSuccessful:
-            return "Redemption Successful"
+            return "Redemption Successful".localized
         }
     }
 

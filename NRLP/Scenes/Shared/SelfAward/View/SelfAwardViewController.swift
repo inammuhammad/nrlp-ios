@@ -21,14 +21,19 @@ class SelfAwardViewController: BaseViewController {
     @IBOutlet weak var proceedBtn: PrimaryCTAButton! {
         didSet {
             proceedBtn.isEnabled = false
-            proceedBtn.setTitle("Proceed", for: .normal)
-            proceedBtn.setTitle("Proceed", for: .selected)
-            proceedBtn.setTitle("Proceed", for: .disabled)
-            proceedBtn.setTitle("Proceed", for: .highlighted)
+            proceedBtn.setTitle("Proceed".localized, for: .normal)
+            proceedBtn.setTitle("Proceed".localized, for: .selected)
+            proceedBtn.setTitle("Proceed".localized, for: .disabled)
+            proceedBtn.setTitle("Proceed".localized, for: .highlighted)
             proceedBtn.addTarget(self, action: #selector(proceedBtnAction), for: .touchUpInside)
         }
     }
 
+    @IBOutlet weak var titleLbl: UILabel! {
+        didSet {
+            titleLbl.text = "Transaction within 1 year is eligible for self awarding".localized
+        }
+    }
     @IBOutlet private weak var referenceNumberLabelTextView: LabelledTextview! {
         didSet {
             referenceNumberLabelTextView.titleLabelText = "Reference Number".localized
@@ -113,7 +118,7 @@ class SelfAwardViewController: BaseViewController {
     
     private func showInitialAlert() {
         let alert: AlertViewModel
-        let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
+        let okButton = AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil)
         alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.", alertDescription: "For further assistance, you may contact +92-21-111-116757", alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         self.showAlert(with: alert)
     }

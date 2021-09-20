@@ -15,8 +15,22 @@ class RedemptionFBRViewController: BaseViewController {
     @IBOutlet weak var pointsView: LoyaltyCardView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
-    @IBOutlet weak var nextBtn: PrimaryCTAButton!
-    @IBOutlet weak var cancelBtn: SecondaryCTAButton!
+    @IBOutlet weak var nextBtn: PrimaryCTAButton! {
+        didSet {
+            nextBtn.setTitle("Next".localized, for: .normal)
+            nextBtn.setTitle("Next".localized, for: .selected)
+            nextBtn.setTitle("Next".localized, for: .disabled)
+            nextBtn.setTitle("Next".localized, for: .highlighted)
+        }
+    }
+    @IBOutlet weak var cancelBtn: SecondaryCTAButton!{
+        didSet {
+            cancelBtn.setTitle("Cancel".localized, for: .normal)
+            cancelBtn.setTitle("Cancel".localized, for: .selected)
+            cancelBtn.setTitle("Cancel".localized, for: .disabled)
+            cancelBtn.setTitle("Cancel".localized, for: .highlighted)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

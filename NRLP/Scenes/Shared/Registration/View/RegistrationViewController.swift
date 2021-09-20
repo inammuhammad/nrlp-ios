@@ -78,7 +78,7 @@ class RegistrationViewController: BaseViewController {
             residentIDTextView.titleLabelText = "Unique ID *".localized
             residentIDTextView.placeholderText = "Unique ID".localized
             residentIDTextView.showHelpBtn = true
-            residentIDTextView.helpLabelText = "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)  ".localized
+            residentIDTextView.helpLabelText = "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)".localized
             residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
             residentIDTextView.inputFieldMinLength = 1
             residentIDTextView.inputFieldMaxLength = 25
@@ -158,7 +158,7 @@ class RegistrationViewController: BaseViewController {
             mobileNumberTextView.placeholderText = "+xx xxx xxx xxxx".localized
             mobileNumberTextView.editTextKeyboardType = .asciiCapableNumberPad
             mobileNumberTextView.showHelpBtn = true
-            mobileNumberTextView.helpLabelText = "Please enter your Mobile Number ".localized
+            mobileNumberTextView.helpLabelText = "Please enter your Mobile Number".localized
             mobileNumberTextView.isEditable = false
             mobileNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError.localized)
             mobileNumberTextView.onTextFieldChanged = { [weak self] updatedText in

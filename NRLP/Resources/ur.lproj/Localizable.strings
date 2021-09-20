@@ -251,3 +251,69 @@
 //Redeem
 "Redemption Partners" = "پوائنٹس استعمال کرنے کیلئے پارٹنر کا انتخاب کریں";
 "List of Benefits" = "فوائد کی فہرست";
+
+//Registration
+
+"Unique ID *" = "Unique ID *";
+"Unique ID" = "Unique ID";
+"Please enter your Full Name as per CNIC/NICOP" = "Please enter your Full Name as per CNIC/NICOP";
+
+"Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)" = "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)";
+
+"Passport Type *" = "Passport Type *";
+"Select Passport Type" = "Select Passport Type";
+"Please select your passport type" = "Please select your passport type";
+
+"Enter Passport Number *" = "Enter Passport Number *";
+"Passport Number" = "Passport Number";
+"Please enter your passport number" = "Please enter your passport number";
+
+"Please enter your Mobile Number" = "Please enter your Mobile Number";
+
+"Password *"="* پاس ورڈ";
+"Please enter a Password" = "Please enter a Password";
+
+"Re-Enter Password *" = "* پاس ورڈ کا دوبارہ اندراج کریں";
+"Please re-enter the Password" = "Please re-enter the Password";
+
+"User Type *" = "* یوزر کی اقسام";
+"Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds" = "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds";
+
+"Country of Residence *"=  "* قیام کا ملک";
+"Full Name *" = "* پورا نام";
+"Passport Type" = "Passport Type";
+"Enter Passport Number" = "Enter Passport Number";
+"Mobile Number *" = "* موبائل نمبر";
+"CNIC/NICOP *"="* شناختی کارڈ/ نیشنل آئیڈنٹٹی کارڈ فور اوورسیز پاکستانی";
+
+// SELF AWARD
+"Proceed" = "Proceed";
+"Transaction within 1 year is eligible for self awarding" = "Transaction within 1 year is eligible for self awarding";
+"Transaction Amount \nEnter exact amount as per your transaction receipt" = "Transaction Amount \nEnter exact amount as per your transaction receipt";
+"Enter exact amount as per you transaction receipt" = "Enter exact amount as per you transaction receipt";
+"Date of Remittance" = "Date of Remittance";
+"YYYY-MM-DD" = "YYYY-MM-DD";
+"Enter date on which transaction is made" = "Enter date on which transaction is made";
+
+"Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points." = "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.";
+"For further assistance, you may contact +92-21-111-116757" = "For further assistance, you may contact +92-21-111-116757";
+
+"Self Award Points" = "Self Award Points";
+
+"Points Awarded" = "Points Awarded";
+"Redemption Successful" = "Redemption Successful";
+
+//FBR
+"Federal Bureau of Revenue" = "Federal Bureau of Revenue";
+"To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.";
+
+"PIA" = "PIA";
+"To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.";
+
+//PSID
+"Enter PSID for Redemption" = "Enter PSID for Redemption";
+"PSID Number" = "PSID Number";
+"Enter other Amount Here" = "Enter other Amount Here";
+
+"You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR";
+"You have redeemed %1$@ Points against\nPSID %2$@ successfully at PIA" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at PIA";

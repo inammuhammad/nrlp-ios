@@ -56,9 +56,9 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
         var title = ""
         switch type {
         case .FBR:
-            title = "Federal Bureau of Revenue"
+            title = "Federal Bureau of Revenue".localized
         case .PIA:
-            title = "PIA"
+            title = "PIA".localized
         }
         output?(.setTitle(text: title))
     }
@@ -67,9 +67,9 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
         var desc = ""
         switch type {
         case .FBR:
-            desc = "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue."
+            desc = "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.".localized
         case .PIA:
-            desc = "To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue."
+            desc = "To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.".localized
         }
         output?(.setDescription(text: desc))
     }

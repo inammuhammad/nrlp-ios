@@ -43,7 +43,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         print("NAVIGATE TO POPUP")
         let alert: AlertViewModel
         var amount = "5,900"
-        var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here", inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: CurrencyFormatter()) { text in
+        var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here".localized, inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: CurrencyFormatter()) { text in
             amount = text
         }
         let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: nil)
@@ -53,7 +53,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
             self.router.navigateToSuccessScreen(psid: self.psidText ?? "", amount: amount, flowType: self.flowType)
         })
         topTextField = flowType == .FBR ? nil : topTextField
-        alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: getConfirmAlertDescription(), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
+        alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
         output?(.showAlert(alert: alert))
         
     }
@@ -74,7 +74,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         case showAlert(alert: AlertViewModel)
     }
     
-    private func getConfirmAlertDescription() -> NSAttributedString {
+    private func getConfirmAlertDescription(amount: String) -> NSAttributedString {
 
         let regularAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)]
         let boldAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)]
@@ -82,7 +82,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         let attributePart1 = NSMutableAttributedString(string: "The amount against PSID ".localized, attributes: regularAttributes)
         let attributePart2 = NSMutableAttributedString(string: "\n\(psidText ?? "") ", attributes: boldAttributes)
         let attributePart3 = NSMutableAttributedString(string: "is ", attributes: regularAttributes)
-        let attributePart4 = NSMutableAttributedString(string: "PKR\n5,900", attributes: boldAttributes)
+        let attributePart4 = NSMutableAttributedString(string: "PKR\n\(amount)", attributes: boldAttributes)
         let attributePart5 = NSMutableAttributedString(string: ". Confirm amount for Redemption?".localized, attributes: regularAttributes)
         
         let alertDesctiption = NSMutableAttributedString()

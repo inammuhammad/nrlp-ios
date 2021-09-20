@@ -82,6 +82,7 @@
                         <outlet property="proceedBtn" destination="5iH-Vc-mM9" id="F4k-1A-axf"/>
                         <outlet property="referenceNumberLabelTextView" destination="wo6-Mt-Dbh" id="dj6-34-4m8"/>
                         <outlet property="remittanceDateTextView" destination="cmw-47-OjC" id="7Li-Ja-9pF"/>
+                        <outlet property="titleLbl" destination="pfY-uN-VDq" id="8vt-js-z6B"/>
                         <outlet property="transactionAmountLabelTextView" destination="KOU-m7-W4H" id="exH-Nu-yU2"/>
                     </connections>
                 </viewController>
@@ -93,9 +94,6 @@
     <designables>
         <designable name="5iH-Vc-mM9">
             <size key="intrinsicContentSize" width="46" height="30"/>
-        </designable>
-        <designable name="pfY-uN-VDq">
-            <size key="intrinsicContentSize" width="366.5" height="20"/>
         </designable>
     </designables>
     <resources>

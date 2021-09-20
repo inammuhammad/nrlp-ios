@@ -13,8 +13,22 @@ class RedemptionPSIDViewController: BaseViewController {
     var viewModel: RedemptionPSIDViewModelProtocol!
 
     @IBOutlet weak var ponitsView: LoyaltyCardView!
-    @IBOutlet weak var nextBtn: PrimaryCTAButton!
-    @IBOutlet weak var cancelBtn: SecondaryCTAButton!
+    @IBOutlet weak var nextBtn: PrimaryCTAButton! {
+        didSet {
+            nextBtn.setTitle("Next".localized, for: .normal)
+            nextBtn.setTitle("Next".localized, for: .selected)
+            nextBtn.setTitle("Next".localized, for: .disabled)
+            nextBtn.setTitle("Next".localized, for: .highlighted)
+        }
+    }
+    @IBOutlet weak var cancelBtn: SecondaryCTAButton!{
+        didSet {
+            cancelBtn.setTitle("Cancel".localized, for: .normal)
+            cancelBtn.setTitle("Cancel".localized, for: .selected)
+            cancelBtn.setTitle("Cancel".localized, for: .disabled)
+            cancelBtn.setTitle("Cancel".localized, for: .highlighted)
+        }
+    }
     @IBOutlet weak var psidTextView: LabelledTextview! {
         didSet {
             psidTextView.titleLabelText = "Enter PSID for Redemption".localized
