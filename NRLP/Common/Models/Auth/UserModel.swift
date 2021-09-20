@@ -39,7 +39,7 @@ struct UserModel: Codable {
     var passportNumber: String?
     
     var loyaltyLevel: LoyaltyType {
-        return LoyaltyType(rawValue: loyaltyType.lowercased()) ?? .gold
+        return LoyaltyType(rawValue: loyaltyType.lowercased()) ?? .green
     }
     
     var accountType: AccountType? {

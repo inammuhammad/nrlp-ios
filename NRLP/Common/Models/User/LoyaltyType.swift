@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 
 enum LoyaltyType: String, Codable {
+    case green
     case bronze
     case gold
     case platinum
     
     var cardImage: UIImage? {
         switch self {
-        case .bronze:
+        case .bronze, .green:
             return #imageLiteral(resourceName: "greenCard")
         case .gold:
             return #imageLiteral(resourceName: "goldCard")
@@ -27,7 +28,7 @@ enum LoyaltyType: String, Codable {
     
     var title: String {
         switch self {
-        case .bronze:
+        case .bronze, .green:
             return "Green"
         case .gold:
             return "Gold"
@@ -38,7 +39,7 @@ enum LoyaltyType: String, Codable {
     
     var themeColor: CommonColor {
         switch self {
-        case .bronze:
+        case .bronze, .green:
             return CommonColor.appLoyaltyThemeBronze
         case .gold:
             return CommonColor.appLoyaltyThemeGold
