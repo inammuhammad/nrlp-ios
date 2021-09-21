@@ -41,6 +41,8 @@ class RedemptionPSIDRouter {
             return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at FBR".localized
         case .PIA:
             return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at PIA".localized
+        case .Nadra:
+            return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at NADRA".localized
         }
     }
 }

@@ -566,6 +566,11 @@
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
 		E10924C026C7C8BF004D19A6 /* PassportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BE26C7C8BF004D19A6 /* PassportType.swift */; };
 		E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */; };
+		E168AAF926F9C831002D1083 /* NadraTrackingID.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */; };
+		E168AAFB26F9C845002D1083 /* NadraTrackingIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */; };
+		E168AAFD26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */; };
+		E168AAFF26F9CB77002D1083 /* NadraTrackingIDRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFE26F9CB77002D1083 /* NadraTrackingIDRouter.swift */; };
+		E168AB0126F9CBD9002D1083 /* NadraTrackingIDBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AB0026F9CBD9002D1083 /* NadraTrackingIDBuilder.swift */; };
 		E17F1D5C26DAB3C7001D15D9 /* SelfAwardOTP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E17F1D5B26DAB3C7001D15D9 /* SelfAwardOTP.storyboard */; };
 		E17F1D5E26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D5D26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift */; };
 		E17F1D6226DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D6126DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift */; };
@@ -1208,6 +1213,11 @@
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
 		E10924BE26C7C8BF004D19A6 /* PassportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportType.swift; sourceTree = "<group>"; };
 		E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportTypePickerItemModel.swift; sourceTree = "<group>"; };
+		E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NadraTrackingID.storyboard; sourceTree = "<group>"; };
+		E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewController.swift; sourceTree = "<group>"; };
+		E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewModel.swift; sourceTree = "<group>"; };
+		E168AAFE26F9CB77002D1083 /* NadraTrackingIDRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDRouter.swift; sourceTree = "<group>"; };
+		E168AB0026F9CBD9002D1083 /* NadraTrackingIDBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDBuilder.swift; sourceTree = "<group>"; };
 		E17F1D5B26DAB3C7001D15D9 /* SelfAwardOTP.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelfAwardOTP.storyboard; sourceTree = "<group>"; };
 		E17F1D5D26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPViewController.swift; sourceTree = "<group>"; };
 		E17F1D6126DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPViewModel.swift; sourceTree = "<group>"; };
@@ -4161,6 +4171,7 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E168AAF326F9072B002D1083 /* NADRA */,
 				E1FC3F0F26EA3727009B76FB /* PSID */,
 				E1FC3EFF26EA1AE4009B76FB /* FBR */,
 				E1EBF69926DE8339000B1734 /* SelfAwardSuccess */,
@@ -4462,6 +4473,50 @@
 				BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */,
 			);
 			path = CustomDatePickerView;
+			sourceTree = "<group>";
+		};
+		E168AAF326F9072B002D1083 /* NADRA */ = {
+			isa = PBXGroup;
+			children = (
+				E168AAF726F9C81F002D1083 /* Router */,
+				E168AAF626F9C81B002D1083 /* Builder */,
+				E168AAF526F9C816002D1083 /* ViewModel */,
+				E168AAF426F9C813002D1083 /* View */,
+			);
+			path = NADRA;
+			sourceTree = "<group>";
+		};
+		E168AAF426F9C813002D1083 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */,
+				E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E168AAF526F9C816002D1083 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E168AAF626F9C81B002D1083 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E168AB0026F9CBD9002D1083 /* NadraTrackingIDBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E168AAF726F9C81F002D1083 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E168AAFE26F9CB77002D1083 /* NadraTrackingIDRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		E17F1D5926DAB3A4001D15D9 /* SelfAwardOTP */ = {
@@ -4805,6 +4860,7 @@
 				20782D6124B4732700422AEB /* RadioButtonItemView.xib in Resources */,
 				E1FC3F0326EA1B1A009B76FB /* RedemptionFBR.storyboard in Resources */,
 				BC7E7E9624C055540026F341 /* GenerateStatement.storyboard in Resources */,
+				E168AAF926F9C831002D1083 /* NadraTrackingID.storyboard in Resources */,
 				9FE9D91624DD623E00FFE3AC /* ContactUsListTableViewCell.xib in Resources */,
 				2046B92524DAB6C700E2C4CB /* Localizable.strings in Resources */,
 				A1B9A1C224B2FF0D00CAAA32 /* LaunchScreen.storyboard in Resources */,
@@ -5192,6 +5248,7 @@
 				20901BE624FFBFF000D13931 /* EmptyModel.swift in Sources */,
 				E7547A5C24EFC18C002F35A9 /* BeneficiaryVerificationRouter.swift in Sources */,
 				2030723024C9C9CC00C0DC67 /* FAQViewController.swift in Sources */,
+				E168AAFF26F9CB77002D1083 /* NadraTrackingIDRouter.swift in Sources */,
 				2030722E24C9C9BD00C0DC67 /* FAQModuleBuilder.swift in Sources */,
 				2030722F24C9C9BD00C0DC67 /* FAQViewModel.swift in Sources */,
 				E1FC3F1A26EA3CF2009B76FB /* RedemptionPSIDRouter.swift in Sources */,
@@ -5354,6 +5411,7 @@
 				E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */,
 				2046B91E24D9AC9500E2C4CB /* LogoutService.swift in Sources */,
 				207C3D9824B5AE7400298C0C /* CountryListViewController.swift in Sources */,
+				E168AB0126F9CBD9002D1083 /* NadraTrackingIDBuilder.swift in Sources */,
 				9F00F9A924B4771F008AA81E /* AddBeneficiaryModel.swift in Sources */,
 				200912C424BD5F43002E204B /* APIPathBuilder.swift in Sources */,
 				207C3E1D24B73FA900298C0C /* HomeCollectionViewLoyaltyCellDataModel.swift in Sources */,
@@ -5366,6 +5424,7 @@
 				9F8D826D24C86AB500BB1C26 /* ForgotPasswordNewPassViewController.swift in Sources */,
 				9FF2C86624D352FB00527CD3 /* RedeemService.swift in Sources */,
 				9FB1DD2624B6F6C0002BF688 /* AddBeneficiaryViewModel.swift in Sources */,
+				E168AAFD26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift in Sources */,
 				9F8D828B24C89F7300BB1C26 /* ForgotPasswordSuccessViewModel.swift in Sources */,
 				20D839AF24D1B79800C82A87 /* PointsFormatter.swift in Sources */,
 				A1B9A22824B308DA00CAAA32 /* LoginViewModel.swift in Sources */,
@@ -5532,6 +5591,7 @@
 				E17F1D6526DBBA4C001D15D9 /* SelfAwardOTPService.swift in Sources */,
 				20782D3C24B454BD00422AEB /* UITextViewExtensions.swift in Sources */,
 				9F8D824D24C86AA900BB1C26 /* ForgotPasswordRouter.swift in Sources */,
+				E168AAFB26F9C845002D1083 /* NadraTrackingIDViewController.swift in Sources */,
 				9F653ACA24CB0CD300810DBD /* RedeemServiceViewController.swift in Sources */,
 				207D5E8424BDB19500222594 /* CertificateManager.swift in Sources */,
 				9F8AE2B224DAD6EE00F1E468 /* ProfileOTPViewModel.swift in Sources */,
@@ -5645,7 +5705,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6020,7 +6080,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 48;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -6048,7 +6108,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

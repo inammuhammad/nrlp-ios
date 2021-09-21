@@ -321,3 +321,7 @@
 //NADRA
 "NADRA" = "NADRA";
 "To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue." = "To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue.";
+"Enter Tracking ID for Redemption" = "Enter Tracking ID for Redemption";
+"Tracking ID Number" = "Tracking ID Number";
+"Enter CNIC for Redemption" = "Enter CNIC for Redemption";
+"You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA" = "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA";

@@ -19,4 +19,8 @@ class RedeemRouter {
     func navigateToPIA(user: UserModel) {
         self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, model: user, flowType: .PIA), animated: true)
     }
+    
+    func navigateToNadra(user: UserModel) {
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, model: user, flowType: .Nadra), animated: true)
+    }
 }

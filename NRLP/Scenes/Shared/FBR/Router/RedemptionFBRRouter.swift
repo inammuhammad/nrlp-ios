@@ -21,6 +21,10 @@ class RedemptionFBRRouter {
         self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, model: user, flowType: flowType), animated: true)
     }
     
+    func navigateToTrackingIDScreen(userModel: UserModel, flowType: RedemptionFlowType) {
+        self.navigationController?.pushViewController(NadraTrackingIDBuilder().build(with: navigationController, model: userModel, flowType: flowType), animated: true)
+    }
+    
     func navigateBack() {
         self.navigationController?.popViewController(animated: true)
     }

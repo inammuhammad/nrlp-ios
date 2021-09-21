@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Nadra TrackingID View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="NadraTrackingIDViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="NadraTrackingIDViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2JP-F5-GHB">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Sn-tt-xtr" customClass="LoyaltyCardView" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="77" width="374" height="107.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="107.5" placeholder="YES" id="fZ6-fg-kzD"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YUa-aO-KI6" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="204.5" width="374" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="WDc-1g-q1p"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="rP6-mY-VDM">
+                                        <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeg-lN-WIa" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="jPb-8V-RmL"/>
+                                                </constraints>
+                                                <state key="normal" title="Next"/>
+                                                <connections>
+                                                    <action selector="nextBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Owd-b2-dvm"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M04-CX-d2P" customClass="SecondaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                                <rect key="frame" x="204" y="0.0" width="170" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="cYv-4E-wfE"/>
+                                                </constraints>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Rq4-WK-YZx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="M04-CX-d2P" firstAttribute="width" secondItem="aeg-lN-WIa" secondAttribute="width" id="EiI-QS-i03"/>
+                                        </constraints>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGx-nc-shg" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="304.5" width="374" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="DFj-3h-VZX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="cad-dy-JLj"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="cad-dy-JLj" firstAttribute="trailing" secondItem="CGx-nc-shg" secondAttribute="trailing" constant="20" id="1BM-zF-Xgz"/>
+                                    <constraint firstItem="YUa-aO-KI6" firstAttribute="top" secondItem="1Sn-tt-xtr" secondAttribute="bottom" constant="20" id="3XR-ha-Sky"/>
+                                    <constraint firstItem="cad-dy-JLj" firstAttribute="bottom" secondItem="rP6-mY-VDM" secondAttribute="bottom" constant="40" id="4hX-5h-tvV"/>
+                                    <constraint firstItem="1Sn-tt-xtr" firstAttribute="top" secondItem="cad-dy-JLj" secondAttribute="top" constant="33" id="TNG-JZ-mkh"/>
+                                    <constraint firstItem="CGx-nc-shg" firstAttribute="leading" secondItem="cad-dy-JLj" secondAttribute="leading" constant="20" id="cIf-3Y-c7i"/>
+                                    <constraint firstItem="cad-dy-JLj" firstAttribute="trailing" secondItem="rP6-mY-VDM" secondAttribute="trailing" constant="20" id="gC5-EI-lt7"/>
+                                    <constraint firstItem="1Sn-tt-xtr" firstAttribute="leading" secondItem="cad-dy-JLj" secondAttribute="leading" constant="20" id="nhh-B9-L5p"/>
+                                    <constraint firstItem="cad-dy-JLj" firstAttribute="trailing" secondItem="YUa-aO-KI6" secondAttribute="trailing" constant="20" id="pdA-md-Wvt"/>
+                                    <constraint firstItem="YUa-aO-KI6" firstAttribute="leading" secondItem="2JP-F5-GHB" secondAttribute="leading" constant="20" id="pdX-8j-NNf"/>
+                                    <constraint firstItem="rP6-mY-VDM" firstAttribute="leading" secondItem="cad-dy-JLj" secondAttribute="leading" constant="20" id="q6X-vJ-g8P"/>
+                                    <constraint firstItem="CGx-nc-shg" firstAttribute="top" secondItem="YUa-aO-KI6" secondAttribute="bottom" constant="20" id="wdc-nb-Idz"/>
+                                    <constraint firstItem="cad-dy-JLj" firstAttribute="trailing" secondItem="1Sn-tt-xtr" secondAttribute="trailing" constant="20" id="yc1-qL-inD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="2JP-F5-GHB" secondAttribute="bottom" id="JTS-5K-fov"/>
+                            <constraint firstAttribute="trailing" secondItem="2JP-F5-GHB" secondAttribute="trailing" id="cx0-Hx-R1q"/>
+                            <constraint firstItem="2JP-F5-GHB" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="kLY-81-kGU"/>
+                            <constraint firstItem="2JP-F5-GHB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="qMU-mC-96o"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="M04-CX-d2P" id="8zH-GE-xUz"/>
+                        <outlet property="cnicTextField" destination="CGx-nc-shg" id="TgX-91-4O0"/>
+                        <outlet property="nextBtn" destination="aeg-lN-WIa" id="5Qo-WZ-vOo"/>
+                        <outlet property="pointsView" destination="1Sn-tt-xtr" id="Zk2-ca-HcQ"/>
+                        <outlet property="trackingIDTextField" destination="YUa-aO-KI6" id="dfP-2i-4ej"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128.98550724637681" y="105.80357142857143"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="M04-CX-d2P">
+            <size key="intrinsicContentSize" width="48" height="30"/>
+        </designable>
+        <designable name="aeg-lN-WIa">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

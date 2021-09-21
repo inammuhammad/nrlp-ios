@@ -39,7 +39,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvS-oK-qGz">
-                                <rect key="frame" x="20" y="403.5" width="374" height="99"/>
+                                <rect key="frame" x="20" y="310.5" width="374" height="99"/>
                                 <string key="text">To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.
 
 If you already have a PSID please continue.</string>
@@ -83,13 +83,13 @@ If you already have a PSID please continue.</string>
                             <constraint firstItem="amk-y9-jRq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="9cb-eL-Kcv"/>
                             <constraint firstItem="lyS-Ru-g0S" firstAttribute="top" secondItem="YYl-9L-AAO" secondAttribute="bottom" constant="20" id="Hpx-vC-t42"/>
                             <constraint firstItem="lyS-Ru-g0S" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.5" id="JCd-AY-IHc"/>
-                            <constraint firstItem="zvS-oK-qGz" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="KTg-tP-IRG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="zvS-oK-qGz" secondAttribute="trailing" constant="20" id="QIj-ZO-eNu"/>
                             <constraint firstItem="zvS-oK-qGz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="UoR-DY-HwC"/>
                             <constraint firstItem="YYl-9L-AAO" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="20" id="WsN-X6-BuM"/>
                             <constraint firstItem="lyS-Ru-g0S" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Zzq-zp-vtX"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YYl-9L-AAO" secondAttribute="trailing" constant="20" id="ccB-lR-Ta5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="amk-y9-jRq" secondAttribute="bottom" constant="40" id="ce1-lP-JQs"/>
+                            <constraint firstItem="zvS-oK-qGz" firstAttribute="top" secondItem="lyS-Ru-g0S" secondAttribute="bottom" constant="50" id="evH-pd-4c2"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="amk-y9-jRq" secondAttribute="trailing" constant="20" id="foJ-Ds-JZz"/>
                             <constraint firstItem="YYl-9L-AAO" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="33" id="oVF-Ms-UDO"/>
                         </constraints>

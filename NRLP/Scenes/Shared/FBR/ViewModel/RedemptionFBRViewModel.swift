@@ -33,7 +33,11 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
     }
     
     func nextButtonPressed() {
-        router.navigateToPSIDScreen(user: self.user, flowType: flowType)
+        if flowType == .Nadra {
+            router.navigateToTrackingIDScreen(userModel: self.user, flowType: flowType)
+        } else {
+            router.navigateToPSIDScreen(user: self.user, flowType: flowType)
+        }
     }
     
     func cancelButtonPressed() {
@@ -59,6 +63,8 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
             title = "Federal Bureau of Revenue".localized
         case .PIA:
             title = "PIA".localized
+        case .Nadra:
+            title = "NADRA".localized
         }
         output?(.setTitle(text: title))
     }
@@ -70,6 +76,8 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
             desc = "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.".localized
         case .PIA:
             desc = "To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.".localized
+        case .Nadra:
+            desc = "To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue.".localized
         }
         output?(.setDescription(text: desc))
     }
@@ -78,4 +86,5 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
 enum RedemptionFlowType {
     case FBR
     case PIA
+    case Nadra
 }
