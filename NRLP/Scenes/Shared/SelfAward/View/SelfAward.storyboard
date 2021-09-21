@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="gIA-2a-2f4"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmw-47-OjC" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cmw-47-OjC" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
                                 <rect key="frame" x="16" y="316.5" width="382" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>

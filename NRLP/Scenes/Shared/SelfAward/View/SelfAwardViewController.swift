@@ -124,8 +124,8 @@ class SelfAwardViewController: BaseViewController {
     }
     
     private func validateFields() {
-        if let date = date, let referenceNo = referenceNumber, let transactionAmount = transactionAmount {
-            if date == "" || referenceNo == "" || transactionAmount == "" {
+        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount {
+            if referenceNo == "" || transactionAmount == "" {
                 proceedBtn.isEnabled = false
             } else {
                 proceedBtn.isEnabled = true
@@ -146,16 +146,16 @@ class SelfAwardViewController: BaseViewController {
     }
     
     @objc private func proceedBtnAction() {
-        if let amount = self.transactionAmount, let date = self.date, let referenceNo = self.referenceNumber {
+        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber {
             showActivityIndicator(show: true)
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd"
-            let newDate = dateFormatter.date(from: date)
-            let dateFormatterOutput = DateFormatter()
-            dateFormatterOutput.dateFormat = "yyyyMMdd"
-            let newDateStr = dateFormatterOutput.string(from: newDate ?? Date())
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "yyyy-MM-dd"
+//            let newDate = dateFormatter.date(from: date)
+//            let dateFormatterOutput = DateFormatter()
+//            dateFormatterOutput.dateFormat = "yyyyMMdd"
+//            let newDateStr = dateFormatterOutput.string(from: newDate ?? Date())
             let service = SelfAwardOTPService()
-            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, transactionDate: newDateStr)
+            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo)
 
             service.validateTransaction(requestModel: model) {[weak self] (result) in
                 self?.showActivityIndicator(show: false)

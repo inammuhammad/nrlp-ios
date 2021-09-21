@@ -84,18 +84,15 @@ class SelfAwardOTPViewModel: NRLPOTPViewModel {
 struct SelfAwardModel: Codable {
     var amount: String
     var referenceNo: String
-    var transactionDate: String
     
     enum CodingKeys: String, CodingKey {
         case amount = "amount"
         case referenceNo = "reference_no"
-        case transactionDate = "transaction_date"
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(amount, forKey: .amount)
         try container.encodeIfPresent(referenceNo.aesEncrypted(), forKey: .referenceNo)
-        try container.encodeIfPresent(transactionDate, forKey: .transactionDate)
     }
 }
