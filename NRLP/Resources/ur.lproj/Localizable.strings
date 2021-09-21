@@ -16,7 +16,7 @@
 "Remitter"="بھیجنے والا";
 "Beneficiary"="وصول کنندہ";
 "Login"="لاگ ان کریں";
-"About NRLP" = "\U200E کے بارے میں جانیں NRLP";
+"About NRLP" = "\U200E کے بارے میں جانیں Sohnidharti";
 "Please enter registration code received on SMS"="براہ کرم ایس ایم ایس پر موصولہ رجسٹریشن کوڈ درج کریں";
 "Registration Code"="رجسٹریشن کوڈ";
 "Beneficiary Verification"="وصول کنندہ کی توثیق";
@@ -246,7 +246,7 @@
 "This feature is coming very soon" = "یہ خصوصیت بہت جلد آنے والی ہے";
 "Coming Soon" = "جلد آرہا ہے";
 "Beneficiary Added" = "وصول کنندہ شامل ہوا";
-"NRLP Redemption Partners" = "این آر ایل پی کے  پارٹنر";
+"NRLP Redemption Partners" = "کے پارٹنر Sohnidharti";
 "Benefits for NRLP users" = "این آر ایل پی یوزر کے فوائد";
 //Redeem
 "Redemption Partners" = "پوائنٹس استعمال کرنے کیلئے پارٹنر کا انتخاب کریں";
@@ -325,3 +325,5 @@
 "Tracking ID Number" = "Tracking ID Number";
 "Enter CNIC for Redemption" = "Enter CNIC for Redemption";
 "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA" = "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA";
+
+"Remitter Transaction Reference No" = "Remitter Transaction Reference No";

@@ -16,7 +16,7 @@
 "Remitter" = "Remitter";
 "Beneficiary" = "Beneficiary";
 "Login" = "Login";
-"About NRLP" = "About NRLP";
+"About NRLP" = "About Sohnidharti";
 //Beneficiary Verification
 "Enter registration code received on SMS" = "Enter registration code received on SMS";
 "Registration code"= "Registration code";
@@ -236,7 +236,7 @@
 "View NRLP Benefits" = "View Benefits";
 "Urdu" = "اردو";
 "English" = "English";
-"NRLP Redemption Partners" = "NRLP Redemption Partners";
+"NRLP Redemption Partners" = "Sohnidharti Redemption Partners";
 "Benefits for NRLP users" = "Benefits for NRLP users";
 "List of Benefits" = "List of Benefits";
 
@@ -311,3 +311,5 @@
 "Tracking ID Number" = "Tracking ID Number";
 "Enter CNIC for Redemption" = "Enter CNIC for Redemption";
 "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA" = "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA";
+
+"Remitter Transaction Reference No" = "Remitter Transaction Reference No";

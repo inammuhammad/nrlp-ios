@@ -57,8 +57,8 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             nameLabel.text = data.user.fullName
             loyaltyTypeImageIcon.image = data.loyaltyCardImageStyle
             // REMITTANCE DATE AND REMITTANCE AMOUNT FIX
-            amountRemittanceLbl.text = "USD 25000"
-            dateRemittanceLbl.text = "11/20"
+            amountRemittanceLbl.text = data.remittedAmount
+            dateRemittanceLbl.text = data.remittedDate
         }
     }
 }

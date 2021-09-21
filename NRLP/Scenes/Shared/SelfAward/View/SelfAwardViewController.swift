@@ -36,7 +36,7 @@ class SelfAwardViewController: BaseViewController {
     }
     @IBOutlet private weak var referenceNumberLabelTextView: LabelledTextview! {
         didSet {
-            referenceNumberLabelTextView.titleLabelText = "Reference Number".localized
+            referenceNumberLabelTextView.titleLabelText = "Remitter Transaction Reference No".localized
             referenceNumberLabelTextView.placeholderText = "xxxxxxxxxxxxxx"
             referenceNumberLabelTextView.showHelpBtn = true
             referenceNumberLabelTextView.helpLabelText = "Transaction within 1 year is eligible for self awarding".localized

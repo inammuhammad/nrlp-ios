@@ -20,8 +20,8 @@ struct UserModel: Codable {
     
     var createdAt: String?
     var updatedAt: String?
-    var isActive: Int?
-    var isDeleted: Int?
+//    var isActive: Int?
+//    var isDeleted: Int?
     var loyaltyType: String
     private var currentPointsBalance: String?
     var userCountry: Country?
@@ -56,14 +56,21 @@ struct UserModel: Codable {
     var roundedLoyaltyPoints: Int64 {
         return Int64(loyaltyPoints?.double ?? 0)
     }
+    
+    var usdBalance: String?
+    var memberSince: String?
+    
+    var formattedUsdBalance: String {
+        return CurrencyFormatter().format(string: usdBalance ?? "0.0")
+    }
 
     enum CodingKeys: String, CodingKey {
         case type = "user_type"
         case cnicNicop = "nic_nicop"
         case fullName = "full_name"
         case id = "id"
-        case isActive = "is_active"
-        case isDeleted = "is_deleted"
+//        case isActive = "is_active"
+//        case isDeleted = "is_deleted"
         case loyaltyType = "loyalty_level"
         case points = "loyalty_points"
         case mobileNo = "mobile_no"
@@ -74,6 +81,8 @@ struct UserModel: Codable {
         case residentID = "resident_id"
         case passportTypeValue = "passport_type"
         case passportNumber = "passport_id"
+        case usdBalance = "usd_balance"
+        case memberSince = "member_since"
     }
     
     init() {
@@ -88,11 +97,13 @@ struct UserModel: Codable {
         self.loyaltyType = ""
         self.createdAt = ""
         self.updatedAt = ""
-        self.isActive = 0
-        self.isDeleted = 0
+//        self.isActive = 0
+//        self.isDeleted = 0
         self.residentID = ""
         self.passportTypeValue = ""
         self.passportNumber = ""
+        self.usdBalance = ""
+        self.memberSince = ""
     }
 
     mutating func update(from userModel: UserModel) {
@@ -107,10 +118,12 @@ struct UserModel: Codable {
         self.loyaltyType = userModel.loyaltyLevel.rawValue
         self.createdAt = userModel.createdAt ?? createdAt
         self.updatedAt = userModel.updatedAt ?? updatedAt
-        self.isActive = userModel.isActive ?? isActive
-        self.isDeleted = userModel.isDeleted ?? isDeleted
+//        self.isActive = userModel.isActive ?? isActive
+//        self.isDeleted = userModel.isDeleted ?? isDeleted
         self.residentID = userModel.residentID?.aesDecrypted() ?? residentID
         self.passportTypeValue = userModel.passportTypeValue ?? passportTypeValue
         self.passportNumber = userModel.passportNumber?.aesDecrypted() ?? passportNumber
+        self.memberSince = userModel.memberSince ?? memberSince
+        self.usdBalance = userModel.usdBalance ?? usdBalance
     }
 }
