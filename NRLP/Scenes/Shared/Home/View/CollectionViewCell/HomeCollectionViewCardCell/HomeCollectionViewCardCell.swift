@@ -35,7 +35,7 @@ class HomeCollectionViewCardCell: UICollectionViewCell, HomeCollectionViewCellPr
         setCornerRadiusAndShadow()
     }
 
-    func populate(with data: HomeCollectionViewCellDataModelProtocol) {
+    func populate(with data: HomeCollectionViewCellDataModelProtocol, controller: BaseViewController) {
         if let data = data as? HomeCollectionViewCardCellDataModel {
             imageView.image = data.titleImage
             actionTitleLabel.text = data.actionTitle

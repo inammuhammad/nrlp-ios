@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A1B9A1B124B2FF0B00CAAA32"
-               BuildableName = "NRLP.app"
+               BuildableName = "Sohni Dharti.app"
                BlueprintName = "NRLP"
                ReferencedContainer = "container:NRLP.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B9A1B124B2FF0B00CAAA32"
-            BuildableName = "NRLP.app"
+            BuildableName = "Sohni Dharti.app"
             BlueprintName = "NRLP"
             ReferencedContainer = "container:NRLP.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A1B9A1B124B2FF0B00CAAA32"
-            BuildableName = "NRLP.app"
+            BuildableName = "Sohni Dharti.app"
             BlueprintName = "NRLP"
             ReferencedContainer = "container:NRLP.xcodeproj">
          </BuildableReference>

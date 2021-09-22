@@ -47,6 +47,7 @@ class RemitterVerificationViewController: BaseViewController, UITextFieldDelegat
 
     @IBOutlet private weak var transactionAmountLabelTextView: LabelledTextview! {
         didSet {
+            transactionAmountLabelTextView.leadingTextColor = .black
             transactionAmountLabelTextView.editTextKeyboardType = .decimalPad
             transactionAmountLabelTextView.titleLabelText = "Transaction Amount".localized
             transactionAmountLabelTextView.placeholderText = "xx,xxx".localized

@@ -11,6 +11,8 @@ import UIKit
 
 class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCellProtocol {
 
+    private var homeController: BaseViewController?
+    
     @IBOutlet weak var loyaltyTypeImageIcon: UIImageView! {
         didSet {
             let icon = #imageLiteral(resourceName: "greenCard")
@@ -35,7 +37,7 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
     }
     @IBOutlet weak var amountRemittanceLbl: UILabel! {
         didSet {
-            amountRemittanceLbl.textColor = .white
+            amountRemittanceLbl.textColor = .black
         }
     }
     @IBOutlet weak var dateRemittanceLbl: UILabel! {
@@ -51,7 +53,17 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
     @IBAction func redeemBtnAction(_ sender: Any) {
     }
     
-    func populate(with data: HomeCollectionViewCellDataModelProtocol) {
+    @IBAction func infoBtnAction(_ sender: Any) {
+        let alert: AlertViewModel
+        let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
+        alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty categoryis calculated based on this. For further details please visit FAQs", alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        if let vc = homeController as? HomeViewController {
+            vc.showAlert(with: alert)
+        }
+    }
+    
+    func populate(with data: HomeCollectionViewCellDataModelProtocol, controller: BaseViewController) {
+        homeController = controller
         if let data = data as? HomeCollectionViewLoyaltyCellDataModel {
             loyaltyPointLabel.text = data.formattedPoints
             nameLabel.text = data.user.fullName

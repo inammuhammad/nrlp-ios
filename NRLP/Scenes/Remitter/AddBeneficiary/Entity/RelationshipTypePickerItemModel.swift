@@ -21,7 +21,8 @@ enum RelationshipType: String {
     case mother
     case father
     case child
-    case friend
+    case brother
+    case sister
     case spouse
     case other
 
@@ -33,8 +34,10 @@ enum RelationshipType: String {
             return "Father".localized
         case .child:
             return "Child".localized
-        case .friend:
-            return "Friend".localized
+        case .brother:
+            return "Brother".localized
+        case .sister:
+            return "Sister".localized
         case .spouse:
             return "Spouse".localized
         case .other:

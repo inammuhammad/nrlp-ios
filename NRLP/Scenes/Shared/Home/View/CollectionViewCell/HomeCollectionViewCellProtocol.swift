@@ -9,5 +9,5 @@
 import Foundation
 
 protocol HomeCollectionViewCellProtocol {
-    func populate(with data: HomeCollectionViewCellDataModelProtocol)
+    func populate(with data: HomeCollectionViewCellDataModelProtocol, controller: BaseViewController)
 }

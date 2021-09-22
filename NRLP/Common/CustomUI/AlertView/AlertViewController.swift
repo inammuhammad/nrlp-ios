@@ -127,6 +127,11 @@ extension AlertViewController {
     }
 
     private func setupView() {
+        if alertViewModel.alertHeadingImage.rawValue.lowercased() == AlertIllustrationType.noImage.rawValue.lowercased() {
+            alertImageView.isHidden = true
+        } else {
+            alertImageView.isHidden = false
+        }
         alertImageView.image = UIImage(named: alertViewModel.alertHeadingImage.rawValue)
         if let description = alertViewModel.alertDescription {
             alertDescriptionLabel.text = description

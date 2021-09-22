@@ -44,7 +44,7 @@ class HomeViewController: BaseViewController {
     private func setupCollectionViewNibs() {
         collectionView.register(nibName: "HomeCollectionViewCardCell")
         collectionView.register(nibName: "HomeCollectionViewLoyaltyCell")
-        collectionView.registerSupplementaryView(nibName: "HomeCollectionViewHeader")
+//        collectionView.registerSupplementaryView(nibName: "HomeCollectionViewHeader")
     }
 }
 
@@ -69,7 +69,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let model = viewModel.getItem(at: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.cellIdentifier, for: indexPath) as? HomeCollectionViewCellProtocol
-        cell?.populate(with: model)
+        cell?.populate(with: model, controller: self)
         return (cell as? UICollectionViewCell) ?? UICollectionViewCell()
     }
 
@@ -78,16 +78,16 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return CGSize(width: size.getCellWidth(), height: size.getCellHeight())
     }
 
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCollectionViewHeader", for: indexPath) as? HomeCollectionViewHeader
-        headerView?.frame.size.height = 100
-        headerView?.populate(with: viewModel.getTitleName)
-        return headerView ?? UICollectionReusableView()
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        CGSize(width: self.collectionView.frame.size.width, height: 100)
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeCollectionViewHeader", for: indexPath) as? HomeCollectionViewHeader
+//        headerView?.frame.size.height = 100
+//        headerView?.populate(with: viewModel.getTitleName)
+//        return headerView ?? UICollectionReusableView()
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        CGSize(width: self.collectionView.frame.size.width, height: 100)
+//    }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 
