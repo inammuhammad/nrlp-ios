@@ -22,8 +22,8 @@
 "Registration code"= "Registration code";
 "Beneficiary Verification" = "Beneficiary Verification";
 //Remitter Verification
-"Enter your most recent Remittance Transaction Reference Number (with in last 03 months)" = "Enter your most recent Remittance Transaction Reference Number (with in last 03 months)";
-"Reference Number" = "Reference Number";
+"Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)" = "Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)";
+"Reference Number" = "Transaction Reference No. / TT No.";
 "Transaction Amount" = "Transaction Amount";
 "Beneficiary Added" = "Beneficiary Added";
 "10,000" = "10,000";
@@ -312,4 +312,5 @@
 "Enter CNIC for Redemption" = "Enter CNIC for Redemption";
 "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA" = "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA";
 
-"Remitter Transaction Reference No" = "Remitter Transaction Reference No";
+"Transaction Reference No. / TT No." = "Transaction Reference No. / TT No.";
+"Transactions from last one year, starting 1st Oct 2021 are eligible" = "Transactions from last one year, starting 1st Oct 2021 are eligible";

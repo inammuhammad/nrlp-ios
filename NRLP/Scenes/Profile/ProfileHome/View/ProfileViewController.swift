@@ -49,7 +49,7 @@ class ProfileViewController: BaseViewController {
         didSet {
             residentIDTextView.titleLabelText = "Unique ID".localized
             residentIDTextView.placeholderText = "Unique ID".localized
-            residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
+            residentIDTextView.editTextKeyboardType = .default
             residentIDTextView.inputFieldMinLength = 1
             residentIDTextView.inputFieldMaxLength = 25
             passportNumberTextView.isEditable = false

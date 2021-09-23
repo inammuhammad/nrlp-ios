@@ -19,7 +19,7 @@ class RemitterVerificationViewController: BaseViewController, UITextFieldDelegat
 
     @IBOutlet private weak var descriptionLabel: UILabel! {
         didSet {
-            descriptionLabel.text = "Enter your most recent Remittance Transaction Reference Number (with in last 03 months)".localized
+            descriptionLabel.text = "Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)".localized
             descriptionLabel.textColor = .black
             descriptionLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
         }
@@ -30,7 +30,7 @@ class RemitterVerificationViewController: BaseViewController, UITextFieldDelegat
             referenceNumberLabelTextView.titleLabelText = "Reference Number".localized
             referenceNumberLabelTextView.placeholderText = "xxxxxxxxxxxxxx"
             referenceNumberLabelTextView.showHelpBtn = true
-            referenceNumberLabelTextView.helpLabelText = "Transaction within 1 year is eligible for self awarding".localized
+            referenceNumberLabelTextView.helpLabelText = "Transactions from last one year, starting 1st Oct 2021 are eligible".localized
             referenceNumberLabelTextView.inputFieldMaxLength = 25
             referenceNumberLabelTextView.editTextKeyboardType = .asciiCapable
             referenceNumberLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.referenceNumberRegex, invalidFormatError: StringConstants.ErrorString.referenceNumberError.localized)

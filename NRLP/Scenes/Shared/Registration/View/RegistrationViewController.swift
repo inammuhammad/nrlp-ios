@@ -79,7 +79,7 @@ class RegistrationViewController: BaseViewController {
             residentIDTextView.placeholderText = "Unique ID".localized
             residentIDTextView.showHelpBtn = true
             residentIDTextView.helpLabelText = "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)".localized
-            residentIDTextView.editTextKeyboardType = .asciiCapableNumberPad
+            residentIDTextView.editTextKeyboardType = .default
             residentIDTextView.inputFieldMinLength = 1
             residentIDTextView.inputFieldMaxLength = 25
             residentIDTextView.onTextFieldChanged = { [weak self] updatedText in

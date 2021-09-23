@@ -62,13 +62,13 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             var cnic = ""
             var mobileNumber = ""
             var email = ""
-            let topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .numbersAndPunctuation, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
+            let topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .numbersAndPunctuation, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
                 cnic = text
             }
-            let midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
+            let midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
                 mobileNumber = text
             }
-            let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optional)", editKeyboardType: .emailAddress, formatValidator: FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError)) { text in
+            let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optional)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, formatValidator: FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError)) { text in
                 email = text
             }
             let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {

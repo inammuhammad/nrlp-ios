@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "appstore.png",
+      "filename" : "SD logo.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "appstore@2x.png",
+      "filename" : "SD logo@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "appstore@3x.png",
+      "filename" : "SD logo@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Side Menu View Controller-->
         <scene sceneID="yjx-dD-I7g">
             <objects>
-                <viewController storyboardIdentifier="SideMenuViewController" id="OVS-eq-Ahp" customClass="SideMenuViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SideMenuViewController" id="OVS-eq-Ahp" customClass="SideMenuViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JST-LW-U73">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cxz-ay-T1N">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eai-uO-epv">
                                 <rect key="frame" x="0.0" y="60" width="414" height="668.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TXu-ou-1ME">
                                 <rect key="frame" x="0.0" y="728.5" width="331" height="133.5"/>
@@ -34,26 +35,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fF-xJ-6Ke">
-                                        <rect key="frame" x="97.5" y="32.5" width="136" height="61"/>
+                                        <rect key="frame" x="135.5" y="32.5" width="60" height="61"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1link" translatesAutoresizingMaskIntoConstraints="NO" id="ig2-pJ-oDy">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="61"/>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stateBankPakistan" translatesAutoresizingMaskIntoConstraints="NO" id="FYe-HF-nPM">
-                                                <rect key="frame" x="76" y="0.0" width="60" height="61"/>
-                                            </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="ig2-pJ-oDy" secondAttribute="bottom" id="3ko-kf-FdM"/>
-                                            <constraint firstItem="FYe-HF-nPM" firstAttribute="width" secondItem="ig2-pJ-oDy" secondAttribute="width" id="Dqd-fx-JSR"/>
-                                            <constraint firstItem="FYe-HF-nPM" firstAttribute="leading" secondItem="ig2-pJ-oDy" secondAttribute="trailing" constant="16" id="MU7-ZH-tlB"/>
-                                            <constraint firstAttribute="trailing" secondItem="FYe-HF-nPM" secondAttribute="trailing" id="NDg-wk-cuz"/>
+                                            <constraint firstAttribute="trailing" secondItem="ig2-pJ-oDy" secondAttribute="trailing" id="BRL-qQ-5bu"/>
                                             <constraint firstItem="ig2-pJ-oDy" firstAttribute="leading" secondItem="8fF-xJ-6Ke" secondAttribute="leading" id="Nl5-Hq-VnX"/>
                                             <constraint firstItem="ig2-pJ-oDy" firstAttribute="top" secondItem="8fF-xJ-6Ke" secondAttribute="top" id="RnD-Br-xKK"/>
-                                            <constraint firstItem="FYe-HF-nPM" firstAttribute="top" secondItem="8fF-xJ-6Ke" secondAttribute="top" id="UCe-D0-Iyc"/>
-                                            <constraint firstAttribute="bottom" secondItem="FYe-HF-nPM" secondAttribute="bottom" id="Y1P-VU-r75"/>
-                                            <constraint firstItem="FYe-HF-nPM" firstAttribute="height" secondItem="ig2-pJ-oDy" secondAttribute="height" id="w36-F7-dZ4"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRX-Yt-PIe">
@@ -63,7 +56,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="sRX-Yt-PIe" firstAttribute="centerX" secondItem="TXu-ou-1ME" secondAttribute="centerX" id="43l-jb-iTT"/>
                                     <constraint firstAttribute="bottom" secondItem="sRX-Yt-PIe" secondAttribute="bottom" constant="16" id="5ZZ-V4-ISS"/>
@@ -76,7 +69,8 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Udp-Fm-TqO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="cxz-ay-T1N" firstAttribute="leading" secondItem="Udp-Fm-TqO" secondAttribute="leading" id="36N-70-zTk"/>
                             <constraint firstItem="Udp-Fm-TqO" firstAttribute="trailing" secondItem="eai-uO-epv" secondAttribute="trailing" id="6cl-zq-kZ5"/>
@@ -90,7 +84,6 @@
                             <constraint firstItem="eai-uO-epv" firstAttribute="top" secondItem="Udp-Fm-TqO" secondAttribute="top" constant="16" id="lko-5O-jD3"/>
                             <constraint firstItem="Udp-Fm-TqO" firstAttribute="trailing" secondItem="cxz-ay-T1N" secondAttribute="trailing" id="mqX-tT-A46"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Udp-Fm-TqO"/>
                     </view>
                     <connections>
                         <outlet property="poweredByLabel" destination="1yF-9n-s6e" id="RLU-RZ-E0V"/>
@@ -106,6 +99,8 @@
     </scenes>
     <resources>
         <image name="1link" width="60" height="61"/>
-        <image name="stateBankPakistan" width="47" height="55"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

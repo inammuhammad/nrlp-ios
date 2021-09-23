@@ -183,6 +183,7 @@ extension AlertViewController {
             topTextField.inputFieldMinLength = alertViewModel.topTextField?.inputFieldMinLength
             topTextField.editTextKeyboardType = alertViewModel.topTextField?.editKeyboardType ?? .alphabet
             topTextField.formatValidator = alertViewModel.topTextField?.formatValidator
+            topTextField.placeholderTextColor = alertViewModel.topTextField?.placeHolderTextColor
             topTextField.onTextFieldChanged = { [weak self] text in
                 self?.alertViewModel.topTextField?.onTextFieldChanged?(text ?? "")
             }
@@ -198,6 +199,7 @@ extension AlertViewController {
             middleTextField.inputFieldMinLength = alertViewModel.middleTextField?.inputFieldMinLength
             middleTextField.editTextKeyboardType = alertViewModel.middleTextField?.editKeyboardType ?? .alphabet
             middleTextField.formatValidator = alertViewModel.middleTextField?.formatValidator
+            middleTextField.placeholderTextColor = alertViewModel.middleTextField?.placeHolderTextColor
             middleTextField.onTextFieldChanged = { [weak self] text in
                 self?.alertViewModel.middleTextField?.onTextFieldChanged?(text ?? "")
             }
@@ -213,6 +215,7 @@ extension AlertViewController {
             bottomTextField.inputFieldMinLength = alertViewModel.bottomTextField?.inputFieldMinLength
             bottomTextField.editTextKeyboardType = alertViewModel.bottomTextField?.editKeyboardType ?? .alphabet
             bottomTextField.formatValidator = alertViewModel.bottomTextField?.formatValidator
+            bottomTextField.placeholderTextColor = alertViewModel.bottomTextField?.placeHolderTextColor
             bottomTextField.onTextFieldChanged = { [weak self] text in
                 self?.alertViewModel.bottomTextField?.onTextFieldChanged?(text ?? "")
             }
