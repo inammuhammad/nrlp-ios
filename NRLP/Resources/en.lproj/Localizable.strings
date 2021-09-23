@@ -314,3 +314,8 @@
 
 "Transaction Reference No. / TT No." = "Transaction Reference No. / TT No.";
 "Transactions from last one year, starting 1st Oct 2021 are eligible" = "Transactions from last one year, starting 1st Oct 2021 are eligible";
+
+// USC
+"Utility Stores" = "Utility Stores";
+"To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue." = "To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue.";
+"You have redeemed %1$@ Points against\nPSID %2$@ successfully at Utility Stores" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at Utility Stores";

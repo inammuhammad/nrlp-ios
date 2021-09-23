@@ -75,6 +75,8 @@ class RedeemViewModel: RedeemViewModelProtocol {
             router.navigateToPIA(user: user)
         } else if partner.partnerName.lowercased() == "NADRA".lowercased() {
             router.navigateToNadra(user: user)
+        } else if partner.partnerName.lowercased() == "USC".lowercased() {
+            router.navigateToUSC(user: user)
         }
     }
 

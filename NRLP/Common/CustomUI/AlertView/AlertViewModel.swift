@@ -34,7 +34,7 @@ struct AlertActionButtonModel {
 struct AlertTextFieldModel {
     var titleLabelText: String?
     var placeholderText: String?
-    var placeHolderTextColor: UIColor?
+    var placeHolderTextColor: UIColor? = .lightGray
     var inputText: String?
     var inputFieldMaxLength: Int?
     var inputFieldMinLength: Int?
