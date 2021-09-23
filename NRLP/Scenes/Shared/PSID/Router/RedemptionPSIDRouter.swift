@@ -45,6 +45,8 @@ class RedemptionPSIDRouter {
             return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at NADRA".localized
         case .USC:
             return "You have redeemed \(amount) Points against\nPSID \(psid) successfully at Utility Stores".localized
+        case .OPF:
+            return "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF".localized
         }
     }
 }

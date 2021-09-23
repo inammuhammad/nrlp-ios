@@ -52,7 +52,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
             guard let self = self else { return }
             self.router.navigateToSuccessScreen(psid: self.psidText ?? "", amount: amount, flowType: self.flowType)
         })
-        topTextField = flowType == .FBR ? nil : topTextField
+        topTextField = flowType == .FBR || flowType == .OPF ? nil : topTextField
         alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
         output?(.showAlert(alert: alert))
         
@@ -65,6 +65,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
     func viewDidLoad() {
         output?(.updateLoyaltyPoints(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)")))
         output?(.nextButtonState(enableState: false))
+        output?(.setupTextField(flowType: flowType))
     }
     
     enum Output {
@@ -72,6 +73,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         case psidTextField(errorState: Bool, error: String?)
         case nextButtonState(enableState: Bool)
         case showAlert(alert: AlertViewModel)
+        case setupTextField(flowType: RedemptionFlowType)
     }
     
     private func getConfirmAlertDescription(amount: String) -> NSAttributedString {
@@ -79,11 +81,22 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         let regularAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)]
         let boldAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)]
 
-        let attributePart1 = NSMutableAttributedString(string: "The amount against PSID ".localized, attributes: regularAttributes)
+        var startString = ""
+        if flowType == .OPF {
+            startString = "Your amount against Voucher Number ".localized
+        } else {
+            startString = "The amount against PSID ".localized
+        }
+        let attributePart1 = NSMutableAttributedString(string: startString, attributes: regularAttributes)
         let attributePart2 = NSMutableAttributedString(string: "\n\(psidText ?? "") ", attributes: boldAttributes)
         let attributePart3 = NSMutableAttributedString(string: "is ", attributes: regularAttributes)
-        let attributePart4 = NSMutableAttributedString(string: "PKR\n\(amount)", attributes: boldAttributes)
-        let attributePart5 = NSMutableAttributedString(string: ". Confirm amount for Redemption?".localized, attributes: regularAttributes)
+        var attributePart4 = NSMutableAttributedString(string: "PKR\n\(amount)", attributes: boldAttributes)
+        var attributePart5 = NSMutableAttributedString(string: ". Confirm amount for Redemption?".localized, attributes: regularAttributes)
+        
+        if flowType == .OPF {
+            attributePart4 = NSMutableAttributedString(string: "\(amount) ", attributes: boldAttributes)
+            attributePart5 = NSMutableAttributedString(string: "Ponits. Confirm to redeem points at ", attributes: regularAttributes)
+        }
         
         let alertDesctiption = NSMutableAttributedString()
         alertDesctiption.append(attributePart1)
@@ -91,6 +104,10 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         alertDesctiption.append(attributePart3)
         alertDesctiption.append(attributePart4)
         alertDesctiption.append(attributePart5)
+        if flowType == .OPF {
+            let attributePart6 = NSMutableAttributedString(string: "OPF", attributes: boldAttributes)
+            alertDesctiption.append(attributePart6)
+        }
 
         return alertDesctiption
     }
@@ -99,10 +116,18 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
 
 extension RedemptionPSIDViewModel {
     private func validateTextFields() {
-        if psidText?.isEmpty ?? false || psidText?.count ?? 0 < 25 {
-            output?(.nextButtonState(enableState: false))
+        if flowType == .OPF {
+            if psidText?.isEmpty ?? false {
+                output?(.nextButtonState(enableState: false))
+            } else {
+                output?(.nextButtonState(enableState: true))
+            }
         } else {
-            output?(.nextButtonState(enableState: true))
+            if psidText?.isEmpty ?? false || psidText?.count ?? 0 < 25 {
+                output?(.nextButtonState(enableState: false))
+            } else {
+                output?(.nextButtonState(enableState: true))
+            }
         }
     }
 }

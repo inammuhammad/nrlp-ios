@@ -68,6 +68,28 @@ class RedemptionPSIDViewController: BaseViewController {
                 self.psidTextView.updateStateTo(isError: state, error: error)
             case .showAlert(alert: let alert):
                 self.showAlert(with: alert)
+            case .setupTextField(flowType: let flowType):
+                if flowType == .OPF {
+                    psidTextView.titleLabelText = "Enter Voucher Number for Redemption".localized
+                    psidTextView.inputFieldMinLength = 1
+                    psidTextView.inputFieldMaxLength = 25
+                    psidTextView.placeholderText = "Voucher Number".localized
+                    psidTextView.editTextKeyboardType = .default
+                    psidTextView.onTextFieldChanged = { [weak self] updatedText in
+                        guard let self = self else { return }
+                        self.viewModel.psidText = updatedText
+                    }
+                } else {
+                    psidTextView.titleLabelText = "Enter PSID for Redemption".localized
+                    psidTextView.inputFieldMinLength = 25
+                    psidTextView.inputFieldMaxLength = 25
+                    psidTextView.placeholderText = "PSID Number".localized
+                    psidTextView.editTextKeyboardType = .asciiCapableNumberPad
+                    psidTextView.onTextFieldChanged = { [weak self] updatedText in
+                        guard let self = self else { return }
+                        self.viewModel.psidText = updatedText
+                    }
+                }
             }
         }
     }

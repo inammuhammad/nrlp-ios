@@ -319,3 +319,8 @@
 "Utility Stores" = "Utility Stores";
 "To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue." = "To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue.";
 "You have redeemed %1$@ Points against\nPSID %2$@ successfully at Utility Stores" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at Utility Stores";
+
+// OPF
+"Enter Voucher Number for Redemption" = "Enter Voucher Number for Redemption";
+"Voucher Number" = "Voucher Number";
+"Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF";

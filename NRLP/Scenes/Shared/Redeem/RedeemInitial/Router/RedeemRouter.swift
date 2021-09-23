@@ -27,4 +27,8 @@ class RedeemRouter {
     func navigateToUSC(user: UserModel) {
         self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, model: user, flowType: .USC), animated: true)
     }
+    
+    func navigateToOPF(user: UserModel) {
+        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, model: user, flowType: .OPF), animated: true)
+    }
 }

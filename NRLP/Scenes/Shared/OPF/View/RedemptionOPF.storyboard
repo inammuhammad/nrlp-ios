@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--RedemptionOPF View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RedemptionOPFViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="RedemptionOPFViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoQ-3G-jEQ" customClass="LoyaltyCardView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="20" y="77" width="374" height="107.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107.5" placeholder="YES" id="acD-dk-gIa"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="WRa-EU-FMP">
+                                <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WTp-zq-TiQ" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="pac-AX-NVI"/>
+                                        </constraints>
+                                        <state key="normal" title="Next"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bGS-Ki-Uvh" customClass="SecondaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="204" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="pIs-aQ-gxJ"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="bGS-Ki-Uvh" firstAttribute="width" secondItem="WTp-zq-TiQ" secondAttribute="width" id="nor-DY-62a"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j2K-Zm-QId" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="20" y="204.5" width="374" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="Ume-wL-PL3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="WRa-EU-FMP" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="7Gg-Sh-Wwi"/>
+                            <constraint firstItem="WRa-EU-FMP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="IfZ-Nj-n35"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="j2K-Zm-QId" secondAttribute="trailing" constant="20" id="SUO-YQ-KyV"/>
+                            <constraint firstItem="YoQ-3G-jEQ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Tgz-bw-yMC"/>
+                            <constraint firstItem="j2K-Zm-QId" firstAttribute="top" secondItem="YoQ-3G-jEQ" secondAttribute="bottom" constant="20" id="YfY-bY-mZx"/>
+                            <constraint firstItem="j2K-Zm-QId" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="cgr-4A-xwo"/>
+                            <constraint firstItem="YoQ-3G-jEQ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="33" id="fAN-em-7iB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="WRa-EU-FMP" secondAttribute="trailing" constant="20" id="jCZ-FT-qrK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YoQ-3G-jEQ" secondAttribute="trailing" constant="20" id="rWS-iC-yBn"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="WRa-EU-FMP" secondAttribute="bottom" constant="40" id="wPL-Le-PaE"/>
+                            <constraint firstItem="YoQ-3G-jEQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="xmH-Za-zOO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="69.642857142857139"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="WTp-zq-TiQ">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+        <designable name="bGS-Ki-Uvh">
+            <size key="intrinsicContentSize" width="48" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

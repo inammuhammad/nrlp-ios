@@ -67,6 +67,8 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
             title = "NADRA".localized
         case .USC:
             title = "Utility Stores".localized
+        case .OPF:
+            title = "".localized
         }
         output?(.setTitle(text: title))
     }
@@ -82,6 +84,8 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
             desc = "To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue.".localized
         case .USC:
             desc = "To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue.".localized
+        case .OPF:
+            desc = "".localized
         }
         output?(.setDescription(text: desc))
     }
@@ -92,4 +96,5 @@ enum RedemptionFlowType {
     case PIA
     case Nadra
     case USC
+    case OPF
 }
