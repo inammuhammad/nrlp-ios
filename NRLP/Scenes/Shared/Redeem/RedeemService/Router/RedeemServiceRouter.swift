@@ -17,12 +17,12 @@ class RedeemServiceRouter {
         self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .FBR), animated: true)
     }
     
-    func navigateToPIA(partner: Partner, user: UserModel) {
-        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .PIA), animated: true)
+    func navigateToPIA(partner: Partner, user: UserModel, category: Category) {
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .PIA, category: category), animated: true)
     }
     
-    func navigateToNadra(partner: Partner, user: UserModel) {
-        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .Nadra), animated: true)
+    func navigateToNadra(partner: Partner, user: UserModel, category: Category) {
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .Nadra, category: category), animated: true)
     }
     
     func navigateToUSC(partner: Partner, user: UserModel) {
@@ -30,7 +30,7 @@ class RedeemServiceRouter {
     }
     
     func navigateToOPF(partner: Partner, user: UserModel) {
-        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .OPF), animated: true)
+        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .OPF, category: nil), animated: true)
     }
     
     func navigateToOTPScreen(transactionID: String, partner: Partner, user: UserModel, inputModel: InitRedemptionTransactionModel, flowType: RedemptionFlowType) {

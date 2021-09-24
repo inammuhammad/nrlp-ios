@@ -184,7 +184,8 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
     }
     
     private func executeNadraFlow(index: Int) {
-        router.navigateToNadra(partner: partner, user: user)
+        let category = getCategory(index: index)
+        router.navigateToNadra(partner: partner, user: user, category: category)
     }
     
     private func executeFBRFlow(index: Int) {
@@ -192,7 +193,8 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
     }
     
     private func executePIAFlow(index: Int) {
-        router.navigateToPIA(partner: partner, user: user)
+        let category = getCategory(index: index)
+        router.navigateToPIA(partner: partner, user: user, category: category)
     }
     
     private func executeUSCFlow(index: Int) {
@@ -217,7 +219,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
                 self.output?(.showActivityIndicator(show: true))
                 let formattedPoints = PointsFormatter().format(string: "\(self.getCategory(index: index).pointsAssigned)")
-                let model = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: cnic, amount: formattedPoints, sotp: 1, pseChild: self.partner.categories[index].categoryName, mobileNo: mobileNo, email: email)
+                let model = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: cnic, sotp: 1, pseChild: self.partner.categories[index].categoryName, mobileNo: mobileNo, email: email, point: formattedPoints)
                 self.redemptionService.redemptionTransactionSendOTP(requestModel: model) { result in
                     self.output?(.showActivityIndicator(show: false))
                     switch result {

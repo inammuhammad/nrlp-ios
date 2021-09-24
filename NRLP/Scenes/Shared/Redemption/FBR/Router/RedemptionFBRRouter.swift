@@ -16,13 +16,13 @@ class RedemptionFBRRouter {
         self.navigationController = navigationController
     }
     
-    func navigateToPSIDScreen(partner: Partner, user: UserModel, flowType: RedemptionFlowType) {
+    func navigateToPSIDScreen(partner: Partner, user: UserModel, flowType: RedemptionFlowType, category: Category?) {
         print("NAVIGATE TO PSID")
-        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: flowType), animated: true)
+        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: flowType, category: category), animated: true)
     }
     
-    func navigateToTrackingIDScreen(userModel: UserModel, flowType: RedemptionFlowType) {
-        self.navigationController?.pushViewController(NadraTrackingIDBuilder().build(with: navigationController, model: userModel, flowType: flowType), animated: true)
+    func navigateToTrackingIDScreen(userModel: UserModel, flowType: RedemptionFlowType, category: Category, partner: Partner) {
+        self.navigationController?.pushViewController(NadraTrackingIDBuilder().build(with: navigationController, model: userModel, flowType: flowType, category: category, partner: partner), animated: true)
     }
     
     func navigateBack() {

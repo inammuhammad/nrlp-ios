@@ -317,6 +317,10 @@
 "Enter CNIC for Redemption" = "Enter CNIC for Redemption";
 "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA" = "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA";
 
+"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Tracking\nID %3$@ successfully at NADRA.\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Tracking\nID %3$@ successfully at NADRA.\n\n%4$@";
+
+"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at PIA\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at PIA\n\n%4$@";
+
 "Transaction Reference No. / TT No." = "Transaction Reference No. / TT No.";
 "Transactions from last one year, starting 1st Oct 2021 are eligible" = "Transactions from last one year, starting 1st Oct 2021 are eligible";
 

@@ -11,12 +11,12 @@ import UIKit
 
 class NadraTrackingIDBuilder {
     
-    func build(with navigationController: UINavigationController?, model: UserModel, flowType: RedemptionFlowType) -> UIViewController {
+    func build(with navigationController: UINavigationController?, model: UserModel, flowType: RedemptionFlowType, category: Category, partner: Partner) -> UIViewController {
         
         let viewController = NadraTrackingIDViewController.getInstance()
             
         let coordinator = NadraTrackingIDRouter(navigationController: navigationController)
-        let viewModel = NadraTrackingIDViewModel(router: coordinator, user: model, flowType: flowType)
+        let viewModel = NadraTrackingIDViewModel(router: coordinator, user: model, flowType: flowType, category: category, partner: partner)
         viewController.viewModel = viewModel
         
         return viewController

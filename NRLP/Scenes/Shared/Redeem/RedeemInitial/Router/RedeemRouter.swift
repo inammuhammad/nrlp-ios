@@ -29,6 +29,6 @@ class RedeemRouter {
     }
     
     func navigateToOPF(partner: Partner, user: UserModel) {
-        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .OPF), animated: true)
+        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .OPF, category: nil), animated: true)
     }
 }

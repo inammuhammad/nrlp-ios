@@ -24,21 +24,23 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
     private var user: UserModel
     private var flowType: RedemptionFlowType
     private var partner: Partner
+    private var category: Category
     
     var output: RedemptionFBRViewModelOutput?
     
-    init(router: RedemptionFBRRouter, partner: Partner, user: UserModel, flowType: RedemptionFlowType) {
+    init(router: RedemptionFBRRouter, partner: Partner, user: UserModel, flowType: RedemptionFlowType, category: Category) {
         self.router = router
         self.user = user
         self.flowType = flowType
         self.partner = partner
+        self.category = category
     }
     
     func nextButtonPressed() {
         if flowType == .Nadra {
-            router.navigateToTrackingIDScreen(userModel: self.user, flowType: flowType)
+            router.navigateToTrackingIDScreen(userModel: self.user, flowType: flowType, category: category, partner: partner)
         } else {
-            router.navigateToPSIDScreen(partner: partner, user: self.user, flowType: flowType)
+            router.navigateToPSIDScreen(partner: partner, user: self.user, flowType: flowType, category: category)
         }
     }
     

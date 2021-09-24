@@ -32,21 +32,28 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
     private var flowType: RedemptionFlowType
     private var partner: Partner
     private var service: RedemptionService
+    private var category: Category?
     
     var output: RedemptionPSIDViewModelOutput?
     
-    init(router: RedemptionPSIDRouter, partner: Partner, user: UserModel, flowType: RedemptionFlowType, service: RedemptionService = RedemptionService()) {
+    init(router: RedemptionPSIDRouter, partner: Partner, user: UserModel, flowType: RedemptionFlowType, category: Category?, service: RedemptionService = RedemptionService()) {
         self.router = router
         self.user = user
         self.flowType = flowType
         self.service = service
         self.partner = partner
+        self.category = category
     }
     
     func nextButtonPressed() {
         print("NAVIGATE TO POPUP")
         output?(.showActivityIndicator(show: true))
-        let inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText)
+        var inputModel: InitRedemptionTransactionModel
+        if let categoryName = category?.categoryName {
+            inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText, pseChild: categoryName)
+        } else {
+            inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText)
+        }
         service.initRedemptionTransaction(requestModel: inputModel) { [weak self] result in
             self?.output?(.showActivityIndicator(show: false))
             switch result {
@@ -61,7 +68,13 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
                 let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: { [weak self] in
 
                     guard let self = self else { return }
-                    self.navigateToOTPFlow(amount: amount)
+                    if Int(amount) ?? 0 > Int(model.billInquiryResponse.amount) ?? 0 || Int(amount) ?? 0 < 0 {
+                        let alert: AlertViewModel
+                        alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Error", alertDescription: "Amount can not be more than \(model.billInquiryResponse.amount) and lesser than 0", primaryButton: AlertActionButtonModel(buttonTitle: "OK".localized))
+                        self.output?(.showAlert(alert: alert))
+                    } else {
+                        self.navigateToOTPFlow(amount: amount)
+                    }
                 })
                 topTextField = self?.flowType == .FBR || self?.flowType == .OPF ? nil : topTextField
                 alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: self?.getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
@@ -131,7 +144,9 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
     
     private func navigateToOTPFlow(amount: String) {
         output?(.showActivityIndicator(show: true))
-        let newInputModel = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: self.psidText, amount: amount, sotp: 1)
+        let pointStr = String(category?.pointsAssigned ?? 0)
+        let point = PointsFormatter().format(string: pointStr)
+        let newInputModel = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: self.psidText, amount: amount, sotp: 1, pseChild: category?.categoryName ?? "", point: point)
         self.service.redemptionTransactionSendOTP(requestModel: newInputModel) { result in
             self.output?(.showActivityIndicator(show: false))
             switch result {
@@ -155,7 +170,7 @@ extension RedemptionPSIDViewModel {
                 output?(.nextButtonState(enableState: true))
             }
         } else {
-            if psidText?.isEmpty ?? false || psidText?.count ?? 0 < 25 {
+            if psidText?.isEmpty ?? false || psidText?.count ?? 0 < 24 {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))

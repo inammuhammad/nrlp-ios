@@ -17,6 +17,8 @@ struct InitRedemptionTransactionModel: Codable {
     var pseChild: String?
     var mobileNo: String?
     var email: String?
+    var trackingID: String?
+    var point: String?
     
     enum CodingKeys: String, CodingKey {
         case code = "code"
@@ -27,6 +29,8 @@ struct InitRedemptionTransactionModel: Codable {
         case pseChild = "pse_child"
         case mobileNo = "mobile_no"
         case email = "email"
+        case trackingID = "tracking_id"
+        case point = "point"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -39,6 +43,8 @@ struct InitRedemptionTransactionModel: Codable {
         try container.encodeIfPresent(pseChild, forKey: .pseChild)
         try container.encodeIfPresent(mobileNo, forKey: .mobileNo)
         try container.encodeIfPresent(email, forKey: .email)
+        try container.encodeIfPresent(trackingID, forKey: .trackingID)
+        try container.encodeIfPresent(point, forKey: .point)
     }
 }
 

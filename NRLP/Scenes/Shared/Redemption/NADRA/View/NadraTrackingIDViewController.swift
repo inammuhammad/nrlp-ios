@@ -18,6 +18,8 @@ class NadraTrackingIDViewController: BaseViewController {
             trackingIDTextField.titleLabelText = "Enter Tracking ID for Redemption".localized
             trackingIDTextField.placeholderText = "Tracking ID Number".localized
             trackingIDTextField.editTextKeyboardType = .asciiCapableNumberPad
+            trackingIDTextField.inputFieldMinLength = 12
+            trackingIDTextField.inputFieldMaxLength = 12
             trackingIDTextField.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.trackingID = updatedText
@@ -83,6 +85,10 @@ class NadraTrackingIDViewController: BaseViewController {
                 trackingIDTextField.updateStateTo(isError: errorState, error: error)
             case .cnicTextField(errorState: let errorState, error: let error):
                 cnicTextField.updateStateTo(isError: errorState, error: error)
+            case .showError(error: let error):
+                self.showAlert(with: error)
+            case .showActivityIndicator(show: let show):
+                show ? ProgressHUD.show() : ProgressHUD.dismiss()
             }
         }
     }
