@@ -12,4 +12,29 @@ class RedeemServiceRouter {
         guard partner != nil else { return }
         self.navigationController?.pushViewController(RedeemOTPBuilder().build(with: self.navigationController, transactionId: transactionId, partner: partner!, user: user), animated: true)
     }
+    
+    func navigateToFBR(partner: Partner, user: UserModel) {
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .FBR), animated: true)
+    }
+    
+    func navigateToPIA(partner: Partner, user: UserModel) {
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .PIA), animated: true)
+    }
+    
+    func navigateToNadra(partner: Partner, user: UserModel) {
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .Nadra), animated: true)
+    }
+    
+    func navigateToUSC(partner: Partner, user: UserModel) {
+        self.navigationController?.pushViewController(RedemptionFBRBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .USC), animated: true)
+    }
+    
+    func navigateToOPF(partner: Partner, user: UserModel) {
+        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .OPF), animated: true)
+    }
+    
+    func navigateToOTPScreen(transactionID: String, partner: Partner, user: UserModel, inputModel: InitRedemptionTransactionModel, flowType: RedemptionFlowType) {
+        let vc = RedemptionOTPBuilder().build(with: self.navigationController, transactionId: transactionID, partner: partner, user: user, inputModel: inputModel, flowType: flowType)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

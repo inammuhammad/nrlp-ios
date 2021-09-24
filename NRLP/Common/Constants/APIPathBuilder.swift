@@ -87,6 +87,9 @@ struct APIPathBuilder {
         case resentUUIDChangeOTP
         case selfAwardValidateTransaction
         case selfAwardVerifyOTP
+        case initRedemptionTransaction
+        case redemptionTransactionSendOTP
+        case completeRedemptionTransaction
         
         var rawValue: String {
             switch self {
@@ -199,6 +202,15 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .selfAwardVerifyOTP:
                 let sign: [UInt8] = [39, 0, 30, 11, 94, 32, 25, 5, 49, 11, 67, 18, 12, 6, 15, 6, 23, 126, 10, 6, 6]
+                return Replacer().deformatString(string: sign)
+            case .initRedemptionTransaction:
+                let sign: [UInt8] = [61, 11, 27, 25, 26, 32, 2, 13, 57, 10, 67, 22, 12, 16, 12, 2, 30, 39, 12, 29, 24, 68, 23, 23, 47, 61, 60, 3, 9, 17, 10, 27, 58]
+                return Replacer().deformatString(string: sign)
+            case .redemptionTransactionSendOTP:
+                let sign: [UInt8] = [61, 11, 27, 25, 26, 32, 2, 13, 57, 10, 67, 22, 12, 16, 12, 2, 30, 39, 12, 29, 24, 68, 23, 23, 47, 61, 60, 3, 9, 17, 10, 27, 58, 90, 1, 2, 7, 49, 83, 85]
+                return Replacer().deformatString(string: sign)
+            case .completeRedemptionTransaction:
+                let sign: [UInt8] = [55, 10, 31, 29, 31, 36, 26, 1, 110, 29, 11, 0, 12, 17, 4, 66, 26, 33, 4, 28, 5, 8, 0, 17, 39, 60, 33]
                 return Replacer().deformatString(string: sign)
             }
         }

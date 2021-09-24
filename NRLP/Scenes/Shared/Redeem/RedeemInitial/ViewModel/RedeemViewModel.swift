@@ -66,19 +66,45 @@ class RedeemViewModel: RedeemViewModelProtocol {
         
 //        router.navigateToFBR(user: user)
         if partner.partnerName.lowercased() == "FBR".lowercased() {
-            router.navigateToFBR(user: user)
+            if partner.categoryCount == 0 {
+                router.navigateToFBR(partner: partner, user: user)
+            } else {
+                router.navigateToCategory(partner: partner, user: user)
+            }
         } else if partner.partnerName.lowercased() == "CAA".lowercased() {
-            router.navigateToCategory(partner: partner, user: user)
+            if partner.categoryCount != 0 {
+                router.navigateToCategory(partner: partner, user: user)
+            }
         } else if partner.partnerName.lowercased() == "Passport".lowercased() {
-            router.navigateToCategory(partner: partner, user: user)
+            if partner.categoryCount != 0 {
+                router.navigateToCategory(partner: partner, user: user)
+            } else {
+                router.navigateToCategory(partner: partner, user: user)
+            }
         } else if partner.partnerName.lowercased() == "PIA".lowercased() {
-            router.navigateToPIA(user: user)
+            if partner.categoryCount != 0 {
+                router.navigateToCategory(partner: partner, user: user)
+            } else {
+                router.navigateToPIA(partner: partner, user: user)
+            }
         } else if partner.partnerName.lowercased() == "NADRA".lowercased() {
-            router.navigateToNadra(user: user)
+            if partner.categoryCount != 0 {
+                router.navigateToCategory(partner: partner, user: user)
+            } else {
+                router.navigateToNadra(partner: partner, user: user)
+            }
         } else if partner.partnerName.lowercased() == "USC".lowercased() {
-            router.navigateToUSC(user: user)
+            if partner.categoryCount != 0 {
+                router.navigateToCategory(partner: partner, user: user)
+            } else {
+                router.navigateToUSC(partner: partner, user: user)
+            }
         } else if partner.partnerName.lowercased() == "OPF".lowercased() {
-            router.navigateToOPF(user: user)
+            if partner.categoryCount != 0 {
+                router.navigateToCategory(partner: partner, user: user)
+            } else {
+                router.navigateToOPF(partner: partner, user: user)
+            }
         }
     }
 

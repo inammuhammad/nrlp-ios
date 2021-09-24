@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 typealias AlertActionButtonCallBack = () -> Void
-typealias AlertTextFieldCallBack = (String) -> ()
+typealias AlertTextFieldCallBack = (String) -> Void
 
 struct AlertViewModel {
     var alertHeadingImage: AlertIllustrationType

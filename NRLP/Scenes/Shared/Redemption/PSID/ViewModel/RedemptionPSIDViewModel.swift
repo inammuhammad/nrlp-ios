@@ -30,31 +30,46 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
     private var router: RedemptionPSIDRouter
     private var user: UserModel
     private var flowType: RedemptionFlowType
+    private var partner: Partner
+    private var service: RedemptionService
     
     var output: RedemptionPSIDViewModelOutput?
     
-    init(router: RedemptionPSIDRouter, user: UserModel, flowType: RedemptionFlowType) {
+    init(router: RedemptionPSIDRouter, partner: Partner, user: UserModel, flowType: RedemptionFlowType, service: RedemptionService = RedemptionService()) {
         self.router = router
         self.user = user
         self.flowType = flowType
+        self.service = service
+        self.partner = partner
     }
     
     func nextButtonPressed() {
         print("NAVIGATE TO POPUP")
-        let alert: AlertViewModel
-        var amount = "5,900"
-        var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here".localized, inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: CurrencyFormatter()) { text in
-            amount = text
-        }
-        let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: nil)
-        let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: { [weak self] in
+        output?(.showActivityIndicator(show: true))
+        let inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText)
+        service.initRedemptionTransaction(requestModel: inputModel) { [weak self] result in
+            self?.output?(.showActivityIndicator(show: false))
+            switch result {
+            case .success(let model):
+                print(model)
+                let alert: AlertViewModel
+                var amount = model.billInquiryResponse.amount
+                var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here".localized, inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: CurrencyFormatter()) { text in
+                    amount = text
+                }
+                let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: nil)
+                let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: { [weak self] in
 
-            guard let self = self else { return }
-            self.router.navigateToSuccessScreen(psid: self.psidText ?? "", amount: amount, flowType: self.flowType)
-        })
-        topTextField = flowType == .FBR || flowType == .OPF ? nil : topTextField
-        alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
-        output?(.showAlert(alert: alert))
+                    guard let self = self else { return }
+                    self.navigateToOTPFlow(amount: amount)
+                })
+                topTextField = self?.flowType == .FBR || self?.flowType == .OPF ? nil : topTextField
+                alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: self?.getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
+                self?.output?(.showAlert(alert: alert))
+            case .failure(let error):
+                self?.output?(.showError(error: error))
+            }
+        }
         
     }
     
@@ -73,7 +88,9 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         case psidTextField(errorState: Bool, error: String?)
         case nextButtonState(enableState: Bool)
         case showAlert(alert: AlertViewModel)
+        case showError(error: APIResponseError)
         case setupTextField(flowType: RedemptionFlowType)
+        case showActivityIndicator(show: Bool)
     }
     
     private func getConfirmAlertDescription(amount: String) -> NSAttributedString {
@@ -110,6 +127,21 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         }
 
         return alertDesctiption
+    }
+    
+    private func navigateToOTPFlow(amount: String) {
+        output?(.showActivityIndicator(show: true))
+        let newInputModel = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: self.psidText, amount: amount, sotp: 1)
+        self.service.redemptionTransactionSendOTP(requestModel: newInputModel) { result in
+            self.output?(.showActivityIndicator(show: false))
+            switch result {
+            case .success(let model):
+                print(model)
+                self.router.navigateToOTPScreen(transactionID: model.transactionId, partner: self.partner, user: self.user, inputModel: newInputModel, flowType: self.flowType)
+            case .failure(let error):
+                self.output?(.showError(error: error))
+            }
+        }
     }
     
 }

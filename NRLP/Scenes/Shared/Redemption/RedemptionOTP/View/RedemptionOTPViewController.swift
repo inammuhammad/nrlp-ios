@@ -1,33 +1,21 @@
 //
-//  SelfAwardOTPViewController.swift
+//  RedemptionOTPViewController.swift
 //  NRLP
 //
-//  Created by Bilal Iqbal on 28/08/2021.
+//  Created by Bilal Iqbal on 24/09/2021.
 //  Copyright © 2021 VentureDive. All rights reserved.
 //
 
 import UIKit
 
-class SelfAwardOTPViewController: BaseViewController {
-
+class RedemptionOTPViewController: BaseViewController {
+    
+    var viewModel: RedemptionOTPViewModelProtocol!
+    
     @IBOutlet private weak var verificationCodeErrorLabel: UILabel! {
         didSet {
             verificationCodeErrorLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .extraSmallFontSize)
             verificationCodeErrorLabel.textColor = UIColor(commonColor: .appErrorRed)
-        }
-    }
-    @IBOutlet private weak var resendCodeInfoLabel: UILabel! {
-        didSet {
-            resendCodeInfoLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
-            resendCodeInfoLabel.textColor = .black
-            resendCodeInfoLabel.text = "We have sent you a new OTP on your\nregistered mobile no.".localized
-        }
-    }
-    @IBOutlet private weak var resendVerificationCodeInfoView: UIView! {
-        didSet {
-            resendVerificationCodeInfoView.backgroundColor = UIColor(commonColor: .appTransparentGreen)
-            resendVerificationCodeInfoView.cornerRadius = 4
-            resendVerificationCodeInfoView.isHidden = true
         }
     }
     @IBOutlet private var codeTextFields: [CodeVerifyTextField]!
@@ -36,18 +24,18 @@ class SelfAwardOTPViewController: BaseViewController {
             headerLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
         }
     }
-    @IBOutlet private weak var codeExpireTimerLabel: UILabel! {
+    @IBOutlet private weak var resendLabel: UILabel! {
         didSet {
-            codeExpireTimerLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
-            codeExpireTimerLabel.textColor = .init(commonColor: .appYellow)
-            codeExpireTimerLabel.text = "05:00".localized
+            resendLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
+            resendLabel.textColor = .black
+            resendLabel.text = "OTP Code will expire in".localized
         }
     }
-    @IBOutlet private weak var codeExpireLabel: UILabel! {
+    @IBOutlet private weak var resendTime: UILabel! {
         didSet {
-            codeExpireLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
-            codeExpireLabel.textColor = .black
-            codeExpireLabel.text = "OTP Code will expire in".localized
+            resendTime.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
+            resendTime.textColor = .init(commonColor: .appYellow)
+            resendTime.text = "05:00"
         }
     }
     @IBOutlet private weak var notReceiveOtpLabel: UILabel! {
@@ -59,7 +47,8 @@ class SelfAwardOTPViewController: BaseViewController {
     }
     @IBOutlet private weak var resendOtpButton: UIButton! {
         didSet {
-            let attributedTitle = NSAttributedString(string: "Resend OTP".localized,
+            
+            let attributedTitle = NSAttributedString(string: "Resend OTP",
                                                      attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(commonColor: .appGreen),
                                                                   NSAttributedString.Key.font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)])
             resendOtpButton.setAttributedTitle(attributedTitle, for: .normal)
@@ -70,35 +59,54 @@ class SelfAwardOTPViewController: BaseViewController {
             verifyCTAButton.setTitle("Next".localized, for: .normal)
         }
     }
-    @IBOutlet weak var otpItemStack: UIStackView!
     
-    var viewModel: SelfAwardOTPViewModel!
+    @IBOutlet private weak var resendCodeInfoLabel: UILabel! {
+        didSet {
+            resendCodeInfoLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
+            resendCodeInfoLabel.textColor = .black
+            resendCodeInfoLabel.text = "We have sent you a new OTP on your\nregistered mobile no.".localized
+        }
+    }
+    
+    @IBOutlet private weak var resendVerificationCodeInfoView: UIView! {
+        didSet {
+            resendVerificationCodeInfoView.backgroundColor = UIColor(commonColor: .appTransparentGreen)
+            resendVerificationCodeInfoView.cornerRadius = 4
+            resendVerificationCodeInfoView.isHidden = true
+        }
+    }
+    @IBOutlet weak var otpItemStack: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        bindViewModelOutput()
+        // Do any additional setup after loading the view.
         setupView()
+        bindViewModelOutput()
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.viewModel.viewModelWillDisappear()
+    }
+    
     private func setupView() {
-        title = "OTP Verification".localized
-        
+        self.title = "OTP Verification".localized
         headerLabel.text = String(format: "We have sent you a code on your Mobile number %@. Please enter the code below.".localized, viewModel.formattedNumber)
+        
         viewModel.viewDidLoad()
         setupPinCodeFields()
-        enableProfileOTP(state: false)
+        self.enableOTP(state: false)
         
         otpItemStack.semanticContentAttribute = .forceLeftToRight
         codeTextFields.forEach { (textField) in
             textField.semanticContentAttribute = .forceLeftToRight
         }
     }
-
-    private func enableProfileOTP(state: Bool) {
-
+    
+    private func enableOTP(state: Bool) {
+        
         var attributedTitle = NSAttributedString()
-
+        
         if state {
             attributedTitle = NSAttributedString(string: "Resend OTP".localized,
                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(commonColor: .appGreen),
@@ -108,25 +116,43 @@ class SelfAwardOTPViewController: BaseViewController {
                                                  attributes: [NSAttributedString.Key.foregroundColor: UIColor.init(commonColor: .appLightGray),
                                                               NSAttributedString.Key.font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)])
         }
-        resendOtpButton.setAttributedTitle(attributedTitle, for: .normal)
+        self.resendOtpButton.setAttributedTitle(attributedTitle, for: .normal)
+    }
+    
+    private func clearInputFields() {
+        codeTextFields.forEach { (textField) in
+            textField.clear()
+        }
+        self.view.endEditing(true)
+    }
+    
+    private func setupPinCodeFields() {
+        
+        codeTextFields.forEach { $0.codeDelegate = self }
+        
+        for textfields in codeTextFields {
+            textfields.codeDelegate = self
+            textfields.placeholder = "x"
+            textfields.setTextViewBorder(with: UIColor(commonColor: .appBottomBorderViewShadow))
+        }
+        codeTextFields.first?.becomeFirstResponder()
+    }
+    
+    @IBAction
+    private func didTapResendOtpButton(_ sender: UIButton) {
+        clearInputFields()
+        self.viewModel.didTapOnResendOtpButton()
+    }
+    
+    @IBAction
+    private func didTapVerifyButton(_ sender: Any) {
+        self.viewModel.verifyOTP()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        viewModel.viewModelWillDisappear()
-    }
-
-    deinit {
-        viewModel.viewModelWillDisappear()
-    }
-
-    /// Bind the view controller with view model.
     private func bindViewModelOutput() {
-
+        
         viewModel.output = { [unowned self] output in
             switch output {
-            case .showAlert(let alertViewModel):
-                self.showAlert(with: alertViewModel)
             case .showActivityIndicator(let show):
                 show ? ProgressHUD.show() : ProgressHUD.dismiss()
             case .showError(let error):
@@ -135,78 +161,51 @@ class SelfAwardOTPViewController: BaseViewController {
                 self.verifyCTAButton.isEnabled = state
             case .resendOtpButtonState(let state):
                 self.resendOtpButton.isEnabled = state
-                self.enableProfileOTP(state: state)
-            case .updateCodeExpireTimer(let timerString):
-                self.codeExpireTimerLabel.text = timerString
+                self.enableOTP(state: state)
             case .showOTPInvalidFormatError(let show, let error):
                 self.verificationCodeErrorLabel.isHidden = !show
                 self.verificationCodeErrorLabel.text = error ?? ""
+            case .updateCodeExpireTimer(let timerString):
+                self.resendTime.text = timerString
             case .showResendOTPInfoView(let show):
                 self.resendVerificationCodeInfoView.isHidden = !show
+            case .showAlert(let alertViewModel):
+                self.showAlert(with: alertViewModel)
             }
         }
     }
-
-    private func setupPinCodeFields() {
-
-        codeTextFields.forEach { $0.codeDelegate = self}
-
-        for textfields in codeTextFields {
-            textfields.codeDelegate = self
-            textfields.placeholder = "x".localized
-            textfields.setTextViewBorder(with: UIColor(commonColor: .appBottomBorderViewShadow))
-        }
-        codeTextFields.first?.becomeFirstResponder()
-    }
-
-    private func clearInputFields() {
-        codeTextFields.forEach { (textField) in
-            textField.clear()
-        }
-        self.view.endEditing(true)
-    }
     
-    @IBAction
-    private func didTapResendOtpButton(_ sender: UIButton) {
-        clearInputFields()
-        viewModel.didTapOnResendOtpButton()
-    }
-    @IBAction
-    private func didTapVerifyButton(_ sender: Any) {
-        viewModel.didTapVerifyButton()
-    }
-
 }
 
-extension SelfAwardOTPViewController: KWTextFieldDelegate {
-
+extension RedemptionOTPViewController: KWTextFieldDelegate {
+    
     func moveToNext(_ textFieldView: CodeVerifyTextField) {
         let validIndex = codeTextFields.firstIndex(of: textFieldView) == codeTextFields.count - 1 ? codeTextFields.firstIndex(of: textFieldView)! : codeTextFields.firstIndex(of: textFieldView)! + 1
         textFieldView.setTextViewBorder(with: UIColor(commonColor: .appGreen))
         codeTextFields[validIndex].activate()
     }
-
+    
     func moveToPrevious(_ textFieldView: CodeVerifyTextField, oldCode: String) {
         if codeTextFields.last == textFieldView && oldCode != " " {
             return
         }
         textFieldView.setTextViewBorder(with: UIColor(commonColor: .appBottomBorderViewShadow))
-
+        
         if textFieldView.text == " " {
             let validIndex = codeTextFields.firstIndex(of: textFieldView)! == 0 ? 0 : codeTextFields.firstIndex(of: textFieldView)! - 1
             codeTextFields[validIndex].activate()
             codeTextFields[validIndex].reset()
         }
     }
-
+    
     func didChangeCharacters() {
         var enteredDigits = 0
         let maxDigits = 4
-
+        
         var verificationCodeString = ""
         var verificationCode =  [Int?]()
         for textFieldView in codeTextFields {
-
+            
             let value =  Int(textFieldView.text ?? "") ?? nil
             verificationCode.append(value)
             verificationCodeString.append(textFieldView.text ?? "")
@@ -215,14 +214,15 @@ extension SelfAwardOTPViewController: KWTextFieldDelegate {
             }
         }
         if enteredDigits == maxDigits {
-            view.endEditing(true)
+            self.view.endEditing(true)
         }
+        viewModel.validateOTPString(string: verificationCodeString)
         viewModel.otpCode = verificationCode
     }
 }
 
-extension SelfAwardOTPViewController: Initializable {
+extension RedemptionOTPViewController: Initializable {
     static var storyboardName: UIStoryboard.Name {
-        return UIStoryboard.Name.selfAwardOTP
+        return UIStoryboard.Name.redemptionOTP
     }
 }

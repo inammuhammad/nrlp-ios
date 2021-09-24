@@ -50,7 +50,7 @@ class RemitterHomeViewModel: HomeViewModel {
         case .nrlpBenefits:
            router.navigateToNRLPBenefits()
         case .selfAward:
-            router.navigateToSelfAward()
+            router.navigateToSelfAward(user: userModel)
             //showComingSoonAlert()
         }
     }

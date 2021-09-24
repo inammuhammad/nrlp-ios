@@ -29,7 +29,7 @@ class NadraTrackingIDRouter {
     func navigateBack() {
         if let navController = self.navigationController {
             let viewControllers: [UIViewController] = navController.viewControllers as [UIViewController]
-            navController.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+            navController.popToViewController(viewControllers[viewControllers.count - 4], animated: true)
         }
     }
     

@@ -23,20 +23,22 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
     private var router: RedemptionFBRRouter
     private var user: UserModel
     private var flowType: RedemptionFlowType
+    private var partner: Partner
     
     var output: RedemptionFBRViewModelOutput?
     
-    init(router: RedemptionFBRRouter, user: UserModel, flowType: RedemptionFlowType) {
+    init(router: RedemptionFBRRouter, partner: Partner, user: UserModel, flowType: RedemptionFlowType) {
         self.router = router
         self.user = user
         self.flowType = flowType
+        self.partner = partner
     }
     
     func nextButtonPressed() {
         if flowType == .Nadra {
             router.navigateToTrackingIDScreen(userModel: self.user, flowType: flowType)
         } else {
-            router.navigateToPSIDScreen(user: self.user, flowType: flowType)
+            router.navigateToPSIDScreen(partner: partner, user: self.user, flowType: flowType)
         }
     }
     
@@ -69,6 +71,8 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
             title = "Utility Stores".localized
         case .OPF:
             title = "".localized
+        default:
+            ()
         }
         output?(.setTitle(text: title))
     }
@@ -86,6 +90,8 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
             desc = "To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue.".localized
         case .OPF:
             desc = "".localized
+        default:
+            ()
         }
         output?(.setDescription(text: desc))
     }
@@ -97,4 +103,5 @@ enum RedemptionFlowType {
     case Nadra
     case USC
     case OPF
+    case DGIP
 }

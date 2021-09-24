@@ -81,8 +81,8 @@ class RedemptionPSIDViewController: BaseViewController {
                     }
                 } else {
                     psidTextView.titleLabelText = "Enter PSID for Redemption".localized
-                    psidTextView.inputFieldMinLength = 25
-                    psidTextView.inputFieldMaxLength = 25
+                    psidTextView.inputFieldMinLength = 24
+                    psidTextView.inputFieldMaxLength = 24
                     psidTextView.placeholderText = "PSID Number".localized
                     psidTextView.editTextKeyboardType = .asciiCapableNumberPad
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -90,6 +90,10 @@ class RedemptionPSIDViewController: BaseViewController {
                         self.viewModel.psidText = updatedText
                     }
                 }
+            case .showError(error: let error):
+                self.showAlert(with: error)
+            case .showActivityIndicator(show: let show):
+                show ? ProgressHUD.show() : ProgressHUD.dismiss()
             }
         }
     }

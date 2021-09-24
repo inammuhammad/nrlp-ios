@@ -15,6 +15,7 @@ class SelfAwardViewController: BaseViewController {
     var date: String?
     var referenceNumber: String?
     var transactionAmount: String?
+    var user: UserModel?
     
     // MARK: IBOutlets
     
@@ -161,7 +162,8 @@ class SelfAwardViewController: BaseViewController {
                 self?.showActivityIndicator(show: false)
                 switch result {
                 case .success(_):
-                    self?.navigateToOTPScreen(model: model)
+                    guard let user = self?.user else { return }
+                    self?.navigateToOTPScreen(model: model, user: user)
                 case .failure(let error):
                     self?.showAlert(with: error)
                }
@@ -173,9 +175,9 @@ class SelfAwardViewController: BaseViewController {
         show ? ProgressHUD.show() : ProgressHUD.dismiss()
     }
     
-    private func navigateToOTPScreen(model: SelfAwardModel) {
+    private func navigateToOTPScreen(model: SelfAwardModel, user: UserModel) {
         let vc = SelfAwardOTPViewController.getInstance()
-        vc.viewModel = SelfAwardOTPViewModel(model: model, navigationController: self.navigationController ?? UINavigationController())
+        vc.viewModel = SelfAwardOTPViewModel(model: model, navigationController: self.navigationController ?? UINavigationController(), user: user)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

@@ -568,6 +568,13 @@
 		E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */; };
 		E122CD9826FCC35900BEAE18 /* RedemptionOPF.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E122CD9726FCC35900BEAE18 /* RedemptionOPF.storyboard */; };
 		E122CD9A26FCC37000BEAE18 /* RedemptionOPFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CD9926FCC37000BEAE18 /* RedemptionOPFViewController.swift */; };
+		E122CD9E26FD129800BEAE18 /* RedemptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CD9D26FD129800BEAE18 /* RedemptionService.swift */; };
+		E122CDA126FD19F000BEAE18 /* InitRedemptionTransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDA026FD19F000BEAE18 /* InitRedemptionTransactionModel.swift */; };
+		E122CDA926FD3FA500BEAE18 /* RedemptionOTP.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E122CDA826FD3FA500BEAE18 /* RedemptionOTP.storyboard */; };
+		E122CDAB26FD3FB500BEAE18 /* RedemptionOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDAA26FD3FB500BEAE18 /* RedemptionOTPViewController.swift */; };
+		E122CDAD26FD400400BEAE18 /* RedemptionOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDAC26FD400400BEAE18 /* RedemptionOTPViewModel.swift */; };
+		E122CDB026FD42C200BEAE18 /* RedemptionOTPBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */; };
+		E122CDB226FD42EC00BEAE18 /* RedemptionOTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */; };
 		E168AAF926F9C831002D1083 /* NadraTrackingID.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */; };
 		E168AAFB26F9C845002D1083 /* NadraTrackingIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */; };
 		E168AAFD26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */; };
@@ -1217,6 +1224,13 @@
 		E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportTypePickerItemModel.swift; sourceTree = "<group>"; };
 		E122CD9726FCC35900BEAE18 /* RedemptionOPF.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionOPF.storyboard; sourceTree = "<group>"; };
 		E122CD9926FCC37000BEAE18 /* RedemptionOPFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOPFViewController.swift; sourceTree = "<group>"; };
+		E122CD9D26FD129800BEAE18 /* RedemptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionService.swift; sourceTree = "<group>"; };
+		E122CDA026FD19F000BEAE18 /* InitRedemptionTransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitRedemptionTransactionModel.swift; sourceTree = "<group>"; };
+		E122CDA826FD3FA500BEAE18 /* RedemptionOTP.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionOTP.storyboard; sourceTree = "<group>"; };
+		E122CDAA26FD3FB500BEAE18 /* RedemptionOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPViewController.swift; sourceTree = "<group>"; };
+		E122CDAC26FD400400BEAE18 /* RedemptionOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPViewModel.swift; sourceTree = "<group>"; };
+		E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPBuilder.swift; sourceTree = "<group>"; };
+		E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPRouter.swift; sourceTree = "<group>"; };
 		E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NadraTrackingID.storyboard; sourceTree = "<group>"; };
 		E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewController.swift; sourceTree = "<group>"; };
 		E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewModel.swift; sourceTree = "<group>"; };
@@ -4175,10 +4189,7 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E122CD9526FCC32A00BEAE18 /* OPF */,
-				E168AAF326F9072B002D1083 /* NADRA */,
-				E1FC3F0F26EA3727009B76FB /* PSID */,
-				E1FC3EFF26EA1AE4009B76FB /* FBR */,
+				E122CD9B26FD124500BEAE18 /* Redemption */,
 				E1EBF69926DE8339000B1734 /* SelfAwardSuccess */,
 				E17F1D5926DAB3A4001D15D9 /* SelfAwardOTP */,
 				E1F232BE26D9FBEF000F8051 /* SelfAward */,
@@ -4495,6 +4506,80 @@
 				E122CD9926FCC37000BEAE18 /* RedemptionOPFViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E122CD9B26FD124500BEAE18 /* Redemption */ = {
+			isa = PBXGroup;
+			children = (
+				E122CDA326FD3F7B00BEAE18 /* RedemptionOTP */,
+				E122CD9F26FD19BF00BEAE18 /* Entity */,
+				E122CD9C26FD125700BEAE18 /* Service */,
+				E1FC3EFF26EA1AE4009B76FB /* FBR */,
+				E1FC3F0F26EA3727009B76FB /* PSID */,
+				E168AAF326F9072B002D1083 /* NADRA */,
+				E122CD9526FCC32A00BEAE18 /* OPF */,
+			);
+			path = Redemption;
+			sourceTree = "<group>";
+		};
+		E122CD9C26FD125700BEAE18 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E122CD9D26FD129800BEAE18 /* RedemptionService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		E122CD9F26FD19BF00BEAE18 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E122CDA026FD19F000BEAE18 /* InitRedemptionTransactionModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E122CDA326FD3F7B00BEAE18 /* RedemptionOTP */ = {
+			isa = PBXGroup;
+			children = (
+				E122CDA726FD3F9000BEAE18 /* Router */,
+				E122CDA626FD3F8900BEAE18 /* Builder */,
+				E122CDA526FD3F8600BEAE18 /* ViewModel */,
+				E122CDA426FD3F8200BEAE18 /* View */,
+			);
+			path = RedemptionOTP;
+			sourceTree = "<group>";
+		};
+		E122CDA426FD3F8200BEAE18 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E122CDA826FD3FA500BEAE18 /* RedemptionOTP.storyboard */,
+				E122CDAA26FD3FB500BEAE18 /* RedemptionOTPViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E122CDA526FD3F8600BEAE18 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E122CDAC26FD400400BEAE18 /* RedemptionOTPViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E122CDA626FD3F8900BEAE18 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E122CDA726FD3F9000BEAE18 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		E168AAF326F9072B002D1083 /* NADRA */ = {
@@ -4891,6 +4976,7 @@
 				9FF6F0B424BD88E500E375A2 /* TransferPoints.storyboard in Resources */,
 				2030725A24C9F58200C0DC67 /* angle-mask@1x.png in Resources */,
 				20E56FCC24B4FA5B00BF3B15 /* ProgressBarView.xib in Resources */,
+				E122CDA926FD3FA500BEAE18 /* RedemptionOTP.storyboard in Resources */,
 				2030725724C9F58200C0DC67 /* success@1x.png in Resources */,
 				20782D3224B44ECA00422AEB /* LabelledTextview.xib in Resources */,
 				20FAD8F024E801C900126367 /* Config in Resources */,
@@ -5376,6 +5462,7 @@
 				9F8D827B24C86BEF00BB1C26 /* ForgotPasswordOTPRouter.swift in Sources */,
 				200F1A1124BEC2A6001411D9 /* HomeSideMenuDelegate.swift in Sources */,
 				207C3E1624B73D5500298C0C /* UICollectionViewExtensions.swift in Sources */,
+				E122CD9E26FD129800BEAE18 /* RedemptionService.swift in Sources */,
 				9F8AE2AD24DAD6EE00F1E468 /* ProfileViewModel.swift in Sources */,
 				207C3DE124B620CA00298C0C /* PaddedTextView.swift in Sources */,
 				207C3DAF24B5BD4000298C0C /* OTPViewModel.swift in Sources */,
@@ -5434,6 +5521,7 @@
 				E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */,
 				2046B91E24D9AC9500E2C4CB /* LogoutService.swift in Sources */,
 				207C3D9824B5AE7400298C0C /* CountryListViewController.swift in Sources */,
+				E122CDB226FD42EC00BEAE18 /* RedemptionOTPRouter.swift in Sources */,
 				E168AB0126F9CBD9002D1083 /* NadraTrackingIDBuilder.swift in Sources */,
 				9F00F9A924B4771F008AA81E /* AddBeneficiaryModel.swift in Sources */,
 				200912C424BD5F43002E204B /* APIPathBuilder.swift in Sources */,
@@ -5454,6 +5542,7 @@
 				2073D2AE24C0778100897232 /* FAQItemTableViewCell.swift in Sources */,
 				2073D2A024C03ACA00897232 /* ParameterEncoding.swift in Sources */,
 				207C3E2324B767C500298C0C /* UICollectionViewCellExtensions.swift in Sources */,
+				E122CDA126FD19F000BEAE18 /* InitRedemptionTransactionModel.swift in Sources */,
 				9F8565CD24BF43D7001B68CE /* LoyaltyPointsRouter.swift in Sources */,
 				9F8D827924C86BEF00BB1C26 /* ForgotPasswordOTPModuleBuilder.swift in Sources */,
 				207C3E3224B8425F00298C0C /* RegisterUserService.swift in Sources */,
@@ -5587,6 +5676,7 @@
 				9F8565C924BF4388001B68CE /* LoyaltyPointsViewController.swift in Sources */,
 				9FF5D87324B59750001A5417 /* CountryCodesModel.swift in Sources */,
 				9FC6F84324CB404D00ADA038 /* LoyaltyPartner.swift in Sources */,
+				E122CDAD26FD400400BEAE18 /* RedemptionOTPViewModel.swift in Sources */,
 				207C3DA324B5B06D00298C0C /* AccountType.swift in Sources */,
 				2074D60624D195A800006731 /* ErrorConstants.swift in Sources */,
 				20D8402A24B4734B00F5D749 /* ResendOTPModel.swift in Sources */,
@@ -5599,6 +5689,7 @@
 				9F8D82A524C9A45D00BB1C26 /* UUIDChangeBuilder.swift in Sources */,
 				9F8AE2B124DAD6EE00F1E468 /* ProfileOTPViewController.swift in Sources */,
 				9F653AC624CB0CD300810DBD /* RedeemViewModel.swift in Sources */,
+				E122CDAB26FD3FB500BEAE18 /* RedemptionOTPViewController.swift in Sources */,
 				9F75D46324E5F6040082364E /* BenefitsCategoriesViewModel.swift in Sources */,
 				9FF6F0BC24BD892E00E375A2 /* TransferPointsRouter.swift in Sources */,
 				9F75D44924E544E80082364E /* BenefitsBuilder.swift in Sources */,
@@ -5613,6 +5704,7 @@
 				20901BE424FFBF0700D13931 /* NRLPBenefitsService.swift in Sources */,
 				204A6BDA24BC22CD001E4E74 /* ServerTrustPolicyManager.swift in Sources */,
 				E17F1D6526DBBA4C001D15D9 /* SelfAwardOTPService.swift in Sources */,
+				E122CDB026FD42C200BEAE18 /* RedemptionOTPBuilder.swift in Sources */,
 				20782D3C24B454BD00422AEB /* UITextViewExtensions.swift in Sources */,
 				9F8D824D24C86AA900BB1C26 /* ForgotPasswordRouter.swift in Sources */,
 				E168AAFB26F9C845002D1083 /* NadraTrackingIDViewController.swift in Sources */,
@@ -5729,7 +5821,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6104,7 +6196,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -6132,7 +6224,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 52;
+				CURRENT_PROJECT_VERSION = 53;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

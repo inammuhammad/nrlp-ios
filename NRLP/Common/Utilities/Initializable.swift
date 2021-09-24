@@ -68,5 +68,6 @@ extension UIStoryboard {
         case redemptionFBR = "RedemptionFBR"
         case redemptionPSID = "RedemptionPSID"
         case nadraTrackingID = "NadraTrackingID"
+        case redemptionOTP = "RedemptionOTP"
     }
 }

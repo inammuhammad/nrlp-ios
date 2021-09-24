@@ -63,8 +63,9 @@ class HomeRouter {
         self.navigationController?.pushViewController(ContactUsBuilder().build(), animated: true)
     }
 
-    func navigateToSelfAward() {
+    func navigateToSelfAward(user: UserModel) {
         let viewController = SelfAwardViewController.getInstance()
+        viewController.user = user
         self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

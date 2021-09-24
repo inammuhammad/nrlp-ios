@@ -15,20 +15,40 @@ protocol SelfAwardOTPViewModelProtocol: NRLPOTPViewModel {
     
     func didTapVerifyButton()
     func getNumber() -> String
+    
+    var formattedNumber: String { get }
 }
 
 class SelfAwardOTPViewModel: NRLPOTPViewModel {
+    
+    var formattedNumber: String {
+        
+        var mobileNumber = user.mobileNo ?? ""
+        if !mobileNumber.hasPrefix("+") {
+            return mobileNumber
+        }
+        let prefix = mobileNumber.hasPrefix("+") ? "+" : ""
+        
+        mobileNumber.removeFirst()
+        if AppConstants.appLanguage == .english {
+            return "\(prefix)\(mobileNumber)"
+        } else {
+            return "\(mobileNumber)\(prefix)"
+        }
+    }
 
     private let service: SelfAwardOTPServiceProtocol
     private var model: SelfAwardModel
     private weak var navigationController: UINavigationController?
+    private var user: UserModel
     
     init(model: SelfAwardModel, navigationController: UINavigationController,
-         service: SelfAwardOTPService = SelfAwardOTPService()) {
+         service: SelfAwardOTPService = SelfAwardOTPService(), user: UserModel) {
 
         self.model = model
         self.service = service
         self.navigationController = navigationController
+        self.user = user
     }
 
     func navigateToSuccess(message: String) {

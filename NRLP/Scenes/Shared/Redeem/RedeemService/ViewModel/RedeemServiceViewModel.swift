@@ -25,6 +25,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
     var output: RedeemServiceViewModelOutput?
     private var router: RedeemServiceRouter!
     private var service: RedeemService
+    private var redemptionService = RedemptionService()
 
     private var user: UserModel
     
@@ -58,34 +59,17 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
     func cellDidTap(index: Int) {
         
         if self.partner.partnerName.lowercased() == "passport".lowercased() {
-            var alert: AlertViewModel
-            var cnic = ""
-            var mobileNumber = ""
-            var email = ""
-            let topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .numbersAndPunctuation, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
-                cnic = text
-            }
-            let midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
-                mobileNumber = text
-            }
-            let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optional)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, formatValidator: FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError)) { text in
-                email = text
-            }
-            let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
-                print("\(cnic) \(mobileNumber) \(email)")
-                
-                // SHOW NEW ALERT
-                let alert: AlertViewModel
-                let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel", buttonAction: nil)
-                let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
-                    self.output?(.navigateToFinishScreen(partner: self.partner, transactionID: ""))
-                }
-                alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points", alertDescription: nil, alertAttributedDescription: self.getAlertDescription(index: index), primaryButton: confirmButton, secondaryButton: cancelButton)
-                self.output?(.showAlert(alert: alert))
-            }
-            let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel", buttonAction: nil)
-            alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points", alertDescription: nil, alertAttributedDescription: getAlertDescription(index: index), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextfieldViewModel, middleTextField: midTextfieldViewModel, bottomTextField: bottomTextfieldViewModel)
-            output?(.showAlert(alert: alert))
+            executePassportFlow(index: index)
+        } else if self.partner.partnerName.lowercased() == "Fbr".lowercased() {
+            executeFBRFlow(index: index)
+        } else if self.partner.partnerName.lowercased() == "nadra".lowercased() {
+            executeNadraFlow(index: index)
+        } else if self.partner.partnerName.lowercased() == "PIA".lowercased() {
+            executePIAFlow(index: index)
+        } else if self.partner.partnerName.lowercased() == "usc".lowercased() {
+            executeUSCFlow(index: index)
+        } else if self.partner.partnerName.lowercased() == "opf".lowercased() {
+            executeOPFFlow(index: index)
         } else {
             let alert: AlertViewModel
             if self.partner.categories[index].pointsAssigned > self.user.roundedLoyaltyPoints {
@@ -145,7 +129,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         print("I am getting deinit \(String(describing: self))")
     }
     
-    private func getAlertDescription(index: Int) -> NSAttributedString{
+    private func getAlertDescription(index: Int) -> NSAttributedString {
         let regularAttributes: [NSAttributedString.Key: Any] = [.font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)]
         
         let formattedPoints = PointsFormatter().format(string: "\(getCategory(index: index).pointsAssigned)")
@@ -167,5 +151,93 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         let partnerNameRange = NSRange(location: indexForPartnerName, length: partner.partnerName.count)
         attributedString.addAttribute(NSAttributedString.Key.font, value: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize), range: partnerNameRange)
         return attributedString
+    }
+    
+    private func executePassportFlow(index: Int) {
+        var alert: AlertViewModel
+        var cnic = ""
+        var mobileNumber = ""
+        var email = ""
+        
+        let topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .numbersAndPunctuation, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
+            cnic = text
+        }
+        let midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
+            mobileNumber = text
+        }
+        let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optional)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, formatValidator: FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError)) { text in
+            email = text
+        }
+        
+        let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
+            print("\(cnic) \(mobileNumber) \(email)")
+            if !cnic.isValid(for: RegexConstants.cnicRegex) || cnic.isEmpty || mobileNumber.isEmpty {
+                let alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Error", alertDescription: "Please enter valid data.", alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "OK"))
+                self.output?(.showAlert(alert: alert))
+                return
+            }
+            self.showNewAlert(index: index, cnic: cnic, mobileNo: mobileNumber, email: email)
+        }
+        let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel", buttonAction: nil)
+        alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points", alertDescription: nil, alertAttributedDescription: getAlertDescription(index: index), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextfieldViewModel, middleTextField: midTextfieldViewModel, bottomTextField: bottomTextfieldViewModel)
+        output?(.showAlert(alert: alert))
+    }
+    
+    private func executeNadraFlow(index: Int) {
+        router.navigateToNadra(partner: partner, user: user)
+    }
+    
+    private func executeFBRFlow(index: Int) {
+        router.navigateToFBR(partner: partner, user: user)
+    }
+    
+    private func executePIAFlow(index: Int) {
+        router.navigateToPIA(partner: partner, user: user)
+    }
+    
+    private func executeUSCFlow(index: Int) {
+        router.navigateToUSC(partner: partner, user: user)
+    }
+    
+    private func executeOPFFlow(index: Int) {
+        router.navigateToOPF(partner: partner, user: user)
+    }
+    
+    private func validateTextFields(cnic: String, mobile: String) -> Bool {
+        if cnic.isValid(for: RegexConstants.cnicRegex) || !cnic.isEmpty {
+            return true
+        }
+        return false
+    }
+    
+    private func showNewAlert(index: Int, cnic: String, mobileNo: String, email: String?) {
+        if self.partner.partnerName.lowercased() == "passport".lowercased() {
+            let alert: AlertViewModel
+            let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel", buttonAction: nil)
+            let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
+                self.output?(.showActivityIndicator(show: true))
+                let formattedPoints = PointsFormatter().format(string: "\(self.getCategory(index: index).pointsAssigned)")
+                let model = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: cnic, amount: formattedPoints, sotp: 1, pseChild: self.partner.categories[index].categoryName, mobileNo: mobileNo, email: email)
+                self.redemptionService.redemptionTransactionSendOTP(requestModel: model) { result in
+                    self.output?(.showActivityIndicator(show: false))
+                    switch result {
+                    case .success(let response):
+                        self.router.navigateToOTPScreen(transactionID: response.transactionId, partner: self.partner, user: self.user, inputModel: model, flowType: .DGIP)
+                    case .failure(let error):
+                        self.output?(.showError(error: error))
+                    }
+                }
+            }
+            alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points", alertDescription: nil, alertAttributedDescription: self.getAlertDescription(index: index), primaryButton: confirmButton, secondaryButton: cancelButton)
+            self.output?(.showAlert(alert: alert))
+        } else {
+            let alert: AlertViewModel
+            let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel", buttonAction: nil)
+            let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
+                self.output?(.navigateToFinishScreen(partner: self.partner, transactionID: ""))
+            }
+            alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points", alertDescription: nil, alertAttributedDescription: self.getAlertDescription(index: index), primaryButton: confirmButton, secondaryButton: cancelButton)
+            self.output?(.showAlert(alert: alert))
+        }
     }
 }

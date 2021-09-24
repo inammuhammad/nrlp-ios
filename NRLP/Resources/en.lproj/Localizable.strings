@@ -302,6 +302,11 @@
 "Enter other Amount Here" = "Enter other Amount Here";
 
 "You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR";
+
+"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at FBR\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at FBR\n\n%4$@";
+
+"Receipt No. %1$@\nYou have redeemed %2$@ Points at Passport\n%3$@" = "Receipt No. %1$@\nYou have redeemed %2$@ Points at Passport\n%3$@";
+
 "You have redeemed %1$@ Points against\nPSID %2$@ successfully at PIA" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at PIA";
 
 //NADRA
