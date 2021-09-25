@@ -349,3 +349,8 @@
 "Voucher Number" = "Voucher Number";
 "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF";
 "Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@" = "Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@";
+
+// SLIC
+"Enter your State Life Policy No." = "Enter your State Life Policy No.";
+"Policy Number" = "Policy Number";
+"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@";

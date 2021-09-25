@@ -57,6 +57,8 @@ class RedemptionOTPRouter {
             let date = formatter.date(from: finalStrDate) ?? Date()
             let dateStr = formatter.string(from: date)
             return "Receipt No. \(transactionID)\nYou have redeemed \(points) Points at Passport\n\(dateStr)".localized
+        case .SLIC:
+            return "Receipt No. \(transactionID)\n\nYou have redeemed \(points) Points against Policy No.\n \(psid) successfully at State Life.\n\n\(finalStrDate)".localized
         }
     }
 }

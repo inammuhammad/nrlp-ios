@@ -70,6 +70,8 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             executeUSCFlow(index: index)
         } else if self.partner.partnerName.lowercased() == "opf".lowercased() {
             executeOPFFlow(index: index)
+        } else if self.partner.partnerName.lowercased() == "SLIC".lowercased() {
+            executeSLICFlow(index: index)
         } else {
             let alert: AlertViewModel
             if self.partner.categories[index].pointsAssigned > self.user.roundedLoyaltyPoints {
@@ -203,6 +205,11 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
     
     private func executeOPFFlow(index: Int) {
         router.navigateToOPF(partner: partner, user: user)
+    }
+    
+    private func executeSLICFlow(index: Int) {
+        let category = getCategory(index: index)
+        router.navigateToSLIC(partner: partner, user: user, category: category)
     }
     
     private func validateTextFields(cnic: String, mobile: String) -> Bool {

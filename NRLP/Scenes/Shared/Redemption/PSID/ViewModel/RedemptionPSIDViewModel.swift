@@ -76,7 +76,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
                         self.navigateToOTPFlow(amount: amount)
                     }
                 })
-                topTextField = self?.flowType == .FBR || self?.flowType == .OPF ? nil : topTextField
+                topTextField = self?.flowType == .FBR || self?.flowType == .OPF || self?.flowType == .SLIC ? nil : topTextField
                 alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: self?.getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
                 self?.output?(.showAlert(alert: alert))
             case .failure(let error):
@@ -114,6 +114,8 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         var startString = ""
         if flowType == .OPF {
             startString = "Your amount against Voucher Number ".localized
+        } else if flowType == .SLIC {
+            startString = "The amount against Policy No. ".localized
         } else {
             startString = "The amount against PSID ".localized
         }
@@ -126,6 +128,9 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         if flowType == .OPF {
             attributePart4 = NSMutableAttributedString(string: "\(amount) ", attributes: boldAttributes)
             attributePart5 = NSMutableAttributedString(string: "Ponits. Confirm to redeem points at ", attributes: regularAttributes)
+        } else if flowType == .SLIC {
+            attributePart4 = NSMutableAttributedString(string: "PKR\n\(amount).", attributes: boldAttributes)
+            attributePart5 = NSMutableAttributedString(string: "\nConfirm amount to Redeem Points at ".localized, attributes: regularAttributes)
         }
         
         let alertDesctiption = NSMutableAttributedString()
@@ -137,6 +142,10 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         if flowType == .OPF {
             let attributePart6 = NSMutableAttributedString(string: "OPF", attributes: boldAttributes)
             alertDesctiption.append(attributePart6)
+        } else if flowType == .SLIC {
+            let attributePart6 = NSMutableAttributedString(string: "State\nLife?", attributes: boldAttributes)
+            alertDesctiption.append(attributePart6)
+            
         }
 
         return alertDesctiption
@@ -146,8 +155,6 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         output?(.showActivityIndicator(show: true))
         let pointStr = String(category?.pointsAssigned ?? 0)
         let point = PointsFormatter().format(string: pointStr)
-        
-        
         
         let newInputModel: InitRedemptionTransactionModel
         if let _ = category?.categoryName {
@@ -172,7 +179,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
 
 extension RedemptionPSIDViewModel {
     private func validateTextFields() {
-        if flowType == .OPF {
+        if flowType == .OPF || flowType == .SLIC {
             if psidText?.isEmpty ?? false {
                 output?(.nextButtonState(enableState: false))
             } else {

@@ -33,6 +33,10 @@ class RedeemServiceRouter {
         self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .OPF, category: nil), animated: true)
     }
     
+    func navigateToSLIC(partner: Partner, user: UserModel, category: Category) {
+        self.navigationController?.pushViewController(RedemptionPSIDBuilder().build(with: self.navigationController, partner: partner, model: user, flowType: .SLIC, category: category), animated: true)
+    }
+    
     func navigateToOTPScreen(transactionID: String, partner: Partner, user: UserModel, inputModel: InitRedemptionTransactionModel, flowType: RedemptionFlowType) {
         let vc = RedemptionOTPBuilder().build(with: self.navigationController, transactionId: transactionID, partner: partner, user: user, inputModel: inputModel, flowType: flowType)
         self.navigationController?.pushViewController(vc, animated: true)

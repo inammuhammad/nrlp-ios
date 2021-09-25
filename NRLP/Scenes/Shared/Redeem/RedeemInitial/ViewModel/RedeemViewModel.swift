@@ -105,6 +105,10 @@ class RedeemViewModel: RedeemViewModelProtocol {
 //            } else {
                 router.navigateToOPF(partner: partner, user: user)
 //            }
+        } else if partner.partnerName.lowercased() == "SLIC".lowercased() {
+            if partner.categoryCount != 0 {
+                router.navigateToCategory(partner: partner, user: user)
+            }
         }
     }
 
