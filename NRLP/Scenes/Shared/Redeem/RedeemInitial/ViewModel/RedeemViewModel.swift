@@ -94,17 +94,17 @@ class RedeemViewModel: RedeemViewModelProtocol {
                 router.navigateToNadra(partner: partner, user: user)
             }
         } else if partner.partnerName.lowercased() == "USC".lowercased() {
-            if partner.categoryCount != 0 {
-                router.navigateToCategory(partner: partner, user: user)
-            } else {
+//            if partner.categoryCount != 0 {
+//                router.navigateToCategory(partner: partner, user: user)
+//            } else {
                 router.navigateToUSC(partner: partner, user: user)
-            }
+//            }
         } else if partner.partnerName.lowercased() == "OPF".lowercased() {
-            if partner.categoryCount != 0 {
-                router.navigateToCategory(partner: partner, user: user)
-            } else {
+//            if partner.categoryCount != 0 {
+//                router.navigateToCategory(partner: partner, user: user)
+//            } else {
                 router.navigateToOPF(partner: partner, user: user)
-            }
+//            }
         }
     }
 

@@ -22,7 +22,7 @@ class RedemptionOTPRouter {
         if let nav = self.navigationController {
             let vc = OperationCompletedViewController.getInstance()
             var points = ""
-            if flowType == .FBR {
+            if flowType == .FBR || flowType == .USC {
                 points = amount
             } else {
                 points = inputModel.point ?? ""
@@ -49,9 +49,9 @@ class RedemptionOTPRouter {
         case .Nadra:
             return "Receipt No. \(transactionID)\n\nYou have redeemed \(points) Points against Tracking\nID \(psid) successfully at NADRA.\n\n\(finalStrDate)".localized
         case .USC:
-            return "You have redeemed \(points) Points against\nPSID \(psid) successfully at Utility Stores".localized
+            return "Receipt No. \(transactionID)\n\nYou have redeemed \(points) Points against\nPSID \(psid) successfully at Utility Stores.\n\n\(finalStrDate)".localized
         case .OPF:
-            return "Your amount against Voucher No.\n\(psid) for \(points) Points is redeemed successfully at OPF".localized
+            return "Receipt No. \(transactionID)\n\nYour amount against Voucher No.\n\(psid) for \(points) Points is redeemed successfully at OPF\n\n\(finalStrDate)".localized
         case .DGIP:
             formatter.dateFormat = "dd MMM yyyy"
             let date = formatter.date(from: finalStrDate) ?? Date()

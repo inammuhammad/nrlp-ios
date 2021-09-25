@@ -40,7 +40,11 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
         if flowType == .Nadra {
             router.navigateToTrackingIDScreen(userModel: self.user, flowType: flowType, category: category, partner: partner)
         } else {
-            router.navigateToPSIDScreen(partner: partner, user: self.user, flowType: flowType, category: category)
+            if flowType == .USC {
+                router.navigateToPSIDScreen(partner: partner, user: self.user, flowType: flowType, category: nil)
+            } else {
+                router.navigateToPSIDScreen(partner: partner, user: self.user, flowType: flowType, category: category)
+            }
         }
     }
     

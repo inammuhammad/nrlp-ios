@@ -32,8 +32,6 @@ class RedemptionPSIDViewController: BaseViewController {
     @IBOutlet weak var psidTextView: LabelledTextview! {
         didSet {
             psidTextView.titleLabelText = "Enter PSID for Redemption".localized
-            psidTextView.inputFieldMinLength = 25
-            psidTextView.inputFieldMaxLength = 25
             psidTextView.placeholderText = "PSID Number".localized
             psidTextView.editTextKeyboardType = .asciiCapableNumberPad
             psidTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -71,8 +69,6 @@ class RedemptionPSIDViewController: BaseViewController {
             case .setupTextField(flowType: let flowType):
                 if flowType == .OPF {
                     psidTextView.titleLabelText = "Enter Voucher Number for Redemption".localized
-                    psidTextView.inputFieldMinLength = 1
-                    psidTextView.inputFieldMaxLength = 25
                     psidTextView.placeholderText = "Voucher Number".localized
                     psidTextView.editTextKeyboardType = .default
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in

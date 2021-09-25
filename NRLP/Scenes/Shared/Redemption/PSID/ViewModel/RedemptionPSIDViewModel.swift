@@ -146,7 +146,16 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         output?(.showActivityIndicator(show: true))
         let pointStr = String(category?.pointsAssigned ?? 0)
         let point = PointsFormatter().format(string: pointStr)
-        let newInputModel = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: self.psidText, amount: amount, sotp: 1, pseChild: category?.categoryName ?? "", point: point)
+        
+        
+        
+        let newInputModel: InitRedemptionTransactionModel
+        if let _ = category?.categoryName {
+            newInputModel = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: self.psidText, amount: amount, sotp: 1, pseChild: category?.categoryName ?? "", point: point)
+        } else {
+            newInputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText, amount: amount, sotp: 1)
+        }
+        
         self.service.redemptionTransactionSendOTP(requestModel: newInputModel) { result in
             self.output?(.showActivityIndicator(show: false))
             switch result {
