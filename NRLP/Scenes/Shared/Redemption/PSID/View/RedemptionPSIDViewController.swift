@@ -71,6 +71,8 @@ class RedemptionPSIDViewController: BaseViewController {
                     psidTextView.titleLabelText = "Enter Voucher Number for Redemption".localized
                     psidTextView.placeholderText = "Voucher Number".localized
                     psidTextView.editTextKeyboardType = .default
+                    psidTextView.inputFieldMinLength = 24
+                    psidTextView.inputFieldMaxLength = 24
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
                         guard let self = self else { return }
                         self.viewModel.psidText = updatedText
@@ -78,6 +80,19 @@ class RedemptionPSIDViewController: BaseViewController {
                 } else if flowType == .SLIC {
                     psidTextView.titleLabelText = "Enter your State Life Policy No.".localized
                     psidTextView.placeholderText = "Policy Number".localized
+                    psidTextView.editTextKeyboardType = .default
+                    psidTextView.inputFieldMinLength = 24
+                    psidTextView.inputFieldMaxLength = 24
+                    psidTextView.onTextFieldChanged = { [weak self] updatedText in
+                        guard let self = self else { return }
+                        self.viewModel.psidText = updatedText
+                    }
+                } else if flowType == .BEOE {
+                    psidTextView.titleLabelText = "Enter your CNIC No.".localized
+                    psidTextView.placeholderText = "CNIC Number".localized
+                    psidTextView.inputFieldMinLength = 13
+                    psidTextView.inputFieldMaxLength = 13
+                    psidTextView.formatter = CNICFormatter()
                     psidTextView.editTextKeyboardType = .asciiCapableNumberPad
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
                         guard let self = self else { return }

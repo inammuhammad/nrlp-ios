@@ -72,6 +72,8 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             executeOPFFlow(index: index)
         } else if self.partner.partnerName.lowercased() == "SLIC".lowercased() {
             executeSLICFlow(index: index)
+        } else if self.partner.partnerName.lowercased() == "BEOE".lowercased() {
+            executeBEOEFlow(index: index)
         } else {
             let alert: AlertViewModel
             if self.partner.categories[index].pointsAssigned > self.user.roundedLoyaltyPoints {
@@ -212,6 +214,11 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         router.navigateToSLIC(partner: partner, user: user, category: category)
     }
     
+    private func executeBEOEFlow(index: Int) {
+        let category = getCategory(index: index)
+        router.navigateToBEOE(partner: partner, user: user, category: category)
+    }
+    
     private func validateTextFields(cnic: String, mobile: String) -> Bool {
         if cnic.isValid(for: RegexConstants.cnicRegex) || !cnic.isEmpty {
             return true
@@ -226,7 +233,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
                 self.output?(.showActivityIndicator(show: true))
                 let formattedPoints = PointsFormatter().format(string: "\(self.getCategory(index: index).pointsAssigned)")
-                let model = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: cnic, sotp: 1, pseChild: self.partner.categories[index].categoryName, mobileNo: mobileNo, email: email, point: formattedPoints)
+                let model = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: cnic, amount: formattedPoints, sotp: 1, pseChild: self.partner.categories[index].categoryName, mobileNo: mobileNo, email: email)
                 self.redemptionService.redemptionTransactionSendOTP(requestModel: model) { result in
                     self.output?(.showActivityIndicator(show: false))
                     switch result {

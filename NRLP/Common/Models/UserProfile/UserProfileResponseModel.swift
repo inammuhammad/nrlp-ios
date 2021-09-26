@@ -42,8 +42,8 @@ struct BillInquiryResponseModel: Codable {
     let consumerNo: String?
     let customerName: String?
     let dueDate: String?
-    let rrn: Int?
-    let responseCode: Int?
+    let rrn: String?
+    let responseCode: String?
     let responseDetail: String?
     let stan: String?
     let signature: String?
@@ -89,4 +89,3 @@ struct RedemptionTransactionSendOTPResponseModel: Codable {
         case inquiryMessage = "inquiryMessage"
     }
 }
-

@@ -48,42 +48,47 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
     func nextButtonPressed() {
         print("NAVIGATE TO POPUP")
         output?(.showActivityIndicator(show: true))
-        var inputModel: InitRedemptionTransactionModel
-        if let categoryName = category?.categoryName {
-            inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText, pseChild: categoryName)
+        
+        if flowType == .BEOE {
+            navigateToOTPFlow(amount: String(category?.pointsAssigned ?? 0))
         } else {
-            inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText)
-        }
-        service.initRedemptionTransaction(requestModel: inputModel) { [weak self] result in
-            self?.output?(.showActivityIndicator(show: false))
-            switch result {
-            case .success(let model):
-                print(model)
-                let alert: AlertViewModel
-                var amount = model.billInquiryResponse.amount
-                var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here".localized, inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: CurrencyFormatter()) { text in
-                    amount = text
-                }
-                let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: nil)
-                let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: { [weak self] in
-
-                    guard let self = self else { return }
-                    if Int(amount) ?? 0 > Int(model.billInquiryResponse.amount) ?? 0 || Int(amount) ?? 0 < 0 {
-                        let alert: AlertViewModel
-                        alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Error", alertDescription: "Amount can not be more than \(model.billInquiryResponse.amount) and lesser than 0", primaryButton: AlertActionButtonModel(buttonTitle: "OK".localized))
-                        self.output?(.showAlert(alert: alert))
-                    } else {
-                        self.navigateToOTPFlow(amount: amount)
+        
+            var inputModel: InitRedemptionTransactionModel
+            if let categoryName = category?.categoryName {
+                inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText, pseChild: categoryName)
+            } else {
+                inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText)
+            }
+            service.initRedemptionTransaction(requestModel: inputModel) { [weak self] result in
+                self?.output?(.showActivityIndicator(show: false))
+                switch result {
+                case .success(let model):
+                    print(model)
+                    let alert: AlertViewModel
+                    var amount = model.billInquiryResponse.amount
+                    var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here".localized, inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: CurrencyFormatter()) { text in
+                        amount = text
                     }
-                })
-                topTextField = self?.flowType == .FBR || self?.flowType == .OPF || self?.flowType == .SLIC ? nil : topTextField
-                alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: self?.getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
-                self?.output?(.showAlert(alert: alert))
-            case .failure(let error):
-                self?.output?(.showError(error: error))
+                    let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: nil)
+                    let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: { [weak self] in
+                        
+                        guard let self = self else { return }
+                        if Int(amount) ?? 0 > Int(model.billInquiryResponse.amount) ?? 0 || Int(amount) ?? 0 < 0 {
+                            let alert: AlertViewModel
+                            alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Error", alertDescription: "Amount can not be more than \(model.billInquiryResponse.amount) and lesser than 0", primaryButton: AlertActionButtonModel(buttonTitle: "OK".localized))
+                            self.output?(.showAlert(alert: alert))
+                        } else {
+                            self.navigateToOTPFlow(amount: amount)
+                        }
+                    })
+                    topTextField = self?.flowType == .FBR || self?.flowType == .OPF || self?.flowType == .SLIC || self?.flowType == .BEOE ? nil : topTextField
+                    alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: self?.getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
+                    self?.output?(.showAlert(alert: alert))
+                case .failure(let error):
+                    self?.output?(.showError(error: error))
+                }
             }
         }
-        
     }
     
     func cancelButtonPressed() {
@@ -147,8 +152,23 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
             alertDesctiption.append(attributePart6)
             
         }
-
-        return alertDesctiption
+        
+        if flowType == .BEOE {
+            let newAlertDescription = NSMutableAttributedString()
+            let attribute1 = NSMutableAttributedString(string: "You have selected to redeem ", attributes: regularAttributes)
+            let attribute2 = NSMutableAttributedString(string: "\(amount) ", attributes: boldAttributes)
+            let attribute3 = NSMutableAttributedString(string: "points\nfor ", attributes: regularAttributes)
+            let attribute4 = NSMutableAttributedString(string: "\(category?.categoryName ?? "") ", attributes: boldAttributes)
+            let attribute5 = NSMutableAttributedString(string: "at Bureau\nof Emigration & Overseas Employment", attributes: regularAttributes)
+            newAlertDescription.append(attribute1)
+            newAlertDescription.append(attribute2)
+            newAlertDescription.append(attribute3)
+            newAlertDescription.append(attribute4)
+            newAlertDescription.append(attribute5)
+            return newAlertDescription
+        } else {
+            return alertDesctiption
+        }
     }
     
     private func navigateToOTPFlow(amount: String) {
@@ -179,8 +199,8 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
 
 extension RedemptionPSIDViewModel {
     private func validateTextFields() {
-        if flowType == .OPF || flowType == .SLIC {
-            if psidText?.isEmpty ?? false {
+        if flowType == .BEOE {
+            if psidText?.isEmpty ?? false || psidText?.count ?? 0 < 13 {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))

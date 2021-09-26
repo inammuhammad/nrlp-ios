@@ -109,6 +109,10 @@ class RedeemViewModel: RedeemViewModelProtocol {
             if partner.categoryCount != 0 {
                 router.navigateToCategory(partner: partner, user: user)
             }
+        } else if partner.partnerName.lowercased() == "BEOE".lowercased() {
+            if partner.categoryCount != 0 {
+                router.navigateToCategory(partner: partner, user: user)
+            }
         }
     }
 

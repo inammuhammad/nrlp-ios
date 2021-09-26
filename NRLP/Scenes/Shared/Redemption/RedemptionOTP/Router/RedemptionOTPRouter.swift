@@ -59,6 +59,8 @@ class RedemptionOTPRouter {
             return "Receipt No. \(transactionID)\nYou have redeemed \(points) Points at Passport\n\(dateStr)".localized
         case .SLIC:
             return "Receipt No. \(transactionID)\n\nYou have redeemed \(points) Points against Policy No.\n \(psid) successfully at State Life.\n\n\(finalStrDate)".localized
+        case .BEOE:
+            return "Receipt No. \(transactionID)\n\nYou have redeemed \(points) Points against \(inputModel.pseChild ?? "") successfully at Bureau of Emigration & Overseas Employment.\n\n\(finalStrDate)".localized
         }
     }
 }

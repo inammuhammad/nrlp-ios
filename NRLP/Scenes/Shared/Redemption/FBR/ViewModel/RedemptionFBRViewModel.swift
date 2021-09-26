@@ -111,4 +111,5 @@ enum RedemptionFlowType {
     case OPF
     case DGIP
     case SLIC
+    case BEOE
 }
