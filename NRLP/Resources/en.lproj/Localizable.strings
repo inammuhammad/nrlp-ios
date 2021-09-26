@@ -11,7 +11,7 @@
 "Select User Type" = "Select User Type";
 "CNIC/NICOP Number" = "CNIC/NICOP Number";
 "Password" = "Password";
-"National Remittance \nLoyalty Program" = "National Remittance \nLoyalty Program";
+"National Remittance \nLoyalty Program" = "Sohni Dharti Remittance Program";
 "Don't have an account?" = "Don't have an account?";
 "Remitter" = "Remitter";
 "Beneficiary" = "Beneficiary";
@@ -22,14 +22,14 @@
 "Registration code"= "Registration code";
 "Beneficiary Verification" = "Beneficiary Verification";
 //Remitter Verification
-"Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)" = "Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)";
-"Reference Number" = "Transaction Reference No. / TT No.";
+"Enter your most recent Remittance Transaction Reference Number (with in last 03 months)" = "Enter your most recent Remittance Transaction Reference/TT Number (transactions from last one year are eligible, starting 1st Oct 2021)";
+"Reference Number" = "Reference Number/TT Number";
 "Transaction Amount" = "Transaction Amount";
 "Beneficiary Added" = "Beneficiary Added";
 "10,000" = "10,000";
 "Remitter Verification" = "Remitter Verification";
 "No Beneficiary found." = "No Beneficiary found.";
-"Add up to 03 Beneficiaries to transfer and share NRLP Points with them" = "Add up to 03 Beneficiaries to transfer and share NRLP Points with them";
+"Add up to 03 Beneficiaries to transfer and share NRLP Points with them" = "Add a Beneficiary to transfer and share Loyalty Points with them";
 "Manage Beneficiary" = "Manage Beneficiary";
 "Beneficiary Details" = "Beneficiary Details";
 "Delete Beneficiary" = "Delete Beneficiary";
@@ -187,7 +187,7 @@
 "Password criteria does not match" = "Password criteria does not match";
 "Your password must contain at least 8 characters, including 1 small letter, 1 capital letter, 1 number and 1 special character." = "Your password must contain at least 8 characters, including 1 small letter, 1 capital letter, 1 number and 1 special character.";
 "Both passwords do not match" = "Both passwords do not match";
-"Enter a valid reference number" = "Enter a valid reference number";
+"Enter a valid reference number" = "Enter a valid reference/TT number";
 "Enter a valid amount" = "Enter a valid amount";
 "Enter a valid registration code" = "Enter a valid registration code";
 "Enter a valid OTP" = "Enter a valid OTP";
@@ -237,7 +237,7 @@
 "Urdu" = "اردو";
 "English" = "English";
 "NRLP Redemption Partners" = "Sohni Dharti Redemption Partners";
-"Benefits for NRLP users" = "Benefits for NRLP users";
+"Benefits for NRLP users" = "Benefits for users";
 "List of Benefits" = "List of Benefits";
 
 //Registration
