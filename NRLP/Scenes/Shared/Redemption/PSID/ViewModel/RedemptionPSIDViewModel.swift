@@ -96,7 +96,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
     }
     
     func viewDidLoad() {
-        output?(.updateLoyaltyPoints(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)")))
+        output?(.updateLoyaltyPoints(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)", user: self.user)))
         output?(.nextButtonState(enableState: false))
         output?(.setupTextField(flowType: flowType))
     }

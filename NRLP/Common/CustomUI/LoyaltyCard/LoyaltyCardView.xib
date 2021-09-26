@@ -16,10 +16,12 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoyaltyCardView" customModule="NRLP" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoyaltyCardView" customModule="Sohni_Dharti" customModuleProvider="target">
             <connections>
                 <outlet property="cardImage" destination="6Ox-1g-cjU" id="YN3-3c-ZR7"/>
-                <outlet property="pointsLabel" destination="tPg-M5-lc7" id="YT8-AP-Mj8"/>
+                <outlet property="memberSinceLabel" destination="Aa9-pS-exA" id="btE-qa-ky2"/>
+                <outlet property="nameLabel" destination="4uD-DZ-UI5" id="yY3-D6-L6V"/>
+                <outlet property="pointsLabel" destination="hmP-tp-oaX" id="W0l-zn-9uO"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -27,17 +29,35 @@
             <rect key="frame" x="0.0" y="0.0" width="374" height="249"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platinumCard" translatesAutoresizingMaskIntoConstraints="NO" id="6Ox-1g-cjU">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platinumCard" translatesAutoresizingMaskIntoConstraints="NO" id="6Ox-1g-cjU">
                     <rect key="frame" x="0.0" y="0.0" width="374" height="249"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your loyalty points" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3a-yx-d7F">
-                    <rect key="frame" x="30" y="95" width="122.5" height="19"/>
-                    <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your loyalty points" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-Xh-cDk">
+                    <rect key="frame" x="256" y="66" width="92" height="14"/>
+                    <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tPg-M5-lc7">
-                    <rect key="frame" x="30" y="118" width="122.5" height="23.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fakhar Mazher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4uD-DZ-UI5">
+                    <rect key="frame" x="26" y="195.5" width="121" height="23.5"/>
+                    <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEMBER SINCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X5P-Ab-u6L">
+                    <rect key="frame" x="26" y="117.5" width="74.5" height="14"/>
+                    <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11/2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aa9-pS-exA">
+                    <rect key="frame" x="26" y="135.5" width="43" height="14"/>
+                    <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmP-tp-oaX">
+                    <rect key="frame" x="256" y="84" width="92" height="23.5"/>
                     <fontDescription key="fontDescription" name="HPSimplified-Bold" family="HP Simplified" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -46,14 +66,20 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="hmP-tp-oaX" firstAttribute="top" secondItem="0ns-Xh-cDk" secondAttribute="bottom" constant="4" id="1t3-5d-xh1"/>
                 <constraint firstItem="6Ox-1g-cjU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KBM-Si-zMm"/>
-                <constraint firstItem="tPg-M5-lc7" firstAttribute="trailing" secondItem="m3a-yx-d7F" secondAttribute="trailing" id="N9S-5Y-Jyr"/>
+                <constraint firstItem="hmP-tp-oaX" firstAttribute="leading" secondItem="0ns-Xh-cDk" secondAttribute="leading" id="MXH-hI-ba7"/>
+                <constraint firstItem="X5P-Ab-u6L" firstAttribute="centerY" secondItem="6Ox-1g-cjU" secondAttribute="centerY" id="PYv-9F-fMr"/>
+                <constraint firstItem="Aa9-pS-exA" firstAttribute="top" secondItem="X5P-Ab-u6L" secondAttribute="bottom" constant="4" id="Pkr-p9-pss"/>
                 <constraint firstAttribute="bottom" secondItem="6Ox-1g-cjU" secondAttribute="bottom" id="Uer-tM-6lg"/>
-                <constraint firstItem="tPg-M5-lc7" firstAttribute="leading" secondItem="m3a-yx-d7F" secondAttribute="leading" id="UfG-z3-QTO"/>
-                <constraint firstItem="m3a-yx-d7F" firstAttribute="leading" secondItem="6Ox-1g-cjU" secondAttribute="leading" constant="30" id="ctb-XI-6gw"/>
+                <constraint firstItem="4uD-DZ-UI5" firstAttribute="leading" secondItem="X5P-Ab-u6L" secondAttribute="leading" id="YFK-am-Vnr"/>
+                <constraint firstItem="6Ox-1g-cjU" firstAttribute="top" secondItem="0ns-Xh-cDk" secondAttribute="bottom" constant="-80" id="bMg-Th-WoJ"/>
+                <constraint firstItem="Aa9-pS-exA" firstAttribute="leading" secondItem="X5P-Ab-u6L" secondAttribute="leading" id="cZp-P2-Lcb"/>
                 <constraint firstItem="6Ox-1g-cjU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dna-Tb-6cZ"/>
-                <constraint firstItem="m3a-yx-d7F" firstAttribute="centerY" secondItem="6Ox-1g-cjU" secondAttribute="centerY" constant="-20" id="hMS-mw-pwc"/>
-                <constraint firstItem="tPg-M5-lc7" firstAttribute="top" secondItem="m3a-yx-d7F" secondAttribute="bottom" constant="4" id="wB9-eC-i4v"/>
+                <constraint firstItem="hmP-tp-oaX" firstAttribute="trailing" secondItem="0ns-Xh-cDk" secondAttribute="trailing" id="t6e-5X-1Sy"/>
+                <constraint firstItem="X5P-Ab-u6L" firstAttribute="leading" secondItem="6Ox-1g-cjU" secondAttribute="leading" constant="26" id="ufr-eC-NQN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="4uD-DZ-UI5" secondAttribute="bottom" constant="30" id="wCz-xw-Bhm"/>
+                <constraint firstItem="0ns-Xh-cDk" firstAttribute="trailing" secondItem="6Ox-1g-cjU" secondAttribute="trailing" constant="-26" id="xLw-L2-HSC"/>
                 <constraint firstAttribute="trailing" secondItem="6Ox-1g-cjU" secondAttribute="trailing" id="z9d-dW-PpQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

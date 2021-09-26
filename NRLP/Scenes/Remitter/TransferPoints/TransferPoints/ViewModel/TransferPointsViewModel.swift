@@ -71,7 +71,7 @@ class TransferPointsViewModel: TransferPointsViewModelProtocol {
     private func formatPoints() {
         let formater = PointsFormatter()
         let formattedNumber = formater.format(string: "\(user.roundedLoyaltyPoints)")
-        output?(.updateLoyaltyCard(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: formattedNumber)))
+        output?(.updateLoyaltyCard(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: formattedNumber, user: self.user)))
     }
 
     func didSelect(beneficiaryItem: BeneficiaryPickerItemModel?) {

@@ -47,7 +47,7 @@ class LoyaltyPointsViewModel: LoyaltyPointsViewModelProtocol {
 
     func viewModelDidLoad() {
         fetchStatements()
-        self.output?(.updateLoyaltyCard(viewModel: LoyaltyCardViewModel(with: self.userModel.loyaltyLevel, userPoints: "\(userModel.roundedLoyaltyPoints)")))
+        self.output?(.updateLoyaltyCard(viewModel: LoyaltyCardViewModel(with: self.userModel.loyaltyLevel, userPoints: "\(userModel.roundedLoyaltyPoints)", user: self.userModel)))
     }
 
     func getStatement(at index: Int) -> LoyaltyPointsTableCellViewModel {
@@ -70,7 +70,7 @@ class LoyaltyPointsViewModel: LoyaltyPointsViewModelProtocol {
                 let formater = PointsFormatter()
                 let points = Int(loyaltyStatement.data.currentpointbalance.double)
                 let formattedPoints = formater.format(string: "\(points)")
-                self.output?(.updateLoyaltyCard(viewModel: LoyaltyCardViewModel(with: self.userModel.loyaltyLevel, userPoints: formattedPoints)))
+                self.output?(.updateLoyaltyCard(viewModel: LoyaltyCardViewModel(with: self.userModel.loyaltyLevel, userPoints: formattedPoints, user: self.userModel)))
                 self.output?(.reloadStatements)
                 if self.statements.isEmpty {
                     self.output?(.showTable(show: false))

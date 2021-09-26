@@ -22,7 +22,7 @@ class RedemptionOTPRouter {
         if let nav = self.navigationController {
             let vc = OperationCompletedViewController.getInstance()
             var points = ""
-            if flowType == .FBR || flowType == .USC {
+            if flowType == .FBR || flowType == .USC || flowType == .PIA || flowType == .Nadra {
                 points = amount
             } else {
                 points = inputModel.point ?? ""

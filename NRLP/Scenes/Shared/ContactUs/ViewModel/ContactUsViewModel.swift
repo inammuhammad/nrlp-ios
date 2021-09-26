@@ -65,9 +65,10 @@ class ContactUsViewModel: ContactUsViewModelProtocol {
     
     var output: ContactUsViewModelOutput?
     private var items: [ContactItem] = [
-        ContactItem(with: ContactUsItem.callUs),
-        ContactItem(with: ContactUsItem.email),
-        ContactItem(with: ContactUsItem.visitWeb) ]
+        ContactItem(with: ContactUsItem.callUs)]
+//        ,
+//        ContactItem(with: ContactUsItem.email),
+//        ContactItem(with: ContactUsItem.visitWeb) ]
     
     func getItem(index: Int) -> ContactItem {
         return items[index]

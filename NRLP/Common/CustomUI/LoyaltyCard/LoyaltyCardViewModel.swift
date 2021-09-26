@@ -12,6 +12,7 @@ import UIKit
 struct LoyaltyCardViewModel {
     private var loyaltyType: LoyaltyType
     private var userPoints: String
+    private var user: UserModel
     
     var imageStyle: UIImage? {
         return loyaltyType.cardImage
@@ -22,8 +23,17 @@ struct LoyaltyCardViewModel {
         return formater.format(string: userPoints)
     }
     
-    init(with loyaltyType: LoyaltyType, userPoints: String) {
+    var userName: String {
+        return user.fullName
+    }
+    
+    var memberSince: String? {
+        return user.memberSince
+    }
+    
+    init(with loyaltyType: LoyaltyType, userPoints: String, user: UserModel) {
         self.loyaltyType = loyaltyType
         self.userPoints = userPoints
+        self.user = user
     }
 }

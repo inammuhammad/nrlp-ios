@@ -49,7 +49,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
 
     func viewDidLoad() {
         output?(.reloadViewData(partnerName: self.partner.partnerName))
-        output?(.updateLoyaltyCard(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)")))
+        output?(.updateLoyaltyCard(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)", user: self.user)))
     }
 
     func getCategory(index: Int) -> Category {
@@ -163,7 +163,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         var mobileNumber = ""
         var email = ""
         
-        let topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .numbersAndPunctuation, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
+        let topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .asciiCapableNumberPad, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
             cnic = text
         }
         let midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in

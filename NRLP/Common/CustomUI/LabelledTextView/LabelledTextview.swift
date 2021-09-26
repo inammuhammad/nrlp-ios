@@ -500,4 +500,9 @@ extension LabelledTextview: UITextFieldDelegate {
         }
         onTextFieldFocusChange?(deformattedString)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

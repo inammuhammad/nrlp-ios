@@ -40,7 +40,7 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
         if flowType == .Nadra {
             router.navigateToTrackingIDScreen(userModel: self.user, flowType: flowType, category: category, partner: partner)
         } else {
-            if flowType == .USC {
+            if flowType == .USC || flowType == .PIA {
                 router.navigateToPSIDScreen(partner: partner, user: self.user, flowType: flowType, category: nil)
             } else {
                 router.navigateToPSIDScreen(partner: partner, user: self.user, flowType: flowType, category: category)
@@ -53,7 +53,7 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
     }
     
     func viewDidLoad() {
-        output?(.updateLoyaltyPoints(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)")))
+        output?(.updateLoyaltyPoints(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)", user: self.user)))
         setTitle(type: flowType)
         setDescription(type: flowType)
     }

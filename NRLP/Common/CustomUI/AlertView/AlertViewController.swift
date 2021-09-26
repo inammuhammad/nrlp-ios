@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import QuartzCore
+import IQKeyboardManagerSwift
 
 class AlertViewController: UIViewController {
 
@@ -54,7 +55,13 @@ class AlertViewController: UIViewController {
             UIView.animate(withDuration: 0.3) {
                 self.alertContainerView.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
             }
-        }) 
+        })
+        
+        IQKeyboardManager.shared.enable = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        IQKeyboardManager.shared.enable = false
     }
 
     deinit {
@@ -222,6 +229,7 @@ extension AlertViewController {
             bottomTextField.formatter = alertViewModel.bottomTextField?.formatter
         }
     }
+    
 }
 
 // MARK: IBOutlet actions

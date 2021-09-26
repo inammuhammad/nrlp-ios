@@ -19,17 +19,30 @@ class LoyaltyCardView: CustomNibView {
     }
     @IBOutlet weak var pointsLabel: UILabel! {
         didSet {
-            pointsLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.boldOnlyEnglish, size: .extraUltraLargeFontSize)
             pointsLabel.textColor = .white
+        }
+    }
+    
+    @IBOutlet weak var nameLabel: UILabel! {
+        didSet {
+            nameLabel.textColor = .white
+        }
+    }
+    
+    @IBOutlet weak var memberSinceLabel: UILabel! {
+        didSet {
+            memberSinceLabel.textColor = .white
         }
     }
     
     func populate(with viewModel: LoyaltyCardViewModel) {
         self.viewModel = viewModel
-        setupView()
+        setupLoyaltyView()
     }
     
-    override func setupView() {
+    func setupLoyaltyView() {
+        nameLabel.text = viewModel.userName
+        memberSinceLabel.text = viewModel.memberSince
         pointsLabel.text = viewModel?.formattedPoints
         cardImage.image = viewModel?.imageStyle
     }

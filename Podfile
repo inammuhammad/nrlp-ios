@@ -10,6 +10,8 @@ target 'NRLP' do
   pod 'Firebase/Crashlytics'
   pod 'SwiftLint'
   pod 'netfox'
+  pod 'IQKeyboardManagerSwift'
+
   target 'NRLPTests' do
     inherit! :search_paths
     

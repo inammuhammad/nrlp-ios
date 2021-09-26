@@ -55,7 +55,7 @@ class NadraTrackingIDViewModel: NadraTrackingIDViewModelProtocol {
         output?(.showActivityIndicator(show: true))
         let points = PointsFormatter().format(string: "\(category.pointsAssigned)")
         
-        let model = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: cnic, pseChild: category.categoryName, trackingID: trackingID)
+        let model = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: cnic, trackingID: trackingID)
         service.initRedemptionTransaction(requestModel: model) { [weak self] result in
             self?.output?(.showActivityIndicator(show: false))
             switch result {
@@ -72,7 +72,7 @@ class NadraTrackingIDViewModel: NadraTrackingIDViewModelProtocol {
     }
     
     func viewDidLoad() {
-        output?(.updateLoyaltyPoints(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)")))
+        output?(.updateLoyaltyPoints(viewModel: LoyaltyCardViewModel(with: user.loyaltyLevel, userPoints: "\(user.roundedLoyaltyPoints)", user: self.user)))
         output?(.nextButtonState(enableState: false))
     }
     
@@ -118,7 +118,6 @@ class NadraTrackingIDViewModel: NadraTrackingIDViewModelProtocol {
             var newInputModel = inputModel
             newInputModel.sotp = 1
             newInputModel.amount = responseModel.billInquiryResponse.amount
-            newInputModel.point = point
             self.service.redemptionTransactionSendOTP(requestModel: newInputModel) { result in
                 self.output?(.showActivityIndicator(show: false))
                 switch result {
