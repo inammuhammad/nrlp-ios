@@ -66,11 +66,11 @@ class RedeemViewModel: RedeemViewModelProtocol {
         
 //        router.navigateToFBR(user: user)
         if partner.partnerName.lowercased() == "FBR".lowercased() {
-            if partner.categoryCount == 0 {
+//            if partner.categoryCount == 0 {
                 router.navigateToFBR(partner: partner, user: user)
-            } else {
-                router.navigateToCategory(partner: partner, user: user)
-            }
+//            } else {
+//                router.navigateToCategory(partner: partner, user: user)
+//            }
         } else if partner.partnerName.lowercased() == "CAA".lowercased() {
             if partner.categoryCount != 0 {
                 router.navigateToCategory(partner: partner, user: user)

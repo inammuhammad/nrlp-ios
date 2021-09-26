@@ -13,6 +13,8 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
 
     private var homeController: BaseViewController?
     
+    
+    @IBOutlet private weak var remittanceToDateView: UIView!
     @IBOutlet weak var loyaltyTypeImageIcon: UIImageView! {
         didSet {
             let icon = #imageLiteral(resourceName: "greenCard")
@@ -71,6 +73,12 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             // REMITTANCE DATE AND REMITTANCE AMOUNT FIX
             amountRemittanceLbl.text = data.remittedAmount
             dateRemittanceLbl.text = data.remittedDate
+            
+            if data.user.accountType == .beneficiary {
+                remittanceToDateView.isHidden = true
+            } else {
+                remittanceToDateView.isHidden = false
+            }
         }
     }
 }

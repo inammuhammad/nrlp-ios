@@ -358,7 +358,7 @@ extension RegistrationViewModel {
 
         let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
 
-        alert = AlertViewModel(alertHeadingImage: .remitterInfo, alertTitle: "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\nthe National Remittance\nLoyalty Program.".localized, alertDescription: nil, alertAttributedDescription: getRemitterAlertDescription(), primaryButton: okButton)
+        alert = AlertViewModel(alertHeadingImage: .remitterInfo, alertTitle: "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti.".localized, alertDescription: nil, alertAttributedDescription: getRemitterAlertDescription(), primaryButton: okButton)
         return alert
     }
 }

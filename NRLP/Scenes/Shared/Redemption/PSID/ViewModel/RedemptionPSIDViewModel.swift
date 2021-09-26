@@ -132,7 +132,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         
         if flowType == .OPF {
             attributePart4 = NSMutableAttributedString(string: "\(amount) ", attributes: boldAttributes)
-            attributePart5 = NSMutableAttributedString(string: "Ponits. Confirm to redeem points at ", attributes: regularAttributes)
+            attributePart5 = NSMutableAttributedString(string: "Points. Confirm to redeem points at ", attributes: regularAttributes)
         } else if flowType == .SLIC {
             attributePart4 = NSMutableAttributedString(string: "PKR\n\(amount).", attributes: boldAttributes)
             attributePart5 = NSMutableAttributedString(string: "\nConfirm amount to Redeem Points at ".localized, attributes: regularAttributes)

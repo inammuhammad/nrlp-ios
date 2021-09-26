@@ -182,6 +182,7 @@
                 <outlet property="loyaltyPointTitleLabel" destination="Dnv-Jb-QYP" id="Nwn-8J-KQj"/>
                 <outlet property="loyaltyTypeImageIcon" destination="NbX-D0-qbE" id="sla-BM-aeE"/>
                 <outlet property="nameLabel" destination="U9r-Za-x5q" id="Mf8-Kj-BYO"/>
+                <outlet property="remittanceToDateView" destination="h0i-Tc-Ob4" id="phE-C2-uDk"/>
             </connections>
             <point key="canvasLocation" x="42.028985507246382" y="170.42410714285714"/>
         </collectionViewCell>
