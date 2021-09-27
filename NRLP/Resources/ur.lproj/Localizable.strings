@@ -11,21 +11,22 @@
 "Select User Type"="یوزر کی قسم منتخب کریں";
 "CNIC/NICOP Number"="شناختی کارڈ/ نیشنل آئیڈنٹٹی کارڈ فور اوورسیز پاکستانی نمبر";
 "Password"="پاس ورڈ";
-"National Remittance \nLoyalty Program"="نیشنل ریمی ٹینس\n لوائلٹی پروگرام";
+"National Remittance \nLoyalty Program"="سوہنی دھرتی \nریمیٹنس پروگرام";
 "Don't have an account?"="کیا آپ کا اکاؤنٹ نہیں ہے؟";
 "Remitter"="بھیجنے والا";
 "Beneficiary"="وصول کنندہ";
 "Login"="لاگ ان کریں";
-"About NRLP" = "\U200E کے بارے میں جانیں Sohni Dharti Remittance Program";
+"About NRLP" = "\U200E سوہنی دھرتی ریمیٹنس پروگرام کے بارے میں جانیں";
+"Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti." = "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti.";
 "Please enter registration code received on SMS"="براہ کرم ایس ایم ایس پر موصولہ رجسٹریشن کوڈ درج کریں";
 "Registration Code"="رجسٹریشن کوڈ";
 "Beneficiary Verification"="وصول کنندہ کی توثیق";
-"Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)"="اپنا حالیہ ترسیلات زر کا حوالہ نمبر درج کریں (پچھلے 03 مہینوں میں)";
-"Reference Number"="Transaction Reference No. / TT No.";
+"Enter your most recent Remittance Transaction Reference Number (with in last 03 months)"="اپنا حالیہ ترسیلات زر کا حوالہ نمبر درج کریں (1 اکتوبر 2021 کے بعد سے ایک سال پرانی ٹرانزیکشنز استعمال کی جا سکتی ہیں)";
+"Reference Number"="حوالہ نمبر";
 "Transaction Amount"="ترسیل کی رقم";
 "Remitter Verification"="بھیجنے والے کی توثیق";
 "No Beneficiary found."="کوئی وصول کنندہ نہیں ملا۔";
-"Add up to 03 Beneficiaries to transfer and share NRLP Points with them"=" این آر ایل پی پوائنٹس کی منتقلی اور ان کے ساتھ اشتراک کرنے کے لئے 03 تک وصول کنندہ شامل کریں";
+"Add up to 03 Beneficiaries to transfer and share NRLP Points with them"=" پوائنٹس کی منتقلی کے لئے وصول کنندہ شامل کریں";
 "Manage Beneficiaries"="وصول کنندہ کی منتظمی";
 "Beneficiary Details"="وصول کنندہ کی تفصیلات";
 "Delete Beneficiary"="وصول کنندہ کو حذف کریں";
@@ -136,7 +137,7 @@
 "Verify your device"="اپنے ڈیوائس کی تصدیق کریں";
 "A verification code has been sent to your registered mobile number. \nPlease enter the code below" = "تصدیقی کوڈ اپ کے رجسٹرڈ موبائل نمبر پر بھیجا گیا ہے/n براہ کرم نیچے کوڈ درج کریں";
 "We have sent you a code on your registered Mobile number. Please enter the code below." = "ہم نے رجسٹرڈ فون نمبر پر آپ کو ایک کوڈ بھیجا ہے۔ براہ کرم نیچے کوڈ درج کریں";
-"I agree to the Terms & Conditions"="میں شرائط و ضوابط سے اتفاق کرتا ہوں";
+"I agree to the Terms & Conditions"="میں شرائط و ضوابط سے متفق ہوں";
 "Cancel"="منسوخ";
 "Terms & Conditions"="شرائط و ضوابط";
 "Cancel Registration"="رجسٹریشن منسوخ کریں";
@@ -190,7 +191,7 @@
 "From Date"="اس تاریخ سے";
 "To Date"="اس تاریخ تک";
 "Statement Generated Successful"="اسٹیٹمنٹ کامیابی کے ساتھ تیار ہوگئ";
-"Bronze"="پیتل";
+"Bronze"="سبز";
 "Silver"="چاندی";
 "Gold"="سونا";
 "Platimun"="پلاٹینم";
@@ -237,102 +238,102 @@
 "Active" = "فعال";
 "Pending" = "زیر التواء";
 "Application has monitored a change in language, continuing with it will restart the application. Do you want to continue?" = "ایپلکیشن نے زبان میں تبدیلی جانچی ہے ، اس پر منتقل ہونے سے ایپلکیشن دوبارہ شروع ہوجائے گی۔ کیا آپ جاری رکھنا چاہتے ہیں؟";
-"Are you sure you want to transfer " = "کیا آپ واقعی ";
+"Are you sure you want to transfer " = "کیا آپ کا پوائنٹس منتقل کرنے کا فیصلا حتمی ہے؟";
 "\nPoints to " = "پوائنٹس";
 "points_transfer_end" = "کو منتقل کرنا چاہتے ہیں؟ ";
-"View NRLP Benefits" = " فوائد ملاحظہ کریں";
+"View NRLP Benefits" = "سوہنی دھرتی کے فوائد ملاحظہ کریں";
 "Urdu" = "اردو";
 "English" = "English";
 "This feature is coming very soon" = "یہ خصوصیت بہت جلد آنے والی ہے";
 "Coming Soon" = "جلد آرہا ہے";
 "Beneficiary Added" = "وصول کنندہ شامل ہوا";
-"NRLP Redemption Partners" = "کے پارٹنر Sohni Dharti";
-"Benefits for NRLP users" = "این آر ایل پی یوزر کے فوائد";
+"NRLP Redemption Partners" = "سوہنی دھرتی پروگرام کے پارٹنر";
+"Benefits for NRLP users" = "سوہنی دھرتی یوزر کے فوائد";
 //Redeem
 "Redemption Partners" = "پوائنٹس استعمال کرنے کیلئے پارٹنر کا انتخاب کریں";
 "List of Benefits" = "فوائد کی فہرست";
 
 //Registration
 
-"Unique ID *" = "Unique ID *";
-"Unique ID" = "Unique ID";
-"Please enter your Full Name as per CNIC/NICOP" = "Please enter your Full Name as per CNIC/NICOP";
+"Unique ID *" = "منفرد ID *";
+"Unique ID" = "منفرد ID";
+"Please enter your Full Name as per CNIC/NICOP" = " براہ مہربانی شناختی کارڈ پر درج شناخت کا نمبر داخل کریں";
 
-"Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)" = "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)";
+"Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)" = "اپنا منفرد شناخت کا نمبر درج کریں جو آپ رقوم کی ترسیل کے لئے استعمال کرتے ہوں، بشمول آپ کے رہائشی حکومت کی طرف سے جاری کردہ نمبر (مثلا؛ اقامہ نمبر، رجسٹریشن نمبر، عماراتی آئی ڈی، ڈرائیونگ لائسنس، پاسپورٹ نمبر، وغیرہ)";
 
-"Passport Type *" = "Passport Type *";
-"Select Passport Type" = "Select Passport Type";
-"Please select your passport type" = "Please select your passport type";
+"Passport Type *" = "پاسپورٹ کی قسم *";
+"Select Passport Type" = "اپنے پاسپورٹ کے قسم کا انتخاب کریں";
+"Please select your passport type" = "براہ مہربانی اپنے پاسپورٹ کے قسم کا انتخاب کریں";
+"Enter Passport Number *" = "اپنا پاسپورٹ نمبر درج کریں*";
+"Passport Number" = "پاسپورٹ نمبر";
+"Please enter your passport number" = "براہ مہربانی اپنا پاسپورٹ نمبر درج کریں";
 
-"Enter Passport Number *" = "Enter Passport Number *";
-"Passport Number" = "Passport Number";
-"Please enter your passport number" = "Please enter your passport number";
-
-"Please enter your Mobile Number" = "Please enter your Mobile Number";
+"Please enter your Mobile Number" = "براہ مہربانی اپنا موبائل نمبر درج کریں";
 
 "Password *"="* پاس ورڈ";
-"Please enter a Password" = "Please enter a Password";
+"Please enter a Password" = "براہ مہربانی پاس ورڈ درج کریں";
 
 "Re-Enter Password *" = "* پاس ورڈ کا دوبارہ اندراج کریں";
-"Please re-enter the Password" = "Please re-enter the Password";
+"Please re-enter the Password" = "براہ مہربانی پاس ورڈ دوبارہ درج کریں";
 
 "User Type *" = "* یوزر کی اقسام";
-"Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds" = "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds";
+"Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds" = "براہ مہربانی منتخب کریں کہ آپ رقم بھیجنے والے یا وصول کرنے والے ہیں";
 
 "Country of Residence *"=  "* قیام کا ملک";
-"Full Name *" = "* پورا نام";
-"Passport Type" = "Passport Type";
-"Enter Passport Number" = "Enter Passport Number";
+"Full Name *" = "* مکمل نام";
+"Passport Type" = "پاسپورٹ کی قسم";
+"Enter Passport Number" = "اپنا پاسپورٹ نمبر درج کریں";
 "Mobile Number *" = "* موبائل نمبر";
 "CNIC/NICOP *"="* شناختی کارڈ/ نیشنل آئیڈنٹٹی کارڈ فور اوورسیز پاکستانی";
 
 // SELF AWARD
-"Proceed" = "Proceed";
-"Transaction within 1 year is eligible for self awarding" = "Transaction within 1 year is eligible for self awarding";
-"Transaction Amount \nEnter exact amount as per your transaction receipt" = "Transaction Amount \nEnter exact amount as per your transaction receipt";
-"Enter exact amount as per you transaction receipt" = "Enter exact amount as per you transaction receipt";
+"Proceed" = "آگے بڑھیں";
+"Transaction within 1 year is eligible for self awarding" = "گذشتہ ایک سال میں کی گئ ترسیلات ذر پہ خود پوائنٹس حاصل کرنے کی سہولت ہے";
+"Transaction Amount \nEnter exact amount as per your transaction receipt" = "رسید پر موجود رقم عین مطابق درج کریں";
+"Enter exact amount as per you transaction receipt" = "رسید پر موجود رقم عین مطابق درج کریں";
 "Date of Remittance" = "Date of Remittance";
 "YYYY-MM-DD" = "YYYY-MM-DD";
 "Enter date on which transaction is made" = "Enter date on which transaction is made";
 
-"Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points." = "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.";
-"For further assistance, you may contact +92-21-111-116757" = "For further assistance, you may contact +92-21-111-116757";
+"Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points." = "خود پوائنٹس حاصل کرنے کے لئے براہ مہربانی ٹرانزیکشن کے بعد 05 دن تک انتظار فرمائیں۔";
+"For further assistance, you may contact +92-21-111-116757" = " مزید معلومات کے لئے ہیلپ لائن پر رابطہ کریں";
 
-"Self Award Points" = "Self Award Points";
+"Self Award Points" = "خود پوائنٹس حاصل کریں";
 
-"Points Awarded" = "Points Awarded";
-"Redemption Successful" = "Redemption Successful";
+"Points Awarded" = "پوائنٹس کا حصول کامیاب ہوا";
+"Redemption Successful" = "پوائنٹس کامیابی سے استعمال ہو چکے ہیں";
 
 //FBR
 "Federal Bureau of Revenue" = "Federal Bureau of Revenue";
-"To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.";
+"To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "پنے پوائنٹس کو ایف بی آر کی سروس کے لۓ استعمال کرنا ہو تو www.fbr.gov.pk پر جا کر اپنی منتخب شدہ سروس کی پی ایس آی ڈی حاصل کریں۔\n\nپی ایس آی ڈی پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
 
+//PIA
 "PIA" = "PIA";
-"To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.";
+"To redeem your points for NRLP Benefits offered by PIA, please visit www.piac.com.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "اپنے پوائنٹس کو پی آئ اے کی سروس کے لۓ استعمال کرنا ہو تو www.piac.com.pk پر جا کر اپنی منتخب شدہ سروس کی پی ایس آی ڈی حاصل کریں۔\n\nپی ایس آی ڈی پہلے سے موجود ہونے کی صورت میں آگے بڑھیں ";
 
 //PSID
-"Enter PSID for Redemption" = "Enter PSID for Redemption";
-"PSID Number" = "PSID Number";
-"Enter other Amount Here" = "Enter other Amount Here";
+"Enter PSID for Redemption" = "پی ایس آئی ڈی نمبر درج کریں";
+"PSID Number" = "پی ایس آئی ڈی نمبر";
+"Enter other Amount Here" = "مختلف رقم ادائیگی کے لئے درج کریں";
 
-"You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR";
-"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at FBR\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at FBR\n\n%4$@";
+"You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
+"You have redeemed %1$@ Points against\nPSID %2$@ successfully at PIA" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
+"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at FBR\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
-"Receipt No. %1$@\nYou have redeemed %2$@ Points at Passport\n%3$@" = "Receipt No. %1$@\nYou have redeemed %2$@ Points at Passport\n%3$@";
-
-"You have redeemed %1$@ Points against\nPSID %2$@ successfully at PIA" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at PIA";
+"Receipt No. %1$@\nYou have redeemed %2$@ Points at Passport\n%3$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 //NADRA
 "NADRA" = "NADRA";
-"To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue." = "To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue.";
-"Enter Tracking ID for Redemption" = "Enter Tracking ID for Redemption";
-"Tracking ID Number" = "Tracking ID Number";
-"Enter CNIC for Redemption" = "Enter CNIC for Redemption";
-"You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA" = "You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA";
+"To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue." = "اپنے پوائنٹس کو NADRA کی سروس کے لۓ استعمال کرنا ہو تو www.nadra.gov.pk پر جا کر اپنی منتخب شدہ سروس کی ٹریکنگ نمبرحاصل کریں۔\n\n ٹریکنگ نمبر پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
+"Enter Tracking ID for Redemption" = "ٹریکنگ آئی ڈی درج کریں";
+"Tracking ID Number" = "ٹریکنگ آئی ڈی";
+"Enter CNIC for Redemption" = "CNIC نمبر درج کریں";
 
-"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Tracking\nID %3$@ successfully at NADRA.\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Tracking\nID %3$@ successfully at NADRA.\n\n%4$@";
+"You have redeemed %1$@ Points against\nTracking ID: %2$@ successfully at NADRA" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
-"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at PIA\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at PIA\n\n%4$@";
+"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Tracking\nID %3$@ successfully at NADRA.\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
+
+"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at PIA\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 "Transaction Reference No. / TT No." = "Transaction Reference No. / TT No.";
 "Transactions from last one year, starting 1st Oct 2021 are eligible" = "Transactions from last one year, starting 1st Oct 2021 are eligible";
@@ -340,17 +341,17 @@
 // USC
 "Utility Stores" = "Utility Stores";
 "To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue." = "To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue.";
-"You have redeemed %1$@ Points against\nPSID %2$@ successfully at Utility Stores" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at Utility Stores";
+"You have redeemed %1$@ Points against\nPSID %2$@ successfully at Utility Stores" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
-"Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@" = "Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@";
+"Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 // OPF
 "Enter Voucher Number for Redemption" = "Enter Voucher Number for Redemption";
 "Voucher Number" = "Voucher Number";
-"Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF";
-"Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@" = "Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@";
+"Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF";
+"Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 // SLIC
 "Enter your State Life Policy No." = "Enter your State Life Policy No.";
 "Policy Number" = "Policy Number";
-"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@";
+"Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";

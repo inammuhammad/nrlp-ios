@@ -31,7 +31,8 @@ class RedeemServiceCell: UITableViewCell {
 
     func populate(with service: Category) {
         serviceDetail.text = service.categoryName
-        pointsLabel.text = "\(service.pointsAssigned) " + "points".localized
+        let formattedPoints = PointsFormatter().format(string: String(service.pointsAssigned))
+        pointsLabel.text = "\(formattedPoints) " + "points".localized
         self.layoutMargins = UIEdgeInsets.zero
     }
 }

@@ -206,7 +206,7 @@ extension RedemptionPSIDViewModel {
                 output?(.nextButtonState(enableState: true))
             }
         } else {
-            if psidText?.isEmpty ?? false || psidText?.count ?? 0 < 24 {
+            if psidText?.isEmpty ?? false || psidText?.count ?? 0 > 24 || psidText?.count ?? 0 < 8 {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))

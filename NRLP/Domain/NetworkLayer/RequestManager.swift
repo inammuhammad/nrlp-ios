@@ -91,33 +91,34 @@ extension NetworkManager: Networking {
         do {
             let urlRequest = try buildRequest(with: request, method: method, task: task)
             
-            print("\n🔷🔷🔷🔷🔷 REQUEST STARTED 🔷🔷🔷🔷🔷\n")
-            if let params = urlRequest.httpBody, let method = urlRequest.httpMethod {
-                print("===== URL TO HIT =====")
-                print("\n\(method):   " + String(urlRequest.url?.absoluteString ?? ""))
-                print("=====PARAMETERS=====")
-                print("\n \(AppUtility.getPrettyJson(data: params))")
-                
+            if AppConstants.isDev {
+                print("\n🔷🔷🔷🔷🔷 REQUEST STARTED 🔷🔷🔷🔷🔷\n")
+                if let params = urlRequest.httpBody, let method = urlRequest.httpMethod {
+                    print("===== URL TO HIT =====")
+                    print("\n\(method):   " + String(urlRequest.url?.absoluteString ?? ""))
+                    print("=====PARAMETERS=====")
+                    print("\n \(AppUtility.getPrettyJson(data: params))")
+                    
+                }
             }
-            
             let dataRequest = sessionManager.request(urlRequest)
                 .responseJSON(completionHandler: { (response) in
-                    if let error = response.error {
-                        print("\n❌❌❌❌❌ ERROR ❌❌❌❌❌\n")
-                        print(error)
-                        print("\n🔷🔷🔷🔷🔷 REQUEST END 🔷🔷🔷🔷🔷\n")
-                    } else {
-                        print("\n✅✅✅✅✅ SUCCESS ✅✅✅✅✅\n")
-                        if let data = response.data {
-                            print(AppUtility.getPrettyJson(data: data))
+                    if AppConstants.isDev {
+                        if let error = response.error {
+                            print("\n❌❌❌❌❌ ERROR ❌❌❌❌❌\n")
+                            print(error)
                             print("\n🔷🔷🔷🔷🔷 REQUEST END 🔷🔷🔷🔷🔷\n")
                         } else {
-                            print("DATA NOT AVAILABLE")
-                            print("\n🔷🔷🔷🔷🔷 REQUEST END 🔷🔷🔷🔷🔷\n")
+                            print("\n✅✅✅✅✅ SUCCESS ✅✅✅✅✅\n")
+                            if let data = response.data {
+                                print(AppUtility.getPrettyJson(data: data))
+                                print("\n🔷🔷🔷🔷🔷 REQUEST END 🔷🔷🔷🔷🔷\n")
+                            } else {
+                                print("DATA NOT AVAILABLE")
+                                print("\n🔷🔷🔷🔷🔷 REQUEST END 🔷🔷🔷🔷🔷\n")
+                            }
                         }
                     }
-//                    print(response)
-//                    print(response.error)
                     completion(self.parseResponse(response: response))
                 })
             return DefaultAPIRequest(request: dataRequest)

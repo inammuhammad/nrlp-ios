@@ -41,6 +41,7 @@ class SelfAwardViewController: BaseViewController {
             referenceNumberLabelTextView.placeholderText = "xxxxxxxxxxxxxx"
             referenceNumberLabelTextView.showHelpBtn = true
             referenceNumberLabelTextView.helpLabelText = "Transaction within 1 year is eligible for self awarding".localized
+            referenceNumberLabelTextView.helpPopupIcon = .selfAward
             referenceNumberLabelTextView.inputFieldMaxLength = 25
             referenceNumberLabelTextView.editTextKeyboardType = .asciiCapable
             referenceNumberLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.referenceNumberRegex, invalidFormatError: StringConstants.ErrorString.referenceNumberError.localized)
@@ -64,6 +65,7 @@ class SelfAwardViewController: BaseViewController {
             transactionAmountLabelTextView.placeholderText = "xx,xxx".localized
             transactionAmountLabelTextView.leadingText = "PKR "
             transactionAmountLabelTextView.showHelpBtn = true
+            transactionAmountLabelTextView.helpPopupIcon = .selfAward
             transactionAmountLabelTextView.helpLabelText = "Enter exact amount as per you transaction receipt".localized
             transactionAmountLabelTextView.inputFieldMaxLength = 13
             transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
@@ -120,7 +122,7 @@ class SelfAwardViewController: BaseViewController {
     private func showInitialAlert() {
         let alert: AlertViewModel
         let okButton = AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.", alertDescription: "For further assistance, you may contact +92-21-111-116757", alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.".localized, alertDescription: "For further assistance, you may contact +92-21-111-116757".localized, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         self.showAlert(with: alert)
     }
     

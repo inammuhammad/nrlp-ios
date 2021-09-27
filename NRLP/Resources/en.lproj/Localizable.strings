@@ -17,6 +17,7 @@
 "Beneficiary" = "Beneficiary";
 "Login" = "Login";
 "About NRLP" = "About Sohni Dharti Remittance Program";
+"Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti." = "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti.";
 //Beneficiary Verification
 "Enter registration code received on SMS" = "Enter registration code received on SMS";
 "Registration code"= "Registration code";

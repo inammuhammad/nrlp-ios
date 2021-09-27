@@ -45,7 +45,8 @@ class RedeemViewModel: RedeemViewModelProtocol {
             self?.output?(.showActivityIndicator(show: false))
             switch result {
             case .success(let response):
-                self?.partners = response.data
+                let sortedArr = response.data.sorted(by: { $0.partnerName < $1.partnerName })
+                self?.partners = sortedArr
                 self?.output?(.dataReload)
             case .failure(let error):
                 self?.output?(.showError(error: error))

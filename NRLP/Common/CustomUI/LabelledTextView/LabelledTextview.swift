@@ -29,7 +29,7 @@ class LabelledTextview: CustomNibView {
     @IBAction func helpBtnAction(_ sender: Any) {
         let alert: AlertViewModel
         let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .remitterInfo, alertTitle: helpLabelText, alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        alert = AlertViewModel(alertHeadingImage: helpPopupIcon, alertTitle: helpLabelText, alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         onHelpBtnPressed?(alert)
     }
     
@@ -54,6 +54,8 @@ class LabelledTextview: CustomNibView {
             }
         }
     }
+    
+    var helpPopupIcon: AlertIllustrationType = .remitterInfo
     
     @IBInspectable
     var helpLabelText: String? {

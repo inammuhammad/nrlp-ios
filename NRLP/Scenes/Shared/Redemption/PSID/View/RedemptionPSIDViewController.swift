@@ -71,7 +71,7 @@ class RedemptionPSIDViewController: BaseViewController {
                     psidTextView.titleLabelText = "Enter Voucher Number for Redemption".localized
                     psidTextView.placeholderText = "Voucher Number".localized
                     psidTextView.editTextKeyboardType = .default
-                    psidTextView.inputFieldMinLength = 24
+                    psidTextView.inputFieldMinLength = 8
                     psidTextView.inputFieldMaxLength = 24
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
                         guard let self = self else { return }
@@ -81,7 +81,7 @@ class RedemptionPSIDViewController: BaseViewController {
                     psidTextView.titleLabelText = "Enter your State Life Policy No.".localized
                     psidTextView.placeholderText = "Policy Number".localized
                     psidTextView.editTextKeyboardType = .default
-                    psidTextView.inputFieldMinLength = 24
+                    psidTextView.inputFieldMinLength = 8
                     psidTextView.inputFieldMaxLength = 24
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
                         guard let self = self else { return }
@@ -100,7 +100,7 @@ class RedemptionPSIDViewController: BaseViewController {
                     }
                 } else {
                     psidTextView.titleLabelText = "Enter PSID for Redemption".localized
-                    psidTextView.inputFieldMinLength = 24
+                    psidTextView.inputFieldMinLength = 8
                     psidTextView.inputFieldMaxLength = 24
                     psidTextView.placeholderText = "PSID Number".localized
                     psidTextView.editTextKeyboardType = .asciiCapableNumberPad

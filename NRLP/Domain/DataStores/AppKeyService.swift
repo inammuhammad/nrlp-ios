@@ -31,7 +31,7 @@ class AppKeyService: BaseDataStore, AppKeyServiceProtocol {
         headers["user_type"] = type.rawValue
         
         let request = RequestBuilder(path: .init(endPoint: .authAppKey), parameters: AppKeyRequestModel(), headers: headers, shouldHash: false)
-        print(request)
+//        print(request)
         networking.get(request: request) { (response: APIResponse<AppKeyResponseModel>) in
             responseHandler(response.result)
         }
