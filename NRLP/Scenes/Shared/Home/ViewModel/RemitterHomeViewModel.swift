@@ -21,19 +21,31 @@ class RemitterHomeViewModel: HomeViewModel {
     }
     
     private func setupDataForUrdu() {
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
+        if AppConstants.isDev {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
+        } else {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
+        }
     }
     
     private func setupDataForEnglish() {
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
-        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
+        if AppConstants.isDev {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
+        } else {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
+        }
     }
 
     override func didTapItem(at index: Int) {

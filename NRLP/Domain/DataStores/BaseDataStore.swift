@@ -17,9 +17,9 @@ class BaseDataStore {
         var rawValue: String {
             switch self {
             case .certificateName:
-                return AppConstants.isDev ? "sni.cloudflaressl.com" : "sni.cloudflaressl.prod.com"
+                return AppConstants.isDev ? "sni.cloudflaressl.com" : "sni-cloudflaressl-com-chain"
             case .evaluator:
-                return AppConstants.isDev ? "sandboxapi.1link.net.pk" : "sandboxapi.1link.net.pk"
+                return AppConstants.isDev ? "sandboxapi.1link.net.pk" : "api.nrlp.com.pk"
             }
         }
     }
@@ -42,7 +42,7 @@ class BaseDataStore {
         
         // REMOVED SSL Pinning TO ENABLE LOGIN
         
-        let configurations = Configuration(sessionConfigurations: .default, serverTrustPolicyManager: nil)
+        let configurations = Configuration(sessionConfigurations: .default, serverTrustPolicyManager: serverTrustManager)
         
         let networkManager = NetworkManager.getSharedObj(configuration: configurations)
         self.networking = networkManager

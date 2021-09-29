@@ -56,7 +56,6 @@
 		2030725D24CAC79200C0DC67 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2030725C24CAC79200C0DC67 /* APIConstants.swift */; };
 		203238F125E8C58D00F045E7 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203238F025E8C58D00F045E7 /* Data+Extension.swift */; };
 		203238F625E8C62700F045E7 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203238F525E8C62700F045E7 /* Collection+Extension.swift */; };
-		2038F311255BEB760058D1DA /* sni.cloudflaressl.prod.com.der in Resources */ = {isa = PBXBuildFile; fileRef = 2038F310255BEB750058D1DA /* sni.cloudflaressl.prod.com.der */; };
 		2045BA6B24C18DAB00675663 /* UIDevice+JailBroken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2045BA6A24C18DAB00675663 /* UIDevice+JailBroken.swift */; };
 		2046B90D24D954D900E2C4CB /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046B90C24D954D900E2C4CB /* AlertType.swift */; };
 		2046B91124D9550E00E2C4CB /* FAQRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2046B90F24D9550E00E2C4CB /* FAQRequestModel.swift */; };
@@ -265,15 +264,12 @@
 		20A0FBAE24F788860075201D /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20E56FB824B4AB8F00BF3B15 /* Registration.storyboard */; };
 		20A23B9E24E689EE00470CA3 /* ImageDownloaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A23B9D24E689EE00470CA3 /* ImageDownloaderService.swift */; };
 		20A293B925AEA6A6004F3035 /* HashRequestWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A293B825AEA6A6004F3035 /* HashRequestWrapper.swift */; };
-		20A45D4324F3A38A0095356B /* sni-cloudflaressl-com.der in Resources */ = {isa = PBXBuildFile; fileRef = 20A45D4224F3A3890095356B /* sni-cloudflaressl-com.der */; };
 		20AC740924EEBC220094D3C1 /* MarkaziText-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20AC740524EEBC220094D3C1 /* MarkaziText-SemiBold.ttf */; };
 		20AC740A24EEBC220094D3C1 /* MarkaziText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20AC740624EEBC220094D3C1 /* MarkaziText-Medium.ttf */; };
 		20AC740B24EEBC220094D3C1 /* MarkaziText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20AC740724EEBC220094D3C1 /* MarkaziText-Regular.ttf */; };
 		20AC740D24EEC3D60094D3C1 /* MarkaziText-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20AC740C24EEC3D60094D3C1 /* MarkaziText-Bold.ttf */; };
 		20B634C124F6982D00FEEA1B /* OperationCompleted.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 207C3DD624B5EC8B00298C0C /* OperationCompleted.storyboard */; };
 		20B97E7524DE828600A10B02 /* LoyaltyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B97E7424DE828600A10B02 /* LoyaltyType.swift */; };
-		20B982BC24DF1C1500A10B02 /* sni.cloudflaressl.com.der in Resources */ = {isa = PBXBuildFile; fileRef = 20B982BA24DF1C1500A10B02 /* sni.cloudflaressl.com.der */; };
-		20B982BD24DF1C1500A10B02 /* stackexchange.com.der in Resources */ = {isa = PBXBuildFile; fileRef = 20B982BB24DF1C1500A10B02 /* stackexchange.com.der */; };
 		20D3B0AF24B8802300F1E08C /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D3B0AE24B8802300F1E08C /* CurrencyFormatter.swift */; };
 		20D839AF24D1B79800C82A87 /* PointsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D839AE24D1B79700C82A87 /* PointsFormatter.swift */; };
 		20D8401724B4324600F5D749 /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D8401624B4324600F5D749 /* AppTheme.swift */; };
@@ -575,6 +571,8 @@
 		E122CDAD26FD400400BEAE18 /* RedemptionOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDAC26FD400400BEAE18 /* RedemptionOTPViewModel.swift */; };
 		E122CDB026FD42C200BEAE18 /* RedemptionOTPBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */; };
 		E122CDB226FD42EC00BEAE18 /* RedemptionOTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */; };
+		E122CDC22702E59400BEAE18 /* sni-cloudflaressl-com.der in Resources */ = {isa = PBXBuildFile; fileRef = E122CDC02702E59400BEAE18 /* sni-cloudflaressl-com.der */; };
+		E122CDC32702E59400BEAE18 /* sni-cloudflaressl-com-chain.der in Resources */ = {isa = PBXBuildFile; fileRef = E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */; };
 		E168AAF926F9C831002D1083 /* NadraTrackingID.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */; };
 		E168AAFB26F9C845002D1083 /* NadraTrackingIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */; };
 		E168AAFD26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */; };
@@ -584,6 +582,7 @@
 		E17F1D5E26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D5D26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift */; };
 		E17F1D6226DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D6126DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift */; };
 		E17F1D6526DBBA4C001D15D9 /* SelfAwardOTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D6426DBBA4C001D15D9 /* SelfAwardOTPService.swift */; };
+		E1AE205F2703260300671511 /* stackexchange.com.der in Resources */ = {isa = PBXBuildFile; fileRef = E1AE205E2703260300671511 /* stackexchange.com.der */; };
 		E1EBF69B26DE834A000B1734 /* SelfAwardSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */; };
 		E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F232C026D9FC06000F8051 /* SelfAward.storyboard */; };
 		E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */; };
@@ -691,7 +690,6 @@
 		2030725C24CAC79200C0DC67 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		203238F025E8C58D00F045E7 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		203238F525E8C62700F045E7 /* Collection+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extension.swift"; sourceTree = "<group>"; };
-		2038F310255BEB750058D1DA /* sni.cloudflaressl.prod.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = sni.cloudflaressl.prod.com.der; sourceTree = "<group>"; };
 		2045BA6A24C18DAB00675663 /* UIDevice+JailBroken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+JailBroken.swift"; sourceTree = "<group>"; };
 		2046B90C24D954D900E2C4CB /* AlertType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		2046B90F24D9550E00E2C4CB /* FAQRequestModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQRequestModel.swift; sourceTree = "<group>"; };
@@ -899,14 +897,11 @@
 		209C88DF259CA545008B2853 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		20A23B9D24E689EE00470CA3 /* ImageDownloaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderService.swift; sourceTree = "<group>"; };
 		20A293B825AEA6A6004F3035 /* HashRequestWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashRequestWrapper.swift; sourceTree = "<group>"; };
-		20A45D4224F3A3890095356B /* sni-cloudflaressl-com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com.der"; sourceTree = "<group>"; };
 		20AC740524EEBC220094D3C1 /* MarkaziText-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-SemiBold.ttf"; sourceTree = "<group>"; };
 		20AC740624EEBC220094D3C1 /* MarkaziText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Medium.ttf"; sourceTree = "<group>"; };
 		20AC740724EEBC220094D3C1 /* MarkaziText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Regular.ttf"; sourceTree = "<group>"; };
 		20AC740C24EEC3D60094D3C1 /* MarkaziText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Bold.ttf"; sourceTree = "<group>"; };
 		20B97E7424DE828600A10B02 /* LoyaltyType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoyaltyType.swift; sourceTree = "<group>"; };
-		20B982BA24DF1C1500A10B02 /* sni.cloudflaressl.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = sni.cloudflaressl.com.der; sourceTree = "<group>"; };
-		20B982BB24DF1C1500A10B02 /* stackexchange.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = stackexchange.com.der; sourceTree = "<group>"; };
 		20D3B0AE24B8802300F1E08C /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		20D839AE24D1B79700C82A87 /* PointsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsFormatter.swift; sourceTree = "<group>"; };
 		20D8401624B4324600F5D749 /* AppTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -1231,6 +1226,8 @@
 		E122CDAC26FD400400BEAE18 /* RedemptionOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPViewModel.swift; sourceTree = "<group>"; };
 		E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPBuilder.swift; sourceTree = "<group>"; };
 		E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPRouter.swift; sourceTree = "<group>"; };
+		E122CDC02702E59400BEAE18 /* sni-cloudflaressl-com.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sni-cloudflaressl-com.der"; path = "../../../../../../api_nrpl_der/sni-cloudflaressl-com.der"; sourceTree = "<group>"; };
+		E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain.der"; sourceTree = "<group>"; };
 		E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NadraTrackingID.storyboard; sourceTree = "<group>"; };
 		E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewController.swift; sourceTree = "<group>"; };
 		E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewModel.swift; sourceTree = "<group>"; };
@@ -1240,6 +1237,7 @@
 		E17F1D5D26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPViewController.swift; sourceTree = "<group>"; };
 		E17F1D6126DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPViewModel.swift; sourceTree = "<group>"; };
 		E17F1D6426DBBA4C001D15D9 /* SelfAwardOTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPService.swift; sourceTree = "<group>"; };
+		E1AE205E2703260300671511 /* stackexchange.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = stackexchange.com.der; sourceTree = "<group>"; };
 		E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardSuccessViewModel.swift; sourceTree = "<group>"; };
 		E1F232C026D9FC06000F8051 /* SelfAward.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelfAward.storyboard; sourceTree = "<group>"; };
 		E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewController.swift; sourceTree = "<group>"; };
@@ -1716,10 +1714,9 @@
 		20782D3D24B46AE300422AEB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				20A45D4224F3A3890095356B /* sni-cloudflaressl-com.der */,
-				20B982BA24DF1C1500A10B02 /* sni.cloudflaressl.com.der */,
-				2038F310255BEB750058D1DA /* sni.cloudflaressl.prod.com.der */,
-				20B982BB24DF1C1500A10B02 /* stackexchange.com.der */,
+				E1AE205E2703260300671511 /* stackexchange.com.der */,
+				E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */,
+				E122CDC02702E59400BEAE18 /* sni-cloudflaressl-com.der */,
 				20782D3E24B46B0900422AEB /* Fonts */,
 				A1B9A1BE24B2FF0D00CAAA32 /* Assets.xcassets */,
 				2046B92724DAB6C700E2C4CB /* Localizable.strings */,
@@ -4911,7 +4908,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20A45D4324F3A38A0095356B /* sni-cloudflaressl-com.der in Resources */,
+				E122CDC32702E59400BEAE18 /* sni-cloudflaressl-com-chain.der in Resources */,
 				9F8D827C24C86BEF00BB1C26 /* ForgotPasswordOTP.storyboard in Resources */,
 				20B634C124F6982D00FEEA1B /* OperationCompleted.storyboard in Resources */,
 				9FC6E75924B4AAAB00577421 /* BeneficiaryVerification.storyboard in Resources */,
@@ -4951,15 +4948,14 @@
 				9F8D82A724C9A45D00BB1C26 /* UUIDChange.storyboard in Resources */,
 				9F0435C324B4CE6F00439FC0 /* RemitterVerification.storyboard in Resources */,
 				2030724C24C9F58200C0DC67 /* angle-mask@3x.png in Resources */,
+				E1AE205F2703260300671511 /* stackexchange.com.der in Resources */,
 				2095D2F124E695D9001C5A48 /* LoyaltyCardView.xib in Resources */,
-				2038F311255BEB760058D1DA /* sni.cloudflaressl.prod.com.der in Resources */,
 				207C3DCE24B5D9F100298C0C /* CheckBox.xib in Resources */,
 				207C3D9724B5AE7400298C0C /* CountryList.storyboard in Resources */,
 				9F8AE2AB24DAD6EE00F1E468 /* Profile.storyboard in Resources */,
 				2030725524C9F58200C0DC67 /* info@2x.png in Resources */,
 				207D5E5D24BC60AB00222594 /* Garamond.ttf in Resources */,
 				9F75D45724E5EA0F0082364E /* BenefitsCardCell.xib in Resources */,
-				20B982BC24DF1C1500A10B02 /* sni.cloudflaressl.com.der in Resources */,
 				20A0FBAE24F788860075201D /* Registration.storyboard in Resources */,
 				20AC740924EEBC220094D3C1 /* MarkaziText-SemiBold.ttf in Resources */,
 				9F653AC424CB0CD300810DBD /* RedeemListTableViewCell.xib in Resources */,
@@ -4990,7 +4986,7 @@
 				9F653AC224CB0CD300810DBD /* Redeem.storyboard in Resources */,
 				9F75D46C24E600AF0082364E /* BenefitCategoryCell.xib in Resources */,
 				207C3D9F24B5AF5D00298C0C /* CountryListTableViewCell.xib in Resources */,
-				20B982BD24DF1C1500A10B02 /* stackexchange.com.der in Resources */,
+				E122CDC22702E59400BEAE18 /* sni-cloudflaressl-com.der in Resources */,
 				20AC740A24EEBC220094D3C1 /* MarkaziText-Medium.ttf in Resources */,
 				2074D5F224CFE86C00006731 /* SideMenuTableViewHeader.xib in Resources */,
 				207D5E6624BC60DF00222594 /* HPSimplified-bold-italic.ttf in Resources */,
@@ -5821,7 +5817,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 58;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6196,7 +6192,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 58;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -6222,9 +6218,9 @@
 			baseConfigurationReference = 81F2F9D1EE084118F6BDE45C /* Pods-NRLP.prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 58;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6236,9 +6232,9 @@
 				);
 				MARKETING_VERSION = 3.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ventureddive.-Link-NRLP";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onelink.sohnidharti.app;
 				PRODUCT_NAME = "Sohni Dharti";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "Sohnni Dharti Development Profile";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				UDS_APP_NAME = NRLP;

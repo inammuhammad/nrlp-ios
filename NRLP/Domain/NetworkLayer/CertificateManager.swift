@@ -11,10 +11,12 @@ import Foundation
 struct CertificateManager {
 
     static func certificate(filename: String) -> SecCertificate? {
-        let filePath = Bundle.main.path(forResource: filename, ofType: "der")!
-        if let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
-            let certificate = SecCertificateCreateWithData(nil, data as CFData)!
-            return certificate
+        if let filePath = Bundle.main.path(forResource: filename, ofType: "der") {
+            if let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+                let certificate = SecCertificateCreateWithData(nil, data as CFData)!
+                return certificate
+            }
+            return nil
         }
         return nil
     }
