@@ -17,7 +17,7 @@ class BaseDataStore {
         var rawValue: String {
             switch self {
             case .certificateName:
-                return AppConstants.isDev ? "sni.cloudflaressl.com" : "sni-cloudflaressl-com-chain"
+                return AppConstants.isDev ? "sni-cloudflaressl-com-chain-dev" : "sni-cloudflaressl-com-chain"
             case .evaluator:
                 return AppConstants.isDev ? "sandboxapi.1link.net.pk" : "api.nrlp.com.pk"
             }

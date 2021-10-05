@@ -583,6 +583,8 @@
 		E17F1D6226DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D6126DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift */; };
 		E17F1D6526DBBA4C001D15D9 /* SelfAwardOTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D6426DBBA4C001D15D9 /* SelfAwardOTPService.swift */; };
 		E1AE205F2703260300671511 /* stackexchange.com.der in Resources */ = {isa = PBXBuildFile; fileRef = E1AE205E2703260300671511 /* stackexchange.com.der */; };
+		E1AE20622705C04200671511 /* sni-cloudflaressl-com-chain-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = E1AE20602705C04100671511 /* sni-cloudflaressl-com-chain-dev.der */; };
+		E1AE20632705C04200671511 /* sni-cloudflaressl-com-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = E1AE20612705C04100671511 /* sni-cloudflaressl-com-dev.der */; };
 		E1EBF69B26DE834A000B1734 /* SelfAwardSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */; };
 		E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F232C026D9FC06000F8051 /* SelfAward.storyboard */; };
 		E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */; };
@@ -1238,6 +1240,8 @@
 		E17F1D6126DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPViewModel.swift; sourceTree = "<group>"; };
 		E17F1D6426DBBA4C001D15D9 /* SelfAwardOTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPService.swift; sourceTree = "<group>"; };
 		E1AE205E2703260300671511 /* stackexchange.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = stackexchange.com.der; sourceTree = "<group>"; };
+		E1AE20602705C04100671511 /* sni-cloudflaressl-com-chain-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sni-cloudflaressl-com-chain-dev.der"; path = "../../../../../../1link.com.pk/sni-cloudflaressl-com-chain-dev.der"; sourceTree = "<group>"; };
+		E1AE20612705C04100671511 /* sni-cloudflaressl-com-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-dev.der"; sourceTree = "<group>"; };
 		E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardSuccessViewModel.swift; sourceTree = "<group>"; };
 		E1F232C026D9FC06000F8051 /* SelfAward.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelfAward.storyboard; sourceTree = "<group>"; };
 		E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewController.swift; sourceTree = "<group>"; };
@@ -1714,6 +1718,8 @@
 		20782D3D24B46AE300422AEB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E1AE20602705C04100671511 /* sni-cloudflaressl-com-chain-dev.der */,
+				E1AE20612705C04100671511 /* sni-cloudflaressl-com-dev.der */,
 				E1AE205E2703260300671511 /* stackexchange.com.der */,
 				E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */,
 				E122CDC02702E59400BEAE18 /* sni-cloudflaressl-com.der */,
@@ -4911,6 +4917,7 @@
 				E122CDC32702E59400BEAE18 /* sni-cloudflaressl-com-chain.der in Resources */,
 				9F8D827C24C86BEF00BB1C26 /* ForgotPasswordOTP.storyboard in Resources */,
 				20B634C124F6982D00FEEA1B /* OperationCompleted.storyboard in Resources */,
+				E1AE20622705C04200671511 /* sni-cloudflaressl-com-chain-dev.der in Resources */,
 				9FC6E75924B4AAAB00577421 /* BeneficiaryVerification.storyboard in Resources */,
 				2030725924C9F58200C0DC67 /* error@1x.png in Resources */,
 				E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */,
@@ -4987,6 +4994,7 @@
 				9F75D46C24E600AF0082364E /* BenefitCategoryCell.xib in Resources */,
 				207C3D9F24B5AF5D00298C0C /* CountryListTableViewCell.xib in Resources */,
 				E122CDC22702E59400BEAE18 /* sni-cloudflaressl-com.der in Resources */,
+				E1AE20632705C04200671511 /* sni-cloudflaressl-com-dev.der in Resources */,
 				20AC740A24EEBC220094D3C1 /* MarkaziText-Medium.ttf in Resources */,
 				2074D5F224CFE86C00006731 /* SideMenuTableViewHeader.xib in Resources */,
 				207D5E6624BC60DF00222594 /* HPSimplified-bold-italic.ttf in Resources */,
@@ -5817,7 +5825,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 61;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6192,7 +6200,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 61;
+				CURRENT_PROJECT_VERSION = 62;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -6220,7 +6228,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 61;
+				CURRENT_PROJECT_VERSION = 62;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
