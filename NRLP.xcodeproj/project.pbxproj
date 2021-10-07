@@ -571,7 +571,6 @@
 		E122CDAD26FD400400BEAE18 /* RedemptionOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDAC26FD400400BEAE18 /* RedemptionOTPViewModel.swift */; };
 		E122CDB026FD42C200BEAE18 /* RedemptionOTPBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */; };
 		E122CDB226FD42EC00BEAE18 /* RedemptionOTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */; };
-		E122CDC22702E59400BEAE18 /* sni-cloudflaressl-com.der in Resources */ = {isa = PBXBuildFile; fileRef = E122CDC02702E59400BEAE18 /* sni-cloudflaressl-com.der */; };
 		E122CDC32702E59400BEAE18 /* sni-cloudflaressl-com-chain.der in Resources */ = {isa = PBXBuildFile; fileRef = E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */; };
 		E168AAF926F9C831002D1083 /* NadraTrackingID.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */; };
 		E168AAFB26F9C845002D1083 /* NadraTrackingIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */; };
@@ -582,8 +581,10 @@
 		E17F1D5E26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D5D26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift */; };
 		E17F1D6226DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D6126DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift */; };
 		E17F1D6526DBBA4C001D15D9 /* SelfAwardOTPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E17F1D6426DBBA4C001D15D9 /* SelfAwardOTPService.swift */; };
+		E19D8B52270C3D7300FFA1B3 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D8B51270C3D7300FFA1B3 /* TestConstants.swift */; };
+		E19D8B54270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = E19D8B53270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der */; };
+		E19D8B56270C50D600FFA1B3 /* sni-cloudflaressl-com.der in Resources */ = {isa = PBXBuildFile; fileRef = E19D8B55270C50D600FFA1B3 /* sni-cloudflaressl-com.der */; };
 		E1AE205F2703260300671511 /* stackexchange.com.der in Resources */ = {isa = PBXBuildFile; fileRef = E1AE205E2703260300671511 /* stackexchange.com.der */; };
-		E1AE20622705C04200671511 /* sni-cloudflaressl-com-chain-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = E1AE20602705C04100671511 /* sni-cloudflaressl-com-chain-dev.der */; };
 		E1AE20632705C04200671511 /* sni-cloudflaressl-com-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = E1AE20612705C04100671511 /* sni-cloudflaressl-com-dev.der */; };
 		E1EBF69B26DE834A000B1734 /* SelfAwardSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */; };
 		E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F232C026D9FC06000F8051 /* SelfAward.storyboard */; };
@@ -1228,7 +1229,6 @@
 		E122CDAC26FD400400BEAE18 /* RedemptionOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPViewModel.swift; sourceTree = "<group>"; };
 		E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPBuilder.swift; sourceTree = "<group>"; };
 		E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPRouter.swift; sourceTree = "<group>"; };
-		E122CDC02702E59400BEAE18 /* sni-cloudflaressl-com.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sni-cloudflaressl-com.der"; path = "../../../../../../api_nrpl_der/sni-cloudflaressl-com.der"; sourceTree = "<group>"; };
 		E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain.der"; sourceTree = "<group>"; };
 		E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NadraTrackingID.storyboard; sourceTree = "<group>"; };
 		E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewController.swift; sourceTree = "<group>"; };
@@ -1239,8 +1239,10 @@
 		E17F1D5D26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPViewController.swift; sourceTree = "<group>"; };
 		E17F1D6126DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPViewModel.swift; sourceTree = "<group>"; };
 		E17F1D6426DBBA4C001D15D9 /* SelfAwardOTPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardOTPService.swift; sourceTree = "<group>"; };
+		E19D8B51270C3D7300FFA1B3 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
+		E19D8B53270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain-dev.der"; sourceTree = "<group>"; };
+		E19D8B55270C50D600FFA1B3 /* sni-cloudflaressl-com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com.der"; sourceTree = "<group>"; };
 		E1AE205E2703260300671511 /* stackexchange.com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = stackexchange.com.der; sourceTree = "<group>"; };
-		E1AE20602705C04100671511 /* sni-cloudflaressl-com-chain-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sni-cloudflaressl-com-chain-dev.der"; path = "../../../../../../1link.com.pk/sni-cloudflaressl-com-chain-dev.der"; sourceTree = "<group>"; };
 		E1AE20612705C04100671511 /* sni-cloudflaressl-com-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-dev.der"; sourceTree = "<group>"; };
 		E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardSuccessViewModel.swift; sourceTree = "<group>"; };
 		E1F232C026D9FC06000F8051 /* SelfAward.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelfAward.storyboard; sourceTree = "<group>"; };
@@ -1718,11 +1720,11 @@
 		20782D3D24B46AE300422AEB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E1AE20602705C04100671511 /* sni-cloudflaressl-com-chain-dev.der */,
+				E19D8B53270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der */,
 				E1AE20612705C04100671511 /* sni-cloudflaressl-com-dev.der */,
 				E1AE205E2703260300671511 /* stackexchange.com.der */,
 				E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */,
-				E122CDC02702E59400BEAE18 /* sni-cloudflaressl-com.der */,
+				E19D8B55270C50D600FFA1B3 /* sni-cloudflaressl-com.der */,
 				20782D3E24B46B0900422AEB /* Fonts */,
 				A1B9A1BE24B2FF0D00CAAA32 /* Assets.xcassets */,
 				2046B92724DAB6C700E2C4CB /* Localizable.strings */,
@@ -1777,6 +1779,7 @@
 				207D5E8124BDAD9B00222594 /* AppConstants.swift */,
 				2030725C24CAC79200C0DC67 /* APIConstants.swift */,
 				2074D60524D195A800006731 /* ErrorConstants.swift */,
+				E19D8B51270C3D7300FFA1B3 /* TestConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -4917,7 +4920,6 @@
 				E122CDC32702E59400BEAE18 /* sni-cloudflaressl-com-chain.der in Resources */,
 				9F8D827C24C86BEF00BB1C26 /* ForgotPasswordOTP.storyboard in Resources */,
 				20B634C124F6982D00FEEA1B /* OperationCompleted.storyboard in Resources */,
-				E1AE20622705C04200671511 /* sni-cloudflaressl-com-chain-dev.der in Resources */,
 				9FC6E75924B4AAAB00577421 /* BeneficiaryVerification.storyboard in Resources */,
 				2030725924C9F58200C0DC67 /* error@1x.png in Resources */,
 				E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */,
@@ -4943,6 +4945,7 @@
 				207C3E0024B7273A00298C0C /* Home.storyboard in Resources */,
 				2030725224C9F58200C0DC67 /* success@2x.png in Resources */,
 				207C3E0A24B73BCC00298C0C /* HomeCollectionViewLoyaltyCell.xib in Resources */,
+				E19D8B54270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der in Resources */,
 				9F8565C724BF4378001B68CE /* LoyaltyPoints.storyboard in Resources */,
 				2030724D24C9F58200C0DC67 /* angle-mask@2x.png in Resources */,
 				2030724B24C9F58200C0DC67 /* error@3x.png in Resources */,
@@ -4964,6 +4967,7 @@
 				207D5E5D24BC60AB00222594 /* Garamond.ttf in Resources */,
 				9F75D45724E5EA0F0082364E /* BenefitsCardCell.xib in Resources */,
 				20A0FBAE24F788860075201D /* Registration.storyboard in Resources */,
+				E19D8B56270C50D600FFA1B3 /* sni-cloudflaressl-com.der in Resources */,
 				20AC740924EEBC220094D3C1 /* MarkaziText-SemiBold.ttf in Resources */,
 				9F653AC424CB0CD300810DBD /* RedeemListTableViewCell.xib in Resources */,
 				9F653AD824CB0CD300810DBD /* RedeemOTP.storyboard in Resources */,
@@ -4993,7 +4997,6 @@
 				9F653AC224CB0CD300810DBD /* Redeem.storyboard in Resources */,
 				9F75D46C24E600AF0082364E /* BenefitCategoryCell.xib in Resources */,
 				207C3D9F24B5AF5D00298C0C /* CountryListTableViewCell.xib in Resources */,
-				E122CDC22702E59400BEAE18 /* sni-cloudflaressl-com.der in Resources */,
 				E1AE20632705C04200671511 /* sni-cloudflaressl-com-dev.der in Resources */,
 				20AC740A24EEBC220094D3C1 /* MarkaziText-Medium.ttf in Resources */,
 				2074D5F224CFE86C00006731 /* SideMenuTableViewHeader.xib in Resources */,
@@ -5499,6 +5502,7 @@
 				9FE9D90D24DD604700FFE3AC /* ContactUsViewModel.swift in Sources */,
 				207C3DC624B5C20C00298C0C /* PrimaryHeaderTitle.swift in Sources */,
 				207C3D9A24B5AE7B00298C0C /* CountryListScreenViewModel.swift in Sources */,
+				E19D8B52270C3D7300FFA1B3 /* TestConstants.swift in Sources */,
 				2074D60424D174C600006731 /* DateFormat.swift in Sources */,
 				9F653ACB24CB0CD300810DBD /* RedeemServiceViewModel.swift in Sources */,
 				207C3DB124B5BD4800298C0C /* OTPRouter.swift in Sources */,
@@ -5825,7 +5829,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 63;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6200,7 +6204,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 63;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -6228,7 +6232,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 62;
+				CURRENT_PROJECT_VERSION = 63;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

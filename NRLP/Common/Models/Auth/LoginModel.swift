@@ -13,6 +13,8 @@ struct LoginRequestModel: Codable {
     let accountType: String
     let cnicNicop: String
     let paassword: String
+    
+    var isDummyLogin: Bool = false
 
     enum CodingKeys: String, CodingKey {
         
@@ -23,8 +25,35 @@ struct LoginRequestModel: Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(cnicNicop.aesEncrypted(), forKey: .cnicNicop)
-        try container.encode(paassword.aesEncrypted(), forKey: .paassword)
+        if isDummyLogin {
+            try container.encode(cnicNicop, forKey: .cnicNicop)
+            try container.encode(paassword, forKey: .paassword)
+        } else {
+            try container.encode(cnicNicop.aesEncrypted(), forKey: .cnicNicop)
+            try container.encode(paassword.aesEncrypted(), forKey: .paassword)
+        }
+        try container.encode(accountType, forKey: .accountType)
+    }
+
+}
+
+struct DummyLoginRequestModel: Codable {
+
+    let accountType: String
+    let cnicNicop: String
+    let paassword: String
+
+    enum CodingKeys: String, CodingKey {
+        
+        case cnicNicop = "nic_nicop"
+        case paassword = "password"
+        case accountType = "user_type"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(cnicNicop, forKey: .cnicNicop)
+        try container.encode(paassword, forKey: .paassword)
         try container.encode(accountType, forKey: .accountType)
     }
 

@@ -104,6 +104,28 @@ class LoginViewModel: LoginViewModelProtocol {
         if vaild {
             let requestModel = getLoginRequestModel()
             output?(.showActivityIndicator(show: true))
+            
+            if requestModel.cnicNicop == TestConstants.CNIC1.rawValue || requestModel.cnicNicop == TestConstants.CNIC2.rawValue || requestModel.cnicNicop == TestConstants.CNIC3.rawValue {
+                let newRequestModel = getLoginRequestModel(isDummyLogin: true)
+                service.decoratee.login(requestModel: newRequestModel) { [weak self] (result) in
+                    guard let self = self else { return }
+                    self.output?(.showActivityIndicator(show: false))
+                    switch result {
+                    case .success(let response):
+                        self.router.navigateToHomeScreen(user: response.user)
+                    case .failure(let error):
+                        if let underlayingError = error.underlayingErrorCode,
+                           underlayingError == ErrorConstants.deviceNotRegistered.rawValue {
+                            self.updateUUIDRelogin()
+                        } else {
+                            self.output?(.showError(error: error))
+                        }
+                    }
+                }
+                
+                return
+            }
+            
             service.dispatchForKey(cnic: requestModel.cnicNicop, type: AccountType.fromRaw(raw: requestModel.accountType)) { [weak self] error in
                 guard error == nil else {
                     self?.output?(.showActivityIndicator(show: false))
@@ -159,10 +181,10 @@ class LoginViewModel: LoginViewModelProtocol {
         self.router.navigateToForgotPassword()
     }
     
-    private func getLoginRequestModel() -> LoginRequestModel {
+    private func getLoginRequestModel(isDummyLogin: Bool = false) -> LoginRequestModel {
         
         return LoginRequestModel(accountType: accountType ?? "",
-                                 cnicNicop: cnic ?? "", paassword: paassword ?? "")
+                                 cnicNicop: cnic ?? "", paassword: paassword ?? "", isDummyLogin: isDummyLogin)
     }
     
     private func checkLoginButtonState() {
