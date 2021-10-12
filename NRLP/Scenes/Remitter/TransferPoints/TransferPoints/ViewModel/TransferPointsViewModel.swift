@@ -131,7 +131,7 @@ class TransferPointsViewModel: TransferPointsViewModelProtocol {
     private func performPointsTransfer() {
             self.output?(.showActivityIndicator(show: true))
 
-            self.loyaltyPointService?.transferLoyaltyPoints(requestModel: LoyaltyPointsRequestModel(beneficiaryId: Int(self.beneficiary!.beneficiaryId), points: Int64(self.transferPoints ?? "0") ?? 0 )) { [weak self] (result) in
+            self.loyaltyPointService?.transferLoyaltyPoints(requestModel: LoyaltyPointsRequestModel(beneficiaryId: Int(self.beneficiary!.beneficiaryId), points: self.transferPoints ?? "0" )) { [weak self] (result) in
 
                 guard let self = self else { return }
                 self.output?(.showActivityIndicator(show: false))

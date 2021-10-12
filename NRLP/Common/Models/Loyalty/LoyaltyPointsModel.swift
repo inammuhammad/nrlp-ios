@@ -11,13 +11,18 @@ import Foundation
 struct LoyaltyPointsRequestModel: Codable {
 
     let beneficiaryId: Int
-    let points: Int64
+    let points: String
 
     enum CodingKeys: String, CodingKey {
         case beneficiaryId = "beneficiary_id"
         case points = "points"
     }
-
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encodeIfPresent(beneficiaryId, forKey: .beneficiaryId)
+        try container.encodeIfPresent(points.aesEncrypted(), forKey: .points)
+    }
 }
 
 struct LoyaltyPointsResponseModel: Codable {

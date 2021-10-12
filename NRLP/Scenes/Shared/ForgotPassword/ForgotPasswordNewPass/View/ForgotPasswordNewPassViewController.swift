@@ -23,6 +23,7 @@ class ForgotPasswordNewPassViewController: BaseViewController {
             newPasswordTextField.titleLabelText = "New Password".localized
             newPasswordTextField.placeholderText = "Password@123".localized
             newPasswordTextField.secureEntry = true
+            newPasswordTextField.isPasswordField = true
             newPasswordTextField.editTextKeyboardType = .asciiCapable
             newPasswordTextField.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.paasswordCritriaError.localized)
             newPasswordTextField.onTextFieldChanged = { [weak self] updatedText in
@@ -36,6 +37,7 @@ class ForgotPasswordNewPassViewController: BaseViewController {
             redoNewPasswordTextField.titleLabelText = "Re - Enter New Password".localized
             redoNewPasswordTextField.placeholderText = "Password@123".localized
             redoNewPasswordTextField.secureEntry = true
+            redoNewPasswordTextField.isPasswordField = true
             newPasswordTextField.editTextKeyboardType = .asciiCapable
             redoNewPasswordTextField.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.paasswordCritriaError.localized)
             redoNewPasswordTextField.onTextFieldChanged = { [weak self] updatedText in

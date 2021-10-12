@@ -38,7 +38,7 @@ struct InitRedemptionTransactionModel: Codable {
         try container.encodeIfPresent(code, forKey: .code)
         try container.encodeIfPresent(pse, forKey: .pse)
         try container.encodeIfPresent(consumerNo, forKey: .consumerNo)
-        try container.encodeIfPresent(amount, forKey: .amount)
+        try container.encodeIfPresent(amount?.aesEncrypted(), forKey: .amount)
         try container.encodeIfPresent(sotp, forKey: .sotp)
         try container.encodeIfPresent(pseChild, forKey: .pseChild)
         try container.encodeIfPresent(mobileNo, forKey: .mobileNo)

@@ -28,9 +28,11 @@ class RemitterHomeViewModel: HomeViewModel {
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
         } else {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
         }
     }
     
@@ -42,9 +44,11 @@ class RemitterHomeViewModel: HomeViewModel {
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
         } else {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
         }
     }
 

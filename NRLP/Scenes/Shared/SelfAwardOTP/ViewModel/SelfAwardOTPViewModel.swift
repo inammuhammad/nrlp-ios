@@ -112,7 +112,7 @@ struct SelfAwardModel: Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encodeIfPresent(amount, forKey: .amount)
+        try container.encodeIfPresent(amount.aesEncrypted(), forKey: .amount)
         try container.encodeIfPresent(referenceNo.aesEncrypted(), forKey: .referenceNo)
     }
 }

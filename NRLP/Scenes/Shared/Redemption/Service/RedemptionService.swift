@@ -26,14 +26,14 @@ protocol RedemptionServiceProtocol {
 class RedemptionService: BaseDataStore, RedemptionServiceProtocol {
     
     func initRedemptionTransaction(requestModel: InitRedemptionTransactionModel, responseHandler: @escaping InitRedemptionTransactionCompletionHandler) {
-        let request = RequestBuilder(path: .init(endPoint: .initRedemptionTransaction), parameters: requestModel, shouldHash: false)
+        let request = RequestBuilder(path: .init(endPoint: .initRedemptionTransaction), parameters: requestModel, shouldHash: true)
         networking.post(request: request) { (response: APIResponse<InitRedemptionTransactionResponseModel>) in
             responseHandler(response.result)
         }
     }
     
     func redemptionTransactionSendOTP(requestModel: InitRedemptionTransactionModel, responseHandler: @escaping RedemptionTransactionSendOTPCompletionHandler) {
-        let request = RequestBuilder(path: .init(endPoint: .initRedemptionTransaction), parameters: requestModel, shouldHash: false)
+        let request = RequestBuilder(path: .init(endPoint: .initRedemptionTransaction), parameters: requestModel, shouldHash: true)
         networking.post(request: request) { (response: APIResponse<RedemptionTransactionSendOTPResponseModel>) in
             responseHandler(response.result)
         }
@@ -54,7 +54,7 @@ class RedemptionService: BaseDataStore, RedemptionServiceProtocol {
     }
     
     func resendOTP(requestModel: RedeemResentOTPRequestModel, responseHandler: @escaping RedemptionVerifyOTPCompletionHandler) {
-        let request = RequestBuilder(path: APIPathBuilder(endPoint: .resentRedeemOTP), parameters: requestModel)
+        let request = RequestBuilder(path: APIPathBuilder(endPoint: .resentRedeemOTP), parameters: requestModel, shouldHash: true)
         networking.post(request: request) { (response: APIResponse<RedeemVerifyOTPResponseModel>) in
             responseHandler(response.result)
         }

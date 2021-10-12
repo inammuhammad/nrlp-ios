@@ -33,7 +33,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="374" height="249"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your loyalty points" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-Xh-cDk">
-                    <rect key="frame" x="256" y="66" width="92" height="14"/>
+                    <rect key="frame" x="256" y="86" width="92" height="14"/>
                     <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -57,7 +57,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmP-tp-oaX">
-                    <rect key="frame" x="256" y="84" width="92" height="23.5"/>
+                    <rect key="frame" x="256" y="104" width="92" height="23.5"/>
                     <fontDescription key="fontDescription" name="HPSimplified-Bold" family="HP Simplified" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -73,7 +73,7 @@
                 <constraint firstItem="Aa9-pS-exA" firstAttribute="top" secondItem="X5P-Ab-u6L" secondAttribute="bottom" constant="4" id="Pkr-p9-pss"/>
                 <constraint firstAttribute="bottom" secondItem="6Ox-1g-cjU" secondAttribute="bottom" id="Uer-tM-6lg"/>
                 <constraint firstItem="4uD-DZ-UI5" firstAttribute="leading" secondItem="X5P-Ab-u6L" secondAttribute="leading" id="YFK-am-Vnr"/>
-                <constraint firstItem="6Ox-1g-cjU" firstAttribute="top" secondItem="0ns-Xh-cDk" secondAttribute="bottom" constant="-80" id="bMg-Th-WoJ"/>
+                <constraint firstItem="6Ox-1g-cjU" firstAttribute="top" secondItem="0ns-Xh-cDk" secondAttribute="bottom" constant="-100" id="bMg-Th-WoJ"/>
                 <constraint firstItem="Aa9-pS-exA" firstAttribute="leading" secondItem="X5P-Ab-u6L" secondAttribute="leading" id="cZp-P2-Lcb"/>
                 <constraint firstItem="6Ox-1g-cjU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dna-Tb-6cZ"/>
                 <constraint firstItem="hmP-tp-oaX" firstAttribute="trailing" secondItem="0ns-Xh-cDk" secondAttribute="trailing" id="t6e-5X-1Sy"/>

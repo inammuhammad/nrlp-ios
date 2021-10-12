@@ -71,8 +71,8 @@ class RedemptionPSIDViewController: BaseViewController {
                     psidTextView.titleLabelText = "Enter Voucher Number for Redemption".localized
                     psidTextView.placeholderText = "Voucher Number".localized
                     psidTextView.editTextKeyboardType = .default
-                    psidTextView.inputFieldMinLength = 8
-                    psidTextView.inputFieldMaxLength = 24
+                    psidTextView.inputFieldMinLength = 6
+                    psidTextView.inputFieldMaxLength = 8
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
                         guard let self = self else { return }
                         self.viewModel.psidText = updatedText

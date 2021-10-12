@@ -572,6 +572,8 @@
 		E122CDB026FD42C200BEAE18 /* RedemptionOTPBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */; };
 		E122CDB226FD42EC00BEAE18 /* RedemptionOTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */; };
 		E122CDC32702E59400BEAE18 /* sni-cloudflaressl-com-chain.der in Resources */ = {isa = PBXBuildFile; fileRef = E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */; };
+		E13604892715BE2600269783 /* Block.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13604882715BE2600269783 /* Block.storyboard */; };
+		E136048C2715BE4600269783 /* BlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E136048B2715BE4600269783 /* BlockViewController.swift */; };
 		E168AAF926F9C831002D1083 /* NadraTrackingID.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */; };
 		E168AAFB26F9C845002D1083 /* NadraTrackingIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */; };
 		E168AAFD26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */; };
@@ -1230,6 +1232,8 @@
 		E122CDAF26FD42C200BEAE18 /* RedemptionOTPBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPBuilder.swift; sourceTree = "<group>"; };
 		E122CDB126FD42EC00BEAE18 /* RedemptionOTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOTPRouter.swift; sourceTree = "<group>"; };
 		E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain.der"; sourceTree = "<group>"; };
+		E13604882715BE2600269783 /* Block.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Block.storyboard; sourceTree = "<group>"; };
+		E136048B2715BE4600269783 /* BlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewController.swift; sourceTree = "<group>"; };
 		E168AAF826F9C831002D1083 /* NadraTrackingID.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NadraTrackingID.storyboard; sourceTree = "<group>"; };
 		E168AAFA26F9C845002D1083 /* NadraTrackingIDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewController.swift; sourceTree = "<group>"; };
 		E168AAFC26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadraTrackingIDViewModel.swift; sourceTree = "<group>"; };
@@ -2310,6 +2314,7 @@
 		20D8401324B4321600F5D749 /* CustomUI */ = {
 			isa = PBXGroup;
 			children = (
+				E13604862715BE0E00269783 /* BlockVC */,
 				2095D2ED24E69582001C5A48 /* LoyaltyCard */,
 				BC7E7E9924C068090026F341 /* CustomDatePickerView */,
 				2018CB1524B6CD7500FABCF9 /* OTPTextField */,
@@ -4588,6 +4593,23 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		E13604862715BE0E00269783 /* BlockVC */ = {
+			isa = PBXGroup;
+			children = (
+				E13604872715BE1700269783 /* View */,
+			);
+			path = BlockVC;
+			sourceTree = "<group>";
+		};
+		E13604872715BE1700269783 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E13604882715BE2600269783 /* Block.storyboard */,
+				E136048B2715BE4600269783 /* BlockViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E168AAF326F9072B002D1083 /* NADRA */ = {
 			isa = PBXGroup;
 			children = (
@@ -4975,6 +4997,7 @@
 				20782D6124B4732700422AEB /* RadioButtonItemView.xib in Resources */,
 				E1FC3F0326EA1B1A009B76FB /* RedemptionFBR.storyboard in Resources */,
 				BC7E7E9624C055540026F341 /* GenerateStatement.storyboard in Resources */,
+				E13604892715BE2600269783 /* Block.storyboard in Resources */,
 				E168AAF926F9C831002D1083 /* NadraTrackingID.storyboard in Resources */,
 				9FE9D91624DD623E00FFE3AC /* ContactUsListTableViewCell.xib in Resources */,
 				2046B92524DAB6C700E2C4CB /* Localizable.strings in Resources */,
@@ -5703,6 +5726,7 @@
 				9F75D44924E544E80082364E /* BenefitsBuilder.swift in Sources */,
 				2073D2AB24C06F5600897232 /* OperationCompletedViewModel.swift in Sources */,
 				A1B9A1B624B2FF0B00CAAA32 /* AppDelegate.swift in Sources */,
+				E136048C2715BE4600269783 /* BlockViewController.swift in Sources */,
 				9F75D46124E5F5F60082364E /* BenefitsCategoriesBuilder.swift in Sources */,
 				9FDA3AAE24E0A16300B2AB67 /* LanguageViewController.swift in Sources */,
 				208EF7F224E144C600E43B0B /* ChangePasswordBuilder.swift in Sources */,
@@ -5829,7 +5853,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 63;
+				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6204,7 +6228,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 63;
+				CURRENT_PROJECT_VERSION = 67;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -6232,7 +6256,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 63;
+				CURRENT_PROJECT_VERSION = 67;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

@@ -45,5 +45,6 @@ class LoyaltyCardView: CustomNibView {
         memberSinceLabel.text = viewModel.memberSince
         pointsLabel.text = viewModel?.formattedPoints
         cardImage.image = viewModel?.imageStyle
+        cardImage.contentMode = .scaleToFill
     }
 }

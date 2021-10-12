@@ -14,7 +14,17 @@ import netfox
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var lastViewController: UIViewController?
     let session: SessionContract = SessionManager()
+    
+    private lazy var backgroundWindow: UIWindow = {
+        let screen = UIScreen.main
+        let window = UIWindow(frame: screen.bounds)
+        window.screen = screen
+        window.rootViewController = BlockViewController()
+        window.windowLevel = .alert
+        return window
+    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -35,14 +45,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
+        backgroundWindow.isHidden = false
         session.resigningActiveSatate(Date())
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
+        backgroundWindow.isHidden = true
         session.resumingActiveState(Date())
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
         session.terminatingApplication()
+    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        backgroundWindow.isHidden = false
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        backgroundWindow.isHidden = true
     }
 }

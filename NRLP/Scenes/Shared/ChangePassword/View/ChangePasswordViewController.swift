@@ -28,6 +28,7 @@ class ChangePasswordViewController: BaseViewController {
             oldPasswordTextView.inputFieldMaxLength = 50
             oldPasswordTextView.editTextKeyboardType = .asciiCapable
             oldPasswordTextView.secureEntry = true
+            oldPasswordTextView.isPasswordField = true
             oldPasswordTextView.formatValidator = FormatValidator(regex: RegexConstants.loginPaasswordRegex, invalidFormatError: StringConstants.ErrorString.incorrectOldPaassword.localized)
             oldPasswordTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
@@ -43,6 +44,7 @@ class ChangePasswordViewController: BaseViewController {
             newPasswordTextLabel.inputFieldMaxLength = 50
             newPasswordTextLabel.editTextKeyboardType = .asciiCapable
             newPasswordTextLabel.secureEntry = true
+            newPasswordTextLabel.isPasswordField = true
             newPasswordTextLabel.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.paasswordCritriaError.localized)
             newPasswordTextLabel.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
@@ -57,6 +59,7 @@ class ChangePasswordViewController: BaseViewController {
             retypeNewPasswordTextLabel.placeholderText = "Password@123".localized
             retypeNewPasswordTextLabel.inputFieldMaxLength = 50
             retypeNewPasswordTextLabel.secureEntry = true
+            retypeNewPasswordTextLabel.isPasswordField = true
             retypeNewPasswordTextLabel.editTextKeyboardType = .asciiCapable
             retypeNewPasswordTextLabel.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.paasswordError.localized)
             retypeNewPasswordTextLabel.onTextFieldChanged = { [weak self] updatedText in

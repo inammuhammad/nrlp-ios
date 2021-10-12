@@ -85,9 +85,9 @@ class HomeViewModel: HomeViewModelProtocol {
     }
 
     func didTapItem(at index: Int) {
-        if AppConstants.isDev {
+//        if AppConstants.isDev {
             router.navigateToLoyaltyScreen(user: userModel)
-        }
+//        }
 //        showComingSoonAlert()
     }
 

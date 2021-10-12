@@ -81,7 +81,14 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
                             self.navigateToOTPFlow(amount: amount)
                         }
                     })
-                    topTextField = self?.flowType == .FBR || self?.flowType == .OPF || self?.flowType == .SLIC || self?.flowType == .BEOE ? nil : topTextField
+                    topTextField = self?.flowType == .FBR || self?.flowType == .OPF || self?.flowType == .BEOE ? nil : topTextField
+                    if self?.flowType == .SLIC {
+                        if self?.category?.categoryName.lowercased().contains("loan".lowercased()) ?? false {
+                           
+                        } else {
+                            topTextField = nil
+                        }
+                    }
                     alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points".localized, alertDescription: nil, alertAttributedDescription: self?.getConfirmAlertDescription(amount: amount), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextField)
                     self?.output?(.showAlert(alert: alert))
                 case .failure(let error):
@@ -201,6 +208,12 @@ extension RedemptionPSIDViewModel {
     private func validateTextFields() {
         if flowType == .BEOE {
             if psidText?.isEmpty ?? false || psidText?.count ?? 0 < 13 {
+                output?(.nextButtonState(enableState: false))
+            } else {
+                output?(.nextButtonState(enableState: true))
+            }
+        } else if flowType == .OPF {
+            if psidText?.isEmpty ?? false || psidText?.count ?? 0 > 8 || psidText?.count ?? 0 < 6 {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))
