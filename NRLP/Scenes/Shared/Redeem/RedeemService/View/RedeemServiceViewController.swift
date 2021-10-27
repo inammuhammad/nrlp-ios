@@ -79,13 +79,17 @@ extension RedeemServiceViewController: UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RedeemServiceCell") as! RedeemServiceCell
-        cell.populate(with: self.viewModel.getCategory(index: indexPath.row))
+        cell.populate(with: self.viewModel.getCategory(index: indexPath.row), partner: self.viewModel.getPartner())
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         viewModel.cellDidTap(index: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }
 

@@ -35,8 +35,21 @@ class LoyaltyCardView: CustomNibView {
         }
     }
     
+    @IBOutlet weak var loyaltyPointTextLbl: UILabel!{
+        didSet {
+            loyaltyPointTextLbl.textColor = .white
+        }
+    }
+    @IBOutlet weak var memberSinceTxtLbl: UILabel!{
+        didSet {
+            memberSinceTxtLbl.textColor = .white
+        }
+    }
+    
     func populate(with viewModel: LoyaltyCardViewModel) {
         self.viewModel = viewModel
+        memberSinceTxtLbl.text = "Member since".localized
+        loyaltyPointTextLbl.text = "Your loyalty points".localized
         setupLoyaltyView()
     }
     

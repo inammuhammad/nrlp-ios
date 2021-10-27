@@ -177,11 +177,15 @@
             <size key="customSize" width="500" height="389"/>
             <connections>
                 <outlet property="amountRemittanceLbl" destination="mTh-JR-qkR" id="eWc-zh-Rr4"/>
+                <outlet property="annualRemittanceTxtLbl" destination="r6L-lL-aR7" id="nBu-uJ-rIN"/>
                 <outlet property="dateRemittanceLbl" destination="TlI-M6-DSy" id="pX8-34-HEu"/>
                 <outlet property="loyaltyPointLabel" destination="EQj-68-XZ1" id="Jh4-OI-JoR"/>
+                <outlet property="loyaltyPointTextLbl" destination="Dnv-Jb-QYP" id="1e2-1t-9Eh"/>
                 <outlet property="loyaltyPointTitleLabel" destination="Dnv-Jb-QYP" id="Nwn-8J-KQj"/>
                 <outlet property="loyaltyTypeImageIcon" destination="NbX-D0-qbE" id="sla-BM-aeE"/>
+                <outlet property="memberSinceTxtLbl" destination="l42-MB-Y8y" id="FwD-nS-UCW"/>
                 <outlet property="nameLabel" destination="U9r-Za-x5q" id="Mf8-Kj-BYO"/>
+                <outlet property="redeemYourPointsTxtLbl" destination="J4f-FI-f1r" id="UPF-tz-RFx"/>
                 <outlet property="remittanceToDateView" destination="h0i-Tc-Ob4" id="phE-C2-uDk"/>
             </connections>
             <point key="canvasLocation" x="42.028985507246382" y="170.42410714285714"/>

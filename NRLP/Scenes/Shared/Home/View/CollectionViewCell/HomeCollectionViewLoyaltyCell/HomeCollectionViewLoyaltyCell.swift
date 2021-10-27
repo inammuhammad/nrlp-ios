@@ -13,7 +13,6 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
 
     private var homeController: BaseViewController?
     
-    
     @IBOutlet private weak var remittanceToDateView: UIView!
     @IBOutlet weak var loyaltyTypeImageIcon: UIImageView! {
         didSet {
@@ -21,7 +20,22 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             loyaltyTypeImageIcon.image = icon
         }
     }
-
+    @IBOutlet weak var loyaltyPointTextLbl: UILabel!{
+        didSet {
+            loyaltyPointTextLbl.textColor = .white
+        }
+    }
+    @IBOutlet weak var redeemYourPointsTxtLbl: UILabel!{
+        didSet {
+            redeemYourPointsTxtLbl.textColor = .white
+        }
+    }
+    @IBOutlet weak var memberSinceTxtLbl: UILabel!{
+        didSet {
+            memberSinceTxtLbl.textColor = .white
+        }
+    }
+    
     @IBOutlet private weak var loyaltyPointLabel: UILabel! {
         didSet {
             loyaltyPointLabel.textColor = .white
@@ -47,6 +61,7 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             dateRemittanceLbl.textColor = .white
         }
     }
+    @IBOutlet weak var annualRemittanceTxtLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -58,7 +73,7 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
     @IBAction func infoBtnAction(_ sender: Any) {
         let alert: AlertViewModel
         let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty categoryis calculated based on this. For further details please visit FAQs", alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty category calculated based on this. For further details please visit FAQs".localized, alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         if let vc = homeController as? HomeViewController {
             vc.showAlert(with: alert)
         }
@@ -73,6 +88,12 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             // REMITTANCE DATE AND REMITTANCE AMOUNT FIX
             amountRemittanceLbl.text = data.remittedAmount
             dateRemittanceLbl.text = data.remittedDate
+            
+            redeemYourPointsTxtLbl.text = "Redeem your points".localized
+            memberSinceTxtLbl.text = "Member since".localized
+            loyaltyPointTextLbl.text = "Your loyalty points".localized
+            
+            annualRemittanceTxtLbl.text = "Annual remittance to date".localized
             
             if data.user.accountType == .beneficiary {
                 remittanceToDateView.isHidden = true

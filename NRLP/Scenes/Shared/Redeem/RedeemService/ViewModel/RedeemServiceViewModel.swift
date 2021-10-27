@@ -14,9 +14,14 @@ protocol RedeemServiceViewModelProtocol {
     func viewDidLoad()
     func cellDidTap(index: Int)
     func getCategory(index: Int) -> Category
+    func getPartner() -> Partner
 }
 
 class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
+    func getPartner() -> Partner {
+        return self.partner
+    }
+    
     var categoryCount: Int {
         return partner.categoryCount
     }

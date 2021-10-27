@@ -11,6 +11,11 @@ class RedeemListTableViewCell: UITableViewCell {
 
     func populate(with partner: Partner) {
         lblName.text = partner.partnerName
+        if AppConstants.isAppLanguageUrdu {
+            lblName.textAlignment = .right
+        } else {
+            lblName.textAlignment = .left
+        }
     }
 
 }

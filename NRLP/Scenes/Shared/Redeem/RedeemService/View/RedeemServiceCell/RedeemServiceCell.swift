@@ -29,9 +29,16 @@ class RedeemServiceCell: UITableViewCell {
         }
     }
 
-    func populate(with service: Category) {
+    func populate(with service: Category, partner: Partner) {
         serviceDetail.text = service.categoryName
         let formattedPoints = PointsFormatter().format(string: String(service.pointsAssigned))
+        if partner.partnerName.lowercased() == "SLIC".lowercased() {
+            pointsLabel.isHidden = true
+            pointsView.isHidden = true
+        } else {
+            pointsLabel.isHidden = false
+            pointsView.isHidden = false
+        }
         pointsLabel.text = "\(formattedPoints) " + "points".localized
         self.layoutMargins = UIEdgeInsets.zero
     }

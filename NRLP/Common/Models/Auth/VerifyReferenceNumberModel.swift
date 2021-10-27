@@ -32,7 +32,7 @@ struct VerifyReferenceNumberRequestModel: Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(amount, forKey: .amount)
+        try container.encode(amount.aesEncrypted(), forKey: .amount)
         try container.encode(mobileNo, forKey: .mobileNo)
         try container.encode(referenceNo.aesEncrypted(), forKey: .referenceNo)
         try container.encode(userType, forKey: .userType)

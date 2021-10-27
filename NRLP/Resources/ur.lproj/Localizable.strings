@@ -291,9 +291,9 @@
 "Transaction within 1 year is eligible for self awarding" = "گذشتہ ایک سال میں کی گئ ترسیلات ذر پہ خود پوائنٹس حاصل کرنے کی سہولت ہے";
 "Transaction Amount \nEnter exact amount as per your transaction receipt" = "رسید پر موجود رقم عین مطابق درج کریں";
 "Enter exact amount as per you transaction receipt" = "رسید پر موجود رقم عین مطابق درج کریں";
-"Date of Remittance" = "Date of Remittance";
+"Date of Remittance" = "ترسیل کی تاریخ";
 "YYYY-MM-DD" = "YYYY-MM-DD";
-"Enter date on which transaction is made" = "Enter date on which transaction is made";
+"Enter date on which transaction is made" = "وہ تاریخ درج کریں جس پر ٹرانزیکشن ہوئی";
 
 "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points." = "خود پوائنٹس حاصل کرنے کے لئے براہ مہربانی ٹرانزیکشن کے بعد 05 دن تک انتظار فرمائیں۔";
 "For further assistance, you may contact +92-21-111-116757" = " مزید معلومات کے لئے ہیلپ لائن پر رابطہ کریں";
@@ -305,7 +305,7 @@
 
 //FBR
 "Federal Bureau of Revenue" = "Federal Bureau of Revenue";
-"To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "پنے پوائنٹس کو ایف بی آر کی سروس کے لۓ استعمال کرنا ہو تو www.fbr.gov.pk پر جا کر اپنی منتخب شدہ سروس کی پی ایس آی ڈی حاصل کریں۔\n\nپی ایس آی ڈی پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
+"To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "اپنے پوائنٹس کو ایف بی آر کی سروس کے لۓ استعمال کرنا ہو تو www.fbr.gov.pk پر جا کر اپنی منتخب شدہ سروس کی پی ایس آی ڈی حاصل کریں۔\n\nپی ایس آی ڈی پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
 
 //PIA
 "PIA" = "PIA";
@@ -335,23 +335,31 @@
 
 "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at PIA\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
-"Transaction Reference No. / TT No." = "Transaction Reference No. / TT No.";
-"Transactions from last one year, starting 1st Oct 2021 are eligible" = "Transactions from last one year, starting 1st Oct 2021 are eligible";
+"Transaction Reference No. / TT No." = "ترسیل کی ٹرانزیکشن کا ٹی ٹی نمبر";
+"Transactions from last one year, starting 1st Oct 2021 are eligible" = "1 اکتوبر 2021 کے بعد سے ایک سال پرانی ٹرانزیکشنز استعمال کی جا سکتی ہیں";
 
 // USC
-"Utility Stores" = "Utility Stores";
-"To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue." = "To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue.";
+"Utility Stores" = "یوٹیلیٹی سٹورز";
+"To redeem your points for NRLP Benefits at Utility Stores, please visit Utility Store outlet to get Payment Slip ID (PSID) for your purchases.\n\nIf you already have a PSID please continue." = "اپنے پوائنٹس کو یوٹیلیٹی سٹور کی سروس کے لۓ استعمال کرنا ہو تو براہ کرم یوٹیلیٹی سٹور کی دکان پر جائیں۔ منتخب شدہ سروس کی پی ایس آی ڈی حاصل کریں۔ پی ایس آی ڈی پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
 "You have redeemed %1$@ Points against\nPSID %2$@ successfully at Utility Stores" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 "Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 // OPF
-"Enter Voucher Number for Redemption" = "Enter Voucher Number for Redemption";
-"Voucher Number" = "Voucher Number";
+"Enter Voucher Number for Redemption" = "واؤچر نمبر درج کریں";
+"Voucher Number" = "واؤچر نمبر";
 "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF";
 "Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 // SLIC
-"Enter your State Life Policy No." = "Enter your State Life Policy No.";
-"Policy Number" = "Policy Number";
+"Enter your State Life Policy No." = "اپنی اسٹیٹ لائف پالیسی نمبر درج کریں";
+"Policy Number" = "پالیسی نمبر";
 "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
+
+"Redeem your points"="پوائنٹس استعمال کریں";
+"Member since" = "رکنیت کا آغاز";
+"Your loyalty points" = "آپ کے لوائلٹی پوائنٹس";
+
+
+"Annual remittance to date" = "مجموعی سالانہ ترسیل (امریکی ڈالر)";
+"The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty category calculated based on this. For further details please visit FAQs" = "سالانہ ترسیل کی مجموعی ڈالر میں رقم کا تعین ہر سال یکم جولائی سے تیس جون تک کیا جاتا ہے، اور آپ کی لوائلٹی کے زمرے کا تعین بھی اس پر مبنی ہے۔ مزید معلومات کے لئے مقرر پوچھے گئے سوالات ملاحظہ کریں۔";

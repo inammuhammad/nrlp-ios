@@ -19,7 +19,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoyaltyCardView" customModule="Sohni_Dharti" customModuleProvider="target">
             <connections>
                 <outlet property="cardImage" destination="6Ox-1g-cjU" id="YN3-3c-ZR7"/>
+                <outlet property="loyaltyPointTextLbl" destination="0ns-Xh-cDk" id="d9D-Wy-j7b"/>
                 <outlet property="memberSinceLabel" destination="Aa9-pS-exA" id="btE-qa-ky2"/>
+                <outlet property="memberSinceTxtLbl" destination="X5P-Ab-u6L" id="hKx-MS-PtU"/>
                 <outlet property="nameLabel" destination="4uD-DZ-UI5" id="yY3-D6-L6V"/>
                 <outlet property="pointsLabel" destination="hmP-tp-oaX" id="W0l-zn-9uO"/>
             </connections>
