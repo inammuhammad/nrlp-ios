@@ -11,12 +11,12 @@ import UIKit
 
 class CountryListModuleBuilder {
 
-    func build(with navigationController: UINavigationController?, hideProgressBar: Bool = false, onCountrySelection: @escaping OnCountrySelectionCallBack) -> UIViewController {
+    func build(with navigationController: UINavigationController?, hideProgressBar: Bool = false, onCountrySelection: @escaping OnCountrySelectionCallBack, userType: AccountType?) -> UIViewController {
 
         let viewController = CountryListViewController.getInstance()
         
         let coordinator = CountryListRouter(navigationController: navigationController)
-        let viewModel = CountryListViewModel(with: CountryService(), router: coordinator, hideProgressBar: hideProgressBar)
+        let viewModel = CountryListViewModel(with: CountryService(), router: coordinator, hideProgressBar: hideProgressBar, userType: userType)
 
         viewController.viewModel = viewModel
         viewController.onCountrySelection = onCountrySelection

@@ -45,6 +45,17 @@ class BeneficiaryInfoViewController: BaseViewController {
             mobileTextField.editTextColor = UIColor.init(commonColor: .disableGery)
         }
     }
+    
+    @IBOutlet private weak var relationTextField: LabelledTextview! {
+        didSet {
+            relationTextField.titleLabelText = "Beneficiary Relation".localized
+            relationTextField.placeholderText = "Enter Beneficiary Relation".localized
+            relationTextField.editTextKeyboardType = .asciiCapableNumberPad
+            relationTextField.isEditable = false
+            relationTextField.inputText = viewModel.relation
+            relationTextField.editTextColor = UIColor.init(commonColor: .disableGery)
+        }
+    }
 
     @IBOutlet private weak var deleteBeneficiaryButton: PrimaryCTAButton! {
         didSet {

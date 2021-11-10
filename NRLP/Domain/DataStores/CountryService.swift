@@ -12,22 +12,26 @@ typealias CountryServiceCallBack = (Result<CountryCodesResponseModel, APIRespons
 
 protocol CountryServiceProtocol {
 
-    func fetchCountries(completion: @escaping CountryServiceCallBack)
+    func fetchCountries(accountType: AccountType?, completion: @escaping CountryServiceCallBack)
 }
 
 class CountryService: BaseDataStore, CountryServiceProtocol {
-    func fetchCountries(completion: @escaping CountryServiceCallBack) {
+    func fetchCountries(accountType: AccountType?, completion: @escaping CountryServiceCallBack) {
 
         if !NetworkState.isConnected() {
             completion(.failure(.internetOffline))
             return
         }
 
-        let request = RequestBuilder(path: .init(endPoint: .countryCode), parameters: CountryCodesRequestModel(), shouldHash: false)
-
-        networking.get(request: request) { (response: APIResponse<CountryCodesResponseModel>) in
-
+        let request = RequestBuilder(path: .init(endPoint: .countryCode), parameters: CountryCodesRequestModel(type: accountType?.getTitle().lowercased() ?? ""), shouldHash: false)
+        
+        networking.post(request: request) { (response: APIResponse<CountryCodesResponseModel>) in
             completion(response.result)
         }
+
+//        networking.get(request: request) { (response: APIResponse<CountryCodesResponseModel>) in
+//
+//            completion(response.result)
+//        }
     }
 }

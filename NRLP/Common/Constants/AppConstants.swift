@@ -51,7 +51,8 @@ struct AppConstants {
     }
     
     static var aboutNRLPUrl: String {
-        "https://1link.net.pk/product-services/"
+//        "https://1link.net.pk/product-services/"
+        "https://1link.net.pk/sohni-dharti/#1633123604420-798e6f70-2ecf"
     }
 
     static var osVersion: String {

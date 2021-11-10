@@ -58,7 +58,7 @@ class ManageBeneficiaryViewModel: ManageBeneficiaryViewModelProtocol {
                     self.output?(.tableVisibility(show: false ))
                 }
 
-                if self.beneficiaries.count >= 3 {
+                if self.beneficiaries.count >= NRLPUserDefaults.shared.getMaxBeneficiariesAllowed() ?? 3 {
                     self.output?(.addButton(state: false))
                 } else {
                     self.output?(.addButton(state: true))

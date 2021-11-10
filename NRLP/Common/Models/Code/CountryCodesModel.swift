@@ -15,4 +15,10 @@ struct CountryCodesResponseModel: Codable {
 
 }
 
-struct CountryCodesRequestModel: Codable {}
+struct CountryCodesRequestModel: Codable {
+    let type: String
+
+    enum CodingKeys: String, CodingKey {
+        case type = "type"
+    }
+}

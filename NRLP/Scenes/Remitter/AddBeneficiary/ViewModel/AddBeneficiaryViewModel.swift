@@ -61,7 +61,7 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
                 self?.output?(.updateCountry(countryName: selectedCountry.country))
                 self?.country = selectedCountry
             }
-        })
+        }, accountType: .beneficiary)
     }
 
     var output: AddBeneficiaryViewModelOutput?

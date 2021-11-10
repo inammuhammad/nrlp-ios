@@ -50,4 +50,12 @@ final class AppUtility {
             return "json data malformed"
         }
     }
+    
+    static func getPrettyJson(dictionary: [String: String]) -> String {
+        if let jsonData = try? JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted) {
+            return String(decoding: jsonData, as: UTF8.self)
+        } else {
+            return "json data malformed"
+        }
+    }
 }

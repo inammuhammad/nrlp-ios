@@ -14,6 +14,7 @@ protocol CountryListViewModelProtocol {
     var output: CountryViewModelOutput? { get set }
     var numberOfRows: Int { get }
     var isSearching: Bool? { get set }
+    var accountType: AccountType? { get set }
     
     func searchTextDidChange(text: String)
     func viewModelDidLoad()
@@ -22,6 +23,8 @@ protocol CountryListViewModelProtocol {
 }
 
 class CountryListViewModel: CountryListViewModelProtocol {
+    var accountType: AccountType?
+    
     var isSearching: Bool?
 
     var output: CountryViewModelOutput?
@@ -34,10 +37,11 @@ class CountryListViewModel: CountryListViewModelProtocol {
 
     init(with service: CountryService = CountryService(),
          router: CountryListRouter,
-         hideProgressBar: Bool) {
+         hideProgressBar: Bool, userType: AccountType?) {
         self.countryService = service
         self.router = router
         self.hideProgressBar = hideProgressBar
+        self.accountType = userType
     }
 
     func viewModelDidLoad() {
@@ -47,7 +51,7 @@ class CountryListViewModel: CountryListViewModelProtocol {
 
     private func fetchCountries() {
         output?(.showActivityIndicator(show: true))
-        countryService.fetchCountries { [weak self] (result) in
+        countryService.fetchCountries(accountType: self.accountType) { [weak self] (result) in
 
             guard let self = self else { return }
 

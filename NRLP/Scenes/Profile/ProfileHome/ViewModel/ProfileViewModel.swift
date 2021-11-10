@@ -132,7 +132,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     private func fetchCountries() {
-        self.countryService.fetchCountries { [weak self] (result) in
+        self.countryService.fetchCountries(accountType: user.accountType) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
             case .success(let response):
@@ -253,7 +253,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
                     self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length))
                     self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x", count: selectedCountry.length).joined()))
                 }
-            })
+            }, accountType: user.accountType ?? .remitter)
         }
     }
     

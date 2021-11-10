@@ -20,7 +20,7 @@ class AddBeneficiaryRouter {
         self.navigationController?.popViewController(animated: true)
     }
 
-    func navigateToCountryPicker(with onSelectionCountry: @escaping OnCountrySelectionCallBack) {
-        self.navigationController?.pushViewController(CountryListModuleBuilder().build(with: self.navigationController, hideProgressBar: true, onCountrySelection: onSelectionCountry), animated: true)
+    func navigateToCountryPicker(with onSelectionCountry: @escaping OnCountrySelectionCallBack, accountType: AccountType?) {
+        self.navigationController?.pushViewController(CountryListModuleBuilder().build(with: self.navigationController, hideProgressBar: true, onCountrySelection: onSelectionCountry, userType: accountType), animated: true)
     }
 }

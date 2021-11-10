@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Beneficiary Info View Controller-->
         <scene sceneID="U2u-oj-PJd">
             <objects>
-                <viewController storyboardIdentifier="BeneficiaryInfoViewController" id="krq-Ld-v7Y" customClass="BeneficiaryInfoViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BeneficiaryInfoViewController" id="krq-Ld-v7Y" customClass="BeneficiaryInfoViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F75-eM-LOR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJw-hh-0AG" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJw-hh-0AG" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="16" y="74" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="Hln-YJ-lS5"/>
                                 </constraints>
@@ -27,9 +28,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC Number"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5T1-fF-NDB" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5T1-fF-NDB" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="16" y="178" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="4L9-mb-S3E"/>
                                 </constraints>
@@ -38,9 +39,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Alias"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMd-rt-Hzu" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMd-rt-Hzu" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="16" y="282" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="i3V-gL-c8C"/>
                                 </constraints>
@@ -49,7 +50,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arU-dD-vP7" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arU-dD-vP7" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="16" y="796" width="382" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="SX7-GN-SWo"/>
@@ -59,11 +60,25 @@
                                     <action selector="deleteBeneficiaryPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="loZ-DU-J1R"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGd-wf-WvU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="386" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="5z3-OR-klh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Jpa-yb-KaD"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5T1-fF-NDB" firstAttribute="top" secondItem="PJw-hh-0AG" secondAttribute="bottom" constant="24" id="AsM-Ks-H1M"/>
+                            <constraint firstItem="LGd-wf-WvU" firstAttribute="top" secondItem="HMd-rt-Hzu" secondAttribute="bottom" constant="24" id="Keo-FW-A6u"/>
                             <constraint firstItem="5T1-fF-NDB" firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" id="Yaf-Fg-WGr"/>
+                            <constraint firstItem="LGd-wf-WvU" firstAttribute="trailing" secondItem="HMd-rt-Hzu" secondAttribute="trailing" id="Ygi-FD-ajH"/>
                             <constraint firstItem="HMd-rt-Hzu" firstAttribute="leading" secondItem="5T1-fF-NDB" secondAttribute="leading" id="b8C-9n-DLo"/>
                             <constraint firstItem="arU-dD-vP7" firstAttribute="leading" secondItem="HMd-rt-Hzu" secondAttribute="leading" id="dCX-SB-HE1"/>
                             <constraint firstItem="HMd-rt-Hzu" firstAttribute="trailing" secondItem="5T1-fF-NDB" secondAttribute="trailing" id="faU-fu-rii"/>
@@ -73,20 +88,31 @@
                             <constraint firstItem="5T1-fF-NDB" firstAttribute="leading" secondItem="PJw-hh-0AG" secondAttribute="leading" id="riT-6W-Bvc"/>
                             <constraint firstItem="Jpa-yb-KaD" firstAttribute="bottom" secondItem="arU-dD-vP7" secondAttribute="bottom" constant="16" id="sRv-L6-0RC"/>
                             <constraint firstItem="PJw-hh-0AG" firstAttribute="top" secondItem="Jpa-yb-KaD" secondAttribute="top" constant="30" id="uVe-Ex-Iht"/>
+                            <constraint firstItem="LGd-wf-WvU" firstAttribute="leading" secondItem="HMd-rt-Hzu" secondAttribute="leading" id="wtL-MB-0IS"/>
                             <constraint firstItem="arU-dD-vP7" firstAttribute="trailing" secondItem="HMd-rt-Hzu" secondAttribute="trailing" id="xVl-wO-QUI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Jpa-yb-KaD"/>
                     </view>
                     <connections>
                         <outlet property="aliasTextField" destination="5T1-fF-NDB" id="nqb-iM-Ggc"/>
                         <outlet property="cnicTextField" destination="PJw-hh-0AG" id="I8F-Bt-eQs"/>
                         <outlet property="deleteBeneficiaryButton" destination="arU-dD-vP7" id="CfQ-TZ-qYR"/>
                         <outlet property="mobileTextField" destination="HMd-rt-Hzu" id="7AB-vD-XGx"/>
+                        <outlet property="relationTextField" destination="LGd-wf-WvU" id="N7i-rG-4Fv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sy-Z7-SwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-49" y="133"/>
+            <point key="canvasLocation" x="-48" y="64"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="arU-dD-vP7">
+            <size key="intrinsicContentSize" width="125" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

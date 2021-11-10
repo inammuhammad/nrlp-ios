@@ -24,7 +24,7 @@ class ProfileRouter {
         self.navigationController?.pushViewController(ProfileSuccessBuilder().build(with: navigationController), animated: true)
     }
     
-    func navigateToCountryPicker(onSelectionCountry: @escaping OnCountrySelectionCallBack, hideProgressBar: Bool = true) {
-        self.navigationController?.pushViewController(CountryListModuleBuilder().build(with: self.navigationController, hideProgressBar: hideProgressBar, onCountrySelection: onSelectionCountry), animated: true)
+    func navigateToCountryPicker(onSelectionCountry: @escaping OnCountrySelectionCallBack, hideProgressBar: Bool = true, accountType: AccountType) {
+        self.navigationController?.pushViewController(CountryListModuleBuilder().build(with: self.navigationController, hideProgressBar: hideProgressBar, onCountrySelection: onSelectionCountry, userType: accountType), animated: true)
     }
 }

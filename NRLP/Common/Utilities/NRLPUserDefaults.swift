@@ -14,6 +14,7 @@ class NRLPUserDefaults {
         case language
         case inActiveDate
         case maxInActiveDuration
+        case maxBeneficiariesAllowed
     }
     
     static let shared = NRLPUserDefaults()
@@ -23,6 +24,7 @@ class NRLPUserDefaults {
     private(set) var cachedSelectedLanguage: AppLanguage?
     private(set) var inActiveDate: Date?
     private(set) var maxInActivityDuration: Int?
+    private(set) var maxBeneficiariesAllowed: Int?
     
     init (userDefaults: UserDefaults = UserDefaults.standard) {
         self.userDefaults = userDefaults
@@ -71,6 +73,20 @@ class NRLPUserDefaults {
     func removeMaxInActivityDuration() {
         self.maxInActivityDuration = nil
         userDefaults.removeObject(forKey: UserDefaultKeys.maxInActiveDuration.rawValue)
+    }
+    
+    func getMaxBeneficiariesAllowed() -> Int? {
+        return userDefaults.object(forKey: UserDefaultKeys.maxBeneficiariesAllowed.rawValue) as? Int
+    }
+    
+    func setMaxBeneficiariesAllowed(number: Int) {
+        self.maxBeneficiariesAllowed = number
+        userDefaults.set(maxBeneficiariesAllowed, forKey: UserDefaultKeys.maxBeneficiariesAllowed.rawValue)
+    }
+    
+    func removeMaxBeneficiariesAllowed() {
+        self.maxBeneficiariesAllowed = nil
+        userDefaults.removeObject(forKey: UserDefaultKeys.maxBeneficiariesAllowed.rawValue)
     }
 }
 

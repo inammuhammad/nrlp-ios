@@ -67,6 +67,7 @@ struct LoginResponseModel: Codable {
     let expiresIn: String?
     let sessionKey: String?
     let inActivityTime: String?
+    let numberOfBeneficiariesAllowed: Int?
 
     enum CodingKeys: String, CodingKey {
         case expiresIn = "expires_in"
@@ -75,6 +76,7 @@ struct LoginResponseModel: Codable {
         case user
         case sessionKey = "session_key"
         case inActivityTime = "in_activity_time"
+        case numberOfBeneficiariesAllowed = "no_of_beneficiaries_allowed"
     }
 
 }

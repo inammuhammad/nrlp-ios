@@ -165,6 +165,7 @@ extension AddBeneficiaryViewController {
             case .updateRelationshipType(inputText: let inputText):
                 self.chooseBeneficiaryRelationshipTextField.inputText = inputText
             case .showBeneficiaryTextField(isVisible: let isVisible):
+                self.chooseBeneficiaryRelationshipTextField.inputText = RelationshipType.other.getTitle()
                 self.beneficiaryRelationshipTextField.isHidden = !isVisible
             }
         }

@@ -93,9 +93,11 @@ extension NetworkManager: Networking {
             
             if AppConstants.isDev {
                 print("\n🔷🔷🔷🔷🔷 REQUEST STARTED 🔷🔷🔷🔷🔷\n")
-                if let params = urlRequest.httpBody, let method = urlRequest.httpMethod {
+                if let params = urlRequest.httpBody, let method = urlRequest.httpMethod, let headers = urlRequest.allHTTPHeaderFields {
                     print("===== URL TO HIT =====")
                     print("\n\(method):   " + String(urlRequest.url?.absoluteString ?? ""))
+                    print("\n=====HEADERS=====")
+                    print("\n\(AppUtility.getPrettyJson(dictionary: headers))\n")
                     print("=====PARAMETERS=====")
                     print("\n \(AppUtility.getPrettyJson(data: params))")
                     

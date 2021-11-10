@@ -43,6 +43,10 @@ class LoginService: BaseDataStore, LoginServiceProtocol {
                     // Inactivity time received is in milliseconds.
                     NRLPUserDefaults.shared.setMaxInActivityDuration(duration: inActivityTime/1000)
                 }
+                
+                if let beneficiariesAllowed = value.numberOfBeneficiariesAllowed {
+                    NRLPUserDefaults.shared.setMaxBeneficiariesAllowed(number: beneficiariesAllowed)
+                }
                 self.removeHeader("random_key")
                 RequestKeyGenerator.reset()
                 responseHandler(.success(value))

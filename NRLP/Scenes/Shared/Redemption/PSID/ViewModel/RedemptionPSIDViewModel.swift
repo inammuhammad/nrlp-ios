@@ -73,7 +73,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
                     let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: { [weak self] in
                         
                         guard let self = self else { return }
-                        if Int(amount) ?? 0 > Int(model.billInquiryResponse.amount) ?? 0 || Int(amount) ?? 0 < 0 {
+                        if self.checkAmount(amount: amount, responseModel: model.billInquiryResponse) {
                             let alert: AlertViewModel
                             alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Error", alertDescription: "Amount can not be more than \(model.billInquiryResponse.amount) and lesser than 0", primaryButton: AlertActionButtonModel(buttonTitle: "OK".localized))
                             self.output?(.showAlert(alert: alert))
@@ -202,6 +202,22 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         }
     }
     
+    private func checkAmount(amount: String, responseModel: BillInquiryResponseModel) -> Bool {
+        let intAmount = Int(amount) ?? 0
+        let intResponseAmount = Int(responseModel.amount) ?? 0
+                
+        if flowType == .SLIC {
+            if intAmount < 0 {
+                return true
+            }
+        } else {
+            if intAmount > intResponseAmount || intAmount < 0 {
+                return true
+            }
+        }
+        return false
+    }
+    
 }
 
 extension RedemptionPSIDViewModel {
@@ -213,7 +229,7 @@ extension RedemptionPSIDViewModel {
                 output?(.nextButtonState(enableState: true))
             }
         } else if flowType == .OPF {
-            if psidText?.isEmpty ?? false || psidText?.count ?? 0 > 8 || psidText?.count ?? 0 < 6 {
+            if psidText?.isEmpty ?? false || psidText?.count ?? 0 > 24 || psidText?.count ?? 0 < 1 {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))

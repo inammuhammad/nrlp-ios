@@ -41,7 +41,7 @@ enum ContactUsItem: Int {
     var description: String {
         switch self {
         case .callUs:
-            return "+92 111 116 757"
+            return "+92 21 111 116 757"
         case .email:
             return "support@nrlp.com.pk"
         case .visitWeb:
@@ -52,7 +52,7 @@ enum ContactUsItem: Int {
     var actionContent: String {
         switch self {
         case .callUs:
-            return "+92111116757"
+            return "+9221111116757"
         case .email:
             return "support@nrlp.com.pk"
         case .visitWeb:

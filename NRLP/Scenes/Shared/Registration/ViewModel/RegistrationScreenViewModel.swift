@@ -185,7 +185,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
                 self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length))
                 self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined()))
             }
-        })
+        }, accountType: self.accountType)
     }
 
     enum Output {
