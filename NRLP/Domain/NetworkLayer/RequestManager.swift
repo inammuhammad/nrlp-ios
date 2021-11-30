@@ -93,14 +93,18 @@ extension NetworkManager: Networking {
             
             if AppConstants.isDev {
                 print("\n🔷🔷🔷🔷🔷 REQUEST STARTED 🔷🔷🔷🔷🔷\n")
-                if let params = urlRequest.httpBody, let method = urlRequest.httpMethod, let headers = urlRequest.allHTTPHeaderFields {
+                
+                if let method = urlRequest.httpMethod {
                     print("===== URL TO HIT =====")
                     print("\n\(method):   " + String(urlRequest.url?.absoluteString ?? ""))
+                }
+                if let headers = urlRequest.allHTTPHeaderFields {
                     print("\n=====HEADERS=====")
                     print("\n\(AppUtility.getPrettyJson(dictionary: headers))\n")
+                }
+                if let params = urlRequest.httpBody {
                     print("=====PARAMETERS=====")
                     print("\n \(AppUtility.getPrettyJson(data: params))")
-                    
                 }
             }
             let dataRequest = sessionManager.request(urlRequest)

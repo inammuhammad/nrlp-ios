@@ -17,7 +17,7 @@ protocol TermsAndConditionServiceProtocol {
 
 extension TermsAndConditionServiceProtocol {
     func fetchTermsAndCondition(completion: @escaping TermsAndConditionServiceCallBack) {
-        fetchTermsAndCondition(requestModel: TermsAndConditionRequestModel(), completion: completion)
+        fetchTermsAndCondition(requestModel: TermsAndConditionRequestModel(lang: NRLPUserDefaults.shared.getSelectedLanguage()?.rawValue ?? ""), completion: completion)
     }
 }
 
@@ -35,7 +35,7 @@ class TermsAndConditionService: BaseDataStore, TermsAndConditionServiceProtocol 
         // request building
         let request = RequestBuilder(path: .init(endPoint: .termsAndCondition), parameters: requestModel, shouldHash: false)
 
-        networking.get(request: request) { (response: APIResponse<TermsAndConditionResponseModel>) in
+        networking.post(request: request) { (response: APIResponse<TermsAndConditionResponseModel>) in
 
             completion(response.result)
         }

@@ -143,9 +143,10 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             case .passwordLabelState(let error, let errorMsg):
                 self.passwordLabelTextView.updateStateTo(isError: error, error: errorMsg)
             case .jailBroken:
-                self.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: StringConstants.ErrorString.serverErrorTitle.localized, alertDescription: StringConstants.ErrorString.jailbrokenMsg.localized, primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: {
-                    exit(0)
-                })))
+                ()
+//                self.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: StringConstants.ErrorString.serverErrorTitle.localized, alertDescription: StringConstants.ErrorString.jailbrokenMsg.localized, primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: {
+//                    exit(0)
+//                })))
             }
         }
     }

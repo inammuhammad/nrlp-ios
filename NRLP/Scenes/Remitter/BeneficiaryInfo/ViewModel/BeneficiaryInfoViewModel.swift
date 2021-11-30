@@ -14,6 +14,7 @@ protocol BeneficiaryInfoViewModelProtocol {
     var name: String? { get set }
     var cnic: String? { get set }
     var mobileNumber: String? { get set }
+    var country: String? { get set }
     var relation: String? { get set }
     
     func deleteButtonPressed()
@@ -31,6 +32,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     var cnic: String?
     var mobileNumber: String?
     var relation: String?
+    var country: String?
     
     init(router: BeneficiaryInfoRouter, beneficiary: BeneficiaryModel, service: ManageBeneficiaryServiceProtocol) {
         self.router = router
@@ -40,6 +42,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         self.cnic = "\(beneficiary.nicNicop)"
         self.mobileNumber = beneficiary.mobileNo
         self.relation = beneficiary.beneficiaryRelation
+        self.country = beneficiary.country
     }
     
     func deleteButtonPressed() {

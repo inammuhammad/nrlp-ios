@@ -19,6 +19,7 @@ struct BeneficiaryModel: Codable {
     let updatedAt: String
     let isDeleted: Int
     let beneficiaryRelation: String
+    let country: String?
 
     var formattedCNIC: String {
         return CNICFormatter().format(string: "\(nicNicop)")
@@ -34,6 +35,7 @@ struct BeneficiaryModel: Codable {
         case isActive = "is_active"
         case isDeleted = "is_deleted"
         case beneficiaryRelation = "relationship"
+        case country = "country"
     }
 
 }

@@ -22,6 +22,7 @@ struct RegisterRequestModel: Codable {
     var transactionAmount: String?
     var transactionRefNo: String?
     var residentID: String?
+    var country: String?
 
     enum CodingKeys: String, CodingKey {
         case accountType = "user_type"
@@ -36,6 +37,7 @@ struct RegisterRequestModel: Codable {
         case residentID = "resident_id"
         case passportType = "passport_type"
         case passportNumber = "passport_id"
+        case country = "country"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -52,6 +54,7 @@ struct RegisterRequestModel: Codable {
         try container.encode(residentID?.aesEncrypted(), forKey: .residentID)
         try container.encode(passportType, forKey: .passportType)
         try container.encode(passportNumber.aesEncrypted(), forKey: .passportNumber)
+        try container.encode(country, forKey: .country)
     }
 }
 

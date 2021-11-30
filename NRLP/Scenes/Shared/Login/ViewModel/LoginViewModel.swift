@@ -96,6 +96,7 @@ class LoginViewModel: LoginViewModelProtocol {
     func viewWillAppear() {
         AESConfigs.resetIV()
         AESConfigs.currentConfiguration = .normal
+//        AESConfigs.currentConfiguration = .randomKey
     }
     
     func loginButtonPressed() {

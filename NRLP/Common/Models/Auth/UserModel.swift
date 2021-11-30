@@ -25,7 +25,7 @@ struct UserModel: Codable {
     var loyaltyType: String
     private var currentPointsBalance: String?
     var userCountry: Country?
-    
+    var countryName: String?
     var residentID: String?
     var passportTypeValue: String?
     
@@ -83,6 +83,7 @@ struct UserModel: Codable {
         case passportNumber = "passport_id"
         case usdBalance = "usd_balance"
         case memberSince = "member_since"
+        case countryName = "country"
     }
     
     init() {
@@ -104,6 +105,7 @@ struct UserModel: Codable {
         self.passportNumber = ""
         self.usdBalance = ""
         self.memberSince = ""
+        self.countryName = ""
     }
 
     mutating func update(from userModel: UserModel) {
@@ -125,5 +127,6 @@ struct UserModel: Codable {
         self.passportNumber = userModel.passportNumber?.aesDecrypted() ?? passportNumber
         self.memberSince = userModel.memberSince ?? memberSince
         self.usdBalance = userModel.usdBalance ?? usdBalance
+        self.countryName = userModel.countryName ?? countryName
     }
 }

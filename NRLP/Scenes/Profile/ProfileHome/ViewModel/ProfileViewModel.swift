@@ -139,6 +139,10 @@ class ProfileViewModel: ProfileViewModelProtocol {
                 if let countries = response.data {
                     self.countries = countries
                     self.mapCountriesToUserNumber()
+                    if let userCountry = self.countries.filter({ $0.country.lowercased() == self.user.countryName?.lowercased() }).first {
+                        self.country = userCountry
+                        self.output?(.setCountry(country: userCountry))
+                    }
                 } else {
                     self.output?(.showActivityIndicator(show: false))
                     self.output?(.showError(error: .unknown))
@@ -213,7 +217,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
     
     func sendOtp() {
         self.output?(.showActivityIndicator(show: true))
-        userProfileService.updateUserSendOTP(requestModel: UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID())) {[weak self] (result) in
+        userProfileService.updateUserSendOTP(requestModel: UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID(), country: self.country?.country)) {[weak self] (result) in
             guard let self = self else { return }
             self.output?(.showActivityIndicator(show: false))
             switch result {
@@ -226,13 +230,13 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func moveToOTPScreen() {
-        let requestModel = UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID())
+        let requestModel = UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID(), country: self.country?.country)
         let model = ProfileUpdateModel(profileUpdateRequestModel: requestModel, userModel: user)
         router.navigateToOTPScreen(model: model)
     }
     
     func getRequestModel() -> UpdateProfileSendOTPRequestModel {
-        return UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID())
+        return UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID(), country: self.country?.country)
     }
     
     func moveToSuccessScreen() {
@@ -315,6 +319,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
         case passportNumberTextField(errorState: Bool, error: String?)
         case passportTypeTextField(errorState: Bool, error: String?)
         case residentIDTextField(errorState: Bool, error: String?)
+        case setCountry(country: Country)
     }
 }
 

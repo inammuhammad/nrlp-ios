@@ -58,4 +58,21 @@ final class AppUtility {
             return "json data malformed"
         }
     }
+    
+    static func calculateCheckSum(crc:UInt8, byteValue: UInt8) -> UInt8 {
+        let generator: UInt8 = 0x1D
+
+        // a new variable has to be declared inside this function
+        var newCrc = crc ^ byteValue
+
+        for _ in 1...8 {
+            if newCrc & 0x80 != 0 {
+                newCrc = (newCrc << 1) ^ generator
+            }
+            else {
+                newCrc <<= 1
+            }
+        }
+        return newCrc
+    }
 }

@@ -17,4 +17,15 @@ struct TermsAndConditionContentModel: Codable {
     var content: String
 }
 
-struct TermsAndConditionRequestModel: Codable {}
+struct TermsAndConditionRequestModel: Codable {
+    let lang: String
+
+    enum CodingKeys: String, CodingKey {
+        case lang = "lang"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(lang, forKey: .lang)
+    }
+}

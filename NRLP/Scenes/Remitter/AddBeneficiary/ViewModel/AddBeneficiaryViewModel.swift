@@ -105,7 +105,7 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
         }
         output?(.showActivityIndicator(show: true))
         let mobNumber = "\(country?.code ?? "")\(mobileNumber ?? "")"
-        service.addBeneficiary(beneficiary: AddBeneficiaryRequestModel(beneficiaryAlias: name, beneficiaryMobileNo: mobNumber, beneficiaryNicNicop: cnic, beneficiaryRelation: beneficiaryRelation)) { [weak self] (result) in
+        service.addBeneficiary(beneficiary: AddBeneficiaryRequestModel(beneficiaryAlias: name, beneficiaryMobileNo: mobNumber, beneficiaryNicNicop: cnic, beneficiaryRelation: beneficiaryRelation, beneficiaryCountry: self.country?.country)) { [weak self] (result) in
             self?.output?(.showActivityIndicator(show: false))
             guard let self = self else { return }
             self.output?(.showActivityIndicator(show: false))

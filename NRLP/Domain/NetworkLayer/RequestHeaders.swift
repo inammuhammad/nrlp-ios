@@ -85,6 +85,7 @@ final class APIRequestHeader {
     private func getApplicationVersion(encryptyHeader: Bool) -> String {
         let appVersion = AppConstants.versionNumber
         return encryptyHeader ? appVersion.aesEncrypted() : appVersion
+//        return appVersion.aesEncrypted()
     }
     
     func getHeaders(_ encryptionStatus: HeaderTypes, initialValue: [String: String]? = nil) -> [String: String] {

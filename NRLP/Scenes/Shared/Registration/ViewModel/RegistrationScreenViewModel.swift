@@ -138,7 +138,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         }
         
         let residentIDValue = (residentID?.isEmpty ?? false) ? nil : residentID
-        let registerModel = RegisterRequestModel(accountType: accountType!.rawValue, cnicNicop: cnic!, email: email ?? "", fullName: name!, mobileNo: (country?.code ?? "") + (mobileNumber ?? ""), paassword: paassword!, passportType: passportType?.rawValue ?? "", passportNumber: passportNumber ?? "", registrationCode: nil, transactionAmount: residentIDValue, transactionRefNo: "", residentID: residentIDValue)
+        let registerModel = RegisterRequestModel(accountType: accountType!.rawValue, cnicNicop: cnic!, email: email ?? "", fullName: name!, mobileNo: (country?.code ?? "") + (mobileNumber ?? ""), paassword: paassword!, passportType: passportType?.rawValue ?? "", passportNumber: passportNumber ?? "", registrationCode: nil, transactionAmount: residentIDValue, transactionRefNo: "", residentID: residentIDValue, country: country?.country)
         switch accountType {
         case .beneficiary:
             router.navigateToBeneficiaryVerificationScreen(model: registerModel)

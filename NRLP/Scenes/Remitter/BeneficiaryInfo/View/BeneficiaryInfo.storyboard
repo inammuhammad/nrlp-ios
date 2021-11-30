@@ -39,17 +39,6 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Alias"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMd-rt-Hzu" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="282" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="i3V-gL-c8C"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arU-dD-vP7" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="16" y="796" width="382" height="50"/>
                                 <constraints>
@@ -61,10 +50,32 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGd-wf-WvU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="386" width="382" height="80"/>
+                                <rect key="frame" x="16" y="490" width="382" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="5z3-OR-klh"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAi-9b-dg2" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="282" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="iHL-Ap-dlu"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMd-rt-Hzu" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="386" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="i3V-gL-c8C"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
@@ -76,14 +87,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5T1-fF-NDB" firstAttribute="top" secondItem="PJw-hh-0AG" secondAttribute="bottom" constant="24" id="AsM-Ks-H1M"/>
+                            <constraint firstItem="aAi-9b-dg2" firstAttribute="leading" secondItem="5T1-fF-NDB" secondAttribute="leading" id="HWb-Zh-sAu"/>
                             <constraint firstItem="LGd-wf-WvU" firstAttribute="top" secondItem="HMd-rt-Hzu" secondAttribute="bottom" constant="24" id="Keo-FW-A6u"/>
                             <constraint firstItem="5T1-fF-NDB" firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" id="Yaf-Fg-WGr"/>
                             <constraint firstItem="LGd-wf-WvU" firstAttribute="trailing" secondItem="HMd-rt-Hzu" secondAttribute="trailing" id="Ygi-FD-ajH"/>
+                            <constraint firstItem="aAi-9b-dg2" firstAttribute="top" secondItem="5T1-fF-NDB" secondAttribute="bottom" constant="24" id="anY-Bn-m6G"/>
                             <constraint firstItem="HMd-rt-Hzu" firstAttribute="leading" secondItem="5T1-fF-NDB" secondAttribute="leading" id="b8C-9n-DLo"/>
                             <constraint firstItem="arU-dD-vP7" firstAttribute="leading" secondItem="HMd-rt-Hzu" secondAttribute="leading" id="dCX-SB-HE1"/>
                             <constraint firstItem="HMd-rt-Hzu" firstAttribute="trailing" secondItem="5T1-fF-NDB" secondAttribute="trailing" id="faU-fu-rii"/>
-                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="top" secondItem="5T1-fF-NDB" secondAttribute="bottom" constant="24" id="l1c-ha-Clc"/>
+                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="top" secondItem="aAi-9b-dg2" secondAttribute="bottom" constant="24" id="jXw-NX-VJ6"/>
                             <constraint firstItem="Jpa-yb-KaD" firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" constant="16" id="lZ5-ST-rwh"/>
+                            <constraint firstItem="aAi-9b-dg2" firstAttribute="trailing" secondItem="5T1-fF-NDB" secondAttribute="trailing" id="mf9-S8-DsF"/>
                             <constraint firstItem="PJw-hh-0AG" firstAttribute="leading" secondItem="Jpa-yb-KaD" secondAttribute="leading" constant="16" id="qtR-6o-N33"/>
                             <constraint firstItem="5T1-fF-NDB" firstAttribute="leading" secondItem="PJw-hh-0AG" secondAttribute="leading" id="riT-6W-Bvc"/>
                             <constraint firstItem="Jpa-yb-KaD" firstAttribute="bottom" secondItem="arU-dD-vP7" secondAttribute="bottom" constant="16" id="sRv-L6-0RC"/>
@@ -95,6 +109,7 @@
                     <connections>
                         <outlet property="aliasTextField" destination="5T1-fF-NDB" id="nqb-iM-Ggc"/>
                         <outlet property="cnicTextField" destination="PJw-hh-0AG" id="I8F-Bt-eQs"/>
+                        <outlet property="countryTextField" destination="aAi-9b-dg2" id="7hg-J3-vTR"/>
                         <outlet property="deleteBeneficiaryButton" destination="arU-dD-vP7" id="CfQ-TZ-qYR"/>
                         <outlet property="mobileTextField" destination="HMd-rt-Hzu" id="7AB-vD-XGx"/>
                         <outlet property="relationTextField" destination="LGd-wf-WvU" id="N7i-rG-4Fv"/>

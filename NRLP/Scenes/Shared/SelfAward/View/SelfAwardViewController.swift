@@ -40,7 +40,7 @@ class SelfAwardViewController: BaseViewController {
             referenceNumberLabelTextView.titleLabelText = "Transaction Reference No. / TT No.".localized
             referenceNumberLabelTextView.placeholderText = "xxxxxxxxxxxxxx"
             referenceNumberLabelTextView.showHelpBtn = true
-            referenceNumberLabelTextView.helpLabelText = "Transaction within 1 year is eligible for self awarding".localized
+            referenceNumberLabelTextView.helpLabelText = "Enter Reference Number/TT Number as per your transaction receipt".localized
             referenceNumberLabelTextView.helpPopupIcon = .selfAward
             referenceNumberLabelTextView.inputFieldMaxLength = 25
             referenceNumberLabelTextView.editTextKeyboardType = .asciiCapable
@@ -63,7 +63,7 @@ class SelfAwardViewController: BaseViewController {
             transactionAmountLabelTextView.titleLabel.numberOfLines = 0
             transactionAmountLabelTextView.titleLabelText = "Transaction Amount \nEnter exact amount as per your transaction receipt".localized
             transactionAmountLabelTextView.placeholderText = "xx,xxx".localized
-            transactionAmountLabelTextView.leadingText = "PKR "
+            transactionAmountLabelTextView.leadingText = "PKR ".localized
             transactionAmountLabelTextView.showHelpBtn = true
             transactionAmountLabelTextView.helpPopupIcon = .selfAward
             transactionAmountLabelTextView.helpLabelText = "Enter exact amount as per you transaction receipt".localized

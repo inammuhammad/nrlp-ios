@@ -51,7 +51,7 @@ class RemitterVerificationViewController: BaseViewController, UITextFieldDelegat
             transactionAmountLabelTextView.editTextKeyboardType = .decimalPad
             transactionAmountLabelTextView.titleLabelText = "Transaction Amount".localized
             transactionAmountLabelTextView.placeholderText = "xx,xxx".localized
-            transactionAmountLabelTextView.leadingText = "PKR "
+            transactionAmountLabelTextView.leadingText = "PKR ".localized
             transactionAmountLabelTextView.showHelpBtn = true
             transactionAmountLabelTextView.helpLabelText = "Enter exact amount as per you transaction receipt".localized
             transactionAmountLabelTextView.inputFieldMaxLength = 13

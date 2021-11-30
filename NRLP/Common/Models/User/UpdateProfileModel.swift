@@ -58,6 +58,7 @@ struct UpdateProfileSendOTPRequestModel: Codable {
     let passportType: String?
     let passportNumber: String?
     let residentID: String?
+    let country: String?
     
     enum CodingKeys: String, CodingKey {
         case email
@@ -65,6 +66,7 @@ struct UpdateProfileSendOTPRequestModel: Codable {
         case passportType = "passport_type"
         case passportNumber = "passport_id"
         case residentID = "resident_id"
+        case country = "country"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -74,6 +76,7 @@ struct UpdateProfileSendOTPRequestModel: Codable {
         try container.encodeIfPresent(passportType, forKey: .passportType)
         try container.encodeIfPresent(passportNumber?.aesEncrypted(), forKey: .passportNumber)
         try container.encodeIfPresent(residentID?.aesEncrypted(), forKey: .residentID)
+        try container.encodeIfPresent(country, forKey: .country)
     }
 }
 

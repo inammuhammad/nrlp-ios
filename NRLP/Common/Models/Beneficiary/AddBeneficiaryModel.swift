@@ -9,18 +9,20 @@
 import Foundation
 
 struct AddBeneficiaryRequestModel: Codable {
-
-   let beneficiaryAlias: String?
-   let beneficiaryMobileNo: String?
-   let beneficiaryNicNicop: String?
+    
+    let beneficiaryAlias: String?
+    let beneficiaryMobileNo: String?
+    let beneficiaryNicNicop: String?
     let beneficiaryRelation: String?
-
-   enum CodingKeys: String, CodingKey {
-       case beneficiaryAlias = "beneficiary_alias"
-       case beneficiaryMobileNo = "beneficiary_mobile_no"
-       case beneficiaryNicNicop = "beneficiary_nic_nicop"
+    let beneficiaryCountry: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case beneficiaryAlias = "beneficiary_alias"
+        case beneficiaryMobileNo = "beneficiary_mobile_no"
+        case beneficiaryNicNicop = "beneficiary_nic_nicop"
         case beneficiaryRelation = "beneficiary_relationship"
-   }
+        case beneficiaryCountry = "country"
+    }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
@@ -28,11 +30,12 @@ struct AddBeneficiaryRequestModel: Codable {
         try container.encodeIfPresent(beneficiaryMobileNo, forKey: .beneficiaryMobileNo)
         try container.encodeIfPresent(beneficiaryNicNicop?.aesEncrypted(), forKey: .beneficiaryNicNicop)
         try container.encodeIfPresent(beneficiaryRelation, forKey: .beneficiaryRelation)
+        try container.encodeIfPresent(beneficiaryCountry, forKey: .beneficiaryCountry)
     }
 }
 
 struct AddBeneficiaryResponseModel: Codable {
-
+    
     let message: String
-
+    
 }

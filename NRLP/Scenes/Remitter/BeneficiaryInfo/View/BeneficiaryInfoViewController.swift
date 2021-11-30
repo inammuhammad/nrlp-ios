@@ -34,6 +34,17 @@ class BeneficiaryInfoViewController: BaseViewController {
             aliasTextField.editTextColor = UIColor.init(commonColor: .disableGery)
         }
     }
+    
+    @IBOutlet private weak var countryTextField: LabelledTextview! {
+        didSet {
+            countryTextField.titleLabelText = "Country of Residence".localized
+            countryTextField.placeholderText = "".localized
+            countryTextField.editTextKeyboardType = .asciiCapableNumberPad
+            countryTextField.isEditable = false
+            countryTextField.inputText = viewModel.country
+            countryTextField.editTextColor = UIColor.init(commonColor: .disableGery)
+        }
+    }
 
     @IBOutlet private weak var mobileTextField: LabelledTextview! {
         didSet {

@@ -255,8 +255,8 @@
 
 //Registration
 
-"Unique ID *" = "منفرد ID *";
-"Unique ID" = "منفرد ID";
+"Unique ID *" = "منفرد آئی ڈی *";
+"Unique ID" = "منفرد آئی ڈی";
 "Please enter your Full Name as per CNIC/NICOP" = " براہ مہربانی شناختی کارڈ پر درج شناخت کا نمبر داخل کریں";
 
 "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)" = "اپنا منفرد شناخت کا نمبر درج کریں جو آپ رقوم کی ترسیل کے لئے استعمال کرتے ہوں، بشمول آپ کے رہائشی حکومت کی طرف سے جاری کردہ نمبر (مثلا؛ اقامہ نمبر، رجسٹریشن نمبر، عماراتی آئی ڈی، ڈرائیونگ لائسنس، پاسپورٹ نمبر، وغیرہ)";
@@ -363,3 +363,7 @@
 
 "Annual remittance to date" = "مجموعی سالانہ ترسیل (امریکی ڈالر)";
 "The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty category calculated based on this. For further details please visit FAQs" = "سالانہ ترسیل کی مجموعی ڈالر میں رقم کا تعین ہر سال یکم جولائی سے تیس جون تک کیا جاتا ہے، اور آپ کی لوائلٹی کے زمرے کا تعین بھی اس پر مبنی ہے۔ مزید معلومات کے لئے مقرر پوچھے گئے سوالات ملاحظہ کریں۔";
+"Enter Reference Number/TT Number as per your transaction receipt" = "براہ کرم ٹرانزیکشن رسید پر موجود ریفرنس نمبر/ ٹی ٹی نمبر درج کریں";
+
+"Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)" = "اپنا حالیہ ترسیلات زر کا حوالہ نمبر درج کریں (1 اکتوبر 2021 کے بعد سے ایک سال پرانی ٹرانزیکشنز استعمال کی جا سکتی ہیں)";
+"PKR " = " پاکستانی روپیہ";

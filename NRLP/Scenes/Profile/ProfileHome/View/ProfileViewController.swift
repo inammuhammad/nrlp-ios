@@ -249,6 +249,8 @@ extension ProfileViewController {
                 self.passportTypeTextView.updateStateTo(isError: errorState, error: error)
             case .residentIDTextField(errorState: let errorState, error: let error):
                 self.residentIDTextView.updateStateTo(isError: errorState, error: error)
+            case .setCountry(country: let country):
+                self.countryTextView.inputText = country.country
             }
         }
     }
