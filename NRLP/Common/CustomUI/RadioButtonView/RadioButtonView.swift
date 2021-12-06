@@ -58,6 +58,15 @@ class RadioButtonView: CustomNibView {
         super.setupView()
         setDefaultStyle()
     }
+    
+    private func setupTitleViewAlignment() {
+        if (AppConstants.appLanguage == .urdu && !AppConstants.isSystemLanguageUrdu()) || AppConstants.appLanguage == .english && AppConstants.isSystemLanguageUrdu() {
+            self.titleView.textAlignment = .right
+        } else {
+            self.titleView.textAlignment = .left
+        }
+        
+    }
 
     private func setDefaultStyle() {
         titleViewFont = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)

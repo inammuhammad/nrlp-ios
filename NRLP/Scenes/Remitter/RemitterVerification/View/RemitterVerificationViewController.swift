@@ -109,7 +109,16 @@ class RemitterVerificationViewController: BaseViewController, UITextFieldDelegat
             case .showActivityIndicator(let show):
                 show ? ProgressHUD.show() : ProgressHUD.dismiss()
             case .showError(let error):
-                self.showAlert(with: error)
+                switch error {
+                case .server(let response):
+                    if response?.errorCode.lowercased() == "AUTH-VRN-06".lowercased() {
+                        self.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Oh Snap!".localized, alertDescription: "transactionNotFoundError".localized, alertAttributedDescription: nil, primaryButton: .init(buttonTitle: "Okay".localized, buttonAction: nil), secondaryButton: nil, topTextField: nil, middleTextField: nil, bottomTextField: nil))
+                    } else {
+                        self.showAlert(with: error)
+                    }
+                default:
+                    self.showAlert(with: error)
+                }
             case .nextButtonState(let state):
                 self.nextButton.isEnabled = state
             case .referenceNumberLabelState(let state, let message):

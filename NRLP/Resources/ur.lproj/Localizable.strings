@@ -365,5 +365,16 @@
 "The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty category calculated based on this. For further details please visit FAQs" = "سالانہ ترسیل کی مجموعی ڈالر میں رقم کا تعین ہر سال یکم جولائی سے تیس جون تک کیا جاتا ہے، اور آپ کی لوائلٹی کے زمرے کا تعین بھی اس پر مبنی ہے۔ مزید معلومات کے لئے مقرر پوچھے گئے سوالات ملاحظہ کریں۔";
 "Enter Reference Number/TT Number as per your transaction receipt" = "براہ کرم ٹرانزیکشن رسید پر موجود ریفرنس نمبر/ ٹی ٹی نمبر درج کریں";
 
-"Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)" = "اپنا حالیہ ترسیلات زر کا حوالہ نمبر درج کریں (1 اکتوبر 2021 کے بعد سے ایک سال پرانی ٹرانزیکشنز استعمال کی جا سکتی ہیں)";
+"Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)" = "اپنی ترسیلات  کا حوالہ نمبر درج کریں
+نوٹ:  صرف موجودہ سال کیی ٹرانزیکشن رجسٹریشن کے لیے استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";
 "PKR " = " پاکستانی روپیہ";
+
+"transactionNotFoundError" = "اپنی تراسیل کو عمل درآمد ہونے کے لیے، براہ کرم ۵ کاروباری دن کا انتظار کریں۔
+اگر اپکی تراسیل کو ۵ دن سے زیادہ ہوگئے ہیں، تو برائے مہربانی کسٹمر سپورٹ سے +92-21-111-11-6757 پر رابطہ کریں یا ہمیں sdrpsupport@1link.net.pk پر ای میل کریں
+";
+
+"View Sohni Dharti Remittance Program Benefits" = "سوہنی دھرتی ریمیٹینس پروگرام کے فوائد دیکھیں";
+
+"Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)" = "اپنی ترسیلات  کا حوالہ نمبر درج کریں
+
+نوٹ:  خود پوائنٹس حاصل کرنے کے لیے  صرف موجودہ سال کیی ٹرانزیکشن ہی استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";

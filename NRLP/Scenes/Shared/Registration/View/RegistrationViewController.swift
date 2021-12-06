@@ -316,7 +316,8 @@ extension RegistrationViewController {
                     passportNumberTextView.isHidden = true
                 }
             case .showRemitterPopup(viewModel: let viewModel):
-                self.showAlert(with: viewModel)
+                ()
+//                self.showAlert(with: viewModel)
             }
         }
     }

@@ -24,6 +24,14 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             aboutNRLPButton.titleLabel?.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
         }
     }
+    @IBOutlet weak var viewBenefitsBtn: UIButton! {
+        didSet {
+            
+            viewBenefitsBtn.setTitle("View Sohni Dharti Remittance Program Benefits".localized, for: .normal)
+            viewBenefitsBtn.setTitleColor(.init(commonColor: .appGreen), for: .normal)
+            viewBenefitsBtn.titleLabel?.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
+        }
+    }
     @IBOutlet weak var cnicLabelTextView: LabelledTextview! {
         didSet {
             cnicLabelTextView.titleLabelText = "CNIC/NICOP".localized
@@ -153,6 +161,9 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     
     @IBAction func didTapAboutButton(_ sender: Any) {
         AppUtility.goToWebsite(url: AppConstants.aboutNRLPUrl) { (_) in }
+    }
+    @IBAction func viewBenefitsBtnAction(_ sender: Any) {
+        self.navigationController?.pushViewController(BenefitsBuilder().build(with: navigationController), animated: true)
     }
 }
 

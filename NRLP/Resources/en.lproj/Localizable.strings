@@ -350,5 +350,15 @@
 "Annual remittance to date" = "Annual Remittance to-date";
 "The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty category calculated based on this. For further details please visit FAQs" = "The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty category calculated based on this. For further details please visit FAQs";
 "Enter Reference Number/TT Number as per your transaction receipt" = "Please enter the Transaction Reference No/ TT No, appearing on Remittance Receipt";
-"Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)" = "Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)";
+"Enter your most recent Remittance Transaction Reference Number (transactions from last one year, starting 1st Oct 2021 are eligible)" = "Enter your remittance transaction reference number.
+Note: (Current year Transaction can only be used for registration, applicable from 1st Oct 2021)";
 "PKR " = "PKR ";
+
+
+"transactionNotFoundError" = "Please wait for at least 5 working days after your remittance has been processed to register for Sohni Dharti Remittance Program. If your transaction is older than 5 days, kindly contact Customer Support at +92-21-111-11-6757 or email us at sdrpsupport@1link.net.pk";
+
+
+"View Sohni Dharti Remittance Program Benefits" = "View Sohni Dharti Remittance Program Benefits";
+
+"Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)" = "Enter your remittance transaction reference number.
+Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)";

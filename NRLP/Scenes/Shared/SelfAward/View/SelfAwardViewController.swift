@@ -32,7 +32,7 @@ class SelfAwardViewController: BaseViewController {
 
     @IBOutlet weak var titleLbl: UILabel! {
         didSet {
-            titleLbl.text = "Transaction within 1 year is eligible for self awarding".localized
+            titleLbl.text = "Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)".localized
         }
     }
     @IBOutlet private weak var referenceNumberLabelTextView: LabelledTextview! {
@@ -40,7 +40,7 @@ class SelfAwardViewController: BaseViewController {
             referenceNumberLabelTextView.titleLabelText = "Transaction Reference No. / TT No.".localized
             referenceNumberLabelTextView.placeholderText = "xxxxxxxxxxxxxx"
             referenceNumberLabelTextView.showHelpBtn = true
-            referenceNumberLabelTextView.helpLabelText = "Enter Reference Number/TT Number as per your transaction receipt".localized
+            referenceNumberLabelTextView.helpLabelText = "Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)".localized
             referenceNumberLabelTextView.helpPopupIcon = .selfAward
             referenceNumberLabelTextView.inputFieldMaxLength = 25
             referenceNumberLabelTextView.editTextKeyboardType = .asciiCapable
@@ -117,6 +117,11 @@ class SelfAwardViewController: BaseViewController {
     
     private func setupUI() {
         self.title = "Self Award Points".localized
+        if (AppConstants.appLanguage == .urdu && !AppConstants.isSystemLanguageUrdu()) || AppConstants.appLanguage == .english && AppConstants.isSystemLanguageUrdu() {
+            titleLbl.textAlignment = .right
+        } else {
+            titleLbl.textAlignment = .left
+        }
     }
     
     private func showInitialAlert() {
@@ -167,7 +172,16 @@ class SelfAwardViewController: BaseViewController {
                     guard let user = self?.user else { return }
                     self?.navigateToOTPScreen(model: model, user: user)
                 case .failure(let error):
-                    self?.showAlert(with: error)
+                    switch error {
+                    case .server(let response):
+                        if response?.errorCode.lowercased() == "AUTH-VRN-06".lowercased() {
+                            self?.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Oh Snap!".localized, alertDescription: "transactionNotFoundError".localized, alertAttributedDescription: nil, primaryButton: .init(buttonTitle: "Okay".localized, buttonAction: nil), secondaryButton: nil, topTextField: nil, middleTextField: nil, bottomTextField: nil))
+                        } else {
+                            self?.showAlert(with: error)
+                        }
+                    default:
+                        self?.showAlert(with: error)
+                    }
                }
             }
         }
