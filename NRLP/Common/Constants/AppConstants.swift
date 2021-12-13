@@ -25,11 +25,10 @@ struct AppConstants {
         var sign: [UInt8] = []
         if AppConstants.isDev {
             /// Dev Checksum (Previous checksum is commented)
+//            sign = [45, 13, 10, 1, 67, 53, 0, 8, 39, 86, 87, 92, 10, 30, 17, 14, 90, 36, 8, 4, 6, 89, 18, 3, 63, 99, 119, 27, 92, 13, 20, 67] // yhxl0tnld998cjxa4wmvp0qfq08y6hw7
             
-////            sign = [45, 93, 21, 20, 69, 42, 30, 82, 51, 90, 10, 0, 16, 21, 28, 92, 3, 42, 19, 75, 19, 30, 80, 31, 127, 38, 125, 27, 88, 6, 10, 66] // y8gy6kp6p5ddyau3myv9ew3z1u2y2ci6 (iXGuard)
-//            sign = [53, 6, 23, 14, 1, 43, 15, 84, 117, 31, 11, 5, 24, 67, 13, 3, 29, 100, 3, 19, 64, 0, 91, 1, 118, 41, 58, 90, 27, 31, 21, 67]// acecrja06peaq7dls7fa6i8d8zu8qzv7 (Without iXGuard)
+            sign = [51, 93, 20, 26, 65, 49, 90, 21, 122, 10, 87, 23, 91, 3, 7, 88, 3, 107, 1, 64, 30, 90, 10, 82, 56, 102, 36, 84, 14, 14, 13, 19] // g8fw2p4q9e9s2wn7m8d2h3i7v5k6dkng
             
-            sign = [45, 13, 10, 1, 67, 53, 0, 8, 39, 86, 87, 92, 10, 30, 17, 14, 90, 36, 8, 4, 6, 89, 18, 3, 63, 99, 119, 27, 92, 13, 20, 67] // yhxl0tnld998cjxa4wmvp0qfq08y6hw7
         } else {
             /// Prod Checksum (Previous checksum is commented)
 //            sign = [39, 84, 0, 91, 9, 34, 28, 16, 44, 9, 86, 0, 31, 17, 4, 91, 86, 43, 28, 27, 20, 91, 6, 86, 36, 36, 56, 3, 5, 87, 82, 13] // s1r6zcrtof8dvem48xyib2e3jwwao21y

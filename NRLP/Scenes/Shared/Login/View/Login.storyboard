@@ -117,7 +117,6 @@
                                                 <rect key="frame" x="184" y="738" width="46" height="30"/>
                                                 <state key="normal" title="Button"/>
                                                 <connections>
-                                                    <action selector="didTapAboutButton:" destination="TLC-HL-kLK" eventType="touchUpInside" id="8Jn-8L-46J"/>
                                                     <action selector="viewBenefitsBtnAction:" destination="TLC-HL-kLK" eventType="touchUpInside" id="F2B-ed-h2u"/>
                                                 </connections>
                                             </button>
