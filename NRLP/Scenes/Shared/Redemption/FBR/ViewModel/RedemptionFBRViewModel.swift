@@ -68,7 +68,7 @@ class RedemptionFBRViewModel: RedemptionFBRViewModelProtocol {
         var title = ""
         switch type {
         case .FBR:
-            title = "Federal Bureau of Revenue".localized
+            title = "Federal Board of Revenue".localized
         case .PIA:
             title = "PIA".localized
         case .Nadra:

@@ -17,7 +17,7 @@ final class APIKeyServiceDecorator<T> {
         self.appKeyService = appKeyService
     }
     
-    func dispatchForKey(cnic: String, type: AccountType, completion: @escaping (_ error: APIResponseError?) -> Void) {
+    func dispatchForKey(cnic: String, type: AccountType, configType: AESConfigs.Configs = .randomKey, completion: @escaping (_ error: APIResponseError?) -> Void) {
         if AESConfigs.hasIV && RequestKeyGenerator.sameCNIC(cnic: cnic) && RequestKeyGenerator.sameAccountType(type: type) {
             completion(nil)
             return
@@ -26,7 +26,7 @@ final class APIKeyServiceDecorator<T> {
          appKeyService.fetchAppKey(cnic: cnic, type: type) {(result) in
             switch result {
             case .success(let response):
-                let configuration = AESConfigs.keyConfigurationsFor(.randomKey)
+                let configuration = AESConfigs.keyConfigurationsFor(configType)
                 let decryptedKey = response.data.key.aesDecrypted(key: configuration.key, iv: configuration.iv )
                 if decryptedKey.isEmpty {
                     completion(.unknown)

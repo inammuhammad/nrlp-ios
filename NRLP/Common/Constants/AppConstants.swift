@@ -25,9 +25,9 @@ struct AppConstants {
         var sign: [UInt8] = []
         if AppConstants.isDev {
             /// Dev Checksum (Previous checksum is commented)
-//            sign = [45, 13, 10, 1, 67, 53, 0, 8, 39, 86, 87, 92, 10, 30, 17, 14, 90, 36, 8, 4, 6, 89, 18, 3, 63, 99, 119, 27, 92, 13, 20, 67] // yhxl0tnld998cjxa4wmvp0qfq08y6hw7
+//            sign = [51, 93, 20, 26, 65, 49, 90, 21, 122, 10, 87, 23, 91, 3, 7, 88, 3, 107, 1, 64, 30, 90, 10, 82, 56, 102, 36, 84, 14, 14, 13, 19] // g8fw2p4q9e9s2wn7m8d2h3i7v5k6dkng
             
-            sign = [51, 93, 20, 26, 65, 49, 90, 21, 122, 10, 87, 23, 91, 3, 7, 88, 3, 107, 1, 64, 30, 90, 10, 82, 56, 102, 36, 84, 14, 14, 13, 19] // g8fw2p4q9e9s2wn7m8d2h3i7v5k6dkng
+            sign = [44, 86, 7, 8, 74, 39, 8, 23, 42, 87, 95, 10, 4, 71, 7, 8, 11, 36, 16, 69, 18, 88, 26, 16, 37, 59, 42, 17, 31, 0, 16, 13] // x3ue9ffsi81nm3ngewu7d1yukhesuesy
             
         } else {
             /// Prod Checksum (Previous checksum is commented)

@@ -68,4 +68,8 @@ class HomeRouter {
         viewController.user = user
         self.navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func navigateToGuide(link: String, error: (String) -> Void) {
+        AppUtility.goToYouTube(youtubeLink: link, onFailure: error)
+    }
 }

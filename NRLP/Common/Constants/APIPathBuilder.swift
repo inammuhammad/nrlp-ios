@@ -90,6 +90,7 @@ struct APIPathBuilder {
         case initRedemptionTransaction
         case redemptionTransactionSendOTP
         case completeRedemptionTransaction
+        case cities
         
         var rawValue: String {
             switch self {
@@ -211,6 +212,9 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .completeRedemptionTransaction:
                 let sign: [UInt8] = [55, 10, 31, 29, 31, 36, 26, 1, 110, 29, 11, 0, 12, 17, 4, 66, 26, 33, 4, 28, 5, 8, 0, 17, 39, 60, 33]
+                return Replacer().deformatString(string: sign)
+            case .cities :
+                let sign: [UInt8] = [55, 12, 6, 4, 22, 50]
                 return Replacer().deformatString(string: sign)
             }
         }

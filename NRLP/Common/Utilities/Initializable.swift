@@ -70,5 +70,7 @@ extension UIStoryboard {
         case nadraTrackingID = "NadraTrackingID"
         case redemptionOTP = "RedemptionOTP"
         case block = "Block"
+        case beneficiaryForm = "BeneficiaryForm"
+        case cityList = "CityList"
     }
 }

@@ -15,9 +15,14 @@ class CustomDatePickerView: UIDatePicker, PickerToolbarProtocol {
 
     private(set) var toolbar: UIToolbar?
     weak var toolbarDelegate: CustomDatePickerViewDelegate?
+    var isRegistration: Bool?
     var viewModel: CustomDatePickerViewModel! {
         didSet {
-            self.minimumDate = viewModel?.minDate
+            if let _ = isRegistration {
+                self.maximumDate = viewModel.maxDate
+            } else {
+                self.minimumDate = viewModel?.minDate
+            }
         }
     }
 

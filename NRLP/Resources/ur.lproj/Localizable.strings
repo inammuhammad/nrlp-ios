@@ -116,7 +116,7 @@
 "Statement Generated Successful"="اسٹیٹمنٹ کامیابی سے جاری ہو گئ ہے";
 "Redeemed Successfully"="پوائنٹس کامیابی سے استعمال ہو گئے ہیں";
 "Thank you for registering. You can now enjoy exciting benefits and rewards!"="آپ کی رجسٹریشن کا  شکریہ۔ اب آپ بہترین فوائد حاصل کر سکتے ہیں";
-"Thank you for registering. You can now earn loyalty points on your next remittance to Pakistan!"="آپ کی رجسٹریشن کا  شکریہ۔آپ آئندہ پاکستان بہیجی گئ رقوم پہ لوائلٹی پوائنٹس حاصل کر سکیں گے";
+"Thankyou for registering, Your account will be activated within 5 working days upon successful verification of your provided details"="رجسٹر کرنے کے لیے آپ کا شکریہ، آپ کی فراہم کردہ تفصیلات کی کامیاب تصدیق کے بعد آپ کا اکاؤنٹ 5 کاروباری دنوں کے اندر فعال ہو جائے گا۔";
 "You have successfully updated your password."="پاسورڈ کامیابی سے تبدیل کر دیا گیا ہے";
 "You have registered a New Password. Please go to the login screen and log in with your new password."="آپ نے نئے پاسورڈ کا انتخاب کیا ہے۔برائے مہربانی لاگن اسکرین پہ جا کے اپنے نئے پاسورڈ کے ساتھ لاگن کریں";
 "Your request for Statement has been generated. The statement will be emailed to you on the email address provided in 3 to 5 working days."="اپکی درخواست براے لوائلٹی اسٹیٹمنٹ تیار کر دی گییء ہے. يہ اسٹیٹمنٹ آپ کے فراہم کردہ ای میل پتے پر ۳ سے ۵ کاروباری دنوں میں ارسال کی جاے گی";
@@ -304,7 +304,7 @@
 "Redemption Successful" = "پوائنٹس کامیابی سے استعمال ہو چکے ہیں";
 
 //FBR
-"Federal Bureau of Revenue" = "Federal Bureau of Revenue";
+"Federal Board of Revenue" = "Federal Board of Revenue";
 "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "اپنے پوائنٹس کو ایف بی آر کی سروس کے لۓ استعمال کرنا ہو تو www.fbr.gov.pk پر جا کر اپنی منتخب شدہ سروس کی پی ایس آی ڈی حاصل کریں۔\n\nپی ایس آی ڈی پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
 
 //PIA
@@ -369,12 +369,20 @@
 نوٹ:  صرف موجودہ سال کیی ٹرانزیکشن رجسٹریشن کے لیے استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";
 "PKR " = " پاکستانی روپیہ";
 
-"transactionNotFoundError" = "اپنی تراسیل کو عمل درآمد ہونے کے لیے، براہ کرم ۵ کاروباری دن کا انتظار کریں۔
-اگر اپکی تراسیل کو ۵ دن سے زیادہ ہوگئے ہیں، تو برائے مہربانی کسٹمر سپورٹ سے +92-21-111-11-6757 پر رابطہ کریں یا ہمیں sdrpsupport@1link.net.pk پر ای میل کریں
-";
+"transactionNotFoundError" = "معزز صارف, آپ کی فراہم کردہ تفصیلات ہمارے ریکارڈ  میں  موجود   نہیں  ہیں، برائے مہربانی درست معلومات درج کریں یا کسٹمر سپورٹ پر ہم سے رابطہ کریں +92-21-111-11-6757 یا  ہمیں  پر sdrpsupport@1link.net.pk ای میل کریں۔";
 
 "View Sohni Dharti Remittance Program Benefits" = "سوہنی دھرتی ریمیٹینس پروگرام کے فوائد دیکھیں";
 
 "Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)" = "اپنی ترسیلات  کا حوالہ نمبر درج کریں
 
 نوٹ:  خود پوائنٹس حاصل کرنے کے لیے  صرف موجودہ سال کیی ٹرانزیکشن ہی استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";
+
+"Enter Beneficiary Account Number or CNIC on which remittance is sent" = "وصول کنندہ کا اکاؤنٹ نمبر / قومی شناختی کارڈ نمبر درج کریں جس پر ترسیلات بھیجی گئی ہیں۔ ";
+"Beneficiary Account Number / CNIC" = "وصول کنندہ  کا  اکاؤنٹ نمبر / قومی شناختی کارڈ نمبر ";
+
+"CNIC/NICOP Issuance Date *" = "CNIC/NICOP اجراء کی تاریخ *";
+"Place of Birth *" = "جائے پیدائش *";
+"Mother Maiden Name *" = "ماں کا نام *";
+
+
+"Guide" = "رہنمائی کے لئے";

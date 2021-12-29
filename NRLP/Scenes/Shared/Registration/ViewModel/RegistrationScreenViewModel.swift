@@ -15,17 +15,22 @@ protocol RegistrationViewModelProtocol {
     var output: RegistrationViewModelOutput? { get set}
     var accountTypePickerViewModel: ItemPickerViewModel { get }
     var passportTypePickerViewModel: ItemPickerViewModel { get }
+    var datePickerViewModel: CustomDatePickerViewModel { get }
     var name: String? { get set }
     var cnic: String? { get set }
+    var cnicIssueDate: Date? { get set }
+    var motherMaidenName: String? { get set }
     var residentID: String? { get set }
     var mobileNumber: String? { get set }
     var email: String? { get set }
     var paassword: String? { get set }
     var rePaassword: String? { get set }
     var passportNumber: String? { get set }
+    var beneficaryOTP: String? { get set }
 
     func nextButtonPressed()
     func countryTextFieldTapped()
+    func birthPlaceTextFieldTapped()
     func didSelectPassportType(passportType: PassportTypePickerItemModel?)
     func didSelect(accountType: AccountTypePickerItemModel?)
     func didReEnteredPassword(rePaassword: String)
@@ -34,20 +39,35 @@ protocol RegistrationViewModelProtocol {
 class RegistrationViewModel: RegistrationViewModelProtocol {
     
     enum RegistrationFormInputFieldType {
+        case userType
         case fullName
+        case motherName
+        case birthPlace
+        case countryOfResidence
         case cnic
-        case residentID
-        case mobile
-        case email
-        case password
-        case rePassword
+        case cnicIssueDate
+        case passportType
         case passportNumber
+        case residentID
+        case mobileNumber
+        case emailAddress
+        case password
+        case confirmPassword
+        case beneficiaryOtp
     }
     
     private var router: RegistrationRouter
     var output: RegistrationViewModelOutput?
+    private var service: RegisterUserService
+    private var appKeyService: APIKeyServiceDecorator<RegisterUserServiceProtocol>
 
     var name: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var motherMaidenName: String? {
         didSet {
             validateRequiredFields()
         }
@@ -59,6 +79,17 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         }
     }
     
+    var cnicIssueDate: Date? {
+        didSet {
+            validateRequiredFields()
+            self.output?(.updateCnicIssueDate(dateStr: cnicIssueDateString))
+        }
+    }
+    
+    var datePickerViewModel: CustomDatePickerViewModel {
+        return CustomDatePickerViewModel(maxDate: Date())
+    }
+    
     var residentID: String? {
         didSet {
             validateRequiredFields()
@@ -66,6 +97,12 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
     }
 
     var country: Country? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var birthPlace: Cities? {
         didSet {
             validateRequiredFields()
         }
@@ -114,6 +151,12 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         }
     }
     
+    var beneficaryOTP: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var accountTypePickerViewModel: ItemPickerViewModel {
         return ItemPickerViewModel(data: [AccountTypePickerItemModel(title: AccountType.remitter.getTitle(), key: AccountType.remitter.rawValue), AccountTypePickerItemModel(title: AccountType.beneficiary.getTitle(), key: AccountType.beneficiary.rawValue)])
     }
@@ -122,28 +165,72 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         return ItemPickerViewModel(data: [PassportTypePickerItemModel(title: PassportType.international.getTitle(), key: PassportType.international.rawValue), PassportTypePickerItemModel(title: PassportType.pakistani.getTitle(), key: PassportType.pakistani.rawValue)])
     }
     
+    private var cnicIssueDateString: String {
+        return DateFormat().formatDateString(to: cnicIssueDate ?? Date(), formatter: .shortDateFormat) ?? "-"
+    }
+    
     init(router: RegistrationRouter) {
         self.router = router
+        self.service = RegisterUserService()
+        self.appKeyService = APIKeyServiceDecorator(decoratee: service, appKeyService: AppKeyService())
+
     }
 
     func nextButtonPressed() {
+        var tuple: (Bool, RegistrationFormInputFieldType?) = (false, nil)
+        if self.accountType == .remitter {
+            tuple = validateDataWithRegex()
+        } else {
+            tuple = validateBeneficiaryDataWithRegex()
+        }
         
-        let (isValid, topErrorField) = validateDataWithRegex()
-        
-        if !isValid {
-            if let field = topErrorField {
+        if !tuple.0 {
+            if let field = tuple.1 {
                 output?(.focusField(type: field))
             }
             return
         }
-        
-        let residentIDValue = (residentID?.isEmpty ?? false) ? nil : residentID
-        let registerModel = RegisterRequestModel(accountType: accountType!.rawValue, cnicNicop: cnic!, email: email ?? "", fullName: name!, mobileNo: (country?.code ?? "") + (mobileNumber ?? ""), paassword: paassword!, passportType: passportType?.rawValue ?? "", passportNumber: passportNumber ?? "", registrationCode: nil, transactionAmount: residentIDValue, transactionRefNo: "", residentID: residentIDValue, country: country?.country)
+        let finalMobile = (country?.code ?? "") + (mobileNumber ?? "-")
+        var registerModel = RegisterRequestModel(accountType: accountType?.rawValue ?? "-", cnicNicop: cnic ?? "-", email: email ?? "-", fullName: name ?? "-", mobileNo: finalMobile, paassword: paassword ?? "-", passportType: passportType?.rawValue ?? "-", passportNumber: passportNumber ?? "-", registrationCode: "-", residentID: residentID ?? "-", country: country?.country ?? "-", cnicIssueDate: cnicIssueDateString, motherMaidenName: motherMaidenName ?? "-", birthPlace: birthPlace?.city, sotp: "1")
         switch accountType {
         case .beneficiary:
-            router.navigateToBeneficiaryVerificationScreen(model: registerModel)
+            registerModel.registrationCode = beneficaryOTP
+            self.output?(.showActivityIndicator(show: true))
+            appKeyService.dispatchForKey(cnic: registerModel.cnicNicop, type: .beneficiary) { (error) in
+                if let error = error {
+                    self.output?(.showActivityIndicator(show: false))
+                    self.output?(.showError(error: error))
+                } else {
+                    self.service.registerUser(with: registerModel) { (result) in
+                        self.output?(.showActivityIndicator(show: false))
+                        switch result {
+                        case .success:
+                            self.router.navigateToBeneficiaryFormScreen(model: registerModel)
+                        case .failure(let error):
+                            self.output?(.showError(error: error))
+                        }
+                    }
+                }
+            }
+//            router.navigateToBeneficiaryFormScreen(model: registerModel)
         case .remitter:
-            router.navigateToRemitterVerificationScreen(model: registerModel)
+            self.output?(.showActivityIndicator(show: true))
+            appKeyService.dispatchForKey(cnic: registerModel.cnicNicop, type: .remitter, configType: .randomKey) { (error) in
+                if let error = error {
+                    self.output?(.showActivityIndicator(show: false))
+                    self.output?(.showError(error: error))
+                } else {
+                    self.service.registerUser(with: registerModel, completion: { (result) in
+                        self.output?(.showActivityIndicator(show: false))
+                        switch result {
+                        case .success:
+                            self.router.navigateToOTPScreen(model: registerModel)
+                        case .failure(let error):
+                            self.output?(.showError(error: error))
+                        }
+                    })
+                }
+            }
         case .none:
             break
         }
@@ -152,7 +239,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
     private func updateProgress() {
         switch accountType {
         case .beneficiary:
-            output?(.updateProgressBar(toProgress: 0.33))
+            output?(.updateProgressBar(toProgress: 0.2))
         case .remitter:
             output?(.updateProgressBar(toProgress: 0.25))
         case .none:
@@ -185,26 +272,24 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
                 self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length))
                 self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined()))
             }
-        }, accountType: self.accountType)
+        }, accountType: accountType)
+    }
+    
+    func birthPlaceTextFieldTapped() {
+        router.navigateToCityPicker { [weak self] selectedCity in
+            self?.birthPlace = selectedCity
+            self?.output?(.updateBirthPlace(name: selectedCity.city))
+        }
     }
 
     enum Output {
         case showError(error: APIResponseError)
         case updateCountry(name: String)
+        case updateBirthPlace(name: String)
         case updateMobileCode(code: String, length: Int)
         case updateMobilePlaceholder(placeholder: String)
         case nextButtonState(enableState: Bool)
-        case nameTextField(errorState: Bool, error: String?)
-        case cnicTextField(errorState: Bool, error: String?)
-        case residentTextField(errorState: Bool, error: String?)
-        case countryTextField(errorState: Bool, error: String?)
-        case mobileNumberTextField(errorState: Bool, error: String?)
-        case emailTextField(errorState: Bool, error: String?)
-        case passwordTextField(errorState: Bool, error: String?)
-        case rePasswordTextField(errorState: Bool, error: String?)
-        case passportNumberTextField(errorState: Bool, error: String?)
-        case accountTypeTextField(errorState: Bool, error: String?)
-        case passportTypeTextField(errorState: Bool, error: String?)
+        case textField(errorState: Bool, error: String?, textfieldType: RegistrationFormInputFieldType)
         case updateAccountType(accountType: String)
         case updatePassportType(passportType: String)
         case showPassportNumberField(isVisible: Bool)
@@ -212,6 +297,8 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         case focusField(type: RegistrationFormInputFieldType)
         case showNewFields(isRemitter: Bool)
         case showRemitterPopup(viewModel: AlertViewModel)
+        case updateCnicIssueDate(dateStr: String)
+        case showActivityIndicator(show: Bool)
     }
     
     deinit {
@@ -221,17 +308,29 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
 
 extension RegistrationViewModel {
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true  || accountType == nil {
-            output?(.nextButtonState(enableState: false))
+        if self.accountType == .remitter {
+            if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true  || accountType == nil {
+                output?(.nextButtonState(enableState: false))
+            } else {
+                if accountType == .remitter {
+                    if passportType == nil  || residentID?.isBlank ?? true || passportNumber?.isBlank ?? true {
+                        output?(.nextButtonState(enableState: false))
+                    } else {
+                        output?(.nextButtonState(enableState: true))
+                    }
+                } else {
+                    output?(.nextButtonState(enableState: true))
+                }
+            }
         } else {
-            if accountType == .remitter {
-                if passportType == nil  || residentID?.isBlank ?? true || passportNumber?.isBlank ?? true {
+            if cnic?.isBlank ?? true || beneficaryOTP?.isBlank ?? true {
+                output?(.nextButtonState(enableState: false))
+            } else {
+                if beneficaryOTP?.trim().count != 4 || cnic?.count ?? 0 < 13 {
                     output?(.nextButtonState(enableState: false))
                 } else {
                     output?(.nextButtonState(enableState: true))
                 }
-            } else {
-                output?(.nextButtonState(enableState: true))
             }
         }
     }
@@ -239,9 +338,9 @@ extension RegistrationViewModel {
     func didReEnteredPassword(rePaassword: String) {
         if !rePaassword.isEmpty && rePaassword.isValid(for: RegexConstants.paasswordRegex) && paassword == rePaassword {
             self.rePaassword = rePaassword
-            output?(.rePasswordTextField(errorState: false, error: nil))
+            output?(.textField(errorState: false, error: nil, textfieldType: .confirmPassword))
         } else {
-            output?(.rePasswordTextField(errorState: true, error: StringConstants.ErrorString.reEnterPaasswordError.localized))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.reEnterPaasswordError.localized, textfieldType: .confirmPassword))
         }
     }
 
@@ -251,94 +350,140 @@ extension RegistrationViewModel {
         var errorTopField: RegistrationFormInputFieldType?
         
         if name?.isValid(for: RegexConstants.nameRegex) ?? false {
-            output?(.nameTextField(errorState: false, error: nil))
+            output?(.textField(errorState: false, error: nil, textfieldType: .fullName))
         } else {
-            output?(.nameTextField(errorState: true, error: StringConstants.ErrorString.nameError.localized))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fullName))
             isValid = false
             errorTopField = errorTopField ?? .fullName
         }
 
-        if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
-            output?(.cnicTextField(errorState: false, error: nil))
+        if motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .motherName))
         } else {
-            output?(.cnicTextField(errorState: true, error: StringConstants.ErrorString.cnicError.localized))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .motherName))
+            isValid = false
+            errorTopField = errorTopField ?? .motherName
+        }
+        
+        if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .cnic))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.cnicError.localized, textfieldType: .cnic))
             isValid = false
             errorTopField = errorTopField ?? .cnic
         }
-
-        if country != nil {
-            output?(.countryTextField(errorState: false, error: nil))
+        
+        if let cnicIssueDate = cnicIssueDate, cnicIssueDate < Date() {
+            output?(.textField(errorState: false, error: nil, textfieldType: .cnicIssueDate))
         } else {
-            output?(.countryTextField(errorState: true, error: StringConstants.ErrorString.countryError.localized))
+            output?(.textField(errorState: true, error: "Please enter a valid CNIC/NICOP Issue Date", textfieldType: .cnicIssueDate))
+        }
+        
+        if birthPlace != nil {
+            output?(.textField(errorState: false, error: nil, textfieldType: .birthPlace))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .birthPlace))
             isValid = false
         }
 
-        if country != nil && mobileNumber?.count ?? 0 == country?.length && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
-            output?(.mobileNumberTextField(errorState: false, error: nil))
+        if country != nil {
+            output?(.textField(errorState: false, error: nil, textfieldType: .countryOfResidence))
         } else {
-            output?(.mobileNumberTextField(errorState: true, error: StringConstants.ErrorString.mobileNumberError.localized))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .countryOfResidence))
             isValid = false
-            errorTopField = errorTopField ?? .mobile
+        }
+
+        if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .mobileNumber))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.mobileNumberError.localized, textfieldType: .mobileNumber))
+            isValid = false
+            errorTopField = errorTopField ?? .mobileNumber
         }
 
         if email == nil || email?.isEmpty ?? true || email?.isValid(for: RegexConstants.emailRegex) ?? false {
-            output?(.emailTextField(errorState: false, error: nil))
+            output?(.textField(errorState: false, error: nil, textfieldType: .emailAddress))
         } else {
-            output?(.emailTextField(errorState: true, error: StringConstants.ErrorString.emailError.localized))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.emailError.localized, textfieldType: .emailAddress))
             isValid = false
-            errorTopField = errorTopField ?? .email
+            errorTopField = errorTopField ?? .emailAddress
         }
 
         if paassword?.isValid(for: RegexConstants.paasswordRegex) ?? false {
-            output?(.passwordTextField(errorState: false, error: nil))
+            output?(.textField(errorState: false, error: nil, textfieldType: .password))
         } else {
-            output?(.passwordTextField(errorState: true, error: StringConstants.ErrorString.createPaasswordError.localized))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.createPaasswordError.localized, textfieldType: .password))
             isValid = false
             errorTopField = errorTopField ?? .password
         }
 
 //        if rePassword?.isValid(for: RegexConstants.passwordRegex) ?? false && // Changed during Unit Testing
         if paassword == rePaassword {
-            output?(.rePasswordTextField(errorState: false, error: nil))
+            output?(.textField(errorState: false, error: nil, textfieldType: .confirmPassword))
         } else {
-            output?(.rePasswordTextField(errorState: true, error: StringConstants.ErrorString.reEnterPaasswordError.localized))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.reEnterPaasswordError.localized, textfieldType: .confirmPassword))
             isValid = false
-            errorTopField = errorTopField ?? .rePassword
+            errorTopField = errorTopField ?? .confirmPassword
         }
 
         if accountType != nil {
-            output?(.accountTypeTextField(errorState: false, error: nil))
+            output?(.textField(errorState: false, error: nil, textfieldType: .userType))
         } else {
-            output?(.accountTypeTextField(errorState: true, error: StringConstants.ErrorString.accountTypeError.localized))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.accountTypeError.localized, textfieldType: .userType))
             isValid = false
         }
         
         if accountType == .remitter {
             if passportType != nil {
-                output?(.passportTypeTextField(errorState: false, error: nil))
+                output?(.textField(errorState: false, error: nil, textfieldType: .passportType))
             } else {
-                output?(.accountTypeTextField(errorState: true, error: StringConstants.ErrorString.passortTypeError.localized))
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.passortTypeError.localized, textfieldType: .passportType))
                 output?(.showPassportNumberField(isVisible: false))
                 isValid = false
             }
 
             if residentID == nil || residentID?.isBlank == true {
-                output?(.residentTextField(errorState: true, error: StringConstants.ErrorString.residentIdError))
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.residentIdError, textfieldType: .residentID))
                 isValid = false
             } else {
-                output?(.residentTextField(errorState: false, error: nil))
+                output?(.textField(errorState: false, error: nil, textfieldType: .residentID))
             }
             
             if passportNumber == nil || passportNumber?.isEmpty ?? true || passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
-                output?(.passportNumberTextField(errorState: false, error: nil))
+                output?(.textField(errorState: false, error: nil, textfieldType: .passportNumber))
             } else {
-                output?(.passportNumberTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized, textfieldType: .passportNumber))
                 isValid = false
                 errorTopField = errorTopField ?? .passportNumber
             }
         }
                 
         return (isValid, errorTopField)
+    }
+    
+    private func validateBeneficiaryDataWithRegex() -> (Bool, RegistrationFormInputFieldType?) {
+        var isValid: Bool = true
+
+        var errorTopField: RegistrationFormInputFieldType?
+        
+        if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .cnic))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.cnicError.localized, textfieldType: .cnic))
+            isValid = false
+            errorTopField = errorTopField ?? .cnic
+        }
+        
+            if beneficaryOTP?.count == 4 {
+            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryOtp))
+        } else {
+            output?(.textField(errorState: true, error: "Please enter 4 digit OTP received in SMS", textfieldType: .beneficiaryOtp))
+            isValid = false
+            errorTopField = errorTopField ?? .beneficiaryOtp
+        }
+        
+        return (isValid, errorTopField)
+        
     }
     
     private func getRemitterAlertDescription() -> NSAttributedString {

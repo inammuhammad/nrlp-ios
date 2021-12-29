@@ -15,6 +15,7 @@ class SelfAwardViewController: BaseViewController {
     var date: String?
     var referenceNumber: String?
     var transactionAmount: String?
+    var beneficaryCnic: String?
     var user: UserModel?
     
     // MARK: IBOutlets
@@ -106,6 +107,29 @@ class SelfAwardViewController: BaseViewController {
             }
         }
     }
+    @IBOutlet private weak var beneficaryCnicTextView: LabelledTextview! {
+        didSet {
+            beneficaryCnicTextView.titleLabelText = "Beneficiary Account Number / CNIC".localized
+            beneficaryCnicTextView.placeholderText = "xxxxxxxxxxxxx".localized
+            beneficaryCnicTextView.editTextKeyboardType = .default
+            beneficaryCnicTextView.inputFieldMinLength = 1
+            beneficaryCnicTextView.showHelpBtn = true
+            beneficaryCnicTextView.isEditable = true
+            beneficaryCnicTextView.helpPopupIcon = .selfAward
+            beneficaryCnicTextView.helpLabelText = "Enter Beneficiary Account Number or CNIC on which remittance is sent".localized
+//            beneficaryCnicTextView.formatValidator = CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
+//            beneficaryCnicTextView.formatter = CNICFormatter()
+            beneficaryCnicTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.beneficaryCnic = updatedText
+                self.validateFields()
+            }
+            beneficaryCnicTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,8 +156,8 @@ class SelfAwardViewController: BaseViewController {
     }
     
     private func validateFields() {
-        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount {
-            if referenceNo == "" || transactionAmount == "" {
+        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic {
+            if referenceNo == "" || transactionAmount == "" || cnic == "" {
                 proceedBtn.isEnabled = false
             } else {
                 proceedBtn.isEnabled = true
@@ -154,16 +178,10 @@ class SelfAwardViewController: BaseViewController {
     }
     
     @objc private func proceedBtnAction() {
-        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber {
+        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.beneficaryCnic {
             showActivityIndicator(show: true)
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "yyyy-MM-dd"
-//            let newDate = dateFormatter.date(from: date)
-//            let dateFormatterOutput = DateFormatter()
-//            dateFormatterOutput.dateFormat = "yyyyMMdd"
-//            let newDateStr = dateFormatterOutput.string(from: newDate ?? Date())
             let service = SelfAwardOTPService()
-            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo)
+            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic)
 
             service.validateTransaction(requestModel: model) {[weak self] (result) in
                 self?.showActivityIndicator(show: false)

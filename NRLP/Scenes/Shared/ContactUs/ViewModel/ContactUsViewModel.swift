@@ -43,7 +43,7 @@ enum ContactUsItem: Int {
         case .callUs:
             return "+92 21 111 116 757"
         case .email:
-            return "support@nrlp.com.pk"
+            return "sdrpsupport@1link.net.pk"
         case .visitWeb:
             return "www.NRLP.com.pk"
         }
@@ -54,7 +54,7 @@ enum ContactUsItem: Int {
         case .callUs:
             return "+9221111116757"
         case .email:
-            return "support@nrlp.com.pk"
+            return "sdrpsupport@1link.net.pk"
         case .visitWeb:
             return "https://www.nrlp.com.pk/"
         }
@@ -65,9 +65,8 @@ class ContactUsViewModel: ContactUsViewModelProtocol {
     
     var output: ContactUsViewModelOutput?
     private var items: [ContactItem] = [
-        ContactItem(with: ContactUsItem.callUs)]
-//        ,
-//        ContactItem(with: ContactUsItem.email),
+        ContactItem(with: ContactUsItem.callUs),
+        ContactItem(with: ContactUsItem.email)]
 //        ContactItem(with: ContactUsItem.visitWeb) ]
     
     func getItem(index: Int) -> ContactItem {

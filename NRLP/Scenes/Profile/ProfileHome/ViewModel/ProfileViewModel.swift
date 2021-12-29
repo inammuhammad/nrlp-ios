@@ -282,7 +282,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
     func getPassportType() -> String? {
         let usrPassportType = passportType?.rawValue
         if user.passportNumber == passportNumber {
-           return "a"
+           return ""
         }
         return usrPassportType
     }
@@ -343,7 +343,7 @@ extension ProfileViewModel {
             isValid = false
         }
         
-        if country != nil && mobileNumber?.count ?? 0 == country?.length {
+        if country != nil {
             output?(.mobileNumberTextField(errorState: false, error: nil))
         } else {
             output?(.mobileNumberTextField(errorState: true, error: StringConstants.ErrorString.mobileNumberError.localized))

@@ -70,6 +70,7 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
 
     private func registerUser() {
         output?(.showActivityIndicator(show: true))
+        model.sotp = "2"
         registerUserService.registerUser(with: model) { [weak self] (response) in
             guard let self = self else { return }
             self.output?(.showActivityIndicator(show: false))

@@ -60,7 +60,7 @@ enum OperationCompletedType {
             case .beneficiary:
                 result = "Thank you for registering. You can now enjoy exciting benefits and rewards!".localized
             case .remitter:
-                result = "Thank you for registering. You can now earn loyalty points on your next remittance to Pakistan!".localized
+                result = "Thankyou for registering, Your account will be activated within 5 working days upon successful verification of your provided details".localized
             }
         case .changePassword:
             result = "You have successfully updated your password.".localized

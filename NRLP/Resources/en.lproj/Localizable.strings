@@ -128,7 +128,7 @@
 "Statement Generated Successful" = "Statement Generated Successful";
 "Redeemed Successfully" = "Redeemed Successfully";
 "Thank you for registering. You can now enjoy exciting benefits and rewards!" = "Thank you for registering. You can now enjoy exciting benefits and rewards!";
-"Thank you for registering. You can now earn loyalty points on your next remittance to Pakistan!" = "Thank you for registering. You can now earn loyalty points on your next remittance to Pakistan!";
+"Thankyou for registering, Your account will be activated within 5 working days upon successful verification of your provided details" = "Thankyou for registering, Your account will be activated within 5 working days upon successful verification of your provided details";
 "You have successfully updated your password." = "You have successfully updated your password.";
 "You have registered a New Password. Please go to the login screen and log in with your new password." = "You have registered a New Password. Please go to the login screen and log in with your new password.";
 "Go to Login" = "Go to Login";
@@ -155,8 +155,8 @@
 "00:00" = "00:00";
 "Next" = "Next";
 "Verify your device" = "Verify your device";
-"We have sent you a code on your registered Mobile number. Please enter the code below." = "We have sent you a code on your registered Mobile number. Please enter the code below.";
-"We have sent you a code on your registered Mobile number" = "We have sent you a code on your registered Mobile number";
+"We have sent you a code on your registered Mobile number. Please enter the code below." = "We have sent you OTP on your registered mobile number, please enter the OTP below";
+"We have sent you a code on your registered Mobile number" = "We have sent you OTP on your registered Mobile number";
 "Please enter the code below." = "Please enter the code below.";
 "Didn't receive the OTP?" = "Didn't receive the OTP?";
 //Terms and conditions
@@ -165,7 +165,7 @@
 "Terms & Conditions" = "Terms & Conditions";
 "Cancel Registration" = "Cancel Registration";
 "Are you sure you want to cancel the registration process?" = "Are you sure you want to cancel the registration process?";
-"We have sent you a code on your phone number  %@" = "We have sent you a code on your phone number  %@";
+"We have sent you a code on your phone number  %@" = "We have sent you OTP on your phone number  %@";
 //Register ViewController
 "Select Country" = "Select Country";
 "Full Name" = "Full Name";
@@ -207,7 +207,7 @@
 "Are you sure you want to update your mobile number?" = "Are you sure you want to update your mobile number?";
 "Please enter the OTP received at your updated mobile number" = "Please enter the OTP received at your updated mobile number";
 "Update Successful" = "Update Successful";
-"We have sent you a code on your Mobile number %@. Please enter the code below." = "We have sent you a code on your Mobile number %@. Please enter the code below.";
+"We have sent you a code on your Mobile number %@. Please enter the code below." = "We have sent you OTP on your Mobile number %@. Please enter the code below.";
 "You have successfully updated your mobile number." = "You have successfully updated your mobile number.";
 "Generate Advance Statement" = "Generate Advance Statement";
 "Email Address" = "Email Address";
@@ -291,7 +291,7 @@
 "Redemption Successful" = "Redemption Successful";
 
 //FBR
-"Federal Bureau of Revenue" = "Federal Bureau of Revenue";
+"Federal Board of Revenue" = "Federal Board of Revenue";
 "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "To redeem your points for benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue.";
 
 "PIA" = "PIA";
@@ -355,10 +355,21 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 "PKR " = "PKR ";
 
 
-"transactionNotFoundError" = "Please wait for at least 5 working days after your remittance has been processed to register for Sohni Dharti Remittance Program. If your transaction is older than 5 days, kindly contact Customer Support at +92-21-111-11-6757 or email us at sdrpsupport@1link.net.pk";
+"transactionNotFoundError" = "Dear Customer, your provided details do not  match with our records, kindly enter correct information or contact us at Customer Support at +92-21-111-11-6757 or email us at sdrpsupport@1link.net.pk";
 
 
 "View Sohni Dharti Remittance Program Benefits" = "View Sohni Dharti Remittance Program Benefits";
 
 "Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)" = "Enter your remittance transaction reference number.
 Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)";
+
+
+"Enter Beneficiary Account Number or CNIC on which remittance is sent" = "Enter Beneficiary Account Number or CNIC on which  remittance is sent";
+"Beneficiary Account Number / CNIC" = "Beneficiary Account Number / CNIC";
+
+"CNIC/NICOP Issuance Date *" = "CNIC/NICOP Issuance Date *";
+"Place of Birth *" = "Place of Birth *";
+"Mother Maiden Name *" = "Mother Maiden Name *";
+
+
+"Guide" = "Guide";

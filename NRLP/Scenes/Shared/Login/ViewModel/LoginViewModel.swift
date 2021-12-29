@@ -24,6 +24,9 @@ protocol LoginViewModelProtocol {
     func viewWillAppear()
     func forgotPasswordPressed()
     func resetData()
+    func aboutButtonPressed()
+    func benefitsButtonPressed()
+    func complaintsButtonPressed()
 }
 
 class LoginViewModel: LoginViewModelProtocol {
@@ -186,6 +189,18 @@ class LoginViewModel: LoginViewModelProtocol {
         
         return LoginRequestModel(accountType: accountType ?? "",
                                  cnicNicop: cnic ?? "", paassword: paassword ?? "", isDummyLogin: isDummyLogin)
+    }
+    
+    func aboutButtonPressed() {
+        self.router.navigateToAbout()
+    }
+    
+    func benefitsButtonPressed() {
+        self.router.navigateToBenefits()
+    }
+    
+    func complaintsButtonPressed() {
+        self.router.navigateToComplaints()
     }
     
     private func checkLoginButtonState() {

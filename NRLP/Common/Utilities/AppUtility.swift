@@ -42,6 +42,14 @@ final class AppUtility {
        }
     }
     
+    static func goToYouTube(youtubeLink: String, onFailure: OnUtilityFailure) {
+        if let newYoutubeUrl = URL(string: youtubeLink) {
+            UIApplication.shared.open(newYoutubeUrl, options: [:], completionHandler: nil)
+        } else {
+            onFailure("Can't open video link")
+        }
+    }
+    
     static func getPrettyJson(data: Data) -> String {
         if let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers),
            let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted) {

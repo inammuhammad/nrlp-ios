@@ -82,8 +82,7 @@ class OTPViewModel: NRLPOTPViewModel, OTPViewModelProtocol {
     }
 
     private func getVerifyOtpRequestModel() -> VerifyOTPRequestModel {
-
-        return VerifyOTPRequestModel(amount: model.transactionAmount, mobileNo: model.mobileNo, nicNicop: model.cnicNicop, otp: getVerificationCode(), referenceNo: model.transactionRefNo, userType: model.accountType)
+        return VerifyOTPRequestModel(nicNicop: model.cnicNicop, otp: getVerificationCode(), userType: model.accountType)
     }
 
     func didTapVerifyButton() {

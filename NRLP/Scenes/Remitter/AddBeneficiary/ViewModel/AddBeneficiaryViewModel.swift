@@ -170,7 +170,7 @@ extension AddBeneficiaryViewModel {
             isValid = false
         }
 
-        if country != nil && mobileNumber?.count ?? 0 == country?.length && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
+        if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
             output?(.mobileNumberTextField(errorState: false, errorMessage: nil))
         } else {
             output?(.mobileNumberTextField(errorState: true, errorMessage: StringConstants.ErrorString.mobileNumberError.localized))

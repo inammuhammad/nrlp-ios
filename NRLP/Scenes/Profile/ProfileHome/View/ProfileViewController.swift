@@ -257,7 +257,7 @@ extension ProfileViewController {
     
     func updateMobileCode(code: String, numberLength: Int) {
         mobileTextView.leadingText = code
-        self.mobileTextView.inputFieldMaxLength = numberLength
+//        self.mobileTextView.inputFieldMaxLength = numberLength
         self.mobileTextView.inputText = ""
     }
     

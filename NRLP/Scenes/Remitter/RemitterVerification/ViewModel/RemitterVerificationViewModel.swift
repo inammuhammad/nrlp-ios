@@ -86,8 +86,10 @@ class RemitterVerificationViewModel: RemitterVerificationViewModelProtocol {
     }
 
     private func moveToNext() {
-        registerModel.transactionRefNo = referenceNumber
-        registerModel.transactionAmount = transactionAmount
+        #warning("FIX ME")
+        
+//        registerModel.transactionRefNo = referenceNumber
+//        registerModel.transactionAmount = transactionAmount
 
         router.navigateToNextScreen(model: registerModel)
     }

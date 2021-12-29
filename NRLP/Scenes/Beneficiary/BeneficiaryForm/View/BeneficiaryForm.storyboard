@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Beneficiary Form View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BeneficiaryFormViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="BeneficiaryFormViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHI-nh-t6l" customClass="ProgressBarView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="8"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="GaA-mO-q2K"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DAA-oQ-r79">
+                                <rect key="frame" x="0.0" y="168" width="414" height="722"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="GM4-ZJ-cGi">
+                                        <rect key="frame" x="16" y="0.0" width="382" height="1182"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bJ-pe-csU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NXp-cb-850" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="152" width="382" height="86"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AnD-cY-vdt" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="262" width="382" height="86"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKa-ij-FHh" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="372" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TwP-KB-w2F" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="524" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6DW-7p-2QI" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="676" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzP-Dg-2f4" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="828" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d1b-bD-44W" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="980" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Baq-kn-EfO" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="1132" width="382" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Dt3-7Q-u5A"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="didTapNextButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Pmu-rL-0Sq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="GM4-ZJ-cGi" firstAttribute="top" secondItem="DAA-oQ-r79" secondAttribute="top" id="Cug-SS-tFm"/>
+                                    <constraint firstAttribute="trailing" secondItem="GM4-ZJ-cGi" secondAttribute="trailing" constant="16" id="X9d-L0-MSs"/>
+                                    <constraint firstItem="GM4-ZJ-cGi" firstAttribute="leading" secondItem="DAA-oQ-r79" secondAttribute="leading" constant="16" id="dPg-Mz-1HL"/>
+                                    <constraint firstItem="GM4-ZJ-cGi" firstAttribute="centerX" secondItem="DAA-oQ-r79" secondAttribute="centerX" id="nTS-8e-GSO"/>
+                                    <constraint firstAttribute="bottom" secondItem="GM4-ZJ-cGi" secondAttribute="bottom" id="sRm-xd-54M"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="DAA-oQ-r79" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="IiE-3y-77d"/>
+                            <constraint firstItem="DAA-oQ-r79" firstAttribute="top" secondItem="XHI-nh-t6l" secondAttribute="bottom" constant="30" id="PPw-s7-8qf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="DAA-oQ-r79" secondAttribute="bottom" constant="16" id="UbA-ho-xhd"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="XHI-nh-t6l" secondAttribute="trailing" id="cuZ-eE-Dq2"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DAA-oQ-r79" secondAttribute="trailing" id="o5l-h3-o2H"/>
+                            <constraint firstItem="XHI-nh-t6l" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="uwf-oP-Pny"/>
+                            <constraint firstItem="XHI-nh-t6l" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vAG-54-Asf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="birthPlaceTextView" destination="NXp-cb-850" id="CyB-sy-kJZ"/>
+                        <outlet property="cnicIssueDateTextView" destination="ZKa-ij-FHh" id="Nga-EM-ZZl"/>
+                        <outlet property="countryTextView" destination="AnD-cY-vdt" id="a4j-DR-FOd"/>
+                        <outlet property="emailAddressTextView" destination="6DW-7p-2QI" id="SAy-FC-tsI"/>
+                        <outlet property="fullNameTextView" destination="4bJ-pe-csU" id="kra-WE-6np"/>
+                        <outlet property="mobileNumberTextView" destination="TwP-KB-w2F" id="vAv-5z-xGf"/>
+                        <outlet property="passwordTextView" destination="YzP-Dg-2f4" id="MYe-qF-Grg"/>
+                        <outlet property="progressBarView" destination="XHI-nh-t6l" id="4mg-qv-b2e"/>
+                        <outlet property="reEnterPasswordTextView" destination="d1b-bD-44W" id="5ve-b1-Ne1"/>
+                        <outlet property="registrationCTAButton" destination="Baq-kn-EfO" id="On0-cE-wmn"/>
+                        <outlet property="scrollView" destination="DAA-oQ-r79" id="FLS-qo-mve"/>
+                        <outlet property="scrollViewBottomConstraint" destination="UbA-ho-xhd" id="aVm-vb-QdN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="106"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="Baq-kn-EfO">
+            <size key="intrinsicContentSize" width="46" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

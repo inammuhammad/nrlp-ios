@@ -41,8 +41,10 @@ struct SideMenuViewModel: SideMenuViewModelProtocol {
             .profile,
             .changePassword,
             .faqs,
+            .guide,
             .languageSelection,
             .contactUs,
+            .complaint,
             .logout
         ]
         self.userModel = userModel

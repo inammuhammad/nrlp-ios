@@ -2,14 +2,16 @@ import UIKit
 import Foundation
 
 protocol CustomDateViewModelProtocol {
-    var minDate: Date { get set }
+    var minDate: Date? { get set }
+    var maxDate: Date? { get set }
     
     func dateChanged(_ sender: UIDatePicker) -> String
 }
 
 struct CustomDatePickerViewModel: CustomDateViewModelProtocol {
 
-    var minDate: Date
+    var minDate: Date?
+    var maxDate: Date?
     
     func dateChanged(_ sender: UIDatePicker) -> String {
         let formatter = DateFormatter()

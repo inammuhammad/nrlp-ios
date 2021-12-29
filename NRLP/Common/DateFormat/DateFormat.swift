@@ -15,6 +15,7 @@ class DateFormat {
         case pickerFormat = "d MMMM yyyy"
         case advanceStatementFormat = "YYYYMMdd"
         case reverseYearMonthDayFormat = "yyyy-MM-dd"
+        case shortDateFormat = "dd-MMM-yy"
     }
 
     func formatDateString(dateString: String, fromFormat: Formatter = .dateTimeMilis, toFormat: Formatter = .daySuffixFullMonth) -> String? {

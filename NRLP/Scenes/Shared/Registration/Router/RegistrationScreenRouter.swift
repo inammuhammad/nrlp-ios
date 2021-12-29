@@ -27,4 +27,17 @@ class RegistrationRouter {
     func navigateToCountryPicker(with onSelectionCountry: @escaping OnCountrySelectionCallBack, accountType: AccountType?) {
         self.navigationController?.pushViewController(CountryListModuleBuilder().build(with: self.navigationController, onCountrySelection: onSelectionCountry, userType: accountType), animated: true)
     }
+    
+    func navigateToCityPicker(with onSelectionCity: @escaping OnCitySelectionCallBack) {
+        self.navigationController?.pushViewController(CityListModuleBuilder().build(with: self.navigationController, onCitySelection: onSelectionCity), animated: true)
+    }
+    
+    func navigateToOTPScreen(model: RegisterRequestModel) {
+        let nextVC = OTPModuleBuilder().build(with: self.navigationController, model: model)
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    func navigateToBeneficiaryFormScreen(model: RegisterRequestModel) {
+        self.navigationController?.pushViewController(BeneficiaryFormBuilder().build(with: self.navigationController, model: model), animated: true)
+    }
 }

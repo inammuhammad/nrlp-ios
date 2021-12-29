@@ -157,8 +157,8 @@ extension AddBeneficiaryViewController {
             case .updateMobilePlaceholder(let placeholder, let length):
                 self.mobileTextField.placeholderText = placeholder
                 self.mobileTextField.isEditable = true
-                self.mobileTextField.inputFieldMinLength = length
-                self.mobileTextField.inputFieldMaxLength = length
+                self.mobileTextField.inputFieldMinLength = 1
+//                self.mobileTextField.inputFieldMaxLength = length
                 self.mobileTextField.becomeFirstResponder()
             case .updateCountry(let countryName):
                 self.countryTextField.inputText = countryName

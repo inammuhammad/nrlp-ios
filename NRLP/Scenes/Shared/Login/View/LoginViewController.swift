@@ -11,6 +11,7 @@ import UIKit
 class LoginViewController: BaseViewController, UITextFieldDelegate {
 
     // MARK: Outlets
+    @IBOutlet weak var bottomStackView: UIStackView!
     @IBOutlet weak var headerLabel: PrimaryHeaderTitle! {
         didSet {
             headerLabel.text = "National Remittance \nLoyalty Program".localized
@@ -92,7 +93,37 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             }
         }
     }
-
+    @IBOutlet weak var aboutBtn: CardImageButton! {
+        didSet {
+            aboutBtn.imageHeight = 25.0
+            aboutBtn.titleLabelText = "About".localized
+            aboutBtn.image = UIImage(named: "home-loyalty-statement")
+            aboutBtn.onTapped = {
+                self.viewModel.aboutButtonPressed()
+            }
+        }
+    }
+    @IBOutlet weak var benefitsBtn: CardImageButton! {
+        didSet {
+            benefitsBtn.imageHeight = 25.0
+            benefitsBtn.titleLabelText = "Benefits".localized
+            benefitsBtn.image = UIImage(named: "benefits")
+            benefitsBtn.onTapped = {
+                self.viewModel.benefitsButtonPressed()
+            }
+        }
+    }
+    @IBOutlet weak var complaintBtn: CardImageButton! {
+        didSet {
+            complaintBtn.imageHeight = 25.0
+            complaintBtn.titleLabelText = "Complaints".localized
+            complaintBtn.image = UIImage(named: "complaints")
+            complaintBtn.onTapped = {
+                self.viewModel.complaintsButtonPressed()
+            }
+        }
+    }
+    
     // MARK: Variables
     var viewModel: LoginViewModelProtocol!
 

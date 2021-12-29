@@ -27,6 +27,13 @@ class RegistrationViewController: BaseViewController {
         pickerView.viewModel = viewModel.passportTypePickerViewModel
         return pickerView
     }()
+    private lazy var cnicIssueDatePicker: CustomDatePickerView = {
+        var pickerView = CustomDatePickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.isRegistration = true
+        pickerView.viewModel = viewModel.datePickerViewModel
+        return pickerView
+    }()
     
     @IBOutlet private weak var progressBarView: ProgressBarView! {
         didSet {
@@ -58,6 +65,26 @@ class RegistrationViewController: BaseViewController {
             }
         }
     }
+    @IBOutlet private weak var motherNameTextView: LabelledTextview! {
+        didSet {
+            motherNameTextView.titleLabelText = "Mother Maiden Name *".localized
+            motherNameTextView.placeholderText = "Kaneez Fatima".localized
+            motherNameTextView.autoCapitalizationType = .words
+            motherNameTextView.inputFieldMaxLength = 50
+            motherNameTextView.showHelpBtn = true
+            motherNameTextView.helpLabelText = "Please enter your Full Name as per CNIC/NICOP".localized
+            motherNameTextView.editTextKeyboardType = .asciiCapable
+            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            motherNameTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.motherMaidenName = updatedText
+            }
+            motherNameTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
     @IBOutlet private weak var cnicTextView: LabelledTextview! {
         didSet {
             cnicTextView.titleLabelText = "CNIC/NICOP *".localized
@@ -73,6 +100,44 @@ class RegistrationViewController: BaseViewController {
             }
         }
     }
+    
+    @IBOutlet private weak var cnicIssueDateTextView: LabelledTextview! {
+        didSet {
+            cnicIssueDateTextView.titleLabelText = "CNIC/NICOP Issuance Date *".localized
+            cnicIssueDateTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            cnicIssueDateTextView.showHelpBtn = true
+            cnicIssueDateTextView.helpLabelText = "Please enter your CNIC/NICOP issue date".localized
+            cnicIssueDateTextView.placeholderText = "Select CNIC/NICOP Issue Date".localized
+            cnicIssueDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            cnicIssueDateTextView.inputTextFieldInputPickerView = cnicIssueDatePicker
+            cnicIssueDateTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
+    @IBOutlet private weak var birthPlaceTextView: LabelledTextview! {
+        didSet {
+            birthPlaceTextView.titleLabelText = "Place of Birth *".localized
+            birthPlaceTextView.placeholderText = "Select City".localized
+            birthPlaceTextView.isEditable = false
+            birthPlaceTextView.isTappable = true
+            birthPlaceTextView.showHelpBtn = true
+            birthPlaceTextView.helpLabelText = "Please select your place of birth".localized
+            birthPlaceTextView.editTextKeyboardType = .asciiCapable
+            birthPlaceTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            birthPlaceTextView.onTextFieldTapped = { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.birthPlaceTextFieldTapped()
+            }
+            birthPlaceTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
     @IBOutlet private weak var residentIDTextView: LabelledTextview! {
         didSet {
             residentIDTextView.titleLabelText = "Unique ID *".localized
@@ -244,6 +309,17 @@ class RegistrationViewController: BaseViewController {
         }
     }
 
+    @IBOutlet private weak var codeTextView: CodeLabelledTextView! {
+        didSet {
+            codeTextView.titleLabelText = "Registration Code *".localized
+            codeTextView.showHelpBtn = false
+            codeTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.beneficaryOTP = updatedText ?? ""
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -261,26 +337,6 @@ extension RegistrationViewController {
                 self.showAlert(with: error)
             case .nextButtonState(let enableState):
                 self.registrationCTAButton.isEnabled = enableState
-            case .nameTextField(let errorState, let errorMsg):
-                self.fullNameTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .cnicTextField(let errorState, let errorMsg):
-                self.cnicTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .residentTextField(errorState: let errorState, error: let errorMsg):
-                self.residentIDTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .countryTextField(let errorState, let errorMsg):
-                self.countryTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .mobileNumberTextField(let errorState, let errorMsg):
-                self.mobileNumberTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .emailTextField(let errorState, let errorMsg):
-                self.emailAddressTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .passwordTextField(let errorState, let errorMsg):
-                self.passwordTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .rePasswordTextField(let errorState, let errorMsg):
-                self.reEnterPasswordTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .accountTypeTextField(let errorState, let errorMsg):
-                self.accountTypeTextView.updateStateTo(isError: errorState, error: errorMsg)
-            case .passportTypeTextField(errorState: let errorState, error: let errorMsg):
-                self.passportTypeTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .showPassportNumberField(isVisible: let isVisible):
                 self.passportNumberTextView.isHidden = !isVisible
                 self.passportNumberTextView.inputText = ""
@@ -292,8 +348,8 @@ extension RegistrationViewController {
                 self.passportTypeTextView.inputText = passportType
             case .updateMobileCode(let code, let numberLength):
                 self.mobileNumberTextView.leadingText = code
-                self.mobileNumberTextView.inputFieldMinLength = numberLength
-                self.mobileNumberTextView.inputFieldMaxLength = numberLength
+                self.mobileNumberTextView.inputFieldMinLength = 1
+//                self.mobileNumberTextView.inputFieldMaxLength = numberLength
                 self.mobileNumberTextView.isEditable = true
                 self.mobileNumberTextView.inputText = ""
                 self.mobileNumberTextView.becomeFirstResponder()
@@ -303,21 +359,49 @@ extension RegistrationViewController {
                 self.progressBarView.completedPercentage = toProgress
             case .focusField(let field):
                 self.focus(field: field)
-            case .passportNumberTextField(errorState: let errorState, error: let errorMsg):
-                self.passportNumberTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .showNewFields(isRemitter: let isRemitter):
                 if isRemitter {
                     residentIDTextView.isHidden = false
                     passportTypeTextView.isHidden = false
                     passportNumberTextView.isHidden = false
+                    fullNameTextView.isHidden = false
+                    motherNameTextView.isHidden = false
+                    birthPlaceTextView.isHidden = false
+                    countryTextView.isHidden = false
+                    cnicTextView.isHidden = false
+                    cnicIssueDateTextView.isHidden = false
+                    mobileNumberTextView.isHidden = false
+                    emailAddressTextView.isHidden = false
+                    passwordTextView.isHidden = false
+                    reEnterPasswordTextView.isHidden = false
+                    codeTextView.isHidden = true
                 } else {
                     residentIDTextView.isHidden = true
                     passportTypeTextView.isHidden = true
                     passportNumberTextView.isHidden = true
+                    fullNameTextView.isHidden = true
+                    motherNameTextView.isHidden = true
+                    birthPlaceTextView.isHidden = true
+                    countryTextView.isHidden = true
+                    cnicTextView.isHidden = false
+                    cnicIssueDateTextView.isHidden = true
+                    mobileNumberTextView.isHidden = true
+                    emailAddressTextView.isHidden = true
+                    passwordTextView.isHidden = true
+                    reEnterPasswordTextView.isHidden = true
+                    codeTextView.isHidden = false
                 }
-            case .showRemitterPopup(viewModel: let viewModel):
+            case .showRemitterPopup(viewModel: _):
                 ()
 //                self.showAlert(with: viewModel)
+            case .updateCnicIssueDate(dateStr: let dateStr):
+                self.cnicIssueDateTextView.inputText = dateStr
+            case .textField(errorState: let errorState, error: let error, textfieldType: let type):
+                self.setTextFieldErrorState(state: errorState, message: error, textfield: type)
+            case .updateBirthPlace(name: let name):
+                self.birthPlaceTextView.inputText = name
+            case .showActivityIndicator(show: let show):
+                show ? ProgressHUD.show() : ProgressHUD.dismiss()
             }
         }
     }
@@ -330,19 +414,68 @@ extension RegistrationViewController {
             cnicTextView.becomeFirstResponder()
         case .residentID:
             residentIDTextView.becomeFirstResponder()
-        case .mobile:
+        case .mobileNumber:
             mobileNumberTextView.becomeFirstResponder()
-        case .email:
+        case .emailAddress:
             emailAddressTextView.becomeFirstResponder()
         case .password:
             passwordTextView.becomeFirstResponder()
-        case .rePassword:
+        case .confirmPassword:
             reEnterPasswordTextView.becomeFirstResponder()
         case .passportNumber:
             passportNumberTextView.becomeFirstResponder()
+        case .userType:
+            accountTypeTextView.becomeFirstResponder()
+        case .motherName:
+            motherNameTextView.becomeFirstResponder()
+        case .birthPlace:
+            birthPlaceTextView.becomeFirstResponder()
+        case .countryOfResidence:
+            countryTextView.becomeFirstResponder()
+        case .cnicIssueDate:
+            cnicIssueDateTextView.becomeFirstResponder()
+        case .passportType:
+            passportTypeTextView.becomeFirstResponder()
+        case .beneficiaryOtp:
+            codeTextView.becomeFirstResponder()
         }
     }
 
+    private func setTextFieldErrorState(state: Bool, message: String?, textfield: RegistrationViewModel.RegistrationFormInputFieldType) {
+        switch textfield {
+        case .userType:
+            self.accountTypeTextView.updateStateTo(isError: state, error: message)
+        case .fullName:
+            self.fullNameTextView.updateStateTo(isError: state, error: message)
+        case .motherName:
+            self.motherNameTextView.updateStateTo(isError: state, error: message)
+        case .birthPlace:
+            self.birthPlaceTextView.updateStateTo(isError: state, error: message)
+        case .countryOfResidence:
+            self.countryTextView.updateStateTo(isError: state, error: message)
+        case .cnic:
+            self.cnicTextView.updateStateTo(isError: state, error: message)
+        case .cnicIssueDate:
+            self.cnicIssueDateTextView.updateStateTo(isError: state, error: message)
+        case .passportType:
+            self.passportTypeTextView.updateStateTo(isError: state, error: message)
+        case .passportNumber:
+            self.passportNumberTextView.updateStateTo(isError: state, error: message)
+        case .residentID:
+            self.residentIDTextView.updateStateTo(isError: state, error: message)
+        case .mobileNumber:
+            self.mobileNumberTextView.updateStateTo(isError: state, error: message)
+        case .emailAddress:
+            self.emailAddressTextView.updateStateTo(isError: state, error: message)
+        case .password:
+            self.passwordTextView.updateStateTo(isError: state, error: message)
+        case .confirmPassword:
+            self.reEnterPasswordTextView.updateStateTo(isError: state, error: message)
+        case .beneficiaryOtp:
+            self.codeTextView.updateStateTo(isError: state, error: message)
+        }
+    }
+    
     private func setupView() {
         self.title = "Register an account".localized
     }
@@ -386,6 +519,19 @@ extension RegistrationViewController: ItemPickerViewDelegate {
             viewModel.didSelect(accountType: selectedItem as? AccountTypePickerItemModel)
         }
         self.view.endEditing(true)
+    }
+}
+
+extension RegistrationViewController: CustomDatePickerViewDelegate {
+
+    func didTapDoneButton(picker: CustomDatePickerView, date: Date) {
+        self.view.endEditing(true)
+        switch picker {
+        case self.cnicIssueDatePicker:
+            self.viewModel.cnicIssueDate = date
+        default:
+            break
+        }
     }
 }
 

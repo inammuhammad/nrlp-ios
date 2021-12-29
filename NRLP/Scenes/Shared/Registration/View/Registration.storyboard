@@ -28,54 +28,70 @@
                                 <rect key="frame" x="0.0" y="124" width="414" height="722"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="HpU-zn-0Hd">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="1680"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="2246"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WN1-DC-lFp" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o8h-yB-JQB" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="152" width="382" height="128"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sl1-tH-EOH" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="304" width="382" height="86"/>
+                                                <rect key="frame" x="0.0" y="152" width="382" height="86"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4J-u6-egL" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="414" width="382" height="128"/>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rla-H3-0c8" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="262" width="382" height="86"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8pt-ko-kIf" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="372" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o8h-yB-JQB" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="524" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MvI-tl-2wA" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="566" width="382" height="128"/>
+                                                <rect key="frame" x="0.0" y="676" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqG-lF-8SI" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="828" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ydx-BP-3L5" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="718" width="382" height="128"/>
+                                                <rect key="frame" x="0.0" y="980" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pmZ-1e-aEI" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="870" width="382" height="128"/>
+                                                <rect key="frame" x="0.0" y="1132" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CW5-BJ-sdu" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1022" width="382" height="128"/>
+                                                <rect key="frame" x="0.0" y="1284" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I4J-u6-egL" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="1436" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mpd-FN-7Ho" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1174" width="382" height="128"/>
+                                                <rect key="frame" x="0.0" y="1588" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EFw-ye-WUW" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1326" width="382" height="128"/>
+                                                <rect key="frame" x="0.0" y="1740" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gb1-69-Ee7" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1478" width="382" height="128"/>
+                                                <rect key="frame" x="0.0" y="1892" width="382" height="128"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1TG-i5-fgw" customClass="CodeLabelledTextView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="2044" width="382" height="128"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cks-lE-QiK" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="1630" width="382" height="50"/>
+                                                <rect key="frame" x="0.0" y="2196" width="382" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="u2W-94-pZ5"/>
                                                 </constraints>
@@ -110,11 +126,15 @@
                     </view>
                     <connections>
                         <outlet property="accountTypeTextView" destination="WN1-DC-lFp" id="bbE-dE-pj9"/>
+                        <outlet property="birthPlaceTextView" destination="8pt-ko-kIf" id="zbG-tt-FbV"/>
+                        <outlet property="cnicIssueDateTextView" destination="nqG-lF-8SI" id="d8A-Nw-bhg"/>
                         <outlet property="cnicTextView" destination="MvI-tl-2wA" id="u8m-WJ-ZWN"/>
+                        <outlet property="codeTextView" destination="1TG-i5-fgw" id="uOh-ds-Kd4"/>
                         <outlet property="countryTextView" destination="o8h-yB-JQB" id="vSF-93-LEP"/>
                         <outlet property="emailAddressTextView" destination="mpd-FN-7Ho" id="e4p-Cx-99d"/>
                         <outlet property="fullNameTextView" destination="sl1-tH-EOH" id="hI8-87-TiG"/>
                         <outlet property="mobileNumberTextView" destination="I4J-u6-egL" id="AUq-Zu-xjl"/>
+                        <outlet property="motherNameTextView" destination="Rla-H3-0c8" id="xum-z6-raq"/>
                         <outlet property="passportNumberTextView" destination="pmZ-1e-aEI" id="Swh-NF-76c"/>
                         <outlet property="passportTypeTextView" destination="Ydx-BP-3L5" id="X9T-hr-hxr"/>
                         <outlet property="passwordTextView" destination="EFw-ye-WUW" id="E65-9D-HbP"/>
