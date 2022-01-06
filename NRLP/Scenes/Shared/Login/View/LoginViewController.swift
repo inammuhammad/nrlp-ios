@@ -119,7 +119,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             complaintBtn.titleLabelText = "Complaints".localized
             complaintBtn.image = UIImage(named: "complaints")
             complaintBtn.onTapped = {
-                self.viewModel.complaintsButtonPressed()
+                self.showAlert(with: AlertViewModel(alertHeadingImage: .comingSoon, alertTitle: "Coming Soon".localized, alertDescription: "This feature is coming very soon".localized, alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil), secondaryButton: nil))
+//                self.viewModel.complaintsButtonPressed()
             }
         }
     }

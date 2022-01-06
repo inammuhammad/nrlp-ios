@@ -217,7 +217,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
     
     func sendOtp() {
         self.output?(.showActivityIndicator(show: true))
-        userProfileService.updateUserSendOTP(requestModel: UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID(), country: self.country?.country)) {[weak self] (result) in
+        userProfileService.updateUserSendOTP(requestModel: UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportNumber: getPassportNumber(), passportType: getPassportType(), residentID: getResidentID(), country: getCountry())) {[weak self] (result) in
             guard let self = self else { return }
             self.output?(.showActivityIndicator(show: false))
             switch result {
@@ -230,13 +230,13 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func moveToOTPScreen() {
-        let requestModel = UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID(), country: self.country?.country)
+        let requestModel = UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportNumber: getPassportNumber(), passportType: getPassportType(), residentID: getResidentID(), country: getCountry())
         let model = ProfileUpdateModel(profileUpdateRequestModel: requestModel, userModel: user)
         router.navigateToOTPScreen(model: model)
     }
     
     func getRequestModel() -> UpdateProfileSendOTPRequestModel {
-        return UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportType: getPassportType(), passportNumber: getPassportNumber(), residentID: getResidentID(), country: self.country?.country)
+        return UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: getNumber(), passportNumber: getPassportNumber(), passportType: getPassportType(), residentID: getResidentID(), country: getCountry())
     }
     
     func moveToSuccessScreen() {
@@ -261,6 +261,14 @@ class ProfileViewModel: ProfileViewModelProtocol {
         }
     }
     
+    func getCountry() -> String? {
+        let country = self.country?.country ?? ""
+        if country == user.countryName {
+            return nil
+        }
+        return country
+    }
+    
     func getEmail() -> String? {
         var usrEmail = email
         usrEmail = usrEmail == user.email ? nil : usrEmail
@@ -269,20 +277,23 @@ class ProfileViewModel: ProfileViewModelProtocol {
     
     func getResidentID() -> String? {
         var usrResidentID = residentID
-        usrResidentID = usrResidentID == user.residentID ? "-" : usrResidentID
+        usrResidentID = usrResidentID == user.residentID ? nil : usrResidentID
         return usrResidentID
     }
     
     func getPassportNumber() -> String? {
         var usrPassportNumber = passportNumber
-        usrPassportNumber = usrPassportNumber == user.passportNumber ? "-" : usrPassportNumber
+        usrPassportNumber = usrPassportNumber == user.passportNumber ? nil : usrPassportNumber
         return usrPassportNumber
     }
     
     func getPassportType() -> String? {
         let usrPassportType = passportType?.rawValue
-        if user.passportNumber == passportNumber {
-           return ""
+        if user.passportType == self.passportType {
+           return nil
+        }
+        if user.passportNumber == self.passportNumber {
+            return ""
         }
         return usrPassportType
     }

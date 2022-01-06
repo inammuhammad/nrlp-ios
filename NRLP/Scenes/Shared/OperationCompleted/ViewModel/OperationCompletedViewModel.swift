@@ -19,10 +19,11 @@ enum OperationCompletedType {
     case profileUpdateCompleted
     case selfAwardCompleted(message: String)
     case redemptionSuccessful(message: String)
+    case nadraVerification
 
     func getIllustrationName() -> String {
         switch self {
-        case .registrationCompleted, .transferCompleted, .loyaltyRedeemCompleted, .forgetPassword, .changePassword, .profileUpdateCompleted, .loyaltyStatement, .selfAwardCompleted, .redemptionSuccessful:
+        case .registrationCompleted, .transferCompleted, .loyaltyRedeemCompleted, .forgetPassword, .changePassword, .profileUpdateCompleted, .loyaltyStatement, .selfAwardCompleted, .redemptionSuccessful, .nadraVerification:
             return "successIcon"
         }
     }
@@ -47,6 +48,8 @@ enum OperationCompletedType {
             return "Points Awarded".localized
         case .redemptionSuccessful:
             return "Redemption Successful".localized
+        case .nadraVerification:
+            return "Nadra Verification".localized
         }
     }
 
@@ -76,6 +79,8 @@ enum OperationCompletedType {
             result = message
         case .redemptionSuccessful(message: let message):
             result = message
+        case .nadraVerification:
+            result = "Thank you for providing information, you will be notified with the verification status via SMS within 5 working days".localized
         default:
             result = ""
         }
@@ -90,7 +95,7 @@ enum OperationCompletedType {
         switch self {
         case .forgetPassword:
             return "Go to Login".localized
-        case .transferCompleted, .registrationCompleted, .changePassword, .loyaltyRedeemCompleted, .profileUpdateCompleted, .loyaltyStatement, .selfAwardCompleted, .redemptionSuccessful:
+        case .transferCompleted, .registrationCompleted, .changePassword, .loyaltyRedeemCompleted, .profileUpdateCompleted, .loyaltyStatement, .selfAwardCompleted, .redemptionSuccessful, .nadraVerification:
             return "Done".localized
         }
     }

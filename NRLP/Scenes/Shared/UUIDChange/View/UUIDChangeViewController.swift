@@ -93,7 +93,7 @@ class UUIDChangeViewController: BaseViewController {
 
     private func setupView() {
         self.title = "Device Change".localized
-        headerLabel.text = "We have sent you a code on your registered Mobile number. Please enter the code below.".localized
+        headerLabel.text = "We have sent you OTP on your registered mobile number, please enter the OTP below".localized
 
         setupPinCodeFields()
         enableOTP(state: false)

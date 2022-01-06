@@ -33,7 +33,7 @@ class ProfileOTPViewController: BaseViewController {
     @IBOutlet private var codeTextFields: [CodeVerifyTextField]!
     @IBOutlet private weak var headerLabel: UILabel! {
         didSet {
-            headerLabel.text = String(format: "We have sent you a code on your phone number  %@".localized, viewModel.localizedFormattedNumber) 
+            headerLabel.text = "We have sent you OTP on your registered mobile number, please enter the OTP below".localized
             headerLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
         }
     }

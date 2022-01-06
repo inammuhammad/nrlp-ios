@@ -21,10 +21,14 @@ protocol HomeViewModelProtocol {
     func getItem(at index: Int) -> HomeCollectionViewCellDataModelProtocol
     func didTapItem(at index: Int)
     func didTapSideMenu(item: SideMenuItem)
+    func getUserModel() -> UserModel
 }
 
 class HomeViewModel: HomeViewModelProtocol {
-
+    func getUserModel() -> UserModel {
+        return userModel
+    }
+    
     var getTitleName: String {
         return userModel.fullName
     }
@@ -37,7 +41,7 @@ class HomeViewModel: HomeViewModelProtocol {
     private var logoutService: LogoutServiceProtocol
     internal var collectionViewItemData: [HomeCollectionViewCellDataModelProtocol] = []
 
-    private(set) var userModel: UserModel
+    var userModel: UserModel
 
     init(with userModel: UserModel,
          router: HomeRouter,
@@ -64,6 +68,7 @@ class HomeViewModel: HomeViewModelProtocol {
             case .success(let response):
                 if let data = response.data {
                     self?.userModel.update(from: data)
+                    self?.checkNadraVerificationStatus()
                     self?.setupCollectionViewData()
                     self?.output?(.reloadCollectionView)
                 }
@@ -109,8 +114,8 @@ class HomeViewModel: HomeViewModelProtocol {
             router.navigateToProfile()
         case .contactUs:
             router.navigateToContactUs()
-        case .complaint:
-            ()
+//        case .complaint:
+//            ()
         case .guide:
             router.navigateToGuide(link: "https://www.youtube.com/playlist?list=PLFB-5JvOR9rAvAGK6YzQmxXvFiUWn48vY") { errorText in
                 let errorModel = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: StringConstants.ErrorString.serverErrorTitle.localized, alertDescription: errorText, primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil))
@@ -138,6 +143,12 @@ class HomeViewModel: HomeViewModelProtocol {
 
     func didTapLogout() {
         output?(.showError(error: .internetOffline))
+    }
+    
+    private func checkNadraVerificationStatus() {
+        if userModel.requiresNadraVerification ?? false {
+            router.navigateToNadraVerificationScreen(userModel: self.userModel)
+        }
     }
 
     enum Output {

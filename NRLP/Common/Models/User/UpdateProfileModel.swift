@@ -55,16 +55,16 @@ struct UpdateProfileRequestModel: Codable {
 struct UpdateProfileSendOTPRequestModel: Codable {
     let email: String?
     let mobileNumber: String?
-    let passportType: String?
     let passportNumber: String?
+    let passportType: String?
     let residentID: String?
     let country: String?
     
     enum CodingKeys: String, CodingKey {
         case email
         case mobileNumber = "mobile_no"
-        case passportType = "passport_type"
         case passportNumber = "passport_id"
+        case passportType = "passport_type"
         case residentID = "resident_id"
         case country = "country"
     }
@@ -73,8 +73,8 @@ struct UpdateProfileSendOTPRequestModel: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(email?.aesEncrypted(), forKey: .email)
         try container.encodeIfPresent(mobileNumber, forKey: .mobileNumber)
-        try container.encodeIfPresent(passportType, forKey: .passportType)
         try container.encodeIfPresent(passportNumber?.aesEncrypted(), forKey: .passportNumber)
+        try container.encodeIfPresent(passportType, forKey: .passportType)
         try container.encodeIfPresent(residentID?.aesEncrypted(), forKey: .residentID)
         try container.encodeIfPresent(country, forKey: .country)
     }
@@ -83,7 +83,6 @@ struct UpdateProfileSendOTPRequestModel: Codable {
 struct UpdateProfileSendOTPResponseModel: Codable {
     let message: String
 }
-
 
 // Verify OTP Service
 struct SelfAwardVerifyOTPRequestModel: Codable {

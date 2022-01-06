@@ -29,6 +29,17 @@ struct UserModel: Codable {
     var residentID: String?
     var passportTypeValue: String?
     
+    var birthPlace: String?
+    var motherMaidenName: String?
+    var cnicIssueDateStr: String?
+    private var nadraVerifiedStr: String
+    
+    var requiresNadraVerification: Bool?
+    
+    var nadraVerified: NadraTypes? {
+        return NadraTypes(rawValue: nadraVerifiedStr.lowercased())
+    }
+    
     var passportType: PassportType? {
         if let type = passportTypeValue {
             return PassportType(rawValue: type)
@@ -63,6 +74,10 @@ struct UserModel: Codable {
     var formattedUsdBalance: String {
         return CurrencyFormatter().format(string: usdBalance ?? "0.0")
     }
+    
+    var formattedCnicIssueDate: String {
+        return DateFormat().formatDateString(dateString: cnicIssueDateStr ?? "", fromFormat: .dateTimeMilis, toFormat: .shortDateFormat) ?? ""
+    }
 
     enum CodingKeys: String, CodingKey {
         case type = "user_type"
@@ -84,6 +99,11 @@ struct UserModel: Codable {
         case usdBalance = "usd_balance"
         case memberSince = "member_since"
         case countryName = "country"
+        case birthPlace = "place_of_birth"
+        case motherMaidenName = "mother_maiden_name"
+        case cnicIssueDateStr = "cnic_nicop_issuance_date"
+        case nadraVerifiedStr = "nadra_verified"
+        case requiresNadraVerification = "require_nadra_verification"
     }
     
     init() {
@@ -106,6 +126,11 @@ struct UserModel: Codable {
         self.usdBalance = ""
         self.memberSince = ""
         self.countryName = ""
+        self.birthPlace = ""
+        self.motherMaidenName = ""
+        self.cnicIssueDateStr = ""
+        self.nadraVerifiedStr = ""
+        self.requiresNadraVerification = false
     }
 
     mutating func update(from userModel: UserModel) {
@@ -128,5 +153,37 @@ struct UserModel: Codable {
         self.memberSince = userModel.memberSince ?? memberSince
         self.usdBalance = userModel.usdBalance ?? usdBalance
         self.countryName = userModel.countryName ?? countryName
+        self.birthPlace = userModel.birthPlace ?? birthPlace
+        self.motherMaidenName = userModel.motherMaidenName ?? motherMaidenName
+        self.cnicIssueDateStr = userModel.cnicIssueDateStr
+        self.nadraVerifiedStr = userModel.nadraVerifiedStr
+        self.requiresNadraVerification = userModel.requiresNadraVerification ?? requiresNadraVerification
     }
+    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        self.requiresNadraVerification = try container.decodeIfPresent(Bool.self, forKey: .requiresNadraVerification)
+//        self.type = try container.decodeIfPresent(String.self, forKey: .type)
+//        self.cnicNicop = try container.decodeIfPresent(Int.self, forKey: .cnicNicop) ?? 0
+//        self.fullName = try container.decodeIfPresent(String.self, forKey: .fullName) ?? ""
+//        self.points = try container.decodeIfPresent(String.self, forKey: .points)
+//        self.currentPointsBalance = try container.decodeIfPresent(String.self, forKey: .currentPointsBalance)
+//        self.mobileNo = try container.decodeIfPresent(String.self, forKey: .mobileNo)
+//        self.id = try container.decodeIfPresent(Int.self, forKey: .id) ?? 0
+//        self.email = try container.decodeIfPresent(String.self, forKey: .email)
+//        self.loyaltyType = try container.decodeIfPresent(String.self, forKey: .loyaltyType) ?? ""
+//        self.createdAt = try container.decodeIfPresent(String.self, forKey: .createdAt)
+//        self.updatedAt = try container.decodeIfPresent(String.self, forKey: .updatedAt)
+//        self.residentID = try container.decodeIfPresent(String.self, forKey: .residentID)
+//        self.passportTypeValue = try container.decodeIfPresent(String.self, forKey: .passportTypeValue)
+//        self.passportNumber = try container.decodeIfPresent(String.self, forKey: .passportNumber)
+//        self.memberSince = try container.decodeIfPresent(String.self, forKey: .memberSince)
+//        self.usdBalance = try container.decodeIfPresent(String.self, forKey: .usdBalance)
+//        self.countryName = try container.decodeIfPresent(String.self, forKey: .countryName)
+//        self.birthPlace = try container.decodeIfPresent(String.self, forKey: .birthPlace)
+//        self.motherMaidenName = try container.decodeIfPresent(String.self, forKey: .motherMaidenName)
+//        self.cnicIssueDateStr = try container.decodeIfPresent(String.self, forKey: .cnicIssueDateStr)
+//        self.nadraVerifiedStr = try container.decodeIfPresent(String.self, forKey: .nadraVerifiedStr) ?? ""
+//
+//    }
 }

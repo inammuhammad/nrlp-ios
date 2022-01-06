@@ -33,7 +33,7 @@ class SideMenuViewController: BaseViewController {
             sideMenuTopView.backgroundColor = UIColor.init(commonColor: .appBottomBorderViewShadow)
         }
     }
-    @IBOutlet private weak var tableView: UITableView! {
+    @IBOutlet weak var tableView: UITableView! {
         didSet {
             setupTableView()
         }

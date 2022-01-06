@@ -34,6 +34,27 @@ class ProfileViewController: BaseViewController {
         }
     }
     
+    @IBOutlet private weak var motherNameTextView: LabelledTextview! {
+        didSet {
+            motherNameTextView.titleLabelText = "Mother Maiden Name".localized
+            motherNameTextView.placeholderText = "Kaneez Fatima".localized
+            motherNameTextView.autoCapitalizationType = .words
+            motherNameTextView.inputFieldMaxLength = 50
+            motherNameTextView.isEditable = false
+            motherNameTextView.editTextKeyboardType = .asciiCapable
+            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+        }
+    }
+    
+    @IBOutlet private weak var birthPlaceTextView: LabelledTextview! {
+        didSet {
+            birthPlaceTextView.titleLabelText = "Place of Birth".localized
+            birthPlaceTextView.placeholderText = "Select City".localized
+            birthPlaceTextView.isEditable = false
+            birthPlaceTextView.editTextKeyboardType = .asciiCapable
+        }
+    }
+    
     @IBOutlet private weak var cnicTextView: LabelledTextview! {
         didSet {
             cnicTextView.titleLabelText = "CNIC/NICOP".localized
@@ -42,6 +63,15 @@ class ProfileViewController: BaseViewController {
             cnicTextView.formatter = CNICFormatter()
             cnicTextView.isEditable = false
             cnicTextView.formatValidator = FormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
+        }
+    }
+    
+    @IBOutlet private weak var cnicIssueDateTextView: LabelledTextview! {
+        didSet {
+            cnicIssueDateTextView.titleLabelText = "CNIC/NICOP Issuance Date".localized
+            cnicIssueDateTextView.placeholderText = "Select CNIC/NICOP Issue Date".localized
+            cnicIssueDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            cnicIssueDateTextView.isEditable = false
         }
     }
     
@@ -266,6 +296,7 @@ extension ProfileViewController {
             self.passportNumberTextView.isHidden = true
             self.passportTypeTextView.isHidden = true
             self.residentIDTextView.isHidden = true
+            self.motherNameTextView.isHidden = true
             isBeneficiary = true
         }
         fullNameTextView.inputText = user.fullName
@@ -274,6 +305,9 @@ extension ProfileViewController {
         passportTypeTextView.inputText = user.passportType?.rawValue.capitalized
         passportNumberTextView.inputText = user.passportNumber
         residentIDTextView.inputText = user.residentID
+        motherNameTextView.inputText = user.motherMaidenName
+        birthPlaceTextView.inputText = user.birthPlace
+        cnicIssueDateTextView.inputText = user.formattedCnicIssueDate
     }
     
     @IBAction func cancelButtonPressed(_ sender: SecondaryCTAButton) {

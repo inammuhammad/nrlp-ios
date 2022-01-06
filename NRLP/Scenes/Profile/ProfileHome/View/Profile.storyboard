@@ -12,7 +12,7 @@
         <!--Profile View Controller-->
         <scene sceneID="V5H-9X-bvr">
             <objects>
-                <viewController storyboardIdentifier="ProfileViewController" id="dLI-el-daa" customClass="ProfileViewController" customModule="NRLP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="dLI-el-daa" customClass="ProfileViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="04F-fQ-5Jr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,59 +21,80 @@
                                 <rect key="frame" x="0.0" y="76" width="414" height="692"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="VKT-vp-8rB">
-                                        <rect key="frame" x="16" y="0.0" width="382" height="808"/>
+                                        <rect key="frame" x="16" y="0.0" width="382" height="1120"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQg-nf-WMH" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQg-nf-WMH" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="61a-gw-WYY"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT7-Wx-Wxc" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6jV-8g-RV7" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="104" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="WK9-2Y-TIV"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bbT-3O-BlN" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="208" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="dPW-at-O05"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bT7-Wx-Wxc" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="312" width="382" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="Ixj-eh-efp"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhF-yp-PDe" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="208" width="382" height="80"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6k-rD-2Lw" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="416" width="382" height="80"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="xMQ-5Q-XiB"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QhF-yp-PDe" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="520" width="382" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="hBM-DT-iFb"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3TD-HE-dZe" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="312" width="382" height="80"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3TD-HE-dZe" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="624" width="382" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="aA8-Ux-Smk"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygs-g8-hEO" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="416" width="382" height="80"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ygs-g8-hEO" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="728" width="382" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="z4H-PK-Q6e"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQt-FV-kLs" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="520" width="382" height="80"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQt-FV-kLs" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="832" width="382" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="sWG-vL-LAn"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXC-Fl-0t8" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="624" width="382" height="80"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXC-Fl-0t8" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="936" width="382" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="bZE-rt-0kR"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wa2-LU-bWX" customClass="LabelledTextview" customModule="NRLP" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="728" width="382" height="80"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wa2-LU-bWX" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="1040" width="382" height="80"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="Psr-7y-X5F"/>
@@ -93,7 +114,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qEs-L9-d3d">
                                 <rect key="frame" x="16" y="792" width="382" height="50"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-bq-9n6" customClass="SecondaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAn-bq-9n6" customClass="SecondaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="gSv-Qg-sGc"/>
@@ -103,7 +124,7 @@
                                             <action selector="cancelButtonPressed:" destination="dLI-el-daa" eventType="touchUpInside" id="Lyi-fS-gYx"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dan-V4-ZQQ" customClass="PrimaryCTAButton" customModule="NRLP" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dan-V4-ZQQ" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Vet-s0-3Oi"/>
@@ -129,14 +150,17 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="birthPlaceTextView" destination="bbT-3O-BlN" id="icn-kd-iBC"/>
                         <outlet property="bottomCTAButtonStack" destination="qEs-L9-d3d" id="s3K-4w-dzW"/>
                         <outlet property="cancelButton" destination="iAn-bq-9n6" id="SdO-em-1ZU"/>
+                        <outlet property="cnicIssueDateTextView" destination="j6k-rD-2Lw" id="D4O-fp-Gdz"/>
                         <outlet property="cnicTextView" destination="bT7-Wx-Wxc" id="ymh-Vp-w9H"/>
                         <outlet property="countryTextView" destination="hXC-Fl-0t8" id="UGM-yY-MXq"/>
                         <outlet property="editButton" destination="dan-V4-ZQQ" id="iWp-l2-zlT"/>
                         <outlet property="emailTextView" destination="ZQt-FV-kLs" id="Yhh-Ua-sLb"/>
                         <outlet property="fullNameTextView" destination="tQg-nf-WMH" id="hKj-By-rrs"/>
                         <outlet property="mobileTextView" destination="Wa2-LU-bWX" id="h5g-A7-rd2"/>
+                        <outlet property="motherNameTextView" destination="6jV-8g-RV7" id="IUd-y1-1AH"/>
                         <outlet property="passportNumberTextView" destination="Ygs-g8-hEO" id="Ral-RU-xtk"/>
                         <outlet property="passportTypeTextView" destination="3TD-HE-dZe" id="JkS-Eb-CwL"/>
                         <outlet property="residentIDTextView" destination="QhF-yp-PDe" id="8Wf-40-Jgu"/>

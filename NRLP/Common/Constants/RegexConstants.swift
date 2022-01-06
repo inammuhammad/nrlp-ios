@@ -20,7 +20,7 @@ struct RegexConstants {
     static let registrationCodeRegex = "^([a-zA-Z0-9_-]){5,}$"
     static let referenceNumberRegex = "^(\\S{1,25})$"
     static let transactionAmountRegex = "^\\d*\\.?\\d*$"
-    static let mobileNumberRegex = "^\\+?[1-9]\\d{1,}$"
+    static let mobileNumberRegex = "^[0-9]+$"
     static let otpValidateRegex = "^[0-9]*$"
     static let loyaltyPointsRegex = "^\\d{1,13}$"
     static let agentPointsRegex = "^[a-zA-Z0-9_]{6}$"

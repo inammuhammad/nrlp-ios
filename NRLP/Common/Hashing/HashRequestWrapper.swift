@@ -16,6 +16,7 @@ struct HashRequestWrapper<T: Encodable>: Encodable {
         self.payload = payload
         if let payloadDictionary = try? payload.asDictionary(), let data =  payloadDictionary.json().data(using: .utf8) {
             hash = data.sha256.aesEncrypted()
+            print(data.sha256)
         } else {
             hash = ""
         }

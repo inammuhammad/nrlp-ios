@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HPSimplified-bold.ttf">
+            <string>HPSimplified-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Nadra Verification View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="NadraVerificationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="NadraVerificationViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HcH-Px-CQF">
+                                <rect key="frame" x="52" y="94" width="310.5" height="167"/>
+                                <string key="text">Dear Customer,
+Your NADRA Verification is required to proceed further.
+Please click  accept for verification 
+</string>
+                                <fontDescription key="fontDescription" name="HPSimplified-Bold" family="HP Simplified" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="gF9-Ed-rnF">
+                                <rect key="frame" x="20" y="762" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1l-t4-UDT" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hEp-0Y-sJS"/>
+                                        </constraints>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ppu-Fb-vpd"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eCA-Wa-tPa" customClass="SecondaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="204" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="iPd-9Y-mk4"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lUk-Fm-DLd"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eCA-Wa-tPa" firstAttribute="width" secondItem="A1l-t4-UDT" secondAttribute="width" id="b2O-cz-yrF"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gF9-Ed-rnF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Cct-I4-EHZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="gF9-Ed-rnF" secondAttribute="bottom" constant="50" id="Iq0-6T-HLW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gF9-Ed-rnF" secondAttribute="trailing" constant="20" id="KpI-03-d8R"/>
+                            <constraint firstItem="HcH-Px-CQF" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Q22-tD-ReR"/>
+                            <constraint firstItem="HcH-Px-CQF" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="XOr-aB-5yh"/>
+                            <constraint firstItem="HcH-Px-CQF" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.75" id="meg-c7-95D"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="eCA-Wa-tPa" id="Z3u-Mo-tE6"/>
+                        <outlet property="nextBtn" destination="A1l-t4-UDT" id="Jci-uf-b0l"/>
+                        <outlet property="titleLbl" destination="HcH-Px-CQF" id="YU9-xt-4yc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="106"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="A1l-t4-UDT">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+        <designable name="eCA-Wa-tPa">
+            <size key="intrinsicContentSize" width="48" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

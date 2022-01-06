@@ -78,8 +78,13 @@ final class APIRequestHeader {
     }
     
     private func getDeviceID(encryptyHeader: Bool) -> String {
-        let deviceID = UIDevice.current.identifierForVendor?.uuidString ?? ""
-        return encryptyHeader ? deviceID.aesEncrypted() : deviceID
+        if let deviceID = Defaults.persistanUUID {
+            return encryptyHeader ? deviceID.aesEncrypted() : deviceID
+        } else {
+            let newID = NSUUID().uuidString
+            Defaults.persistanUUID = newID
+            return encryptyHeader ? newID.aesEncrypted() : newID
+        }
     }
     
     private func getApplicationVersion(encryptyHeader: Bool) -> String {
@@ -95,6 +100,7 @@ final class APIRequestHeader {
         }
         if encryptionStatus != .openApis {
             if encryptionStatus == .allEncrypted {
+                
                 headers["device_id"] = getDeviceID(encryptyHeader: true)
             }
             headers["application_version"] = getApplicationVersion(encryptyHeader: encryptionStatus == .allEncrypted)

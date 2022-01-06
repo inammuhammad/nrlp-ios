@@ -27,7 +27,7 @@ class ForgotPasswordOTPViewController: BaseViewController {
     @IBOutlet private weak var headerLabel: UILabel! {
         didSet {
             headerLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
-            headerLabel.text = "We have sent you a code on your registered Mobile number. Please enter the code below.".localized
+            headerLabel.text = "We have sent you OTP on your registered mobile number, please enter the OTP below".localized
         }
     }
     @IBOutlet private weak var codeExpireTimerLabel: UILabel! {

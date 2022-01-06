@@ -72,7 +72,7 @@ class ProfileOTPViewModel: NRLPOTPViewModel, ProfileOTPViewModelProtocol {
     }
     
     private func getResendOtpRequestModel() -> UpdateProfileSendOTPRequestModel {
-        return UpdateProfileSendOTPRequestModel(email: model.profileUpdateRequestModel.email, mobileNumber: model.profileUpdateRequestModel.mobileNumber, passportType: model.profileUpdateRequestModel.passportType, passportNumber: model.profileUpdateRequestModel.passportNumber, residentID: model.profileUpdateRequestModel.residentID, country: model.profileUpdateRequestModel.country)
+        return UpdateProfileSendOTPRequestModel(email: model.profileUpdateRequestModel.email, mobileNumber: model.profileUpdateRequestModel.mobileNumber, passportNumber: model.profileUpdateRequestModel.passportNumber, passportType: model.profileUpdateRequestModel.passportType, residentID: model.profileUpdateRequestModel.residentID, country: model.profileUpdateRequestModel.country)
     }
     
     func getNumber() -> String {

@@ -72,5 +72,7 @@ extension UIStoryboard {
         case block = "Block"
         case beneficiaryForm = "BeneficiaryForm"
         case cityList = "CityList"
+        case nadraVerification = "NadraVerification"
+        case nadraVerificationForm = "NadraVerificationForm"
     }
 }

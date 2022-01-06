@@ -28,7 +28,7 @@ class BaseNavigationController: UINavigationController {
 
     func setupNavigationBarStyle() {
         self.navigationBar.barTintColor = .white
-        self.navigationBar.isTranslucent = false
+        self.navigationBar.isTranslucent = true
     }
 
     func hideShadow() {

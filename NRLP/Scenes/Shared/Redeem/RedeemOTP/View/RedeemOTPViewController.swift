@@ -90,7 +90,7 @@ class RedeemOTPViewController: BaseViewController {
     
     private func setupView() {
         self.title = "OTP Verification".localized
-        headerLabel.text = String(format: "We have sent you a code on your Mobile number %@. Please enter the code below.".localized, viewModel.formattedNumber)
+        headerLabel.text = "We have sent you OTP on your registered mobile number, please enter the OTP below".localized
         
         viewModel.viewDidLoad()
         setupPinCodeFields()

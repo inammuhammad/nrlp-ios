@@ -100,7 +100,13 @@ private final class AES256Configuration {
     }
     
     var deviceID: String {
-        return UIDevice.current.identifierForVendor?.uuidString ?? ""
+        if let deviceID = Defaults.persistanUUID {
+            return deviceID
+        } else {
+            let newID = NSUUID().uuidString
+            Defaults.persistanUUID = newID
+            return newID
+        }
     }
     
     func setIV(iv: String) {
