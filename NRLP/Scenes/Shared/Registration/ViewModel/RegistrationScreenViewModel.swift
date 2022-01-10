@@ -102,7 +102,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         }
     }
     
-    var birthPlace: Cities? {
+    var birthPlace: String? {
         didSet {
             validateRequiredFields()
         }
@@ -191,7 +191,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
             return
         }
         let finalMobile = (country?.code ?? "") + (mobileNumber ?? "-")
-        var registerModel = RegisterRequestModel(accountType: accountType?.rawValue ?? "-", cnicNicop: cnic ?? "-", email: email ?? "-", fullName: name ?? "-", mobileNo: finalMobile, paassword: paassword ?? "-", passportType: passportType?.rawValue ?? "-", passportNumber: passportNumber ?? "-", registrationCode: "-", residentID: residentID ?? "-", country: country?.country ?? "-", cnicIssueDate: cnicIssueDateString, motherMaidenName: motherMaidenName ?? "-", birthPlace: birthPlace?.city, sotp: "1")
+        var registerModel = RegisterRequestModel(accountType: accountType?.rawValue ?? "-", cnicNicop: cnic ?? "-", email: email ?? "-", fullName: name ?? "-", mobileNo: finalMobile, paassword: paassword ?? "-", passportType: passportType?.rawValue ?? "-", passportNumber: passportNumber ?? "-", registrationCode: "-", residentID: residentID ?? "-", country: country?.country ?? "-", cnicIssueDate: cnicIssueDateString, motherMaidenName: motherMaidenName ?? "-", birthPlace: birthPlace, sotp: "1")
         switch accountType {
         case .beneficiary:
             registerModel.registrationCode = beneficaryOTP
@@ -278,7 +278,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
     func birthPlaceTextFieldTapped() {
         router.navigateToCityPicker { [weak self] selectedCity in
             self?.birthPlace = selectedCity
-            self?.output?(.updateBirthPlace(name: selectedCity.city))
+            self?.output?(.updateBirthPlace(name: selectedCity))
         }
     }
 

@@ -13,48 +13,50 @@ typealias CityViewModelOutput = (CityListViewModel.Output) -> Void
 protocol CityListViewModelProtocol {
     var output: CityViewModelOutput? { get set }
     var numberOfRows: Int { get }
+    var isSearching: Bool? { get set }
     
-    func searchButtonPressed(text: String)
-    func searchCancelled()
+    func searchTextDidChange(text: String)
     func viewModelDidLoad()
     func getCity(at index: Int) -> Cities
     func didSelectCity()
-    func loadMoreButtonPressed()
+    func othersButtonPressed()
 }
 
 class CityListViewModel: CityListViewModelProtocol {
     
-    var pageNumber: Int = 0
-    var searchText: String = ""
-    
-    func loadMoreButtonPressed() {
-        pageNumber += 1
-        fetchCities(text: searchText, page: pageNumber)
-    }
-    
     var cities: [Cities] = []
+    var filteredCities: [Cities] = []
+    var isSearching: Bool?
     
     var output: CityViewModelOutput?
     private var service: CityService!
     private var router: CityListRouter!
     
     var numberOfRows: Int {
+        if isSearching ?? false {
+            return self.filteredCities.count
+        }
         return self.cities.count
     }
     
-    func searchButtonPressed(text: String) {
-        self.output?(.loadMoreButton(enable: false))
-        self.cities = []
-        pageNumber = 0
-        self.fetchCities(text: text, page: pageNumber)
+    func othersButtonPressed() {
+        //Show alert with textfield
+        var cityText = ""
+        let textFieldModel = AlertTextFieldModel(titleLabelText: "", placeholderText: "Lahore", inputText: nil, inputFieldMaxLength: 30, inputFieldMinLength: 1, editKeyboardType: .asciiCapable, formatValidator: nil, formatter: nil, onTextFieldChanged: { text in
+            cityText = text
+        }, errorMessage: "Please enter valid city name")
+        let buttonModel = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: {
+            self.output?(.enteredCity(city: cityText))
+        })
+        let cancelButtonModel = AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: {
+        })
+        let alertViewModel = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Place of Birth".localized, alertDescription: "", alertAttributedDescription: nil, primaryButton: buttonModel, secondaryButton: cancelButtonModel, topTextField: textFieldModel)
+        self.output?(.showAlert(alert: alertViewModel))
     }
     
-    func searchCancelled() {
-        self.output?(.loadMoreButton(enable: false))
-        self.cities = []
-        pageNumber = 0
-        searchText = ""
-        self.fetchCities(text: searchText, page: pageNumber)
+    private func showEmptyCityError() {
+        let alert = AlertViewModel(alertHeadingImage: .errorAlert, alertTitle: "Error".localized, alertDescription: "City name can not be empty".localized, primaryButton: AlertActionButtonModel(buttonTitle: "OK".localized))
+        self.output?(.showAlert(alert: alert))
     }
     
     init(with service: CityService = CityService(),
@@ -68,11 +70,18 @@ class CityListViewModel: CityListViewModelProtocol {
     }
     
     func getCity(at index: Int) -> Cities {
+        if isSearching ?? false {
+            return filteredCities[index]
+        }
         return cities[index]
     }
     
     func didSelectCity() {
         router.popToPreviousScreen()
+    }
+    
+    func searchTextDidChange(text: String) {
+        filteredCities = cities.filter { $0.city.starts(with: text) }
     }
     
     private func fetchCities(text: String, page: Int) {
@@ -83,18 +92,12 @@ class CityListViewModel: CityListViewModelProtocol {
             switch result {
             case .success(let cityResponse):
                 if let citiesData = cityResponse.data {
-                    if citiesData.isEmpty {
-                        self.output?(.loadMoreButton(enable: false))
-                        return
-                    }
-                    self.output?(.loadMoreButton(enable: true))
                     let arr = citiesData.sorted(by: { $0.city < $1.city })
                     for city in arr {
                         self.cities.append(city)
                     }
+                    self.cities.append(Cities(city: "Other", id: 0, createdAt: "", updatedAt: "", isActive: 0, isDeleted: 0))
                     self.output?(.reloadCities)
-                } else {
-                    self.output?(.loadMoreButton(enable: false))
                 }
             case .failure(let error):
                 self.output?(.showError(error: error))
@@ -105,8 +108,9 @@ class CityListViewModel: CityListViewModelProtocol {
     enum Output {
         case showError(error: APIResponseError)
         case showActivityIndicator(show: Bool)
+        case showAlert(alert: AlertViewModel)
         case reloadCities
-        case loadMoreButton(enable: Bool)
+        case enteredCity(city: String)
     }
 
     deinit {

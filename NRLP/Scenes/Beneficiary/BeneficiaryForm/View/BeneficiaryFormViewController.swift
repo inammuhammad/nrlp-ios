@@ -65,7 +65,7 @@ class BeneficiaryFormViewController: BaseViewController {
             birthPlaceTextView.placeholderText = "Select City".localized
             birthPlaceTextView.isEditable = false
             birthPlaceTextView.isTappable = true
-            birthPlaceTextView.showHelpBtn = true
+            birthPlaceTextView.showHelpBtn = false
             birthPlaceTextView.helpLabelText = "Please select your place of birth".localized
             birthPlaceTextView.editTextKeyboardType = .asciiCapable
             birthPlaceTextView.editTextCursorColor = .init(white: 1, alpha: 0)
@@ -105,7 +105,7 @@ class BeneficiaryFormViewController: BaseViewController {
         didSet {
             cnicIssueDateTextView.titleLabelText = "CNIC/NICOP Issuance Date *".localized
             cnicIssueDateTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
-            cnicIssueDateTextView.showHelpBtn = true
+            cnicIssueDateTextView.showHelpBtn = false
             cnicIssueDateTextView.helpLabelText = "Please enter your CNIC/NICOP issue date".localized
             cnicIssueDateTextView.placeholderText = "Select CNIC/NICOP Issue Date".localized
             cnicIssueDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)

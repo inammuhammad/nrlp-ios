@@ -168,7 +168,7 @@
 "We have sent you a code on your phone number  %@" = "We have sent you OTP on your phone number  %@";
 //Register ViewController
 "Select Country" = "Select Country";
-"Full Name" = "Full Name";
+"Full Name" = "Full Name as per CNIC / NICOP";
 "e.g. Ahmed Khan" = "e.g. Ahmed Khan";
 "Country of Residence" = "Country of Residence";
 "Mobile Number" = "Mobile Number";
@@ -268,7 +268,7 @@
 "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds" = "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds";
 
 "Country of Residence *"=  "Country of Residence *";
-"Full Name *" = "Full Name *";
+"Full Name *" = "Full Name as per CNIC / NICOP *";
 "Passport Type" = "Passport Type";
 "Enter Passport Number" = "Enter Passport Number";
 "Mobile Number *" = "Mobile Number *";
@@ -379,3 +379,27 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "CNIC/NICOP Issuance Date" = "CNIC/NICOP Issuance Date";
 "Place of Birth" = "Place of Birth";
 "Mother Maiden Name" = "Mother Maiden Name";
+
+"Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification" = "Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification";
+"Accept" = "Accept";
+
+"Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?" = "Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?";
+
+"Please enter a valid CNIC/NICOP Issue Date" = "Please enter a valid CNIC/NICOP Issue Date";
+
+"NADRA Verification" = "NADRA Verification";
+
+"Dear Customer, Thank you for providing information, you will be notified soon with the verification status via SMS" = "Dear Customer, Thank you for providing information, you will be notified soon with the verification status via SMS";
+
+"About" = "About";
+"Benefits" = "Benefits";
+"Complaints" = "Complaints";
+
+"Please select your place of birth" = "Please select your place of birth";
+
+"Thank you for registering as a Beneficiary for Sohni Dharti Remittance Program." = "Thank you for registering as a Beneficiary for Sohni Dharti Remittance Program.";
+"Thank you for registering as a Remitter for Sohni Dharti Remittance Program." = "Thank you for registering as a Remitter for Sohni Dharti Remittance Program.";
+
+"Please select your Residence Country" = "Please select your Residence Country";
+
+"Registration Code *" = "Registration Code *";

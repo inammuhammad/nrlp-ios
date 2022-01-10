@@ -31,9 +31,10 @@ struct AppConstants {
             
         } else {
             /// Prod Checksum (Previous checksum is commented)
-//            sign = [39, 84, 0, 91, 9, 34, 28, 16, 44, 9, 86, 0, 31, 17, 4, 91, 86, 43, 28, 27, 20, 91, 6, 86, 36, 36, 56, 3, 5, 87, 82, 13] // s1r6zcrtof8dvem48xyib2e3jwwao21y
+//            sign = [54, 19, 24, 0, 65, 37, 10, 3, 32, 93, 23, 22, 95, 70, 19, 88, 94, 58, 28, 7, 78, 91, 12, 14, 63, 36, 43, 5, 93, 86, 81, 18] // bvjm2ddgc2yr62z70iyu82okqwdg732f
             
-            sign = [54, 19, 24, 0, 65, 37, 10, 3, 32, 93, 23, 22, 95, 70, 19, 88, 94, 58, 28, 7, 78, 91, 12, 14, 63, 36, 43, 5, 93, 86, 81, 18] // bvjm2ddgc2yr62z70iyu82okqwdg732f
+            sign = [54, 9, 2, 1, 67, 115, 30, 19, 54, 24, 93, 85, 94, 76, 29, 9, 23, 53, 21, 65, 3, 26, 82, 81, 61, 32, 46, 9, 2, 85, 13, 26] // blpl02pwuw3178tfyfp3us14ssakh0nn
+            
         }
 
         return Replacer().deformatString(string: sign)
@@ -79,6 +80,10 @@ struct AppConstants {
 
     static var osName: String {
         "iOS"
+    }
+    
+    static var deviceName: String {
+        UIDevice.current.name
     }
     
     static var appLanguage: AppLanguage? {

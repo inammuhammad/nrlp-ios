@@ -49,7 +49,7 @@ enum OperationCompletedType {
         case .redemptionSuccessful:
             return "Redemption Successful".localized
         case .nadraVerification:
-            return "Nadra Verification".localized
+            return "NADRA Verification".localized
         }
     }
 
@@ -61,9 +61,9 @@ enum OperationCompletedType {
         case .registrationCompleted(let accountType):
             switch accountType {
             case .beneficiary:
-                result = "Thank you for registering. You can now enjoy exciting benefits and rewards!".localized
+                result = "Thank you for registering as a Beneficiary for Sohni Dharti Remittance Program.".localized
             case .remitter:
-                result = "Thankyou for registering, Your account will be activated within 5 working days upon successful verification of your provided details".localized
+                result = "Thank you for registering as a Remitter for Sohni Dharti Remittance Program.".localized
             }
         case .changePassword:
             result = "You have successfully updated your password.".localized
@@ -80,7 +80,7 @@ enum OperationCompletedType {
         case .redemptionSuccessful(message: let message):
             result = message
         case .nadraVerification:
-            result = "Thank you for providing information, you will be notified with the verification status via SMS within 5 working days".localized
+            result = "Dear Customer, Thank you for providing information, you will be notified soon with the verification status via SMS".localized
         default:
             result = ""
         }

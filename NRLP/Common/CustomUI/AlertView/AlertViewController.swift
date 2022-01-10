@@ -192,6 +192,9 @@ extension AlertViewController {
             topTextField.formatValidator = alertViewModel.topTextField?.formatValidator
             topTextField.placeholderTextColor = alertViewModel.topTextField?.placeHolderTextColor
             topTextField.onTextFieldChanged = { [weak self] text in
+                if !(text?.isEmpty ?? false) {
+                    self?.topTextField.updateStateTo(isError: false)
+                }
                 self?.alertViewModel.topTextField?.onTextFieldChanged?(text ?? "")
             }
             topTextField.formatter = alertViewModel.topTextField?.formatter
@@ -208,6 +211,9 @@ extension AlertViewController {
             middleTextField.formatValidator = alertViewModel.middleTextField?.formatValidator
             middleTextField.placeholderTextColor = alertViewModel.middleTextField?.placeHolderTextColor
             middleTextField.onTextFieldChanged = { [weak self] text in
+                if !(text?.isEmpty ?? false) {
+                    self?.middleTextField.updateStateTo(isError: false)
+                }
                 self?.alertViewModel.middleTextField?.onTextFieldChanged?(text ?? "")
             }
             middleTextField.formatter = alertViewModel.middleTextField?.formatter
@@ -224,6 +230,9 @@ extension AlertViewController {
             bottomTextField.formatValidator = alertViewModel.bottomTextField?.formatValidator
             bottomTextField.placeholderTextColor = alertViewModel.bottomTextField?.placeHolderTextColor
             bottomTextField.onTextFieldChanged = { [weak self] text in
+                if !(text?.isEmpty ?? false) {
+                    self?.bottomTextField.updateStateTo(isError: false)
+                }
                 self?.alertViewModel.bottomTextField?.onTextFieldChanged?(text ?? "")
             }
             bottomTextField.formatter = alertViewModel.bottomTextField?.formatter
@@ -235,6 +244,24 @@ extension AlertViewController {
 // MARK: IBOutlet actions
 extension AlertViewController {
     @IBAction func didTapPrimaryButton(_: Any) {
+        if alertViewModel.topTextField != nil {
+            if topTextField.inputText?.isEmpty ?? false {
+                topTextField.updateStateTo(isError: true, error: self.alertViewModel.topTextField?.errorMessage)
+                return
+            }
+        }
+        if alertViewModel.middleTextField != nil {
+            if middleTextField.inputText?.isEmpty ?? false {
+                middleTextField.updateStateTo(isError: true, error: self.alertViewModel.middleTextField?.errorMessage)
+                return
+            }
+        }
+        if alertViewModel.bottomTextField != nil {
+            if bottomTextField.inputText?.isEmpty ?? false {
+                bottomTextField.updateStateTo(isError: true, error: self.alertViewModel.bottomTextField?.errorMessage)
+                return
+            }
+        }
         dismiss {
             self.alertViewModel.primaryButton.buttonAction?()
         }

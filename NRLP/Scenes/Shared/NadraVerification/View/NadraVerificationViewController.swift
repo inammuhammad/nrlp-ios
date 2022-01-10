@@ -21,7 +21,7 @@ class NadraVerificationViewController: BaseViewController {
             nextBtn.setTitle("Accept".localized, for: .highlighted)
         }
     }
-    @IBOutlet weak var cancelBtn: SecondaryCTAButton!{
+    @IBOutlet weak var cancelBtn: SecondaryCTAButton! {
         didSet {
             cancelBtn.setTitle("Cancel".localized, for: .normal)
             cancelBtn.setTitle("Cancel".localized, for: .selected)
@@ -32,7 +32,7 @@ class NadraVerificationViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.viewDidLoad()
+        setupUI()
         bindViewModelOutput()
     }
 
@@ -43,11 +43,13 @@ class NadraVerificationViewController: BaseViewController {
         viewModel.cancelButtonPressed()
     }
     
+    private func setupUI() {
+        titleLbl.text = "Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification".localized
+    }
+    
     private func bindViewModelOutput() {
         self.viewModel.output = {[unowned self] output in
             switch output {
-            case .setTitle(text: let text):
-                titleLbl.text = text
             case .showActivityIndicator(show: let show):
                 show ? ProgressHUD.show() : ProgressHUD.dismiss()
             case .showError(error: let error):

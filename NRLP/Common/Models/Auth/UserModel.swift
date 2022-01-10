@@ -32,12 +32,12 @@ struct UserModel: Codable {
     var birthPlace: String?
     var motherMaidenName: String?
     var cnicIssueDateStr: String?
-    private var nadraVerifiedStr: String
+    private var nadraVerifiedStr: String?
     
     var requiresNadraVerification: Bool?
     
     var nadraVerified: NadraTypes? {
-        return NadraTypes(rawValue: nadraVerifiedStr.lowercased())
+        return NadraTypes(rawValue: nadraVerifiedStr?.lowercased() ?? "")
     }
     
     var passportType: PassportType? {

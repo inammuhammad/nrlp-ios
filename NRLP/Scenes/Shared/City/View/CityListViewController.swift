@@ -8,16 +8,16 @@
 
 import UIKit
 
-typealias OnCitySelectionCallBack = (Cities) -> Void
+typealias OnCitySelectionCallBack = (String) -> Void
 
 class CityListViewController: BaseViewController {
     
     var viewModel: CityListViewModel!
     var onCitySelection: OnCitySelectionCallBack?
     
-    @IBOutlet weak var loadMoreButton: PrimaryCTAButton! {
+    @IBOutlet weak var othersBtn: PrimaryCTAButton! {
         didSet {
-            loadMoreButton.setTitle("Load More".localized, for: .normal)
+            othersBtn.setTitle("Others".localized, for: .normal)
         }
     }
     @IBOutlet weak var searchBar: UISearchBar! {
@@ -40,7 +40,8 @@ class CityListViewController: BaseViewController {
     }
     
     private func setupView() {
-        self.title = "Select City".localized
+        self.title = "Place of Birth".localized
+        self.othersBtn.isHidden = true
         searchBar.barStyle = .default
         searchBar.setTextFieldBackgroundColor(UIColor.green)
         searchBar.setTextFieldFont(UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regularOnlyEnglish, size: .mediumFontSize))
@@ -65,14 +66,17 @@ class CityListViewController: BaseViewController {
                 show ? ProgressHUD.show() : ProgressHUD.dismiss()
             case .showError(let error):
                 self.showAlert(with: error)
-            case .loadMoreButton(enable: let enable):
-                self.loadMoreButton.isEnabled = enable
+            case .showAlert(alert: let alert):
+                self.showAlert(with: alert)
+            case .enteredCity(city: let text):
+                onCitySelection?(text)
+                viewModel.didSelectCity()
             }
         }
     }
     
-    @IBAction private func loadMoreButtonAction (_ sender: Any) {
-        viewModel.loadMoreButtonPressed()
+    @IBAction func othersBtnAction(_ sender: Any) {
+        viewModel.othersButtonPressed()
     }
 }
 
@@ -89,31 +93,27 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.searchBar.endEditing(true)
-        onCitySelection?(viewModel.getCity(at: indexPath.row))
+        if viewModel.getCity(at: indexPath.row).city.lowercased() == "Other".lowercased() {
+            viewModel.othersButtonPressed()
+            return
+        }
+        onCitySelection?(viewModel.getCity(at: indexPath.row).city)
         viewModel.didSelectCity()
     }
 }
 
 extension CityListViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.endEditing(true)
-        viewModel.searchText = searchBar.text ?? ""
-        viewModel.searchButtonPressed(text: searchBar.text ?? "")
-        tableView.reloadData()
-    }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.endEditing(true)
-        viewModel.searchCancelled()
+        viewModel.isSearching = false
+        self.searchBar.text = ""
         tableView.reloadData()
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            viewModel.searchCancelled()
-            tableView.reloadData()
-        }
+        viewModel.searchTextDidChange(text: searchText)
+        viewModel.isSearching = true
+        tableView.reloadData()
     }
 }
 

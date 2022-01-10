@@ -144,7 +144,7 @@
 "Are you sure you want to cancel the registration process?"="کیا اپ یقینی طور پر رجسٹریشن منسوخ کرنا چاہتے ہیں";
 "We have sent you a code on your phone number %@"=" کوڈ اپ کے  موبائل نمبر %@ پربھیجا گیا ہے";
 "Select Country"="ملک منتخب کریں";
-"Full Name"="پورا نام";
+"Full Name"= "کے مطابق پورا نام CNIC/NICOP";
 "Muhammad Ali"="Muhammad Ali";
 "Country of Residence"=  "قیام کا ملک";
 "Add Beneficiaries to transfer the loyalty point with your loved ones"="لوائلٹی پوائنٹس کی منتقلی کے  لیےاپنے پیاروں کو وصول کنندہ میں شامل کریں";
@@ -280,7 +280,7 @@
 "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds" = "براہ مہربانی منتخب کریں کہ آپ رقم بھیجنے والے یا وصول کرنے والے ہیں";
 
 "Country of Residence *"=  "* قیام کا ملک";
-"Full Name *" = "* مکمل نام";
+"Full Name *" = "* کے مطابق پورا نام CNIC/NICOP";
 "Passport Type" = "پاسپورٹ کی قسم";
 "Enter Passport Number" = "اپنا پاسپورٹ نمبر درج کریں";
 "Mobile Number *" = "* موبائل نمبر";
@@ -380,7 +380,7 @@
 "Enter Beneficiary Account Number or CNIC on which remittance is sent" = "وصول کنندہ کا اکاؤنٹ نمبر / قومی شناختی کارڈ نمبر درج کریں جس پر ترسیلات بھیجی گئی ہیں۔ ";
 "Beneficiary Account Number / CNIC" = "وصول کنندہ  کا  اکاؤنٹ نمبر / قومی شناختی کارڈ نمبر ";
 
-"CNIC/NICOP Issuance Date *" = "CNIC/NICOP اجراء کی تاریخ *";
+"CNIC/NICOP Issuance Date *" = "* کے اجراء کی تاریخ  CNIC/NICOP";
 "Place of Birth *" = "جائے پیدائش *";
 "Mother Maiden Name *" = "ماں کا نام *";
 
@@ -390,6 +390,31 @@
 "We have sent you OTP on your registered mobile number, please enter the OTP below" = "ہم نے رجسٹرڈ فون نمبر پر آپ کو او ٹی پی بھیجا ہے۔ براہ کرم نیچے او ٹی پی درج کریں";
 
 
-"CNIC/NICOP Issuance Date" = "CNIC/NICOP اجراء کی تاریخ";
+"CNIC/NICOP Issuance Date" = "کے اجراء کی تاریخ  CNIC/NICOP";
 "Place of Birth" = "جائے پیدائش";
 "Mother Maiden Name" = "ماں کا نام";
+
+"Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification" = "مزید آگے بڑھنے کے لئے آپ کی NADRA تصدیق درکار ہے۔ تصدیق کے لیے قبول کریں";
+
+"Accept" = "قبول کریں";
+
+"Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?" = "تصدیق فراہم کیے بغیر، آپ لاگ ان نہیں کر سکیں گے کیا آپ کو یقین ہے، آپ باہر نکلنا چاہتے ہیں";
+
+"Please enter a valid CNIC/NICOP Issue Date" = " اجراء ی تاریخ درست درج ی CNIC/NICOP";
+
+"NADRA Verification" = "NADRA تصدیق";
+
+"Dear Customer, Thank you for providing information, you will be notified soon with the verification status via SMS" = "معزز صارف معلومات فراہم کرنے کے لئے آپ کا شکریہ، آپ کو جلد ایس ایم ایس کے ذریع تصدیق کے متعلق -آگاہ کر دیا جائے گا";
+
+"About" = "معلومات";
+"Benefits" = "فوائد";
+"Complaints" = "شکایت";
+
+"Please select your place of birth" = "";
+
+"Thank you for registering as a Beneficiary for Sohni Dharti Remittance Program." = "سوہنی دھرتی ریمیٹنس پروگرام رجسٹر کرنے کا شکریہ۔";
+"Thank you for registering as a Remitter for Sohni Dharti Remittance Program." = "سوہنی دھرتی ریمیٹنس پروگرام رجسٹر کرنے کا شکریہ۔";
+
+"Please select your Residence Country" = "اپنے رہائشی ملک کا انتخاب کریں۔";
+
+"Registration Code *" = "* رجسٹریشن کوڈ";

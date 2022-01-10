@@ -11,6 +11,7 @@ import UIKit
 
 typealias AlertActionButtonCallBack = () -> Void
 typealias AlertTextFieldCallBack = (String) -> Void
+typealias AlertErrorCallBack = () -> Void
 
 struct AlertViewModel {
     var alertHeadingImage: AlertIllustrationType
@@ -42,4 +43,7 @@ struct AlertTextFieldModel {
     var formatValidator: FormatValidatorProtocol?
     var formatter: FormatterProtocol?
     var onTextFieldChanged: AlertTextFieldCallBack?
+    var errorMessage: String?
+    var onError: AlertErrorCallBack?
+    
 }

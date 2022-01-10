@@ -18,8 +18,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZF9-ej-6EQ">
-                                <rect key="frame" x="16" y="95" width="382" height="695"/>
+                                <rect key="frame" x="16" y="95" width="382" height="751"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="MZx-Hv-fFL">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                </view>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="sLu-o8-tyW">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwe-mc-siC" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="48" id="WI0-gh-S0F"/>
+                                            </constraints>
+                                            <state key="normal" title="Others"/>
+                                            <connections>
+                                                <action selector="othersBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gcv-EY-6HQ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="hwe-mc-siC" secondAttribute="trailing" id="6DS-JZ-Td3"/>
+                                        <constraint firstItem="hwe-mc-siC" firstAttribute="top" secondItem="sLu-o8-tyW" secondAttribute="top" id="Hjp-hp-0cR"/>
+                                        <constraint firstItem="hwe-mc-siC" firstAttribute="leading" secondItem="sLu-o8-tyW" secondAttribute="leading" id="O4F-Wl-02N"/>
+                                        <constraint firstAttribute="bottom" secondItem="hwe-mc-siC" secondAttribute="bottom" id="e1Z-h4-NE6"/>
+                                    </constraints>
+                                </view>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0A-Rq-y2k" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="20" y="798" width="374" height="48"/>
@@ -27,9 +55,6 @@
                                     <constraint firstAttribute="height" constant="48" id="aUh-x6-5qX"/>
                                 </constraints>
                                 <state key="normal" title="Load More"/>
-                                <connections>
-                                    <action selector="loadMoreButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Hw4-kT-55m"/>
-                                </connections>
                             </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="5H7-Nu-WJc">
                                 <rect key="frame" x="0.0" y="44" width="414" height="51"/>
@@ -42,6 +67,7 @@
                             <constraint firstItem="5H7-Nu-WJc" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="6el-8H-QOn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZF9-ej-6EQ" secondAttribute="trailing" constant="16" id="6nr-d6-7QW"/>
                             <constraint firstItem="G0A-Rq-y2k" firstAttribute="top" secondItem="ZF9-ej-6EQ" secondAttribute="bottom" constant="8" id="8Iv-99-3aA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZF9-ej-6EQ" secondAttribute="bottom" constant="16" id="DF7-ta-2HP"/>
                             <constraint firstItem="5H7-Nu-WJc" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="K7U-w6-ocr"/>
                             <constraint firstItem="5H7-Nu-WJc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Mru-pk-IQf"/>
                             <constraint firstItem="ZF9-ej-6EQ" firstAttribute="top" secondItem="5H7-Nu-WJc" secondAttribute="bottom" id="RxO-GT-fDo"/>
@@ -50,9 +76,14 @@
                             <constraint firstItem="G0A-Rq-y2k" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="j8k-TC-FGd"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="G0A-Rq-y2k" secondAttribute="trailing" constant="20" id="ofz-Bd-I0X"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="G0A-Rq-y2k"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="loadMoreButton" destination="G0A-Rq-y2k" id="YNw-og-IyQ"/>
+                        <outlet property="othersBtn" destination="hwe-mc-siC" id="dLn-Ov-I3w"/>
                         <outlet property="searchBar" destination="5H7-Nu-WJc" id="jn9-98-fbE"/>
                         <outlet property="tableView" destination="ZF9-ej-6EQ" id="6Wv-9V-p25"/>
                     </connections>
@@ -62,6 +93,14 @@
             <point key="canvasLocation" x="137.68115942028987" y="105.80357142857143"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="G0A-Rq-y2k">
+            <size key="intrinsicContentSize" width="73" height="30"/>
+        </designable>
+        <designable name="hwe-mc-siC">
+            <size key="intrinsicContentSize" width="47" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

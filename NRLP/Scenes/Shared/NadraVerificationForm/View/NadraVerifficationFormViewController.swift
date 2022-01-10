@@ -109,7 +109,7 @@ class NadraVerificationFormViewController: BaseViewController {
     }
     
     private func setupView() {
-        self.title = "Verification".localized
+        self.title = "NADRA Verification".localized
     }
     
     private func bindViewModelOutput() {

@@ -34,7 +34,7 @@ class NadraVerificationFormViewModel: NadraVerificationFormViewModelProtocol {
         }
     }
     
-    var birthPlace: Cities? {
+    var birthPlace: String? {
         didSet {
             validateRequiredFields()
         }
@@ -88,7 +88,7 @@ class NadraVerificationFormViewModel: NadraVerificationFormViewModelProtocol {
     func birthPlaceTextFieldTapped() {
         router.navigateToCityPicker { [weak self] selectedCity in
             self?.birthPlace = selectedCity
-            self?.output?(.updateBirthPlace(name: selectedCity.city))
+            self?.output?(.updateBirthPlace(name: selectedCity))
         }
     }
     
@@ -102,7 +102,7 @@ class NadraVerificationFormViewModel: NadraVerificationFormViewModelProtocol {
             return
         }
         
-        let requestModel = NadraVerificationRequestModel(motherMaidenName: motherMaidenName, fullName: fullName, cnicIssueDate: cnicIssueDateString, birthPlace: birthPlace?.city)
+        let requestModel = NadraVerificationRequestModel(motherMaidenName: motherMaidenName, fullName: fullName, cnicIssueDate: cnicIssueDateString, birthPlace: birthPlace)
         output?(.showActivityIndicator(show: true))
         service?.verifyUser(requestModel: requestModel, completion: { [self] (result) in
             self.output?(.showActivityIndicator(show: false))
@@ -110,7 +110,7 @@ class NadraVerificationFormViewModel: NadraVerificationFormViewModelProtocol {
             case .success(let response):
                 userModel.fullName = fullName ?? ""
                 userModel.motherMaidenName = motherMaidenName ?? ""
-                userModel.birthPlace = birthPlace?.city
+                userModel.birthPlace = birthPlace
                 userModel.cnicIssueDateStr = cnicIssueDateString
                 self.router.navigateToVerificationCompletionScreen(userModel: self.userModel)
             case .failure(let error):

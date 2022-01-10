@@ -16,7 +16,6 @@ protocol NadraVerificationViewModelProtocol {
     
     func nextButtonPressed()
     func cancelButtonPressed()
-    func viewDidLoad()
 }
 
 class NadraVerificationViewModel: NadraVerificationViewModelProtocol {
@@ -38,18 +37,13 @@ class NadraVerificationViewModel: NadraVerificationViewModelProtocol {
     }
     
     func cancelButtonPressed() {
-        let alert = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Warning".localized, alertDescription: "Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?", alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "Yes".localized, buttonAction: {
+        let alert = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "", alertDescription: "Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?".localized, alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "Yes".localized, buttonAction: {
             self.logoutUser()
         }), secondaryButton: AlertActionButtonModel(buttonTitle: "No".localized))
         output?(.showAlert(alertModel: alert))
     }
     
-    func viewDidLoad() {
-        output?(.setTitle(text: "Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification".localized))
-    }
-    
     enum Output {
-        case setTitle(text: String)
         case showActivityIndicator(show: Bool)
         case showError(error: APIResponseError)
         case showAlert(alertModel: AlertViewModel)

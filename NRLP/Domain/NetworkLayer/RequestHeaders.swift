@@ -21,6 +21,7 @@ final class DefaultRequestHeader: RequestHeader {
     var language: String = "en_US"
     var osVersion = AppConstants.osVersion
     var osName = AppConstants.osName
+    var deviceName = AppConstants.deviceName
 }
 
 final class APIRequestHeader {
@@ -67,8 +68,9 @@ final class APIRequestHeader {
                 "Accept": ParameterConstants.contentTypeJson.rawValue,
                 ParameterConstants.contentType.rawValue: ParameterConstants.contentTypeJson.rawValue,
 //                "language": defaultHeaders.language,
-//                "os_version": defaultHeaders.osVersion,
-//                "os_name": defaultHeaders.osName,
+                "os_version": defaultHeaders.osVersion.aesEncrypted(),
+                "device_name": defaultHeaders.deviceName.aesEncrypted(),
+                "device_type": defaultHeaders.osName.aesEncrypted(),
                 "x-ibm-client-id": getClientId(),
                 "x-ibm-client-secret": getSecretId()
             ]

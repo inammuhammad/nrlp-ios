@@ -15,7 +15,7 @@ protocol BeneficiaryFormViewModelProtocol {
     var output: BeneficiaryFormViewModelOutput? { get set }
     
     var name: String? { get set }
-    var birthPlace: Cities? { get set }
+    var birthPlace: String? { get set }
     var country: Country? { get set }
     var cnicIssueDate: Date? { get set }
     var mobileNumber: String? { get set }
@@ -50,7 +50,7 @@ class BeneficiaryFormViewModel: BeneficiaryFormViewModelProtocol {
         }
     }
     
-    var birthPlace: Cities? {
+    var birthPlace: String? {
         didSet {
             validateRequiredFields()
         }
@@ -153,7 +153,7 @@ extension BeneficiaryFormViewModel {
     }
     
     private func setModelValues() {
-        self.model?.birthPlace = birthPlace?.city
+        self.model?.birthPlace = birthPlace
         self.model?.country = country?.country
         self.model?.motherMaidenName = "-"
         self.model?.cnicIssueDate = self.cnicIssueDateString
@@ -181,7 +181,7 @@ extension BeneficiaryFormViewModel {
     func birthPlaceTextFieldTapped() {
         router.navigateToCityPicker { [weak self] selectedCity in
             self?.birthPlace = selectedCity
-            self?.output?(.updateBirthPlace(name: selectedCity.city))
+            self?.output?(.updateBirthPlace(name: selectedCity))
         }
     }
     
@@ -209,7 +209,7 @@ extension BeneficiaryFormViewModel {
         if let cnicIssueDate = cnicIssueDate, cnicIssueDate < Date() {
             output?(.textField(errorState: false, error: nil, textfieldType: .cnicIssueDate))
         } else {
-            output?(.textField(errorState: true, error: "Please enter a valid CNIC/NICOP Issue Date", textfieldType: .cnicIssueDate))
+            output?(.textField(errorState: true, error: "Please enter a valid CNIC/NICOP Issue Date".localized, textfieldType: .cnicIssueDate))
         }
         
         if birthPlace != nil {
