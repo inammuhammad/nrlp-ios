@@ -49,6 +49,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-wM-EhK" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="316.5" width="382" height="80"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="TPQ-X9-uRm"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-X6-gMU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="16" y="316.5" width="382" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -60,15 +67,18 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kqo-X6-gMU" firstAttribute="top" secondItem="KOU-m7-W4H" secondAttribute="bottom" constant="24" id="14P-SQ-BMl"/>
                             <constraint firstItem="wo6-Mt-Dbh" firstAttribute="top" secondItem="pfY-uN-VDq" secondAttribute="bottom" constant="24.5" id="25t-bS-uct"/>
                             <constraint firstItem="KOU-m7-W4H" firstAttribute="top" secondItem="wo6-Mt-Dbh" secondAttribute="bottom" constant="24" id="2pD-mR-wOn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wo6-Mt-Dbh" secondAttribute="trailing" constant="16" id="358-Z8-jyl"/>
-                            <constraint firstItem="kqo-X6-gMU" firstAttribute="top" secondItem="KOU-m7-W4H" secondAttribute="bottom" constant="24" id="Mtg-ev-27B"/>
+                            <constraint firstItem="kqo-X6-gMU" firstAttribute="top" secondItem="ilv-wM-EhK" secondAttribute="bottom" constant="24" id="F65-cw-dYU"/>
                             <constraint firstItem="pfY-uN-VDq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="OPB-V6-DoM"/>
                             <constraint firstItem="pfY-uN-VDq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="RQH-Lq-cH7"/>
                             <constraint firstItem="KOU-m7-W4H" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-16" id="Rc6-A5-6Wh"/>
+                            <constraint firstItem="ilv-wM-EhK" firstAttribute="top" secondItem="KOU-m7-W4H" secondAttribute="bottom" constant="24" id="TDX-rg-zyg"/>
                             <constraint firstItem="wo6-Mt-Dbh" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="TcD-Dx-zw5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kqo-X6-gMU" secondAttribute="trailing" constant="16" id="Usr-zd-7Tw"/>
+                            <constraint firstItem="ilv-wM-EhK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="V4k-K6-bZA"/>
                             <constraint firstItem="kqo-X6-gMU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="V70-MI-6Nx"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5iH-Vc-mM9" secondAttribute="bottom" constant="20" id="XQq-Vd-I8g"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pfY-uN-VDq" secondAttribute="trailing" constant="16" id="eO0-Th-nf8"/>
@@ -76,12 +86,19 @@
                             <constraint firstItem="pfY-uN-VDq" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="gln-4f-zpJ"/>
                             <constraint firstItem="KOU-m7-W4H" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="jd5-Bd-3C9"/>
                             <constraint firstItem="5iH-Vc-mM9" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="jjT-Pe-rt6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ilv-wM-EhK" secondAttribute="trailing" constant="16" id="yfZ-N3-Vgf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="ilv-wM-EhK"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="beneficaryCnicTextView" destination="kqo-X6-gMU" id="fhf-qg-fMh"/>
                         <outlet property="proceedBtn" destination="5iH-Vc-mM9" id="F4k-1A-axf"/>
                         <outlet property="referenceNumberLabelTextView" destination="wo6-Mt-Dbh" id="dj6-34-4m8"/>
+                        <outlet property="remittanceDateTextView" destination="ilv-wM-EhK" id="Kdv-hm-pLV"/>
                         <outlet property="titleLbl" destination="pfY-uN-VDq" id="8vt-js-z6B"/>
                         <outlet property="transactionAmountLabelTextView" destination="KOU-m7-W4H" id="exH-Nu-yU2"/>
                     </connections>

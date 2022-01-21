@@ -11,10 +11,10 @@ import Foundation
 struct AppKeyRequestModel: Codable {}
 
 struct AppKeyResponseModel: Codable {
-    let data: AppKey
+    var data: AppKey
     let message: String
 }
 
 struct AppKey: Codable {
-    let key: String
+    var key: String
 }

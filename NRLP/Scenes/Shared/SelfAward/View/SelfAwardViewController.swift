@@ -12,11 +12,31 @@ class SelfAwardViewController: BaseViewController {
     
     // MARK: Properties
     
-    var date: String?
+    var remittanceDate: Date? {
+        didSet {
+            validateFields()
+        }
+
+    }
     var referenceNumber: String?
     var transactionAmount: String?
     var beneficaryCnic: String?
     var user: UserModel?
+    
+    var datePickerViewModel: CustomDatePickerViewModel {
+        return CustomDatePickerViewModel(maxDate: Date())
+    }
+    
+    private lazy var remittanceDatePicker: CustomDatePickerView = {
+        var pickerView = CustomDatePickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = datePickerViewModel
+        return pickerView
+    }()
+    
+    private var remittanceDateString: String? {
+        return DateFormat().formatDateString(to: remittanceDate ?? Date(), formatter: .shortDateFormat)
+    }
     
     // MARK: IBOutlets
     
@@ -91,16 +111,7 @@ class SelfAwardViewController: BaseViewController {
             remittanceDateTextView.showHelpBtn = true
             remittanceDateTextView.helpLabelText = "Enter date on which transaction is made".localized
             remittanceDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)
-            let datePicker = UIDatePicker()
-            datePicker.datePickerMode = .date
-            if #available(iOS 13.4, *) {
-                datePicker.preferredDatePickerStyle = .wheels
-            } else {
-                // Fallback on earlier versions
-            }
-            datePicker.maximumDate = Date()
-            datePicker.addTarget(self, action: #selector(dateSelected(_:)), for: .valueChanged)
-            remittanceDateTextView.inputTextFieldInputPickerView = datePicker
+            remittanceDateTextView.inputTextFieldInputPickerView = remittanceDatePicker
             remittanceDateTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
                 self.showAlert(with: model)
@@ -117,8 +128,6 @@ class SelfAwardViewController: BaseViewController {
             beneficaryCnicTextView.isEditable = true
             beneficaryCnicTextView.helpPopupIcon = .selfAward
             beneficaryCnicTextView.helpLabelText = "Enter Beneficiary Account Number or CNIC on which remittance is sent".localized
-//            beneficaryCnicTextView.formatValidator = CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
-//            beneficaryCnicTextView.formatter = CNICFormatter()
             beneficaryCnicTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.beneficaryCnic = updatedText
@@ -135,7 +144,7 @@ class SelfAwardViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        showInitialAlert()
+//        showInitialAlert()
         setupUI()
     }
     
@@ -157,7 +166,7 @@ class SelfAwardViewController: BaseViewController {
     
     private func validateFields() {
         if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic {
-            if referenceNo == "" || transactionAmount == "" || cnic == "" {
+            if referenceNo.isEmpty || transactionAmount.isEmpty || cnic.isEmpty {
                 proceedBtn.isEnabled = false
             } else {
                 proceedBtn.isEnabled = true
@@ -165,16 +174,6 @@ class SelfAwardViewController: BaseViewController {
         } else {
             proceedBtn.isEnabled = false
         }
-    }
-    
-    @objc private func dateSelected(_ sender: UIDatePicker) {
-        let dateSelected = sender.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateStr = dateFormatter.string(from: dateSelected)
-        self.date = dateStr
-        remittanceDateTextView.inputText = dateStr
-        validateFields()
     }
     
     @objc private func proceedBtnAction() {
@@ -215,6 +214,23 @@ class SelfAwardViewController: BaseViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
 
+}
+
+extension SelfAwardViewController: CustomDatePickerViewDelegate {
+    func didTapCancelButton() {
+        self.view.endEditing(true)
+    }
+    
+    func didTapDoneButton(picker: CustomDatePickerView, date: Date) {
+        self.view.endEditing(true)
+        switch picker {
+        case self.remittanceDatePicker:
+            self.remittanceDate = date
+            self.remittanceDateTextView.inputText = remittanceDateString
+        default:
+            break
+        }
+    }
 }
 
 extension SelfAwardViewController: Initializable {
