@@ -181,6 +181,7 @@ any queries regarding any of our terms, please contact us.</p>
         static var agentCodeError = "Please enter a correct code."
         static var notEnoughtFundToTransfer = "You don't have enough points to transfer"
         static var psidError = "Enter a valid PSID number"
+        static var selectBeneficiaryError = "Please select a beneficiary relation"
 
         static var generalErrorMessage = "Something unexpected happened. Please try again"
         static var noInternetErrorMessage = "No Internet Connection. Check your network settings and try again."

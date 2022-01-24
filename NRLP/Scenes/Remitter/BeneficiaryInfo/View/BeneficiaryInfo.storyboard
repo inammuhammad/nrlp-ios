@@ -17,28 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJw-hh-0AG" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="74" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="Hln-YJ-lS5"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC Number"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5T1-fF-NDB" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="178" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="4L9-mb-S3E"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Alias"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arU-dD-vP7" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="16" y="796" width="382" height="50"/>
                                 <constraints>
@@ -49,80 +27,218 @@
                                     <action selector="deleteBeneficiaryPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="loZ-DU-J1R"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGd-wf-WvU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="490" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="fe8-Ci-gf3">
+                                <rect key="frame" x="16" y="648" width="382" height="124"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Csr-XF-37U">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvB-7C-D46" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="UnQ-n0-frg"/>
+                                                </constraints>
+                                                <state key="normal" title="Edit"/>
+                                                <connections>
+                                                    <action selector="editBeneficiaryPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="Bgt-vn-9WZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM1-rY-Eka" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="196" y="0.0" width="186" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="ffD-Hd-fKt"/>
+                                                </constraints>
+                                                <state key="normal" title="Resend OTP"/>
+                                                <connections>
+                                                    <action selector="resendOTPPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="sHo-cr-U5W"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XrW-Nn-0FJ">
+                                        <rect key="frame" x="0.0" y="74" width="382" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d0z-9R-OjO" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="186" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="vKl-p9-kMj"/>
+                                                </constraints>
+                                                <state key="normal" title="Update"/>
+                                                <connections>
+                                                    <action selector="updateBeneficiaryPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="WR4-wS-VGj"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZq-iE-pmb" customClass="SecondaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="196" y="0.0" width="186" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Oel-7w-inA"/>
+                                                </constraints>
+                                                <state key="normal" title="Cancel"/>
+                                                <connections>
+                                                    <action selector="cancelBeneficiaryPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="NGD-pI-6ED"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="IOv-IZ-ByY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="604"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V0V-Js-x2N">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
+                                        <subviews>
+                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lXK-xH-7si" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="600" width="382" height="90"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="NNd-NC-VPe"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGd-wf-WvU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="486" width="382" height="90"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="5z3-OR-klh"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMd-rt-Hzu" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="372" width="382" height="90"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="i3V-gL-c8C"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAi-9b-dg2" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="258" width="382" height="90"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="iHL-Ap-dlu"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5T1-fF-NDB" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="144" width="382" height="90"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="4L9-mb-S3E"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Alias"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PJw-hh-0AG" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="30" width="382" height="90"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="Hln-YJ-lS5"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC Number"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="LGd-wf-WvU" firstAttribute="top" secondItem="HMd-rt-Hzu" secondAttribute="bottom" constant="24" id="0yj-Tq-xh6"/>
+                                            <constraint firstItem="LGd-wf-WvU" firstAttribute="trailing" secondItem="HMd-rt-Hzu" secondAttribute="trailing" id="1xy-Dx-FDA"/>
+                                            <constraint firstAttribute="trailing" secondItem="lXK-xH-7si" secondAttribute="trailing" constant="16" id="72Z-dn-U21"/>
+                                            <constraint firstItem="aAi-9b-dg2" firstAttribute="top" secondItem="5T1-fF-NDB" secondAttribute="bottom" constant="24" id="L7X-qE-Fe9"/>
+                                            <constraint firstItem="5T1-fF-NDB" firstAttribute="top" secondItem="PJw-hh-0AG" secondAttribute="bottom" constant="24" id="VjN-Cd-97n"/>
+                                            <constraint firstItem="5T1-fF-NDB" firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" id="huY-iC-Y27"/>
+                                            <constraint firstItem="PJw-hh-0AG" firstAttribute="leading" secondItem="V0V-Js-x2N" secondAttribute="leading" constant="16" id="iep-I9-EEu"/>
+                                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="top" secondItem="aAi-9b-dg2" secondAttribute="bottom" constant="24" id="j9r-1K-q8u"/>
+                                            <constraint firstItem="5T1-fF-NDB" firstAttribute="leading" secondItem="PJw-hh-0AG" secondAttribute="leading" id="kd5-qi-Y20"/>
+                                            <constraint firstItem="PJw-hh-0AG" firstAttribute="top" secondItem="V0V-Js-x2N" secondAttribute="top" constant="30" id="kgK-vk-cuo"/>
+                                            <constraint firstItem="aAi-9b-dg2" firstAttribute="trailing" secondItem="5T1-fF-NDB" secondAttribute="trailing" id="m2Z-oL-5Zr"/>
+                                            <constraint firstItem="lXK-xH-7si" firstAttribute="leading" secondItem="V0V-Js-x2N" secondAttribute="leading" constant="16" id="pIR-1a-V86"/>
+                                            <constraint firstAttribute="bottom" secondItem="lXK-xH-7si" secondAttribute="bottom" constant="24" id="q96-np-H8j"/>
+                                            <constraint firstItem="lXK-xH-7si" firstAttribute="top" secondItem="LGd-wf-WvU" secondAttribute="bottom" constant="24" id="vIu-xz-0bn"/>
+                                            <constraint firstItem="LGd-wf-WvU" firstAttribute="leading" secondItem="HMd-rt-Hzu" secondAttribute="leading" id="w53-ec-uZd"/>
+                                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="trailing" secondItem="5T1-fF-NDB" secondAttribute="trailing" id="wJ7-sx-Opa"/>
+                                            <constraint firstItem="aAi-9b-dg2" firstAttribute="leading" secondItem="5T1-fF-NDB" secondAttribute="leading" id="wox-51-nql"/>
+                                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="leading" secondItem="5T1-fF-NDB" secondAttribute="leading" id="zGG-zm-aaZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" constant="16" id="zxC-2f-c5i"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="5z3-OR-klh"/>
+                                    <constraint firstItem="V0V-Js-x2N" firstAttribute="top" secondItem="IOv-IZ-ByY" secondAttribute="top" id="PS4-EV-9ea"/>
+                                    <constraint firstAttribute="trailing" secondItem="V0V-Js-x2N" secondAttribute="trailing" id="fZb-bB-j8e"/>
+                                    <constraint firstItem="V0V-Js-x2N" firstAttribute="leading" secondItem="IOv-IZ-ByY" secondAttribute="leading" id="i9B-Wo-YkM"/>
+                                    <constraint firstAttribute="bottom" secondItem="V0V-Js-x2N" secondAttribute="bottom" id="tDG-zT-2g6"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aAi-9b-dg2" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="282" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="iHL-Ap-dlu"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMd-rt-Hzu" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="386" width="382" height="80"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="i3V-gL-c8C"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="xxxxxxxxxxxxxx"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="Mobile Number"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jpa-yb-KaD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5T1-fF-NDB" firstAttribute="top" secondItem="PJw-hh-0AG" secondAttribute="bottom" constant="24" id="AsM-Ks-H1M"/>
-                            <constraint firstItem="aAi-9b-dg2" firstAttribute="leading" secondItem="5T1-fF-NDB" secondAttribute="leading" id="HWb-Zh-sAu"/>
-                            <constraint firstItem="LGd-wf-WvU" firstAttribute="top" secondItem="HMd-rt-Hzu" secondAttribute="bottom" constant="24" id="Keo-FW-A6u"/>
-                            <constraint firstItem="5T1-fF-NDB" firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" id="Yaf-Fg-WGr"/>
-                            <constraint firstItem="LGd-wf-WvU" firstAttribute="trailing" secondItem="HMd-rt-Hzu" secondAttribute="trailing" id="Ygi-FD-ajH"/>
-                            <constraint firstItem="aAi-9b-dg2" firstAttribute="top" secondItem="5T1-fF-NDB" secondAttribute="bottom" constant="24" id="anY-Bn-m6G"/>
-                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="leading" secondItem="5T1-fF-NDB" secondAttribute="leading" id="b8C-9n-DLo"/>
-                            <constraint firstItem="arU-dD-vP7" firstAttribute="leading" secondItem="HMd-rt-Hzu" secondAttribute="leading" id="dCX-SB-HE1"/>
-                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="trailing" secondItem="5T1-fF-NDB" secondAttribute="trailing" id="faU-fu-rii"/>
-                            <constraint firstItem="HMd-rt-Hzu" firstAttribute="top" secondItem="aAi-9b-dg2" secondAttribute="bottom" constant="24" id="jXw-NX-VJ6"/>
-                            <constraint firstItem="Jpa-yb-KaD" firstAttribute="trailing" secondItem="PJw-hh-0AG" secondAttribute="trailing" constant="16" id="lZ5-ST-rwh"/>
-                            <constraint firstItem="aAi-9b-dg2" firstAttribute="trailing" secondItem="5T1-fF-NDB" secondAttribute="trailing" id="mf9-S8-DsF"/>
-                            <constraint firstItem="PJw-hh-0AG" firstAttribute="leading" secondItem="Jpa-yb-KaD" secondAttribute="leading" constant="16" id="qtR-6o-N33"/>
-                            <constraint firstItem="5T1-fF-NDB" firstAttribute="leading" secondItem="PJw-hh-0AG" secondAttribute="leading" id="riT-6W-Bvc"/>
+                            <constraint firstItem="Jpa-yb-KaD" firstAttribute="trailing" secondItem="fe8-Ci-gf3" secondAttribute="trailing" constant="16" id="9gd-mL-L5X"/>
+                            <constraint firstItem="arU-dD-vP7" firstAttribute="top" secondItem="fe8-Ci-gf3" secondAttribute="bottom" constant="24" id="Cdi-bb-eNt"/>
+                            <constraint firstAttribute="trailing" secondItem="IOv-IZ-ByY" secondAttribute="trailing" id="Ftd-t8-FEY"/>
+                            <constraint firstItem="IOv-IZ-ByY" firstAttribute="top" secondItem="Jpa-yb-KaD" secondAttribute="top" id="Mzx-Gd-ro8"/>
+                            <constraint firstItem="IOv-IZ-ByY" firstAttribute="leading" secondItem="F75-eM-LOR" secondAttribute="leading" id="Tds-Ru-VYR"/>
+                            <constraint firstItem="fe8-Ci-gf3" firstAttribute="leading" secondItem="Jpa-yb-KaD" secondAttribute="leading" constant="16" id="ZQc-5s-F6G"/>
+                            <constraint firstItem="fe8-Ci-gf3" firstAttribute="top" secondItem="IOv-IZ-ByY" secondAttribute="bottom" id="cJA-Vz-PQ2"/>
+                            <constraint firstItem="V0V-Js-x2N" firstAttribute="width" secondItem="F75-eM-LOR" secondAttribute="width" id="ei1-8O-RrI"/>
+                            <constraint firstItem="Jpa-yb-KaD" firstAttribute="trailing" secondItem="arU-dD-vP7" secondAttribute="trailing" constant="16" id="rP1-Sl-wen"/>
+                            <constraint firstItem="arU-dD-vP7" firstAttribute="leading" secondItem="Jpa-yb-KaD" secondAttribute="leading" constant="16" id="sMm-7t-fMa"/>
                             <constraint firstItem="Jpa-yb-KaD" firstAttribute="bottom" secondItem="arU-dD-vP7" secondAttribute="bottom" constant="16" id="sRv-L6-0RC"/>
-                            <constraint firstItem="PJw-hh-0AG" firstAttribute="top" secondItem="Jpa-yb-KaD" secondAttribute="top" constant="30" id="uVe-Ex-Iht"/>
-                            <constraint firstItem="LGd-wf-WvU" firstAttribute="leading" secondItem="HMd-rt-Hzu" secondAttribute="leading" id="wtL-MB-0IS"/>
-                            <constraint firstItem="arU-dD-vP7" firstAttribute="trailing" secondItem="HMd-rt-Hzu" secondAttribute="trailing" id="xVl-wO-QUI"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="aliasTextField" destination="5T1-fF-NDB" id="nqb-iM-Ggc"/>
+                        <outlet property="cancelBeneficiaryButton" destination="yZq-iE-pmb" id="paN-J9-3IN"/>
                         <outlet property="cnicTextField" destination="PJw-hh-0AG" id="I8F-Bt-eQs"/>
                         <outlet property="countryTextField" destination="aAi-9b-dg2" id="7hg-J3-vTR"/>
+                        <outlet property="customRelationTextField" destination="lXK-xH-7si" id="vVb-Ol-WFJ"/>
                         <outlet property="deleteBeneficiaryButton" destination="arU-dD-vP7" id="CfQ-TZ-qYR"/>
+                        <outlet property="editBeneficiaryButton" destination="kvB-7C-D46" id="eii-dI-UQd"/>
+                        <outlet property="editStackView" destination="Csr-XF-37U" id="TJp-UZ-uMW"/>
                         <outlet property="mobileTextField" destination="HMd-rt-Hzu" id="7AB-vD-XGx"/>
                         <outlet property="relationTextField" destination="LGd-wf-WvU" id="N7i-rG-4Fv"/>
+                        <outlet property="resendOTPBeneficiaryButton" destination="zM1-rY-Eka" id="CBO-Zc-nbY"/>
+                        <outlet property="updateBeneficiaryButton" destination="d0z-9R-OjO" id="SrN-A8-0y7"/>
+                        <outlet property="updateStackView" destination="XrW-Nn-0FJ" id="4SH-wR-QR7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sy-Z7-SwE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-48" y="64"/>
+            <point key="canvasLocation" x="-49.275362318840585" y="63.616071428571423"/>
         </scene>
     </scenes>
     <designables>
         <designable name="arU-dD-vP7">
             <size key="intrinsicContentSize" width="125" height="30"/>
+        </designable>
+        <designable name="d0z-9R-OjO">
+            <size key="intrinsicContentSize" width="51" height="30"/>
+        </designable>
+        <designable name="kvB-7C-D46">
+            <size key="intrinsicContentSize" width="30" height="30"/>
+        </designable>
+        <designable name="yZq-iE-pmb">
+            <size key="intrinsicContentSize" width="48" height="30"/>
+        </designable>
+        <designable name="zM1-rY-Eka">
+            <size key="intrinsicContentSize" width="85" height="30"/>
         </designable>
     </designables>
     <resources>

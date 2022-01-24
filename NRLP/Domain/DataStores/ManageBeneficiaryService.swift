@@ -11,12 +11,16 @@ import Foundation
 typealias ManageBeneficiaryCallBack = (Result<ManageBeneficiaryResponseModel, APIResponseError>) -> Void
 typealias AddBeneficiaryCallBack = (Result<AddBeneficiaryResponseModel, APIResponseError>) -> Void
 typealias DeleteBeneficiaryCallBack = (Result<DeleteBeneficiaryResponseModel, APIResponseError>) -> Void
+typealias ResendOTPBeneficiaryCallBack = (Result<ResendOTPBeneficiaryResponseModel, APIResponseError>) -> Void
+typealias UpdateBeneficiaryCallBack = (Result<UpdateBeneficiaryResponseModel, APIResponseError>) -> Void
 
 protocol ManageBeneficiaryServiceProtocol {
 
     func fetchBeneficiaries(requestModel: ManageBeneficiaryRequestModel, completion: @escaping ManageBeneficiaryCallBack)
     func addBeneficiary(beneficiary: AddBeneficiaryRequestModel, completion: @escaping AddBeneficiaryCallBack)
     func deleteBeneficiary(beneficiary: DeleteBeneficiaryRequestModel, completion: @escaping DeleteBeneficiaryCallBack)
+    func updateBeneficiary(requestModel: UpdateBeneficiaryRequestModel, completion: @escaping UpdateBeneficiaryCallBack)
+    func resendOTPBeneficiary(requestModel: ResendOTPBeneficiaryRequestModel, completion: @escaping ResendOTPBeneficiaryCallBack)
 }
 
 extension ManageBeneficiaryServiceProtocol {
@@ -71,6 +75,36 @@ class ManageBeneficiaryService: BaseDataStore, ManageBeneficiaryServiceProtocol 
         let request = RequestBuilder(path: .init(endPoint: .manageBeneficiary), parameters: requestModel)
 
         networking.get(request: request) { (response: APIResponse<ManageBeneficiaryResponseModel>) in
+
+            completion(response.result)
+        }
+    }
+    
+    func resendOTPBeneficiary(requestModel: ResendOTPBeneficiaryRequestModel, completion: @escaping ResendOTPBeneficiaryCallBack) {
+        if !NetworkState.isConnected() {
+            completion(.failure(.internetOffline))
+            return
+        }
+
+        // request building
+        let request = RequestBuilder(path: .init(endPoint: .addBeneficiaryResendCode), parameters: requestModel)
+
+        networking.patch(request: request) { (response: APIResponse<ResendOTPBeneficiaryResponseModel>) in
+
+            completion(response.result)
+        }
+    }
+    
+    func updateBeneficiary(requestModel: UpdateBeneficiaryRequestModel, completion: @escaping UpdateBeneficiaryCallBack) {
+        if !NetworkState.isConnected() {
+            completion(.failure(.internetOffline))
+            return
+        }
+
+        // request building
+        let request = RequestBuilder(path: .init(endPoint: .updateBeneficiary), parameters: requestModel)
+
+        networking.patch(request: request) { (response: APIResponse<UpdateBeneficiaryResponseModel>) in
 
             completion(response.result)
         }

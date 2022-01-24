@@ -48,6 +48,12 @@ extension NetworkManager: Networking {
         return dispatchDownloadData(with: request.path.url, method: .get, task: task, completion: completion)
     }
     
+    func patch<T, R>(request: RequestBuilder<R>, completion: @escaping (APIResponse<T>) -> Void) -> APIRequest? where T: Decodable, R: Encodable {
+        
+        let task = HTTPTask.requestParametersAndHeaders(bodyParameters: request.hashedParamaters ?? request.parameters, bodyEncoding: .jsonEncoding, urlParameters: nil, additionHeaders: request.headers)
+        return dispatch(with: request.path.url, method: .patch, task: task, completion: completion)
+    }
+    
     func dispatchDownloadData(with request: String,
                               method: HTTPMethod,
                               task: HTTPTask,
