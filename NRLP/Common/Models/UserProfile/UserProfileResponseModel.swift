@@ -15,6 +15,16 @@ struct UserProfileResponseModel: Codable {
 
 struct SelfAwardValidateResponseModel: Codable {
     let message: String
+    let transactionID: String
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "message"
+        case transactionID = "sa_row_id"
+    }
+}
+
+struct SelfAwardValidateOTPResponseModel: Codable {
+    let message: String
 }
 
 struct InitRedemptionTransactionResponseModel: Codable {

@@ -57,7 +57,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-X6-gMU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="316.5" width="382" height="80"/>
+                                <rect key="frame" x="16" y="420.5" width="382" height="80"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" placeholder="YES" id="8e1-XX-g8O"/>
@@ -67,7 +67,6 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="kqo-X6-gMU" firstAttribute="top" secondItem="KOU-m7-W4H" secondAttribute="bottom" constant="24" id="14P-SQ-BMl"/>
                             <constraint firstItem="wo6-Mt-Dbh" firstAttribute="top" secondItem="pfY-uN-VDq" secondAttribute="bottom" constant="24.5" id="25t-bS-uct"/>
                             <constraint firstItem="KOU-m7-W4H" firstAttribute="top" secondItem="wo6-Mt-Dbh" secondAttribute="bottom" constant="24" id="2pD-mR-wOn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wo6-Mt-Dbh" secondAttribute="trailing" constant="16" id="358-Z8-jyl"/>
@@ -88,11 +87,6 @@
                             <constraint firstItem="5iH-Vc-mM9" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="jjT-Pe-rt6"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ilv-wM-EhK" secondAttribute="trailing" constant="16" id="yfZ-N3-Vgf"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="ilv-wM-EhK"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="beneficaryCnicTextView" destination="kqo-X6-gMU" id="fhf-qg-fMh"/>

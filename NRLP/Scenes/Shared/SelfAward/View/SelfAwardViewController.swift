@@ -35,7 +35,11 @@ class SelfAwardViewController: BaseViewController {
     }()
     
     private var remittanceDateString: String? {
-        return DateFormat().formatDateString(to: remittanceDate ?? Date(), formatter: .shortDateFormat)
+        if let date = remittanceDate {
+            return DateFormat().formatDateString(to: date, formatter: .shortDateFormat)
+        } else {
+            return nil
+        }
     }
     
     // MARK: IBOutlets
@@ -165,8 +169,8 @@ class SelfAwardViewController: BaseViewController {
     }
     
     private func validateFields() {
-        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic {
-            if referenceNo.isEmpty || transactionAmount.isEmpty || cnic.isEmpty {
+        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic, let date = remittanceDateString {
+            if referenceNo.isEmpty || transactionAmount.isEmpty || cnic.isEmpty || date.isEmpty {
                 proceedBtn.isEnabled = false
             } else {
                 proceedBtn.isEnabled = true
@@ -177,17 +181,17 @@ class SelfAwardViewController: BaseViewController {
     }
     
     @objc private func proceedBtnAction() {
-        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.beneficaryCnic {
+        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.beneficaryCnic, let date = remittanceDateString {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
-            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic)
+            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic, remittanceDate: date)
 
             service.validateTransaction(requestModel: model) {[weak self] (result) in
                 self?.showActivityIndicator(show: false)
                 switch result {
-                case .success(_):
+                case .success(let response):
                     guard let user = self?.user else { return }
-                    self?.navigateToOTPScreen(model: model, user: user)
+                    self?.navigateToOTPScreen(model: model, user: user, responseModel: response)
                 case .failure(let error):
                     switch error {
                     case .server(let response):
@@ -208,9 +212,9 @@ class SelfAwardViewController: BaseViewController {
         show ? ProgressHUD.show() : ProgressHUD.dismiss()
     }
     
-    private func navigateToOTPScreen(model: SelfAwardModel, user: UserModel) {
+    private func navigateToOTPScreen(model: SelfAwardModel, user: UserModel, responseModel: SelfAwardValidateResponseModel) {
         let vc = SelfAwardOTPViewController.getInstance()
-        vc.viewModel = SelfAwardOTPViewModel(model: model, navigationController: self.navigationController ?? UINavigationController(), user: user)
+        vc.viewModel = SelfAwardOTPViewModel(model: model, navigationController: self.navigationController ?? UINavigationController(), user: user, responseModel: responseModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 

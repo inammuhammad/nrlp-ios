@@ -88,14 +88,17 @@ struct UpdateProfileSendOTPResponseModel: Codable {
 struct SelfAwardVerifyOTPRequestModel: Codable {
 
     let otp: String!
+    let responseTransactionID: String
 
     enum CodingKeys: String, CodingKey {
 
         case otp = "otp"
+        case responseTransactionID = "sp_respone_row_id"
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(otp.aesEncrypted(), forKey: .otp)
+        try container.encode(responseTransactionID.aesEncrypted(), forKey: .responseTransactionID)
     }
 }
