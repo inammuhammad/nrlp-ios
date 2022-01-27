@@ -609,6 +609,8 @@
 		E1C7F6DC279AC3810047AB6B /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7F6DB279AC3810047AB6B /* IntExtension.swift */; };
 		E1C7F6DE279AC4FC0047AB6B /* ResendOTPBeneficiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7F6DD279AC4FC0047AB6B /* ResendOTPBeneficiaryModel.swift */; };
 		E1C7F6E0279AC5680047AB6B /* UpdateBeneficiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7F6DF279AC5680047AB6B /* UpdateBeneficiaryModel.swift */; };
+		E1E1EF1127A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E1EF1027A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift */; };
+		E1E1EF1327A2CF7500D69EAD /* PaddedTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E1EF1227A2CF7500D69EAD /* PaddedTextArea.swift */; };
 		E1E5F83E27A137E300413FB4 /* ComplaintUserType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E5F83D27A137E300413FB4 /* ComplaintUserType.storyboard */; };
 		E1E5F84027A137F400413FB4 /* ComplaintUserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F83F27A137F400413FB4 /* ComplaintUserTypeViewController.swift */; };
 		E1E5F84227A1385900413FB4 /* ComplaintUserTypeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F84127A1385900413FB4 /* ComplaintUserTypeBuilder.swift */; };
@@ -1323,6 +1325,8 @@
 		E1C7F6DB279AC3810047AB6B /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		E1C7F6DD279AC4FC0047AB6B /* ResendOTPBeneficiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendOTPBeneficiaryModel.swift; sourceTree = "<group>"; };
 		E1C7F6DF279AC5680047AB6B /* UpdateBeneficiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBeneficiaryModel.swift; sourceTree = "<group>"; };
+		E1E1EF1027A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintFormTextFieldTypes.swift; sourceTree = "<group>"; };
+		E1E1EF1227A2CF7500D69EAD /* PaddedTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextArea.swift; sourceTree = "<group>"; };
 		E1E5F83D27A137E300413FB4 /* ComplaintUserType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComplaintUserType.storyboard; sourceTree = "<group>"; };
 		E1E5F83F27A137F400413FB4 /* ComplaintUserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintUserTypeViewController.swift; sourceTree = "<group>"; };
 		E1E5F84127A1385900413FB4 /* ComplaintUserTypeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintUserTypeBuilder.swift; sourceTree = "<group>"; };
@@ -2442,6 +2446,7 @@
 				20D8403B24B493D300F5D749 /* Common */,
 				20782D3024B44E6A00422AEB /* LabelledTextView */,
 				207C3DE024B620CA00298C0C /* PaddedTextView.swift */,
+				E1E1EF1227A2CF7500D69EAD /* PaddedTextArea.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -5059,6 +5064,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E5F85827A155C300413FB4 /* ComplaintTypes.swift */,
+				E1E1EF1027A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -6097,6 +6103,7 @@
 				2030724E24C9F58200C0DC67 /* RadialGradientLayer.swift in Sources */,
 				204A6BD224B82FF2001E4E74 /* OTPService.swift in Sources */,
 				207C3DA124B5B01400298C0C /* AccountTypePickerItemModel.swift in Sources */,
+				E1E1EF1327A2CF7500D69EAD /* PaddedTextArea.swift in Sources */,
 				20E56FCE24B4FA6500BF3B15 /* ProgressBarView.swift in Sources */,
 				9F8D824C24C86AA900BB1C26 /* ForgotPasswordBuilder.swift in Sources */,
 				BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */,
@@ -6122,6 +6129,7 @@
 				9F8D823624C83BB300BB1C26 /* ChangePasswordService.swift in Sources */,
 				208EF7F324E144C600E43B0B /* ChangePasswordRouter.swift in Sources */,
 				20E56FBB24B4AB9A00BF3B15 /* RegistrationViewController.swift in Sources */,
+				E1E1EF1127A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift in Sources */,
 				9F8D823C24C83FA300BB1C26 /* ChangePasswordSuccessBuilder.swift in Sources */,
 				E15BF318277B32DC0038EA81 /* CityListTableViewCell.swift in Sources */,
 				207C3DD924B5EC9800298C0C /* OperationCompletedViewController.swift in Sources */,

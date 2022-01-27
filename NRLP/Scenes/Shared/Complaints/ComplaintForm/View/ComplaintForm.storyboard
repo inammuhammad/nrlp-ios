@@ -186,8 +186,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cnicTextView" destination="3vc-JZ-lcx" id="g32-mm-HY6"/>
                         <outlet property="complaintLabel" destination="Gma-BW-W4r" id="b51-A6-BQP"/>
                         <outlet property="complaintTypeRadioButton" destination="Rno-TO-nhg" id="NWR-js-CDH"/>
+                        <outlet property="countryTextView" destination="JNr-5o-i0m" id="A1A-d5-lJW"/>
+                        <outlet property="emailAddressTextView" destination="uwo-NX-kba" id="GWZ-LH-ozU"/>
+                        <outlet property="fullNameTextView" destination="gIb-ez-7On" id="UuX-Os-3CZ"/>
+                        <outlet property="mobileNumberTextView" destination="3dK-5R-MGe" id="iLe-ik-Tcx"/>
+                        <outlet property="mobileOperatorTextView" destination="1qL-GN-SZO" id="GIa-jB-CVS"/>
                         <outlet property="nextButton" destination="ycd-Vr-vbE" id="VKl-di-pN5"/>
                         <outlet property="titleLabel" destination="GYN-5S-LUh" id="b6J-tQ-Dtg"/>
                     </connections>
