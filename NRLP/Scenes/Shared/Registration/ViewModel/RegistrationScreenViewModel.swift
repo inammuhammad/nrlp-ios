@@ -474,7 +474,7 @@ extension RegistrationViewModel {
             errorTopField = errorTopField ?? .cnic
         }
         
-            if beneficaryOTP?.count == 4 {
+        if beneficaryOTP?.count == 4 {
             output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryOtp))
         } else {
             output?(.textField(errorState: true, error: "Please enter 4 digit OTP received in SMS", textfieldType: .beneficiaryOtp))

@@ -15,6 +15,7 @@ protocol BeneficiaryFormViewModelProtocol {
     var output: BeneficiaryFormViewModelOutput? { get set }
     
     var name: String? { get set }
+    var motherMaidenName: String? { get set }
     var birthPlace: String? { get set }
     var country: Country? { get set }
     var cnicIssueDate: Date? { get set }
@@ -35,6 +36,7 @@ class BeneficiaryFormViewModel: BeneficiaryFormViewModelProtocol {
     
     enum BeneficiaryFormInputFieldType {
         case fullName
+        case motherName
         case birthPlace
         case countryOfResidence
         case cnicIssueDate
@@ -45,6 +47,12 @@ class BeneficiaryFormViewModel: BeneficiaryFormViewModelProtocol {
     }
     
     var name: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var motherMaidenName: String? {
         didSet {
             validateRequiredFields()
         }
@@ -165,6 +173,7 @@ extension BeneficiaryFormViewModel {
         self.model?.mobileNo = self.mobileNumber ?? ""
         self.model?.sotp = "2"
         self.model?.paassword = self.password ?? ""
+        self.model?.motherMaidenName = self.motherMaidenName ?? ""
     }
     
     func countryTextFieldTapped() {
@@ -186,7 +195,7 @@ extension BeneficiaryFormViewModel {
     }
     
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnicIssueDateString.isBlank || country == nil || mobileNumber?.isBlank ?? true || password?.isBlank ?? true || confirmPassword?.isBlank ?? true  || birthPlace == nil {
+        if name?.isBlank ?? true || motherMaidenName?.isBlank ?? true || cnicIssueDateString.isBlank || country == nil || mobileNumber?.isBlank ?? true || password?.isBlank ?? true || confirmPassword?.isBlank ?? true  || birthPlace == nil {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))
@@ -204,6 +213,14 @@ extension BeneficiaryFormViewModel {
             output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fullName))
             isValid = false
             errorTopField = errorTopField ?? .fullName
+        }
+        
+        if motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .motherName))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .motherName))
+            isValid = false
+            errorTopField = errorTopField ?? .motherName
         }
         
         if let cnicIssueDate = cnicIssueDate, cnicIssueDate < Date() {

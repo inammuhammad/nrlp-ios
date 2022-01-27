@@ -59,6 +59,27 @@ class BeneficiaryFormViewController: BaseViewController {
         }
     }
     
+    @IBOutlet private weak var motherNameTextView: LabelledTextview! {
+        didSet {
+            motherNameTextView.titleLabelText = "Mother Maiden Name *".localized
+            motherNameTextView.placeholderText = "Kaneez Fatima".localized
+            motherNameTextView.autoCapitalizationType = .words
+            motherNameTextView.inputFieldMaxLength = 50
+            motherNameTextView.showHelpBtn = false
+            motherNameTextView.helpLabelText = "Please enter your Full Name as per CNIC/NICOP".localized
+            motherNameTextView.editTextKeyboardType = .asciiCapable
+            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            motherNameTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.motherMaidenName = updatedText
+            }
+            motherNameTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
     @IBOutlet private weak var birthPlaceTextView: LabelledTextview! {
         didSet {
             birthPlaceTextView.titleLabelText = "Place of Birth *".localized
@@ -294,6 +315,8 @@ extension BeneficiaryFormViewController {
             self.passwordTextView.becomeFirstResponder()
         case .confirmPassword:
             self.reEnterPasswordTextView.becomeFirstResponder()
+        case .motherName:
+            self.motherNameTextView.becomeFirstResponder()
         }
     }
     
@@ -316,6 +339,8 @@ extension BeneficiaryFormViewController {
             self.passwordTextView.updateStateTo(isError: state, error: message)
         case .confirmPassword:
             self.reEnterPasswordTextView.updateStateTo(isError: state, error: message)
+        case .motherName:
+            self.motherNameTextView.updateStateTo(isError: state, error: message)
         }
     }
     

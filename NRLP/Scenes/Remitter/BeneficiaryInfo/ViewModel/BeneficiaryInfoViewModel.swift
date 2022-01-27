@@ -69,7 +69,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     }
     
     func viewDidLoad() {
-        self.output?(.shouldShowEditStackView(show: true))
+        self.output?(.shouldShowEditStackView(show: false))
         self.output?(.shouldShowUpdateStackView(show: false))
     }
     
