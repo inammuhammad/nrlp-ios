@@ -365,7 +365,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 
 
 "Enter Beneficiary Account Number or CNIC on which remittance is sent" = "Enter Beneficiary Account Number or CNIC on which  remittance is sent";
-"Beneficiary Account Number / CNIC" = "Beneficiary Account Number / CNIC";
+"Beneficiary Account Number / CNIC" = "Beneficiary Account number/IBAN/CNIC";
 
 "CNIC/NICOP Issuance Date *" = "CNIC/NICOP Issuance Date *";
 "Place of Birth *" = "Place of Birth *";
