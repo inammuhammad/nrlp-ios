@@ -114,8 +114,10 @@ class HomeViewModel: HomeViewModelProtocol {
             router.navigateToProfile()
         case .contactUs:
             router.navigateToContactUs()
-//        case .complaint:
-//            ()
+        case .complaint:
+            if let type = self.userModel.accountType {
+                router.navigateToComplaintManagement(userType: type)
+            }
         case .guide:
             router.navigateToGuide(link: "https://www.youtube.com/playlist?list=PLFB-5JvOR9rAvAGK6YzQmxXvFiUWn48vY") { errorText in
                 let errorModel = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: StringConstants.ErrorString.serverErrorTitle.localized, alertDescription: errorText, primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil))

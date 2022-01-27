@@ -73,6 +73,10 @@ class HomeRouter {
         AppUtility.goToYouTube(youtubeLink: link, onFailure: error)
     }
     
+    func navigateToComplaintManagement(userType: AccountType) {
+        self.navigationController?.pushViewController(ComplaintTypeBuilder().build(with: self.navigationController, userType: userType, loginState: .loggedIn), animated: true)
+    }
+    
     func navigateToNadraVerificationScreen(userModel: UserModel) {
         UIApplication.shared.keyWindow?.switchRoot(withRootController: NadraVerificationBuilder().build(userModel: userModel))
     }

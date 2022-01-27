@@ -17,7 +17,7 @@ enum SideMenuItem: Int {
     case guide
     case languageSelection
     case contactUs
-//    case complaint
+    case complaint
     case logout
  
     func getTitle() -> String {
@@ -34,8 +34,8 @@ enum SideMenuItem: Int {
             return "Language Selection".localized
         case .contactUs:
             return "Contact Us".localized
-//        case .complaint:
-//            return "Complaint Management".localized
+        case .complaint:
+            return "Complaint Management".localized
         case .logout:
             return "Logout".localized
         }
@@ -55,8 +55,8 @@ enum SideMenuItem: Int {
             return #imageLiteral(resourceName: "translateIcon")
         case .contactUs:
             return #imageLiteral(resourceName: "contactIcon")
-//        case .complaint:
-//            return UIImage(named: "complaints-side-menu") ?? UIImage()
+        case .complaint:
+            return UIImage(named: "complaints-side-menu") ?? UIImage()
         case .logout:
             return #imageLiteral(resourceName: "logout")
         }

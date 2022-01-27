@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Complaint User Type View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ComplaintUserTypeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ComplaintUserTypeViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complaint Management" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ9-uy-ZPJ">
+                                <rect key="frame" x="71.5" y="94" width="271" height="28"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
+                                <color key="textColor" red="0.22352941176470587" green="0.57836024790775686" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a User Type" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89l-5k-bhI">
+                                <rect key="frame" x="132" y="158" width="150" height="20"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fGF-VA-0xr" customClass="RadioButtonView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="198" width="382" height="120"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3g-1s-cuI" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="D18-IV-gVc"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="nextButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="6z8-a5-zzf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g3g-1s-cuI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="0HF-9s-ER2"/>
+                            <constraint firstItem="OZ9-uy-ZPJ" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="2de-Ma-ub8"/>
+                            <constraint firstAttribute="trailing" secondItem="fGF-VA-0xr" secondAttribute="trailing" constant="16" id="715-jF-nAP"/>
+                            <constraint firstItem="89l-5k-bhI" firstAttribute="top" secondItem="OZ9-uy-ZPJ" secondAttribute="bottom" constant="36" id="GfN-ja-nQg"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="g3g-1s-cuI" secondAttribute="bottom" constant="16" id="PM2-yX-a1G"/>
+                            <constraint firstItem="89l-5k-bhI" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Vyw-dJ-5qr"/>
+                            <constraint firstItem="fGF-VA-0xr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="aOv-yN-aFU"/>
+                            <constraint firstItem="fGF-VA-0xr" firstAttribute="top" secondItem="89l-5k-bhI" secondAttribute="bottom" constant="20" id="aYn-rz-jJA"/>
+                            <constraint firstItem="OZ9-uy-ZPJ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="id4-bF-fXl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="g3g-1s-cuI" secondAttribute="trailing" constant="16" id="twO-w9-gCZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accountLabel" destination="89l-5k-bhI" id="uRB-Wk-CaB"/>
+                        <outlet property="accountTypeRadioButton" destination="fGF-VA-0xr" id="ttJ-Pf-dXu"/>
+                        <outlet property="nextButton" destination="g3g-1s-cuI" id="hIY-Gl-b5n"/>
+                        <outlet property="titleLabel" destination="OZ9-uy-ZPJ" id="krq-Qd-j6a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="106"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="g3g-1s-cuI">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
