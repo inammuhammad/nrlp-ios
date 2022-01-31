@@ -51,99 +51,109 @@
                                 <rect key="frame" x="0.0" y="268" width="414" height="508"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaw-QT-zg0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="832"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iSU-BG-jFu">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="832"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iSU-BG-jFu">
+                                                <rect key="frame" x="20" y="0.0" width="374" height="862"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIb-ez-7On" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="gx3-Kl-Ffj"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vc-JZ-lcx" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="106" width="374" height="90"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="xjQ-Zf-gkm"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-5o-i0m" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="212" width="374" height="90"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="2i5-Ru-7YU"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dK-5R-MGe" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="318" width="374" height="90"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="dnO-yk-WZ1"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qL-GN-SZO" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="424" width="374" height="90"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="hvZ-FK-GnZ"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-NX-kba" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="530" width="374" height="90"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="qr1-ib-rsu"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-i1-clF" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="636" width="374" height="90"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="PSh-aP-d22"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Idh-1g-uuX" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="742" width="374" height="90"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="90" id="uWb-e4-FTY"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </view>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lho-aU-GWS">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="726"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIb-ez-7On" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="gx3-Kl-Ffj"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3vc-JZ-lcx" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="106" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="xjQ-Zf-gkm"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNr-5o-i0m" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="212" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="2i5-Ru-7YU"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dK-5R-MGe" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="318" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="dnO-yk-WZ1"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qL-GN-SZO" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="424" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="hvZ-FK-GnZ"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwo-NX-kba" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="530" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="qr1-ib-rsu"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gJX-i1-clF" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="636" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="PSh-aP-d22"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pE3-c7-7jB">
+                                                        <rect key="frame" x="0.0" y="742" width="374" height="120"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Idh-1g-uuX" customClass="LabelledTextArea" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="120" id="X6y-E0-5J8"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -195,6 +205,8 @@
                         <outlet property="mobileNumberTextView" destination="3dK-5R-MGe" id="iLe-ik-Tcx"/>
                         <outlet property="mobileOperatorTextView" destination="1qL-GN-SZO" id="GIa-jB-CVS"/>
                         <outlet property="nextButton" destination="ycd-Vr-vbE" id="VKl-di-pN5"/>
+                        <outlet property="redemptionIssueTextView" destination="gJX-i1-clF" id="fb0-GW-5IW"/>
+                        <outlet property="specifyDetailsTextArea" destination="Idh-1g-uuX" id="tGT-eZ-2L2"/>
                         <outlet property="titleLabel" destination="GYN-5S-LUh" id="b6J-tQ-Dtg"/>
                     </connections>
                 </viewController>

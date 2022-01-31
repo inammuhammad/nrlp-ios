@@ -77,5 +77,6 @@ extension UIStoryboard {
         case complaintUserType = "ComplaintUserType"
         case complaintType = "ComplaintType"
         case complaintForm = "ComplaintForm"
+        case complaintSuccess = "ComplaintSuccess"
     }
 }

@@ -95,7 +95,7 @@ class ComplaintTypeViewModel: ComplaintTypeViewModelProtocol {
     private func addNotRegisteredBeneficiaryData() {
         complaintTypeItemModel = [
             RadioButtonItemModel(title: ComplaintTypes.unableToRegister.getTitle(), key: ComplaintTypes.unableToRegister.rawValue),
-            RadioButtonItemModel(title: ComplaintTypes.unableToReceiveOTP.getTitle(), key: ComplaintTypes.unableToReceiveOTP.rawValue),
+            RadioButtonItemModel(title: ComplaintTypes.unableToReceiveRegistrationCode.getTitle(), key: ComplaintTypes.unableToReceiveRegistrationCode.rawValue),
             RadioButtonItemModel(title: ComplaintTypes.others.getTitle(), key: ComplaintTypes.others.rawValue)
         ]
     }

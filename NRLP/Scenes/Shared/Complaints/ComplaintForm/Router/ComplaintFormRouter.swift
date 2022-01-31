@@ -20,4 +20,7 @@ class ComplaintFormRouter {
         self.navigationController?.pushViewController(CountryListModuleBuilder().build(with: self.navigationController, onCountrySelection: onSelectionCountry, userType: accountType), animated: true)
     }
     
+    func navigateToSuccessScreen(complaintID: String) {
+        self.navigationController?.pushViewController(ComplaintSuccessBuilder().build(with: navigationController, complaintID: complaintID), animated: true)
+    }
 }

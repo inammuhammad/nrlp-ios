@@ -23,7 +23,7 @@ class ComplaintUserTypeViewController: BaseViewController {
     @IBOutlet weak var accountLabel: UILabel! {
         didSet {
             accountLabel.text = "Select User Type".localized
-            accountLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
+            accountLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .extraUltraLargeFontSize)
             accountLabel.textColor = UIColor.init(commonColor: .appDarkGray)
         }
     }
