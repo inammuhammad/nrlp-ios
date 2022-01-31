@@ -124,14 +124,14 @@ class SelfAwardViewController: BaseViewController {
     }
     @IBOutlet private weak var beneficaryCnicTextView: LabelledTextview! {
         didSet {
-            beneficaryCnicTextView.titleLabelText = "Beneficiary Account Number / CNIC".localized
+            beneficaryCnicTextView.titleLabelText = "Beneficiary Account Number/ IBAN/CNIC".localized
             beneficaryCnicTextView.placeholderText = "xxxxxxxxxxxxx".localized
             beneficaryCnicTextView.editTextKeyboardType = .default
             beneficaryCnicTextView.inputFieldMinLength = 1
             beneficaryCnicTextView.showHelpBtn = true
             beneficaryCnicTextView.isEditable = true
             beneficaryCnicTextView.helpPopupIcon = .selfAward
-            beneficaryCnicTextView.helpLabelText = "Enter Beneficiary Account Number or CNIC on which remittance is sent".localized
+            beneficaryCnicTextView.helpLabelText = "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent".localized
             beneficaryCnicTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.beneficaryCnic = updatedText
@@ -169,8 +169,8 @@ class SelfAwardViewController: BaseViewController {
     }
     
     private func validateFields() {
-        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic, let date = remittanceDateString {
-            if referenceNo.isEmpty || transactionAmount.isEmpty || cnic.isEmpty || date.isEmpty {
+        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic {
+            if referenceNo.isEmpty || transactionAmount.isEmpty || cnic.isEmpty {
                 proceedBtn.isEnabled = false
             } else {
                 proceedBtn.isEnabled = true
@@ -181,10 +181,10 @@ class SelfAwardViewController: BaseViewController {
     }
     
     @objc private func proceedBtnAction() {
-        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.beneficaryCnic, let date = remittanceDateString {
+        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.beneficaryCnic{
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
-            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic, remittanceDate: date)
+            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic)
 
             service.validateTransaction(requestModel: model) {[weak self] (result) in
                 self?.showActivityIndicator(show: false)
@@ -230,7 +230,7 @@ extension SelfAwardViewController: CustomDatePickerViewDelegate {
         switch picker {
         case self.remittanceDatePicker:
             self.remittanceDate = date
-            self.remittanceDateTextView.inputText = remittanceDateString
+//            self.remittanceDateTextView.inputText = remittanceDateString
         default:
             break
         }

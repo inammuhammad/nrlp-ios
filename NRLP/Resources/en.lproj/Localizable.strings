@@ -364,8 +364,8 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)";
 
 
-"Enter Beneficiary Account Number or CNIC on which remittance is sent" = "Enter Beneficiary Account Number or CNIC on which  remittance is sent";
-"Beneficiary Account Number / CNIC" = "Beneficiary Account number/IBAN/CNIC";
+"Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent";
+"Beneficiary Account Number/ IBAN/CNIC" = "Beneficiary Account Number/ IBAN/CNIC";
 
 "CNIC/NICOP Issuance Date *" = "CNIC/NICOP Issuance Date *";
 "Place of Birth *" = "Place of Birth *";

@@ -377,8 +377,8 @@
 
 نوٹ:  خود پوائنٹس حاصل کرنے کے لیے  صرف موجودہ سال کیی ٹرانزیکشن ہی استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";
 
-"Enter Beneficiary Account Number or CNIC on which remittance is sent" = "وصول کنندہ کا اکاؤنٹ نمبر / قومی شناختی کارڈ نمبر درج کریں جس پر ترسیلات بھیجی گئی ہیں۔ ";
-"Beneficiary Account Number / CNIC" = "وصول کنندہ  کا  اکاؤنٹ نمبر / قومی شناختی کارڈ نمبر ";
+"Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "وصول کنندہ کا اکاؤنٹ نمبر / قومی شناختی کارڈ نمبر درج کریں جس پر ترسیلات بھیجی گئی ہیں۔ ";
+"Beneficiary Account Number/ IBAN/CNIC" = "وصول کنندہ کا اکاونٹ نمر/ بین الاقوامی بینک اکاؤنٹ نمبر/قومی شناختی کارڈ نمر";
 
 "CNIC/NICOP Issuance Date *" = "* کے اجراء کی تاریخ  CNIC/NICOP";
 "Place of Birth *" = "جائے پیدائش *";
