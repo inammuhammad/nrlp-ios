@@ -109,14 +109,14 @@ struct SelfAwardModel: Codable {
     var referenceNo: String
     var beneficiaryCnic: String
     var responseTransactionID: String?
-    var remittanceDate: String
+//    var remittanceDate: String
     
     enum CodingKeys: String, CodingKey {
         case amount = "amount"
         case referenceNo = "reference_no"
         case beneficiaryCnic = "beneficiary_nic_nicop"
         case responseTransactionID = "sp_respone_row_id"
-        case remittanceDate = "transaction_date"
+//        case remittanceDate = "transaction_date"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -125,6 +125,6 @@ struct SelfAwardModel: Codable {
         try container.encodeIfPresent(referenceNo.aesEncrypted(), forKey: .referenceNo)
         try container.encodeIfPresent(beneficiaryCnic.aesEncrypted(), forKey: .beneficiaryCnic)
         try container.encodeIfPresent(responseTransactionID?.aesEncrypted(), forKey: .responseTransactionID)
-        try container.encodeIfPresent(remittanceDate, forKey: .remittanceDate)
+//        try container.encodeIfPresent(remittanceDate, forKey: .remittanceDate)
     }
 }
