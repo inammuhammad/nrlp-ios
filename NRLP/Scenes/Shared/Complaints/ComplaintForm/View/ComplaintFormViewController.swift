@@ -25,6 +25,12 @@ class ComplaintFormViewController: BaseViewController {
         pickerView.viewModel = viewModel.transactionTypesPickerViewModel
         return pickerView
     }()
+    private lazy var transactionDatePicker: CustomDatePickerView = {
+        var pickerView = CustomDatePickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = viewModel.datePickerViewModel
+        return pickerView
+    }()
     
     // MARK: IBOutlets
 
@@ -212,6 +218,74 @@ class ComplaintFormViewController: BaseViewController {
             }
         }
     }
+    @IBOutlet private weak var beneficaryAccountTextView: LabelledTextview! {
+        didSet {
+            beneficaryAccountTextView.titleLabelText = "Beneficiary Account Number/ IBAN/CNIC".localized
+            beneficaryAccountTextView.placeholderText = "xxxxxxxxxxxxx".localized
+            beneficaryAccountTextView.editTextKeyboardType = .default
+            beneficaryAccountTextView.inputFieldMinLength = 1
+            beneficaryAccountTextView.isEditable = true
+            beneficaryAccountTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.beneficiaryCnic = updatedText
+            }
+        }
+    }
+    @IBOutlet weak var remittanceEntityTextView: LabelledTextview! {
+        didSet {
+            remittanceEntityTextView.titleLabelText = "Remitting Entity".localized
+            remittanceEntityTextView.autoCapitalizationType = .words
+            remittanceEntityTextView.editTextKeyboardType = .asciiCapable
+            remittanceEntityTextView.showHelpBtn = true
+            remittanceEntityTextView.helpLabelText = "Please specify Bank/Exchange company from where remittance is sent".localized
+            remittanceEntityTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.remittanceEntity = updatedText
+            }
+            remittanceEntityTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    @IBOutlet private weak var transactionIDTextView: LabelledTextview! {
+        didSet {
+            transactionIDTextView.titleLabelText = "Transaction ID".localized
+            transactionIDTextView.placeholderText = "xxxxxxxxxxxxxx"
+            transactionIDTextView.inputFieldMaxLength = 25
+            transactionIDTextView.editTextKeyboardType = .asciiCapable
+            transactionIDTextView.formatValidator = FormatValidator(regex: RegexConstants.referenceNumberRegex, invalidFormatError: StringConstants.ErrorString.referenceNumberError.localized)
+            transactionIDTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.transactionID = updatedText
+            }
+        }
+    }
+    @IBOutlet weak var transactionDateTextView: LabelledTextview! {
+        didSet {
+            transactionDateTextView.titleLabelText = "Transaction Date".localized
+            transactionDateTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            transactionDateTextView.placeholderText = "YYYY-MM-DD".localized
+            transactionDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            transactionDateTextView.inputTextFieldInputPickerView = transactionDatePicker
+        }
+    }
+    @IBOutlet private weak var transactionAmountLabelTextView: LabelledTextview! {
+        didSet {
+            transactionAmountLabelTextView.editTextKeyboardType = .decimalPad
+            transactionAmountLabelTextView.titleLabel.numberOfLines = 0
+            transactionAmountLabelTextView.titleLabelText = "Transaction Amount (PKR)".localized
+            transactionAmountLabelTextView.placeholderText = "xx,xxx".localized
+            transactionAmountLabelTextView.leadingText = "PKR ".localized
+            transactionAmountLabelTextView.inputFieldMaxLength = 13
+            transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
+            transactionAmountLabelTextView.formatter = CurrencyFormatter()
+            transactionAmountLabelTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.transactionAmount = updatedText
+            }
+        }
+    }
     @IBOutlet private weak var specifyDetailsTextArea: LabelledTextArea! {
         didSet {
             specifyDetailsTextArea.titleLabelText = "Specify Details".localized
@@ -286,6 +360,8 @@ class ComplaintFormViewController: BaseViewController {
                 transactionTypesTextView.inputTextFieldInputPickerView = transactionTypesItemPickerView
             case .updateTransactionType(type: let type):
                 transactionTypesTextView.inputText = type
+            case .updateTransactionDate(dateStr: let dateStr):
+                transactionDateTextView.inputText = dateStr
             }
         }
     }
@@ -345,7 +421,11 @@ extension ComplaintFormViewController {
         case .unableToTransferPointsToBeneficiary:
             beneficiaryCnicTextView.isHidden = false
         case .unableToSelfAwardPoints:
-            ()
+            beneficaryAccountTextView.isHidden = false
+            remittanceEntityTextView.isHidden = false
+            transactionIDTextView.isHidden = false
+            transactionDateTextView.isHidden = false
+            transactionAmountLabelTextView.isHidden = false
         case .redemptionIssues:
             redemptionIssueTextView.isHidden = false
             specifyDetailsTextArea.isHidden = false
@@ -390,11 +470,13 @@ extension ComplaintFormViewController {
     private func showRegisteredBeneficiaryFields(complaint: ComplaintTypes) {
         switch complaint {
         case .unableToReceiveOTP:
-            ()
+            mobileOperatorTextView.isHidden = false
+            transactionTypesTextView.isHidden = false
         case .redemptionIssues:
-            ()
+            redemptionIssueTextView.isHidden = false
+            specifyDetailsTextArea.isHidden = false
         case .others:
-            ()
+            specifyDetailsTextArea.isHidden = false
         default:
             hideAllTextFields()
         }
@@ -437,6 +519,11 @@ extension ComplaintFormViewController {
         beneficiaryCountryTextView.isHidden = true
         beneficiaryMobileNumberTextView.isHidden = true
         beneficiaryMobileOperatorTextView.isHidden = true
+        beneficaryAccountTextView.isHidden = true
+        remittanceEntityTextView.isHidden = true
+        transactionIDTextView.isHidden = true
+        transactionDateTextView.isHidden = true
+        transactionAmountLabelTextView.isHidden = true
         specifyDetailsTextArea.isHidden = true
     }
 
@@ -466,6 +553,18 @@ extension ComplaintFormViewController {
             beneficiaryMobileNumberTextView.updateStateTo(isError: state, error: message)
         case .beneficiaryMobileOperator:
             beneficiaryMobileOperatorTextView.updateStateTo(isError: state, error: message)
+        case .beneficiaryAccount:
+            beneficaryAccountTextView.updateStateTo(isError: state, error: message)
+        case .remittingEntity:
+            remittanceEntityTextView.updateStateTo(isError: state, error: message)
+        case .transactionID:
+            transactionIDTextView.updateStateTo(isError: state, error: message)
+        case .transactionDate:
+            transactionDateTextView.updateStateTo(isError: state, error: message)
+        case .transactionAmount:
+            transactionAmountLabelTextView.updateStateTo(isError: state, error: message)
+        case .redemptionIssue:
+            redemptionIssueTextView.updateStateTo(isError: state, error: message)
         }
     }
     
@@ -495,13 +594,25 @@ extension ComplaintFormViewController {
             beneficiaryMobileNumberTextView.becomeFirstResponder()
         case .beneficiaryMobileOperator:
             beneficiaryMobileOperatorTextView.becomeFirstResponder()
+        case .beneficiaryAccount:
+            beneficaryAccountTextView.becomeFirstResponder()
+        case .remittingEntity:
+            remittanceEntityTextView.becomeFirstResponder()
+        case .transactionID:
+            transactionIDTextView.becomeFirstResponder()
+        case .transactionDate:
+            transactionDateTextView.becomeFirstResponder()
+        case .transactionAmount:
+            transactionAmountLabelTextView.becomeFirstResponder()
+        case .redemptionIssue:
+            redemptionIssueTextView.becomeFirstResponder()
         }
     }
 }
 
 // MARK: Extension - ItemPickerViewDelegate
 
-extension ComplaintFormViewController: ItemPickerViewDelegate {
+extension ComplaintFormViewController: ItemPickerViewDelegate, CustomDatePickerViewDelegate {
     func didTapCancelButton() {
         self.view.endEditing(true)
     }
@@ -515,6 +626,16 @@ extension ComplaintFormViewController: ItemPickerViewDelegate {
         }
         self.view.endEditing(true)
     }
+    
+    func didTapDoneButton(picker: CustomDatePickerView, date: Date) {
+        self.view.endEditing(true)
+        switch picker {
+        case self.transactionDatePicker:
+            viewModel.transactionDate = date
+        default:
+            break
+        }
+    }
 }
 
 // MARK: Extension - Initializable
@@ -524,5 +645,3 @@ extension ComplaintFormViewController: Initializable {
         return UIStoryboard.Name.complaintForm
     }
 }
-
-

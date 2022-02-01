@@ -26,9 +26,14 @@ protocol ComplaintFormViewModelProtocol {
     var beneficiaryCnic: String? { get set }
     var beneficiaryMobileNo: String? { get set }
     var beneficiaryMobileOperator: String? { get set }
+    var remittanceEntity: String? { get set }
+    var transactionID: String? { get set }
+    var transactionDate: Date? { get set }
+    var transactionAmount: String? { get set }
     
     var partnerPickerViewModel: ItemPickerViewModel { get }
     var transactionTypesPickerViewModel: ItemPickerViewModel { get }
+    var datePickerViewModel: CustomDatePickerViewModel { get }
     
     var complaintTypeItemModel: [RadioButtonItemModel] { get }
     
@@ -121,6 +126,31 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
+    var remittanceEntity: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var transactionID: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var transactionDate: Date? {
+        didSet {
+            validateRequiredFields()
+            self.output?(.updateTransactionDate(dateStr: transactionDateString ?? ""))
+        }
+    }
+    
+    var transactionAmount: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var partnerPickerViewModel: ItemPickerViewModel {
         if complaintType == .redemptionIssues {
             var dataArray: [PickerItemModel] = []
@@ -141,6 +171,18 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             return ItemPickerViewModel(data: dataArray)
         }
         return ItemPickerViewModel(data: [])
+    }
+    
+    var datePickerViewModel: CustomDatePickerViewModel {
+        return CustomDatePickerViewModel(maxDate: Date())
+    }
+    
+    private var transactionDateString: String? {
+        if let date = transactionDate {
+            return DateFormat().formatDateString(to: date, formatter: .shortDateFormat)
+        } else {
+            return nil
+        }
     }
     
     // MARK: Generic Properties
@@ -177,6 +219,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case showError(error: APIResponseError)
         case updateRedemptionPartner(partnerName: String)
         case updateTransactionType(type: String)
+        case updateTransactionDate(dateStr: String)
     }
     
     // MARK: Lifecycle Methods
@@ -267,9 +310,9 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case .unableToTransferPointsToBeneficiary:
             tuple = validateUnableToTransferPointsToBeneficiaryRegex()
         case .unableToSelfAwardPoints:
-            ()
+            tuple = validateUnableToSelfAwardPointsRegex()
         case .redemptionIssues:
-            ()
+            tuple = validateRedemptionIssuesRegex()
         case .others:
             tuple = validateOthersRegex()
         }
@@ -321,10 +364,10 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
                                                  beneficiaryCountryOfResidence: self.beneficiaryCountry?.country,
                                                  beneficiaryMobileNo: self.beneficiaryMobileNo,
                                                  beneficiaryMobileOperatorName: self.beneficiaryMobileOperator,
-                                                 remittingEntity: nil,
-                                                 transactionID: nil,
-                                                 transactionDate: nil,
-                                                 transactionAmount: nil,
+                                                 remittingEntity: self.remittanceEntity,
+                                                 transactionID: self.transactionID,
+                                                 transactionDate: self.transactionDateString,
+                                                 transactionAmount: self.transactionAmount,
                                                  redemptionPartners: self.partner,
                                                  comments: self.specifyDetails)
         return requestModel
@@ -362,9 +405,9 @@ extension ComplaintFormViewModel {
         case .unableToTransferPointsToBeneficiary:
             validateUnableToTransferPointsToBeneficiary()
         case .unableToSelfAwardPoints:
-            ()
+            validateUnableToSelfAwardPoints()
         case .redemptionIssues:
-            ()
+            validateRedemptionIssues()
         case .others:
             validateOthers()
         }
@@ -534,7 +577,11 @@ extension ComplaintFormViewModel {
     
     private func validateOthers() {
         if loginState == .loggedIn {
-            
+            if specifyDetails?.isBlank ?? true {
+                output?(.nextButtonState(state: false))
+            } else {
+                output?(.nextButtonState(state: true))
+            }
         } else {
             validateUnableToRegisterComplaint()
         }
@@ -641,4 +688,95 @@ extension ComplaintFormViewModel {
         
         return (isValid, errorTopField)
     }
+    
+    // MARK: Validation - Unable to Self Award Points
+    
+    private func validateUnableToSelfAwardPoints() {
+        if beneficiaryCnic?.isBlank ?? true || remittanceEntity?.isBlank ?? true || transactionID?.isBlank ?? true || transactionDateString?.isBlank ?? true || transactionAmount?.isBlank ?? true {
+            output?(.nextButtonState(state: false))
+        } else {
+            output?(.nextButtonState(state: true))
+        }
+    }
+    
+    private func validateUnableToSelfAwardPointsRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
+        var isValid: Bool = true
+        var errorTopField: ComplaintFormTextFieldTypes?
+        
+        if !(beneficiaryCnic?.isBlank ?? true) {
+            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryAccount))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .beneficiaryAccount))
+            isValid = false
+            errorTopField = errorTopField ?? .beneficiaryAccount
+        }
+        
+        if remittanceEntity != nil {
+            output?(.textField(errorState: false, error: nil, textfieldType: .remittingEntity))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .remittingEntity))
+            isValid = false
+            errorTopField = errorTopField ?? .remittingEntity
+        }
+        
+        if !(transactionID?.isBlank ?? true) {
+            output?(.textField(errorState: false, error: nil, textfieldType: .transactionID))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .transactionID))
+            isValid = false
+            errorTopField = errorTopField ?? .transactionID
+        }
+        
+        if transactionDateString != nil || transactionDate != nil {
+            output?(.textField(errorState: false, error: nil, textfieldType: .transactionDate))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .transactionDate))
+            isValid = false
+            errorTopField = errorTopField ?? .transactionDate
+        }
+        
+        if !(transactionAmount?.isBlank ?? true) {
+            output?(.textField(errorState: false, error: nil, textfieldType: .transactionAmount))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .transactionAmount))
+            isValid = false
+            errorTopField = errorTopField ?? .transactionAmount
+        }
+        
+        return (isValid, errorTopField)
+    }
+    
+    // MARK: Validation - Redemption Issues
+    
+    private func validateRedemptionIssues() {
+        if partner?.isBlank ?? true || specifyDetails?.isBlank ?? true {
+            output?(.nextButtonState(state: false))
+        } else {
+            output?(.nextButtonState(state: true))
+        }
+    }
+    
+    private func validateRedemptionIssuesRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
+        var isValid: Bool = true
+        var errorTopField: ComplaintFormTextFieldTypes?
+        
+        if !(partner?.isBlank ?? true) {
+            output?(.textField(errorState: false, error: nil, textfieldType: .redemptionIssue))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .redemptionIssue))
+            isValid = false
+            errorTopField = errorTopField ?? .redemptionIssue
+        }
+        
+        if specifyDetails != nil || !(specifyDetails?.isEmpty ?? true) {
+            output?(.textField(errorState: false, error: nil, textfieldType: .specifyDetails))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .specifyDetails))
+            isValid = false
+            errorTopField = errorTopField ?? .specifyDetails
+        }
+        
+        return (isValid, errorTopField)
+    }
+    
 }
