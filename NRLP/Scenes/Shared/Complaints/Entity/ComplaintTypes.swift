@@ -25,7 +25,7 @@ enum ComplaintTypes: String {
         case .unableToReceiveRegistrationCode:
             return "Unable to receive Registration Code".localized
         case .unableToReceiveOTP:
-            return "Unbale To receive OTP".localized
+            return "Unable to receive OTP".localized
         case .unableToAddBeneficiary:
             return "Unable to add beneficiary".localized
         case .unableToTransferPointsToBeneficiary:

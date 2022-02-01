@@ -403,3 +403,20 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Please select your Residence Country" = "Please select your Residence Country";
 
 "Registration Code *" = "Registration Code *";
+
+
+// Complaint Management
+
+"Complaint Management" = "Complaint Management";
+"Complaint Type" = "Complaint Type";
+"Unable to register" = "Unable to register";
+"Unable to receive OTP" = "Unable to receive OTP";
+"Unable to receive Registration Code" = "Unable to receive Registration Code";
+"Others" = "Others";
+"Specify Details" = "Specify Details";
+"Mobile Operator Name" = "Mobile Operator Name";
+"Unable to add beneficiary" = "Unable to add beneficiary";
+"Unable to transfer points to beneficiary" = "Unable to transfer points to beneficiary";
+"Unable to self award points" = "Unable to self award points";
+"Redemption Issues" = "Redemption Issues";
+"Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number\n%1$@\n\nissue will be resolved within 3\nworking days, incase complaint\nremains unsolved, you may\ncontact at\nsdrpsupport@1link.net.pk\n111-116-757" = "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number\n%1$@\n\nissue will be resolved within 3\nworking days, incase complaint\nremains unsolved, you may\ncontact at\nsdrpsupport@1link.net.pk\n111-116-757";

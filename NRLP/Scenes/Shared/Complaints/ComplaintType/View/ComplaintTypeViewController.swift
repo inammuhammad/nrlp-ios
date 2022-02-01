@@ -22,7 +22,7 @@ class ComplaintTypeViewController: BaseViewController {
     
     @IBOutlet weak var complaintLabel: UILabel! {
         didSet {
-            complaintLabel.text = "Select Complaint Type".localized
+            complaintLabel.text = "Complaint Type".localized
             complaintLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .extraUltraLargeFontSize)
             complaintLabel.textColor = UIColor.init(commonColor: .appDarkGray)
         }

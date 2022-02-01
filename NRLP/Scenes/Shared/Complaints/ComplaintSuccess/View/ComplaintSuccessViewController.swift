@@ -57,6 +57,8 @@ class ComplaintSuccessViewController: BaseViewController {
             switch output {
             case .setText(attributedText: let attrString):
                 self.subtitleLabel.attributedText = attrString
+            case .setNormalText(text: let text):
+                self.subtitleLabel.text = text
             }
         }
     }

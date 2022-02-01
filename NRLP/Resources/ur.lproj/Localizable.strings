@@ -418,3 +418,20 @@
 "Please select your Residence Country" = "اپنے رہائشی ملک کا انتخاب کریں۔";
 
 "Registration Code *" = "* رجسٹریشن کوڈ";
+
+
+// Complaint Management
+
+"Complaint Management" = "شکایت کی منتظمی";
+"Complaint Type" = "شکایت کی قسم";
+"Unable to register" = "رجسٹر نہیں کر سکا";
+"Unable to receive OTP" = "او ٹی پی وصول نہیں ہوا";
+"Unable to receive Registration Code" = "رجسٹریشن کوڈد وصول نہیں ہوا";
+"Others" = "دیگر";
+"Specify Details" = "تفصیلات بتائیں";
+"Mobile Operator Name" = "موبائل آپریٹر کا نام";
+"Unable to add beneficiary" = "وصول کنندہ کو شامل کرنے سے قاصر";
+"Unable to transfer points to beneficiary" = "پوانٹس منتقل کرنے سے قاصر";
+"Unable to self award points" = "خود ایوارڈ دینے سے قاصر";
+"Redemption Issues" = "پوائنٹ استمال کرنے سے قاصر";
+"Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number\n%1$@\n\nissue will be resolved within 3\nworking days, incase complaint\nremains unsolved, you may\ncontact at\nsdrpsupport@1link.net.pk\n111-116-757" = "معزز صارف, اپ کی شکائت درج کرلی گئ ہے براہ کرم ٹریکنگ نمبر نوٹ کریں۔ %1$@ مسئلہ 3 کاروباری دنوں میں حل ہو جائے گا، اگر شکایت حل نہیں ہوئی تو آپ sdrpsupport@1link.net.pk یا 757-116-111 پر رابطہ کرسکتے ہیں";

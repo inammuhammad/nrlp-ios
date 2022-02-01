@@ -68,7 +68,7 @@ class ComplaintFormViewController: BaseViewController {
     }
     @IBOutlet private weak var cnicTextView: LabelledTextview! {
         didSet {
-            cnicTextView.titleLabelText = "CNIC/NICOP".localized
+            cnicTextView.titleLabelText = "CNIC/NICOP Number".localized
             cnicTextView.placeholderText = "xxxxx-xxxxxxx-x".localized
             cnicTextView.editTextKeyboardType = .asciiCapableNumberPad
             cnicTextView.inputFieldMinLength = 13
@@ -97,7 +97,7 @@ class ComplaintFormViewController: BaseViewController {
     }
     @IBOutlet private weak var mobileNumberTextView: LabelledTextview! {
         didSet {
-            mobileNumberTextView.titleLabelText = "Mobile Number *".localized
+            mobileNumberTextView.titleLabelText = "Mobile Number".localized
             mobileNumberTextView.placeholderText = "+xx xxx xxx xxxx".localized
             mobileNumberTextView.editTextKeyboardType = .asciiCapableNumberPad
             mobileNumberTextView.isEditable = false
