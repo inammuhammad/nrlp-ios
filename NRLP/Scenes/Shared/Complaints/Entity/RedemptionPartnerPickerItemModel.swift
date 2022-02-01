@@ -12,3 +12,8 @@ struct RedemptionPartnerPickerItemModel: PickerItemModel {
     var title: String
     var key: String
 }
+
+struct TransactionTypesPickerItemModel: PickerItemModel {
+    var title: String
+    var key: String
+}

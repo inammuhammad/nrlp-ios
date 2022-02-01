@@ -116,7 +116,7 @@ class HomeViewModel: HomeViewModelProtocol {
             router.navigateToContactUs()
         case .complaint:
             if let type = self.userModel.accountType {
-                router.navigateToComplaintManagement(userType: type)
+                router.navigateToComplaintManagement(userType: type, currentUser: userModel)
             }
         case .guide:
             router.navigateToGuide(link: "https://www.youtube.com/playlist?list=PLFB-5JvOR9rAvAGK6YzQmxXvFiUWn48vY") { errorText in

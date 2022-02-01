@@ -29,6 +29,7 @@ class ComplaintTypeViewModel: ComplaintTypeViewModelProtocol {
     var output: ComplaintTypeViewModelOutput?
     private var userType: AccountType?
     private var loginState: UserLoginState
+    private var currentUser: UserModel?
     
     var complaintType: ComplaintTypes? {
         didSet {
@@ -42,10 +43,11 @@ class ComplaintTypeViewModel: ComplaintTypeViewModelProtocol {
         case nextButtonState(state: Bool)
     }
     
-    init(router: ComplaintTypeRouter, type: AccountType, loginState: UserLoginState) {
+    init(router: ComplaintTypeRouter, type: AccountType, loginState: UserLoginState, currentUser: UserModel?) {
         self.router = router
         self.userType = type
         self.loginState = loginState
+        self.currentUser = currentUser
         setupComplaintType()
     }
     
@@ -118,7 +120,7 @@ class ComplaintTypeViewModel: ComplaintTypeViewModelProtocol {
     
     func nextButtonPressed() {
         if let user = userType, let complaint = complaintType {
-            router.navigateToComplaintFormScreen(accountType: user, loginState: loginState, complaintType: complaint)
+            router.navigateToComplaintFormScreen(accountType: user, loginState: loginState, complaintType: complaint, currentUser: currentUser)
         }
     }
     

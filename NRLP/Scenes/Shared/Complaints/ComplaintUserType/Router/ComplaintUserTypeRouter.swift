@@ -18,7 +18,7 @@ class ComplaintUserTypeRouter {
     
     func navigateToComplaintTypeScreen(userType: AccountType) {
         print(userType)
-        self.navigationController?.pushViewController(ComplaintTypeBuilder().build(with: navigationController, userType: userType, loginState: .loggedOut), animated: true)
+        self.navigationController?.pushViewController(ComplaintTypeBuilder().build(with: navigationController, userType: userType, loginState: .loggedOut, currentUser: nil), animated: true)
     }
 
 }

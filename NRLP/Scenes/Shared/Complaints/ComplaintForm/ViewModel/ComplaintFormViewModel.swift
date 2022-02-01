@@ -22,15 +22,21 @@ protocol ComplaintFormViewModelProtocol {
     var email: String? { get set }
     var specifyDetails: String? { get set }
     var partner: String? { get set }
+    var transactionType: String? { get set }
+    var beneficiaryCnic: String? { get set }
+    var beneficiaryMobileNo: String? { get set }
+    var beneficiaryMobileOperator: String? { get set }
     
     var partnerPickerViewModel: ItemPickerViewModel { get }
+    var transactionTypesPickerViewModel: ItemPickerViewModel { get }
     
     var complaintTypeItemModel: [RadioButtonItemModel] { get }
     
     func viewDidLoad()
     func nextButtonPressed()
-    func countryTextFieldTapped()
+    func countryTextFieldTapped(isBeneficiary: Bool)
     func didSelectPartner(partner: RedemptionPartnerPickerItemModel?)
+    func didSelectTransactionType(type: TransactionTypesPickerItemModel?)
 }
 
 class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
@@ -73,6 +79,24 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
+    var beneficiaryCountry: Country? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var beneficiaryMobileNo: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var beneficiaryMobileOperator: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var specifyDetails: String? {
         didSet {
             validateRequiredFields()
@@ -80,6 +104,18 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     }
     
     var partner: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var transactionType: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var beneficiaryCnic: String? {
         didSet {
             validateRequiredFields()
         }
@@ -96,6 +132,17 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         return ItemPickerViewModel(data: [])
     }
     
+    var transactionTypesPickerViewModel: ItemPickerViewModel {
+        if complaintType == .unableToReceiveOTP && loginState == .loggedIn {
+            var dataArray: [PickerItemModel] = []
+            for type in transactionTypesArr {
+                dataArray.append(TransactionTypesPickerItemModel(title: type, key: "\(type)"))
+            }
+            return ItemPickerViewModel(data: dataArray)
+        }
+        return ItemPickerViewModel(data: [])
+    }
+    
     // MARK: Generic Properties
     
     private var router: ComplaintFormRouter
@@ -106,34 +153,40 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     
     private var redemptionService: RedeemService = RedeemService()
     private var partners: [Partner] = []
+    private var transactionTypesArr: [String] = []
     
     private var service = ComplaintService()
+    
+    private var currentUser: UserModel?
     
     var complaintTypeItemModel: [RadioButtonItemModel] = []
     
     // MARK: Output
     
     enum Output {
+        case showTransactionTypes
         case showRedemptionPartners
         case showActivityIndicator(show: Bool)
         case nextButtonState(state: Bool)
         case showTextFields(loggedInState: UserLoginState, complaintType: ComplaintTypes, userType: AccountType)
-        case updateCountry(name: String)
-        case updateMobileCode(code: String, length: Int)
-        case updateMobilePlaceholder(placeholder: String)
+        case updateCountry(name: String, isBeneficiary: Bool)
+        case updateMobileCode(code: String, length: Int, isBeneficiary: Bool)
+        case updateMobilePlaceholder(placeholder: String, isBeneficiary: Bool)
         case textField(errorState: Bool, error: String?, textfieldType: ComplaintFormTextFieldTypes)
         case focusField(type: ComplaintFormTextFieldTypes)
         case showError(error: APIResponseError)
         case updateRedemptionPartner(partnerName: String)
+        case updateTransactionType(type: String)
     }
     
     // MARK: Lifecycle Methods
     
-    init(router: ComplaintFormRouter, type: AccountType, loginState: UserLoginState, complaintType: ComplaintTypes) {
+    init(router: ComplaintFormRouter, type: AccountType, loginState: UserLoginState, complaintType: ComplaintTypes, currentUser: UserModel?) {
         self.router = router
         self.userType = type
         self.loginState = loginState
         self.complaintType = complaintType
+        self.currentUser = currentUser
         setupComplaintType()
     }
     
@@ -141,6 +194,9 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         setupComplaintType()
         if complaintType == .redemptionIssues {
             fetchLoyaltyPartners()
+        }
+        if complaintType == .unableToReceiveOTP && loginState == .loggedIn {
+            fetchTransactionTypes()
         }
         output?(.nextButtonState(state: false))
         output?(.showTextFields(loggedInState: self.loginState, complaintType: self.complaintType, userType: self.userType))
@@ -166,9 +222,28 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
+    private func fetchTransactionTypes() {
+        self.output?(.showActivityIndicator(show: true))
+        service.getTransactionTypes { [weak self] (result) in
+            self?.output?(.showActivityIndicator(show: false))
+            switch result {
+            case .success(let response):
+                self?.transactionTypesArr.append(contentsOf: response.data)
+                self?.output?(.showTransactionTypes)
+            case .failure(let error):
+                self?.output?(.showError(error: error))
+            }
+        }
+    }
+    
     func didSelectPartner(partner: RedemptionPartnerPickerItemModel?) {
         self.partner = partner?.title
         output?(.updateRedemptionPartner(partnerName: partner?.title ?? ""))
+    }
+    
+    func didSelectTransactionType(type: TransactionTypesPickerItemModel?) {
+        self.transactionType = type?.title
+        output?(.updateTransactionType(type: type?.title ?? ""))
     }
     
     deinit {
@@ -188,7 +263,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case .unableToReceiveOTP:
             tuple = validateUnableToReceiveOTPRegex()
         case .unableToAddBeneficiary:
-            ()
+            tuple = validateUnableToAddBeneficiaryRegex()
         case .unableToTransferPointsToBeneficiary:
             ()
         case .unableToSelfAwardPoints:
@@ -210,13 +285,22 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         submitComplaint()
     }
     
-    func countryTextFieldTapped() {
+    func countryTextFieldTapped(isBeneficiary: Bool) {
         router.navigateToCountryPicker(with: { [weak self] selectedCountry in
-            if self?.country != selectedCountry {
-                self?.country = selectedCountry
-                self?.output?(.updateCountry(name: selectedCountry.country))
-                self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length))
-                self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined()))
+            if isBeneficiary {
+                if self?.beneficiaryCountry != selectedCountry {
+                    self?.beneficiaryCountry = selectedCountry
+                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: true))
+                    self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length, isBeneficiary: true))
+                    self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined(), isBeneficiary: true))
+                }
+            } else {
+                if self?.country != selectedCountry {
+                    self?.country = selectedCountry
+                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: false))
+                    self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length, isBeneficiary: false))
+                    self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined(), isBeneficiary: false))
+                }
             }
         }, accountType: self.userType)
     }
@@ -226,17 +310,17 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         let requestModel = ComplaintRequestModel(registered: registered,
                                                  userType: self.userType.rawValue,
                                                  complaintTypeID: self.complaintType.getComplaintTypeCode(),
-                                                 mobileNo: self.mobileNumber,
-                                                 email: self.email,
-                                                 countryOfResidence: self.country?.country,
+                                                 mobileNo: self.currentUser?.mobileNo ?? self.mobileNumber,
+                                                 email: self.currentUser?.email ?? self.email,
+                                                 countryOfResidence: self.currentUser?.countryName ?? self.country?.country,
                                                  mobileOperatorName: self.mobileOperator,
-                                                 name: self.name,
-                                                 cnic: self.cnic,
-                                                 transactionType: nil,
-                                                 beneficiaryCnic: nil,
-                                                 beneficiaryCountryOfResidence: nil,
-                                                 beneficiaryMobileNo: nil,
-                                                 beneficiaryMobileOperatorName: nil,
+                                                 name: self.currentUser?.fullName ?? self.name,
+                                                 cnic: self.currentUser?.cnicNicop.toString() ?? self.cnic,
+                                                 transactionType: self.transactionType,
+                                                 beneficiaryCnic: self.beneficiaryCnic,
+                                                 beneficiaryCountryOfResidence: self.beneficiaryCountry?.country,
+                                                 beneficiaryMobileNo: self.beneficiaryMobileNo,
+                                                 beneficiaryMobileOperatorName: self.beneficiaryMobileOperator,
                                                  remittingEntity: nil,
                                                  transactionID: nil,
                                                  transactionDate: nil,
@@ -274,7 +358,7 @@ extension ComplaintFormViewModel {
         case .unableToReceiveOTP:
             validateUnableToReceiveOTP()
         case .unableToAddBeneficiary:
-            ()
+            validateUnableToAddBeneficiary()
         case .unableToTransferPointsToBeneficiary:
             ()
         case .unableToSelfAwardPoints:
@@ -354,17 +438,26 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Unable to Receive OTP
     
     private func validateUnableToReceiveOTP() {
-        if country == nil || mobileNumber?.isBlank ?? true || mobileOperator?.isBlank ?? true {
-            output?(.nextButtonState(state: false))
-        } else {
-            if userType == .remitter {
-                if name?.isBlank ?? true {
-                    output?(.nextButtonState(state: false))
+        switch loginState {
+        case .loggedIn:
+            if transactionType?.isBlank ?? true || mobileOperator?.isBlank ?? true {
+                output?(.nextButtonState(state: false))
+            } else {
+                output?(.nextButtonState(state: true))
+            }
+        case .loggedOut:
+            if country == nil || mobileNumber?.isBlank ?? true || mobileOperator?.isBlank ?? true {
+                output?(.nextButtonState(state: false))
+            } else {
+                if userType == .remitter {
+                    if name?.isBlank ?? true {
+                        output?(.nextButtonState(state: false))
+                    } else {
+                        output?(.nextButtonState(state: true))
+                    }
                 } else {
                     output?(.nextButtonState(state: true))
                 }
-            } else {
-                output?(.nextButtonState(state: true))
             }
         }
     }
@@ -373,48 +466,68 @@ extension ComplaintFormViewModel {
         var isValid: Bool = true
         var errorTopField: ComplaintFormTextFieldTypes?
         
-        if userType == .remitter {
-            if name?.isValid(for: RegexConstants.nameRegex) ?? false {
-                output?(.textField(errorState: false, error: nil, textfieldType: .fullName))
+        switch loginState {
+        case .loggedIn:
+            if mobileOperator != nil || mobileOperator?.isEmpty ?? true {
+                output?(.textField(errorState: false, error: nil, textfieldType: .mobileOperatorName))
             } else {
-                output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fullName))
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .mobileOperatorName))
                 isValid = false
-                errorTopField = errorTopField ?? .fullName
+                errorTopField = errorTopField ?? .mobileOperatorName
+            }
+            
+            if transactionType != nil || transactionType?.isEmpty ?? true {
+                output?(.textField(errorState: false, error: nil, textfieldType: .transactionType))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .transactionType))
+                isValid = false
+                errorTopField = errorTopField ?? .transactionType
+            }
+        case .loggedOut:
+            if userType == .remitter {
+                if name?.isValid(for: RegexConstants.nameRegex) ?? false {
+                    output?(.textField(errorState: false, error: nil, textfieldType: .fullName))
+                } else {
+                    output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fullName))
+                    isValid = false
+                    errorTopField = errorTopField ?? .fullName
+                }
+            }
+
+            if country != nil {
+                output?(.textField(errorState: false, error: nil, textfieldType: .country))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .country))
+                isValid = false
+            }
+
+            if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
+                output?(.textField(errorState: false, error: nil, textfieldType: .mobileNumber))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.mobileNumberError.localized, textfieldType: .mobileNumber))
+                isValid = false
+                errorTopField = errorTopField ?? .mobileNumber
+            }
+
+            if mobileOperator != nil || mobileOperator?.isEmpty ?? true {
+                output?(.textField(errorState: false, error: nil, textfieldType: .mobileOperatorName))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .mobileOperatorName))
+                isValid = false
+                errorTopField = errorTopField ?? .mobileOperatorName
+            }
+            
+            if email != nil || email?.isEmpty ?? true || email?.isValid(for: RegexConstants.emailRegex) ?? false {
+                output?(.textField(errorState: false, error: nil, textfieldType: .email))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.emailError.localized, textfieldType: .email))
+                isValid = false
+                errorTopField = errorTopField ?? .email
             }
         }
-
-        if country != nil {
-            output?(.textField(errorState: false, error: nil, textfieldType: .country))
-        } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .country))
-            isValid = false
-        }
-
-        if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
-            output?(.textField(errorState: false, error: nil, textfieldType: .mobileNumber))
-        } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.mobileNumberError.localized, textfieldType: .mobileNumber))
-            isValid = false
-            errorTopField = errorTopField ?? .mobileNumber
-        }
-
-        if mobileOperator != nil || mobileOperator?.isEmpty ?? true {
-            output?(.textField(errorState: false, error: nil, textfieldType: .mobileOperatorName))
-        } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .mobileOperatorName))
-            isValid = false
-            errorTopField = errorTopField ?? .mobileOperatorName
-        }
         
-        if email != nil || email?.isEmpty ?? true || email?.isValid(for: RegexConstants.emailRegex) ?? false {
-            output?(.textField(errorState: false, error: nil, textfieldType: .email))
-        } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.emailError.localized, textfieldType: .email))
-            isValid = false
-            errorTopField = errorTopField ?? .email
-        }
-
         return (isValid, errorTopField)
+
     }
     
     // MARK: Validation - Others
@@ -453,5 +566,54 @@ extension ComplaintFormViewModel {
     
     private func validateUnableReceiveRegistrationCodeRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
         return validateUnableToReceiveOTPRegex()
+    }
+    
+    // MARK: Validation - Unable to Add Beneficiary
+    
+    private func validateUnableToAddBeneficiary() {
+        if beneficiaryCnic?.isBlank ?? true || beneficiaryCountry == nil || beneficiaryMobileNo?.isBlank ?? true || beneficiaryMobileOperator?.isBlank ?? true {
+            output?(.nextButtonState(state: false))
+        } else {
+            output?(.nextButtonState(state: true))
+        }
+    }
+    
+    private func validateUnableToAddBeneficiaryRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
+        var isValid: Bool = true
+        var errorTopField: ComplaintFormTextFieldTypes?
+        
+        if beneficiaryCnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryCnic))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.cnicError.localized, textfieldType: .beneficiaryCnic))
+            isValid = false
+            errorTopField = errorTopField ?? .beneficiaryCnic
+        }
+        
+        if beneficiaryCountry != nil {
+            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryCountry))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .beneficiaryCountry))
+            isValid = false
+            errorTopField = errorTopField ?? .beneficiaryCountry
+        }
+
+        if beneficiaryCountry != nil && beneficiaryMobileNo?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiraryMobieNo))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.mobileNumberError.localized, textfieldType: .beneficiraryMobieNo))
+            isValid = false
+            errorTopField = errorTopField ?? .beneficiraryMobieNo
+        }
+
+        if beneficiaryMobileOperator != nil || beneficiaryMobileOperator?.isEmpty ?? true {
+            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryMobileOperator))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .beneficiaryMobileOperator))
+            isValid = false
+            errorTopField = errorTopField ?? .beneficiaryMobileOperator
+        }
+        
+        return (isValid, errorTopField)
     }
 }

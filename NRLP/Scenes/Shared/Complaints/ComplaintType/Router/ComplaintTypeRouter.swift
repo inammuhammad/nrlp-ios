@@ -16,7 +16,7 @@ class ComplaintTypeRouter {
         self.navigationController = navigationController
     }
     
-    func navigateToComplaintFormScreen(accountType: AccountType, loginState: UserLoginState, complaintType: ComplaintTypes) {
-        self.navigationController?.pushViewController(ComplaintFormBuilder().build(with: self.navigationController, userType: accountType, loginState: loginState, complaintType: complaintType), animated: true)
+    func navigateToComplaintFormScreen(accountType: AccountType, loginState: UserLoginState, complaintType: ComplaintTypes, currentUser: UserModel?) {
+        self.navigationController?.pushViewController(ComplaintFormBuilder().build(with: self.navigationController, userType: accountType, loginState: loginState, complaintType: complaintType, currentUser: currentUser), animated: true)
     }
 }

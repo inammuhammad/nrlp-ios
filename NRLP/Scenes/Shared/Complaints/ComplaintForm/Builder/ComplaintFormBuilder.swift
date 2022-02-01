@@ -11,12 +11,12 @@ import UIKit
 
 class ComplaintFormBuilder {
 
-    func build(with navigationController: UINavigationController?, userType: AccountType, loginState: UserLoginState, complaintType: ComplaintTypes) -> UIViewController {
+    func build(with navigationController: UINavigationController?, userType: AccountType, loginState: UserLoginState, complaintType: ComplaintTypes, currentUser: UserModel?) -> UIViewController {
 
         let viewController = ComplaintFormViewController.getInstance()
         
         let coordinator = ComplaintFormRouter(navigationController: navigationController)
-        let viewModel = ComplaintFormViewModel(router: coordinator, type: userType, loginState: loginState, complaintType: complaintType)
+        let viewModel = ComplaintFormViewModel(router: coordinator, type: userType, loginState: loginState, complaintType: complaintType, currentUser: currentUser)
 
         viewController.viewModel = viewModel
 

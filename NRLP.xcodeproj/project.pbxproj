@@ -570,6 +570,7 @@
 		E114C31827A43CD100697D73 /* ComplaintSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31727A43CD100697D73 /* ComplaintSuccessViewModel.swift */; };
 		E114C31A27A43E5700697D73 /* ComplaintSuccessRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31927A43E5700697D73 /* ComplaintSuccessRouter.swift */; };
 		E114C31E27A4420C00697D73 /* ComplaintSuccessBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31D27A4420C00697D73 /* ComplaintSuccessBuilder.swift */; };
+		E114C32027A921EF00697D73 /* ComplaintTransactionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31F27A921EF00697D73 /* ComplaintTransactionTypes.swift */; };
 		E122CD9826FCC35900BEAE18 /* RedemptionOPF.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E122CD9726FCC35900BEAE18 /* RedemptionOPF.storyboard */; };
 		E122CD9A26FCC37000BEAE18 /* RedemptionOPFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CD9926FCC37000BEAE18 /* RedemptionOPFViewController.swift */; };
 		E122CD9E26FD129800BEAE18 /* RedemptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CD9D26FD129800BEAE18 /* RedemptionService.swift */; };
@@ -1296,6 +1297,7 @@
 		E114C31727A43CD100697D73 /* ComplaintSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintSuccessViewModel.swift; sourceTree = "<group>"; };
 		E114C31927A43E5700697D73 /* ComplaintSuccessRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintSuccessRouter.swift; sourceTree = "<group>"; };
 		E114C31D27A4420C00697D73 /* ComplaintSuccessBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintSuccessBuilder.swift; sourceTree = "<group>"; };
+		E114C31F27A921EF00697D73 /* ComplaintTransactionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintTransactionTypes.swift; sourceTree = "<group>"; };
 		E122CD9726FCC35900BEAE18 /* RedemptionOPF.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionOPF.storyboard; sourceTree = "<group>"; };
 		E122CD9926FCC37000BEAE18 /* RedemptionOPFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOPFViewController.swift; sourceTree = "<group>"; };
 		E122CD9D26FD129800BEAE18 /* RedemptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionService.swift; sourceTree = "<group>"; };
@@ -5135,6 +5137,7 @@
 				E1E1EF1027A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift */,
 				E114C30727A4016900697D73 /* RedemptionPartnerPickerItemModel.swift */,
 				E114C30D27A4187100697D73 /* ComplaintModel.swift */,
+				E114C31F27A921EF00697D73 /* ComplaintTransactionTypes.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -6428,6 +6431,7 @@
 				208EF7F224E144C600E43B0B /* ChangePasswordBuilder.swift in Sources */,
 				207D5E8024BDAC5400222594 /* RequestHeaders.swift in Sources */,
 				20F1E5E425A5994D0029F87F /* AES256+EncryptionDecryption.swift in Sources */,
+				E114C32027A921EF00697D73 /* ComplaintTransactionTypes.swift in Sources */,
 				20D8402124B468CC00F5D749 /* LoginService.swift in Sources */,
 				20901BE424FFBF0700D13931 /* NRLPBenefitsService.swift in Sources */,
 				204A6BDA24BC22CD001E4E74 /* ServerTrustPolicyManager.swift in Sources */,

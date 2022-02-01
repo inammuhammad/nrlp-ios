@@ -15,6 +15,12 @@ enum ComplaintFormTextFieldTypes {
     case mobileNumber
     case mobileOperatorName
     case email
+    case beneficiaryCnic
+    case beneficiaryCountry
+    case beneficiraryMobieNo
+    case beneficiaryMobileOperator
+//    case redemptionIssue
+    case transactionType
     case specifyDetails
     
 }
