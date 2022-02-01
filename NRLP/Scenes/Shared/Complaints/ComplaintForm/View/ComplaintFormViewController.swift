@@ -343,7 +343,7 @@ extension ComplaintFormViewController {
             beneficiaryMobileNumberTextView.isHidden = false
             beneficiaryMobileOperatorTextView.isHidden = false
         case .unableToTransferPointsToBeneficiary:
-            ()
+            beneficiaryCnicTextView.isHidden = false
         case .unableToSelfAwardPoints:
             ()
         case .redemptionIssues:

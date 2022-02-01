@@ -265,7 +265,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case .unableToAddBeneficiary:
             tuple = validateUnableToAddBeneficiaryRegex()
         case .unableToTransferPointsToBeneficiary:
-            ()
+            tuple = validateUnableToTransferPointsToBeneficiaryRegex()
         case .unableToSelfAwardPoints:
             ()
         case .redemptionIssues:
@@ -360,7 +360,7 @@ extension ComplaintFormViewModel {
         case .unableToAddBeneficiary:
             validateUnableToAddBeneficiary()
         case .unableToTransferPointsToBeneficiary:
-            ()
+            validateUnableToTransferPointsToBeneficiary()
         case .unableToSelfAwardPoints:
             ()
         case .redemptionIssues:
@@ -612,6 +612,31 @@ extension ComplaintFormViewModel {
             output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .beneficiaryMobileOperator))
             isValid = false
             errorTopField = errorTopField ?? .beneficiaryMobileOperator
+        }
+        
+        return (isValid, errorTopField)
+    }
+    
+    // MARK: Validation - Unable to Transfer points to Beneficiary
+    
+    private func validateUnableToTransferPointsToBeneficiary() {
+        if beneficiaryCnic?.isBlank ?? true {
+            output?(.nextButtonState(state: false))
+        } else {
+            output?(.nextButtonState(state: true))
+        }
+    }
+    
+    private func validateUnableToTransferPointsToBeneficiaryRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
+        var isValid: Bool = true
+        var errorTopField: ComplaintFormTextFieldTypes?
+        
+        if beneficiaryCnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryCnic))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.cnicError.localized, textfieldType: .beneficiaryCnic))
+            isValid = false
+            errorTopField = errorTopField ?? .beneficiaryCnic
         }
         
         return (isValid, errorTopField)
