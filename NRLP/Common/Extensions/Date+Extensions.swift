@@ -38,4 +38,16 @@ extension Date {
         let t = calendar.component(type, from: self)
         return (t < 10 ? "0\(t)" : t.description)
     }
+    
+    func adding(seconds: Int) -> Date? {
+        return Calendar.current.date(byAdding: .second, value: seconds, to: self)
+    }
+    
+    func adding(minutes: Int) -> Date? {
+        return Calendar.current.date(byAdding: .minute, value: minutes, to: self)
+    }
+    
+    func adding(hours: Int) -> Date? {
+        return Calendar.current.date(byAdding: .hour, value: hours, to: self)
+    }
 }

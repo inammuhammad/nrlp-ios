@@ -30,7 +30,7 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="mEK-zJ-ljv">
-                                <rect key="frame" x="16" y="108.5" width="382" height="288"/>
+                                <rect key="frame" x="16" y="108.5" width="382" height="392"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wo6-Mt-Dbh" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
@@ -46,15 +46,15 @@
                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="gIA-2a-2f4"/>
                                         </constraints>
                                     </view>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-wM-EhK" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="196" width="382" height="80"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-wM-EhK" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="208" width="382" height="80"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="TPQ-X9-uRm"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-X6-gMU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="208" width="382" height="80"/>
+                                        <rect key="frame" x="0.0" y="312" width="382" height="80"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="8e1-XX-g8O"/>

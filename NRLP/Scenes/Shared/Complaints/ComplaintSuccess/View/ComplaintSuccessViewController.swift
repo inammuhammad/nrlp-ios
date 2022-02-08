@@ -42,6 +42,7 @@ class ComplaintSuccessViewController: BaseViewController {
     }
     
     override func viewDidLoad() {
+        complaintLabel.isHidden = true
         bindViewModelOutput()
         super.viewDidLoad()
         viewModel.viewDidLoad()
