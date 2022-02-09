@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias NadraVerifiedCallBack = (Bool) -> Void
+
 class ProfileRouter {
     private weak var navigationController: UINavigationController?
     
@@ -26,5 +28,9 @@ class ProfileRouter {
     
     func navigateToCountryPicker(onSelectionCountry: @escaping OnCountrySelectionCallBack, hideProgressBar: Bool = true, accountType: AccountType) {
         self.navigationController?.pushViewController(CountryListModuleBuilder().build(with: self.navigationController, hideProgressBar: hideProgressBar, onCountrySelection: onSelectionCountry, userType: accountType), animated: true)
+    }
+    
+    func navigateToNadraVerificationScreen(isVerified: @escaping NadraVerifiedCallBack) {
+        self.navigationController?.pushViewController(ProfileVerificationBuilder().build(with: self.navigationController, onMotherNameVerified: isVerified), animated: true)
     }
 }

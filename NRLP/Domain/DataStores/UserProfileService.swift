@@ -18,6 +18,7 @@ protocol UserProfileServiceProtocol {
     func updateUserSendOTP(requestModel: UpdateProfileSendOTPRequestModel, responseHandler: @escaping UpdateProfileServiceCompletionHandler)
     func updateUserVerifyOTP(requestModel: UpdateProfileVerifyOTPRequestModel?, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler)
     func updateUserResendOTP(requestModel: UpdateProfileSendOTPRequestModel, responseHandler: @escaping UpdateProfileServiceCompletionHandler)
+    func verifyProfile(requestModel: UpdateProfileVerificationRequestModel, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler)
 }
 
 extension UserProfileServiceProtocol {
@@ -71,6 +72,14 @@ class UserProfileService: BaseDataStore, UserProfileServiceProtocol {
 //        responseHandler(.success(response))
         
         let request = RequestBuilder(path: .init(endPoint: .updateProfileVerifyOTP), parameters: requestModel)
+
+        networking.post(request: request) { (response: APIResponse<UpdateProfileVerifyOTPResponseModel>) in
+            responseHandler(response.result)
+        }
+    }
+    
+    func verifyProfile(requestModel: UpdateProfileVerificationRequestModel, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler) {
+        let request = RequestBuilder(path: .init(endPoint: .updateProfileVerification), parameters: requestModel)
 
         networking.post(request: request) { (response: APIResponse<UpdateProfileVerifyOTPResponseModel>) in
             responseHandler(response.result)

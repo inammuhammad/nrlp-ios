@@ -583,6 +583,11 @@
 		E122CDC32702E59400BEAE18 /* sni-cloudflaressl-com-chain.der in Resources */ = {isa = PBXBuildFile; fileRef = E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */; };
 		E13604892715BE2600269783 /* Block.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13604882715BE2600269783 /* Block.storyboard */; };
 		E136048C2715BE4600269783 /* BlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E136048B2715BE4600269783 /* BlockViewController.swift */; };
+		E13F319227B2A39100B763BD /* ProfileVerificationBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F319127B2A39100B763BD /* ProfileVerificationBuilder.swift */; };
+		E13F319427B2A3CD00B763BD /* ProfileVerification.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13F319327B2A3CD00B763BD /* ProfileVerification.storyboard */; };
+		E13F319627B2A3DC00B763BD /* ProfileVerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F319527B2A3DC00B763BD /* ProfileVerificationViewController.swift */; };
+		E13F319827B2A51800B763BD /* ProfileVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F319727B2A51800B763BD /* ProfileVerificationViewModel.swift */; };
+		E13F319A27B2B0E200B763BD /* ProfileVerificationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13F319927B2B0E200B763BD /* ProfileVerificationRouter.swift */; };
 		E15BF302277A05780038EA81 /* CardImageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15BF301277A05780038EA81 /* CardImageButton.xib */; };
 		E15BF304277A06320038EA81 /* CardImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15BF303277A06320038EA81 /* CardImageButton.swift */; };
 		E15BF30E277B2EAF0038EA81 /* CityListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15BF30D277B2EAF0038EA81 /* CityListModuleBuilder.swift */; };
@@ -1310,6 +1315,11 @@
 		E122CDC12702E59400BEAE18 /* sni-cloudflaressl-com-chain.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain.der"; sourceTree = "<group>"; };
 		E13604882715BE2600269783 /* Block.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Block.storyboard; sourceTree = "<group>"; };
 		E136048B2715BE4600269783 /* BlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockViewController.swift; sourceTree = "<group>"; };
+		E13F319127B2A39100B763BD /* ProfileVerificationBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVerificationBuilder.swift; sourceTree = "<group>"; };
+		E13F319327B2A3CD00B763BD /* ProfileVerification.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVerification.storyboard; sourceTree = "<group>"; };
+		E13F319527B2A3DC00B763BD /* ProfileVerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVerificationViewController.swift; sourceTree = "<group>"; };
+		E13F319727B2A51800B763BD /* ProfileVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVerificationViewModel.swift; sourceTree = "<group>"; };
+		E13F319927B2B0E200B763BD /* ProfileVerificationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVerificationRouter.swift; sourceTree = "<group>"; };
 		E15BF301277A05780038EA81 /* CardImageButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardImageButton.xib; sourceTree = "<group>"; };
 		E15BF303277A06320038EA81 /* CardImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageButton.swift; sourceTree = "<group>"; };
 		E15BF30D277B2EAF0038EA81 /* CityListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListModuleBuilder.swift; sourceTree = "<group>"; };
@@ -3599,6 +3609,7 @@
 		9F8AE28D24DAD6EE00F1E468 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				E13F318C27B2A36100B763BD /* ProfileVerification */,
 				9F8AE28E24DAD6EE00F1E468 /* ProfileHome */,
 				9F8AE29824DAD6EE00F1E468 /* ProfileOTP */,
 				9F8AE2A224DAD6EE00F1E468 /* ProfileSuccess */,
@@ -4796,6 +4807,50 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E13F318C27B2A36100B763BD /* ProfileVerification */ = {
+			isa = PBXGroup;
+			children = (
+				E13F319027B2A37600B763BD /* Builder */,
+				E13F318F27B2A37300B763BD /* Router */,
+				E13F318E27B2A36F00B763BD /* ViewModel */,
+				E13F318D27B2A36B00B763BD /* View */,
+			);
+			path = ProfileVerification;
+			sourceTree = "<group>";
+		};
+		E13F318D27B2A36B00B763BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E13F319327B2A3CD00B763BD /* ProfileVerification.storyboard */,
+				E13F319527B2A3DC00B763BD /* ProfileVerificationViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E13F318E27B2A36F00B763BD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E13F319727B2A51800B763BD /* ProfileVerificationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E13F318F27B2A37300B763BD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E13F319927B2B0E200B763BD /* ProfileVerificationRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E13F319027B2A37600B763BD /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E13F319127B2A39100B763BD /* ProfileVerificationBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		E15BF2FF277A05320038EA81 /* CardImageButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -5589,6 +5644,7 @@
 				207C3DBC24B5C07500298C0C /* TermsAndConditions.storyboard in Resources */,
 				207D5E5F24BC60AB00222594 /* Garamond-italic.ttf in Resources */,
 				9F8565D524BF440C001B68CE /* LoyaltyPointsTableViewCell.xib in Resources */,
+				E13F319427B2A3CD00B763BD /* ProfileVerification.storyboard in Resources */,
 				207C3E1424B73C0900298C0C /* HomeCollectionViewHeader.xib in Resources */,
 				9FE9D90E24DD604700FFE3AC /* ContactUs.storyboard in Resources */,
 				9F6D735B24B5C6D200B45F0F /* BeneficiaryTableViewCell.xib in Resources */,
@@ -6129,6 +6185,7 @@
 				9F0435BF24B4CE5300439FC0 /* RemitterVerificationModuleBuilder.swift in Sources */,
 				9F6D735624B5C56800B45F0F /* ManageBeneficiariesViewController.swift in Sources */,
 				E114C31E27A4420C00697D73 /* ComplaintSuccessBuilder.swift in Sources */,
+				E13F319227B2A39100B763BD /* ProfileVerificationBuilder.swift in Sources */,
 				20F551AB24E2A81A00F75866 /* NRLPUserDefaults.swift in Sources */,
 				E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */,
 				207C3E2724B7724400298C0C /* UIColorExtensions.swift in Sources */,
@@ -6241,6 +6298,7 @@
 				207C3DEF24B6FCCF00298C0C /* UIViewExtensions.swift in Sources */,
 				9FB1DD2424B6F6B1002BF688 /* AddBeneficiaryViewController.swift in Sources */,
 				2074D60224D174A700006731 /* DateExtension.swift in Sources */,
+				E13F319A27B2B0E200B763BD /* ProfileVerificationRouter.swift in Sources */,
 				9F8D826D24C86AB500BB1C26 /* ForgotPasswordNewPassViewController.swift in Sources */,
 				E1E5F85227A1538F00413FB4 /* ComplaintTypeViewModel.swift in Sources */,
 				9FF2C86624D352FB00527CD3 /* RedeemService.swift in Sources */,
@@ -6249,6 +6307,7 @@
 				9F8D828B24C89F7300BB1C26 /* ForgotPasswordSuccessViewModel.swift in Sources */,
 				20D839AF24D1B79800C82A87 /* PointsFormatter.swift in Sources */,
 				A1B9A22824B308DA00CAAA32 /* LoginViewModel.swift in Sources */,
+				E13F319827B2A51800B763BD /* ProfileVerificationViewModel.swift in Sources */,
 				2073D2AE24C0778100897232 /* FAQItemTableViewCell.swift in Sources */,
 				2073D2A024C03ACA00897232 /* ParameterEncoding.swift in Sources */,
 				207C3E2324B767C500298C0C /* UICollectionViewCellExtensions.swift in Sources */,
@@ -6422,6 +6481,7 @@
 				9F75D46324E5F6040082364E /* BenefitsCategoriesViewModel.swift in Sources */,
 				E1FE16CF278464D00062D4E6 /* NadraVerificationCompletedBuilder.swift in Sources */,
 				9FF6F0BC24BD892E00E375A2 /* TransferPointsRouter.swift in Sources */,
+				E13F319627B2A3DC00B763BD /* ProfileVerificationViewController.swift in Sources */,
 				9F75D44924E544E80082364E /* BenefitsBuilder.swift in Sources */,
 				2073D2AB24C06F5600897232 /* OperationCompletedViewModel.swift in Sources */,
 				A1B9A1B624B2FF0B00CAAA32 /* AppDelegate.swift in Sources */,

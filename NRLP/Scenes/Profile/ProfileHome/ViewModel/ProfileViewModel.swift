@@ -190,8 +190,12 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     func editButtonPressed() {
-        editState = true
-        output?(.editingEnabled)
+        router.navigateToNadraVerificationScreen { isVerified in
+            if isVerified {
+                self.editState = true
+                self.output?(.editingEnabled)
+            }
+        }
     }
     
     func cancelButtonPressed() {
@@ -207,12 +211,13 @@ class ProfileViewModel: ProfileViewModelProtocol {
             return
         }
         
-        let alert = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Update Profile".localized, alertDescription: "Are you sure you want to update your profile?".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Yes".localized, buttonAction: {
-            self.sendOtp()
-        }), secondaryButton: AlertActionButtonModel(buttonTitle: "No".localized, buttonAction: nil))
-        
-        output?(.showAlert(alert: alert))
-        
+        if checkMobileNumberUpdated() {
+            let alert = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Update Profile".localized, alertDescription: "Are you sure you want to update your profile?".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Yes".localized, buttonAction: {
+                self.sendOtp()
+            }), secondaryButton: AlertActionButtonModel(buttonTitle: "No".localized, buttonAction: nil))
+            
+            output?(.showAlert(alert: alert))
+        }
     }
     
     func sendOtp() {

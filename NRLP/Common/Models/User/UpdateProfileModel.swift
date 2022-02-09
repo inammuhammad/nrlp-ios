@@ -84,6 +84,8 @@ struct UpdateProfileSendOTPResponseModel: Codable {
     let message: String
 }
 
+
+
 // Verify OTP Service
 struct SelfAwardVerifyOTPRequestModel: Codable {
 
@@ -100,5 +102,20 @@ struct SelfAwardVerifyOTPRequestModel: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(otp.aesEncrypted(), forKey: .otp)
         try container.encode(responseTransactionID.aesEncrypted(), forKey: .responseTransactionID)
+    }
+}
+
+
+// Update User Profile
+struct UpdateProfileVerificationRequestModel: Codable {
+    let motherMaidenName: String
+
+    enum CodingKeys: String, CodingKey {
+        case motherMaidenName = "mother_maiden_name"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(motherMaidenName.aesEncrypted(), forKey: .motherMaidenName)
     }
 }
