@@ -44,6 +44,7 @@ struct SideMenuViewModel: SideMenuViewModelProtocol {
             .guide,
             .languageSelection,
             .contactUs,
+            .complaint,
             .logout
         ]
         self.userModel = userModel

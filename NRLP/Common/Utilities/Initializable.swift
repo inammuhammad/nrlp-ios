@@ -74,5 +74,9 @@ extension UIStoryboard {
         case cityList = "CityList"
         case nadraVerification = "NadraVerification"
         case nadraVerificationForm = "NadraVerificationForm"
+        case complaintUserType = "ComplaintUserType"
+        case complaintType = "ComplaintType"
+        case complaintForm = "ComplaintForm"
+        case complaintSuccess = "ComplaintSuccess"
     }
 }

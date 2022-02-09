@@ -562,6 +562,15 @@
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
 		E10924C026C7C8BF004D19A6 /* PassportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BE26C7C8BF004D19A6 /* PassportType.swift */; };
 		E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */; };
+		E114C30827A4016900697D73 /* RedemptionPartnerPickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C30727A4016900697D73 /* RedemptionPartnerPickerItemModel.swift */; };
+		E114C30C27A417DF00697D73 /* ComplaintService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C30B27A417DF00697D73 /* ComplaintService.swift */; };
+		E114C30E27A4187100697D73 /* ComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C30D27A4187100697D73 /* ComplaintModel.swift */; };
+		E114C31427A43B6600697D73 /* ComplaintSuccess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E114C31327A43B6600697D73 /* ComplaintSuccess.storyboard */; };
+		E114C31627A43B7100697D73 /* ComplaintSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31527A43B7100697D73 /* ComplaintSuccessViewController.swift */; };
+		E114C31827A43CD100697D73 /* ComplaintSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31727A43CD100697D73 /* ComplaintSuccessViewModel.swift */; };
+		E114C31A27A43E5700697D73 /* ComplaintSuccessRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31927A43E5700697D73 /* ComplaintSuccessRouter.swift */; };
+		E114C31E27A4420C00697D73 /* ComplaintSuccessBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31D27A4420C00697D73 /* ComplaintSuccessBuilder.swift */; };
+		E114C32027A921EF00697D73 /* ComplaintTransactionTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C31F27A921EF00697D73 /* ComplaintTransactionTypes.swift */; };
 		E122CD9826FCC35900BEAE18 /* RedemptionOPF.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E122CD9726FCC35900BEAE18 /* RedemptionOPF.storyboard */; };
 		E122CD9A26FCC37000BEAE18 /* RedemptionOPFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CD9926FCC37000BEAE18 /* RedemptionOPFViewController.swift */; };
 		E122CD9E26FD129800BEAE18 /* RedemptionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E122CD9D26FD129800BEAE18 /* RedemptionService.swift */; };
@@ -609,6 +618,26 @@
 		E1C7F6DC279AC3810047AB6B /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7F6DB279AC3810047AB6B /* IntExtension.swift */; };
 		E1C7F6DE279AC4FC0047AB6B /* ResendOTPBeneficiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7F6DD279AC4FC0047AB6B /* ResendOTPBeneficiaryModel.swift */; };
 		E1C7F6E0279AC5680047AB6B /* UpdateBeneficiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C7F6DF279AC5680047AB6B /* UpdateBeneficiaryModel.swift */; };
+		E1E1EF1127A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E1EF1027A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift */; };
+		E1E1EF1327A2CF7500D69EAD /* PaddedTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E1EF1227A2CF7500D69EAD /* PaddedTextArea.swift */; };
+		E1E1EF1627A322F500D69EAD /* LabelledTextArea.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1E1EF1527A322F500D69EAD /* LabelledTextArea.xib */; };
+		E1E1EF1827A3230200D69EAD /* LabelledTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E1EF1727A3230200D69EAD /* LabelledTextArea.swift */; };
+		E1E5F83E27A137E300413FB4 /* ComplaintUserType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E5F83D27A137E300413FB4 /* ComplaintUserType.storyboard */; };
+		E1E5F84027A137F400413FB4 /* ComplaintUserTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F83F27A137F400413FB4 /* ComplaintUserTypeViewController.swift */; };
+		E1E5F84227A1385900413FB4 /* ComplaintUserTypeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F84127A1385900413FB4 /* ComplaintUserTypeBuilder.swift */; };
+		E1E5F84527A13B8100413FB4 /* ComplaintUserTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F84427A13B8100413FB4 /* ComplaintUserTypeViewModel.swift */; };
+		E1E5F84727A13CDF00413FB4 /* ComplaintUserTypeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F84627A13CDF00413FB4 /* ComplaintUserTypeRouter.swift */; };
+		E1E5F84E27A152EE00413FB4 /* ComplaintType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E5F84D27A152EE00413FB4 /* ComplaintType.storyboard */; };
+		E1E5F85027A1531900413FB4 /* ComplaintTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F84F27A1531900413FB4 /* ComplaintTypeViewController.swift */; };
+		E1E5F85227A1538F00413FB4 /* ComplaintTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F85127A1538F00413FB4 /* ComplaintTypeViewModel.swift */; };
+		E1E5F85427A153C200413FB4 /* ComplaintTypeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F85327A153C200413FB4 /* ComplaintTypeRouter.swift */; };
+		E1E5F85627A153EC00413FB4 /* ComplaintTypeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F85527A153EC00413FB4 /* ComplaintTypeBuilder.swift */; };
+		E1E5F85927A155C300413FB4 /* ComplaintTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F85827A155C300413FB4 /* ComplaintTypes.swift */; };
+		E1E5F85F27A1732300413FB4 /* ComplaintForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1E5F85E27A1732300413FB4 /* ComplaintForm.storyboard */; };
+		E1E5F86127A1733000413FB4 /* ComplaintFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F86027A1733000413FB4 /* ComplaintFormViewController.swift */; };
+		E1E5F86327A1754100413FB4 /* ComplaintFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F86227A1754100413FB4 /* ComplaintFormViewModel.swift */; };
+		E1E5F86527A176B100413FB4 /* ComplaintFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F86427A176B100413FB4 /* ComplaintFormRouter.swift */; };
+		E1E5F86727A176C300413FB4 /* ComplaintFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E5F86627A176C300413FB4 /* ComplaintFormBuilder.swift */; };
 		E1EBF69B26DE834A000B1734 /* SelfAwardSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */; };
 		E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1F232C026D9FC06000F8051 /* SelfAward.storyboard */; };
 		E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */; };
@@ -1260,6 +1289,15 @@
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
 		E10924BE26C7C8BF004D19A6 /* PassportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportType.swift; sourceTree = "<group>"; };
 		E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportTypePickerItemModel.swift; sourceTree = "<group>"; };
+		E114C30727A4016900697D73 /* RedemptionPartnerPickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPartnerPickerItemModel.swift; sourceTree = "<group>"; };
+		E114C30B27A417DF00697D73 /* ComplaintService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintService.swift; sourceTree = "<group>"; };
+		E114C30D27A4187100697D73 /* ComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintModel.swift; sourceTree = "<group>"; };
+		E114C31327A43B6600697D73 /* ComplaintSuccess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComplaintSuccess.storyboard; sourceTree = "<group>"; };
+		E114C31527A43B7100697D73 /* ComplaintSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintSuccessViewController.swift; sourceTree = "<group>"; };
+		E114C31727A43CD100697D73 /* ComplaintSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintSuccessViewModel.swift; sourceTree = "<group>"; };
+		E114C31927A43E5700697D73 /* ComplaintSuccessRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintSuccessRouter.swift; sourceTree = "<group>"; };
+		E114C31D27A4420C00697D73 /* ComplaintSuccessBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintSuccessBuilder.swift; sourceTree = "<group>"; };
+		E114C31F27A921EF00697D73 /* ComplaintTransactionTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintTransactionTypes.swift; sourceTree = "<group>"; };
 		E122CD9726FCC35900BEAE18 /* RedemptionOPF.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionOPF.storyboard; sourceTree = "<group>"; };
 		E122CD9926FCC37000BEAE18 /* RedemptionOPFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionOPFViewController.swift; sourceTree = "<group>"; };
 		E122CD9D26FD129800BEAE18 /* RedemptionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionService.swift; sourceTree = "<group>"; };
@@ -1307,6 +1345,26 @@
 		E1C7F6DB279AC3810047AB6B /* IntExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		E1C7F6DD279AC4FC0047AB6B /* ResendOTPBeneficiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResendOTPBeneficiaryModel.swift; sourceTree = "<group>"; };
 		E1C7F6DF279AC5680047AB6B /* UpdateBeneficiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateBeneficiaryModel.swift; sourceTree = "<group>"; };
+		E1E1EF1027A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintFormTextFieldTypes.swift; sourceTree = "<group>"; };
+		E1E1EF1227A2CF7500D69EAD /* PaddedTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextArea.swift; sourceTree = "<group>"; };
+		E1E1EF1527A322F500D69EAD /* LabelledTextArea.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelledTextArea.xib; sourceTree = "<group>"; };
+		E1E1EF1727A3230200D69EAD /* LabelledTextArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelledTextArea.swift; sourceTree = "<group>"; };
+		E1E5F83D27A137E300413FB4 /* ComplaintUserType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComplaintUserType.storyboard; sourceTree = "<group>"; };
+		E1E5F83F27A137F400413FB4 /* ComplaintUserTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintUserTypeViewController.swift; sourceTree = "<group>"; };
+		E1E5F84127A1385900413FB4 /* ComplaintUserTypeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintUserTypeBuilder.swift; sourceTree = "<group>"; };
+		E1E5F84427A13B8100413FB4 /* ComplaintUserTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintUserTypeViewModel.swift; sourceTree = "<group>"; };
+		E1E5F84627A13CDF00413FB4 /* ComplaintUserTypeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintUserTypeRouter.swift; sourceTree = "<group>"; };
+		E1E5F84D27A152EE00413FB4 /* ComplaintType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComplaintType.storyboard; sourceTree = "<group>"; };
+		E1E5F84F27A1531900413FB4 /* ComplaintTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintTypeViewController.swift; sourceTree = "<group>"; };
+		E1E5F85127A1538F00413FB4 /* ComplaintTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintTypeViewModel.swift; sourceTree = "<group>"; };
+		E1E5F85327A153C200413FB4 /* ComplaintTypeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintTypeRouter.swift; sourceTree = "<group>"; };
+		E1E5F85527A153EC00413FB4 /* ComplaintTypeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintTypeBuilder.swift; sourceTree = "<group>"; };
+		E1E5F85827A155C300413FB4 /* ComplaintTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintTypes.swift; sourceTree = "<group>"; };
+		E1E5F85E27A1732300413FB4 /* ComplaintForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ComplaintForm.storyboard; sourceTree = "<group>"; };
+		E1E5F86027A1733000413FB4 /* ComplaintFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintFormViewController.swift; sourceTree = "<group>"; };
+		E1E5F86227A1754100413FB4 /* ComplaintFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintFormViewModel.swift; sourceTree = "<group>"; };
+		E1E5F86427A176B100413FB4 /* ComplaintFormRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintFormRouter.swift; sourceTree = "<group>"; };
+		E1E5F86627A176C300413FB4 /* ComplaintFormBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintFormBuilder.swift; sourceTree = "<group>"; };
 		E1EBF69A26DE834A000B1734 /* SelfAwardSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardSuccessViewModel.swift; sourceTree = "<group>"; };
 		E1F232C026D9FC06000F8051 /* SelfAward.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SelfAward.storyboard; sourceTree = "<group>"; };
 		E1F232C226D9FC49000F8051 /* SelfAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewController.swift; sourceTree = "<group>"; };
@@ -2408,8 +2466,10 @@
 				20E56FBC24B4ADA900BF3B15 /* PrimaryCTAButton */,
 				20782D5A24B471D400422AEB /* RadioButtonView */,
 				20D8403B24B493D300F5D749 /* Common */,
+				E1E1EF1427A322DE00D69EAD /* LabelledTextArea */,
 				20782D3024B44E6A00422AEB /* LabelledTextView */,
 				207C3DE024B620CA00298C0C /* PaddedTextView.swift */,
+				E1E1EF1227A2CF7500D69EAD /* PaddedTextArea.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -2449,6 +2509,7 @@
 				20901BE324FFBF0700D13931 /* NRLPBenefitsService.swift */,
 				E15BF31E277B37BB0038EA81 /* CityService.swift */,
 				E1FE16C527839DD90062D4E6 /* NadraVerificationService.swift */,
+				E114C30B27A417DF00697D73 /* ComplaintService.swift */,
 			);
 			path = DataStores;
 			sourceTree = "<group>";
@@ -4286,6 +4347,7 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E1E5F83527A0724400413FB4 /* Complaints */,
 				E1FE16CA2784631A0062D4E6 /* NadraVerificationCompleted */,
 				E1FE16B527833F5A0062D4E6 /* NadraVerificationForm */,
 				E1FE16A427832CC80062D4E6 /* NadraVerification */,
@@ -4591,6 +4653,39 @@
 				BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */,
 			);
 			path = CustomDatePickerView;
+			sourceTree = "<group>";
+		};
+		E114C30F27A43B4700697D73 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E114C31327A43B6600697D73 /* ComplaintSuccess.storyboard */,
+				E114C31527A43B7100697D73 /* ComplaintSuccessViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E114C31027A43B4B00697D73 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E114C31727A43CD100697D73 /* ComplaintSuccessViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E114C31127A43B4E00697D73 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E114C31927A43E5700697D73 /* ComplaintSuccessRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E114C31227A43B5500697D73 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E114C31D27A4420C00697D73 /* ComplaintSuccessBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		E122CD9526FCC32A00BEAE18 /* OPF */ = {
@@ -4900,6 +4995,182 @@
 			isa = PBXGroup;
 			children = (
 				E18454D02774855600FE5793 /* BeneficiaryFormBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1E1EF1427A322DE00D69EAD /* LabelledTextArea */ = {
+			isa = PBXGroup;
+			children = (
+				E1E1EF1527A322F500D69EAD /* LabelledTextArea.xib */,
+				E1E1EF1727A3230200D69EAD /* LabelledTextArea.swift */,
+			);
+			path = LabelledTextArea;
+			sourceTree = "<group>";
+		};
+		E1E5F83527A0724400413FB4 /* Complaints */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F85727A155B500413FB4 /* Entity */,
+				E1E5F83827A0726300413FB4 /* ComplaintSuccess */,
+				E1E5F83727A0725700413FB4 /* ComplaintForm */,
+				E1E5F84827A1529500413FB4 /* ComplaintType */,
+				E1E5F83627A0724C00413FB4 /* ComplaintUserType */,
+			);
+			path = Complaints;
+			sourceTree = "<group>";
+		};
+		E1E5F83627A0724C00413FB4 /* ComplaintUserType */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F83C27A137CA00413FB4 /* Builder */,
+				E1E5F83B27A137BD00413FB4 /* Router */,
+				E1E5F83A27A137B800413FB4 /* ViewModel */,
+				E1E5F83927A137B000413FB4 /* View */,
+			);
+			path = ComplaintUserType;
+			sourceTree = "<group>";
+		};
+		E1E5F83727A0725700413FB4 /* ComplaintForm */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F85D27A1731600413FB4 /* Builder */,
+				E1E5F85C27A1731000413FB4 /* Router */,
+				E1E5F85B27A1730D00413FB4 /* ViewModel */,
+				E1E5F85A27A1730A00413FB4 /* View */,
+			);
+			path = ComplaintForm;
+			sourceTree = "<group>";
+		};
+		E1E5F83827A0726300413FB4 /* ComplaintSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				E114C31227A43B5500697D73 /* Builder */,
+				E114C31127A43B4E00697D73 /* Router */,
+				E114C31027A43B4B00697D73 /* ViewModel */,
+				E114C30F27A43B4700697D73 /* View */,
+			);
+			path = ComplaintSuccess;
+			sourceTree = "<group>";
+		};
+		E1E5F83927A137B000413FB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F83D27A137E300413FB4 /* ComplaintUserType.storyboard */,
+				E1E5F83F27A137F400413FB4 /* ComplaintUserTypeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1E5F83A27A137B800413FB4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F84427A13B8100413FB4 /* ComplaintUserTypeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1E5F83B27A137BD00413FB4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F84627A13CDF00413FB4 /* ComplaintUserTypeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1E5F83C27A137CA00413FB4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F84127A1385900413FB4 /* ComplaintUserTypeBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1E5F84827A1529500413FB4 /* ComplaintType */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F84C27A152D000413FB4 /* Builder */,
+				E1E5F84B27A152CC00413FB4 /* Router */,
+				E1E5F84A27A152BD00413FB4 /* ViewModel */,
+				E1E5F84927A152BA00413FB4 /* View */,
+			);
+			path = ComplaintType;
+			sourceTree = "<group>";
+		};
+		E1E5F84927A152BA00413FB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F84D27A152EE00413FB4 /* ComplaintType.storyboard */,
+				E1E5F84F27A1531900413FB4 /* ComplaintTypeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1E5F84A27A152BD00413FB4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F85127A1538F00413FB4 /* ComplaintTypeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1E5F84B27A152CC00413FB4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F85327A153C200413FB4 /* ComplaintTypeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1E5F84C27A152D000413FB4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F85527A153EC00413FB4 /* ComplaintTypeBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1E5F85727A155B500413FB4 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F85827A155C300413FB4 /* ComplaintTypes.swift */,
+				E1E1EF1027A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift */,
+				E114C30727A4016900697D73 /* RedemptionPartnerPickerItemModel.swift */,
+				E114C30D27A4187100697D73 /* ComplaintModel.swift */,
+				E114C31F27A921EF00697D73 /* ComplaintTransactionTypes.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E1E5F85A27A1730A00413FB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F85E27A1732300413FB4 /* ComplaintForm.storyboard */,
+				E1E5F86027A1733000413FB4 /* ComplaintFormViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1E5F85B27A1730D00413FB4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F86227A1754100413FB4 /* ComplaintFormViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1E5F85C27A1731000413FB4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F86427A176B100413FB4 /* ComplaintFormRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1E5F85D27A1731600413FB4 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1E5F86627A176C300413FB4 /* ComplaintFormBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -5304,11 +5575,13 @@
 				E122CDC32702E59400BEAE18 /* sni-cloudflaressl-com-chain.der in Resources */,
 				9F8D827C24C86BEF00BB1C26 /* ForgotPasswordOTP.storyboard in Resources */,
 				20B634C124F6982D00FEEA1B /* OperationCompleted.storyboard in Resources */,
+				E1E5F83E27A137E300413FB4 /* ComplaintUserType.storyboard in Resources */,
 				9FC6E75924B4AAAB00577421 /* BeneficiaryVerification.storyboard in Resources */,
 				2030725924C9F58200C0DC67 /* error@1x.png in Resources */,
 				E1FE16BB27833F810062D4E6 /* NadraVerificationForm.storyboard in Resources */,
 				E1F232C126D9FC06000F8051 /* SelfAward.storyboard in Resources */,
 				207D5E6724BC60DF00222594 /* HPSimplified-bold.ttf in Resources */,
+				E1E5F85F27A1732300413FB4 /* ComplaintForm.storyboard in Resources */,
 				207C3E0E24B73BE900298C0C /* HomeCollectionViewCardCell.xib in Resources */,
 				20AC740B24EEBC220094D3C1 /* MarkaziText-Regular.ttf in Resources */,
 				9F6D735424B5C54100B45F0F /* ManageBeneficiaries.storyboard in Resources */,
@@ -5319,6 +5592,7 @@
 				207C3E1424B73C0900298C0C /* HomeCollectionViewHeader.xib in Resources */,
 				9FE9D90E24DD604700FFE3AC /* ContactUs.storyboard in Resources */,
 				9F6D735B24B5C6D200B45F0F /* BeneficiaryTableViewCell.xib in Resources */,
+				E1E1EF1627A322F500D69EAD /* LabelledTextArea.xib in Resources */,
 				200E4A3524CF2AF90058D195 /* FAQ.storyboard in Resources */,
 				208EF7F124E144C600E43B0B /* ChangePassword.storyboard in Resources */,
 				A1B9A22424B307BB00CAAA32 /* Login.storyboard in Resources */,
@@ -5332,6 +5606,7 @@
 				207C3E0A24B73BCC00298C0C /* HomeCollectionViewLoyaltyCell.xib in Resources */,
 				E19D8B54270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der in Resources */,
 				9F8565C724BF4378001B68CE /* LoyaltyPoints.storyboard in Resources */,
+				E1E5F84E27A152EE00413FB4 /* ComplaintType.storyboard in Resources */,
 				2030724D24C9F58200C0DC67 /* angle-mask@2x.png in Resources */,
 				2030724B24C9F58200C0DC67 /* error@3x.png in Resources */,
 				207D5E6924BC60DF00222594 /* HPSimplified-regular.ttf in Resources */,
@@ -5362,6 +5637,7 @@
 				9F75D46524E5F6140082364E /* BenefitsCategories.storyboard in Resources */,
 				20782D6124B4732700422AEB /* RadioButtonItemView.xib in Resources */,
 				E1FC3F0326EA1B1A009B76FB /* RedemptionFBR.storyboard in Resources */,
+				E114C31427A43B6600697D73 /* ComplaintSuccess.storyboard in Resources */,
 				BC7E7E9624C055540026F341 /* GenerateStatement.storyboard in Resources */,
 				E13604892715BE2600269783 /* Block.storyboard in Resources */,
 				E168AAF926F9C831002D1083 /* NadraTrackingID.storyboard in Resources */,
@@ -5768,6 +6044,7 @@
 				2046B91724D9554200E2C4CB /* UserProfileResponseModel.swift in Sources */,
 				20FB373224C8067D0046C573 /* LoyaltyStatementSuccessBuilder.swift in Sources */,
 				9FE9D90C24DD604700FFE3AC /* ContactUsBuilder.swift in Sources */,
+				E1E5F86527A176B100413FB4 /* ComplaintFormRouter.swift in Sources */,
 				9FF6F0BA24BD891C00E375A2 /* TransferPointsBuilder.swift in Sources */,
 				207C3DC724B5C59700298C0C /* CountryModel.swift in Sources */,
 				9FF6F0D124BDC47700E375A2 /* TransferSuccessBuilder.swift in Sources */,
@@ -5778,6 +6055,7 @@
 				E1FE169E277DD8ED0062D4E6 /* KeyChain.swift in Sources */,
 				208EF7F024E144C600E43B0B /* ChangePasswordViewController.swift in Sources */,
 				20E56FBE24B4AE0E00BF3B15 /* PrimaryCTAButton.swift in Sources */,
+				E114C30827A4016900697D73 /* RedemptionPartnerPickerItemModel.swift in Sources */,
 				2073D2B424C0AF3500897232 /* UIImageViewExtensions.swift in Sources */,
 				E1FE16D3278467570062D4E6 /* NadraVerificationCompletedViewModel.swift in Sources */,
 				E1FE16C2278389230062D4E6 /* NadraVerificationFormRouter.swift in Sources */,
@@ -5800,6 +6078,7 @@
 				2074D5F424CFEDA100006731 /* SideMenuTableHeaderViewModel.swift in Sources */,
 				2030721B24C87FDA00C0DC67 /* FaqService.swift in Sources */,
 				9F8AE2B524DAD6EE00F1E468 /* ProfileSuccessViewModel.swift in Sources */,
+				E1E5F84227A1385900413FB4 /* ComplaintUserTypeBuilder.swift in Sources */,
 				207C3D6D24B56A1200298C0C /* RegexConstants.swift in Sources */,
 				9F653AC524CB0CD300810DBD /* RedeemViewController.swift in Sources */,
 				9FB1DD2A24B6F6E5002BF688 /* AddBeneficiaryBuilder.swift in Sources */,
@@ -5815,6 +6094,7 @@
 				20901BE924FFC13F00D13931 /* NRLPBenefitResponseModel.swift in Sources */,
 				E1FE16C627839DD90062D4E6 /* NadraVerificationService.swift in Sources */,
 				207C3DE724B6F3F100298C0C /* AlertViewController.swift in Sources */,
+				E1E5F85927A155C300413FB4 /* ComplaintTypes.swift in Sources */,
 				9F8AE2B424DAD6EE00F1E468 /* ProfileSuccessRouter.swift in Sources */,
 				207C3DAD24B5BD3200298C0C /* OTPViewController.swift in Sources */,
 				20A23B9E24E689EE00470CA3 /* ImageDownloaderService.swift in Sources */,
@@ -5848,6 +6128,7 @@
 				20782D5924B46CAE00422AEB /* AppDimens.swift in Sources */,
 				9F0435BF24B4CE5300439FC0 /* RemitterVerificationModuleBuilder.swift in Sources */,
 				9F6D735624B5C56800B45F0F /* ManageBeneficiariesViewController.swift in Sources */,
+				E114C31E27A4420C00697D73 /* ComplaintSuccessBuilder.swift in Sources */,
 				20F551AB24E2A81A00F75866 /* NRLPUserDefaults.swift in Sources */,
 				E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */,
 				207C3E2724B7724400298C0C /* UIColorExtensions.swift in Sources */,
@@ -5859,6 +6140,7 @@
 				9F75D46724E5F6280082364E /* BenefitsCategoriesViewController.swift in Sources */,
 				208EF7E424E13DFB00E43B0B /* Initializable.swift in Sources */,
 				9F8D824F24C86AA900BB1C26 /* ForgotPasswordViewController.swift in Sources */,
+				E1E5F86327A1754100413FB4 /* ComplaintFormViewModel.swift in Sources */,
 				20F7B195250896290014FC67 /* ProfileUpdateModel.swift in Sources */,
 				204CFB8C24D2DA1200583060 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				E1FE16A227832AC40062D4E6 /* NadraTypes.swift in Sources */,
@@ -5898,12 +6180,17 @@
 				2030724E24C9F58200C0DC67 /* RadialGradientLayer.swift in Sources */,
 				204A6BD224B82FF2001E4E74 /* OTPService.swift in Sources */,
 				207C3DA124B5B01400298C0C /* AccountTypePickerItemModel.swift in Sources */,
+				E1E1EF1327A2CF7500D69EAD /* PaddedTextArea.swift in Sources */,
+				E114C30C27A417DF00697D73 /* ComplaintService.swift in Sources */,
 				20E56FCE24B4FA6500BF3B15 /* ProgressBarView.swift in Sources */,
 				9F8D824C24C86AA900BB1C26 /* ForgotPasswordBuilder.swift in Sources */,
 				BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */,
 				2095D2EF24E6959A001C5A48 /* LoyaltyCardView.swift in Sources */,
 				9F653AD924CB0CD300810DBD /* RedeemOTPViewController.swift in Sources */,
+				E1E5F86127A1733000413FB4 /* ComplaintFormViewController.swift in Sources */,
 				9F8D826B24C86AB500BB1C26 /* ForgotPasswordNewPassRouter.swift in Sources */,
+				E114C30E27A4187100697D73 /* ComplaintModel.swift in Sources */,
+				E1E5F85027A1531900413FB4 /* ComplaintTypeViewController.swift in Sources */,
 				20782D6824B48C0100422AEB /* UIStackViewExtensions.swift in Sources */,
 				9FF6F0B624BD88F800E375A2 /* TransferPointsViewController.swift in Sources */,
 				9FE9D90D24DD604700FFE3AC /* ContactUsViewModel.swift in Sources */,
@@ -5921,10 +6208,12 @@
 				9F8D823624C83BB300BB1C26 /* ChangePasswordService.swift in Sources */,
 				208EF7F324E144C600E43B0B /* ChangePasswordRouter.swift in Sources */,
 				20E56FBB24B4AB9A00BF3B15 /* RegistrationViewController.swift in Sources */,
+				E1E1EF1127A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift in Sources */,
 				9F8D823C24C83FA300BB1C26 /* ChangePasswordSuccessBuilder.swift in Sources */,
 				E15BF318277B32DC0038EA81 /* CityListTableViewCell.swift in Sources */,
 				207C3DD924B5EC9800298C0C /* OperationCompletedViewController.swift in Sources */,
 				9F8D827D24C86BEF00BB1C26 /* ForgotPasswordOTPViewController.swift in Sources */,
+				E1E5F85627A153EC00413FB4 /* ComplaintTypeBuilder.swift in Sources */,
 				E15BF31B277B35C50038EA81 /* CityListViewModel.swift in Sources */,
 				9F8565D724C01F85001B68CE /* ForgotPasswordModel.swift in Sources */,
 				9FDA3AB424E0A20400B2AB67 /* LanguageViewModel.swift in Sources */,
@@ -5941,6 +6230,7 @@
 				2046B91E24D9AC9500E2C4CB /* LogoutService.swift in Sources */,
 				207C3D9824B5AE7400298C0C /* CountryListViewController.swift in Sources */,
 				E122CDB226FD42EC00BEAE18 /* RedemptionOTPRouter.swift in Sources */,
+				E1E5F86727A176C300413FB4 /* ComplaintFormBuilder.swift in Sources */,
 				E168AB0126F9CBD9002D1083 /* NadraTrackingIDBuilder.swift in Sources */,
 				9F00F9A924B4771F008AA81E /* AddBeneficiaryModel.swift in Sources */,
 				200912C424BD5F43002E204B /* APIPathBuilder.swift in Sources */,
@@ -5952,6 +6242,7 @@
 				9FB1DD2424B6F6B1002BF688 /* AddBeneficiaryViewController.swift in Sources */,
 				2074D60224D174A700006731 /* DateExtension.swift in Sources */,
 				9F8D826D24C86AB500BB1C26 /* ForgotPasswordNewPassViewController.swift in Sources */,
+				E1E5F85227A1538F00413FB4 /* ComplaintTypeViewModel.swift in Sources */,
 				9FF2C86624D352FB00527CD3 /* RedeemService.swift in Sources */,
 				9FB1DD2624B6F6C0002BF688 /* AddBeneficiaryViewModel.swift in Sources */,
 				E168AAFD26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift in Sources */,
@@ -5965,6 +6256,7 @@
 				E122CDA126FD19F000BEAE18 /* InitRedemptionTransactionModel.swift in Sources */,
 				9F8565CD24BF43D7001B68CE /* LoyaltyPointsRouter.swift in Sources */,
 				9F8D827924C86BEF00BB1C26 /* ForgotPasswordOTPModuleBuilder.swift in Sources */,
+				E1E1EF1827A3230200D69EAD /* LabelledTextArea.swift in Sources */,
 				207C3E3224B8425F00298C0C /* RegisterUserService.swift in Sources */,
 				E122CD9A26FCC37000BEAE18 /* RedemptionOPFViewController.swift in Sources */,
 				207C3E1824B73F4F00298C0C /* HomeCollectionViewCellProtocol.swift in Sources */,
@@ -6008,6 +6300,7 @@
 				2073D2A424C041A600897232 /* RequestConvertable.swift in Sources */,
 				20D8402C24B4734B00F5D749 /* LoginModel.swift in Sources */,
 				9F75D44524E544D10082364E /* BenefitsViewModel.swift in Sources */,
+				E1E5F85427A153C200413FB4 /* ComplaintTypeRouter.swift in Sources */,
 				9F8D826E24C86AB500BB1C26 /* ForgotPasswordNewPassViewModel.swift in Sources */,
 				200F1A1F24BEC87E001411D9 /* AppContainerModuleBuilder.swift in Sources */,
 				2046B91224D9550E00E2C4CB /* FAQResponseModel.swift in Sources */,
@@ -6027,6 +6320,7 @@
 				207C3E3024B83F2000298C0C /* TermsAndConditionResponseModel.swift in Sources */,
 				9F0435C124B4CE6400439FC0 /* RemitterVerificationViewModel.swift in Sources */,
 				2068912D25D507D50076A437 /* RequestKeyGenerator.swift in Sources */,
+				E114C31827A43CD100697D73 /* ComplaintSuccessViewModel.swift in Sources */,
 				207C3DC024B5C08B00298C0C /* TermsAndConditionsRouter.swift in Sources */,
 				E1FE16AD27832D240062D4E6 /* NadraVerificationViewController.swift in Sources */,
 				20901BEB24FFC29A00D13931 /* NRLPPartners.swift in Sources */,
@@ -6040,6 +6334,8 @@
 				9F6D737024B5F05D00B45F0F /* BeneficiaryInfoViewModel.swift in Sources */,
 				2030725124C9F58200C0DC67 /* IndefiniteAnimatedView.swift in Sources */,
 				207C3E2D24B83EF400298C0C /* TermsAndConditionService.swift in Sources */,
+				E1E5F84527A13B8100413FB4 /* ComplaintUserTypeViewModel.swift in Sources */,
+				E114C31A27A43E5700697D73 /* ComplaintSuccessRouter.swift in Sources */,
 				9F8565D424BF440C001B68CE /* LoyaltyPointsTableViewCell.swift in Sources */,
 				207C3DDB24B5ECA800298C0C /* RegistrationCompletedViewModel.swift in Sources */,
 				20D8401724B4324600F5D749 /* AppTheme.swift in Sources */,
@@ -6095,12 +6391,15 @@
 				20782D3424B44ED500422AEB /* LabelledTextview.swift in Sources */,
 				9F653ACD24CB0CD300810DBD /* RedeemConfirmRouter.swift in Sources */,
 				9FF6F0CF24BDC46A00E375A2 /* TransferSuccessRouter.swift in Sources */,
+				E1E5F84727A13CDF00413FB4 /* ComplaintUserTypeRouter.swift in Sources */,
 				207C3D6F24B56A1900298C0C /* StringConstants.swift in Sources */,
+				E1E5F84027A137F400413FB4 /* ComplaintUserTypeViewController.swift in Sources */,
 				E15BF31D277B376E0038EA81 /* CityListRouter.swift in Sources */,
 				20901BE124FF65A100D13931 /* StringProtocolExtensions.swift in Sources */,
 				20F1E5D225A42F530029F87F /* SessionManager.swift in Sources */,
 				208EF7EF24E144C600E43B0B /* ChangePasswordViewModel.swift in Sources */,
 				9FD4EE6724EA858E0078C373 /* BenefitsCardCellProtocol.swift in Sources */,
+				E114C31627A43B7100697D73 /* ComplaintSuccessViewController.swift in Sources */,
 				9F8565C924BF4388001B68CE /* LoyaltyPointsViewController.swift in Sources */,
 				9FF5D87324B59750001A5417 /* CountryCodesModel.swift in Sources */,
 				9FC6F84324CB404D00ADA038 /* LoyaltyPartner.swift in Sources */,
@@ -6132,6 +6431,7 @@
 				208EF7F224E144C600E43B0B /* ChangePasswordBuilder.swift in Sources */,
 				207D5E8024BDAC5400222594 /* RequestHeaders.swift in Sources */,
 				20F1E5E425A5994D0029F87F /* AES256+EncryptionDecryption.swift in Sources */,
+				E114C32027A921EF00697D73 /* ComplaintTransactionTypes.swift in Sources */,
 				20D8402124B468CC00F5D749 /* LoginService.swift in Sources */,
 				20901BE424FFBF0700D13931 /* NRLPBenefitsService.swift in Sources */,
 				204A6BDA24BC22CD001E4E74 /* ServerTrustPolicyManager.swift in Sources */,
@@ -6253,7 +6553,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -6628,7 +6928,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -6656,7 +6956,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

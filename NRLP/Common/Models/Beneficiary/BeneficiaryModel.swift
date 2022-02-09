@@ -24,6 +24,11 @@ struct BeneficiaryModel: Codable {
     var formattedCNIC: String {
         return CNICFormatter().format(string: "\(nicNicop)")
     }
+    
+    var updateAtTime: Date? {
+        let time = DateFormat().formatDate(dateString: updatedAt, formatter: .dateTimeMilis)
+        return time?.adding(hours: 5)
+    }
 
     enum CodingKeys: String, CodingKey {
         case alias = "alias"

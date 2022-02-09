@@ -185,6 +185,8 @@ any queries regarding any of our terms, please contact us.</p>
 
         static var generalErrorMessage = "Something unexpected happened. Please try again"
         static var noInternetErrorMessage = "No Internet Connection. Check your network settings and try again."
+        static var specifyDetailsError = "Please enter some details. This field can not be empty."
+        static var genericEmptyFieldError = "This field can not be empty. Please enter some value."
 
         static var noInternetErrorTitle = "Connection Failed"
         static var serverErrorTitle = "Oh Snap!"

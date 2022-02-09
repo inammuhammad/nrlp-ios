@@ -42,6 +42,6 @@ class LoginRouter {
     
     func navigateToComplaints() {
         print("Navigate to complaints".uppercased())
-//        self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
+        self.navigationController?.pushViewController(ComplaintUserTypeBuilder().build(with: self.navigationController), animated: true)
     }
 }

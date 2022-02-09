@@ -169,8 +169,8 @@ class SelfAwardViewController: BaseViewController {
     }
     
     private func validateFields() {
-        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic {
-            if referenceNo.isEmpty || transactionAmount.isEmpty || cnic.isEmpty {
+        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic, let date = self.remittanceDateString {
+            if referenceNo.isEmpty || transactionAmount.isEmpty || cnic.isEmpty || date.isEmpty {
                 proceedBtn.isEnabled = false
             } else {
                 proceedBtn.isEnabled = true
@@ -181,10 +181,10 @@ class SelfAwardViewController: BaseViewController {
     }
     
     @objc private func proceedBtnAction() {
-        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.beneficaryCnic{
+        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.beneficaryCnic, let date = self.remittanceDateString {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
-            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic)
+            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic, remittanceDate: date)
 
             service.validateTransaction(requestModel: model) {[weak self] (result) in
                 self?.showActivityIndicator(show: false)
@@ -230,7 +230,7 @@ extension SelfAwardViewController: CustomDatePickerViewDelegate {
         switch picker {
         case self.remittanceDatePicker:
             self.remittanceDate = date
-//            self.remittanceDateTextView.inputText = remittanceDateString
+            self.remittanceDateTextView.inputText = remittanceDateString
         default:
             break
         }

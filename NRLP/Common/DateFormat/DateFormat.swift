@@ -42,4 +42,16 @@ class DateFormat {
         }
         return nil
     }
+    
+    func getDateDiff(start: Date, end: Date) -> Int {
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents([Calendar.Component.second], from: start, to: end)
+
+        let seconds = dateComponents.second
+        return Int(seconds ?? 0)
+    }
+    
+    func secondsToMinutesSeconds(_ seconds: Int) -> (Int, Int) {
+        return ((seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
 }

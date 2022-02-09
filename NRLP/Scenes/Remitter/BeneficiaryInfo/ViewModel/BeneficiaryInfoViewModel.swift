@@ -27,6 +27,8 @@ protocol BeneficiaryInfoViewModelProtocol {
     func cancelButtonPressed()
     func didSelect(relationshipTypeItem: RelationshipTypePickerItemModel?)
     func openCountryPicker()
+    func startTimer()
+    func stopTimer()
 }
 
 class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
@@ -35,6 +37,9 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     private var router: BeneficiaryInfoRouter
     private var service: ManageBeneficiaryServiceProtocol
     private var beneficiary: BeneficiaryModel
+    
+    private weak var timer: Timer?
+    private var resendTime = 300
     
     var name: String?
     var cnic: String?
@@ -69,8 +74,27 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     }
     
     func viewDidLoad() {
-        self.output?(.shouldShowEditStackView(show: false))
-        self.output?(.shouldShowUpdateStackView(show: false))
+        if beneficiary.isActive == 0 {
+            checkResendTime()
+            self.output?(.shouldShowEditStackView(show: true))
+            self.output?(.shouldShowUpdateStackView(show: false))
+        } else {
+            self.output?(.shouldShowEditStackView(show: false))
+            self.output?(.shouldShowUpdateStackView(show: false))
+        }
+    }
+    
+    private func checkResendTime() {
+        let updatedAtTime = beneficiary.updateAtTime ?? Date()
+        let secondsDifference = DateFormat().getDateDiff(start: updatedAtTime, end: Date())
+        if secondsDifference > 300 {
+            self.output?(.showResendTimer(show: false))
+        } else {
+            if secondsDifference < 300 {
+                self.resendTime = 300 - secondsDifference
+            }
+            self.output?(.showResendTimer(show: true))
+        }
     }
     
     func deleteButtonPressed() {
@@ -117,6 +141,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
             case .success(_):
                 let alert = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "", alertDescription: "Registration code has been resent".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
                     self.resetBeneficiary()
+                    self.router.popToBeneficiaryInfoController()
                 }))
                 self.output?(.showAlert(alert: alert))
             case .failure(let error):
@@ -182,6 +207,33 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         }, accountType: .beneficiary)
     }
     
+    func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTime() {
+        if resendTime > 0 {
+            resendTime -= 1
+            let newTime = DateFormat().secondsToMinutesSeconds(resendTime)
+            var seconds = ""
+            if newTime.1 <= 9 {
+                seconds = "0\(newTime.1)"
+            } else {
+                seconds = "\(newTime.1)"
+            }
+            let timeElapsed = "\(newTime.0):\(seconds)"
+            self.output?(.updateTimerLabel(time: timeElapsed))
+        } else {
+            self.output?(.showResendTimer(show: false))
+            stopTimer()
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        resendTime = 300
+    }
+    
     enum Output {
         case showError(error: APIResponseError)
         case deleteButtonState
@@ -203,6 +255,8 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         case updateMobileCode(code: String)
         case updateMobilePlaceholder(placeholder: String)
         case updateCountry(countryName: String)
+        case showResendTimer(show: Bool)
+        case updateTimerLabel(time: String)
     }
     
     private func resetBeneficiary() {
@@ -211,6 +265,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     }
     
     deinit {
+        stopTimer()
         print("I am getting deinit \(String(describing: self))")
     }
 }

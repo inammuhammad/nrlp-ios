@@ -43,16 +43,55 @@
                                                     <action selector="editBeneficiaryPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="Bgt-vn-9WZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM1-rY-Eka" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDH-ts-0Vc">
                                                 <rect key="frame" x="196" y="0.0" width="186" height="50"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zM1-rY-Eka" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="ffD-Hd-fKt"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Resend OTP"/>
+                                                        <connections>
+                                                            <action selector="resendOTPPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="sHo-cr-U5W"/>
+                                                        </connections>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ty2-3K-yxO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="186" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2S-v5-PUa">
+                                                                <rect key="frame" x="20" y="15" width="146" height="20.5"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                                        <constraints>
+                                                            <constraint firstItem="q2S-v5-PUa" firstAttribute="centerY" secondItem="Ty2-3K-yxO" secondAttribute="centerY" id="BRS-oF-vbb"/>
+                                                            <constraint firstAttribute="trailing" secondItem="q2S-v5-PUa" secondAttribute="trailing" constant="20" id="Lx6-AC-TLo"/>
+                                                            <constraint firstItem="q2S-v5-PUa" firstAttribute="centerX" secondItem="Ty2-3K-yxO" secondAttribute="centerX" id="MBJ-RX-KHj"/>
+                                                            <constraint firstItem="q2S-v5-PUa" firstAttribute="leading" secondItem="Ty2-3K-yxO" secondAttribute="leading" constant="20" id="P2M-Zm-MBR"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="ffD-Hd-fKt"/>
+                                                    <constraint firstItem="Ty2-3K-yxO" firstAttribute="top" secondItem="QDH-ts-0Vc" secondAttribute="top" id="6CP-68-JaX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zM1-rY-Eka" secondAttribute="trailing" id="RwF-xx-tpq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="zM1-rY-Eka" secondAttribute="bottom" id="Wg0-3S-luX"/>
+                                                    <constraint firstItem="Ty2-3K-yxO" firstAttribute="leading" secondItem="QDH-ts-0Vc" secondAttribute="leading" id="gYG-Rb-1Eb"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Ty2-3K-yxO" secondAttribute="bottom" id="hTb-5n-O8z"/>
+                                                    <constraint firstItem="zM1-rY-Eka" firstAttribute="top" secondItem="QDH-ts-0Vc" secondAttribute="top" id="htA-iF-nOq"/>
+                                                    <constraint firstItem="zM1-rY-Eka" firstAttribute="leading" secondItem="QDH-ts-0Vc" secondAttribute="leading" id="lZw-xk-yHX"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Ty2-3K-yxO" secondAttribute="trailing" id="wQa-OW-bR6"/>
                                                 </constraints>
-                                                <state key="normal" title="Resend OTP"/>
-                                                <connections>
-                                                    <action selector="resendOTPPressed:" destination="krq-Ld-v7Y" eventType="touchUpInside" id="sHo-cr-U5W"/>
-                                                </connections>
-                                            </button>
+                                            </view>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XrW-Nn-0FJ">
@@ -215,6 +254,8 @@
                         <outlet property="mobileTextField" destination="HMd-rt-Hzu" id="7AB-vD-XGx"/>
                         <outlet property="relationTextField" destination="LGd-wf-WvU" id="N7i-rG-4Fv"/>
                         <outlet property="resendOTPBeneficiaryButton" destination="zM1-rY-Eka" id="CBO-Zc-nbY"/>
+                        <outlet property="timerLbl" destination="q2S-v5-PUa" id="7eO-yi-hph"/>
+                        <outlet property="timerView" destination="Ty2-3K-yxO" id="8nB-yY-c8j"/>
                         <outlet property="updateBeneficiaryButton" destination="d0z-9R-OjO" id="SrN-A8-0y7"/>
                         <outlet property="updateStackView" destination="XrW-Nn-0FJ" id="4SH-wR-QR7"/>
                     </connections>
@@ -244,6 +285,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -19,6 +19,14 @@ class BeneficiaryInfoViewController: BaseViewController {
         return pickerView
     }()
 
+    @IBOutlet weak var timerView: UIView!
+    @IBOutlet weak var timerLbl: UILabel! {
+        didSet {
+            timerLbl.textColor = .white
+            timerLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
+        }
+    }
+    
     @IBOutlet weak var editStackView: UIStackView!
     @IBOutlet weak var updateStackView: UIStackView!
     
@@ -111,12 +119,13 @@ class BeneficiaryInfoViewController: BaseViewController {
     
     @IBOutlet private weak var editBeneficiaryButton: PrimaryCTAButton! {
         didSet {
+            editBeneficiaryButton.isHidden = true
             editBeneficiaryButton.setTitle("Edit".localized, for: .normal)
         }
     }
     @IBOutlet private weak var resendOTPBeneficiaryButton: PrimaryCTAButton! {
         didSet {
-            resendOTPBeneficiaryButton.setTitle("Resend OTP".localized, for: .normal)
+            resendOTPBeneficiaryButton.setTitle("Resend Registration Code".localized, for: .normal)
         }
     }
     @IBOutlet private weak var updateBeneficiaryButton: PrimaryCTAButton! {
@@ -137,9 +146,16 @@ class BeneficiaryInfoViewController: BaseViewController {
         bindViewModelOutput()
         viewModel.viewDidLoad()
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        viewModel.stopTimer()
+    }
 
     private func setupUI() {
         self.title = "Beneficiary Details".localized
+        self.timerView.backgroundColor = UIColor.init(commonColor: .appLightGray)
+        timerLbl.text = ""
     }
 
 }
@@ -204,6 +220,14 @@ extension BeneficiaryInfoViewController {
             case .updateMobileCode(let code):
                 self.mobileTextField.leadingText = code
                 self.mobileTextField.inputText = ""
+            case .showResendTimer(show: let show):
+                timerView.isHidden = !show
+                resendOTPBeneficiaryButton.isHidden = show
+                if show {
+                    viewModel.startTimer()
+                }
+            case .updateTimerLabel(time: let time):
+                timerLbl.text = "Resend Registration Code".localized + " \(time)"
             }
         }
     }

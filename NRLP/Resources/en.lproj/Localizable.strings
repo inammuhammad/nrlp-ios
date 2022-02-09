@@ -403,3 +403,40 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Please select your Residence Country" = "Please select your Residence Country";
 
 "Registration Code *" = "Registration Code *";
+
+
+// Complaint Management
+
+"Complaint Management" = "Complaint Management";
+"Complaint Type" = "Complaint Type";
+"Unable to register" = "Unable to register";
+"Unable to receive OTP" = "Unable to receive OTP";
+"Unable to receive Registration Code" = "Unable to receive Registration Code";
+"Others" = "Others";
+"Specify Details" = "Specify Details";
+"Mobile Operator Name" = "Mobile Operator Name";
+"Unable to add beneficiary" = "Unable to add beneficiary";
+"Unable to transfer points to beneficiary" = "Unable to transfer points to beneficiary";
+"Unable to self award points" = "Unable to self award points";
+"Redemption Issues" = "Redemption Issues";
+"Redemption Partner" = "Redemption Partner";
+"Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number" = "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number";
+"Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757" = "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757";
+
+"Transaction Type" = "Transaction Type";
+"Profile Change" = "Profile Change";
+"Self Awarding" = "Self Awarding";
+"Redemption" = "Redemption";
+"Beneficiary CNIC/NICOP" = "Beneficiary CNIC/NICOP";
+"Beneficiary Country of Residence" = "Beneficiary Country of Residence";
+"Beneficiary Mobile Number" = "Beneficiary Mobile Number";
+"Beneficiary Mobile Operator Name" = "Beneficiary Mobile Operator Name";
+"Remitting Entity" = "Remitting Entity";
+"Transaction ID" = "Transaction ID";
+"Transaction Date" = "Transaction Date";
+"Transaction Amount (PKR)" = "Transaction Amount (PKR)";
+"Please specify Bank/Exchange company from where remittance is sent" = "Please specify Bank/Exchange company from where remittance is sent";
+"Beneficiary details have been updated successfully" = "Beneficiary details have been updated successfully";
+"Registration code has been resent" = "Registration code has been resent";
+
+"Resend Registration Code" = "Resend Registration Code";
