@@ -435,4 +435,22 @@
 "Unable to self award points" = "خود ایوارڈ دینے سے قاصر";
 "Redemption Issues" = "پوائنٹ استمال کرنے سے قاصر";
 "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number" = "معزز صارف, اپ کی شکائت درج کرلی گئ ہے براہ کرم ٹریکنگ نمبر نوٹ کریں۔";
-"issue will be resolved within 3 working days, incase complaint remains unsolved, you may contact at\nsdrpsupport@1link.net.pk\n111-116-757" = "مسئلہ 3 کاروباری دنوں میں حل ہو جائے گا، اگر شکایت حل نہیں ہوئی تو آپ sdrpsupport@1link.net.pk یا 757-116-111 پر رابطہ کرسکتے ہیں";
+"Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757" = "مسئلہ 5 کاروباری دنوں میں حل ہو جائے گا، اگر شکایت حل نہیں ہوئی تو آپ sdrpsupport@1link.net.pk یا 757-116-111 پر رابطہ کرسکتے ہیں";
+
+"Transaction Type" = "ٹرانزیکشن  کی قسم";
+"Profile Change" = "پروفائل  کی  تبدیلی";
+"Self Awarding" = "سیلف ایوارڈ";
+"Redemption" = "ریڈیمشن";
+"Beneficiary CNIC/NICOP" = "CNIC/NICOP وصول کنندہ کا";
+"Beneficiary Country of Residence" = "وصول کنندہ کے  قیام  کا ملک";
+"Beneficiary Mobile Number" = "وصول کنندہ کا موبائل نمبر";
+"Beneficiary Mobile Operator Name" = "وصول کنندہ کے  موبائل آپریٹر کا نام";
+"Remitting Entity" = "ترسیلات زر کا ادارہ";
+"Transaction ID" = "ٹرانزیکشن آئی ڈی";
+"Transaction Date" = "ٹرانزیکشن کی تاریخ";
+"Transaction Amount (PKR)" = "ٹرانزیکشن  کی رقم( پاکستانی روپے)";
+"Please specify Bank/Exchange company from where remittance is sent" = "براہ کرم بینک/ایکسچینج کمپنی  بتائیں جہاں سے ترسیلات زر بھیجی گئی ہیں";
+"Beneficiary details have been updated successfully" = "وصول کنندہ کی تفصیلات کو کامیابی سے اپ ڈیٹ  کر دیا گیا ہے";
+"Registration code has been resent" = "رجسٹریشن کوڈ دوبارہ بھیج دیا گیا ہے";
+
+"Resend Registration Code" = "رجسٹریشن کوڈ دوبارہ بھیجیں";

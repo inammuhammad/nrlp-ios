@@ -119,12 +119,13 @@ class BeneficiaryInfoViewController: BaseViewController {
     
     @IBOutlet private weak var editBeneficiaryButton: PrimaryCTAButton! {
         didSet {
+            editBeneficiaryButton.isHidden = true
             editBeneficiaryButton.setTitle("Edit".localized, for: .normal)
         }
     }
     @IBOutlet private weak var resendOTPBeneficiaryButton: PrimaryCTAButton! {
         didSet {
-            resendOTPBeneficiaryButton.setTitle("Resend OTP".localized, for: .normal)
+            resendOTPBeneficiaryButton.setTitle("Resend Registration Code".localized, for: .normal)
         }
     }
     @IBOutlet private weak var updateBeneficiaryButton: PrimaryCTAButton! {
@@ -226,7 +227,7 @@ extension BeneficiaryInfoViewController {
                     viewModel.startTimer()
                 }
             case .updateTimerLabel(time: let time):
-                timerLbl.text = "Resend OTP in \(time)"
+                timerLbl.text = "Resend Registration Code".localized + " \(time)"
             }
         }
     }
