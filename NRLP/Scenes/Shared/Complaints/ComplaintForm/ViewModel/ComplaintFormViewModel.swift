@@ -272,6 +272,11 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             switch result {
             case .success(let response):
                 self?.transactionTypesArr.append(contentsOf: response.data)
+                if let user = self?.currentUser, user.accountType == .beneficiary {
+                    if let index = self?.transactionTypesArr.firstIndex(of: "Self Awarding") {
+                        self?.transactionTypesArr.remove(at: index)
+                    }
+                }
                 self?.output?(.showTransactionTypes)
             case .failure(let error):
                 self?.output?(.showError(error: error))
