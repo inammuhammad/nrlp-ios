@@ -166,7 +166,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         if complaintType == .unableToReceiveOTP && loginState == .loggedIn {
             var dataArray: [PickerItemModel] = []
             for type in transactionTypesArr {
-                dataArray.append(TransactionTypesPickerItemModel(title: type, key: "\(type)"))
+                dataArray.append(TransactionTypesPickerItemModel(title: type.localized, key: "\(type)"))
             }
             return ItemPickerViewModel(data: dataArray)
         }
@@ -272,6 +272,11 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             switch result {
             case .success(let response):
                 self?.transactionTypesArr.append(contentsOf: response.data)
+                if let user = self?.currentUser, user.accountType == .beneficiary {
+                    if let index = self?.transactionTypesArr.firstIndex(of: "Self Awarding") {
+                        self?.transactionTypesArr.remove(at: index)
+                    }
+                }
                 self?.output?(.showTransactionTypes)
             case .failure(let error):
                 self?.output?(.showError(error: error))
@@ -286,7 +291,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     
     func didSelectTransactionType(type: TransactionTypesPickerItemModel?) {
         self.transactionType = type?.title
-        output?(.updateTransactionType(type: type?.title ?? ""))
+        output?(.updateTransactionType(type: type?.title.localized ?? ""))
     }
     
     deinit {
@@ -349,11 +354,19 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     }
     
     func getRequestModel() -> ComplaintRequestModel {
+        var beneficiaryMobile: String?
+        var newMobileNumber: String?
+        if let beneficiaryCountry = self.beneficiaryCountry, let beneficiaryMobileNo = self.beneficiaryMobileNo {
+            beneficiaryMobile = "\(beneficiaryCountry.code)\(beneficiaryMobileNo)"
+        }
+        if let country = self.country, let mobileNumber = self.mobileNumber {
+            newMobileNumber = "\(country.code)\(mobileNumber)"
+        }
         let registered = loginState == .loggedIn ? 1 : 0
         let requestModel = ComplaintRequestModel(registered: registered,
                                                  userType: self.userType.rawValue,
                                                  complaintTypeID: self.complaintType.getComplaintTypeCode(),
-                                                 mobileNo: self.currentUser?.mobileNo ?? self.mobileNumber,
+                                                 mobileNo: self.currentUser?.mobileNo ?? newMobileNumber,
                                                  email: self.currentUser?.email ?? self.email,
                                                  countryOfResidence: self.currentUser?.countryName ?? self.country?.country,
                                                  mobileOperatorName: self.mobileOperator,
@@ -362,7 +375,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
                                                  transactionType: self.transactionType,
                                                  beneficiaryCnic: self.beneficiaryCnic,
                                                  beneficiaryCountryOfResidence: self.beneficiaryCountry?.country,
-                                                 beneficiaryMobileNo: self.beneficiaryMobileNo,
+                                                 beneficiaryMobileNo: beneficiaryMobile,
                                                  beneficiaryMobileOperatorName: self.beneficiaryMobileOperator,
                                                  remittingEntity: self.remittanceEntity,
                                                  transactionID: self.transactionID,

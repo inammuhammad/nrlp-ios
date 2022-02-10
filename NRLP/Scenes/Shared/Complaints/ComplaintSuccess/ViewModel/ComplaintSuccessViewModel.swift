@@ -55,9 +55,9 @@ class ComplaintSuccessViewModel: ComplaintSuccessViewModelProtocol {
         
         let startText: NSAttributedString = NSAttributedString(string: "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number".localized, attributes: regularAttribute)
         finalString.append(startText)
-        let midText: NSAttributedString = NSAttributedString(string: " \(complaintID) ", attributes: boldAttribute)
+        let midText: NSAttributedString = NSAttributedString(string: "\n\(complaintID).\n", attributes: boldAttribute)
         finalString.append(midText)
-        let endText: NSAttributedString = NSAttributedString(string: "issue will be resolved within 3 working days, incase complaint remains unsolved, you may contact at\nsdrpsupport@1link.net.pk\n111-116-757".localized, attributes: regularAttribute)
+        let endText: NSAttributedString = NSAttributedString(string: "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757".localized, attributes: regularAttribute)
         finalString.append(endText)
         return finalString
     }

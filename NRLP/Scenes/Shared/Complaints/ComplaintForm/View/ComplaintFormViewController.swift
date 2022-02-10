@@ -147,7 +147,7 @@ class ComplaintFormViewController: BaseViewController {
     
     @IBOutlet weak var redemptionIssueTextView: LabelledTextview! {
         didSet {
-            redemptionIssueTextView.titleLabelText = "Redemption Issues".localized
+            redemptionIssueTextView.titleLabelText = "Redemption Partner".localized
             redemptionIssueTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
             redemptionIssueTextView.placeholderText = "Select Redemption Partner".localized
             redemptionIssueTextView.editTextCursorColor = .init(white: 1, alpha: 0)
