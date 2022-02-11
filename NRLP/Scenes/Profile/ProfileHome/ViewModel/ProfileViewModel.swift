@@ -183,7 +183,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
         output?(.updateMobileCode(code: "\(self.country?.code ?? "") - ", length: country?.length ?? 0))
         
         let extractedMobileNumber = String(userMobileNumber?.suffix(country?.length ?? 0) ?? "")
-        user.mobileNo = extractedMobileNumber
+//        user.mobileNo = extractedMobileNumber
         user.userCountry = self.country
         output?(.setMobileNumber(number: extractedMobileNumber))
         
@@ -211,13 +211,16 @@ class ProfileViewModel: ProfileViewModelProtocol {
             return
         }
         
-        if checkMobileNumberUpdated() {
-            let alert = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Update Profile".localized, alertDescription: "Are you sure you want to update your profile?".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Yes".localized, buttonAction: {
+        let alert = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Update Profile".localized, alertDescription: "Are you sure you want to update your profile?".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Yes".localized, buttonAction: {
+            if self.checkMobileNumberUpdated() {
                 self.sendOtp()
-            }), secondaryButton: AlertActionButtonModel(buttonTitle: "No".localized, buttonAction: nil))
-            
-            output?(.showAlert(alert: alert))
-        }
+            } else {
+                self.saveUserDetails()
+            }
+        }), secondaryButton: AlertActionButtonModel(buttonTitle: "No".localized, buttonAction: nil))
+        
+        output?(.showAlert(alert: alert))
+        
     }
     
     func sendOtp() {
@@ -228,6 +231,20 @@ class ProfileViewModel: ProfileViewModelProtocol {
             switch result {
             case .success:
                 self.moveToOTPScreen()
+            case .failure(let error):
+                self.output?(.showError(error: error))
+            }
+        }
+    }
+    
+    private func saveUserDetails() {
+        self.output?(.showActivityIndicator(show: true))
+        let model = UpdateProfileSendOTPRequestModel(email: getEmail(), mobileNumber: nil, passportNumber: getPassportNumber(), passportType: getPassportType(), residentID: getResidentID(), country: getCountry())
+        userProfileService.updateProfile(requestModel: model) { (result) in
+            self.output?(.showActivityIndicator(show: false))
+            switch result {
+            case .success(_):
+                self.router.navigateToSuccess()
             case .failure(let error):
                 self.output?(.showError(error: error))
             }
@@ -342,7 +359,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
 extension ProfileViewModel {
     private func validateRequiredFields() {
         let userMobileNumberWithCode = ((user?.userCountry?.code ?? "0") + (user?.mobileNo ?? ""))
-        if userEditedNumberWithCode == userMobileNumberWithCode && user?.email == email && editState && user.passportType == passportType && user.passportNumber == passportNumber && user.residentID == residentID{
+        if userEditedNumberWithCode == userMobileNumberWithCode && user?.email == email && editState && user.passportType == passportType && user.passportNumber == passportNumber && user.residentID == residentID {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))

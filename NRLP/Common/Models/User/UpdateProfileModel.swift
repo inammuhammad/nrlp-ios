@@ -54,7 +54,7 @@ struct UpdateProfileRequestModel: Codable {
 // Update User Profile Send OTP
 struct UpdateProfileSendOTPRequestModel: Codable {
     let email: String?
-    let mobileNumber: String?
+    var mobileNumber: String?
     let passportNumber: String?
     let passportType: String?
     let residentID: String?

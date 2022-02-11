@@ -97,6 +97,7 @@ struct APIPathBuilder {
         case addComplaints
         case complaintsTransactionTypes
         case updateProfileVerification
+        case updateProfile
         
         var rawValue: String {
             switch self {
@@ -239,6 +240,9 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .updateProfileVerification:
                 let sign: [UInt8] = [33, 21, 22, 12, 7, 36, 67, 20, 49, 0, 8, 13, 5, 17, 68, 25, 15, 63, 12, 22, 23, 29, 6]
+                return Replacer().deformatString(string: sign)
+            case .updateProfile:
+                let sign: [UInt8] = [33, 21, 22, 12, 7, 36, 67, 20, 49, 0, 8, 13, 5, 17]
                 return Replacer().deformatString(string: sign)
             }
         }

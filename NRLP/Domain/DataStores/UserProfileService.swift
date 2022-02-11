@@ -19,6 +19,7 @@ protocol UserProfileServiceProtocol {
     func updateUserVerifyOTP(requestModel: UpdateProfileVerifyOTPRequestModel?, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler)
     func updateUserResendOTP(requestModel: UpdateProfileSendOTPRequestModel, responseHandler: @escaping UpdateProfileServiceCompletionHandler)
     func verifyProfile(requestModel: UpdateProfileVerificationRequestModel, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler)
+    func updateProfile(requestModel: UpdateProfileSendOTPRequestModel, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler)
 }
 
 extension UserProfileServiceProtocol {
@@ -28,6 +29,13 @@ extension UserProfileServiceProtocol {
 }
 
 class UserProfileService: BaseDataStore, UserProfileServiceProtocol {
+    func updateProfile(requestModel: UpdateProfileSendOTPRequestModel, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler) {
+        let request = RequestBuilder(path: .init(endPoint: .updateProfile), parameters: requestModel)
+
+        networking.post(request: request) { (response: APIResponse<UpdateProfileVerifyOTPResponseModel>) in
+            responseHandler(response.result)
+        }
+    }
     
     func getUserProfile(requestModel: UserProfileRequestModel?, responseHandler: @escaping UserProfileServiceCompletionHandler) {
 
