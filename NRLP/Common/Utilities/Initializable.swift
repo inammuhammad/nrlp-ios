@@ -79,5 +79,11 @@ extension UIStoryboard {
         case complaintForm = "ComplaintForm"
         case complaintSuccess = "ComplaintSuccess"
         case profileVerification = "ProfileVerification"
+        case receiverLanding = "ReceiverLanding"
+        case receiverType = "ReceiverType"
+        case receiverForm = "ReceiverForm"
+        case receiverSuccess = "ReceiverSuccess"
+        case receiverListing = "ReceiverListing"
+        case receiverDetails = "ReceiverDetails"
     }
 }

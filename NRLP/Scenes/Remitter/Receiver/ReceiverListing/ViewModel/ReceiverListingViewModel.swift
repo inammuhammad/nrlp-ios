@@ -1,0 +1,79 @@
+//
+//  ReceiverListingViewModel.swift
+//  NRLP
+//
+//  Created by Bilal Iqbal on 22/02/2022.
+//  Copyright © 2022 VentureDive. All rights reserved.
+//
+
+import Foundation
+
+typealias ReceiverListingViewModelOutput = (ReceiverListingViewModel.Output) -> Void
+
+protocol ReceiverListingViewModelProtocol {
+    var output: ReceiverListingViewModelOutput? { get set }
+    var numberOfRows: Int { get }
+
+    func viewModelWillAppear()
+    func getReceiver(at index: Int) -> ReceiverModel
+    func didSelectReceiver(indexPath: IndexPath)
+    func addReceiverClicked()
+}
+
+class ReceiverListingViewModel: ReceiverListingViewModelProtocol {
+
+    var output: ReceiverListingViewModelOutput?
+
+    private var router: ReceiverListingRouter!
+
+    private var receivers: [ReceiverModel] = []
+
+    init(with router: ReceiverListingRouter) {
+        self.router = router
+    }
+
+    func viewModelWillAppear() {
+        receivers.append(ReceiverModel(alias: "TEST", beneficiaryId: 0009, isActive: 1, mobileNo: "03344989898", nicNicop: 87613278632, createdAt: "", updatedAt: "", isDeleted: 0, beneficiaryRelation: "Mother", country: "Pakistan", receiverTypeString: "Remittance sent to CNIC"))
+        if !(receivers.isEmpty) {
+            output?(.tableVisibility(show: true))
+        } else {
+            output?(.tableVisibility(show: false))
+        }
+        output?(.reloadReceivers)
+    }
+
+    func didSelectReceiver(indexPath: IndexPath) {
+        // MOVE TO DETAIL SCREEN
+        let model = receivers[indexPath.row]
+        router.navigateToReceiverDetailsScreen(receiver: model)
+    }
+    
+    func addReceiverClicked() {
+        // MOVE TO ADD SCREEN
+        router.navigateToAddReceiverScreen()
+    }
+
+    enum Output {
+        case showError(error: APIResponseError)
+        case showAlert(alert: AlertViewModel)
+        case showActivityIndicator(show: Bool)
+        case reloadReceivers
+        case tableVisibility(show: Bool)
+        case addButton(state: Bool)
+    }
+
+    deinit {
+        print("I am getting deinit \(String(describing: self))")
+    }
+}
+
+// MARK: DataSource related methods
+extension ReceiverListingViewModel {
+    var numberOfRows: Int {
+        return receivers.count
+    }
+
+    func getReceiver(at index: Int) -> ReceiverModel {
+        return receivers[index]
+    }
+}

@@ -69,6 +69,7 @@ class HomeViewModel: HomeViewModelProtocol {
                 if let data = response.data {
                     self?.userModel.update(from: data)
                     self?.checkNadraVerificationStatus()
+                    self?.checkReceiverManagement()
                     self?.setupCollectionViewData()
                     self?.output?(.reloadCollectionView)
                 }
@@ -104,6 +105,8 @@ class HomeViewModel: HomeViewModelProtocol {
         switch item {
         case .changePassword:
             router.navigateToChangePassword()
+        case .receiverManagement:
+            router.navigateToRemitterReceiverManagement(showListing: true)
         case .logout:
             shouldLogout()
         case .languageSelection:
@@ -151,6 +154,10 @@ class HomeViewModel: HomeViewModelProtocol {
         if userModel.requiresNadraVerification ?? false {
             router.navigateToNadraVerificationScreen(userModel: self.userModel)
         }
+    }
+    
+    private func checkReceiverManagement() {
+//        self.router.navigateToRemitterReceiverManagement(showListing: false)
     }
 
     enum Output {

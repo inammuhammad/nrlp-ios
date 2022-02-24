@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Receiver Success View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ReceiverSuccessViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ReceiverSuccessViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TkF-qM-0SS" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="20" y="796" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0ZJ-fN-rXE"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TIk-Eb-YSy"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyf-h3-5tm">
+                                <rect key="frame" x="40" y="438" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hyf-h3-5tm" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="0Ac-Nm-VlZ"/>
+                            <constraint firstItem="hyf-h3-5tm" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="K8f-d0-Ir5"/>
+                            <constraint firstItem="TkF-qM-0SS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ZWw-0w-jbT"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="TkF-qM-0SS" secondAttribute="bottom" constant="16" id="d9m-r9-Oan"/>
+                            <constraint firstItem="hyf-h3-5tm" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="eEV-5e-5rB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="hyf-h3-5tm" secondAttribute="trailing" constant="40" id="jsW-WD-LQ7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TkF-qM-0SS" secondAttribute="trailing" constant="20" id="mcW-l3-2tT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="doneBtn" destination="TkF-qM-0SS" id="waf-7R-W9z"/>
+                        <outlet property="successLbl" destination="hyf-h3-5tm" id="Y4T-4g-rVE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="106"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="TkF-qM-0SS">
+            <size key="intrinsicContentSize" width="37" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

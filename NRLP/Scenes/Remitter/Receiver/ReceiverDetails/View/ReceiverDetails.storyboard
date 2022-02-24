@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Receiver Details View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="ReceiverDetailsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="ReceiverDetailsViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTI-Ks-JPr">
+                                <rect key="frame" x="0.0" y="20" width="414" height="760"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QP4-US-UKJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="938"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qKK-bQ-6Vx">
+                                                <rect key="frame" x="20" y="0.0" width="374" height="938"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CID-YN-EJo" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="aOg-xl-0FR"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l71-we-VzZ" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="106" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="rBE-Gd-rYs"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4s-NH-Oq9" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="212" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="IEZ-pI-8JK"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cYI-R5-oGC" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="318" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="Gie-Bu-Hcx"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aha-Ih-ZO9" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="424" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="gSh-OS-FfZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eP6-Ee-dNz" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="530" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="keA-qe-JTn"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXu-ie-5Dg" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="636" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="iZY-jC-tRf"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HsC-f3-COy" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="742" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="cED-bS-2VW"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCr-k8-fiS" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="848" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="wLe-we-ec9"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="qKK-bQ-6Vx" secondAttribute="trailing" constant="20" id="DUH-ej-L0M"/>
+                                            <constraint firstItem="qKK-bQ-6Vx" firstAttribute="leading" secondItem="QP4-US-UKJ" secondAttribute="leading" constant="20" id="Ugv-7U-a2J"/>
+                                            <constraint firstAttribute="bottom" secondItem="qKK-bQ-6Vx" secondAttribute="bottom" id="XID-Ck-fIz"/>
+                                            <constraint firstItem="qKK-bQ-6Vx" firstAttribute="top" secondItem="QP4-US-UKJ" secondAttribute="top" id="dI8-oz-dF9"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="QP4-US-UKJ" firstAttribute="leading" secondItem="UTI-Ks-JPr" secondAttribute="leading" id="44L-M4-jhx"/>
+                                    <constraint firstItem="QP4-US-UKJ" firstAttribute="width" secondItem="UTI-Ks-JPr" secondAttribute="width" id="7D7-Lh-XJK"/>
+                                    <constraint firstItem="QP4-US-UKJ" firstAttribute="top" secondItem="UTI-Ks-JPr" secondAttribute="top" id="CX7-0K-SVE"/>
+                                    <constraint firstAttribute="trailing" secondItem="QP4-US-UKJ" secondAttribute="trailing" id="dD3-bC-GMt"/>
+                                    <constraint firstAttribute="bottom" secondItem="QP4-US-UKJ" secondAttribute="bottom" id="nT9-ia-Imd"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOJ-H6-Zbr" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="20" y="796" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xsP-gV-trx"/>
+                                </constraints>
+                                <state key="normal" title="Next"/>
+                                <connections>
+                                    <action selector="deleteBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VX2-KP-VZT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aOJ-H6-Zbr" firstAttribute="top" secondItem="UTI-Ks-JPr" secondAttribute="bottom" constant="16" id="IAu-9w-Lhb"/>
+                            <constraint firstItem="aOJ-H6-Zbr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="JPx-gl-xao"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aOJ-H6-Zbr" secondAttribute="trailing" constant="20" id="aFB-qi-dce"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aOJ-H6-Zbr" secondAttribute="bottom" constant="16" id="bo6-D7-ts5"/>
+                            <constraint firstItem="UTI-Ks-JPr" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="20" id="ggA-5h-CZA"/>
+                            <constraint firstAttribute="trailing" secondItem="UTI-Ks-JPr" secondAttribute="trailing" id="hle-UM-9ry"/>
+                            <constraint firstItem="aOJ-H6-Zbr" firstAttribute="top" secondItem="UTI-Ks-JPr" secondAttribute="bottom" constant="16" id="nbV-hN-83r"/>
+                            <constraint firstItem="UTI-Ks-JPr" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="vts-vU-aiJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bankNameTextView" destination="HsC-f3-COy" id="tvm-AQ-824"/>
+                        <outlet property="bankNumberTextView" destination="vCr-k8-fiS" id="3PZ-ab-ih3"/>
+                        <outlet property="birthPlaceTextView" destination="aha-Ih-ZO9" id="PcU-Xo-sWF"/>
+                        <outlet property="cnicIssueDateTextView" destination="g4s-NH-Oq9" id="o9m-lr-idr"/>
+                        <outlet property="cnicTextView" destination="l71-we-VzZ" id="E2t-cy-bAd"/>
+                        <outlet property="countryTextView" destination="eP6-Ee-dNz" id="csA-B3-gZ6"/>
+                        <outlet property="deleteBtn" destination="aOJ-H6-Zbr" id="Eb6-dD-ZZB"/>
+                        <outlet property="fullNameTextView" destination="CID-YN-EJo" id="N0v-0x-0yD"/>
+                        <outlet property="mobileNumberTextView" destination="kXu-ie-5Dg" id="Ujs-EK-2Ho"/>
+                        <outlet property="motherNameTextView" destination="cYI-R5-oGC" id="u0B-ep-El1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="106"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="aOJ-H6-Zbr">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

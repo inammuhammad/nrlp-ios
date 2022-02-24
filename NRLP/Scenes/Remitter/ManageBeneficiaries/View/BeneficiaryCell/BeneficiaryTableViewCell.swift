@@ -79,5 +79,18 @@ class BeneficiaryTableViewCell: UITableViewCell {
 
         self.layoutMargins = UIEdgeInsets.zero
     }
+    
+    func populate(with receiver: ReceiverModel) {
+        fullNameLabel.text = receiver.alias
+        cnicLabel.text = receiver.formattedCNIC
+
+        if receiver.isActive == 0 ? false : true {
+            setAsActive()
+        } else {
+            setAsInactive()
+        }
+
+        self.layoutMargins = UIEdgeInsets.zero
+    }
 
 }

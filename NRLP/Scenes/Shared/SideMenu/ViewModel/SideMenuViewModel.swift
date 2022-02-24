@@ -40,6 +40,7 @@ struct SideMenuViewModel: SideMenuViewModelProtocol {
         items = [
             .profile,
             .changePassword,
+            .receiverManagement,
             .faqs,
             .guide,
             .languageSelection,

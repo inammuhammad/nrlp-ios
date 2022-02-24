@@ -615,6 +615,38 @@
 		E18454D72774859F00FE5793 /* BeneficiaryFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18454D62774859F00FE5793 /* BeneficiaryFormViewController.swift */; };
 		E18454D927748A0100FE5793 /* BeneficiaryFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18454D827748A0100FE5793 /* BeneficiaryFormViewModel.swift */; };
 		E18454DB27748C7F00FE5793 /* BeneficiaryFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18454DA27748C7F00FE5793 /* BeneficiaryFormRouter.swift */; };
+		E1995DF027BFBB0C00B44793 /* ReceiverLanding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1995DEF27BFBB0C00B44793 /* ReceiverLanding.storyboard */; };
+		E1995DF227BFBB2500B44793 /* ReceiverLandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995DF127BFBB2500B44793 /* ReceiverLandingViewController.swift */; };
+		E1995DF427BFBE1E00B44793 /* ReceiverLandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995DF327BFBE1E00B44793 /* ReceiverLandingViewModel.swift */; };
+		E1995DF627BFBEED00B44793 /* ReceiverLandingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995DF527BFBEED00B44793 /* ReceiverLandingRouter.swift */; };
+		E1995DF827BFC27400B44793 /* ReceiverLandingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995DF727BFC27400B44793 /* ReceiverLandingBuilder.swift */; };
+		E1995DFA27BFD94C00B44793 /* ReceiverType.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1995DF927BFD94C00B44793 /* ReceiverType.storyboard */; };
+		E1995DFC27BFD95700B44793 /* ReceiverTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995DFB27BFD95700B44793 /* ReceiverTypeViewController.swift */; };
+		E1995E0127BFDA7800B44793 /* RemitterReceiverType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E0027BFDA7800B44793 /* RemitterReceiverType.swift */; };
+		E1995E0327BFE12B00B44793 /* ReceiverTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E0227BFE12B00B44793 /* ReceiverTypeViewModel.swift */; };
+		E1995E0527BFE26700B44793 /* ReceiverTypeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E0427BFE26700B44793 /* ReceiverTypeRouter.swift */; };
+		E1995E0727BFE8C700B44793 /* ReceiverTypeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E0627BFE8C700B44793 /* ReceiverTypeBuilder.swift */; };
+		E1995E0C27C2F6A300B44793 /* ReceiverForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1995E0B27C2F6A300B44793 /* ReceiverForm.storyboard */; };
+		E1995E0E27C2F6B300B44793 /* ReceiverFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E0D27C2F6B300B44793 /* ReceiverFormViewController.swift */; };
+		E1995E1027C2FA7800B44793 /* ReceiverFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E0F27C2FA7800B44793 /* ReceiverFormViewModel.swift */; };
+		E1995E1227C2FD0500B44793 /* ReceiverFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E1127C2FD0500B44793 /* ReceiverFormRouter.swift */; };
+		E1995E1427C300D800B44793 /* ReceiverFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E1327C300D800B44793 /* ReceiverFormBuilder.swift */; };
+		E1995E1B27C3C77200B44793 /* ReceiverSuccess.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1995E1A27C3C77200B44793 /* ReceiverSuccess.storyboard */; };
+		E1995E1D27C3C77F00B44793 /* ReceiverSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E1C27C3C77F00B44793 /* ReceiverSuccessViewController.swift */; };
+		E1995E1F27C3CA5500B44793 /* ReceiverSuccessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E1E27C3CA5500B44793 /* ReceiverSuccessViewModel.swift */; };
+		E1995E2127C3CB3700B44793 /* ReceiverSuccessRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E2027C3CB3700B44793 /* ReceiverSuccessRouter.swift */; };
+		E1995E2327C3CBC900B44793 /* ReceiverSuccessBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E2227C3CBC900B44793 /* ReceiverSuccessBuilder.swift */; };
+		E1995E2527C4D7AF00B44793 /* ReceiverListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1995E2427C4D7AF00B44793 /* ReceiverListing.storyboard */; };
+		E1995E2727C4D7C400B44793 /* ReceiverListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E2627C4D7C400B44793 /* ReceiverListingViewController.swift */; };
+		E1995E3227C4EA0000B44793 /* ReceiverListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E3127C4EA0000B44793 /* ReceiverListingViewModel.swift */; };
+		E1995E3527C4EB5700B44793 /* ReceiverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E3427C4EB5700B44793 /* ReceiverModel.swift */; };
+		E1995E3727C508FB00B44793 /* ReceiverListingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E3627C508FB00B44793 /* ReceiverListingRouter.swift */; };
+		E1995E3927C50C7E00B44793 /* ReceiverListingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E3827C50C7E00B44793 /* ReceiverListingBuilder.swift */; };
+		E1995E4027C5158F00B44793 /* ReceiverDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1995E3F27C5158F00B44793 /* ReceiverDetails.storyboard */; };
+		E1995E4227C515A400B44793 /* ReceiverDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E4127C515A400B44793 /* ReceiverDetailsViewController.swift */; };
+		E1995E4427C516A500B44793 /* ReceiverDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E4327C516A500B44793 /* ReceiverDetailsViewModel.swift */; };
+		E1995E4627C5270B00B44793 /* ReceiverDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E4527C5270B00B44793 /* ReceiverDetailsRouter.swift */; };
+		E1995E4827C52AB800B44793 /* ReceiverDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1995E4727C52AB800B44793 /* ReceiverDetailsBuilder.swift */; };
 		E19D8B52270C3D7300FFA1B3 /* TestConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19D8B51270C3D7300FFA1B3 /* TestConstants.swift */; };
 		E19D8B54270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = E19D8B53270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der */; };
 		E19D8B56270C50D600FFA1B3 /* sni-cloudflaressl-com.der in Resources */ = {isa = PBXBuildFile; fileRef = E19D8B55270C50D600FFA1B3 /* sni-cloudflaressl-com.der */; };
@@ -1347,6 +1379,38 @@
 		E18454D62774859F00FE5793 /* BeneficiaryFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryFormViewController.swift; sourceTree = "<group>"; };
 		E18454D827748A0100FE5793 /* BeneficiaryFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryFormViewModel.swift; sourceTree = "<group>"; };
 		E18454DA27748C7F00FE5793 /* BeneficiaryFormRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeneficiaryFormRouter.swift; sourceTree = "<group>"; };
+		E1995DEF27BFBB0C00B44793 /* ReceiverLanding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReceiverLanding.storyboard; sourceTree = "<group>"; };
+		E1995DF127BFBB2500B44793 /* ReceiverLandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverLandingViewController.swift; sourceTree = "<group>"; };
+		E1995DF327BFBE1E00B44793 /* ReceiverLandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverLandingViewModel.swift; sourceTree = "<group>"; };
+		E1995DF527BFBEED00B44793 /* ReceiverLandingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverLandingRouter.swift; sourceTree = "<group>"; };
+		E1995DF727BFC27400B44793 /* ReceiverLandingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverLandingBuilder.swift; sourceTree = "<group>"; };
+		E1995DF927BFD94C00B44793 /* ReceiverType.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReceiverType.storyboard; sourceTree = "<group>"; };
+		E1995DFB27BFD95700B44793 /* ReceiverTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverTypeViewController.swift; sourceTree = "<group>"; };
+		E1995E0027BFDA7800B44793 /* RemitterReceiverType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemitterReceiverType.swift; sourceTree = "<group>"; };
+		E1995E0227BFE12B00B44793 /* ReceiverTypeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReceiverTypeViewModel.swift; sourceTree = "<group>"; };
+		E1995E0427BFE26700B44793 /* ReceiverTypeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverTypeRouter.swift; sourceTree = "<group>"; };
+		E1995E0627BFE8C700B44793 /* ReceiverTypeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverTypeBuilder.swift; sourceTree = "<group>"; };
+		E1995E0B27C2F6A300B44793 /* ReceiverForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReceiverForm.storyboard; sourceTree = "<group>"; };
+		E1995E0D27C2F6B300B44793 /* ReceiverFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverFormViewController.swift; sourceTree = "<group>"; };
+		E1995E0F27C2FA7800B44793 /* ReceiverFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverFormViewModel.swift; sourceTree = "<group>"; };
+		E1995E1127C2FD0500B44793 /* ReceiverFormRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverFormRouter.swift; sourceTree = "<group>"; };
+		E1995E1327C300D800B44793 /* ReceiverFormBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverFormBuilder.swift; sourceTree = "<group>"; };
+		E1995E1A27C3C77200B44793 /* ReceiverSuccess.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReceiverSuccess.storyboard; sourceTree = "<group>"; };
+		E1995E1C27C3C77F00B44793 /* ReceiverSuccessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverSuccessViewController.swift; sourceTree = "<group>"; };
+		E1995E1E27C3CA5500B44793 /* ReceiverSuccessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverSuccessViewModel.swift; sourceTree = "<group>"; };
+		E1995E2027C3CB3700B44793 /* ReceiverSuccessRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverSuccessRouter.swift; sourceTree = "<group>"; };
+		E1995E2227C3CBC900B44793 /* ReceiverSuccessBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverSuccessBuilder.swift; sourceTree = "<group>"; };
+		E1995E2427C4D7AF00B44793 /* ReceiverListing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReceiverListing.storyboard; sourceTree = "<group>"; };
+		E1995E2627C4D7C400B44793 /* ReceiverListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverListingViewController.swift; sourceTree = "<group>"; };
+		E1995E3127C4EA0000B44793 /* ReceiverListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverListingViewModel.swift; sourceTree = "<group>"; };
+		E1995E3427C4EB5700B44793 /* ReceiverModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverModel.swift; sourceTree = "<group>"; };
+		E1995E3627C508FB00B44793 /* ReceiverListingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverListingRouter.swift; sourceTree = "<group>"; };
+		E1995E3827C50C7E00B44793 /* ReceiverListingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverListingBuilder.swift; sourceTree = "<group>"; };
+		E1995E3F27C5158F00B44793 /* ReceiverDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ReceiverDetails.storyboard; sourceTree = "<group>"; };
+		E1995E4127C515A400B44793 /* ReceiverDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverDetailsViewController.swift; sourceTree = "<group>"; };
+		E1995E4327C516A500B44793 /* ReceiverDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverDetailsViewModel.swift; sourceTree = "<group>"; };
+		E1995E4527C5270B00B44793 /* ReceiverDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverDetailsRouter.swift; sourceTree = "<group>"; };
+		E1995E4727C52AB800B44793 /* ReceiverDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverDetailsBuilder.swift; sourceTree = "<group>"; };
 		E19D8B51270C3D7300FFA1B3 /* TestConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConstants.swift; sourceTree = "<group>"; };
 		E19D8B53270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain-dev.der"; sourceTree = "<group>"; };
 		E19D8B55270C50D600FFA1B3 /* sni-cloudflaressl-com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com.der"; sourceTree = "<group>"; };
@@ -4337,6 +4401,7 @@
 		A1B9A1E524B3001E00CAAA32 /* Remitter */ = {
 			isa = PBXGroup;
 			children = (
+				E1995DDA27BFBA2100B44793 /* Receiver */,
 				9F8D821524C6DC8100BB1C26 /* TransferPoints */,
 				9FB1DD1C24B6F667002BF688 /* AddBeneficiary */,
 				9F6D736624B5EFBE00B45F0F /* BeneficiaryInfo */,
@@ -5054,6 +5119,301 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
+		E1995DDA27BFBA2100B44793 /* Receiver */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E3A27C5112400B44793 /* ReceiverDetails */,
+				E1995E1527C3C74D00B44793 /* ReceiverSuccess */,
+				E1995DE227BFBA8600B44793 /* ReceiverForm */,
+				E1995DE127BFBA5C00B44793 /* ReceiverType */,
+				E1995DE027BFBA5400B44793 /* ReceiverLanding */,
+				E1995DDF27BFBA3C00B44793 /* ReceiverListing */,
+			);
+			path = Receiver;
+			sourceTree = "<group>";
+		};
+		E1995DDB27BFBA2700B44793 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E2427C4D7AF00B44793 /* ReceiverListing.storyboard */,
+				E1995E2627C4D7C400B44793 /* ReceiverListingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1995DDC27BFBA2A00B44793 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E3127C4EA0000B44793 /* ReceiverListingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1995DDD27BFBA2D00B44793 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E3627C508FB00B44793 /* ReceiverListingRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1995DDE27BFBA3400B44793 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E3827C50C7E00B44793 /* ReceiverListingBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1995DDF27BFBA3C00B44793 /* ReceiverListing */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E3327C4EB4E00B44793 /* Entity */,
+				E1995DDE27BFBA3400B44793 /* Builder */,
+				E1995DDD27BFBA2D00B44793 /* Router */,
+				E1995DDC27BFBA2A00B44793 /* ViewModel */,
+				E1995DDB27BFBA2700B44793 /* View */,
+			);
+			path = ReceiverListing;
+			sourceTree = "<group>";
+		};
+		E1995DE027BFBA5400B44793 /* ReceiverLanding */ = {
+			isa = PBXGroup;
+			children = (
+				E1995DE627BFBAB400B44793 /* Builder */,
+				E1995DE327BFBAB400B44793 /* Router */,
+				E1995DE527BFBAB400B44793 /* ViewModel */,
+				E1995DE427BFBAB400B44793 /* View */,
+			);
+			path = ReceiverLanding;
+			sourceTree = "<group>";
+		};
+		E1995DE127BFBA5C00B44793 /* ReceiverType */ = {
+			isa = PBXGroup;
+			children = (
+				E1995DFD27BFDA4A00B44793 /* Entity */,
+				E1995DE927BFBAC400B44793 /* Builder */,
+				E1995DE827BFBAC400B44793 /* Router */,
+				E1995DE727BFBAC400B44793 /* ViewModel */,
+				E1995DEA27BFBAC400B44793 /* View */,
+			);
+			path = ReceiverType;
+			sourceTree = "<group>";
+		};
+		E1995DE227BFBA8600B44793 /* ReceiverForm */ = {
+			isa = PBXGroup;
+			children = (
+				E1995DED27BFBACF00B44793 /* Builder */,
+				E1995DEE27BFBACF00B44793 /* Router */,
+				E1995DEB27BFBACF00B44793 /* ViewModel */,
+				E1995DEC27BFBACF00B44793 /* View */,
+			);
+			path = ReceiverForm;
+			sourceTree = "<group>";
+		};
+		E1995DE327BFBAB400B44793 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1995DF527BFBEED00B44793 /* ReceiverLandingRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1995DE427BFBAB400B44793 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1995DEF27BFBB0C00B44793 /* ReceiverLanding.storyboard */,
+				E1995DF127BFBB2500B44793 /* ReceiverLandingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1995DE527BFBAB400B44793 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1995DF327BFBE1E00B44793 /* ReceiverLandingViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1995DE627BFBAB400B44793 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1995DF727BFC27400B44793 /* ReceiverLandingBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1995DE727BFBAC400B44793 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E0227BFE12B00B44793 /* ReceiverTypeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1995DE827BFBAC400B44793 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E0427BFE26700B44793 /* ReceiverTypeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1995DE927BFBAC400B44793 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E0627BFE8C700B44793 /* ReceiverTypeBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1995DEA27BFBAC400B44793 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1995DF927BFD94C00B44793 /* ReceiverType.storyboard */,
+				E1995DFB27BFD95700B44793 /* ReceiverTypeViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1995DEB27BFBACF00B44793 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E0F27C2FA7800B44793 /* ReceiverFormViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1995DEC27BFBACF00B44793 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E0B27C2F6A300B44793 /* ReceiverForm.storyboard */,
+				E1995E0D27C2F6B300B44793 /* ReceiverFormViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1995DED27BFBACF00B44793 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E1327C300D800B44793 /* ReceiverFormBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1995DEE27BFBACF00B44793 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E1127C2FD0500B44793 /* ReceiverFormRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1995DFD27BFDA4A00B44793 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E0027BFDA7800B44793 /* RemitterReceiverType.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E1995E1527C3C74D00B44793 /* ReceiverSuccess */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E1927C3C76100B44793 /* Builder */,
+				E1995E1827C3C75E00B44793 /* Router */,
+				E1995E1727C3C75B00B44793 /* ViewModel */,
+				E1995E1627C3C75800B44793 /* View */,
+			);
+			path = ReceiverSuccess;
+			sourceTree = "<group>";
+		};
+		E1995E1627C3C75800B44793 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E1A27C3C77200B44793 /* ReceiverSuccess.storyboard */,
+				E1995E1C27C3C77F00B44793 /* ReceiverSuccessViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1995E1727C3C75B00B44793 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E1E27C3CA5500B44793 /* ReceiverSuccessViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1995E1827C3C75E00B44793 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E2027C3CB3700B44793 /* ReceiverSuccessRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1995E1927C3C76100B44793 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E2227C3CBC900B44793 /* ReceiverSuccessBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E1995E3327C4EB4E00B44793 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E3427C4EB5700B44793 /* ReceiverModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		E1995E3A27C5112400B44793 /* ReceiverDetails */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E3E27C5113800B44793 /* Builder */,
+				E1995E3D27C5113200B44793 /* Router */,
+				E1995E3C27C5112E00B44793 /* ViewModel */,
+				E1995E3B27C5112B00B44793 /* View */,
+			);
+			path = ReceiverDetails;
+			sourceTree = "<group>";
+		};
+		E1995E3B27C5112B00B44793 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E3F27C5158F00B44793 /* ReceiverDetails.storyboard */,
+				E1995E4127C515A400B44793 /* ReceiverDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E1995E3C27C5112E00B44793 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E4327C516A500B44793 /* ReceiverDetailsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E1995E3D27C5113200B44793 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E4527C5270B00B44793 /* ReceiverDetailsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E1995E3E27C5113800B44793 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E1995E4727C52AB800B44793 /* ReceiverDetailsBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		E1E1EF1427A322DE00D69EAD /* LabelledTextArea */ = {
 			isa = PBXGroup;
 			children = (
@@ -5640,6 +6000,8 @@
 				207C3E0E24B73BE900298C0C /* HomeCollectionViewCardCell.xib in Resources */,
 				20AC740B24EEBC220094D3C1 /* MarkaziText-Regular.ttf in Resources */,
 				9F6D735424B5C54100B45F0F /* ManageBeneficiaries.storyboard in Resources */,
+				E1995E0C27C2F6A300B44793 /* ReceiverForm.storyboard in Resources */,
+				E1995E4027C5158F00B44793 /* ReceiverDetails.storyboard in Resources */,
 				207D5E6A24BC60DF00222594 /* HPSimplified-light.ttf in Resources */,
 				207C3DBC24B5C07500298C0C /* TermsAndConditions.storyboard in Resources */,
 				207D5E5F24BC60AB00222594 /* Garamond-italic.ttf in Resources */,
@@ -5700,6 +6062,7 @@
 				9FE9D91624DD623E00FFE3AC /* ContactUsListTableViewCell.xib in Resources */,
 				2046B92524DAB6C700E2C4CB /* Localizable.strings in Resources */,
 				A1B9A1C224B2FF0D00CAAA32 /* LaunchScreen.storyboard in Resources */,
+				E1995DFA27BFD94C00B44793 /* ReceiverType.storyboard in Resources */,
 				9F653AC924CB0CD300810DBD /* RedeemService.storyboard in Resources */,
 				9FF6F0B424BD88E500E375A2 /* TransferPoints.storyboard in Resources */,
 				2030725A24C9F58200C0DC67 /* angle-mask@1x.png in Resources */,
@@ -5713,6 +6076,8 @@
 				E15BF312277B2F750038EA81 /* CityList.storyboard in Resources */,
 				2030725324C9F58200C0DC67 /* success@3x.png in Resources */,
 				20782D5C24B471F600422AEB /* RadioButtonView.xib in Resources */,
+				E1995E2527C4D7AF00B44793 /* ReceiverListing.storyboard in Resources */,
+				E1995DF027BFBB0C00B44793 /* ReceiverLanding.storyboard in Resources */,
 				9FB1DD2224B6F6A1002BF688 /* AddBeneficiary.storyboard in Resources */,
 				2073D2B024C0778D00897232 /* FAQItemTableViewCell.xib in Resources */,
 				9F8D824E24C86AA900BB1C26 /* ForgotPassword.storyboard in Resources */,
@@ -5735,6 +6100,7 @@
 				E15BF302277A05780038EA81 /* CardImageButton.xib in Resources */,
 				9F8AE2B024DAD6EE00F1E468 /* ProfileOTP.storyboard in Resources */,
 				9F653ACE24CB0CD300810DBD /* RedeemConfirm.storyboard in Resources */,
+				E1995E1B27C3C77200B44793 /* ReceiverSuccess.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6088,6 +6454,7 @@
 				E7547A5D24EFC2C9002F35A9 /* BeneficiaryVerificationService.swift in Sources */,
 				20901BE624FFBFF000D13931 /* EmptyModel.swift in Sources */,
 				E7547A5C24EFC18C002F35A9 /* BeneficiaryVerificationRouter.swift in Sources */,
+				E1995E2127C3CB3700B44793 /* ReceiverSuccessRouter.swift in Sources */,
 				2030723024C9C9CC00C0DC67 /* FAQViewController.swift in Sources */,
 				E168AAFF26F9CB77002D1083 /* NadraTrackingIDRouter.swift in Sources */,
 				2030722E24C9C9BD00C0DC67 /* FAQModuleBuilder.swift in Sources */,
@@ -6096,6 +6463,8 @@
 				E1FC3EFE26E8B127009B76FB /* UISearchBar+Extension.swift in Sources */,
 				2046B92124D9B00500E2C4CB /* LogoutModel.swift in Sources */,
 				20FB373324C806900046C573 /* LoyaltyStatementSuccessRouter.swift in Sources */,
+				E1995DF427BFBE1E00B44793 /* ReceiverLandingViewModel.swift in Sources */,
+				E1995DF227BFBB2500B44793 /* ReceiverLandingViewController.swift in Sources */,
 				20FB373424C806900046C573 /* LoyaltyStatementSuccessViewModel.swift in Sources */,
 				2046B91724D9554200E2C4CB /* UserProfileResponseModel.swift in Sources */,
 				20FB373224C8067D0046C573 /* LoyaltyStatementSuccessBuilder.swift in Sources */,
@@ -6108,6 +6477,7 @@
 				207C3DD024B5D9FA00298C0C /* CheckBox.swift in Sources */,
 				E1FC3F0826EA202D009B76FB /* RedemptionFBRBuilder.swift in Sources */,
 				9F75D45F24E5F5EC0082364E /* BenefitsCategoriesRouter.swift in Sources */,
+				E1995E0327BFE12B00B44793 /* ReceiverTypeViewModel.swift in Sources */,
 				E1FE169E277DD8ED0062D4E6 /* KeyChain.swift in Sources */,
 				208EF7F024E144C600E43B0B /* ChangePasswordViewController.swift in Sources */,
 				20E56FBE24B4AE0E00BF3B15 /* PrimaryCTAButton.swift in Sources */,
@@ -6137,6 +6507,7 @@
 				E1E5F84227A1385900413FB4 /* ComplaintUserTypeBuilder.swift in Sources */,
 				207C3D6D24B56A1200298C0C /* RegexConstants.swift in Sources */,
 				9F653AC524CB0CD300810DBD /* RedeemViewController.swift in Sources */,
+				E1995E1027C2FA7800B44793 /* ReceiverFormViewModel.swift in Sources */,
 				9FB1DD2A24B6F6E5002BF688 /* AddBeneficiaryBuilder.swift in Sources */,
 				20D8403424B47A5900F5D749 /* InterfaceUtilities.swift in Sources */,
 				20E56FC624B4B6C400BF3B15 /* RegistrationScreenRouter.swift in Sources */,
@@ -6190,6 +6561,7 @@
 				E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */,
 				207C3E2724B7724400298C0C /* UIColorExtensions.swift in Sources */,
 				9F6D736524B5D0E900B45F0F /* ManageBeneficiaryModel.swift in Sources */,
+				E1995E4627C5270B00B44793 /* ReceiverDetailsRouter.swift in Sources */,
 				20782D5E24B4720B00422AEB /* RadioButtonView.swift in Sources */,
 				9F8565DA24C02433001B68CE /* UpdateProfileModel.swift in Sources */,
 				207C3DE424B62D4D00298C0C /* SecondaryCTAButton.swift in Sources */,
@@ -6198,6 +6570,7 @@
 				208EF7E424E13DFB00E43B0B /* Initializable.swift in Sources */,
 				9F8D824F24C86AA900BB1C26 /* ForgotPasswordViewController.swift in Sources */,
 				E1E5F86327A1754100413FB4 /* ComplaintFormViewModel.swift in Sources */,
+				E1995E1F27C3CA5500B44793 /* ReceiverSuccessViewModel.swift in Sources */,
 				20F7B195250896290014FC67 /* ProfileUpdateModel.swift in Sources */,
 				204CFB8C24D2DA1200583060 /* NSMutableAttributedStringExtensions.swift in Sources */,
 				E1FE16A227832AC40062D4E6 /* NadraTypes.swift in Sources */,
@@ -6210,10 +6583,12 @@
 				200F1A1124BEC2A6001411D9 /* HomeSideMenuDelegate.swift in Sources */,
 				207C3E1624B73D5500298C0C /* UICollectionViewExtensions.swift in Sources */,
 				E122CD9E26FD129800BEAE18 /* RedemptionService.swift in Sources */,
+				E1995DF827BFC27400B44793 /* ReceiverLandingBuilder.swift in Sources */,
 				9F8AE2AD24DAD6EE00F1E468 /* ProfileViewModel.swift in Sources */,
 				207C3DE124B620CA00298C0C /* PaddedTextView.swift in Sources */,
 				207C3DAF24B5BD4000298C0C /* OTPViewModel.swift in Sources */,
 				E1FE16B127832FC00062D4E6 /* NadraVerificationRouter.swift in Sources */,
+				E1995E2327C3CBC900B44793 /* ReceiverSuccessBuilder.swift in Sources */,
 				9F8565D024BF43E7001B68CE /* LoyaltyPointsViewModel.swift in Sources */,
 				207C3D6A24B5691B00298C0C /* StringExtension.swift in Sources */,
 				E15BF30E277B2EAF0038EA81 /* CityListModuleBuilder.swift in Sources */,
@@ -6223,6 +6598,7 @@
 				9F653ACC24CB0CD300810DBD /* RedeemConfirmBuilder.swift in Sources */,
 				9F653AD624CB0CD300810DBD /* RedeemOTPBuilder.swift in Sources */,
 				E17F1D6226DAB9C2001D15D9 /* SelfAwardOTPViewModel.swift in Sources */,
+				E1995E0727BFE8C700B44793 /* ReceiverTypeBuilder.swift in Sources */,
 				9FDA3AB224E0A1F400B2AB67 /* LanguageRouter.swift in Sources */,
 				9F6D735F24B5CE3400B45F0F /* ManageBeneficiaryBuilder.swift in Sources */,
 				9F653AC724CB0CD300810DBD /* RedeemServiceBuilder.swift in Sources */,
@@ -6248,14 +6624,17 @@
 				9F8D826B24C86AB500BB1C26 /* ForgotPasswordNewPassRouter.swift in Sources */,
 				E114C30E27A4187100697D73 /* ComplaintModel.swift in Sources */,
 				E1E5F85027A1531900413FB4 /* ComplaintTypeViewController.swift in Sources */,
+				E1995E1D27C3C77F00B44793 /* ReceiverSuccessViewController.swift in Sources */,
 				20782D6824B48C0100422AEB /* UIStackViewExtensions.swift in Sources */,
 				9FF6F0B624BD88F800E375A2 /* TransferPointsViewController.swift in Sources */,
 				9FE9D90D24DD604700FFE3AC /* ContactUsViewModel.swift in Sources */,
 				207C3DC624B5C20C00298C0C /* PrimaryHeaderTitle.swift in Sources */,
 				207C3D9A24B5AE7B00298C0C /* CountryListScreenViewModel.swift in Sources */,
 				E19D8B52270C3D7300FFA1B3 /* TestConstants.swift in Sources */,
+				E1995E0127BFDA7800B44793 /* RemitterReceiverType.swift in Sources */,
 				E1FE16B4278330030062D4E6 /* NadraVerificationViewModel.swift in Sources */,
 				2074D60424D174C600006731 /* DateFormat.swift in Sources */,
+				E1995DF627BFBEED00B44793 /* ReceiverLandingRouter.swift in Sources */,
 				9F653ACB24CB0CD300810DBD /* RedeemServiceViewModel.swift in Sources */,
 				E15BF304277A06320038EA81 /* CardImageButton.swift in Sources */,
 				207C3DB124B5BD4800298C0C /* OTPRouter.swift in Sources */,
@@ -6267,6 +6646,7 @@
 				20E56FBB24B4AB9A00BF3B15 /* RegistrationViewController.swift in Sources */,
 				E1E1EF1127A2C70300D69EAD /* ComplaintFormTextFieldTypes.swift in Sources */,
 				9F8D823C24C83FA300BB1C26 /* ChangePasswordSuccessBuilder.swift in Sources */,
+				E1995E3727C508FB00B44793 /* ReceiverListingRouter.swift in Sources */,
 				E15BF318277B32DC0038EA81 /* CityListTableViewCell.swift in Sources */,
 				207C3DD924B5EC9800298C0C /* OperationCompletedViewController.swift in Sources */,
 				9F8D827D24C86BEF00BB1C26 /* ForgotPasswordOTPViewController.swift in Sources */,
@@ -6275,6 +6655,7 @@
 				9F8565D724C01F85001B68CE /* ForgotPasswordModel.swift in Sources */,
 				9FDA3AB424E0A20400B2AB67 /* LanguageViewModel.swift in Sources */,
 				20FAD8EC24E800B600126367 /* BeneficiaryVerificationViewModel.swift in Sources */,
+				E1995DFC27BFD95700B44793 /* ReceiverTypeViewController.swift in Sources */,
 				9F8D828A24C89F7300BB1C26 /* ForgotPasswordSuccessRouter.swift in Sources */,
 				2046B91624D9554200E2C4CB /* UserProfileRequestModel.swift in Sources */,
 				207C3DFA24B726F700298C0C /* HomeViewModel.swift in Sources */,
@@ -6305,6 +6686,7 @@
 				9FB1DD2624B6F6C0002BF688 /* AddBeneficiaryViewModel.swift in Sources */,
 				E168AAFD26F9CA6D002D1083 /* NadraTrackingIDViewModel.swift in Sources */,
 				9F8D828B24C89F7300BB1C26 /* ForgotPasswordSuccessViewModel.swift in Sources */,
+				E1995E3927C50C7E00B44793 /* ReceiverListingBuilder.swift in Sources */,
 				20D839AF24D1B79800C82A87 /* PointsFormatter.swift in Sources */,
 				A1B9A22824B308DA00CAAA32 /* LoginViewModel.swift in Sources */,
 				E13F319827B2A51800B763BD /* ProfileVerificationViewModel.swift in Sources */,
@@ -6360,7 +6742,9 @@
 				20D8402C24B4734B00F5D749 /* LoginModel.swift in Sources */,
 				9F75D44524E544D10082364E /* BenefitsViewModel.swift in Sources */,
 				E1E5F85427A153C200413FB4 /* ComplaintTypeRouter.swift in Sources */,
+				E1995E1427C300D800B44793 /* ReceiverFormBuilder.swift in Sources */,
 				9F8D826E24C86AB500BB1C26 /* ForgotPasswordNewPassViewModel.swift in Sources */,
+				E1995E3227C4EA0000B44793 /* ReceiverListingViewModel.swift in Sources */,
 				200F1A1F24BEC87E001411D9 /* AppContainerModuleBuilder.swift in Sources */,
 				2046B91224D9550E00E2C4CB /* FAQResponseModel.swift in Sources */,
 				20FAD8EE24E800CC00126367 /* CustomNibView.swift in Sources */,
@@ -6394,6 +6778,7 @@
 				2030725124C9F58200C0DC67 /* IndefiniteAnimatedView.swift in Sources */,
 				207C3E2D24B83EF400298C0C /* TermsAndConditionService.swift in Sources */,
 				E1E5F84527A13B8100413FB4 /* ComplaintUserTypeViewModel.swift in Sources */,
+				E1995E3527C4EB5700B44793 /* ReceiverModel.swift in Sources */,
 				E114C31A27A43E5700697D73 /* ComplaintSuccessRouter.swift in Sources */,
 				9F8565D424BF440C001B68CE /* LoyaltyPointsTableViewCell.swift in Sources */,
 				207C3DDB24B5ECA800298C0C /* RegistrationCompletedViewModel.swift in Sources */,
@@ -6401,6 +6786,8 @@
 				2073D2A624C043DC00897232 /* EncodableExtensions.swift in Sources */,
 				203238F125E8C58D00F045E7 /* Data+Extension.swift in Sources */,
 				E18454D72774859F00FE5793 /* BeneficiaryFormViewController.swift in Sources */,
+				E1995E1227C2FD0500B44793 /* ReceiverFormRouter.swift in Sources */,
+				E1995E0E27C2F6B300B44793 /* ReceiverFormViewController.swift in Sources */,
 				2046B91B24D9556500E2C4CB /* SideMenuTableViewCell.swift in Sources */,
 				9FB1DD2824B6F6D0002BF688 /* AddBeneficiaryRouter.swift in Sources */,
 				9F8D821824C6F7B800BB1C26 /* LoyaltyPointsService.swift in Sources */,
@@ -6429,6 +6816,7 @@
 				9F6D736124B5CEC800B45F0F /* ManageBeneficiaryRouter.swift in Sources */,
 				207C3DDF24B5ECC100298C0C /* RegistrationCompletedRouter.swift in Sources */,
 				207C3D9224B5AE6500298C0C /* CountryListModuleBuilder.swift in Sources */,
+				E1995E4227C515A400B44793 /* ReceiverDetailsViewController.swift in Sources */,
 				207C3DCB24B5D15000298C0C /* UIViewControllerExtensions.swift in Sources */,
 				202EA1F025DA523C0053B9C9 /* APIKeyComponentModel.swift in Sources */,
 				208688E124EBE3EC00969D0F /* UIImageExtensions.swift in Sources */,
@@ -6443,6 +6831,7 @@
 				202EA20025DA6B940053B9C9 /* ApiKeyServiceDecorator.swift in Sources */,
 				207C3E0C24B73BDB00298C0C /* HomeCollectionViewLoyaltyCell.swift in Sources */,
 				9F75D45624E5EA0F0082364E /* BenefitsCardCell.swift in Sources */,
+				E1995E0527BFE26700B44793 /* ReceiverTypeRouter.swift in Sources */,
 				9FE9D91524DD623E00FFE3AC /* ContactUsListTableViewCell.swift in Sources */,
 				9F653ADA24CB0CD300810DBD /* RedeemOTPViewModel.swift in Sources */,
 				9F6D735D24B5CC6B00B45F0F /* ManageBeneficiaryViewModel.swift in Sources */,
@@ -6470,6 +6859,7 @@
 				2046B90D24D954D900E2C4CB /* AlertType.swift in Sources */,
 				E1C7F6DC279AC3810047AB6B /* IntExtension.swift in Sources */,
 				20E56FC224B4B6AF00BF3B15 /* RegistrationModuleBuilder.swift in Sources */,
+				E1995E2727C4D7C400B44793 /* ReceiverListingViewController.swift in Sources */,
 				9F8AE2B324DAD6EE00F1E468 /* ProfileSuccessBuilder.swift in Sources */,
 				20D8403F24B4942A00F5D749 /* BaseNavigationController.swift in Sources */,
 				9FD4EE6924EA859C0078C373 /* BenefitCategoryCellProtocol.swift in Sources */,
@@ -6481,6 +6871,7 @@
 				9F75D46324E5F6040082364E /* BenefitsCategoriesViewModel.swift in Sources */,
 				E1FE16CF278464D00062D4E6 /* NadraVerificationCompletedBuilder.swift in Sources */,
 				9FF6F0BC24BD892E00E375A2 /* TransferPointsRouter.swift in Sources */,
+				E1995E4427C516A500B44793 /* ReceiverDetailsViewModel.swift in Sources */,
 				E13F319627B2A3DC00B763BD /* ProfileVerificationViewController.swift in Sources */,
 				9F75D44924E544E80082364E /* BenefitsBuilder.swift in Sources */,
 				2073D2AB24C06F5600897232 /* OperationCompletedViewModel.swift in Sources */,
@@ -6496,6 +6887,7 @@
 				20901BE424FFBF0700D13931 /* NRLPBenefitsService.swift in Sources */,
 				204A6BDA24BC22CD001E4E74 /* ServerTrustPolicyManager.swift in Sources */,
 				E17F1D6526DBBA4C001D15D9 /* SelfAwardOTPService.swift in Sources */,
+				E1995E4827C52AB800B44793 /* ReceiverDetailsBuilder.swift in Sources */,
 				E122CDB026FD42C200BEAE18 /* RedemptionOTPBuilder.swift in Sources */,
 				20782D3C24B454BD00422AEB /* UITextViewExtensions.swift in Sources */,
 				9F8D824D24C86AA900BB1C26 /* ForgotPasswordRouter.swift in Sources */,

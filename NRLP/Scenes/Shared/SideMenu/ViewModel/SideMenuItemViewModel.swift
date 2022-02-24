@@ -13,6 +13,7 @@ enum SideMenuItem: Int {
     
     case profile
     case changePassword
+    case receiverManagement
     case faqs
     case guide
     case languageSelection
@@ -26,6 +27,8 @@ enum SideMenuItem: Int {
             return "Profile".localized
         case .changePassword:
             return "Change Password".localized
+        case .receiverManagement:
+            return "Remittance Receiver Management".localized
         case .faqs:
             return "FAQs".localized
         case .guide:
@@ -46,6 +49,8 @@ enum SideMenuItem: Int {
         case .profile:
             return #imageLiteral(resourceName: "editProfile")
         case .changePassword:
+            return #imageLiteral(resourceName: "changePassword")
+        case .receiverManagement:
             return #imageLiteral(resourceName: "changePassword")
         case .faqs:
             return #imageLiteral(resourceName: "faqs")

@@ -157,6 +157,7 @@ any queries regarding any of our terms, please contact us.</p>
         static var nameError = "Please enter a valid Full Name"
         static var cnicError = "Please enter a valid CNIC/NICOP"
         static var countryError = "Select a Country"
+        static var cityError = "Select a City"
         static var mobileNumberError = "Please enter a valid Mobile number"
         static var emailError = "Please enter a correct Email format"
         static var paasswordError = "Please enter a valid password"

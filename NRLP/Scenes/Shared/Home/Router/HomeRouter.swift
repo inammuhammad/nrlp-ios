@@ -81,4 +81,13 @@ class HomeRouter {
     func navigateToNadraVerificationScreen(userModel: UserModel) {
         UIApplication.shared.keyWindow?.switchRoot(withRootController: NadraVerificationBuilder().build(userModel: userModel))
     }
+    
+    func navigateToRemitterReceiverManagement(showListing: Bool) {
+        if showListing {
+            self.navigationController?.pushViewController(ReceiverListingBuilder().build(with: navigationController), animated: true)
+            return
+        }
+        self.navigationController?.pushViewController(ReceiverLandingBuilder().build(with: self.navigationController), animated: true)
+    }
+    
 }
