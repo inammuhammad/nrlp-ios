@@ -9,7 +9,7 @@
 "Forgot Password" = "Forgot Password";
 "Register" = "Register";
 "Select User Type" = "Select User Type";
-"CNIC/NICOP Number" = "CNIC/NICOP Number";
+"CNIC/NICOP Number" = "CNIC/NICOP/POC Number";
 "Password" = "Password";
 "National Remittance \nLoyalty Program" = "Sohni Dharti Remittance Program";
 "Don't have an account?" = "Don't have an account?";
@@ -101,7 +101,7 @@
 "registrationCompletedIllustration" = "registrationCompletedIllustration";
 // Forgot password
 "Send Code" = "Send Code";
-"Enter CNIC/NICOP" = "Enter CNIC/NICOP";
+"Enter CNIC/NICOP" = "Enter CNIC/NICOP/POC";
 "xxxxx - xxxxxxx - x" = "xxxxx - xxxxxxx - x";
 "User Type" = "User Type";
 "Select account" = "Select account";
@@ -168,7 +168,7 @@
 "We have sent you a code on your phone number  %@" = "We have sent you OTP on your phone number  %@";
 //Register ViewController
 "Select Country" = "Select Country";
-"Full Name" = "Full Name as per CNIC / NICOP";
+"Full Name" = "Full Name as per CNIC/NICOP/POC";
 "e.g. Ahmed Khan" = "e.g. Ahmed Khan";
 "Country of Residence" = "Country of Residence";
 "Mobile Number" = "Mobile Number";
@@ -176,10 +176,14 @@
 "Email Address (Optional)" = "Email Address (Optional)";
 "Re - Enter Password" = "Re - Enter Password";
 "Register an account" = "Register an account";
+"CNIC/NICOP/POC" = "CNIC/NICOP/POC";
+"CNIC/NICOP" = "CNIC/NICOP/POC";
+"CNIC/NICOP/POC *" = "CNIC/NICOP/POC *";
+"CNIC/NICOP *" = "CNIC/NICOP/POC *";
 "x" = "x";
 //Error strings
 "Enter a valid name" = "Enter a valid name";
-"Enter a valid CNIC/NICOP Number" = "Enter a valid CNIC/NICOP Number";
+"Enter a valid CNIC/NICOP Number" = "Enter a valid CNIC/NICOP/POC Number";
 "Select a Country" = "Select a Country";
 "Enter a valid mobile number" = "Enter a valid mobile number";
 "Enter a valid email address" = "Enter a valid email address";
@@ -268,7 +272,7 @@
 "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds" = "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds";
 
 "Country of Residence *"=  "Country of Residence *";
-"Full Name *" = "Full Name as per CNIC / NICOP *";
+"Full Name *" = "Full Name as per CNIC/NICOP/POC *";
 "Passport Type" = "Passport Type";
 "Enter Passport Number" = "Enter Passport Number";
 "Mobile Number *" = "Mobile Number *";
@@ -367,7 +371,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent";
 "Beneficiary Account Number/ IBAN/CNIC" = "Beneficiary Account Number/ IBAN/CNIC";
 
-"CNIC/NICOP Issuance Date *" = "CNIC/NICOP Issuance Date *";
+"CNIC/NICOP Issuance Date *" = "CNIC/NICOP/POC Issuance Date *";
 "Place of Birth *" = "Place of Birth *";
 "Mother Maiden Name *" = "Mother Maiden Name *";
 
@@ -376,7 +380,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 
 "We have sent you OTP on your registered mobile number, please enter the OTP below" = "We have sent you OTP on your registered mobile number, please enter the OTP below";
 
-"CNIC/NICOP Issuance Date" = "CNIC/NICOP Issuance Date";
+"CNIC/NICOP Issuance Date" = "CNIC/NICOP/POC Issuance Date";
 "Place of Birth" = "Place of Birth";
 "Mother Maiden Name" = "Mother Maiden Name";
 
@@ -385,7 +389,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 
 "Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?" = "Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?";
 
-"Please enter a valid CNIC/NICOP Issue Date" = "Please enter a valid CNIC/NICOP Issue Date";
+"Please enter a valid CNIC/NICOP Issue Date" = "Please enter a valid CNIC/NICOP/POC Issue Date";
 
 "NADRA Verification" = "NADRA Verification";
 
@@ -440,3 +444,24 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Registration code has been resent" = "Registration code has been resent";
 
 "Resend Registration Code" = "Resend Registration Code";
+
+"Click Next to add your Remittance Receiver & get auto points into your account" = "Click Next to add your Remittance Receiver & get auto points into your account";
+"Skip" = "Skip";
+"+ Add Receiver" = "+ Add Receiver";
+"Remittance Receiver Management" = "Remittance Receiver Management";
+"Bank Name *" = "Bank Name *";
+"Bank Name" = "Bank Name";
+"Bank Account Number/IBAN *" = "Bank Account Number/IBAN *";
+"Bank Account Number/IBAN" = "Bank Account Number/IBAN";
+"Please enter Receiver Name as per CNIC/NICOP" = "Please enter Receiver Name as per CNIC/NICOP";
+"Please enter Receiver Bank Account Number/IBAN" = "Please enter Receiver Bank Account Number/IBAN";
+"Please enter Receiver Bank Name" = "Please enter Receiver Bank Name";
+"Please enter Receiver Place of Birth as per NADRA record" = "Please enter Receiver Place of Birth as per NADRA record";
+"Please enter Receiver Mother Name as per NADRA record" = "Please enter Receiver Mother Name as per NADRA record";
+"Are you sure want to delete the Receiver?" = "Are you sure want to delete the Receiver?";
+"Your Remittance receiver will be added upon NADRA Verification" = "Your Remittance receiver will be added upon NADRA Verification";
+"Select Receiver Type" = "Select Receiver Type";
+"Receiver Type" = "Receiver Type";
+"Remittance sent to CNIC" = "Remittance sent to CNIC";
+"Remittance sent to Bank Account" = "Remittance sent to Bank Account";
+"Note: You can add maximum 5 receivers." = "Note: You can add maximum 5 receivers.";

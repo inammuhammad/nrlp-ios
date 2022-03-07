@@ -25,6 +25,7 @@ class ReceiverListingViewModel: ReceiverListingViewModelProtocol {
     var output: ReceiverListingViewModelOutput?
 
     private var router: ReceiverListingRouter!
+    private var service: RemitterReceiverService = RemitterReceiverService()
 
     private var receivers: [ReceiverModel] = []
 
@@ -33,13 +34,24 @@ class ReceiverListingViewModel: ReceiverListingViewModelProtocol {
     }
 
     func viewModelWillAppear() {
-        receivers.append(ReceiverModel(alias: "TEST", beneficiaryId: 0009, isActive: 1, mobileNo: "03344989898", nicNicop: 87613278632, createdAt: "", updatedAt: "", isDeleted: 0, beneficiaryRelation: "Mother", country: "Pakistan", receiverTypeString: "Remittance sent to CNIC"))
-        if !(receivers.isEmpty) {
-            output?(.tableVisibility(show: true))
-        } else {
-            output?(.tableVisibility(show: false))
+//        receivers.append(ReceiverModel(alias: "TEST", beneficiaryId: 0009, isActive: 1, mobileNo: "03344989898", nicNicop: 87613278632, createdAt: "", updatedAt: "", isDeleted: 0, beneficiaryRelation: "Mother", country: "Pakistan", receiverTypeString: "Remittance sent to CNIC"))
+        self.output?(.showActivityIndicator(show: true))
+        service.getReceiverListing { response in
+            self.output?(.showActivityIndicator(show: false))
+            switch response {
+            case .success(let model):
+                self.receivers.append(contentsOf: model.data)
+                if !(self.receivers.isEmpty) {
+                    self.output?(.tableVisibility(show: true))
+                } else {
+                    self.output?(.tableVisibility(show: false))
+                }
+                self.output?(.reloadReceivers)
+            case .failure(let error):
+                self.output?(.showError(error: error))
+            }
         }
-        output?(.reloadReceivers)
+        
     }
 
     func didSelectReceiver(indexPath: IndexPath) {

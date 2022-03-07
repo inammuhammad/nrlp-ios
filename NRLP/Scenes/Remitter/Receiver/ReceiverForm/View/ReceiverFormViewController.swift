@@ -22,12 +22,16 @@ class ReceiverFormViewController: BaseViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet weak var nextBtn: PrimaryCTAButton!
+    @IBOutlet weak var nextBtn: PrimaryCTAButton! {
+        didSet {
+            nextBtn.setTitle("Next".localized, for: .normal)
+        }
+    }
     
     @IBOutlet private weak var fullNameTextView: LabelledTextview! {
         didSet {
             fullNameTextView.titleLabelText = "Full Name *".localized
-            fullNameTextView.placeholderText = "Please enter Receiver Informations".localized
+            fullNameTextView.placeholderText = "Please enter Receiver Information".localized
             fullNameTextView.autoCapitalizationType = .words
             fullNameTextView.inputFieldMaxLength = 50
             fullNameTextView.showHelpBtn = true

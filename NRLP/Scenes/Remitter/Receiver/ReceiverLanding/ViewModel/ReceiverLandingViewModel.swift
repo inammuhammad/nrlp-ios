@@ -56,15 +56,15 @@ class ReceiverLandingViewModel: ReceiverLandingViewModelProtocol {
     private func getAttributedString() -> NSAttributedString {
         let finalString: NSMutableAttributedString = NSMutableAttributedString()
         
-        let underLineAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.underlineColor: UIColor.init(commonColor: CommonColor.appGreen), NSAttributedString.Key.underlineStyle: 1, NSAttributedString.Key.font: UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.italic, size: .extraLargeFontSize), NSAttributedString.Key.foregroundColor: UIColor.init(commonColor: CommonColor.appGreen)]
+//        let underLineAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.underlineColor: UIColor.init(commonColor: CommonColor.appGreen), NSAttributedString.Key.underlineStyle: 1, NSAttributedString.Key.font: UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.italic, size: .extraLargeFontSize), NSAttributedString.Key.foregroundColor: UIColor.init(commonColor: CommonColor.appGreen)]
         let regularAttribute: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.italic, size: .extraLargeFontSize), NSAttributedString.Key.foregroundColor: UIColor.init(commonColor: CommonColor.appGreen)]
         
-        let startText: NSAttributedString = NSAttributedString(string: "Click ".localized, attributes: regularAttribute)
+        let startText: NSAttributedString = NSAttributedString(string: "Click Next to add your Remittance Receiver & get auto points into your account".localized, attributes: regularAttribute)
         finalString.append(startText)
-        let midText: NSAttributedString = NSAttributedString(string: "Next", attributes: underLineAttribute)
-        finalString.append(midText)
-        let endText: NSAttributedString = NSAttributedString(string: " to add\nyour Remittance\nand get\nauto points into\nyour account".localized, attributes: regularAttribute)
-        finalString.append(endText)
+//        let midText: NSAttributedString = NSAttributedString(string: "Next", attributes: underLineAttribute)
+//        finalString.append(midText)
+//        let endText: NSAttributedString = NSAttributedString(string: " to add\nyour Remittance\nand get\nauto points into\nyour account".localized, attributes: regularAttribute)
+//        finalString.append(endText)
         return finalString
     }
 }

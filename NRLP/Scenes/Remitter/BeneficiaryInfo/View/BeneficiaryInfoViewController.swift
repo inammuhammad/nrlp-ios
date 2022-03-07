@@ -119,7 +119,7 @@ class BeneficiaryInfoViewController: BaseViewController {
     
     @IBOutlet private weak var editBeneficiaryButton: PrimaryCTAButton! {
         didSet {
-            editBeneficiaryButton.isHidden = true
+//            editBeneficiaryButton.isHidden = true
             editBeneficiaryButton.setTitle("Edit".localized, for: .normal)
         }
     }
@@ -184,9 +184,9 @@ extension BeneficiaryInfoViewController {
             case .editTextFields(isEditable: let isEditable):
                 cnicTextField.isEditable = isEditable
                 countryTextField.isTappable = isEditable
-                aliasTextField.isEditable = isEditable
+//                aliasTextField.isEditable = isEditable
                 mobileTextField.isEditable = isEditable
-                relationTextField.isEditable = isEditable
+//                relationTextField.isEditable = isEditable
             case .resetBeneficiary(beneficiary: let beneficiary):
                 cnicTextField.inputText = "\(beneficiary.nicNicop)"
                 aliasTextField.inputText = beneficiary.alias

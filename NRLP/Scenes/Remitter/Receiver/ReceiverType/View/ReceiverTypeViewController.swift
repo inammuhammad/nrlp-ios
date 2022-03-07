@@ -27,10 +27,15 @@ class ReceiverTypeViewController: BaseViewController {
         didSet {
             titleLbl.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: CommonFontSizes.extraLargeFontSize.rawValue)
             titleLbl.textColor = UIColor.init(commonColor: .appDarkGray)
+            titleLbl.text = "+ Add Receiver".localized
         }
     }
     @IBOutlet weak var noteView: UIView!
-    @IBOutlet weak var nextBtn: PrimaryCTAButton!
+    @IBOutlet weak var nextBtn: PrimaryCTAButton! {
+        didSet {
+            nextBtn.setTitle("Next".localized, for: .normal)
+        }
+    }
     @IBOutlet weak var noteLbl: UILabel! {
         didSet {
             noteLbl.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: CommonFontSizes.largeFontSize.rawValue)

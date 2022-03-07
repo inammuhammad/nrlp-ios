@@ -19,4 +19,8 @@ class ProfileVerificationRouter {
     func popToPreviousScreen() {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    func navigateToLoginScreen() {
+        UIApplication.shared.keyWindow?.switchRoot(withRootController: LoginModuleBuilder().build())
+    }
 }

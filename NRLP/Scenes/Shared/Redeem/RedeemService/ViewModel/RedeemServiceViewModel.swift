@@ -174,12 +174,19 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         let midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
             mobileNumber = text
         }
-        let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optional)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, formatValidator: FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError)) { text in
+        let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optioxnal)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, isOptional: true) { text in
             email = text
         }
         
         let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
             print("\(cnic) \(mobileNumber) \(email)")
+            if !email.isEmpty {
+                if !email.isValid(for: RegexConstants.emailRegex) {
+                    let alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Error", alertDescription: "Please enter a valid email address", alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "OK"))
+                    self.output?(.showAlert(alert: alert))
+                    return
+                }
+            }
             if !cnic.isValid(for: RegexConstants.cnicRegex) || cnic.isEmpty || mobileNumber.isEmpty {
                 let alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Error", alertDescription: "Please enter valid data.", alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "OK"))
                 self.output?(.showAlert(alert: alert))

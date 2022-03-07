@@ -24,7 +24,7 @@ class ReceiverFormRouter {
         self.navigationController?.pushViewController(CityListModuleBuilder().build(with: self.navigationController, onCitySelection: onSelectionCity), animated: true)
     }
 
-    func navigateToSuccessScreen() {
-        self.navigationController?.pushViewController(ReceiverSuccessBuilder().build(with: self.navigationController), animated: true)
+    func navigateToSuccessScreen(model: AddReceiverRequestModel) {
+        self.navigationController?.pushViewController(ReceiverSuccessBuilder().build(with: self.navigationController, model: model), animated: true)
     }
 }

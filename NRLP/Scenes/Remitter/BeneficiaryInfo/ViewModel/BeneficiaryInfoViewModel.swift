@@ -275,12 +275,12 @@ extension BeneficiaryInfoViewModel {
     private func validateDataWithRegex() -> Bool {
         var isValid: Bool = true
 
-        if name?.isValid(for: RegexConstants.nameRegex) ?? false {
-            output?(.nameTextField(errorState: false, errorMessage: nil))
-        } else {
-            output?(.nameTextField(errorState: true, errorMessage: StringConstants.ErrorString.nameError.localized))
-            isValid = false
-        }
+//        if name?.isValid(for: RegexConstants.nameRegex) ?? false {
+//            output?(.nameTextField(errorState: false, errorMessage: nil))
+//        } else {
+//            output?(.nameTextField(errorState: true, errorMessage: StringConstants.ErrorString.nameError.localized))
+//            isValid = false
+//        }
 
         if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
             output?(.cnicTextField(errorState: false, errorMessage: nil))
@@ -296,12 +296,12 @@ extension BeneficiaryInfoViewModel {
             isValid = false
         }
         
-        if !(relation?.isBlank ?? false) {
-            output?(.customRelationTextField(errorState: false, errorMessage: nil))
-        } else {
-            output?(.customRelationTextField(errorState: true, errorMessage: StringConstants.ErrorString.selectBeneficiaryError.localized))
-            isValid = false
-        }
+//        if !(relation?.isBlank ?? false) {
+//            output?(.customRelationTextField(errorState: false, errorMessage: nil))
+//        } else {
+//            output?(.customRelationTextField(errorState: true, errorMessage: StringConstants.ErrorString.selectBeneficiaryError.localized))
+//            isValid = false
+//        }
         return isValid
     }
 }

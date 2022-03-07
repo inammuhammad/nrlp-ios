@@ -22,9 +22,11 @@ class ReceiverSuccessViewModel: ReceiverSuccessViewModelProtocol {
     var output: ReceiverSuccessViewModelOutput?
     
     private var router: ReceiverSuccessRouter
+    private var model: AddReceiverRequestModel
     
-    init(router: ReceiverSuccessRouter) {
+    init(router: ReceiverSuccessRouter, model: AddReceiverRequestModel) {
         self.router = router
+        self.model = model
     }
 
     enum Output {
@@ -35,7 +37,7 @@ class ReceiverSuccessViewModel: ReceiverSuccessViewModelProtocol {
     }
     
     func viewDidLoad() {
-        let text = "Your Remittance\nReceiver XYZ will be\nadded upon\nNADRA\nVerification".localized
+        let text = "Your Remittance receiver will be added upon NADRA Verification".localized
         output?(.setSuccessMessage(text: text))
     }
     

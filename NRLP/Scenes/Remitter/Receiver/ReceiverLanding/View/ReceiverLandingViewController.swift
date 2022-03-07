@@ -18,8 +18,16 @@ class ReceiverLandingViewController: BaseViewController {
     
     @IBOutlet weak var logoImgView: UIImageView!
     @IBOutlet weak var descriptionLbl: UILabel!
-    @IBOutlet weak var nextBtn: PrimaryCTAButton!
-    @IBOutlet weak var skipBtn: PrimaryCTAButton!
+    @IBOutlet weak var nextBtn: PrimaryCTAButton! {
+        didSet {
+            nextBtn.setTitle("Next".localized, for: .normal)
+        }
+    }
+    @IBOutlet weak var skipBtn: PrimaryCTAButton! {
+        didSet {
+            skipBtn.setTitle("Skip".localized, for: .normal)
+        }
+    }
     
     // MARK: - Lifecycle Methods
     

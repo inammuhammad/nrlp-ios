@@ -49,7 +49,7 @@ class ReceiverTypeViewModel: ReceiverTypeViewModelProtocol {
     }
     
     func viewDidLoad() {
-        let text = "Note: You can add maximum 5\nreceivers.".localized
+        let text = "Note: You can add maximum 5 receivers.".localized
         output?(.setNoteLbl(text: text))
         output?(.buttonState(enabled: false))
     }

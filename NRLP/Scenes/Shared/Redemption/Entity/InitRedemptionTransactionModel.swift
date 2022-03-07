@@ -42,7 +42,7 @@ struct InitRedemptionTransactionModel: Codable {
         try container.encodeIfPresent(sotp, forKey: .sotp)
         try container.encodeIfPresent(pseChild, forKey: .pseChild)
         try container.encodeIfPresent(mobileNo, forKey: .mobileNo)
-        try container.encodeIfPresent(email, forKey: .email)
+        try container.encodeIfPresent(email?.aesEncrypted(), forKey: .email)
         try container.encodeIfPresent(trackingID, forKey: .trackingID)
         try container.encodeIfPresent(point, forKey: .point)
     }

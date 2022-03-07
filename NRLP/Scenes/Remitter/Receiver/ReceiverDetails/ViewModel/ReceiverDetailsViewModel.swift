@@ -31,6 +31,7 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
     var output: ReceiverDetailsViewModelOutput?
     
     private var router: ReceiverDetailsRouter
+    private var service: RemitterReceiverService = RemitterReceiverService()
     
     var name: String?
     
@@ -75,15 +76,31 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
         setUser()
     }
     
-    private func setUser(){
+    private func setUser() {
         guard let recieverModel = model else { return }
         output?(.setUser(model: recieverModel))
     }
     
     func deleteButtonPressed() {
         // DELETE API HERE
+        let descriptionString = "Are you sure want to delete the Receiver?".localized
+        let model = AlertViewModel(alertHeadingImage: .declineAlert, alertTitle: "Delete Remitter Receiver".localized, alertDescription: descriptionString, primaryButton: AlertActionButtonModel(buttonTitle: "Yes".localized, buttonAction: {
+            self.output?(.showActivityIndicator(show: true))
+            self.service.deleteReceiver(requestModel: DeleteReceiverRequestModel(cnic: self.cnic)) { [weak self] (result) in
+                self?.output?(.showActivityIndicator(show: false))
+                guard let self = self else { return }
+                self.output?(.showActivityIndicator(show: false))
+                switch result {
+                case .success:
+                    self.router.popToPreviousScreen()
+                case .failure(let error):
+                    self.output?(.showError(error: error))
+                }
+            }
+        }), secondaryButton: AlertActionButtonModel(buttonTitle: "No".localized, buttonAction: {
+        }))
+        self.output?(.showAlert(alert: model))
         
-        router.popToPreviousScreen()
     }
     
     deinit {

@@ -42,6 +42,7 @@ struct AlertTextFieldModel {
     var editKeyboardType: UIKeyboardType?
     var formatValidator: FormatValidatorProtocol?
     var formatter: FormatterProtocol?
+    var isOptional: Bool? = false
     var onTextFieldChanged: AlertTextFieldCallBack?
     var errorMessage: String?
     var onError: AlertErrorCallBack?

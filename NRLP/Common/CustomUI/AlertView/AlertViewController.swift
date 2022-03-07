@@ -245,21 +245,27 @@ extension AlertViewController {
 extension AlertViewController {
     @IBAction func didTapPrimaryButton(_: Any) {
         if alertViewModel.topTextField != nil {
-            if topTextField.inputText?.isEmpty ?? false {
-                topTextField.updateStateTo(isError: true, error: self.alertViewModel.topTextField?.errorMessage)
-                return
+            if !(alertViewModel.topTextField?.isOptional ?? false) {
+                if topTextField.inputText?.isEmpty ?? false {
+                    topTextField.updateStateTo(isError: true, error: self.alertViewModel.topTextField?.errorMessage)
+                    return
+                }
             }
         }
         if alertViewModel.middleTextField != nil {
-            if middleTextField.inputText?.isEmpty ?? false {
-                middleTextField.updateStateTo(isError: true, error: self.alertViewModel.middleTextField?.errorMessage)
-                return
+            if !(alertViewModel.middleTextField?.isOptional ?? false) {
+                if middleTextField.inputText?.isEmpty ?? false {
+                    middleTextField.updateStateTo(isError: true, error: self.alertViewModel.middleTextField?.errorMessage)
+                    return
+                }
             }
         }
         if alertViewModel.bottomTextField != nil {
-            if bottomTextField.inputText?.isEmpty ?? false {
-                bottomTextField.updateStateTo(isError: true, error: self.alertViewModel.bottomTextField?.errorMessage)
-                return
+            if !(alertViewModel.bottomTextField?.isOptional ?? false) {
+                if bottomTextField.inputText?.isEmpty ?? false {
+                    bottomTextField.updateStateTo(isError: true, error: self.alertViewModel.bottomTextField?.errorMessage)
+                    return
+                }
             }
         }
         dismiss {

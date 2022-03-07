@@ -24,6 +24,7 @@ class ProfileVerificationViewModel: ProfileVerificationViewModelProtocol {
     
     private var router: ProfileVerificationRouter
     private let service: UserProfileServiceProtocol
+    private var logoutService: LogoutService = LogoutService()
     private var isVerifiedCallBack: NadraVerifiedCallBack?
     
     var output: ProfileVerificationViewModelOutput?
@@ -51,9 +52,15 @@ class ProfileVerificationViewModel: ProfileVerificationViewModelProtocol {
                     switch error {
                     case .server(let response):
                         if response?.errorCode.lowercased() == "".lowercased() {
-                            let alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Unsuccessful".localized, alertDescription: "Your provided information is incorrect. Kindly enter the valid information as per NADRA record", primaryButton: AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: {
+                            let alert = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Unsuccessful".localized, alertDescription: "Your provided information is incorrect. Kindly enter the valid information as per NADRA record", primaryButton: AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: {
                                 self.isVerifiedCallBack?(false)
                                 self.router.popToPreviousScreen()
+                            }))
+                            self.output?(.showAlert(alert: alert))
+                        } else if response?.errorCode.lowercased() == "GEN-ERR-53".lowercased() {
+                            let alert = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Oh Snap!".localized, alertDescription: "Your account has been locked due to 3 unsuccessful attempts, You can click on forget password to unlock your account", primaryButton: AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: {
+                                self.isVerifiedCallBack?(false)
+                                self.logoutUser()
                             }))
                             self.output?(.showAlert(alert: alert))
                         }
@@ -99,6 +106,15 @@ class ProfileVerificationViewModel: ProfileVerificationViewModelProtocol {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))
+        }
+    }
+    
+    private func logoutUser() {
+        output?(.showActivityIndicator(show: true))
+        logoutService.logoutUser { [weak self] (_) in
+            guard let self = self else { return }
+            self.output?(.showActivityIndicator(show: false))
+            self.router.navigateToLoginScreen()
         }
     }
 }

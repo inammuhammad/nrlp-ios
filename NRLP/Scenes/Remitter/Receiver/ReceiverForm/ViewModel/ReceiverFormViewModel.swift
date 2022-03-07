@@ -36,6 +36,7 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
     var output: ReceiverFormViewModelOutput?
     
     private var router: ReceiverFormRouter
+    private var service: RemitterReceiverService = RemitterReceiverService()
     
     var name: String? {
         didSet {
@@ -163,8 +164,19 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
             output?(.focusField(textField: validateDataWithRegex().1 ?? .fullName))
             return
         }
-        
-        router.navigateToSuccessScreen()
+        let newBankNumber = receiverType == .bank ? bankNumber : ""
+        let newBankName = receiverType == .bank ? bankName : ""
+        let model = AddReceiverRequestModel(cnic: cnic, mobileNo: mobileNumber, fullName: name, motherMaidenName: motherMaidenName, cnicIssueDate: cnicIssueDateString, birthPlace: birthPlace, bankAccountNumber: newBankNumber, bankName: newBankName)
+        self.output?(.showActivityIndicator(show: true))
+        service.addReceiver(requestModel: model) { response in
+            self.output?(.showActivityIndicator(show: false))
+            switch response {
+            case .success(_):
+                self.router.navigateToSuccessScreen(model: model)
+            case .failure(let error):
+                self.output?(.showError(error: error))
+            }
+        }
     }
 
     private func validateRequiredFields() {

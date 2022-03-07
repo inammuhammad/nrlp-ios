@@ -11,12 +11,12 @@ import UIKit
 
 class ReceiverSuccessBuilder {
 
-    func build(with navigationController: UINavigationController?) -> UIViewController {
+    func build(with navigationController: UINavigationController?, model: AddReceiverRequestModel) -> UIViewController {
 
         let viewController = ReceiverSuccessViewController.getInstance()
 
         let coordinator = ReceiverSuccessRouter(navigationController: navigationController)
-        let viewModel = ReceiverSuccessViewModel(router: coordinator)
+        let viewModel = ReceiverSuccessViewModel(router: coordinator, model: model)
 
         viewController.viewModel = viewModel
 

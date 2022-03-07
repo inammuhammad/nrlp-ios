@@ -95,7 +95,7 @@
 "Transfer points to check your\nloyalty statements"="Needs to be checked";
 "Loyalty Statement"="لوائلٹی اسٹیٹمنٹ";
 "Send Code"="کوڈ بھیجیں";
-"Enter CNIC/NICOP"="CNIC/NICOP کا اندراج کریں";
+"Enter CNIC/NICOP"="CNIC/NICOP/POC کا اندراج کریں";
 "User Type"="یوزر کی اقسام";
 "Select account"="یوزر منتخب کریں";
 "A verification code has been sent to your registered mobile number."="ایک تصدیقی SMS آپ کے رجسڑڈ موبائل نمبر پر بھیج دیا گیا ہے";
@@ -201,7 +201,7 @@
 "Visit our website"="ہماری ویب سائٹ پر جائیں";
 "Please enter a valid Full Name"="براہ کرم ایک درست پورا نام درج کریں";
 "Please enter a valid CNIC/NICOP Number"="برائے مہربانی درست CNIC / NICOP نمبر  کا اندراج کریں";
-"CNIC/NICOP"="شناختی کارڈ/ نیشنل آئیڈنٹٹی کارڈ فور اوورسیز پاکستانی";
+"CNIC/NICOP/POC"="CNIC/NICOP/POC";
 "Password@123"="Password@123";
 "abc@abc.com"="abc@abc.com";
 "Re-Enter Password"="پاس ورڈ کا دوبارہ اندراج کریں";
@@ -284,7 +284,7 @@
 "Passport Type" = "پاسپورٹ کی قسم";
 "Enter Passport Number" = "اپنا پاسپورٹ نمبر درج کریں";
 "Mobile Number *" = "* موبائل نمبر";
-"CNIC/NICOP *"="* شناختی کارڈ/ نیشنل آئیڈنٹٹی کارڈ فور اوورسیز پاکستانی";
+"CNIC/NICOP *"="CNIC/NICOP/POC *";
 
 // SELF AWARD
 "Proceed" = "آگے بڑھیں";
@@ -377,10 +377,10 @@
 
 نوٹ:  خود پوائنٹس حاصل کرنے کے لیے  صرف موجودہ سال کیی ٹرانزیکشن ہی استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";
 
-"Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "وصول کنندہ کا اکاؤنٹ نمبر / قومی شناختی کارڈ نمبر درج کریں جس پر ترسیلات بھیجی گئی ہیں۔ ";
+"Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "وصول کنندہ کا اکاونٹ نمبر/ بین الاقوامی بینک اکاؤنٹ نمبر/قومی شناختی کارڈ  نمبر درج کریں جس پر ترسیلات بھیجی گئ ہیں";
 "Beneficiary Account Number/ IBAN/CNIC" = "وصول کنندہ کا اکاونٹ نمر/ بین الاقوامی بینک اکاؤنٹ نمبر/قومی شناختی کارڈ نمر";
 
-"CNIC/NICOP Issuance Date *" = "* کے اجراء کی تاریخ  CNIC/NICOP";
+"CNIC/NICOP Issuance Date *" = "* کے اجراء کی تاریخ  CNIC/NICOP/POC";
 "Place of Birth *" = "جائے پیدائش *";
 "Mother Maiden Name *" = "ماں کا نام *";
 
@@ -390,7 +390,7 @@
 "We have sent you OTP on your registered mobile number, please enter the OTP below" = "ہم نے رجسٹرڈ فون نمبر پر آپ کو او ٹی پی بھیجا ہے۔ براہ کرم نیچے او ٹی پی درج کریں";
 
 
-"CNIC/NICOP Issuance Date" = "کے اجراء کی تاریخ  CNIC/NICOP";
+"CNIC/NICOP Issuance Date" = "کے اجراء کی تاریخ  CNIC/NICOP/POC";
 "Place of Birth" = "جائے پیدائش";
 "Mother Maiden Name" = "ماں کا نام";
 
@@ -400,7 +400,7 @@
 
 "Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?" = "تصدیق فراہم کیے بغیر، آپ لاگ ان نہیں کر سکیں گے کیا آپ کو یقین ہے، آپ باہر نکلنا چاہتے ہیں";
 
-"Please enter a valid CNIC/NICOP Issue Date" = " اجراء ی تاریخ درست درج ی CNIC/NICOP";
+"Please enter a valid CNIC/NICOP Issue Date" = " اجراء ی تاریخ درست درج ی CNIC/NICOP/POC";
 
 "NADRA Verification" = "NADRA تصدیق";
 
@@ -455,3 +455,24 @@
 "Registration code has been resent" = "رجسٹریشن کوڈ دوبارہ بھیج دیا گیا ہے";
 
 "Resend Registration Code" = "رجسٹریشن کوڈ دوبارہ بھیجیں";
+
+"Click Next to add your Remittance Receiver & get auto points into your account" = "اپنے  وصول کنندہ کو شامل کرنے اور اپنے اکاؤنٹ میں آٹو پوائنٹس حاصل کرنے کے لیے اگلے پر کلک کریں";
+"Skip" = "چھوڑ دو";
+"+ Add Receiver" = "وصول کنندہ شامل کریں +";
+"Remittance Receiver Management" = "ترسیلات زر وصول کنندہ کی  منتظمی";
+"Bank Name *" = "* بینک کا نام";
+"Bank Name" = "بینک کا نام";
+"Bank Account Number/IBAN *" = "* بینک اکاؤنٹ نمبر /بین الاقوامی بینک اکاؤنٹ نمبر";
+"Bank Account Number/IBAN" = "بینک اکاؤنٹ نمبر /بین الاقوامی بینک اکاؤنٹ نمبر";
+"Please enter Receiver Name as per CNIC/NICOP" = "کے مطابق درج کریں NICOP/ CNIC براہ کرم وصول کنندہ کا نام";
+"Please enter Receiver Bank Account Number/IBAN" = "براہ کرم وصول کنندہ کا بینک اکاؤنٹ نمبر/بین الاقوامی بینک اکاؤنٹ نمبر درج کریں";
+"Please enter Receiver Bank Name" = "براہ کرم وصول کنندہ  کے  بینک کا نام درج کریں۔";
+"Please enter Receiver Place of Birth as per NADRA record" = "نادرا کے ریکارڈ کے مطابق براہ کرم وصول کنندہ کی جائے پیدائش درج کریں۔";
+"Please enter Receiver Mother Name as per NADRA record" = "براہ کرم نادرا کے ریکارڈ کے مطابق وصول کنندہ کی والدہ کا نام درج کریں";
+"Are you sure want to delete the Receiver?" = "کیا آپ واقعی وصول کنندہ کو  نکلنا چاہتے ہیں ";
+"Your Remittance receiver will be added upon NADRA Verification" = "آپ کی ترسیلات زر وصول کرنے والا  نادرا کی تصدیق کے بعد شامل کر دیا جائے گا۔";
+"Select Receiver Type" = "وصول کنندہ کی قسم منتخب کریں۔";
+"Receiver Type" = "وصول کنندہ کی قسم";
+"Remittance sent to CNIC" = "قومی شناختی کارڈ پر بھیجی گئی ترسیلات";
+"Remittance sent to Bank Account" = "بینک اکاؤنٹ میں بھیجی گئی ترسیلات";
+"Note: You can add maximum 5 receivers." = "نوٹ: آپ 5 وصول کنندگان کو  شامل کر سکتے ہیں";

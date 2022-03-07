@@ -51,7 +51,7 @@ enum SideMenuItem: Int {
         case .changePassword:
             return #imageLiteral(resourceName: "changePassword")
         case .receiverManagement:
-            return #imageLiteral(resourceName: "changePassword")
+            return UIImage(named: "remitter-receiver-side-menu") ?? UIImage()
         case .faqs:
             return #imageLiteral(resourceName: "faqs")
         case .guide:
