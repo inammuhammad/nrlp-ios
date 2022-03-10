@@ -57,7 +57,7 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
         self.router = router
         self.model = model
     }
-
+    
     enum Output {
         case showDeleteButton(show: Bool)
         case showError(error: APIResponseError)
@@ -101,7 +101,10 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
                 self.output?(.showActivityIndicator(show: false))
                 switch result {
                 case .success:
-                    self.router.popToPreviousScreen()
+                    let alert = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Remittance Receiver Removed", alertDescription: "\(self.model?.receiverName ?? "User") has Been Removed".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
+                        self.router.popToPreviousScreen()
+                    }))
+                    self.output?(.showAlert(alert: alert))
                 case .failure(let error):
                     self.output?(.showError(error: error))
                 }
