@@ -112,7 +112,7 @@ class ProfileViewModel: ProfileViewModelProtocol {
             switch result {
             case .success(let response):
                 if var user = response.data {
-                    user.email = user.email == "null" ? "" : user.email
+                    user.email = ["null", "undefined"].contains(user.email) ? "" : user.email
                     self.email = user.email
                     self.user = user
                     self.passportNumber = user.passportNumber

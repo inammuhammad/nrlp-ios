@@ -308,6 +308,11 @@ extension ProfileViewController {
         motherNameTextView.inputText = user.motherMaidenName
         birthPlaceTextView.inputText = user.birthPlace
         cnicIssueDateTextView.inputText = user.formattedCnicIssueDate
+        
+        if let email = user.email,
+           email.isEmpty {
+            emailTextView.placeholderText = ""
+        }
     }
     
     @IBAction func cancelButtonPressed(_ sender: SecondaryCTAButton) {

@@ -94,6 +94,7 @@ class LoginViewModel: LoginViewModelProtocol {
         if UIDevice.current.isJailBroken {
             output?(.jailBroken)
         }
+        NRLPUserDefaults.shared.receiverManagemntSkipped(false)
     }
     
     func viewWillAppear() {

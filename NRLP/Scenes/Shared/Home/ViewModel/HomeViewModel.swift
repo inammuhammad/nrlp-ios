@@ -157,17 +157,11 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     private func checkReceiverManagement() {
-        userModel.receiverCount = 0
-        
         if let receiverCount = userModel.receiverCount,
            receiverCount == 0,
            !NRLPUserDefaults.shared.receiverManagemntSkipped() {
             self.router.navigateToRemitterReceiverManagement(showListing: false)
         }
-        
-//        if userModel.receiverCount ?? -1 == 0 && {
-//            self.router.navigateToRemitterReceiverManagement(showListing: false)
-//        }
     }
 
     enum Output {
