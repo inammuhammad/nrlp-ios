@@ -131,7 +131,14 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     }
     
     func resendOTPButtonPressed() {
-        //
+        guard timer == nil else {
+            let alert = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Please Wait!", alertDescription: "Please wait 5 minutes before resending OTP".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
+                // self.router.popToBeneficiaryInfoController()
+            }))
+            self.output?(.showAlert(alert: alert))
+            return
+        }
+        
         self.output?(.showActivityIndicator(show: true))
         let requestModel = ResendOTPBeneficiaryRequestModel(beneficiaryID: beneficiary.beneficiaryId.toString())
         service.resendOTPBeneficiary(requestModel: requestModel) { [weak self] (result) in

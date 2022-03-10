@@ -221,13 +221,19 @@ extension BeneficiaryInfoViewController {
                 self.mobileTextField.leadingText = code
                 self.mobileTextField.inputText = ""
             case .showResendTimer(show: let show):
-                timerView.isHidden = !show
-                resendOTPBeneficiaryButton.isHidden = show
+                // This feature was used to display a countdown timer in place of Resend Registration Code
+                // Now Removed
+                
+                timerView.isHidden = true // !show
+                resendOTPBeneficiaryButton.isHidden = false // show
+                
                 if show {
                     viewModel.startTimer()
                 }
             case .updateTimerLabel(time: let time):
-                timerLbl.text = "Resend Registration Code".localized + " \(time)"
+                print(time)
+                // Same reason as above
+                // timerLbl.text = "Resend Registration Code".localized + " \(time)"
             }
         }
     }
