@@ -221,15 +221,6 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     @objc func updateTime() {
         if resendTime > 0 {
             resendTime -= 1
-            let newTime = DateFormat().secondsToMinutesSeconds(resendTime)
-            var seconds = ""
-            if newTime.1 <= 9 {
-                seconds = "0\(newTime.1)"
-            } else {
-                seconds = "\(newTime.1)"
-            }
-            let timeElapsed = "\(newTime.0):\(seconds)"
-            self.output?(.updateTimerLabel(time: timeElapsed))
         } else {
             self.output?(.showResendTimer(show: false))
             stopTimer()
@@ -263,7 +254,6 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         case updateMobilePlaceholder(placeholder: String)
         case updateCountry(countryName: String)
         case showResendTimer(show: Bool)
-        case updateTimerLabel(time: String)
     }
     
     private func resetBeneficiary() {

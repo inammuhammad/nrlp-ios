@@ -230,10 +230,6 @@ extension BeneficiaryInfoViewController {
                 if show {
                     viewModel.startTimer()
                 }
-            case .updateTimerLabel(time: let time):
-                print(time)
-                // Same reason as above
-                // timerLbl.text = "Resend Registration Code".localized + " \(time)"
             }
         }
     }
