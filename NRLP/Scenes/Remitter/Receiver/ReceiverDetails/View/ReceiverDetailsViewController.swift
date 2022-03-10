@@ -25,7 +25,7 @@ class ReceiverDetailsViewController: BaseViewController {
     @IBOutlet private weak var fullNameTextView: LabelledTextview! {
         didSet {
             fullNameTextView.titleLabelText = "Full Name *".localized
-            fullNameTextView.placeholderText = "Please enter Receiver Informations".localized
+            fullNameTextView.placeholderText = "Please enter Receiver Information".localized
             fullNameTextView.autoCapitalizationType = .words
             fullNameTextView.inputFieldMaxLength = 50
             fullNameTextView.isEditable = false
@@ -39,6 +39,7 @@ class ReceiverDetailsViewController: BaseViewController {
             motherNameTextView.autoCapitalizationType = .words
             motherNameTextView.inputFieldMaxLength = 50
             motherNameTextView.isEditable = false
+            motherNameTextView.isHidden = true
         }
     }
     
@@ -61,6 +62,7 @@ class ReceiverDetailsViewController: BaseViewController {
             cnicIssueDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             cnicIssueDateTextView.isEditable = false
             cnicIssueDateTextView.isTappable = false
+            cnicIssueDateTextView.isHidden = true
         }
     }
     
@@ -70,6 +72,7 @@ class ReceiverDetailsViewController: BaseViewController {
             birthPlaceTextView.placeholderText = "Please enter Receiver Information".localized
             birthPlaceTextView.isEditable = false
             birthPlaceTextView.isTappable = false
+            birthPlaceTextView.isHidden = true
         }
     }
     
@@ -79,6 +82,7 @@ class ReceiverDetailsViewController: BaseViewController {
             countryTextView.placeholderText = "Select Country".localized
             countryTextView.isEditable = false
             countryTextView.isTappable = false
+            countryTextView.isHidden = true
         }
     }
     
@@ -135,12 +139,19 @@ class ReceiverDetailsViewController: BaseViewController {
                 self.bankNumberTextView.isHidden = hidden
             case .setUser(model: let model):
                 setUserDetails(model: model)
+            case .showDeleteButton(show: let show):
+                deleteBtn.isHidden = !show
             }
         }
     }
     
     private func setUserDetails(model: ReceiverModel) {
         // SET USER DETAILS HERE
+        fullNameTextView.inputText = model.receiverName
+        cnicTextView.inputText = model.formattedReceiverCNIC
+        mobileNumberTextView.inputText = model.receiverMobileNumber
+        bankNameTextView.inputText = model.receiverBankName
+        bankNumberTextView.inputText = model.receiverBankNumber
     }
     
     // MARK: - IBActions

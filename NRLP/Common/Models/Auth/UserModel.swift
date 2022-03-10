@@ -35,6 +35,7 @@ struct UserModel: Codable {
     private var nadraVerifiedStr: String?
     
     var requiresNadraVerification: Bool?
+    var receiverCount: Int?
     
     var nadraVerified: NadraTypes? {
         return NadraTypes(rawValue: nadraVerifiedStr?.lowercased() ?? "")
@@ -104,6 +105,7 @@ struct UserModel: Codable {
         case cnicIssueDateStr = "cnic_nicop_issuance_date"
         case nadraVerifiedStr = "nadra_verified"
         case requiresNadraVerification = "require_nadra_verification"
+        case receiverCount = "receiver_count"
     }
     
     init() {
@@ -131,6 +133,7 @@ struct UserModel: Codable {
         self.cnicIssueDateStr = ""
         self.nadraVerifiedStr = ""
         self.requiresNadraVerification = false
+        self.receiverCount = 1
     }
 
     mutating func update(from userModel: UserModel) {
@@ -158,6 +161,8 @@ struct UserModel: Codable {
         self.cnicIssueDateStr = userModel.cnicIssueDateStr
         self.nadraVerifiedStr = userModel.nadraVerifiedStr
         self.requiresNadraVerification = userModel.requiresNadraVerification ?? requiresNadraVerification
+        self.receiverCount = userModel.receiverCount ?? receiverCount
+        
     }
     
 //    init(from decoder: Decoder) throws {

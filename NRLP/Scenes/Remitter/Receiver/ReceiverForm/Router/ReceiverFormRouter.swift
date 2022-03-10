@@ -27,4 +27,8 @@ class ReceiverFormRouter {
     func navigateToSuccessScreen(model: AddReceiverRequestModel) {
         self.navigationController?.pushViewController(ReceiverSuccessBuilder().build(with: self.navigationController, model: model), animated: true)
     }
+    
+    func navigateToBankPicker(with onSelectionBank: @escaping OnBankSelectionCallBack) {
+        self.navigationController?.pushViewController(BankListingBuilder().build(with: self.navigationController, onBankSelection: onSelectionBank), animated: true)
+    }
 }

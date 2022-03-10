@@ -562,6 +562,13 @@
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
 		E10924C026C7C8BF004D19A6 /* PassportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BE26C7C8BF004D19A6 /* PassportType.swift */; };
 		E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */; };
+		E111C89D27D692C100D185CD /* BankListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E111C89C27D692C100D185CD /* BankListing.storyboard */; };
+		E111C89F27D692CF00D185CD /* BankListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C89E27D692CF00D185CD /* BankListingViewController.swift */; };
+		E111C8A127D6949A00D185CD /* BankListinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C8A027D6949A00D185CD /* BankListinViewModel.swift */; };
+		E111C8A327D695BB00D185CD /* BankListingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C8A227D695BB00D185CD /* BankListingService.swift */; };
+		E111C8A527D6A6BE00D185CD /* BankListingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C8A427D6A6BE00D185CD /* BankListingRouter.swift */; };
+		E111C8A727D6A6E500D185CD /* BankListingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C8A627D6A6E500D185CD /* BankListingBuilder.swift */; };
+		E111C8AA27D6AA0600D185CD /* BankListingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E111C8A927D6AA0600D185CD /* BankListingModel.swift */; };
 		E114C30827A4016900697D73 /* RedemptionPartnerPickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C30727A4016900697D73 /* RedemptionPartnerPickerItemModel.swift */; };
 		E114C30C27A417DF00697D73 /* ComplaintService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C30B27A417DF00697D73 /* ComplaintService.swift */; };
 		E114C30E27A4187100697D73 /* ComplaintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E114C30D27A4187100697D73 /* ComplaintModel.swift */; };
@@ -1327,6 +1334,13 @@
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
 		E10924BE26C7C8BF004D19A6 /* PassportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportType.swift; sourceTree = "<group>"; };
 		E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportTypePickerItemModel.swift; sourceTree = "<group>"; };
+		E111C89C27D692C100D185CD /* BankListing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BankListing.storyboard; sourceTree = "<group>"; };
+		E111C89E27D692CF00D185CD /* BankListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListingViewController.swift; sourceTree = "<group>"; };
+		E111C8A027D6949A00D185CD /* BankListinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListinViewModel.swift; sourceTree = "<group>"; };
+		E111C8A227D695BB00D185CD /* BankListingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListingService.swift; sourceTree = "<group>"; };
+		E111C8A427D6A6BE00D185CD /* BankListingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListingRouter.swift; sourceTree = "<group>"; };
+		E111C8A627D6A6E500D185CD /* BankListingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListingBuilder.swift; sourceTree = "<group>"; };
+		E111C8A927D6AA0600D185CD /* BankListingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankListingModel.swift; sourceTree = "<group>"; };
 		E114C30727A4016900697D73 /* RedemptionPartnerPickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionPartnerPickerItemModel.swift; sourceTree = "<group>"; };
 		E114C30B27A417DF00697D73 /* ComplaintService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintService.swift; sourceTree = "<group>"; };
 		E114C30D27A4187100697D73 /* ComplaintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplaintModel.swift; sourceTree = "<group>"; };
@@ -2587,6 +2601,7 @@
 				E1FE16C527839DD90062D4E6 /* NadraVerificationService.swift */,
 				E114C30B27A417DF00697D73 /* ComplaintService.swift */,
 				E156F1C227D1313B00491B65 /* RemitterReceiverService.swift */,
+				E111C8A227D695BB00D185CD /* BankListingService.swift */,
 			);
 			path = DataStores;
 			sourceTree = "<group>";
@@ -4426,6 +4441,7 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E111C89727D6929700D185CD /* BankListing */,
 				E1E5F83527A0724400413FB4 /* Complaints */,
 				E1FE16CA2784631A0062D4E6 /* NadraVerificationCompleted */,
 				E1FE16B527833F5A0062D4E6 /* NadraVerificationForm */,
@@ -4732,6 +4748,59 @@
 				BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */,
 			);
 			path = CustomDatePickerView;
+			sourceTree = "<group>";
+		};
+		E111C89727D6929700D185CD /* BankListing */ = {
+			isa = PBXGroup;
+			children = (
+				E111C8A827D6A9FC00D185CD /* Entity */,
+				E111C89B27D692B000D185CD /* Builder */,
+				E111C89A27D692AC00D185CD /* Router */,
+				E111C89927D692A800D185CD /* ViewModel */,
+				E111C89827D6929F00D185CD /* View */,
+			);
+			path = BankListing;
+			sourceTree = "<group>";
+		};
+		E111C89827D6929F00D185CD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E111C89C27D692C100D185CD /* BankListing.storyboard */,
+				E111C89E27D692CF00D185CD /* BankListingViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E111C89927D692A800D185CD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E111C8A027D6949A00D185CD /* BankListinViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E111C89A27D692AC00D185CD /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				E111C8A427D6A6BE00D185CD /* BankListingRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		E111C89B27D692B000D185CD /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				E111C8A627D6A6E500D185CD /* BankListingBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		E111C8A827D6A9FC00D185CD /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				E111C8A927D6AA0600D185CD /* BankListingModel.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		E114C30F27A43B4700697D73 /* View */ = {
@@ -6010,6 +6079,7 @@
 				207D5E5F24BC60AB00222594 /* Garamond-italic.ttf in Resources */,
 				9F8565D524BF440C001B68CE /* LoyaltyPointsTableViewCell.xib in Resources */,
 				E13F319427B2A3CD00B763BD /* ProfileVerification.storyboard in Resources */,
+				E111C89D27D692C100D185CD /* BankListing.storyboard in Resources */,
 				207C3E1424B73C0900298C0C /* HomeCollectionViewHeader.xib in Resources */,
 				9FE9D90E24DD604700FFE3AC /* ContactUs.storyboard in Resources */,
 				9F6D735B24B5C6D200B45F0F /* BeneficiaryTableViewCell.xib in Resources */,
@@ -6538,6 +6608,7 @@
 				9F653AC824CB0CD300810DBD /* RedeemServiceRouter.swift in Sources */,
 				9F8565DC24C027BF001B68CE /* ChangePasswordModel.swift in Sources */,
 				9F8D821B24C6F8EC00BB1C26 /* LoyaltyPointsModel.swift in Sources */,
+				E111C8AA27D6AA0600D185CD /* BankListingModel.swift in Sources */,
 				207C3DEB24B6F89E00298C0C /* AlertViewModel.swift in Sources */,
 				202BDDA424BD753B00335DBB /* BaseDataStore.swift in Sources */,
 				207C3E2B24B834CD00298C0C /* HomeCellCardType.swift in Sources */,
@@ -6557,6 +6628,7 @@
 				E17F1D5E26DAB3DD001D15D9 /* SelfAwardOTPViewController.swift in Sources */,
 				20782D5924B46CAE00422AEB /* AppDimens.swift in Sources */,
 				9F0435BF24B4CE5300439FC0 /* RemitterVerificationModuleBuilder.swift in Sources */,
+				E111C8A127D6949A00D185CD /* BankListinViewModel.swift in Sources */,
 				9F6D735624B5C56800B45F0F /* ManageBeneficiariesViewController.swift in Sources */,
 				E114C31E27A4420C00697D73 /* ComplaintSuccessBuilder.swift in Sources */,
 				E13F319227B2A39100B763BD /* ProfileVerificationBuilder.swift in Sources */,
@@ -6622,6 +6694,7 @@
 				9F8D824C24C86AA900BB1C26 /* ForgotPasswordBuilder.swift in Sources */,
 				BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */,
 				2095D2EF24E6959A001C5A48 /* LoyaltyCardView.swift in Sources */,
+				E111C89F27D692CF00D185CD /* BankListingViewController.swift in Sources */,
 				9F653AD924CB0CD300810DBD /* RedeemOTPViewController.swift in Sources */,
 				E1E5F86127A1733000413FB4 /* ComplaintFormViewController.swift in Sources */,
 				9F8D826B24C86AB500BB1C26 /* ForgotPasswordNewPassRouter.swift in Sources */,
@@ -6780,9 +6853,11 @@
 				20D8403D24B493F200F5D749 /* BaseViewController.swift in Sources */,
 				9F6D737024B5F05D00B45F0F /* BeneficiaryInfoViewModel.swift in Sources */,
 				2030725124C9F58200C0DC67 /* IndefiniteAnimatedView.swift in Sources */,
+				E111C8A727D6A6E500D185CD /* BankListingBuilder.swift in Sources */,
 				207C3E2D24B83EF400298C0C /* TermsAndConditionService.swift in Sources */,
 				E1E5F84527A13B8100413FB4 /* ComplaintUserTypeViewModel.swift in Sources */,
 				E1995E3527C4EB5700B44793 /* ReceiverModel.swift in Sources */,
+				E111C8A327D695BB00D185CD /* BankListingService.swift in Sources */,
 				E114C31A27A43E5700697D73 /* ComplaintSuccessRouter.swift in Sources */,
 				9F8565D424BF440C001B68CE /* LoyaltyPointsTableViewCell.swift in Sources */,
 				207C3DDB24B5ECA800298C0C /* RegistrationCompletedViewModel.swift in Sources */,
@@ -6838,6 +6913,7 @@
 				E1995E0527BFE26700B44793 /* ReceiverTypeRouter.swift in Sources */,
 				9FE9D91524DD623E00FFE3AC /* ContactUsListTableViewCell.swift in Sources */,
 				9F653ADA24CB0CD300810DBD /* RedeemOTPViewModel.swift in Sources */,
+				E111C8A527D6A6BE00D185CD /* BankListingRouter.swift in Sources */,
 				9F6D735D24B5CC6B00B45F0F /* ManageBeneficiaryViewModel.swift in Sources */,
 				9F8D827A24C86BEF00BB1C26 /* ForgotPasswordOTPViewModel.swift in Sources */,
 				20782D3424B44ED500422AEB /* LabelledTextview.swift in Sources */,
@@ -7009,7 +7085,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 111;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -7384,7 +7460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 111;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -7412,7 +7488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 109;
+				CURRENT_PROJECT_VERSION = 111;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

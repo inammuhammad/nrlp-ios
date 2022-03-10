@@ -11,44 +11,40 @@ import UIKit
 
 struct ReceiverModel: Codable {
 
-    var alias: String?
-    let beneficiaryId: Int64
-    let isActive: Int
-    let mobileNo: String
-    let nicNicop: Int
-    let createdAt: String
-    let updatedAt: String
-    let isDeleted: Int
-    let beneficiaryRelation: String
-    let country: String?
-    let receiverTypeString: String?
+    var receiverName: String?
+    let receiverBankNumber: String?
+    let receiverCnic: Int?
+    let remitterCnic: Int?
+    let linkDate: String?
+    let receiverMobileNumber: String?
+    let linkStatus: String?
+    let receiverBankName: String?
     var receiverType: RemitterReceiverType? {
-        RemitterReceiverType(rawValue: receiverTypeString ?? "")
+        if receiverBankNumber == nil || receiverBankName == nil {
+            return RemitterReceiverType.cnic
+        } else {
+            return RemitterReceiverType.bank
+        }
     }
 
-    var formattedCNIC: String {
-        return CNICFormatter().format(string: "\(nicNicop)")
+    var formattedReceiverCNIC: String {
+        return CNICFormatter().format(string: "\(receiverCnic ?? 0)")
     }
     
-    var updateAtTime: Date? {
-        let time = DateFormat().formatDate(dateString: updatedAt, formatter: .dateTimeMilis)
-        return time?.adding(hours: 5)
+    var formattedRemitterCNIC: String {
+        return CNICFormatter().format(string: "\(remitterCnic ?? 0)")
     }
 
     enum CodingKeys: String, CodingKey {
-        case alias = "alias"
-        case beneficiaryId = "id"
-        case mobileNo = "mobile_no"
-        case nicNicop = "nic_nicop"
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case isActive = "is_active"
-        case isDeleted = "is_deleted"
-        case beneficiaryRelation = "relationship"
-        case country = "country"
-        case receiverTypeString = "receiver_type"
+        case receiverName = "receiver_name"
+        case receiverBankNumber = "rec_bank_iban"
+        case receiverCnic = "receiver_cnic"
+        case linkDate = "link_date"
+        case receiverMobileNumber = "receiver_mobile_no"
+        case linkStatus = "link_status"
+        case receiverBankName = "rec_bank_name"
+        case remitterCnic = "remitter_cnic"
     }
-
 }
 
 struct AddReceiverRequestModel: Codable {

@@ -81,11 +81,11 @@ class BeneficiaryTableViewCell: UITableViewCell {
     }
     
     func populate(with receiver: ReceiverModel) {
-        fullNameLabel.text = receiver.alias
-        cnicLabel.text = receiver.formattedCNIC
+        fullNameLabel.text = receiver.receiverName
+        cnicLabel.text = receiver.formattedReceiverCNIC
 
-        if receiver.isActive == 0 ? false : true {
-            setAsActive()
+        if receiver.linkStatus?.lowercased() ?? "" == "ACTIVE".lowercased() {
+//            setAsActive()
         } else {
             setAsInactive()
         }

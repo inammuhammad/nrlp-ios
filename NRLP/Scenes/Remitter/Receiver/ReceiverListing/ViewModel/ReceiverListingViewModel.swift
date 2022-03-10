@@ -35,6 +35,7 @@ class ReceiverListingViewModel: ReceiverListingViewModelProtocol {
 
     func viewModelWillAppear() {
 //        receivers.append(ReceiverModel(alias: "TEST", beneficiaryId: 0009, isActive: 1, mobileNo: "03344989898", nicNicop: 87613278632, createdAt: "", updatedAt: "", isDeleted: 0, beneficiaryRelation: "Mother", country: "Pakistan", receiverTypeString: "Remittance sent to CNIC"))
+        self.receivers.removeAll()
         self.output?(.showActivityIndicator(show: true))
         service.getReceiverListing { response in
             self.output?(.showActivityIndicator(show: false))
@@ -47,6 +48,11 @@ class ReceiverListingViewModel: ReceiverListingViewModelProtocol {
                     self.output?(.tableVisibility(show: false))
                 }
                 self.output?(.reloadReceivers)
+//                if self.receivers.count >= 3 {
+//                    self.output?(.addButton(state: false))
+//                } else {
+//                    self.output?(.addButton(state: true))
+//                }
             case .failure(let error):
                 self.output?(.showError(error: error))
             }

@@ -24,6 +24,7 @@ protocol ReceiverFormViewModelProtocol {
     var bankNumber: String? { get set }
     
     func viewDidLoad()
+    func bankTextFieldTapped()
     func countryTextFieldTapped()
     func birthPlaceTextFieldTapped()
     func nextButtonPressed()
@@ -124,6 +125,7 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         case showActivityIndicator(show: Bool)
         case buttonState(enabled: Bool)
         case updateCnicIssueDate(dateStr: String)
+        case updateBankName(name: String)
         case updateCountry(name: String)
         case updateBirthPlace(name: String)
         case updateMobileCode(code: String, length: Int)
@@ -156,6 +158,13 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         router.navigateToCityPicker { [weak self] selectedCity in
             self?.birthPlace = selectedCity
             self?.output?(.updateBirthPlace(name: selectedCity))
+        }
+    }
+    
+    func bankTextFieldTapped() {
+        router.navigateToBankPicker { [weak self] selectedBank in
+            self?.bankName = selectedBank.name
+            self?.output?(.updateBankName(name: selectedBank.name))
         }
     }
     

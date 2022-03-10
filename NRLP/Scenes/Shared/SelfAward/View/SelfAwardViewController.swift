@@ -148,7 +148,7 @@ class SelfAwardViewController: BaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        showInitialAlert()
+        showInitialAlert()
         setupUI()
     }
     
@@ -164,7 +164,7 @@ class SelfAwardViewController: BaseViewController {
     private func showInitialAlert() {
         let alert: AlertViewModel
         let okButton = AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "Dear Remitter,\nIf you have not been awarded\npoints against your remittance\ntransaction automatically,\nplease wait at least 05\n working days after your\nremittance has been\nprocessed to self-award\n points.".localized, alertDescription: "For further assistance, you may contact +92-21-111-116757".localized, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "".localized, alertDescription: "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.".localized, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         self.showAlert(with: alert)
     }
     

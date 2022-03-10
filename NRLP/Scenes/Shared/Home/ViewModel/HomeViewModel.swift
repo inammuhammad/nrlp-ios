@@ -157,7 +157,9 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     private func checkReceiverManagement() {
-//        self.router.navigateToRemitterReceiverManagement(showListing: false)
+        if userModel.receiverCount ?? 1 <= 0 {
+            self.router.navigateToRemitterReceiverManagement(showListing: false)
+        }
     }
 
     enum Output {

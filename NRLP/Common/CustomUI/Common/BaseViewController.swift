@@ -53,6 +53,17 @@ class BaseViewController: UIViewController {
                 }))
                 AlertViewController.presentAlert(with: alert, from: self)
             }
+        } else if error.underlayingErrorCode?.lowercased() == "GEN-ERR-19".lowercased() {
+            let alertModel = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: error.title, alertDescription: error.message, primaryButton: AlertActionButtonModel(buttonTitle: "Update".localized, buttonAction: {
+                //OPEN APP STORE
+                if let url = URL(string: "itms-apps://apple.com/app/id1587997236") {
+                    UIApplication.shared.open(url)
+                } else {
+                    guard let url = URL(string: "https://apple.co/3ImM2BS") else { return }
+                    UIApplication.shared.open(url)
+                }
+            }))
+            AlertViewController.presentAlert(with: alertModel, from: self)
         } else {
             DispatchQueue.main.async {
                 AlertViewController.presentAlert(with: error, from: self)

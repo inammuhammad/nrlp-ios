@@ -26,4 +26,8 @@ class CountryListTableViewCell: UITableViewCell {
     func populate(with country: Country) {
         nameLabel.text = country.country
     }
+    
+    func populate(with bank: Banks) {
+        nameLabel.text = bank.name
+    }
 }

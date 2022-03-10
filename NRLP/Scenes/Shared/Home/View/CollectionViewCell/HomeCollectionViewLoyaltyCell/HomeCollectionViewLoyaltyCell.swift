@@ -25,12 +25,13 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             loyaltyPointTextLbl.textColor = .white
         }
     }
-    @IBOutlet weak var redeemYourPointsTxtLbl: UILabel!{
+    @IBOutlet weak var redeemYourPointsTxtLbl: UILabel! {
         didSet {
             redeemYourPointsTxtLbl.textColor = .white
+            redeemYourPointsTxtLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: CommonFontSizes.largeFontSize)
         }
     }
-    @IBOutlet weak var memberSinceTxtLbl: UILabel!{
+    @IBOutlet weak var memberSinceTxtLbl: UILabel! {
         didSet {
             memberSinceTxtLbl.textColor = .white
         }
@@ -73,7 +74,7 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
     @IBAction func infoBtnAction(_ sender: Any) {
         let alert: AlertViewModel
         let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "The Annual Remittance to-date in USD is accumulated from 1st July of each year, and your loyalty category calculated based on this. For further details please visit FAQs".localized, alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "USDtext".localized, alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         if let vc = homeController as? HomeViewController {
             vc.showAlert(with: alert)
         }

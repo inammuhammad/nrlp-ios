@@ -150,11 +150,17 @@ class ReceiverFormViewController: BaseViewController {
             bankNameTextView.titleLabelText = "Bank Name *".localized
             bankNameTextView.placeholderText = "Please enter Receiver Information".localized
             bankNameTextView.editTextKeyboardType = .asciiCapableNumberPad
+            bankNameTextView.isEditable = false
+            bankNameTextView.isTappable = true
             bankNameTextView.showHelpBtn = true
             bankNameTextView.helpLabelText = "Please enter Receiver Bank Name".localized
-            bankNameTextView.onTextFieldChanged = { [weak self] updatedText in
+//            bankNameTextView.onTextFieldChanged = { [weak self] updatedText in
+//                guard let self = self else { return }
+//                self.viewModel.bankName = updatedText
+//            }
+            bankNameTextView.onTextFieldTapped = { [weak self] in
                 guard let self = self else { return }
-                self.viewModel.bankName = updatedText
+                self.viewModel.bankTextFieldTapped()
             }
             bankNameTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
@@ -216,7 +222,7 @@ class ReceiverFormViewController: BaseViewController {
                 self.bankNumberTextView.isHidden = hidden
             case .updateCountry(let name):
                 self.countryTextView.inputText = name
-            case .updateMobileCode(let code, let numberLength):
+            case .updateMobileCode(let code, _):
                 self.mobileNumberTextView.leadingText = code
                 self.mobileNumberTextView.inputFieldMinLength = 1
 //                self.mobileNumberTextView.inputFieldMaxLength = numberLength
@@ -229,6 +235,8 @@ class ReceiverFormViewController: BaseViewController {
                 setTextFieldErrorState(state: errorState, message: error, textfield: textfieldType)
             case .focusField(textField: let type):
                 focusTextfield(textFieldType: type)
+            case .updateBankName(name: let bankName):
+                self.bankNameTextView.inputText = bankName
             }
         }
     }

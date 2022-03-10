@@ -21,7 +21,7 @@ class RedemptionPSIDViewController: BaseViewController {
             nextBtn.setTitle("Next".localized, for: .highlighted)
         }
     }
-    @IBOutlet weak var cancelBtn: SecondaryCTAButton!{
+    @IBOutlet weak var cancelBtn: SecondaryCTAButton! {
         didSet {
             cancelBtn.setTitle("Cancel".localized, for: .normal)
             cancelBtn.setTitle("Cancel".localized, for: .selected)

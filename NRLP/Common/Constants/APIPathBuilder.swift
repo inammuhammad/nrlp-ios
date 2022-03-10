@@ -101,6 +101,7 @@ struct APIPathBuilder {
         case remitterReceiverList
         case addReceiver
         case deleteReceiver
+        case fetchBanks
         
         var rawValue: String {
             switch self {
@@ -255,6 +256,9 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .deleteReceiver:
                 let sign: [UInt8] = [38, 0, 31, 4, 7, 53, 11, 22, 110, 29, 11, 7, 12, 29, 31, 10, 28, 126, 1, 23, 26, 12, 23, 0]
+                return Replacer().deformatString(string: sign)
+            case .fetchBanks:
+                let sign: [UInt8] = [38, 23, 95, 15, 18, 47, 5, 73, 34, 1, 10, 73, 12, 12, 10, 7, 15, 61, 2, 23]
                 return Replacer().deformatString(string: sign)
             }
         }

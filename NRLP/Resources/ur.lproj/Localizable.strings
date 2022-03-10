@@ -377,7 +377,7 @@
 
 نوٹ:  خود پوائنٹس حاصل کرنے کے لیے  صرف موجودہ سال کیی ٹرانزیکشن ہی استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";
 
-"Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "وصول کنندہ کا اکاونٹ نمبر/ بین الاقوامی بینک اکاؤنٹ نمبر/قومی شناختی کارڈ  نمبر درج کریں جس پر ترسیلات بھیجی گئ ہیں";
+"Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "پاکستان میں ترسیلات زر وصول کرنے والے کی درج ذیل تفصیلات درج کریں   1.     نقد وصول کرنے کی صورت میں  : قومی شناختی کارڈ  نمبر  2.  بینک اکاؤنٹ میں کریڈٹ کی صورت میں:   مکمل بینک اکاؤنٹ نمبر";
 "Beneficiary Account Number/ IBAN/CNIC" = "وصول کنندہ کا اکاونٹ نمر/ بین الاقوامی بینک اکاؤنٹ نمبر/قومی شناختی کارڈ نمر";
 
 "CNIC/NICOP Issuance Date *" = "* کے اجراء کی تاریخ  CNIC/NICOP/POC";
@@ -476,3 +476,9 @@
 "Remittance sent to CNIC" = "قومی شناختی کارڈ پر بھیجی گئی ترسیلات";
 "Remittance sent to Bank Account" = "بینک اکاؤنٹ میں بھیجی گئی ترسیلات";
 "Note: You can add maximum 5 receivers." = "نوٹ: آپ 5 وصول کنندگان کو  شامل کر سکتے ہیں";
+"Please enter Receiver Information" = "براہ کرم وصول کنندہ  کی معلومات درج کریں";
+"Add Receiver" = "وصول کنندہ شامل کریں";
+"USDtext" = "USD
+میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں تاہم موجودہ سال کے لیے اس کا اطلاق یکم اکتوبر 2021 سے ہوگا اور اسی کے مطابق آپ کی لائلٹی کیٹیگری کا حساب لگایا جائے گا۔
+";
+"RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "روشن ڈیجیٹل اکائونٹ کے صارفین صرف اس رقم کے مقابلے میں پوائنٹس کی آٹو ایوارڈنگ کے اہل ہوں گے جو مقامی طور پر استعمال کی جاتی ہے اور اسے واپس نہیں کیا جاسکتا";

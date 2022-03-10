@@ -59,6 +59,7 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
     }
 
     enum Output {
+        case showDeleteButton(show: Bool)
         case showError(error: APIResponseError)
         case showAlert(alert: AlertViewModel)
         case showActivityIndicator(show: Bool)
@@ -68,6 +69,12 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
     
     func viewDidLoad() {
         // SHOW BANK FIELDS HERE
+        if model?.linkStatus?.lowercased() ?? "" == "ACTIVE".lowercased() {
+            self.output?(.showDeleteButton(show: true))
+        } else {
+            self.output?(.showDeleteButton(show: false))
+        }
+        
         if model?.receiverType == .bank {
             output?(.showBankFields(hidden: false))
         } else {
@@ -86,7 +93,9 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
         let descriptionString = "Are you sure want to delete the Receiver?".localized
         let model = AlertViewModel(alertHeadingImage: .declineAlert, alertTitle: "Delete Remitter Receiver".localized, alertDescription: descriptionString, primaryButton: AlertActionButtonModel(buttonTitle: "Yes".localized, buttonAction: {
             self.output?(.showActivityIndicator(show: true))
-            self.service.deleteReceiver(requestModel: DeleteReceiverRequestModel(cnic: self.cnic)) { [weak self] (result) in
+            let cnicToDelete = self.cnic == nil ? (self.model?.formattedReceiverCNIC) : self.cnic
+            let formattedCnicToDelete = (cnicToDelete?.replacingOccurrences(of: "-", with: ""))?.replacingOccurrences(of: " ", with: "")
+            self.service.deleteReceiver(requestModel: DeleteReceiverRequestModel(cnic: formattedCnicToDelete)) { [weak self] (result) in
                 self?.output?(.showActivityIndicator(show: false))
                 guard let self = self else { return }
                 self.output?(.showActivityIndicator(show: false))

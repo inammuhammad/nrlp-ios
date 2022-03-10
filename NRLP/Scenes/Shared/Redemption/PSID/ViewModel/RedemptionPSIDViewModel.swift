@@ -81,7 +81,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
                             self.navigateToOTPFlow(amount: amount)
                         }
                     })
-                    topTextField = self?.flowType == .FBR || self?.flowType == .OPF || self?.flowType == .BEOE ? nil : topTextField
+                    topTextField = self?.flowType == .FBR || self?.flowType == .OPF || self?.flowType == .BEOE || self?.flowType == .PIA ? nil : topTextField
                     if self?.flowType == .SLIC {
                         if self?.category?.categoryName.lowercased().contains("loan".lowercased()) ?? false {
                            

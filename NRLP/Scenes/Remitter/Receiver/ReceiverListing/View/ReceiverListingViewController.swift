@@ -35,7 +35,7 @@ class ReceiverListingViewController: BaseViewController {
 
     @IBOutlet private weak var addReceiverButton: PrimaryCTAButton! {
         didSet {
-            addReceiverButton.setTitle("Add Beneficiary".localized, for: .normal)
+            addReceiverButton.setTitle("Add Receiver".localized, for: .normal)
         }
     }
     
