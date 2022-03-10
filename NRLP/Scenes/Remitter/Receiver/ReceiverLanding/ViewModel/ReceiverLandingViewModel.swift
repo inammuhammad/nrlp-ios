@@ -42,6 +42,7 @@ class ReceiverLandingViewModel: ReceiverLandingViewModelProtocol {
     }
     
     func skipButtonPressed() {
+        NRLPUserDefaults.shared.receiverManagemntSkipped(true)
         router.popToPreviousScreen()
     }
     

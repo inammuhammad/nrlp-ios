@@ -135,6 +135,8 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         setupUI()
         bindViewModelOutput()
         viewModel.viewDidLoad()
+        
+        NRLPUserDefaults.shared.receiverManagemntSkipped(false)
     }
 
     override func viewWillAppear(_ animated: Bool) {

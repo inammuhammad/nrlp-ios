@@ -15,6 +15,7 @@ class NRLPUserDefaults {
         case inActiveDate
         case maxInActiveDuration
         case maxBeneficiariesAllowed
+        case receiverManagementSkipped
     }
     
     static let shared = NRLPUserDefaults()
@@ -87,6 +88,14 @@ class NRLPUserDefaults {
     func removeMaxBeneficiariesAllowed() {
         self.maxBeneficiariesAllowed = nil
         userDefaults.removeObject(forKey: UserDefaultKeys.maxBeneficiariesAllowed.rawValue)
+    }
+    
+    func receiverManagemntSkipped() -> Bool {
+        return userDefaults.bool(forKey: UserDefaultKeys.receiverManagementSkipped.rawValue)
+    }
+    
+    func receiverManagemntSkipped(_ skipped: Bool) {
+        userDefaults.set(skipped, forKey: UserDefaultKeys.receiverManagementSkipped.rawValue)
     }
 }
 
