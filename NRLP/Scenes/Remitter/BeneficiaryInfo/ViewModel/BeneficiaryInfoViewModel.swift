@@ -125,6 +125,13 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     }
     
     func editButtonPressed() {
+        guard timer == nil else {
+            let alert = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Please Wait!", alertDescription: "Please wait 5 minutes before editing beneficiary".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
+            }))
+            self.output?(.showAlert(alert: alert))
+            return
+        }
+        
         self.output?(.shouldShowEditStackView(show: false))
         self.output?(.shouldShowUpdateStackView(show: true))
         self.output?(.editTextFields(isEditable: true))
