@@ -14,6 +14,7 @@ protocol BeneficiaryInfoViewModelProtocol {
     var name: String? { get set }
     var cnic: String? { get set }
     var mobileNumber: String? { get set }
+    var strippedMobileNo: String? { get }
     var countryName: String? { get set }
     var relation: String? { get set }
     var customRelation: String? { get set }
@@ -37,7 +38,9 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     private var router: BeneficiaryInfoRouter
     private var service: ManageBeneficiaryServiceProtocol
     private var beneficiary: BeneficiaryModel
+    private var countryService: CountryServiceProtocol
     
+    private var countries: [Country] = []
     private weak var timer: Timer?
     private var resendTime = 300
     
@@ -47,8 +50,9 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     var relation: String?
     var countryName: String?
     var customRelation: String?
+    var strippedMobileNo: String?
+    var country: Country?
     
-    private var countrySelected: Country?
     
     var relationshipPickerViewModel: ItemPickerViewModel {
         var array: [PickerItemModel] = [PickerItemModel]()
@@ -62,7 +66,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         return ItemPickerViewModel(data: array)
     }
     
-    init(router: BeneficiaryInfoRouter, beneficiary: BeneficiaryModel, service: ManageBeneficiaryServiceProtocol) {
+    init(router: BeneficiaryInfoRouter, beneficiary: BeneficiaryModel, service: ManageBeneficiaryServiceProtocol, countryService: CountryServiceProtocol = CountryService()) {
         self.router = router
         self.beneficiary = beneficiary
         self.service = service
@@ -71,6 +75,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         self.mobileNumber = beneficiary.mobileNo
         self.relation = beneficiary.beneficiaryRelation
         self.countryName = beneficiary.country
+        self.countryService = countryService
     }
     
     func viewDidLoad() {
@@ -81,6 +86,33 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         } else {
             self.output?(.shouldShowEditStackView(show: false))
             self.output?(.shouldShowUpdateStackView(show: false))
+        }
+        
+        self.output?(.showActivityIndicator(show: true))
+        fetchCountries()
+    }
+    
+    private func fetchCountries() {
+        self.countryService.fetchCountries(accountType: AccountType.beneficiary) { [weak self] (result) in
+            guard let self = self else { return }
+            switch result {
+            case .success(let response):
+                if let countries = response.data,
+                   let country = countries.filter({ $0.country == self.countryName }).first {
+                    self.country = country
+                    self.strippedMobileNo = self.mobileNumber?.replacingOccurrences(of: country.code, with: "")
+                    self.output?(.updateMobileCode(code: country.code + " - "))
+                    self.output?(.updateMobileNumber(number: self.strippedMobileNo ?? ""))
+                    
+                } else {
+                    self.output?(.showError(error: .unknown))
+                }
+                
+            case .failure(let error):
+                self.output?(.showActivityIndicator(show: false))
+                self.output?(.showError(error: error))
+            }
+            self.output?(.showActivityIndicator(show: false))
         }
     }
     
@@ -169,7 +201,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         if !validateDataWithRegex() {
             return
         }
-        let mobNumber = "\(countrySelected?.code ?? "")\(mobileNumber ?? "")"
+        let mobNumber = "\(country?.code ?? "")\(mobileNumber ?? "")"
         let requestModel = UpdateBeneficiaryRequestModel(beneficiaryID: beneficiary.beneficiaryId.toString(), beneficiaryName: name, beneficiaryMobileNo: mobNumber, beneficiaryNicNicop: cnic, beneficiaryRelation: relation, beneficiaryCountry: countryName)
         print(requestModel)
         self.output?(.showActivityIndicator(show: true))
@@ -212,7 +244,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     func openCountryPicker() {
         router.navigateToCountryPicker(with: { [weak self] selectedCountry in
             if selectedCountry.country != self?.countryName {
-                self?.countrySelected = selectedCountry
+                self?.country = selectedCountry
                 self?.countryName = selectedCountry.country
                 self?.output?(.updateMobileCode(code: selectedCountry.code + " - "))
                 self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x", count: selectedCountry.length).joined()))
@@ -261,6 +293,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         case updateMobilePlaceholder(placeholder: String)
         case updateCountry(countryName: String)
         case showResendTimer(show: Bool)
+        case updateMobileNumber(number: String)
     }
     
     private func resetBeneficiary() {
@@ -275,24 +308,24 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
 }
 
 extension BeneficiaryInfoViewModel {
-
+    
     private func validateDataWithRegex() -> Bool {
         var isValid: Bool = true
-
-//        if name?.isValid(for: RegexConstants.nameRegex) ?? false {
-//            output?(.nameTextField(errorState: false, errorMessage: nil))
-//        } else {
-//            output?(.nameTextField(errorState: true, errorMessage: StringConstants.ErrorString.nameError.localized))
-//            isValid = false
-//        }
-
+        
+        //        if name?.isValid(for: RegexConstants.nameRegex) ?? false {
+        //            output?(.nameTextField(errorState: false, errorMessage: nil))
+        //        } else {
+        //            output?(.nameTextField(errorState: true, errorMessage: StringConstants.ErrorString.nameError.localized))
+        //            isValid = false
+        //        }
+        
         if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
             output?(.cnicTextField(errorState: false, errorMessage: nil))
         } else {
             output?(.cnicTextField(errorState: true, errorMessage: StringConstants.ErrorString.cnicError.localized))
             isValid = false
         }
-
+        
         if countryName != nil && !(mobileNumber?.isBlank ?? false) {
             output?(.mobileNumberTextField(errorState: false, errorMessage: nil))
         } else {
@@ -300,12 +333,12 @@ extension BeneficiaryInfoViewModel {
             isValid = false
         }
         
-//        if !(relation?.isBlank ?? false) {
-//            output?(.customRelationTextField(errorState: false, errorMessage: nil))
-//        } else {
-//            output?(.customRelationTextField(errorState: true, errorMessage: StringConstants.ErrorString.selectBeneficiaryError.localized))
-//            isValid = false
-//        }
+        //        if !(relation?.isBlank ?? false) {
+        //            output?(.customRelationTextField(errorState: false, errorMessage: nil))
+        //        } else {
+        //            output?(.customRelationTextField(errorState: true, errorMessage: StringConstants.ErrorString.selectBeneficiaryError.localized))
+        //            isValid = false
+        //        }
         return isValid
     }
 }

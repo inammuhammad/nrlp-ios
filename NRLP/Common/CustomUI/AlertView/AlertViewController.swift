@@ -249,6 +249,17 @@ extension AlertViewController {
                 if topTextField.inputText?.isEmpty ?? false {
                     topTextField.updateStateTo(isError: true, error: self.alertViewModel.topTextField?.errorMessage)
                     return
+                } else {
+                    // check for validations
+                    if let formatValidator = topTextField.formatValidator {
+                        let deformattedString = topTextField.formatter?.deFormat(string: topTextField.inputText ?? "").trim() ?? topTextField.inputText?.trim()
+                        if formatValidator.isValid(for: deformattedString ?? "") {
+                            topTextField.updateStateTo(isError: false, error: nil)
+                        } else {
+                            topTextField.updateStateTo(isError: true, error: self.alertViewModel.topTextField?.formatValidator?.invalidFormatError)
+                            return
+                        }
+                    }
                 }
             }
         }

@@ -42,7 +42,16 @@ class CityListViewModel: CityListViewModelProtocol {
     func othersButtonPressed() {
         //Show alert with textfield
         var cityText = ""
-        let textFieldModel = AlertTextFieldModel(titleLabelText: "", placeholderText: "Lahore", inputText: nil, inputFieldMaxLength: 30, inputFieldMinLength: 1, editKeyboardType: .namePhonePad, formatValidator: nil, formatter: nil, onTextFieldChanged: { text in
+        let textFieldModel = AlertTextFieldModel(
+            titleLabelText: "",
+            placeholderText: "Lahore",
+            inputText: nil,
+            inputFieldMaxLength: 30,
+            inputFieldMinLength: 1,
+            editKeyboardType: .namePhonePad,
+            formatValidator: FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: "Please enter valid city name"),
+            formatter: nil,
+            onTextFieldChanged: { text in
             cityText = text
         }, errorMessage: "Please enter valid city name")
         let buttonModel = AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: {

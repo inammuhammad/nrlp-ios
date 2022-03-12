@@ -173,9 +173,10 @@ class ReceiverFormViewController: BaseViewController {
         didSet {
             bankNumberTextView.titleLabelText = "Bank Number / IBAN *".localized
             bankNumberTextView.placeholderText = "Please enter Receiver Information".localized
-            bankNumberTextView.editTextKeyboardType = .asciiCapableNumberPad
+            bankNumberTextView.editTextKeyboardType = .asciiCapable
             bankNumberTextView.showHelpBtn = true
             bankNumberTextView.helpLabelText = "Please enter Receiver Bank Account Number/IBAN".localized
+            bankNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.iban, invalidFormatError: "Please enter a valid Bank Number / IBAN")
             bankNumberTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.bankNumber = updatedText

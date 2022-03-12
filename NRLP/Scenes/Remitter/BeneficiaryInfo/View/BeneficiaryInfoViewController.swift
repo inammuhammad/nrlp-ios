@@ -9,7 +9,7 @@
 import UIKit
 
 class BeneficiaryInfoViewController: BaseViewController {
-
+    
     var viewModel: BeneficiaryInfoViewModelProtocol!
     
     private lazy var itemPickerView: ItemPickerView! = {
@@ -18,7 +18,7 @@ class BeneficiaryInfoViewController: BaseViewController {
         pickerView.viewModel = viewModel.relationshipPickerViewModel
         return pickerView
     }()
-
+    
     @IBOutlet weak var timerView: UIView!
     @IBOutlet weak var timerLbl: UILabel! {
         didSet {
@@ -43,7 +43,7 @@ class BeneficiaryInfoViewController: BaseViewController {
             }
         }
     }
-
+    
     @IBOutlet private weak var aliasTextField: LabelledTextview! {
         didSet {
             aliasTextField.titleLabelText = "Full Name".localized
@@ -73,14 +73,17 @@ class BeneficiaryInfoViewController: BaseViewController {
             }
         }
     }
-
+    
     @IBOutlet private weak var mobileTextField: LabelledTextview! {
         didSet {
+            // get country code
+            
             mobileTextField.titleLabelText = "Beneficiary Mobile Number".localized
             mobileTextField.placeholderText = "+xx xxx xxx xxxx".localized
             mobileTextField.editTextKeyboardType = .asciiCapableNumberPad
             mobileTextField.isEditable = false
-            mobileTextField.inputText = viewModel.mobileNumber
+            // mobileTextField.leadingText = "hi - "
+            // mobileTextField.inputText = viewModel.mobileNumber
             mobileTextField.onTextFieldChanged = { [unowned self] updatedText in
                 self.viewModel.mobileNumber = updatedText
             }
@@ -105,12 +108,12 @@ class BeneficiaryInfoViewController: BaseViewController {
             customRelationTextField.editTextKeyboardType = .asciiCapableNumberPad
             customRelationTextField.inputText = viewModel.customRelation
             customRelationTextField.onTextFieldChanged = { [weak self] updatedText in
-                    guard let self = self else { return }
-                    self.viewModel.relation = updatedText
-                }
+                guard let self = self else { return }
+                self.viewModel.relation = updatedText
+            }
         }
     }
-
+    
     @IBOutlet private weak var deleteBeneficiaryButton: PrimaryCTAButton! {
         didSet {
             deleteBeneficiaryButton.setTitle("Delete Beneficiary".localized, for: .normal)
@@ -119,7 +122,7 @@ class BeneficiaryInfoViewController: BaseViewController {
     
     @IBOutlet private weak var editBeneficiaryButton: PrimaryCTAButton! {
         didSet {
-//            editBeneficiaryButton.isHidden = true
+            //            editBeneficiaryButton.isHidden = true
             editBeneficiaryButton.setTitle("Edit".localized, for: .normal)
         }
     }
@@ -138,10 +141,10 @@ class BeneficiaryInfoViewController: BaseViewController {
             cancelBeneficiaryButton.setTitle("Cancel".localized, for: .normal)
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUI()
         bindViewModelOutput()
         viewModel.viewDidLoad()
@@ -151,13 +154,13 @@ class BeneficiaryInfoViewController: BaseViewController {
         super.viewWillDisappear(animated)
         viewModel.stopTimer()
     }
-
+    
     private func setupUI() {
         self.title = "Beneficiary Details".localized
         self.timerView.backgroundColor = UIColor.init(commonColor: .appLightGray)
         timerLbl.text = ""
     }
-
+    
 }
 
 // MARK: Setup View and Bindings
@@ -184,13 +187,13 @@ extension BeneficiaryInfoViewController {
             case .editTextFields(isEditable: let isEditable):
                 cnicTextField.isEditable = isEditable
                 countryTextField.isTappable = isEditable
-//                aliasTextField.isEditable = isEditable
+                //                aliasTextField.isEditable = isEditable
                 mobileTextField.isEditable = isEditable
-//                relationTextField.isEditable = isEditable
+                //                relationTextField.isEditable = isEditable
             case .resetBeneficiary(beneficiary: let beneficiary):
                 cnicTextField.inputText = "\(beneficiary.nicNicop)"
                 aliasTextField.inputText = beneficiary.alias
-                mobileTextField.inputText = beneficiary.mobileNo
+                mobileTextField.inputText = viewModel.strippedMobileNo
                 relationTextField.inputText = beneficiary.beneficiaryRelation
                 countryTextField.inputText = beneficiary.country
             case .nameTextField(errorState: let errorState, errorMessage: let errorMessage):
@@ -230,6 +233,10 @@ extension BeneficiaryInfoViewController {
                 if show {
                     viewModel.startTimer()
                 }
+                
+            case .updateMobileNumber(let number):
+                self.mobileTextField.inputText = number
+                self.mobileTextField.isEditable = false
             }
         }
     }
@@ -267,7 +274,7 @@ extension BeneficiaryInfoViewController: ItemPickerViewDelegate {
     func didTapCancelButton() {
         self.view.endEditing(true)
     }
-
+    
     func didTapDoneButton(with selectedItem: PickerItemModel?) {
         viewModel.didSelect(relationshipTypeItem: selectedItem as? RelationshipTypePickerItemModel)
         self.view.endEditing(true)
