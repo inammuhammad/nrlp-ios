@@ -193,7 +193,7 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
             output?(.buttonState(enabled: false))
         } else {
             if receiverType == .bank {
-                if bankName?.isBlank ?? true || bankNumber?.isBlank ?? true {
+                if bankName?.isBlank ?? true || bankNumber?.isBlank ?? true || !(bankNumber ?? "").isValid(for: RegexConstants.iban) {
                     output?(.buttonState(enabled: false))
                 } else {
                     output?(.buttonState(enabled: true))

@@ -94,6 +94,7 @@ class AddBeneficiaryViewController: BaseViewController {
             beneficiaryRelationshipTextField.placeholderText = "Enter Beneficiary Relation ".localized
             beneficiaryRelationshipTextField.editTextKeyboardType = .alphabet
             beneficiaryRelationshipTextField.isEditable = true
+            beneficiaryRelationshipTextField.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: "Please provide valid relationship")
             beneficiaryRelationshipTextField.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.beneficiaryRelation = updatedText

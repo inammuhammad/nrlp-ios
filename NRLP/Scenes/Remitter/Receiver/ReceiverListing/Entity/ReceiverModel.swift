@@ -17,7 +17,7 @@ struct ReceiverModel: Codable {
     let remitterCnic: Int?
     let linkDate: String?
     let receiverMobileNumber: String?
-    let linkStatus: String?
+    var linkStatus: String?
     let receiverBankName: String?
     var receiverType: RemitterReceiverType? {
         if receiverBankNumber == nil || receiverBankName == nil {

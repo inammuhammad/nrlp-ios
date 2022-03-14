@@ -18,11 +18,11 @@ protocol AddBeneficiaryViewModelProtocol {
     var cnic: String? { get set }
     var mobileNumber: String? { get set }
     var beneficiaryRelation: String? { get set }
-
+    
     func addButtonPressed()
     func openCountryPicker()
     func didSelect(relationshipTypeItem: RelationshipTypePickerItemModel?)
-
+    
 }
 
 class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
@@ -63,25 +63,25 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
             }
         }, accountType: .beneficiary)
     }
-
+    
     var output: AddBeneficiaryViewModelOutput?
     private var router: AddBeneficiaryRouter
     private var service: ManageBeneficiaryServiceProtocol
-
+    
     private var country: Country?
-
+    
     var name: String? {
         didSet {
             validateRequiredFields()
         }
     }
-
+    
     var cnic: String? {
         didSet {
             validateRequiredFields()
         }
     }
-
+    
     var mobileNumber: String? {
         didSet {
             validateRequiredFields()
@@ -98,7 +98,7 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
         self.router = router
         self.service = service
     }
-
+    
     func addButtonPressed() {
         if !validateDataWithRegex() {
             return
@@ -109,21 +109,21 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
             self?.output?(.showActivityIndicator(show: false))
             guard let self = self else { return }
             self.output?(.showActivityIndicator(show: false))
-
+            
             switch result {
             case .success:
                 let model = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Beneficiary Added".localized, alertDescription: "Beneficiary created successfully, we have sent a SMS to the Beneficiary.".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
                     self.router.popToPreviousScreen()
                 }), secondaryButton: nil)
-
+                
                 self.output?(.showAlert(alert: model))
             case .failure(let error):
                 self.output?(.showError(error: error))
             }
-
+            
         }
     }
-
+    
     enum Output {
         case showError(error: APIResponseError)
         case addButtonState(enableState: Bool)
@@ -138,7 +138,7 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
         case updateRelationshipType(inputText: String)
         case showBeneficiaryTextField(isVisible: Bool)
     }
-
+    
     deinit {
         print("I am getting deinit \(String(describing: self))")
     }
@@ -148,35 +148,38 @@ extension AddBeneficiaryViewModel {
     private func validateRequiredFields() {
         if name?.isBlank ?? true || cnic?.isBlank ?? true || mobileNumber?.isBlank ?? true || beneficiaryRelation?.isBlank ?? true {
             output?(.addButtonState(enableState: false))
+        } else if let beneficiaryRelation = beneficiaryRelation,
+            !beneficiaryRelation.isValid(for: RegexConstants.nameRegex) {
+            output?(.addButtonState(enableState: false))
         } else {
             output?(.addButtonState(enableState: true))
         }
     }
-
+    
     private func validateDataWithRegex() -> Bool {
         var isValid: Bool = true
-
+        
         if name?.isValid(for: RegexConstants.nameRegex) ?? false {
             output?(.nameTextField(errorState: false, errorMessage: nil))
         } else {
             output?(.nameTextField(errorState: true, errorMessage: StringConstants.ErrorString.nameError.localized))
             isValid = false
         }
-
+        
         if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
             output?(.cnicTextField(errorState: false, errorMessage: nil))
         } else {
             output?(.cnicTextField(errorState: true, errorMessage: StringConstants.ErrorString.cnicError.localized))
             isValid = false
         }
-
+        
         if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
             output?(.mobileNumberTextField(errorState: false, errorMessage: nil))
         } else {
             output?(.mobileNumberTextField(errorState: true, errorMessage: StringConstants.ErrorString.mobileNumberError.localized))
             isValid = false
         }
-
+        
         return isValid
     }
 }

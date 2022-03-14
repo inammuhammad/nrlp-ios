@@ -40,12 +40,12 @@ class BeneficiaryTableViewCell: UITableViewCell {
     }
 
     private func setAsActive() {
-
         statusLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
         statusLabel.textColor = UIColor.init(commonColor: .appActiveText)
         statusLabel.textAlignment = .center
         statusView.backgroundColor = UIColor.init(commonColor: .appActiveBg)
         statusLabel.text = "Active".localized
+        statusView.isHidden = true
     }
 
     private func setAsInactive() {
@@ -54,6 +54,7 @@ class BeneficiaryTableViewCell: UITableViewCell {
         statusLabel.textAlignment = .center
         statusView.backgroundColor = UIColor.init(commonColor: .appInactiveBg)
         statusLabel.text = "Pending".localized
+        statusView.isHidden = false
     }
 
     private func setupUI() {

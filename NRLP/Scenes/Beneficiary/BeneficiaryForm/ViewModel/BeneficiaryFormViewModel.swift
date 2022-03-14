@@ -170,7 +170,7 @@ extension BeneficiaryFormViewModel {
         self.model?.passportNumber = "-"
         self.model?.residentID = "-"
         self.model?.fullName = self.name ?? ""
-        self.model?.mobileNo = self.mobileNumber ?? ""
+        self.model?.mobileNo = "\(country?.code ?? "")\(self.mobileNumber ?? "")"
         self.model?.sotp = "2"
         self.model?.paassword = self.password ?? ""
         self.model?.motherMaidenName = self.motherMaidenName ?? ""
