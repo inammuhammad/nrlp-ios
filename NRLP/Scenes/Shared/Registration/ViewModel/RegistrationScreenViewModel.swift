@@ -309,18 +309,10 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
 extension RegistrationViewModel {
     private func validateRequiredFields() {
         if self.accountType == .remitter {
-            if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true  || accountType == nil {
+            if name?.isBlank ?? true || country == nil || cnic?.isBlank ?? true || cnicIssueDate == nil || passportType == nil || passportNumber?.isBlank ?? true || residentID?.isBlank ?? true || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true {
                 output?(.nextButtonState(enableState: false))
             } else {
-                if accountType == .remitter {
-                    if passportType == nil  || residentID?.isBlank ?? true || passportNumber?.isBlank ?? true {
-                        output?(.nextButtonState(enableState: false))
-                    } else {
-                        output?(.nextButtonState(enableState: true))
-                    }
-                } else {
-                    output?(.nextButtonState(enableState: true))
-                }
+                output?(.nextButtonState(enableState: true))
             }
         } else {
             if cnic?.isBlank ?? true || beneficaryOTP?.isBlank ?? true {

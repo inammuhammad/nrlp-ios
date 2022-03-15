@@ -48,7 +48,7 @@ class CityListViewModel: CityListViewModelProtocol {
             inputText: nil,
             inputFieldMaxLength: 30,
             inputFieldMinLength: 1,
-            editKeyboardType: .namePhonePad,
+            editKeyboardType: .asciiCapable,
             formatValidator: FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: "Please enter valid city name"),
             formatter: nil,
             onTextFieldChanged: { text in

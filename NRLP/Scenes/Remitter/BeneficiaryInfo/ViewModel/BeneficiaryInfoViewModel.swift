@@ -14,7 +14,6 @@ protocol BeneficiaryInfoViewModelProtocol {
     var name: String? { get set }
     var cnic: String? { get set }
     var mobileNumber: String? { get set }
-    var strippedMobileNo: String? { get }
     var countryName: String? { get set }
     var relation: String? { get set }
     var customRelation: String? { get set }
@@ -45,14 +44,20 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
     private var resendTime = 300
     
     var name: String?
-    var cnic: String?
-    var mobileNumber: String?
+    var cnic: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    var mobileNumber: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
     var relation: String?
     var countryName: String?
     var customRelation: String?
-    var strippedMobileNo: String?
     var country: Country?
-    
     
     var relationshipPickerViewModel: ItemPickerViewModel {
         var array: [PickerItemModel] = [PickerItemModel]()
@@ -100,9 +105,9 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
                 if let countries = response.data,
                    let country = countries.filter({ $0.country == self.countryName }).first {
                     self.country = country
-                    self.strippedMobileNo = self.mobileNumber?.replacingOccurrences(of: country.code, with: "")
+                    self.mobileNumber = self.mobileNumber?.replacingOccurrences(of: country.code, with: "")
                     self.output?(.updateMobileCode(code: country.code + " - "))
-                    self.output?(.updateMobileNumber(number: self.strippedMobileNo ?? ""))
+                    self.output?(.updateMobileNumber(number: self.mobileNumber ?? ""))
                     
                 } else {
                     self.output?(.showError(error: .unknown))
@@ -164,6 +169,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
             return
         }
         
+        self.output?(.updateButtonState(enableState: false))
         self.output?(.shouldShowEditStackView(show: false))
         self.output?(.shouldShowUpdateStackView(show: true))
         self.output?(.editTextFields(isEditable: true))
@@ -294,6 +300,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         case updateCountry(countryName: String)
         case showResendTimer(show: Bool)
         case updateMobileNumber(number: String)
+        case updateButtonState(enableState: Bool)
     }
     
     private func resetBeneficiary() {
@@ -308,6 +315,18 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
 }
 
 extension BeneficiaryInfoViewModel {
+    private func validateRequiredFields() {
+        if let cnic = cnic,
+           let mobileNumber = mobileNumber,
+           cnic.isValid(for: RegexConstants.cnicRegex),
+           mobileNumber.isValid(for: RegexConstants.mobileNumberRegex),
+           cnic != beneficiary.nicNicop.toString() || "\(country?.code ?? "")\(mobileNumber)" != beneficiary.mobileNo {
+            output?(.updateButtonState(enableState: true))
+            
+        } else {
+            output?(.updateButtonState(enableState: false))
+        }
+    }
     
     private func validateDataWithRegex() -> Bool {
         var isValid: Bool = true

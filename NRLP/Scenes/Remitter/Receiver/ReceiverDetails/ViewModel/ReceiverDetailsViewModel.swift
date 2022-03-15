@@ -69,7 +69,7 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
     
     func viewDidLoad() {
         // SHOW BANK FIELDS HERE
-        if model?.linkStatus?.lowercased() ?? "" == "ACTIVE".lowercased() {
+        if model?.linkStatus?.lowercased() ?? "" == "LINKED".lowercased() {
             self.output?(.showDeleteButton(show: true))
         } else {
             self.output?(.showDeleteButton(show: false))

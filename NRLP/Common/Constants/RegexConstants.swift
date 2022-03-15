@@ -16,7 +16,7 @@ struct RegexConstants {
     
     static let loginPaasswordRegex = "^(.){8,}$"
     static let paasswordRegex = "^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{8,}$"
-    static let passportRegex = "^(?!^0+$)[a-zA-Z0-9]{3,20}$"
+    static let passportRegex = "^(?!^0+$)[a-zA-Z0-9]{9,20}$"
     static let registrationCodeRegex = "^([a-zA-Z0-9_-]){5,}$"
     static let referenceNumberRegex = "^(\\S{1,25})$"
     static let transactionAmountRegex = "^\\d*\\.?\\d*$"

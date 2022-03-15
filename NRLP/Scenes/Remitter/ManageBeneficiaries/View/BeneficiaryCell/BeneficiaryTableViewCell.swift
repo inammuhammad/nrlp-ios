@@ -85,7 +85,7 @@ class BeneficiaryTableViewCell: UITableViewCell {
         fullNameLabel.text = receiver.receiverName
         cnicLabel.text = receiver.formattedReceiverCNIC
 
-        if receiver.linkStatus?.lowercased() ?? "" == "ACTIVE".lowercased() {
+        if receiver.linkStatus?.lowercased() ?? "" == "LINKED".lowercased() {
             setAsActive()
         } else {
             setAsInactive()

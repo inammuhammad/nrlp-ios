@@ -82,8 +82,7 @@ class BeneficiaryInfoViewController: BaseViewController {
             mobileTextField.placeholderText = "+xx xxx xxx xxxx".localized
             mobileTextField.editTextKeyboardType = .asciiCapableNumberPad
             mobileTextField.isEditable = false
-            // mobileTextField.leadingText = "hi - "
-            // mobileTextField.inputText = viewModel.mobileNumber
+            mobileTextField.formatValidator = FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError.localized)
             mobileTextField.onTextFieldChanged = { [unowned self] updatedText in
                 self.viewModel.mobileNumber = updatedText
             }
@@ -193,7 +192,7 @@ extension BeneficiaryInfoViewController {
             case .resetBeneficiary(beneficiary: let beneficiary):
                 cnicTextField.inputText = "\(beneficiary.nicNicop)"
                 aliasTextField.inputText = beneficiary.alias
-                mobileTextField.inputText = viewModel.strippedMobileNo
+                mobileTextField.inputText = viewModel.mobileNumber
                 relationTextField.inputText = beneficiary.beneficiaryRelation
                 countryTextField.inputText = beneficiary.country
             case .nameTextField(errorState: let errorState, errorMessage: let errorMessage):
@@ -237,6 +236,8 @@ extension BeneficiaryInfoViewController {
             case .updateMobileNumber(let number):
                 self.mobileTextField.inputText = number
                 self.mobileTextField.isEditable = false
+            case .updateButtonState(enableState: let enableState):
+                self.updateBeneficiaryButton.isEnabled = enableState
             }
         }
     }
