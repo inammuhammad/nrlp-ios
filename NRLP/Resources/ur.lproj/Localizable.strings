@@ -482,3 +482,8 @@
 میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں تاہم موجودہ سال کے لیے اس کا اطلاق یکم اکتوبر 2021 سے ہوگا اور اسی کے مطابق آپ کی لائلٹی کیٹیگری کا حساب لگایا جائے گا۔
 ";
 "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "روشن ڈیجیٹل اکائونٹ کے صارفین صرف اس رقم کے مقابلے میں پوائنٹس کی آٹو ایوارڈنگ کے اہل ہوں گے جو مقامی طور پر استعمال کی جاتی ہے اور اسے واپس نہیں کیا جاسکتا";
+// Add Beneficiary
+
+"Beneficiary Relation Type *" = "وصول کنندہ کا رشتہ منتخب کریں *";
+"Beneficiary Relation *" = "وصول کنندہ کا رشتہ *";
+

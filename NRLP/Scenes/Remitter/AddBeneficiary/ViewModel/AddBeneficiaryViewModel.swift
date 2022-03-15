@@ -28,6 +28,7 @@ protocol AddBeneficiaryViewModelProtocol {
 class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
     
     func didSelect(relationshipTypeItem: RelationshipTypePickerItemModel?) {
+        beneficiaryRelation = nil
         if let relationshipType = relationshipTypeItem?.relationshipType {
             if relationshipType.getTitle().lowercased() == RelationshipType.other.getTitle().lowercased() {
                 // SHOW NEXT TEXTFIELD

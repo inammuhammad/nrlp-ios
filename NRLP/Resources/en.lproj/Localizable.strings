@@ -469,3 +469,6 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Add Receiver" = "Add Receiver";
 "USDtext" = "The Annual Remittance to-date in USD is accumulated from 1st July of each year, however for current year it shall be applicable from 1st October 2021 and your loyalty category will be calculated accordingly. For further details please visit FAQs";
 "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.";
+// Add Beneficiary
+"Beneficiary Relation Type *" = "Beneficiary Relation Type *";
+"Beneficiary Relation *" = "Beneficiary Relation *";

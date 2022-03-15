@@ -45,7 +45,7 @@ class BeneficiaryTableViewCell: UITableViewCell {
         statusLabel.textAlignment = .center
         statusView.backgroundColor = UIColor.init(commonColor: .appActiveBg)
         statusLabel.text = "Active".localized
-        statusView.isHidden = true
+        statusView.isHidden = false
     }
 
     private func setAsInactive() {
@@ -86,7 +86,8 @@ class BeneficiaryTableViewCell: UITableViewCell {
         cnicLabel.text = receiver.formattedReceiverCNIC
 
         if receiver.linkStatus?.lowercased() ?? "" == "LINKED".lowercased() {
-            setAsActive()
+            statusView.isHidden = true
+            // setAsActive()
         } else {
             setAsInactive()
         }

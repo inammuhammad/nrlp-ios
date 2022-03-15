@@ -11,11 +11,11 @@ import Foundation
 typealias HomeViewModelOutput = (HomeViewModel.Output) -> Void
 
 protocol HomeViewModelProtocol {
-
+    
     var output: HomeViewModelOutput? { get set }
     var numberOfItems: Int { get }
     var getTitleName: String { get }
-
+    
     func viewModelWillAppear()
     func viewModelDidLoad()
     func getItem(at index: Int) -> HomeCollectionViewCellDataModelProtocol
@@ -40,9 +40,9 @@ class HomeViewModel: HomeViewModelProtocol {
     private var userProfileService: UserProfileServiceProtocol!
     private var logoutService: LogoutServiceProtocol
     internal var collectionViewItemData: [HomeCollectionViewCellDataModelProtocol] = []
-
+    
     var userModel: UserModel
-
+    
     init(with userModel: UserModel,
          router: HomeRouter,
          userProfileService: UserProfileServiceProtocol = UserProfileService(),
@@ -52,16 +52,16 @@ class HomeViewModel: HomeViewModelProtocol {
         self.userProfileService = userProfileService
         self.logoutService = logoutService
     }
-
+    
     func viewModelDidLoad() {
         setupCollectionViewData()
         output?(.reloadCollectionView)
     }
-
+    
     func viewModelWillAppear() {
         fetchUserProfile() // Throws error
     }
-
+    
     private func fetchUserProfile() {
         userProfileService.getUserProfile { [weak self] (response) in
             switch response {
@@ -75,28 +75,28 @@ class HomeViewModel: HomeViewModelProtocol {
                 }
             case .failure(let error):
                 print("Request Fail With Error: \(error)")
-//                self?.output?(.showError(error: error))
+                //                self?.output?(.showError(error: error))
             }
         }
     }
-
+    
     internal func setupCollectionViewData() {
         self.collectionViewItemData = [
             HomeCollectionViewLoyaltyCellDataModel(with: "\(Int(userModel.roundedLoyaltyPoints) )", loyaltyType: userModel.loyaltyLevel, user: userModel, remittedDate: userModel.memberSince ?? "", remittedAmount: ("USD " + (userModel.formattedUsdBalance)))
         ]
     }
-
+    
     func getItem(at index: Int) -> HomeCollectionViewCellDataModelProtocol {
         return collectionViewItemData[index]
     }
-
+    
     func didTapItem(at index: Int) {
-//        if AppConstants.isDev {
-            router.navigateToLoyaltyScreen(user: userModel)
-//        }
-//        showComingSoonAlert()
+        //        if AppConstants.isDev {
+        router.navigateToLoyaltyScreen(user: userModel)
+        //        }
+        //        showComingSoonAlert()
     }
-
+    
     func showComingSoonAlert() {
         output?(.showAlert(alertModel: AlertViewModel(alertHeadingImage: .comingSoon, alertTitle: "Coming Soon".localized, alertDescription: "This feature is coming very soon".localized, alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil), secondaryButton: nil)))
     }
@@ -128,15 +128,15 @@ class HomeViewModel: HomeViewModelProtocol {
             }
         }
     }
-
+    
     private func shouldLogout() {
         let viewModel = AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Logout".localized, alertDescription: "Are you sure you want to Logout?".localized, alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "Confirm".localized, buttonAction: { [weak self] in
             self?.logoutUser()
         }), secondaryButton: AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: nil))
-
+        
         output?(.showLogoutAlert(alertModel: viewModel))
     }
-
+    
     private func logoutUser() {
         output?(.showActivityIndicator(show: true))
         logoutService.logoutUser { [weak self] (_) in
@@ -145,7 +145,7 @@ class HomeViewModel: HomeViewModelProtocol {
             self.router.navigateToLoginScreen()
         }
     }
-
+    
     func didTapLogout() {
         output?(.showError(error: .internetOffline))
     }
@@ -159,11 +159,12 @@ class HomeViewModel: HomeViewModelProtocol {
     private func checkReceiverManagement() {
         if let receiverCount = userModel.receiverCount,
            receiverCount == 0,
-           !NRLPUserDefaults.shared.receiverManagemntSkipped() {
+           !NRLPUserDefaults.shared.receiverManagemntSkipped(),
+           !(userModel.accountType == .beneficiary) {
             self.router.navigateToRemitterReceiverManagement(showListing: false)
         }
     }
-
+    
     enum Output {
         case reloadCollectionView
         case showActivityIndicator(show: Bool)
@@ -171,7 +172,7 @@ class HomeViewModel: HomeViewModelProtocol {
         case showLogoutAlert(alertModel: AlertViewModel)
         case showAlert(alertModel: AlertViewModel)
     }
-
+    
     deinit {
         print("I am getting deinit \(String(describing: self))")
     }

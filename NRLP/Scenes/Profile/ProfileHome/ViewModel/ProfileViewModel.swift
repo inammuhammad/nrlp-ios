@@ -132,27 +132,46 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     private func fetchCountries() {
-        self.countryService.fetchCountries(accountType: user.accountType) { [weak self] (result) in
+        self.countryService.fetchCountries(accountType: AccountType.beneficiary) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
             case .success(let response):
-                if let countries = response.data {
-                    self.countries = countries
-                    self.mapCountriesToUserNumber()
-                    if let userCountry = self.countries.filter({ $0.country.lowercased() == self.user.countryName?.lowercased() }).first {
-                        self.country = userCountry
-                        self.output?(.setCountry(country: userCountry))
-                    }
+                if let countries = response.data,
+                   let country = countries.filter({ $0.country == self.user.countryName ?? "" }).first {
+                    self.country = country
+                    self.user.userCountry = country
+                    self.mobileNumber = self.user.mobileNo?.replacingOccurrences(of: country.code, with: "")
+                    self.updateUserTelephonicDetails()
                 } else {
-                    self.output?(.showActivityIndicator(show: false))
                     self.output?(.showError(error: .unknown))
                 }
-                
             case .failure(let error):
                 self.output?(.showActivityIndicator(show: false))
                 self.output?(.showError(error: error))
             }
+            self.output?(.showActivityIndicator(show: false))
         }
+//        self.countryService.fetchCountries(accountType: user.accountType) { [weak self] (result) in
+//            guard let self = self else { return }
+//            switch result {
+//            case .success(let response):
+//                if let countries = response.data {
+//                    self.countries = countries
+//                    self.mapCountriesToUserNumber()
+//                    if let userCountry = self.countries.filter({ $0.country.lowercased() == self.user.countryName?.lowercased() }).first {
+//                        self.country = userCountry
+//                        self.output?(.setCountry(country: userCountry))
+//                    }
+//                } else {
+//                    self.output?(.showActivityIndicator(show: false))
+//                    self.output?(.showError(error: .unknown))
+//                }
+//
+//            case .failure(let error):
+//                self.output?(.showActivityIndicator(show: false))
+//                self.output?(.showError(error: error))
+//            }
+//        }
     }
     
     private func mapCountriesToUserNumber() {
@@ -178,14 +197,17 @@ class ProfileViewModel: ProfileViewModelProtocol {
     }
     
     private func updateUserTelephonicDetails() {
-        let userMobileNumber = self.user.mobileNo
-        output?(.updateCountry(country: self.country))
-        output?(.updateMobileCode(code: "\(self.country?.code ?? "") - ", length: country?.length ?? 0))
-        
-        let extractedMobileNumber = String(userMobileNumber?.suffix(country?.length ?? 0) ?? "")
+        self.output?(.updateCountry(country: self.country))
+        self.output?(.updateMobileCode(code: "\(self.country?.code ?? "") - ", length: 0))
+        self.output?(.setMobileNumber(number: self.mobileNumber ?? ""))
+//        let userMobileNumber = self.user.mobileNo
+//        output?(.updateCountry(country: self.country))
+//        output?(.updateMobileCode(code: "\(self.country?.code ?? "") - ", length: country?.length ?? 0))
+//
+//        let extractedMobileNumber = String(userMobileNumber?.suffix(country?.length ?? 0) ?? "")
 //        user.mobileNo = extractedMobileNumber
-        user.userCountry = self.country
-        output?(.setMobileNumber(number: extractedMobileNumber))
+//        user.userCountry = self.country
+//        output?(.setMobileNumber(number: extractedMobileNumber))
         
     }
     
@@ -200,9 +222,15 @@ class ProfileViewModel: ProfileViewModelProtocol {
     
     func cancelButtonPressed() {
         //reset all data
+        self.country = user.userCountry
         editState = false
         output?(.editingReset)
         output?(.setUser(user: self.user))
+        if let country = country {
+            self.mobileNumber = self.user.mobileNo?.replacingOccurrences(of: country.code, with: "")
+        }
+        self.passportNumber = user.passportNumber
+        // self.country = user.userCountry
         updateUserTelephonicDetails()
     }
     
@@ -358,8 +386,22 @@ class ProfileViewModel: ProfileViewModelProtocol {
 
 extension ProfileViewModel {
     private func validateRequiredFields() {
+        // unique id
+        // passport type
+        // passport number
+        // residence country
+        // mobile number
+        // email address
+        
         let userMobileNumberWithCode = ((user?.userCountry?.code ?? "0") + (user?.mobileNo ?? ""))
-        if userEditedNumberWithCode == userMobileNumberWithCode && user?.email == email && editState && user.passportType == passportType && user.passportNumber == passportNumber && user.residentID == residentID {
+        
+        if residentID?.isBlank ?? true || passportType == nil || passportNumber?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true {
+            self.output?(.nextButtonState(enableState: false))
+        } else if user.residentID == residentID && user.passportType == passportType && user.passportNumber == passportNumber && user.userCountry == country {
+            self.output?(.nextButtonState(enableState: false))
+        }
+        
+if userEditedNumberWithCode == userMobileNumberWithCode && user?.email == email && editState && user.passportType == passportType && user.passportNumber == passportNumber && user.residentID == residentID {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))
@@ -376,7 +418,7 @@ extension ProfileViewModel {
             isValid = false
         }
         
-        if country != nil {
+        if country != nil && !(mobileNumber?.isBlank ?? true) {
             output?(.mobileNumberTextField(errorState: false, error: nil))
         } else {
             output?(.mobileNumberTextField(errorState: true, error: StringConstants.ErrorString.mobileNumberError.localized))
@@ -391,7 +433,7 @@ extension ProfileViewModel {
         }
         
         if user.type?.lowercased() == AccountType.remitter.rawValue.lowercased() {
-            if passportNumber != nil || !(passportNumber?.isEmpty ?? true) || passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
+            if passportNumber != nil && !(passportNumber?.isEmpty ?? true) && passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false {
                 output?(.passportNumberTextField(errorState: false, error: nil))
             } else {
                 output?(.passportNumberTextField(errorState: true, error: StringConstants.ErrorString.passportNumberError.localized))
@@ -405,7 +447,7 @@ extension ProfileViewModel {
                 isValid = false
             }
             
-            if residentID != nil || !(residentID?.isEmpty ?? true) {
+            if residentID != nil && !(residentID?.isEmpty ?? true) {
                 output?(.residentIDTextField(errorState: false, error: nil))
             } else {
                 output?(.residentIDTextField(errorState: true, error: StringConstants.ErrorString.residentIdError.localized))

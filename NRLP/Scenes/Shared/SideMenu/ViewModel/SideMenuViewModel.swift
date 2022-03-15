@@ -40,7 +40,6 @@ struct SideMenuViewModel: SideMenuViewModelProtocol {
         items = [
             .profile,
             .changePassword,
-            .receiverManagement,
             .faqs,
             .guide,
             .languageSelection,
@@ -48,6 +47,11 @@ struct SideMenuViewModel: SideMenuViewModelProtocol {
             .complaint,
             .logout
         ]
+        
+        if userModel.accountType == .remitter {
+            items.insert(.receiverManagement, at: 2)
+        }
+        
         self.userModel = userModel
     }
 
@@ -56,6 +60,15 @@ struct SideMenuViewModel: SideMenuViewModelProtocol {
     }
 
     func didTapItem(at index: Int) {
+        var index = index
+        
+        if userModel.accountType == .beneficiary {
+            // for all above 1 add 1
+            if index > 1 {
+                index += 1
+            }
+        }
+        
         if let item = SideMenuItem(rawValue: index) {
             output?(.navigateToSection(item: item))
         }

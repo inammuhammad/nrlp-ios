@@ -45,7 +45,7 @@ class ReceiverListingViewModel: ReceiverListingViewModelProtocol {
 //                for i in 0..<model.data.count {
 //                    tempReceivers.append(model.data[i])
 //                    if i % 2 == 0 {
-//                        tempReceivers[i].linkStatus = "ACTIVE"
+//                        tempReceivers[i].linkStatus = "LINKED"
 //                    }
 //                }
 //                self.receivers.append(contentsOf: tempReceivers)
