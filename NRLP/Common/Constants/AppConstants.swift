@@ -31,10 +31,9 @@ struct AppConstants {
             
         } else {
             /// Prod Checksum (Previous checksum is commented)
-//            sign = [57, 12, 2, 29, 69, 57, 20, 1, 113, 10, 8, 6, 0, 16, 17, 30, 95, 43, 29, 30, 3, 13, 90, 92, 126, 41, 120, 10, 83, 20, 27, 65] // mipp6xze2efbidxq1xxlud990z7h9qx5
+//            sign = [62, 4, 75, 88, 1, 120, 8, 84, 115, 8, 87, 92, 93, 22, 80, 8, 5, 42, 31, 65, 5, 26, 27, 2, 56, 43, 40, 10, 19, 1, 25, 23] // ja95r9f00g984b9gkyz3ssxgvxghydzc
             
-            sign = [62, 4, 75, 88, 1, 120, 8, 84, 115, 8, 87, 92, 93, 22, 80, 8, 5, 42, 31, 65, 5, 26, 27, 2, 56, 43, 40, 10, 19, 1, 25, 23] // ja95r9f00g984b9gkyz3ssxgvxghydzc
-            
+            sign = [50, 31, 4, 21, 17, 38, 31, 10, 39, 91, 25, 14, 93, 14, 6, 93, 95, 54, 10, 67, 16, 29, 90, 93, 43, 106, 122, 9, 25, 8] // fzvxbgqnd4wj4zo21eo1ft98e95ksm
         }
 
         return Replacer().deformatString(string: sign)
