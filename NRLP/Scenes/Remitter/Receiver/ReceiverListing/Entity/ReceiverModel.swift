@@ -52,9 +52,9 @@ struct AddReceiverRequestModel: Codable {
     let cnic: String?
     let mobileNo: String?
     let fullName: String?
-    let motherMaidenName: String?
-    let cnicIssueDate: String?
-    let birthPlace: String?
+//    let motherMaidenName: String?
+//    let cnicIssueDate: String?
+//    let birthPlace: String?
     let bankAccountNumber: String?
     let bankName: String?
     
@@ -62,9 +62,9 @@ struct AddReceiverRequestModel: Codable {
         case cnic = "nic_nicop"
         case mobileNo = "mobile_no"
         case fullName = "full_name"
-        case motherMaidenName = "mother_maiden_name"
-        case cnicIssueDate = "cnic_nicop_issuance_date"
-        case birthPlace = "place_of_birth"
+//        case motherMaidenName = "mother_maiden_name"
+//        case cnicIssueDate = "cnic_nicop_issuance_date"
+//        case birthPlace = "place_of_birth"
         case bankAccountNumber = "account_number_iban"
         case bankName = "bank_name"
     }
@@ -74,9 +74,9 @@ struct AddReceiverRequestModel: Codable {
         try container.encodeIfPresent(cnic?.aesEncrypted(), forKey: .cnic)
         try container.encodeIfPresent(mobileNo, forKey: .mobileNo)
         try container.encodeIfPresent(fullName, forKey: .fullName)
-        try container.encodeIfPresent(motherMaidenName?.aesEncrypted(), forKey: .motherMaidenName)
-        try container.encodeIfPresent(cnicIssueDate?.aesEncrypted(), forKey: .cnicIssueDate)
-        try container.encodeIfPresent(birthPlace?.aesEncrypted(), forKey: .birthPlace)
+//        try container.encodeIfPresent(motherMaidenName?.aesEncrypted(), forKey: .motherMaidenName)
+//        try container.encodeIfPresent(cnicIssueDate?.aesEncrypted(), forKey: .cnicIssueDate)
+//        try container.encodeIfPresent(birthPlace?.aesEncrypted(), forKey: .birthPlace)
         try container.encodeIfPresent(bankAccountNumber?.aesEncrypted(), forKey: .bankAccountNumber)
         try container.encodeIfPresent(bankName?.aesEncrypted(), forKey: .bankName)
     }

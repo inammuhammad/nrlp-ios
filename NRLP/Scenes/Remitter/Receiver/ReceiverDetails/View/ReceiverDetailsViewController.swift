@@ -139,8 +139,8 @@ class ReceiverDetailsViewController: BaseViewController {
                 self.bankNumberTextView.isHidden = hidden
             case .setUser(model: let model):
                 setUserDetails(model: model)
-            case .showDeleteButton(show: let show):
-                deleteBtn.isHidden = !show
+//            case .showDeleteButton(show: let show):
+//                deleteBtn.isHidden = !show
             }
         }
     }

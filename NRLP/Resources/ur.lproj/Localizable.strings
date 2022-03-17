@@ -470,7 +470,7 @@
 "Please enter Receiver Place of Birth as per NADRA record" = "نادرا کے ریکارڈ کے مطابق براہ کرم وصول کنندہ کی جائے پیدائش درج کریں۔";
 "Please enter Receiver Mother Name as per NADRA record" = "براہ کرم نادرا کے ریکارڈ کے مطابق وصول کنندہ کی والدہ کا نام درج کریں";
 "Are you sure want to delete the Receiver?" = "کیا آپ واقعی وصول کنندہ کو  نکلنا چاہتے ہیں ";
-"Your Remittance receiver will be added upon NADRA Verification" = "آپ کی ترسیلات زر وصول کرنے والا  نادرا کی تصدیق کے بعد شامل کر دیا جائے گا۔";
+"Your Remittance receiver has been added successfully." = "آپ کی ترسیلات زر وصول کرنے والا شامل کر دیا گیا ہے۔";
 "Select Receiver Type" = "وصول کنندہ کی قسم منتخب کریں۔";
 "Receiver Type" = "وصول کنندہ کی قسم";
 "Remittance sent to CNIC" = "قومی شناختی کارڈ پر بھیجی گئی ترسیلات";

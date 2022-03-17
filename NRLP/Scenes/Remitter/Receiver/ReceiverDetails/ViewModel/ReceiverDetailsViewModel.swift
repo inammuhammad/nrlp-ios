@@ -59,7 +59,7 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
     }
     
     enum Output {
-        case showDeleteButton(show: Bool)
+        // case showDeleteButton(show: Bool)
         case showError(error: APIResponseError)
         case showAlert(alert: AlertViewModel)
         case showActivityIndicator(show: Bool)
@@ -69,11 +69,11 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
     
     func viewDidLoad() {
         // SHOW BANK FIELDS HERE
-        if model?.linkStatus?.lowercased() ?? "" == "LINKED".lowercased() {
-            self.output?(.showDeleteButton(show: true))
-        } else {
-            self.output?(.showDeleteButton(show: false))
-        }
+//        if model?.linkStatus?.lowercased() ?? "" == "LINKED".lowercased() {
+//            self.output?(.showDeleteButton(show: true))
+//        } else {
+//            self.output?(.showDeleteButton(show: false))
+//        }
         
         if model?.receiverType == .bank {
             output?(.showBankFields(hidden: false))

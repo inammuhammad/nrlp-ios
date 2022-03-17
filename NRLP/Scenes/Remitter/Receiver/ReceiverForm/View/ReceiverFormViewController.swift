@@ -13,12 +13,12 @@ class ReceiverFormViewController: BaseViewController {
     // MARK: - Properties
     
     var viewModel: ReceiverFormViewModelProtocol!
-    private lazy var cnicIssueDatePicker: CustomDatePickerView = {
-        var pickerView = CustomDatePickerView()
-        pickerView.toolbarDelegate = self
-        pickerView.viewModel = viewModel.datePickerViewModel
-        return pickerView
-    }()
+//    private lazy var cnicIssueDatePicker: CustomDatePickerView = {
+//        var pickerView = CustomDatePickerView()
+//        pickerView.toolbarDelegate = self
+//        pickerView.viewModel = viewModel.datePickerViewModel
+//        return pickerView
+//    }()
     
     // MARK: - IBOutlets
     
@@ -49,26 +49,26 @@ class ReceiverFormViewController: BaseViewController {
         }
     }
     
-    @IBOutlet private weak var motherNameTextView: LabelledTextview! {
-        didSet {
-            motherNameTextView.titleLabelText = "Mother Maiden Name *".localized
-            motherNameTextView.placeholderText = "Please enter Receiver Information".localized
-            motherNameTextView.autoCapitalizationType = .words
-            motherNameTextView.inputFieldMaxLength = 50
-            motherNameTextView.showHelpBtn = true
-            motherNameTextView.helpLabelText = "Please enter Receiver Mother Name as per NADRA record".localized
-            motherNameTextView.editTextKeyboardType = .asciiCapable
-            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
-            motherNameTextView.onTextFieldChanged = { [weak self] updatedText in
-                guard let self = self else { return }
-                self.viewModel.motherMaidenName = updatedText
-            }
-            motherNameTextView.onHelpBtnPressed = { [weak self] model in
-                guard let self = self else { return }
-                self.showAlert(with: model)
-            }
-        }
-    }
+//    @IBOutlet private weak var motherNameTextView: LabelledTextview! {
+//        didSet {
+//            motherNameTextView.titleLabelText = "Mother Maiden Name *".localized
+//            motherNameTextView.placeholderText = "Please enter Receiver Information".localized
+//            motherNameTextView.autoCapitalizationType = .words
+//            motherNameTextView.inputFieldMaxLength = 50
+//            motherNameTextView.showHelpBtn = true
+//            motherNameTextView.helpLabelText = "Please enter Receiver Mother Name as per NADRA record".localized
+//            motherNameTextView.editTextKeyboardType = .asciiCapable
+//            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+//            motherNameTextView.onTextFieldChanged = { [weak self] updatedText in
+//                guard let self = self else { return }
+//                self.viewModel.motherMaidenName = updatedText
+//            }
+//            motherNameTextView.onHelpBtnPressed = { [weak self] model in
+//                guard let self = self else { return }
+//                self.showAlert(with: model)
+//            }
+//        }
+//    }
     
     @IBOutlet private weak var cnicTextView: LabelledTextview! {
         didSet {
@@ -86,36 +86,36 @@ class ReceiverFormViewController: BaseViewController {
         }
     }
     
-    @IBOutlet private weak var cnicIssueDateTextView: LabelledTextview! {
-        didSet {
-            cnicIssueDateTextView.titleLabelText = "CNIC/NICOP Issuance Date *".localized
-            cnicIssueDateTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
-            cnicIssueDateTextView.placeholderText = "Please enter Receiver Information".localized
-            cnicIssueDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)
-            cnicIssueDateTextView.inputTextFieldInputPickerView = cnicIssueDatePicker
-        }
-    }
+//    @IBOutlet private weak var cnicIssueDateTextView: LabelledTextview! {
+//        didSet {
+//            cnicIssueDateTextView.titleLabelText = "CNIC/NICOP Issuance Date *".localized
+//            cnicIssueDateTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+//            cnicIssueDateTextView.placeholderText = "Please enter Receiver Information".localized
+//            cnicIssueDateTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+//            cnicIssueDateTextView.inputTextFieldInputPickerView = cnicIssueDatePicker
+//        }
+//    }
     
-    @IBOutlet private weak var birthPlaceTextView: LabelledTextview! {
-        didSet {
-            birthPlaceTextView.titleLabelText = "Place of Birth *".localized
-            birthPlaceTextView.placeholderText = "Please enter Receiver Information".localized
-            birthPlaceTextView.isEditable = false
-            birthPlaceTextView.isTappable = true
-            birthPlaceTextView.showHelpBtn = true
-            birthPlaceTextView.helpLabelText = "Please enter Receiver Place of Birth as per NADRA record".localized
-            birthPlaceTextView.editTextKeyboardType = .asciiCapable
-            birthPlaceTextView.editTextCursorColor = .init(white: 1, alpha: 0)
-            birthPlaceTextView.onTextFieldTapped = { [weak self] in
-                guard let self = self else { return }
-                self.viewModel.birthPlaceTextFieldTapped()
-            }
-            birthPlaceTextView.onHelpBtnPressed = { [weak self] model in
-                guard let self = self else { return }
-                self.showAlert(with: model)
-            }
-        }
-    }
+//    @IBOutlet private weak var birthPlaceTextView: LabelledTextview! {
+//        didSet {
+//            birthPlaceTextView.titleLabelText = "Place of Birth *".localized
+//            birthPlaceTextView.placeholderText = "Please enter Receiver Information".localized
+//            birthPlaceTextView.isEditable = false
+//            birthPlaceTextView.isTappable = true
+//            birthPlaceTextView.showHelpBtn = true
+//            birthPlaceTextView.helpLabelText = "Please enter Receiver Place of Birth as per NADRA record".localized
+//            birthPlaceTextView.editTextKeyboardType = .asciiCapable
+//            birthPlaceTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+//            birthPlaceTextView.onTextFieldTapped = { [weak self] in
+//                guard let self = self else { return }
+//                self.viewModel.birthPlaceTextFieldTapped()
+//            }
+//            birthPlaceTextView.onHelpBtnPressed = { [weak self] model in
+//                guard let self = self else { return }
+//                self.showAlert(with: model)
+//            }
+//        }
+//    }
     
     @IBOutlet private weak var countryTextView: LabelledTextview! {
         didSet {
@@ -214,10 +214,10 @@ class ReceiverFormViewController: BaseViewController {
                 self.showAlert(with: error)
             case .buttonState(enabled: let enabled):
                 self.nextBtn.isEnabled = enabled
-            case .updateCnicIssueDate(dateStr: let dateStr):
-                self.cnicIssueDateTextView.inputText = dateStr
-            case .updateBirthPlace(name: let name):
-                self.birthPlaceTextView.inputText = name
+//            case .updateCnicIssueDate(dateStr: let dateStr):
+//                self.cnicIssueDateTextView.inputText = dateStr
+//            case .updateBirthPlace(name: let name):
+//                self.birthPlaceTextView.inputText = name
             case .showBankFields(hidden: let hidden):
                 self.bankNameTextView.isHidden = hidden
                 self.bankNumberTextView.isHidden = hidden
@@ -246,14 +246,14 @@ class ReceiverFormViewController: BaseViewController {
         switch textfield {
         case .fullName:
             self.fullNameTextView.updateStateTo(isError: state, error: message)
-        case .motherName:
-            self.motherNameTextView.updateStateTo(isError: state, error: message)
-        case .birthPlace:
-            self.birthPlaceTextView.updateStateTo(isError: state, error: message)
+//        case .motherName:
+//            self.motherNameTextView.updateStateTo(isError: state, error: message)
+//        case .birthPlace:
+//            self.birthPlaceTextView.updateStateTo(isError: state, error: message)
         case .cnic:
             self.cnicTextView.updateStateTo(isError: state, error: message)
-        case .cnicIssueDate:
-            self.cnicIssueDateTextView.updateStateTo(isError: state, error: message)
+//        case .cnicIssueDate:
+//            self.cnicIssueDateTextView.updateStateTo(isError: state, error: message)
         case .countryOfResidence:
             self.countryTextView.updateStateTo(isError: state, error: message)
         case .mobileNumber:
@@ -269,14 +269,14 @@ class ReceiverFormViewController: BaseViewController {
         switch textFieldType {
         case .fullName:
             self.fullNameTextView.becomeFirstResponder()
-        case .motherName:
-            self.motherNameTextView.becomeFirstResponder()
-        case .birthPlace:
-            self.birthPlaceTextView.becomeFirstResponder()
+//        case .motherName:
+//            self.motherNameTextView.becomeFirstResponder()
+//        case .birthPlace:
+//            self.birthPlaceTextView.becomeFirstResponder()
         case .cnic:
             self.cnicTextView.becomeFirstResponder()
-        case .cnicIssueDate:
-            self.cnicIssueDateTextView.becomeFirstResponder()
+//        case .cnicIssueDate:
+//            self.cnicIssueDateTextView.becomeFirstResponder()
         case .countryOfResidence:
             self.countryTextView.becomeFirstResponder()
         case .mobileNumber:
@@ -297,22 +297,22 @@ class ReceiverFormViewController: BaseViewController {
 
 // MARK: Extension - CustomDatePickerViewDelegate
 
-extension ReceiverFormViewController: CustomDatePickerViewDelegate {
-
-    func didTapDoneButton(picker: CustomDatePickerView, date: Date) {
-        self.view.endEditing(true)
-        switch picker {
-        case self.cnicIssueDatePicker:
-            self.viewModel.cnicIssueDate = date
-        default:
-            break
-        }
-    }
-    
-    func didTapCancelButton() {
-        self.view.endEditing(true)
-    }
-}
+//extension ReceiverFormViewController: CustomDatePickerViewDelegate {
+//
+//    func didTapDoneButton(picker: CustomDatePickerView, date: Date) {
+//        self.view.endEditing(true)
+//        switch picker {
+//        case self.cnicIssueDatePicker:
+//            self.viewModel.cnicIssueDate = date
+//        default:
+//            break
+//        }
+//    }
+//
+//    func didTapCancelButton() {
+//        self.view.endEditing(true)
+//    }
+//}
 
 // MARK: Extension - Initializable
 
