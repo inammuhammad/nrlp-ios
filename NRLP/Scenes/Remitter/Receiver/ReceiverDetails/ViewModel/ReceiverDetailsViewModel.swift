@@ -101,7 +101,7 @@ class ReceiverDetailsViewModel: ReceiverDetailsViewModelProtocol {
                 self.output?(.showActivityIndicator(show: false))
                 switch result {
                 case .success:
-                    let alert = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Remittance Receiver Removed", alertDescription: "\(self.model?.receiverName ?? "User") has Been Removed".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
+                    let alert = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Remittance Receiver Removed", alertDescription: "\(self.model?.receiverName ?? "User") has been removed".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
                         self.router.popToPreviousScreen()
                     }))
                     self.output?(.showAlert(alert: alert))
