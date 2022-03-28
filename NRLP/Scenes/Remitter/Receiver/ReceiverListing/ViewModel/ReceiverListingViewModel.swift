@@ -41,6 +41,11 @@ class ReceiverListingViewModel: ReceiverListingViewModelProtocol {
             self.output?(.showActivityIndicator(show: false))
             switch response {
             case .success(let model):
+//                var tempData = model.data
+//                for i in 0..<tempData.count where i % 2 == 1 {
+//                    tempData[i].linkStatus = "LINKED"
+//                }
+//                self.receivers.append(contentsOf: tempData)
                 self.receivers.append(contentsOf: model.data)
                 if !(self.receivers.isEmpty) {
                     self.output?(.tableVisibility(show: true))

@@ -85,13 +85,12 @@ class BeneficiaryTableViewCell: UITableViewCell {
         fullNameLabel.text = receiver.receiverName
         cnicLabel.text = receiver.formattedReceiverCNIC
 
-        statusView.isHidden = true
-//        if receiver.linkStatus?.lowercased() ?? "" == "LINKED".lowercased() {
-//            statusView.isHidden = true
-//            // setAsActive()
-//        } else {
-//            setAsInactive()
-//        }
+        if receiver.linkStatus?.lowercased() ?? "" == "LINKED".lowercased() {
+            statusView.isHidden = true
+            // setAsActive()
+        } else {
+            setAsInactive()
+        }
 
         self.layoutMargins = UIEdgeInsets.zero
     }

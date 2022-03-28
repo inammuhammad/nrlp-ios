@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="716"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTu-lt-Ei7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="620"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="938"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iNe-bX-pno">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="620"/>
+                                                <rect key="frame" x="20" y="0.0" width="374" height="938"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONb-xp-g0A" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
@@ -62,41 +62,34 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3F-bM-2Zd" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="212" width="374" height="90"/>
+                                                        <rect key="frame" x="0.0" y="530" width="374" height="90"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="XuV-lc-hcT"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahS-bW-WzT" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="318" width="374" height="90"/>
+                                                        <rect key="frame" x="0.0" y="636" width="374" height="90"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="ax9-7F-uk1"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="695-yA-xBM" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="424" width="374" height="90"/>
+                                                        <rect key="frame" x="0.0" y="742" width="374" height="90"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="q3E-iK-zrH"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5K5-Ms-J9I" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="530" width="374" height="90"/>
+                                                        <rect key="frame" x="0.0" y="848" width="374" height="90"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="bfp-M4-U5q"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <variation key="default">
-                                                    <mask key="subviews">
-                                                        <exclude reference="59y-XL-Cip"/>
-                                                        <exclude reference="ph7-kM-ZVm"/>
-                                                        <exclude reference="5FN-yX-ozC"/>
-                                                    </mask>
-                                                </variation>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -142,10 +135,13 @@
                     <connections>
                         <outlet property="bankNameTextView" destination="695-yA-xBM" id="VUg-vZ-Bnm"/>
                         <outlet property="bankNumberTextView" destination="5K5-Ms-J9I" id="7Uf-dG-kSJ"/>
+                        <outlet property="birthPlaceTextView" destination="5FN-yX-ozC" id="Ins-tr-JHK"/>
+                        <outlet property="cnicIssueDateTextView" destination="59y-XL-Cip" id="rXh-lb-jCF"/>
                         <outlet property="cnicTextView" destination="gRX-gB-rxQ" id="zEW-uq-fZi"/>
                         <outlet property="countryTextView" destination="T3F-bM-2Zd" id="vL1-IO-rNJ"/>
                         <outlet property="fullNameTextView" destination="ONb-xp-g0A" id="iqq-dD-0ie"/>
                         <outlet property="mobileNumberTextView" destination="ahS-bW-WzT" id="FRZ-g3-k7q"/>
+                        <outlet property="motherNameTextView" destination="ph7-kM-ZVm" id="4hV-YX-rcS"/>
                         <outlet property="nextBtn" destination="Ggm-Ko-Ya4" id="aEL-0l-QIW"/>
                     </connections>
                 </viewController>

@@ -243,10 +243,10 @@ struct APIPathBuilder {
                 let sign: [UInt8] = [55, 10, 31, 29, 31, 32, 7, 10, 55, 28, 67, 16, 27, 21, 7, 28, 15, 48, 17, 27, 25, 7, 78, 17, 55, 35, 42, 17]
                 return Replacer().deformatString(string: sign)
             case .updateProfileVerification:
-                let sign: [UInt8] = [33, 21, 22, 12, 7, 36, 67, 20, 49, 0, 8, 13, 5, 17, 68, 25, 15, 63, 12, 22, 23, 29, 6]
+                let sign: [UInt8] = [33, 21, 22, 12, 7, 36, 67, 20, 49, 0, 8, 13, 5, 17, 68, 25, 15, 63, 12, 22, 23, 29, 6, 74]
                 return Replacer().deformatString(string: sign)
             case .updateProfile:
-                let sign: [UInt8] = [33, 21, 22, 12, 7, 36, 67, 20, 49, 0, 8, 13, 5, 17]
+                let sign: [UInt8] = [33, 21, 22, 12, 7, 36, 67, 20, 49, 0, 8, 13, 5, 17, 70]
                 return Replacer().deformatString(string: sign)
             case .remitterReceiverList:
                 let sign: [UInt8] = [38, 0, 31, 4, 7, 53, 11, 22, 110, 29, 11, 7, 12, 29, 31, 10, 28, 126, 9, 27, 5, 29]

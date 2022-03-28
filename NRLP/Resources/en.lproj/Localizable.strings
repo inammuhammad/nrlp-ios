@@ -459,7 +459,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Please enter Receiver Place of Birth as per NADRA record" = "Please enter Receiver Place of Birth as per NADRA record";
 "Please enter Receiver Mother Name as per NADRA record" = "Please enter Receiver Mother Name as per NADRA record";
 "Are you sure want to delete the Receiver?" = "Are you sure want to delete the Receiver?";
-"Your Remittance receiver has been added successfully." = "Your Remittance receiver has been added successfully.";
+"Your Remittance Receiver will be added upon NADRA verification" = "Your Remittance Receiver will be added upon NADRA verification";
 "Select Receiver Type" = "Select Receiver Type";
 "Receiver Type" = "Receiver Type";
 "Remittance sent to CNIC" = "Remittance sent to CNIC";

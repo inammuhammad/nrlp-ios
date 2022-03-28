@@ -17,8 +17,8 @@ protocol ReceiverFormViewModelProtocol {
     var datePickerViewModel: CustomDatePickerViewModel { get }
     var name: String? { get set }
     var cnic: String? { get set }
-//    var cnicIssueDate: Date? { get set }
-//    var motherMaidenName: String? { get set }
+    var cnicIssueDate: Date? { get set }
+    var motherMaidenName: String? { get set }
     var mobileNumber: String? { get set }
     var bankName: String? { get set }
     var bankNumber: String? { get set }
@@ -26,7 +26,7 @@ protocol ReceiverFormViewModelProtocol {
     func viewDidLoad()
     func bankTextFieldTapped()
     func countryTextFieldTapped()
-//    func birthPlaceTextFieldTapped()
+    func birthPlaceTextFieldTapped()
     func nextButtonPressed()
 }
 
@@ -45,11 +45,11 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         }
     }
     
-//    var motherMaidenName: String? {
-//        didSet {
-//            validateRequiredFields()
-//        }
-//    }
+    var motherMaidenName: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
 
     var cnic: String? {
         didSet {
@@ -57,12 +57,12 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         }
     }
     
-//    var cnicIssueDate: Date? {
-//        didSet {
-//            validateRequiredFields()
-//            self.output?(.updateCnicIssueDate(dateStr: cnicIssueDateString))
-//        }
-//    }
+    var cnicIssueDate: Date? {
+        didSet {
+            validateRequiredFields()
+            self.output?(.updateCnicIssueDate(dateStr: cnicIssueDateString))
+        }
+    }
     
     var datePickerViewModel: CustomDatePickerViewModel {
         return CustomDatePickerViewModel(maxDate: Date())
@@ -74,11 +74,11 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         }
     }
     
-//    var birthPlace: String? {
-//        didSet {
-//            validateRequiredFields()
-//        }
-//    }
+    var birthPlace: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
     
     var mobileNumber: String? {
         didSet {
@@ -98,9 +98,9 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         }
     }
     
-//    private var cnicIssueDateString: String {
-//        return DateFormat().formatDateString(to: cnicIssueDate ?? Date(), formatter: .shortDateFormat) ?? "-"
-//    }
+    private var cnicIssueDateString: String {
+        return DateFormat().formatDateString(to: cnicIssueDate ?? Date(), formatter: .shortDateFormat) ?? "-"
+    }
     
     init(router: ReceiverFormRouter, receiverType: RemitterReceiverType) {
         self.router = router
@@ -109,10 +109,10 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
     
     enum ReceiverFormInputFieldType {
         case fullName
-//        case motherName
-//        case birthPlace
+        case motherName
+        case birthPlace
         case cnic
-//        case cnicIssueDate
+        case cnicIssueDate
         case countryOfResidence
         case mobileNumber
         case bankName
@@ -124,10 +124,10 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         case showAlert(alert: AlertViewModel)
         case showActivityIndicator(show: Bool)
         case buttonState(enabled: Bool)
-//        case updateCnicIssueDate(dateStr: String)
+        case updateCnicIssueDate(dateStr: String)
         case updateBankName(name: String)
         case updateCountry(name: String)
-//        case updateBirthPlace(name: String)
+        case updateBirthPlace(name: String)
         case updateMobileCode(code: String, length: Int)
         case updateMobilePlaceholder(placeholder: String)
         case showBankFields(hidden: Bool)
@@ -154,12 +154,12 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         }, accountType: AccountType.beneficiary)
     }
     
-//    func birthPlaceTextFieldTapped() {
-//        router.navigateToCityPicker { [weak self] selectedCity in
-//            self?.birthPlace = selectedCity
-//            self?.output?(.updateBirthPlace(name: selectedCity))
-//        }
-//    }
+    func birthPlaceTextFieldTapped() {
+        router.navigateToCityPicker { [weak self] selectedCity in
+            self?.birthPlace = selectedCity
+            self?.output?(.updateBirthPlace(name: selectedCity))
+        }
+    }
     
     func bankTextFieldTapped() {
         router.navigateToBankPicker { [weak self] selectedBank in
@@ -175,8 +175,8 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         }
         let newBankNumber = receiverType == .bank ? bankNumber : ""
         let newBankName = receiverType == .bank ? bankName : ""
-        let model = AddReceiverRequestModel(cnic: cnic, mobileNo: mobileNumber, fullName: name, bankAccountNumber: newBankNumber, bankName: newBankName)
-//        let model = AddReceiverRequestModel(cnic: cnic, mobileNo: mobileNumber, fullName: name, motherMaidenName: motherMaidenName, cnicIssueDate: cnicIssueDateString, birthPlace: birthPlace, bankAccountNumber: newBankNumber, bankName: newBankName)
+//        let model = AddReceiverRequestModel(cnic: cnic, mobileNo: mobileNumber, fullName: name, bankAccountNumber: newBankNumber, bankName: newBankName)
+        let model = AddReceiverRequestModel(cnic: cnic, mobileNo: mobileNumber, fullName: name, motherMaidenName: motherMaidenName, cnicIssueDate: cnicIssueDateString, birthPlace: birthPlace, bankAccountNumber: newBankNumber, bankName: newBankName)
         self.output?(.showActivityIndicator(show: true))
         service.addReceiver(requestModel: model) { response in
             self.output?(.showActivityIndicator(show: false))
@@ -190,7 +190,7 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
     }
 
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true  // || cnicIssueDateString.isBlank // || motherMaidenName?.isBlank ?? true || birthPlace?.isBlank ?? true
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || cnicIssueDateString.isBlank || cnicIssueDate == nil || motherMaidenName?.isBlank ?? true || birthPlace?.isBlank ?? true
             || mobileNumber?.isBlank ?? true {
             output?(.buttonState(enabled: false))
         } else {
@@ -219,13 +219,13 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
             errorTopField = errorTopField ?? .fullName
         }
 
-//        if motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false {
-//            output?(.textField(errorState: false, error: nil, textfieldType: .motherName))
-//        } else {
-//            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .motherName))
-//            isValid = false
-//            errorTopField = errorTopField ?? .motherName
-//        }
+        if motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .motherName))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .motherName))
+            isValid = false
+            errorTopField = errorTopField ?? .motherName
+        }
         
         if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .cnic))
@@ -235,18 +235,19 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
             errorTopField = errorTopField ?? .cnic
         }
         
-//        if let cnicIssueDate = cnicIssueDate, cnicIssueDate < Date() {
-//            output?(.textField(errorState: false, error: nil, textfieldType: .cnicIssueDate))
-//        } else {
-//            output?(.textField(errorState: true, error: "Please enter a valid CNIC/NICOP Issue Date".localized, textfieldType: .cnicIssueDate))
-//        }
+        if let cnicIssueDate = cnicIssueDate, cnicIssueDate < Date() {
+            output?(.textField(errorState: false, error: nil, textfieldType: .cnicIssueDate))
+        } else {
+            output?(.textField(errorState: true, error: "Please enter a valid CNIC/NICOP Issue Date".localized, textfieldType: .cnicIssueDate))
+            isValid = false
+        }
         
-//        if birthPlace != nil {
-//            output?(.textField(errorState: false, error: nil, textfieldType: .birthPlace))
-//        } else {
-//            output?(.textField(errorState: true, error: StringConstants.ErrorString.cityError.localized, textfieldType: .birthPlace))
-//            isValid = false
-//        }
+        if birthPlace != nil {
+            output?(.textField(errorState: false, error: nil, textfieldType: .birthPlace))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.cityError.localized, textfieldType: .birthPlace))
+            isValid = false
+        }
         
         if country != nil {
             output?(.textField(errorState: false, error: nil, textfieldType: .countryOfResidence))

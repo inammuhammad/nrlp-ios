@@ -97,7 +97,7 @@ extension NetworkManager: Networking {
         do {
             let urlRequest = try buildRequest(with: request, method: method, task: task)
             
-            if AppConstants.isDev {
+            if AppConstants.isDev || !AppConstants.isDev {
                 print("\n🔷🔷🔷🔷🔷 REQUEST STARTED 🔷🔷🔷🔷🔷\n")
                 
                 if let method = urlRequest.httpMethod {
@@ -115,7 +115,7 @@ extension NetworkManager: Networking {
             }
             let dataRequest = sessionManager.request(urlRequest)
                 .responseJSON(completionHandler: { (response) in
-                    if AppConstants.isDev {
+                    if AppConstants.isDev || !AppConstants.isDev {
                         if let error = response.error {
                             print("\n❌❌❌❌❌ ERROR ❌❌❌❌❌\n")
                             print(error)
