@@ -560,6 +560,8 @@
 		BC7E7E9824C055A10026F341 /* GenerateStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9724C055A10026F341 /* GenerateStatementViewController.swift */; };
 		BC7E7E9B24C068590026F341 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */; };
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
+		DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */; };
+		DB57AB8427F1E09700A94353 /* CancelRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */; };
 		E10924C026C7C8BF004D19A6 /* PassportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BE26C7C8BF004D19A6 /* PassportType.swift */; };
 		E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */; };
 		E111C89D27D692C100D185CD /* BankListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E111C89C27D692C100D185CD /* BankListing.storyboard */; };
@@ -1332,6 +1334,8 @@
 		BC7E7E9724C055A10026F341 /* GenerateStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateStatementViewController.swift; sourceTree = "<group>"; };
 		BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
+		DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterUserService.swift; sourceTree = "<group>"; };
+		DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterModel.swift; sourceTree = "<group>"; };
 		E10924BE26C7C8BF004D19A6 /* PassportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportType.swift; sourceTree = "<group>"; };
 		E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportTypePickerItemModel.swift; sourceTree = "<group>"; };
 		E111C89C27D692C100D185CD /* BankListing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BankListing.storyboard; sourceTree = "<group>"; };
@@ -2587,6 +2591,7 @@
 				9F6D736224B5CFA500B45F0F /* ManageBeneficiaryService.swift */,
 				207C3E2C24B83EF400298C0C /* TermsAndConditionService.swift */,
 				207C3E3124B8425F00298C0C /* RegisterUserService.swift */,
+				DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */,
 				204A6BD124B82FF2001E4E74 /* OTPService.swift */,
 				9F8D821724C6F7B800BB1C26 /* LoyaltyPointsService.swift */,
 				9F8D828024C8742800BB1C26 /* ForgotPasswordService.swift */,
@@ -2614,6 +2619,7 @@
 				20D8402424B4734B00F5D749 /* VerifyReferenceNumberModel.swift */,
 				20D8402524B4734B00F5D749 /* LoginModel.swift */,
 				20D8402724B4734B00F5D749 /* RegisterModel.swift */,
+				DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */,
 				20D8402824B4734B00F5D749 /* VerifyOTPModel.swift */,
 				20D8402924B4734B00F5D749 /* VerifyRegistrationCodeModel.swift */,
 				9F8D82AA24C9B4B700BB1C26 /* UUIDModel.swift */,
@@ -6528,6 +6534,7 @@
 				20901BE624FFBFF000D13931 /* EmptyModel.swift in Sources */,
 				E7547A5C24EFC18C002F35A9 /* BeneficiaryVerificationRouter.swift in Sources */,
 				E1995E2127C3CB3700B44793 /* ReceiverSuccessRouter.swift in Sources */,
+				DB57AB8427F1E09700A94353 /* CancelRegisterModel.swift in Sources */,
 				2030723024C9C9CC00C0DC67 /* FAQViewController.swift in Sources */,
 				E168AAFF26F9CB77002D1083 /* NadraTrackingIDRouter.swift in Sources */,
 				2030722E24C9C9BD00C0DC67 /* FAQModuleBuilder.swift in Sources */,
@@ -6669,6 +6676,7 @@
 				E15BF30E277B2EAF0038EA81 /* CityListModuleBuilder.swift in Sources */,
 				E1FE16C42783899E0062D4E6 /* NadraVerificationFormBuilder.swift in Sources */,
 				E1FE16D1278464FB0062D4E6 /* NadraVerificationCompletedRouter.swift in Sources */,
+				DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */,
 				2095D2EC24E692FB001C5A48 /* FileRequestModel.swift in Sources */,
 				9F653ACC24CB0CD300810DBD /* RedeemConfirmBuilder.swift in Sources */,
 				9F653AD624CB0CD300810DBD /* RedeemOTPBuilder.swift in Sources */,
@@ -7085,7 +7093,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 129;
+				CURRENT_PROJECT_VERSION = 130;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -7460,7 +7468,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 129;
+				CURRENT_PROJECT_VERSION = 130;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -7489,7 +7497,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 129;
+				CURRENT_PROJECT_VERSION = 130;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;

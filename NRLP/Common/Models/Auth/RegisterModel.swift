@@ -27,7 +27,9 @@ struct RegisterRequestModel: Codable {
     var motherMaidenName: String?
     var birthPlace: String?
     var sotp: String
-
+    var versionNo: String
+    var tncId: Int
+    
     enum CodingKeys: String, CodingKey {
         case accountType = "user_type"
         case cnicNicop = "nic_nicop"
@@ -46,6 +48,8 @@ struct RegisterRequestModel: Codable {
         case motherMaidenName = "mother_maiden_name"
         case birthPlace = "place_of_birth"
         case sotp = "sotp"
+        case versionNo = "version_no"
+        case tncId = "term_condition_id"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -67,6 +71,8 @@ struct RegisterRequestModel: Codable {
         try container.encode(motherMaidenName?.aesEncrypted(), forKey: .motherMaidenName)
         try container.encode(cnicIssueDate?.aesEncrypted(), forKey: .cnicIssueDate)
         try container.encode(sotp, forKey: .sotp)
+        try container.encode(versionNo, forKey: .versionNo)
+        try container.encode(tncId, forKey: .tncId)
     }
 }
 

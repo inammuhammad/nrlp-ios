@@ -26,6 +26,8 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
     private var model: RegisterRequestModel
     private var termsAndConditionService: TermsAndConditionServiceProtocol
     private var registerUserService: RegisterUserService
+    private var cancelRegisterUserService: CancelRegisterUserService
+    private var tnc: TermsAndConditionContentModel?
 
     var isTermsAccepted: Bool = false {
         didSet {
@@ -36,7 +38,9 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
     init(with router: TermsAndConditionRouter,
          model: RegisterRequestModel,
          termsAndConditionService: TermsAndConditionServiceProtocol,
-         registerUserService: RegisterUserService, isFromBeneficiary: Bool = false) {
+         registerUserService: RegisterUserService,
+         cancelRegisterUserService: CancelRegisterUserService,
+         isFromBeneficiary: Bool = false) {
 
         self.router = router
         self.model = model
@@ -47,6 +51,7 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
         }
         self.termsAndConditionService = termsAndConditionService
         self.registerUserService = registerUserService
+        self.cancelRegisterUserService = cancelRegisterUserService
     }
 
     func viewModelDidLoad() {
@@ -60,8 +65,9 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
             self.output?(.showActivityIndicator(show: false))
             switch resposne {
             case .success(let model):
-                let tnc = model.data?.content.getStringForHTMLContent()
-                self.output?(.updateTermsAndCondition(content: tnc ?? NSAttributedString()))
+                self.tnc = model.data
+                let attrTnc = self.tnc?.content.getStringForHTMLContent()
+                self.output?(.updateTermsAndCondition(content: attrTnc ?? NSAttributedString()))
             case .failure(let error):
                 self.output?(.showError(error: error))
             }
@@ -71,6 +77,8 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
     private func registerUser() {
         output?(.showActivityIndicator(show: true))
         model.sotp = "2"
+        model.versionNo = tnc?.versionNo ?? "-"
+        model.tncId = tnc?.id ?? -1
         registerUserService.registerUser(with: model) { [weak self] (response) in
             guard let self = self else { return }
             self.output?(.showActivityIndicator(show: false))
@@ -92,7 +100,28 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
     }
 
     func didConfirmedDeclinedRegistration() {
-        router.navigateToLoginScreen()
+        guard let tnc = tnc else {
+            return
+        }
+        
+        output?(.showActivityIndicator(show: true))
+        
+        let cancelModel = CancelRegisterRequestModel(
+            accountType: model.accountType,
+            cnicNicop: model.cnicNicop,
+            versionNo: tnc.versionNo, tncId: tnc.id
+        )
+        
+        cancelRegisterUserService.cancelRegisterUser(with: cancelModel) { [weak self] (response) in
+            guard let self = self else { return }
+            self.output?(.showActivityIndicator(show: false))
+            switch response {
+            case .success:
+                self.router.navigateToLoginScreen()
+            case .failure(let error):
+                self.output?(.showError(error: error))
+            }
+        }
     }
 
     enum Output {

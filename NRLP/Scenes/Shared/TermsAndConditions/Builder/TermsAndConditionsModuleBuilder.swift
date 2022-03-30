@@ -16,8 +16,7 @@ class TermsAndConditionsModuleBuilder {
         let viewController = TermsAndConditionsViewController.getInstance()
 
         let coordinator = TermsAndConditionRouter(navigationController: navigationController)
-        let viewModel = TermsAndConditionViewModel(with: coordinator, model: model, termsAndConditionService: TermsAndConditionService(), registerUserService: RegisterUserService(), isFromBeneficiary: isFromBeneficiary)
-
+        let viewModel = TermsAndConditionViewModel(with: coordinator, model: model, termsAndConditionService: TermsAndConditionService(), registerUserService: RegisterUserService(), cancelRegisterUserService: CancelRegisterUserService(), isFromBeneficiary: isFromBeneficiary)
         viewController.viewModel = viewModel
 
         return viewController

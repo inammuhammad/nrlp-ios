@@ -191,7 +191,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
             return
         }
         let finalMobile = (country?.code ?? "") + (mobileNumber ?? "-")
-        var registerModel = RegisterRequestModel(accountType: accountType?.rawValue ?? "-", cnicNicop: cnic ?? "-", email: email ?? "-", fullName: name ?? "-", mobileNo: finalMobile, paassword: paassword ?? "-", passportType: passportType?.rawValue ?? "-", passportNumber: passportNumber ?? "-", registrationCode: "-", residentID: residentID ?? "-", country: country?.country ?? "-", cnicIssueDate: cnicIssueDateString, motherMaidenName: motherMaidenName ?? "-", birthPlace: birthPlace, sotp: "1")
+        var registerModel = RegisterRequestModel(accountType: accountType?.rawValue ?? "-", cnicNicop: cnic ?? "-", email: email ?? "-", fullName: name ?? "-", mobileNo: finalMobile, paassword: paassword ?? "-", passportType: passportType?.rawValue ?? "-", passportNumber: passportNumber ?? "-", registrationCode: "-", residentID: residentID ?? "-", country: country?.country ?? "-", cnicIssueDate: cnicIssueDateString, motherMaidenName: motherMaidenName ?? "-", birthPlace: birthPlace, sotp: "1", versionNo: "-", tncId: 0)
         switch accountType {
         case .beneficiary:
             registerModel.registrationCode = beneficaryOTP

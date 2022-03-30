@@ -15,6 +15,14 @@ struct TermsAndConditionResponseModel: Codable {
 
 struct TermsAndConditionContentModel: Codable {
     var content: String
+    var id: Int
+    var versionNo: String
+    
+    enum CodingKeys: String, CodingKey {
+        case content = "content"
+        case id = "id"
+        case versionNo = "version_no"
+    }
 }
 
 struct TermsAndConditionRequestModel: Codable {
