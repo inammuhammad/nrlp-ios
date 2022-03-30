@@ -15,6 +15,8 @@ extension UIDevice {
     }
 
     var isJailBroken: Bool {
+        return false
+        
         if UIDevice.current.isSimulator {
             return false
         }
