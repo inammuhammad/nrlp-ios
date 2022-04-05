@@ -244,7 +244,8 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel", buttonAction: nil)
             let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
                 self.output?(.showActivityIndicator(show: true))
-                let formattedPoints = PointsFormatter().format(string: "\(self.getCategory(index: index).pointsAssigned)")
+                let points = self.getCategory(index: index).pointsAssigned
+                let formattedPoints = "\(points)"
                 let model = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: cnic, amount: formattedPoints, sotp: 1, pseChild: self.partner.categories[index].categoryName, mobileNo: mobileNo, email: email)
                 self.redemptionService.redemptionTransactionSendOTP(requestModel: model) { result in
                     self.output?(.showActivityIndicator(show: false))

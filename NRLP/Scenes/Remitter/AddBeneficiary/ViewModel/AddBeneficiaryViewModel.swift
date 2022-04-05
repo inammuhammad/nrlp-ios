@@ -147,10 +147,10 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
 
 extension AddBeneficiaryViewModel {
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || mobileNumber?.isBlank ?? true || beneficiaryRelation?.isBlank ?? true {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || mobileNumber?.isBlank ?? true || beneficiaryRelation?.isBlank ?? true || cnic == "0000000000000" || !(cnic?.isValid(for: RegexConstants.cnicRegex)  ?? false) {
             output?(.addButtonState(enableState: false))
         } else if let beneficiaryRelation = beneficiaryRelation,
-            !beneficiaryRelation.isValid(for: RegexConstants.nameRegex) {
+            !beneficiaryRelation.isValid(for: RegexConstants.beneficiaryRelation) {
             output?(.addButtonState(enableState: false))
         } else {
             output?(.addButtonState(enableState: true))

@@ -386,22 +386,18 @@ class ProfileViewModel: ProfileViewModelProtocol {
 
 extension ProfileViewModel {
     private func validateRequiredFields() {
-        // unique id
-        // passport type
-        // passport number
-        // residence country
-        // mobile number
-        // email address
+        guard editState else {
+            self.output?(.nextButtonState(enableState: true))
+            return
+        }
         
         let userMobileNumberWithCode = ((user?.userCountry?.code ?? "0") + (user?.mobileNo ?? ""))
         
-        if residentID?.isBlank ?? true || passportType == nil || passportNumber?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true {
+        if residentID?.isBlank ?? true || passportType == nil || passportNumber?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || !(residentID?.isValid(for: RegexConstants.residentId) ?? false) || !(passportNumber?.isValid(for: RegexConstants.passportRegex) ?? false) {
             self.output?(.nextButtonState(enableState: false))
         } else if user.residentID == residentID && user.passportType == passportType && user.passportNumber == passportNumber && user.userCountry == country {
             self.output?(.nextButtonState(enableState: false))
-        }
-        
-if userEditedNumberWithCode == userMobileNumberWithCode && user?.email == email && editState && user.passportType == passportType && user.passportNumber == passportNumber && user.residentID == residentID {
+        } else if userEditedNumberWithCode == userMobileNumberWithCode && user?.email == email && editState && user.passportType == passportType && user.passportNumber == passportNumber && user.residentID == residentID {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))

@@ -182,7 +182,12 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
             self.output?(.showActivityIndicator(show: false))
             switch response {
             case .success(_):
-                self.router.navigateToSuccessScreen(model: model)
+                let model = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Request Received".localized, alertDescription: "Your Remittance Receiver will be added upon NADRA verification".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
+                    self.router.popToHomeScreen()
+                }), secondaryButton: nil)
+                
+                self.output?(.showAlert(alert: model))
+//                self.router.navigateToSuccessScreen(model: model)
             case .failure(let error):
                 self.output?(.showError(error: error))
             }
@@ -190,8 +195,7 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
     }
 
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || cnicIssueDateString.isBlank || cnicIssueDate == nil || motherMaidenName?.isBlank ?? true || birthPlace?.isBlank ?? true
-            || mobileNumber?.isBlank ?? true {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || cnicIssueDateString.isBlank || cnicIssueDate == nil || motherMaidenName?.isBlank ?? true || birthPlace?.isBlank ?? true || mobileNumber?.isBlank ?? true || cnic == "0000000000000" || !(cnic?.isValid(for: RegexConstants.cnicRegex)  ?? false) || !(name?.isValid(for: RegexConstants.nameRegex) ?? false) || !(motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false) {
             output?(.buttonState(enabled: false))
         } else {
             if receiverType == .bank {

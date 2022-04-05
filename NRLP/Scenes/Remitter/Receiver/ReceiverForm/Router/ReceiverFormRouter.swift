@@ -31,4 +31,14 @@ class ReceiverFormRouter {
     func navigateToBankPicker(with onSelectionBank: @escaping OnBankSelectionCallBack) {
         self.navigationController?.pushViewController(BankListingBuilder().build(with: self.navigationController, onBankSelection: onSelectionBank), animated: true)
     }
+    
+    func popToHomeScreen() {
+        for controller in self.navigationController!.viewControllers as Array {
+            if controller.isKind(of: ReceiverListingViewController.self) {
+                self.navigationController!.popToViewController(controller, animated: true)
+                return
+            }
+        }
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }

@@ -76,7 +76,7 @@ class BeneficiaryInfoViewModel: BeneficiaryInfoViewModelProtocol {
         self.beneficiary = beneficiary
         self.service = service
         self.name = beneficiary.alias
-        self.cnic = "\(beneficiary.nicNicop)"
+        self.cnic = "\(beneficiary.formattedCNIC)"
         self.mobileNumber = beneficiary.mobileNo
         self.relation = beneficiary.beneficiaryRelation
         self.countryName = beneficiary.country

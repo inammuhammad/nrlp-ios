@@ -472,3 +472,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 // Add Beneficiary
 "Beneficiary Relation Type *" = "Beneficiary Relation Type *";
 "Beneficiary Relation *" = "Beneficiary Relation *";
+"CNIC/ NICOP *" = "CNIC/ NICOP *";
+"Full Name *" = "Full Name as per CNIC/NICOP/POC *";
+"Country of Residence *" = "Country of Residence *";
+"Beneficiary Mobile Number *" = "Beneficiary Mobile Number *";

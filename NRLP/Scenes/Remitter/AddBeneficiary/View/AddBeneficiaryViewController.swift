@@ -21,7 +21,7 @@ class AddBeneficiaryViewController: BaseViewController {
 
     @IBOutlet private weak var cnicTextField: LabelledTextview! {
         didSet {
-            cnicTextField.titleLabelText = "CNIC/ NICOP".localized
+            cnicTextField.titleLabelText = "CNIC/ NICOP *".localized
             cnicTextField.placeholderText = "xxxxx-xxxxxxx-x".localized
             cnicTextField.editTextKeyboardType = .asciiCapableNumberPad
             cnicTextField.formatter = CNICFormatter()
@@ -37,7 +37,7 @@ class AddBeneficiaryViewController: BaseViewController {
 
     @IBOutlet private weak var aliasTextField: LabelledTextview! {
         didSet {
-            aliasTextField.titleLabelText = "Full Name".localized
+            aliasTextField.titleLabelText = "Full Name *".localized
             aliasTextField.placeholderText = "Muhammad Ali".localized
             aliasTextField.inputFieldMaxLength = 50
             aliasTextField.editTextKeyboardType = .asciiCapable
@@ -52,7 +52,7 @@ class AddBeneficiaryViewController: BaseViewController {
 
     @IBOutlet private weak var countryTextField: LabelledTextview! {
         didSet {
-            countryTextField.titleLabelText = "Country of Residence".localized
+            countryTextField.titleLabelText = "Country of Residence *".localized
             countryTextField.placeholderText = "Select Country".localized
             countryTextField.isEditable = false
             countryTextField.isTappable = true
@@ -66,7 +66,7 @@ class AddBeneficiaryViewController: BaseViewController {
     }
     @IBOutlet private weak var mobileTextField: LabelledTextview! {
         didSet {
-            mobileTextField.titleLabelText = "Beneficiary Mobile Number".localized
+            mobileTextField.titleLabelText = "Beneficiary Mobile Number *".localized
             mobileTextField.placeholderText = "+xx xxx xxx xxxx".localized
             mobileTextField.editTextKeyboardType = .asciiCapableNumberPad
             mobileTextField.isEditable = false
@@ -94,7 +94,7 @@ class AddBeneficiaryViewController: BaseViewController {
             beneficiaryRelationshipTextField.placeholderText = "Enter Beneficiary Relation ".localized
             beneficiaryRelationshipTextField.editTextKeyboardType = .alphabet
             beneficiaryRelationshipTextField.isEditable = true
-            beneficiaryRelationshipTextField.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: "Please provide valid relationship")
+            beneficiaryRelationshipTextField.formatValidator = FormatValidator(regex: RegexConstants.beneficiaryRelation, invalidFormatError: "Please provide valid relationship")
             beneficiaryRelationshipTextField.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.beneficiaryRelation = updatedText

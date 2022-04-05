@@ -82,6 +82,7 @@ class ProfileViewController: BaseViewController {
             residentIDTextView.editTextKeyboardType = .default
             residentIDTextView.inputFieldMinLength = 1
             residentIDTextView.inputFieldMaxLength = 25
+            residentIDTextView.formatValidator = FormatValidator(regex: RegexConstants.residentId, invalidFormatError: "Invalid Unique ID")
             passportNumberTextView.isEditable = false
             residentIDTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }

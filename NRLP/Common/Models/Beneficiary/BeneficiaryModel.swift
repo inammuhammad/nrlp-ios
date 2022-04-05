@@ -22,7 +22,16 @@ struct BeneficiaryModel: Codable {
     let country: String?
 
     var formattedCNIC: String {
-        return CNICFormatter().format(string: "\(nicNicop)")
+        if nicNicop != 0 {
+            var cnic = "\(nicNicop)"
+            
+            if cnic.count < 13 {
+                cnic = String(repeating: "0", count: 13 - cnic.count) + cnic
+            }
+            
+            return CNICFormatter().format(string: cnic)
+        }
+        return CNICFormatter().format(string: "")
     }
     
     var updateAtTime: Date? {

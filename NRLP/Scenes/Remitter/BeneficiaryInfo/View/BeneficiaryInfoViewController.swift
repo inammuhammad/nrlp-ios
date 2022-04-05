@@ -32,7 +32,7 @@ class BeneficiaryInfoViewController: BaseViewController {
     
     @IBOutlet private weak var cnicTextField: LabelledTextview! {
         didSet {
-            cnicTextField.titleLabelText = "CNIC/NICOP".localized
+            cnicTextField.titleLabelText = "CNIC/ NICOP *".localized
             cnicTextField.placeholderText = "4250180532901".localized
             cnicTextField.editTextKeyboardType = .asciiCapableNumberPad
             cnicTextField.formatter = CNICFormatter()
@@ -46,7 +46,7 @@ class BeneficiaryInfoViewController: BaseViewController {
     
     @IBOutlet private weak var aliasTextField: LabelledTextview! {
         didSet {
-            aliasTextField.titleLabelText = "Full Name".localized
+            aliasTextField.titleLabelText = "Full Name *".localized
             aliasTextField.placeholderText = "Muhammad Ali".localized
             aliasTextField.isEditable = false
             aliasTextField.editTextKeyboardType = .asciiCapable
@@ -59,7 +59,7 @@ class BeneficiaryInfoViewController: BaseViewController {
     
     @IBOutlet private weak var countryTextField: LabelledTextview! {
         didSet {
-            countryTextField.titleLabelText = "Country of Residence".localized
+            countryTextField.titleLabelText = "Country of Residence *".localized
             countryTextField.placeholderText = "".localized
             countryTextField.editTextKeyboardType = .asciiCapableNumberPad
             countryTextField.isEditable = false
@@ -78,7 +78,7 @@ class BeneficiaryInfoViewController: BaseViewController {
         didSet {
             // get country code
             
-            mobileTextField.titleLabelText = "Beneficiary Mobile Number".localized
+            mobileTextField.titleLabelText = "Beneficiary Mobile Number *".localized
             mobileTextField.placeholderText = "+xx xxx xxx xxxx".localized
             mobileTextField.editTextKeyboardType = .asciiCapableNumberPad
             mobileTextField.isEditable = false

@@ -486,4 +486,8 @@
 
 "Beneficiary Relation Type *" = "وصول کنندہ کا رشتہ منتخب کریں *";
 "Beneficiary Relation *" = "وصول کنندہ کا رشتہ *";
+"CNIC/ NICOP *"="شناختی کارڈ/ نیشنل آئیڈنٹٹی کارڈ فور اوورسیز پاکستانی *";
+"Full Name *"= "کے مطابق پورا نام * CNIC/NICOP";
+"Country of Residence *"=  "قیام کا ملک *";
+"Beneficiary Mobile Number *" = "وصول کنندہ کا موبائل نمبر *";
 
