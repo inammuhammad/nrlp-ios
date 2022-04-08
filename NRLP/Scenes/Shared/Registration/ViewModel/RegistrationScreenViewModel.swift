@@ -17,7 +17,9 @@ protocol RegistrationViewModelProtocol {
     var passportTypePickerViewModel: ItemPickerViewModel { get }
     var datePickerViewModel: CustomDatePickerViewModel { get }
     var name: String? { get set }
+    var fatherName: String? { get set }
     var cnic: String? { get set }
+    var birthPlace: String? { get set }
     var cnicIssueDate: Date? { get set }
     var motherMaidenName: String? { get set }
     var residentID: String? { get set }
@@ -62,6 +64,12 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
     private var appKeyService: APIKeyServiceDecorator<RegisterUserServiceProtocol>
 
     var name: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var fatherName: String? {
         didSet {
             validateRequiredFields()
         }
@@ -309,7 +317,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
 extension RegistrationViewModel {
     private func validateRequiredFields() {
         if self.accountType == .remitter {
-            if name?.isBlank ?? true || country == nil || cnic?.isBlank ?? true || cnicIssueDate == nil || passportType == nil || passportNumber?.isBlank ?? true || residentID?.isBlank ?? true || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true {
+            if name?.isBlank ?? true || country == nil || cnic?.isBlank ?? true || cnicIssueDate == nil || passportType == nil || passportNumber?.isBlank ?? true || residentID?.isBlank ?? true || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true || !(birthPlace?.isValid(for: RegexConstants.nameRegex) ?? false) {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))

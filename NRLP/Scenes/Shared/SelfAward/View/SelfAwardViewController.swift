@@ -12,15 +12,31 @@ class SelfAwardViewController: BaseViewController {
     
     // MARK: Properties
     
+    var transactionType: TransactionType? {
+        didSet {
+            cnicTextView.isHidden = true
+            ibanTextView.isHidden = true
+            
+            if transactionType == .cnic {
+                cnicTextView.isHidden = false
+            } else if transactionType == .bank {
+                ibanTextView.isHidden = false
+            }
+            
+            validateFields()
+        }
+    }
+    
     var remittanceDate: Date? {
         didSet {
             validateFields()
         }
-
+        
     }
     var referenceNumber: String?
     var transactionAmount: String?
-    var beneficaryCnic: String?
+    var iban: String?
+    var cnic: String?
     var user: UserModel?
     
     var datePickerViewModel: CustomDatePickerViewModel {
@@ -42,6 +58,28 @@ class SelfAwardViewController: BaseViewController {
         }
     }
     
+    private lazy var itemPickerView: ItemPickerView! = {
+        var pickerView = ItemPickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = transactionTypePickerViewModel
+        return pickerView
+    }()
+    
+    private var transactionTypePickerViewModel: ItemPickerViewModel {
+        return ItemPickerViewModel(
+            data: [
+                TransactionTypePickerItemModel(
+                    title: TransactionType.cnic.getTitle(),
+                    key: TransactionType.cnic.rawValue
+                ),
+                TransactionTypePickerItemModel(
+                    title: TransactionType.bank.getTitle(),
+                    key: TransactionType.bank.rawValue
+                )
+            ]
+        )
+    }
+    
     // MARK: IBOutlets
     
     @IBOutlet weak var proceedBtn: PrimaryCTAButton! {
@@ -54,7 +92,7 @@ class SelfAwardViewController: BaseViewController {
             proceedBtn.addTarget(self, action: #selector(proceedBtnAction), for: .touchUpInside)
         }
     }
-
+    
     @IBOutlet weak var titleLbl: UILabel! {
         didSet {
             titleLbl.text = "Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)".localized
@@ -81,7 +119,7 @@ class SelfAwardViewController: BaseViewController {
             }
         }
     }
-
+    
     @IBOutlet private weak var transactionAmountLabelTextView: LabelledTextview! {
         didSet {
             transactionAmountLabelTextView.editTextKeyboardType = .decimalPad
@@ -122,34 +160,65 @@ class SelfAwardViewController: BaseViewController {
             }
         }
     }
-    @IBOutlet private weak var beneficaryCnicTextView: LabelledTextview! {
+    @IBOutlet weak var transactionTypeTextView: LabelledTextview! {
         didSet {
-            beneficaryCnicTextView.titleLabelText = "Beneficiary Account Number/ IBAN/CNIC".localized
-            beneficaryCnicTextView.placeholderText = "xxxxxxxxxxxxx".localized
-            beneficaryCnicTextView.editTextKeyboardType = .default
-            beneficaryCnicTextView.inputFieldMinLength = 1
-            beneficaryCnicTextView.showHelpBtn = true
-            beneficaryCnicTextView.isEditable = true
-            beneficaryCnicTextView.helpPopupIcon = .selfAward
-            beneficaryCnicTextView.helpLabelText = "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent".localized
-            beneficaryCnicTextView.onTextFieldChanged = { [weak self] updatedText in
+            transactionTypeTextView.titleLabelText = "Remittance Transaction Type".localized
+            transactionTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            transactionTypeTextView.placeholderText = "Select Transaction Type".localized
+            transactionTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            transactionTypeTextView.inputTextFieldInputPickerView = itemPickerView
+        }
+    }
+    @IBOutlet private weak var ibanTextView: LabelledTextview! {
+        didSet {
+            ibanTextView.titleLabelText = "Beneficiary Account Number/ IBAN".localized
+            ibanTextView.placeholderText = "xxxxxxxxxxxxx".localized
+            ibanTextView.editTextKeyboardType = .default
+            ibanTextView.inputFieldMinLength = 1
+            ibanTextView.showHelpBtn = true
+            ibanTextView.isEditable = true
+            ibanTextView.helpPopupIcon = .selfAward
+            ibanTextView.helpLabelText = "Enter Beneficiary Account Number/ IBAN on which remittance is sent".localized
+            ibanTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
-                self.beneficaryCnic = updatedText
+                self.iban = updatedText
                 self.validateFields()
             }
-            beneficaryCnicTextView.onHelpBtnPressed = { [weak self] model in
+            ibanTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
                 self.showAlert(with: model)
+            }
+        }
+    }
+    @IBOutlet private weak var cnicTextView: LabelledTextview! {
+        didSet {
+            cnicTextView.titleLabelText = "Beneficiary CNIC".localized
+            cnicTextView.placeholderText = "xxxxx-xxxxxxx-x".localized
+            cnicTextView.editTextKeyboardType = .asciiCapableNumberPad
+            cnicTextView.inputFieldMinLength = 13
+            cnicTextView.inputFieldMaxLength = 13
+            cnicTextView.formatValidator = CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
+            cnicTextView.formatter = CNICFormatter()
+            cnicTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.cnic = updatedText
+                self.validateFields()
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         showInitialAlert()
         setupUI()
+        
+        // test
+        referenceNumberLabelTextView.inputText = "1234567890"
+        referenceNumber = "1234567890"
+        transactionAmountLabelTextView.inputText = "123456"
+        transactionAmount = "123456"
     }
     
     private func setupUI() {
@@ -159,6 +228,9 @@ class SelfAwardViewController: BaseViewController {
         } else {
             titleLbl.textAlignment = .left
         }
+        
+        ibanTextView.isHidden = true
+        cnicTextView.isHidden = true
     }
     
     private func showInitialAlert() {
@@ -169,23 +241,29 @@ class SelfAwardViewController: BaseViewController {
     }
     
     private func validateFields() {
-        if let referenceNo = referenceNumber, let transactionAmount = transactionAmount, let cnic = beneficaryCnic, let date = self.remittanceDateString {
-            if referenceNo.isEmpty || transactionAmount.isEmpty || cnic.isEmpty || date.isEmpty {
-                proceedBtn.isEnabled = false
-            } else {
-                proceedBtn.isEnabled = true
-            }
-        } else {
+        if referenceNumber?.isBlank ?? true || transactionAmount?.isBlank ?? true || remittanceDateString?.isBlank ?? true || transactionType == nil {
             proceedBtn.isEnabled = false
+        } else {
+            if transactionType == .cnic,
+               !(cnic?.isBlank ?? true),
+               cnic?.isValid(for: RegexConstants.cnicRegex) ?? true {
+                proceedBtn.isEnabled = true
+            } else if transactionType == .bank,
+                      !(iban?.isBlank ?? true),
+                      iban?.isValid(for: RegexConstants.ibanRegex) ?? true {
+                proceedBtn.isEnabled = true
+            } else {
+                proceedBtn.isEnabled = false
+            }
         }
     }
     
     @objc private func proceedBtnAction() {
-        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.beneficaryCnic, let date = self.remittanceDateString {
+        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.cnic, let date = self.remittanceDateString {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
             let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic, remittanceDate: date)
-
+            
             service.validateTransaction(requestModel: model) {[weak self] (result) in
                 self?.showActivityIndicator(show: false)
                 switch result {
@@ -203,7 +281,7 @@ class SelfAwardViewController: BaseViewController {
                     default:
                         self?.showAlert(with: error)
                     }
-               }
+                }
             }
         }
     }
@@ -217,14 +295,33 @@ class SelfAwardViewController: BaseViewController {
         vc.viewModel = SelfAwardOTPViewModel(model: model, navigationController: self.navigationController ?? UINavigationController(), user: user, responseModel: responseModel)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
+    func didSelect(transactionType: TransactionTypePickerItemModel) {
+        self.transactionType = transactionType.transactionType
+        setTransactionType(text: self.transactionType?.getTitle() ?? "")
+    }
+    
+    func setTransactionType(text: String) {
+        self.transactionTypeTextView.inputText = text
+    }
 }
 
-extension SelfAwardViewController: CustomDatePickerViewDelegate {
+extension SelfAwardViewController: ItemPickerViewDelegate {
     func didTapCancelButton() {
         self.view.endEditing(true)
     }
     
+    func didTapDoneButton(with selectedItem: PickerItemModel?) {
+        if let item = selectedItem as? TransactionTypePickerItemModel {
+            didSelect(transactionType: item)
+        } else {
+            self.transactionType = nil
+        }
+        self.view.endEditing(true)
+    }
+}
+
+extension SelfAwardViewController: CustomDatePickerViewDelegate {
     func didTapDoneButton(picker: CustomDatePickerView, date: Date) {
         self.view.endEditing(true)
         switch picker {

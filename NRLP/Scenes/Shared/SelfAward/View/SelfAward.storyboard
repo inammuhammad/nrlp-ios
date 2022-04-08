@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +30,7 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="mEK-zJ-ljv">
-                                <rect key="frame" x="16" y="108.5" width="382" height="392"/>
+                                <rect key="frame" x="16" y="108.5" width="382" height="610"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wo6-Mt-Dbh" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="80"/>
@@ -53,11 +53,25 @@
                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="TPQ-X9-uRm"/>
                                         </constraints>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9r-JI-2Kn" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="312" width="382" height="90"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="90" id="6Rv-qO-k0X"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-X6-gMU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="312" width="382" height="80"/>
+                                        <rect key="frame" x="0.0" y="426" width="382" height="80"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="8e1-XX-g8O"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szT-YK-tUw" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="530" width="382" height="80"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="g8A-45-tGn"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -85,12 +99,14 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="beneficaryCnicTextView" destination="kqo-X6-gMU" id="fhf-qg-fMh"/>
+                        <outlet property="cnicTextView" destination="szT-YK-tUw" id="SLK-h6-7aj"/>
+                        <outlet property="ibanTextView" destination="kqo-X6-gMU" id="nfF-n1-zZP"/>
                         <outlet property="proceedBtn" destination="5iH-Vc-mM9" id="F4k-1A-axf"/>
                         <outlet property="referenceNumberLabelTextView" destination="wo6-Mt-Dbh" id="dj6-34-4m8"/>
                         <outlet property="remittanceDateTextView" destination="ilv-wM-EhK" id="Kdv-hm-pLV"/>
                         <outlet property="titleLbl" destination="pfY-uN-VDq" id="8vt-js-z6B"/>
                         <outlet property="transactionAmountLabelTextView" destination="KOU-m7-W4H" id="exH-Nu-yU2"/>
+                        <outlet property="transactionTypeTextView" destination="o9r-JI-2Kn" id="AbA-J9-D4Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

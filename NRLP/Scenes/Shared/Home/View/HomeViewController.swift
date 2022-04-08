@@ -25,6 +25,9 @@ class HomeViewController: BaseViewController {
         bindViewModel()
         viewModel.viewModelDidLoad()
         setupHamburgerItem()
+        
+        // test
+        self.viewModel.didTapItem(at: 5)
     }
 
     override func viewWillAppear(_ animated: Bool) {

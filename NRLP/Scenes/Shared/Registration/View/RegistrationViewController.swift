@@ -65,6 +65,26 @@ class RegistrationViewController: BaseViewController {
             }
         }
     }
+    @IBOutlet private weak var fatherNameTextView: LabelledTextview! {
+        didSet {
+            fatherNameTextView.titleLabelText = "Father Name *".localized
+            fatherNameTextView.placeholderText = "Muhammad Ali".localized
+            fatherNameTextView.autoCapitalizationType = .words
+            fatherNameTextView.inputFieldMaxLength = 50
+            fatherNameTextView.showHelpBtn = true
+            fatherNameTextView.helpLabelText = "Please enter your Father Name as per CNIC/NICOP".localized
+            fatherNameTextView.editTextKeyboardType = .asciiCapable
+            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            fatherNameTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.viewModel.fatherName = updatedText
+            }
+            fatherNameTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
     @IBOutlet private weak var motherNameTextView: LabelledTextview! {
         didSet {
             motherNameTextView.titleLabelText = "Mother Maiden Name *".localized
@@ -120,16 +140,16 @@ class RegistrationViewController: BaseViewController {
     @IBOutlet private weak var birthPlaceTextView: LabelledTextview! {
         didSet {
             birthPlaceTextView.titleLabelText = "Place of Birth *".localized
-            birthPlaceTextView.placeholderText = "Select City".localized
-            birthPlaceTextView.isEditable = false
-            birthPlaceTextView.isTappable = true
+            birthPlaceTextView.placeholderText = "Islamabad".localized
+            birthPlaceTextView.autoCapitalizationType = .words
+            birthPlaceTextView.inputFieldMaxLength = 50
             birthPlaceTextView.showHelpBtn = false
-            birthPlaceTextView.helpLabelText = "Please select your place of birth".localized
+            birthPlaceTextView.helpLabelText = "Please select your place of birth".localized // change select to enter
             birthPlaceTextView.editTextKeyboardType = .asciiCapable
-            birthPlaceTextView.editTextCursorColor = .init(white: 1, alpha: 0)
-            birthPlaceTextView.onTextFieldTapped = { [weak self] in
+            birthPlaceTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            birthPlaceTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
-                self.viewModel.birthPlaceTextFieldTapped()
+                self.viewModel.birthPlace = updatedText
             }
             birthPlaceTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
@@ -365,6 +385,7 @@ extension RegistrationViewController {
                     passportTypeTextView.isHidden = false
                     passportNumberTextView.isHidden = false
                     fullNameTextView.isHidden = false
+                    fatherNameTextView.isHidden = false
                     motherNameTextView.isHidden = false
                     birthPlaceTextView.isHidden = false
                     countryTextView.isHidden = false
@@ -380,6 +401,7 @@ extension RegistrationViewController {
                     passportTypeTextView.isHidden = true
                     passportNumberTextView.isHidden = true
                     fullNameTextView.isHidden = true
+                    fatherNameTextView.isHidden = true
                     motherNameTextView.isHidden = true
                     birthPlaceTextView.isHidden = true
                     countryTextView.isHidden = true

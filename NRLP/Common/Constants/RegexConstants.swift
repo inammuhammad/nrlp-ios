@@ -25,7 +25,7 @@ struct RegexConstants {
     static let loyaltyPointsRegex = "^\\d{1,13}$"
     static let agentPointsRegex = "^[a-zA-Z0-9_]{6}$"
     static let htmlRegex = "</?\\w+((\\s+\\w+(\\s*=\\s*(?:\".*?\"|'.*?'|[\\^'\">\\s]+))?)+\\s*|\\s*)/?>"
-    static let iban = "^[a-zA-Z0-9]{1,24}$"
+    static let ibanRegex = "^[a-zA-Z0-9]{1,14}\\d{10}$"
     static let residentId = "^[a-zA-Z0-9]{1,}$"
     static let beneficiaryRelation = "[a-zA-Z]+( [a-zA-Z]+)*$"
 }

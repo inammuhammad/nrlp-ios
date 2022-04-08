@@ -195,7 +195,7 @@ extension BeneficiaryFormViewModel {
     }
     
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || motherMaidenName?.isBlank ?? true || cnicIssueDateString.isBlank || country == nil || mobileNumber?.isBlank ?? true || password?.isBlank ?? true || confirmPassword?.isBlank ?? true  || birthPlace == nil || cnicIssueDate == nil {
+        if name?.isBlank ?? true || motherMaidenName?.isBlank ?? true || cnicIssueDateString.isBlank || country == nil || mobileNumber?.isBlank ?? true || password?.isBlank ?? true || confirmPassword?.isBlank ?? true  || birthPlace == nil || cnicIssueDate == nil || !(birthPlace?.isValid(for: RegexConstants.nameRegex) ?? false) {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))

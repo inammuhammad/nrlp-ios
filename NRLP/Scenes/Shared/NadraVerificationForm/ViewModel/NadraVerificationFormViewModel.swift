@@ -12,6 +12,7 @@ typealias NadraVerificationFormViewModelOutput = (NadraVerificationFormViewModel
 
 protocol NadraVerificationFormViewModelProtocol {
     var fullName: String? { get set }
+    var birthPlace: String? { get set }
     var cnicIssueDate: Date? { get set }
     var motherMaidenName: String? { get set }
     var datePickerViewModel: CustomDatePickerViewModel { get }

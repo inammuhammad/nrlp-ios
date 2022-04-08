@@ -83,16 +83,16 @@ class BeneficiaryFormViewController: BaseViewController {
     @IBOutlet private weak var birthPlaceTextView: LabelledTextview! {
         didSet {
             birthPlaceTextView.titleLabelText = "Place of Birth *".localized
-            birthPlaceTextView.placeholderText = "Select City".localized
-            birthPlaceTextView.isEditable = false
-            birthPlaceTextView.isTappable = true
+            birthPlaceTextView.placeholderText = "Islamabad".localized
+            birthPlaceTextView.autoCapitalizationType = .words
+            birthPlaceTextView.inputFieldMaxLength = 50
             birthPlaceTextView.showHelpBtn = false
-            birthPlaceTextView.helpLabelText = "Please select your place of birth".localized
+            birthPlaceTextView.helpLabelText = "Please select your place of birth".localized // change select to enter
             birthPlaceTextView.editTextKeyboardType = .asciiCapable
-            birthPlaceTextView.editTextCursorColor = .init(white: 1, alpha: 0)
-            birthPlaceTextView.onTextFieldTapped = { [weak self] in
+            birthPlaceTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            birthPlaceTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
-                self.viewModel.birthPlaceTextFieldTapped()
+                self.viewModel.birthPlace = updatedText
             }
             birthPlaceTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }

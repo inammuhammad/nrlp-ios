@@ -99,16 +99,16 @@ class ReceiverFormViewController: BaseViewController {
     @IBOutlet private weak var birthPlaceTextView: LabelledTextview! {
         didSet {
             birthPlaceTextView.titleLabelText = "Place of Birth *".localized
-            birthPlaceTextView.placeholderText = "Please enter Receiver Information".localized
-            birthPlaceTextView.isEditable = false
-            birthPlaceTextView.isTappable = true
-            birthPlaceTextView.showHelpBtn = true
-            birthPlaceTextView.helpLabelText = "Please enter Receiver Place of Birth as per NADRA record".localized
+            birthPlaceTextView.placeholderText = "Islamabad".localized
+            birthPlaceTextView.autoCapitalizationType = .words
+            birthPlaceTextView.inputFieldMaxLength = 50
+            birthPlaceTextView.showHelpBtn = false
+            birthPlaceTextView.helpLabelText = "Please select your place of birth".localized // change select to enter
             birthPlaceTextView.editTextKeyboardType = .asciiCapable
-            birthPlaceTextView.editTextCursorColor = .init(white: 1, alpha: 0)
-            birthPlaceTextView.onTextFieldTapped = { [weak self] in
+            birthPlaceTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            birthPlaceTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
-                self.viewModel.birthPlaceTextFieldTapped()
+                self.viewModel.birthPlace = updatedText
             }
             birthPlaceTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
@@ -176,7 +176,7 @@ class ReceiverFormViewController: BaseViewController {
             bankNumberTextView.editTextKeyboardType = .asciiCapable
             bankNumberTextView.showHelpBtn = true
             bankNumberTextView.helpLabelText = "Please enter Receiver Bank Account Number/IBAN".localized
-            bankNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.iban, invalidFormatError: "Please enter a valid Bank Number / IBAN")
+            bankNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.ibanRegex, invalidFormatError: "Please enter a valid Bank Number / IBAN")
             bankNumberTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.bankNumber = updatedText

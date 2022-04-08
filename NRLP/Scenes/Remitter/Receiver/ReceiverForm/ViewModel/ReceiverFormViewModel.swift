@@ -18,6 +18,7 @@ protocol ReceiverFormViewModelProtocol {
     var name: String? { get set }
     var cnic: String? { get set }
     var cnicIssueDate: Date? { get set }
+    var birthPlace: String? { get set }
     var motherMaidenName: String? { get set }
     var mobileNumber: String? { get set }
     var bankName: String? { get set }
@@ -195,11 +196,11 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
     }
 
     private func validateRequiredFields() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || cnicIssueDateString.isBlank || cnicIssueDate == nil || motherMaidenName?.isBlank ?? true || birthPlace?.isBlank ?? true || mobileNumber?.isBlank ?? true || cnic == "0000000000000" || !(cnic?.isValid(for: RegexConstants.cnicRegex)  ?? false) || !(name?.isValid(for: RegexConstants.nameRegex) ?? false) || !(motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false) {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || cnicIssueDateString.isBlank || cnicIssueDate == nil || motherMaidenName?.isBlank ?? true || birthPlace?.isBlank ?? true || mobileNumber?.isBlank ?? true || cnic == "0000000000000" || !(cnic?.isValid(for: RegexConstants.cnicRegex)  ?? false) || !(name?.isValid(for: RegexConstants.nameRegex) ?? false) || !(motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false) || !(birthPlace?.isValid(for: RegexConstants.nameRegex) ?? false) {
             output?(.buttonState(enabled: false))
         } else {
             if receiverType == .bank {
-                if bankName?.isBlank ?? true || bankNumber?.isBlank ?? true || !(bankNumber ?? "").isValid(for: RegexConstants.iban) {
+                if bankName?.isBlank ?? true || bankNumber?.isBlank ?? true || !(bankNumber ?? "").isValid(for: RegexConstants.ibanRegex) {
                     output?(.buttonState(enabled: false))
                 } else {
                     output?(.buttonState(enabled: true))

@@ -562,6 +562,9 @@
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
 		DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */; };
 		DB57AB8427F1E09700A94353 /* CancelRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */; };
+		DBF4699A27FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */; };
+		DBF4699C27FDA35E00E1D9A6 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */; };
+		DBF4699F27FDA5A100E1D9A6 /* SelfAwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */; };
 		E10924C026C7C8BF004D19A6 /* PassportType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BE26C7C8BF004D19A6 /* PassportType.swift */; };
 		E10924C126C7C8BF004D19A6 /* PassportTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */; };
 		E111C89D27D692C100D185CD /* BankListing.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E111C89C27D692C100D185CD /* BankListing.storyboard */; };
@@ -1336,6 +1339,9 @@
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
 		DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterUserService.swift; sourceTree = "<group>"; };
 		DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterModel.swift; sourceTree = "<group>"; };
+		DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerItemModel.swift; sourceTree = "<group>"; };
+		DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewModel.swift; sourceTree = "<group>"; };
 		E10924BE26C7C8BF004D19A6 /* PassportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportType.swift; sourceTree = "<group>"; };
 		E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportTypePickerItemModel.swift; sourceTree = "<group>"; };
 		E111C89C27D692C100D185CD /* BankListing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BankListing.storyboard; sourceTree = "<group>"; };
@@ -4756,6 +4762,23 @@
 			path = CustomDatePickerView;
 			sourceTree = "<group>";
 		};
+		DBF4699827FDA32300E1D9A6 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */,
+				DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DBF4699D27FDA58B00E1D9A6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		E111C89727D6929700D185CD /* BankListing */ = {
 			isa = PBXGroup;
 			children = (
@@ -5679,6 +5702,8 @@
 		E1F232BE26D9FBEF000F8051 /* SelfAward */ = {
 			isa = PBXGroup;
 			children = (
+				DBF4699D27FDA58B00E1D9A6 /* ViewModel */,
+				DBF4699827FDA32300E1D9A6 /* Entity */,
 				E1F232BF26D9FBFA000F8051 /* View */,
 			);
 			path = SelfAward;
@@ -6598,6 +6623,7 @@
 				9F653AD024CB0CD300810DBD /* RedeemConfirmViewModel.swift in Sources */,
 				207C3E3624B8510A00298C0C /* FormatterProtocol.swift in Sources */,
 				207C3D9424B5AE6C00298C0C /* CountryListScreenRouter.swift in Sources */,
+				DBF4699F27FDA5A100E1D9A6 /* SelfAwardViewModel.swift in Sources */,
 				20901BE924FFC13F00D13931 /* NRLPBenefitResponseModel.swift in Sources */,
 				E1FE16C627839DD90062D4E6 /* NadraVerificationService.swift in Sources */,
 				207C3DE724B6F3F100298C0C /* AlertViewController.swift in Sources */,
@@ -6622,6 +6648,7 @@
 				E10924C026C7C8BF004D19A6 /* PassportType.swift in Sources */,
 				9F8D825024C86AA900BB1C26 /* ForgotPasswordViewModel.swift in Sources */,
 				200F1A1624BEC758001411D9 /* SideMenuModuleBuilder.swift in Sources */,
+				DBF4699C27FDA35E00E1D9A6 /* TransactionType.swift in Sources */,
 				207C3E2524B76ED500298C0C /* UIWindowExtension.swift in Sources */,
 				202F547124C1A3A200DBF4AA /* SideMenuItemViewModel.swift in Sources */,
 				9F4F220024CF009100148F21 /* RedeemSuccessBuilder.swift in Sources */,
@@ -6860,6 +6887,7 @@
 				2030725424C9F58200C0DC67 /* ProgressAnimatedView.swift in Sources */,
 				20D8403D24B493F200F5D749 /* BaseViewController.swift in Sources */,
 				9F6D737024B5F05D00B45F0F /* BeneficiaryInfoViewModel.swift in Sources */,
+				DBF4699A27FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift in Sources */,
 				2030725124C9F58200C0DC67 /* IndefiniteAnimatedView.swift in Sources */,
 				E111C8A727D6A6E500D185CD /* BankListingBuilder.swift in Sources */,
 				207C3E2D24B83EF400298C0C /* TermsAndConditionService.swift in Sources */,
