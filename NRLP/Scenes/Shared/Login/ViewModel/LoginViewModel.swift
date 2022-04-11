@@ -58,7 +58,7 @@ class LoginViewModel: LoginViewModelProtocol {
         case showActivityIndicator(show: Bool)
         case showError(error: APIResponseError)
         case loginButtonState(state: Bool)
-        case jailBroken
+        // case jailBroken
         case cnicLabelState(error: Bool, errorMsg: String?)
         case passwordLabelState(error: Bool, errorMsg: String?)
     }
@@ -91,9 +91,9 @@ class LoginViewModel: LoginViewModelProtocol {
     }
     
     func viewDidLoad() {
-        if UIDevice.current.isJailBroken {
-            output?(.jailBroken)
-        }
+//        if UIDevice.current.isJailBroken {
+//            output?(.jailBroken)
+//        }
         NRLPUserDefaults.shared.receiverManagemntSkipped(false)
     }
     

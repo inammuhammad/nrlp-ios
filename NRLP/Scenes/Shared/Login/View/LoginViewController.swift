@@ -182,10 +182,10 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
                 self.cnicLabelTextView.updateStateTo(isError: error, error: errorMsg)
             case .passwordLabelState(let error, let errorMsg):
                 self.passwordLabelTextView.updateStateTo(isError: error, error: errorMsg)
-            case .jailBroken:
-                self.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: StringConstants.ErrorString.serverErrorTitle.localized, alertDescription: StringConstants.ErrorString.jailbrokenMsg.localized, primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: {
-                    exit(0)
-                })))
+//            case .jailBroken:
+//                self.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: StringConstants.ErrorString.serverErrorTitle.localized, alertDescription: StringConstants.ErrorString.jailbrokenMsg.localized, primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: {
+//                    exit(0)
+//                })))
             }
         }
     }
