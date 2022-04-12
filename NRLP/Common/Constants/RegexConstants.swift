@@ -19,7 +19,7 @@ struct RegexConstants {
     static let passportRegex = "^(?!^0+$)[a-zA-Z0-9]{9,20}$"
     static let registrationCodeRegex = "^([a-zA-Z0-9_-]){5,}$"
     static let referenceNumberRegex = "^(\\S{1,25})$"
-    static let transactionAmountRegex = "^\\d*\\.?\\d*$"
+    static let transactionAmountRegex = "^[1-9]\\d*$" // "^\\d*\\.?\\d*$"
     static let mobileNumberRegex = "^[0-9]+$"
     static let otpValidateRegex = "^[0-9]*$"
     static let loyaltyPointsRegex = "^\\d{1,13}$"
@@ -28,4 +28,5 @@ struct RegexConstants {
     static let ibanRegex = "^[a-zA-Z0-9]{1,14}\\d{10}$"
     static let residentId = "^[a-zA-Z0-9]{1,}$"
     static let beneficiaryRelation = "[a-zA-Z]+( [a-zA-Z]+)*$"
+    static let alphanuericRegex = "^[a-zA-Z0-9]+$"
 }

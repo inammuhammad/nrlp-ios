@@ -56,7 +56,7 @@ class RemitterVerificationViewController: BaseViewController, UITextFieldDelegat
             transactionAmountLabelTextView.helpLabelText = "Enter exact amount as per you transaction receipt".localized
             transactionAmountLabelTextView.inputFieldMaxLength = 13
             transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
-            transactionAmountLabelTextView.formatter = CurrencyFormatter()
+            transactionAmountLabelTextView.formatter = TransactionAmountFormatter()
             transactionAmountLabelTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.transactionAmount = updatedText

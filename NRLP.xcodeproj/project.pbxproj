@@ -562,6 +562,7 @@
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
 		DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */; };
 		DB57AB8427F1E09700A94353 /* CancelRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */; };
+		DB9E3E822805737900B1F842 /* TransactionAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */; };
 		DBF4699A27FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */; };
 		DBF4699C27FDA35E00E1D9A6 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */; };
 		DBF4699F27FDA5A100E1D9A6 /* SelfAwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */; };
@@ -1339,6 +1340,7 @@
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
 		DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterUserService.swift; sourceTree = "<group>"; };
 		DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterModel.swift; sourceTree = "<group>"; };
+		DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountFormatter.swift; sourceTree = "<group>"; };
 		DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerItemModel.swift; sourceTree = "<group>"; };
 		DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewModel.swift; sourceTree = "<group>"; };
@@ -2368,6 +2370,7 @@
 				207C3E3724B8512800298C0C /* CNICFormatter.swift */,
 				20D3B0AE24B8802300F1E08C /* CurrencyFormatter.swift */,
 				20D839AE24D1B79700C82A87 /* PointsFormatter.swift */,
+				DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */,
 			);
 			path = Formatter;
 			sourceTree = "<group>";
@@ -6803,6 +6806,7 @@
 				A1B9A22824B308DA00CAAA32 /* LoginViewModel.swift in Sources */,
 				E13F319827B2A51800B763BD /* ProfileVerificationViewModel.swift in Sources */,
 				2073D2AE24C0778100897232 /* FAQItemTableViewCell.swift in Sources */,
+				DB9E3E822805737900B1F842 /* TransactionAmountFormatter.swift in Sources */,
 				2073D2A024C03ACA00897232 /* ParameterEncoding.swift in Sources */,
 				207C3E2324B767C500298C0C /* UICollectionViewCellExtensions.swift in Sources */,
 				E18454CA27731A6700FE5793 /* CodeLabelledTextView.swift in Sources */,

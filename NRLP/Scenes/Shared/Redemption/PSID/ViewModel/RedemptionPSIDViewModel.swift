@@ -66,7 +66,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
                     print(model)
                     let alert: AlertViewModel
                     var amount = model.billInquiryResponse.amount
-                    var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here".localized, inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: CurrencyFormatter()) { text in
+                    var topTextField: AlertTextFieldModel? = AlertTextFieldModel(titleLabelText: nil, placeholderText: "Enter other Amount Here".localized, inputText: nil, inputFieldMaxLength: 13, inputFieldMinLength: nil, editKeyboardType: .decimalPad, formatValidator: FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized), formatter: TransactionAmountFormatter()) { text in
                         amount = text
                     }
                     let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel".localized, buttonAction: nil)
@@ -235,7 +235,7 @@ extension RedemptionPSIDViewModel {
                 output?(.nextButtonState(enableState: true))
             }
         } else {
-            if psidText?.isEmpty ?? false || psidText?.count ?? 0 > 24 || psidText?.count ?? 0 < 8 {
+            if psidText?.isEmpty ?? false || psidText?.count ?? 0 > 24 || psidText?.count ?? 0 < 8 || !(psidText?.isValid(for: RegexConstants.alphanuericRegex) ?? false) {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))

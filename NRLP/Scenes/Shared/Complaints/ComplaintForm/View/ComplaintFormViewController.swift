@@ -225,6 +225,7 @@ class ComplaintFormViewController: BaseViewController {
             beneficaryAccountTextView.editTextKeyboardType = .default
             beneficaryAccountTextView.inputFieldMinLength = 1
             beneficaryAccountTextView.isEditable = true
+            beneficaryAccountTextView.formatValidator = FormatValidator(regex: RegexConstants.alphanuericRegex, invalidFormatError: "Please enter a valid Beneficiary Account Number/ IBAN/CNIC")
             beneficaryAccountTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.beneficiaryCnic = updatedText
@@ -279,7 +280,7 @@ class ComplaintFormViewController: BaseViewController {
             transactionAmountLabelTextView.leadingText = "PKR ".localized
             transactionAmountLabelTextView.inputFieldMaxLength = 13
             transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
-            transactionAmountLabelTextView.formatter = CurrencyFormatter()
+            transactionAmountLabelTextView.formatter = TransactionAmountFormatter()
             transactionAmountLabelTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.transactionAmount = updatedText

@@ -80,9 +80,10 @@ class RedemptionPSIDViewController: BaseViewController {
                 } else if flowType == .SLIC {
                     psidTextView.titleLabelText = "Enter your State Life Policy No.".localized
                     psidTextView.placeholderText = "Policy Number".localized
-                    psidTextView.editTextKeyboardType = .default
+                    psidTextView.editTextKeyboardType = .asciiCapable
                     psidTextView.inputFieldMinLength = 8
                     psidTextView.inputFieldMaxLength = 24
+                    psidTextView.formatValidator = FormatValidator(regex: RegexConstants.alphanuericRegex, invalidFormatError: "Please enter a valid State Life Policy No.")
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
                         guard let self = self else { return }
                         self.viewModel.psidText = updatedText
