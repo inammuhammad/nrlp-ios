@@ -3117,6 +3117,7 @@
 		9F653A8A24CB0C2600810DBD /* Redeem */ = {
 			isa = PBXGroup;
 			children = (
+				DB9E3E8328057F4200B1F842 /* RedeemRating */,
 				9F653A8B24CB0CD200810DBD /* RedeemInitial */,
 				9F653A9824CB0CD200810DBD /* RedeemService */,
 				9F653AB624CB0CD300810DBD /* RedeemOTP */,
@@ -4763,6 +4764,45 @@
 				BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */,
 			);
 			path = CustomDatePickerView;
+			sourceTree = "<group>";
+		};
+		DB9E3E8328057F4200B1F842 /* RedeemRating */ = {
+			isa = PBXGroup;
+			children = (
+				DB9E3E8428057F5C00B1F842 /* Builder */,
+				DB9E3E8528057F6200B1F842 /* Router */,
+				DB9E3E8628057F6700B1F842 /* View */,
+				DB9E3E8728057F7100B1F842 /* ViewModel */,
+			);
+			path = RedeemRating;
+			sourceTree = "<group>";
+		};
+		DB9E3E8428057F5C00B1F842 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		DB9E3E8528057F6200B1F842 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DB9E3E8628057F6700B1F842 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB9E3E8728057F7100B1F842 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		DBF4699827FDA32300E1D9A6 /* Entity */ = {
