@@ -213,12 +213,6 @@ class SelfAwardViewController: BaseViewController {
         // Do any additional setup after loading the view.
         showInitialAlert()
         setupUI()
-        
-        // test
-        referenceNumberLabelTextView.inputText = "1234567890"
-        referenceNumber = "1234567890"
-        transactionAmountLabelTextView.inputText = "123456"
-        transactionAmount = "123456"
     }
     
     private func setupUI() {

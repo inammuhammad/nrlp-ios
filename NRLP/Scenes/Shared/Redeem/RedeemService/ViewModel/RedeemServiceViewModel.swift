@@ -168,10 +168,10 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         var mobileNumber = ""
         var email = ""
         
-        let topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .asciiCapableNumberPad, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
+        var topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .asciiCapableNumberPad, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
             cnic = text
         }
-        let midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
+        var midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
             mobileNumber = text
         }
         let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optioxnal)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, isOptional: true) { text in
@@ -249,12 +249,13 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
                 let model = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: cnic, amount: formattedPoints, sotp: 1, pseChild: self.partner.categories[index].categoryName, mobileNo: mobileNo, email: email)
                 self.redemptionService.redemptionTransactionSendOTP(requestModel: model) { result in
                     self.output?(.showActivityIndicator(show: false))
-                    switch result {
-                    case .success(let response):
-                        self.router.navigateToOTPScreen(transactionID: response.transactionId, partner: self.partner, user: self.user, inputModel: model, flowType: .DGIP)
-                    case .failure(let error):
-                        self.output?(.showError(error: error))
-                    }
+                    self.router.navigateToOTPScreen(transactionID: "-", partner: self.partner, user: self.user, inputModel: model, flowType: .DGIP)
+//                    switch result {
+//                    case .success(let response):
+//                        self.router.navigateToOTPScreen(transactionID: response.transactionId, partner: self.partner, user: self.user, inputModel: model, flowType: .DGIP)
+//                    case .failure(let error):
+//                        self.output?(.showError(error: error))
+//                    }
                 }
             }
             alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points", alertDescription: nil, alertAttributedDescription: self.getAlertDescription(index: index), primaryButton: confirmButton, secondaryButton: cancelButton)

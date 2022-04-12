@@ -53,6 +53,7 @@ class RedeemServiceViewController: BaseViewController {
                 self.showAlert(with: alert)
             case .reloadViewData(let partnerName):
                 self.tableView.reloadData()
+
                 self.lblEnterPoint.text = String(format: "Select Redemption Service at %@".localized, partnerName)
             case .updateLoyaltyCard(let viewModel):
                 self.topContainerView.populate(with: viewModel)
