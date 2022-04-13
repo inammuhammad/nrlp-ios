@@ -23,10 +23,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="complaints" translatesAutoresizingMaskIntoConstraints="NO" id="m9B-Hn-05I">
-                                <rect key="frame" x="16" y="128.5" width="382" height="191"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rating" translatesAutoresizingMaskIntoConstraints="NO" id="m9B-Hn-05I">
+                                <rect key="frame" x="16" y="128.5" width="382" height="254.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="m9B-Hn-05I" secondAttribute="height" multiplier="2:1" id="QuD-cV-Cy1"/>
+                                    <constraint firstAttribute="width" secondItem="m9B-Hn-05I" secondAttribute="height" multiplier="3:2" id="QuD-cV-Cy1"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9S-Ne-78X" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
@@ -36,9 +36,12 @@
                                     <constraint firstAttribute="height" constant="50" id="Rtz-Yp-5iE"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="doneButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2Ok-Lg-CdP"/>
+                                </connections>
                             </button>
-                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="412.5" translatesAutoresizingMaskIntoConstraints="NO" id="6a5-XS-VdE" customClass="RadioButtonView" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="16" y="351.5" width="382" height="412.5"/>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="6a5-XS-VdE" customClass="RadioButtonView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="415" width="382" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -72,14 +75,14 @@
     </scenes>
     <designables>
         <designable name="6a5-XS-VdE">
-            <size key="intrinsicContentSize" width="382" height="412.5"/>
+            <size key="intrinsicContentSize" width="382" height="300"/>
         </designable>
         <designable name="u9S-Ne-78X">
             <size key="intrinsicContentSize" width="37" height="30"/>
         </designable>
     </designables>
     <resources>
-        <image name="complaints" width="102.5" height="78"/>
+        <image name="rating" width="259" height="229"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

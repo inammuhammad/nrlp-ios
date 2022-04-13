@@ -246,6 +246,7 @@ extension RedemptionPSIDViewModel {
 
 class RedemptionPSIDSuccessViewModel: OperationCompletedViewModelProtocol {
     private var navigationController: UINavigationController?
+    private var transactionID: String
     
     lazy var description: NSAttributedString = operationCompletedType.getDescription()
     lazy var title: String = operationCompletedType.getTitle()
@@ -255,15 +256,26 @@ class RedemptionPSIDSuccessViewModel: OperationCompletedViewModelProtocol {
     private var operationCompletedType: OperationCompletedType!
     
     func didTapCTAButton() {
-        self.navigateToHome()
+        // go for ratings
+        // self.navigateToHome()
+        
+        self.navigateToRedemptionRating()
     }
     
-    init(with navigationController: UINavigationController, message: String) {
+    init(with navigationController: UINavigationController, message: String, transactionID: String) {
         self.navigationController = navigationController
+        self.transactionID = transactionID
         operationCompletedType = .redemptionSuccessful(message: message)
     }
 
     private func navigateToHome() {
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    private func navigateToRedemptionRating() {
+        self.navigationController?.pushViewController(
+            RedemptionRatingBuilder().build(with: self.navigationController, transactionId: self.transactionID),
+            animated: true
+        )
     }
 }

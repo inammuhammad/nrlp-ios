@@ -253,10 +253,17 @@ class SelfAwardViewController: BaseViewController {
     }
     
     @objc private func proceedBtnAction() {
-        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let cnic = self.cnic, let date = self.remittanceDateString {
+        if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let date = self.remittanceDateString {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
-            let model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: cnic, remittanceDate: date)
+
+            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType?.rawValue ?? "-")
+            
+            if transactionType == .cnic, let cnic = cnic {
+                model.beneficiaryCnic = cnic
+            } else if transactionType == .bank, let iban = iban {
+                model.beneficiaryCnic = iban
+            }
             
             service.validateTransaction(requestModel: model) {[weak self] (result) in
                 self?.showActivityIndicator(show: false)

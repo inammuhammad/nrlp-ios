@@ -476,3 +476,11 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Full Name *" = "Full Name as per CNIC/NICOP/POC *";
 "Country of Residence *" = "Country of Residence *";
 "Beneficiary Mobile Number *" = "Beneficiary Mobile Number *";
+
+//
+
+"Good" = "Good";
+"Satisfactory" = "Satisfactory";
+"Unsatisfactory" = "Unsatisfactory";
+"Father Name *" = "Father Name *";
+"Please enter a valid Account Number/IBAN" = "Please enter a valid Account Number/IBAN";

@@ -104,7 +104,7 @@ class RedemptionOTPViewModel: NRLPOTPViewModel, RedemptionOTPViewModelProtocol {
             self.output?(.showActivityIndicator(show: false))
             switch result {
             case .success(let model):
-                self.router.navigateToSuccessScreen(psid: self.inputModel.consumerNo ?? "", amount: self.inputModel.amount ?? "", flowType: self.flowType, inputModel: self.inputModel, transactionID: self.transactionId)
+                self.router.navigateToSuccessScreen(psid: self.inputModel.consumerNo ?? "", amount: self.inputModel.amount ?? "", flowType: self.flowType, inputModel: self.inputModel, transactionID: self.transactionId, authId: model.authId)
             case .failure(let error):
                 self.output?(.showError(error: error))
             }

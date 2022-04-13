@@ -120,9 +120,4 @@ class RedeemViewModel: RedeemViewModelProtocol {
     deinit {
         print("I am getting deinit \(String(describing: self))")
     }
-    
-    // FIXME: Remove
-    func openRatingsScreen() {
-        self.router.navigateToRedemptionRating()
-    }
 }

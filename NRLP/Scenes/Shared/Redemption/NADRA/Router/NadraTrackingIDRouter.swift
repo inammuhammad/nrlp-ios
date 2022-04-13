@@ -25,7 +25,7 @@ class NadraTrackingIDRouter {
         if let nav = self.navigationController {
             let vc = OperationCompletedViewController.getInstance()
             let message = getSuccessMessage(trackingID: trackingID, amount: amount, flowType: flowType)
-            vc.viewModel = RedemptionPSIDSuccessViewModel(with: nav, message: message)
+            vc.viewModel = RedemptionPSIDSuccessViewModel(with: nav, message: message, transactionID: "-")
             nav.pushViewController(vc, animated: true)
             
         }

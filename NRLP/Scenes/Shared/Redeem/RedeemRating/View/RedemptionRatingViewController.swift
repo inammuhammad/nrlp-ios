@@ -39,6 +39,16 @@ class RedemptionRatingViewController: BaseViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     override func viewDidLoad() {
         bindViewModelOutput()
         super.viewDidLoad()
@@ -51,12 +61,16 @@ class RedemptionRatingViewController: BaseViewController {
             switch output {
             case .doneButtonState(state: let state):
                 self.doneButton.isEnabled = state
-            case .showActivityIndicator(show: let show):
-                return
-            case .showError(error: let error):
-                return
+            case .showActivityIndicator(let show):
+                show ? ProgressHUD.show() : ProgressHUD.dismiss()
+            case .showError(let error):
+                self.showAlert(with: error)
             }
         }
+    }
+    
+    @IBAction func doneButtonAction(_ sender: Any) {
+        viewModel.doneButtonPressed()
     }
 }
 

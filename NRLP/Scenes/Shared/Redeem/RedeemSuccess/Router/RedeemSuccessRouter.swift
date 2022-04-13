@@ -20,12 +20,11 @@ class RedeemSuccessRouter {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
-    func navigateToRedemptionRating() {
-        // TODO: Implementation
-        fatalError()
+    // FIXME: Remove
+//    func navigateToRedemptionRating() {
 //        self.navigationController?.pushViewController(
-//            RedemptionRatingBuilder().build(),
+//            RedemptionRatingBuilder().build(with: self.navigationController),
 //            animated: true
 //        )
-    }
+//    }
 }

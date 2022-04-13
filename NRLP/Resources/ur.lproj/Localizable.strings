@@ -491,3 +491,10 @@
 "Country of Residence *"=  "قیام کا ملک *";
 "Beneficiary Mobile Number *" = "وصول کنندہ کا موبائل نمبر *";
 
+//
+
+"Good" = "اچھا";
+"Satisfactory" = "تسلی بخش";
+"Unsatisfactory" = "غیر اطمینان بخش";
+"Father Name *" = "والد کا نام *";
+"Please enter a valid Account Number/IBAN" = "براہ کرم صحیح اکاؤنٹ نمبر/  بین الاقوامی بینک اکاؤنٹ   نمبر درج کریں";

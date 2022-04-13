@@ -8,12 +8,12 @@
 import UIKit
 
 class RedemptionRatingBuilder {
-    func build(with navigationController: UINavigationController?) -> UIViewController {
+    func build(with navigationController: UINavigationController?, transactionId: String) -> UIViewController {
         // TODO: Implementation
   
         let viewController = RedemptionRatingViewController.getInstance()
         let coordinator = RedemptionRatingRouter(navigationController: navigationController)
-        let viewModel = RedemptionRatingViewModel(router: coordinator)
+        let viewModel = RedemptionRatingViewModel(router: coordinator, transactionId: transactionId, service: RedeemService())
 
         viewController.viewModel = viewModel
 

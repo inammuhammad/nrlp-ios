@@ -16,7 +16,7 @@ class RedemptionOTPRouter {
         self.navigationController = navigationController
     }
     
-    func navigateToSuccessScreen(psid: String, amount: String, flowType: RedemptionFlowType, inputModel: InitRedemptionTransactionModel, transactionID: String) {
+    func navigateToSuccessScreen(psid: String, amount: String, flowType: RedemptionFlowType, inputModel: InitRedemptionTransactionModel, transactionID: String, authId: String) {
         print("NAVIGATE TO PSID")
 //        self.navigationController?.pushViewController(, animated: true)
         if let nav = self.navigationController {
@@ -27,8 +27,8 @@ class RedemptionOTPRouter {
             } else {
                 points = inputModel.point ?? ""
             }
-            let message = getSuccessMessage(psid: psid, points: points, flowType: flowType, inputModel: inputModel, transactionID: transactionID)
-            vc.viewModel = RedemptionPSIDSuccessViewModel(with: nav, message: message)
+            let message = getSuccessMessage(psid: psid, points: points, flowType: flowType, inputModel: inputModel, transactionID: authId)
+            vc.viewModel = RedemptionPSIDSuccessViewModel(with: nav, message: message, transactionID: transactionID)
             nav.pushViewController(vc, animated: true)
             
         }

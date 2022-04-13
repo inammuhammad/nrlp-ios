@@ -22,6 +22,7 @@ protocol RedemptionRatingViewModelProtocol {
 class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
 
     private var router: RedemptionRatingRouter
+    private var service: RedeemService
     var output: RedemptionRatingViewModelOutput?
     
     var ratingTypeItemModel: [RadioButtonItemModel] = []
@@ -31,6 +32,8 @@ class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
             checkDoneButtonState()
         }
     }
+    
+    private var transactionId: String
     
     func viewDidLoad() {
         output?(.doneButtonState(state: false))
@@ -47,10 +50,10 @@ class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
         ratingType = RedemptionRatingTypes(rawValue: ratingTypeItemModel.first?.key ?? "")
     }
 
-    init(router: RedemptionRatingRouter//,
-//         transactionId: String,
-) {
+    init(router: RedemptionRatingRouter, transactionId: String, service: RedeemService) {
         self.router = router
+        self.transactionId = transactionId
+        self.service = service
         
         setupRatingType()
     }
@@ -62,7 +65,23 @@ class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
     }
     
     func doneButtonPressed() {
-        // TODO: Submit Rating
+        guard let ratingType = ratingType else {
+            return
+        }
+
+        self.output?(.showActivityIndicator(show: true))
+
+        service.submitRedemptionRating(requestModel: RedemptionRatingModel(transactionId: transactionId, comments: ratingType.rawValue)) {[weak self] (result) in
+            self?.output?(.showActivityIndicator(show: false))
+            switch result {
+            case .success(let response):
+                print("response: \(response)")
+                // self?.goToSuccess()
+                self?.router.navigateToHome()
+            case .failure(let error):
+                self?.output?(.showError(error: error))
+            }
+        }
         
         // self.router.navigateToHome()
     }

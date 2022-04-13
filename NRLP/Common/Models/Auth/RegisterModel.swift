@@ -14,6 +14,7 @@ struct RegisterRequestModel: Codable {
     let cnicNicop: String
     var email: String
     var fullName: String
+    var fatherName: String?
     var mobileNo: String
     var paassword: String
     var passportType: String
@@ -35,6 +36,7 @@ struct RegisterRequestModel: Codable {
         case cnicNicop = "nic_nicop"
         case email = "email"
         case fullName = "full_name"
+        case fatherName = "father_name"
         case mobileNo = "mobile_no"
         case paassword = "password"
         case registrationCode = "registration_code"
@@ -58,6 +60,7 @@ struct RegisterRequestModel: Codable {
         try container.encode(cnicNicop.aesEncrypted(), forKey: .cnicNicop)
         try container.encode(email.aesEncrypted(), forKey: .email)
         try container.encode(fullName, forKey: .fullName)
+        try container.encode(fatherName, forKey: .fatherName)
         try container.encode(mobileNo, forKey: .mobileNo)
         try container.encode(paassword.aesEncrypted(), forKey: .paassword)
         try container.encode(registrationCode?.aesEncrypted(), forKey: .registrationCode)

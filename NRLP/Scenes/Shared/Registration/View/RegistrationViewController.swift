@@ -460,6 +460,8 @@ extension RegistrationViewController {
             passportTypeTextView.becomeFirstResponder()
         case .beneficiaryOtp:
             codeTextView.becomeFirstResponder()
+        case .fatherName:
+            fatherNameTextView.becomeFirstResponder()
         }
     }
 
@@ -495,6 +497,8 @@ extension RegistrationViewController {
             self.reEnterPasswordTextView.updateStateTo(isError: state, error: message)
         case .beneficiaryOtp:
             self.codeTextView.updateStateTo(isError: state, error: message)
+        case .fatherName:
+            self.fatherNameTextView.updateStateTo(isError: state, error: message)
         }
     }
     

@@ -94,9 +94,11 @@ struct RedeemCompleteRequestModel: Codable {
 struct RedeemCompleteResponseModel: Codable {
     let message: String
     let transactionId: String
+    let authId: String
 
     enum CodingKeys: String, CodingKey {
         case transactionId = "transaction_id"
+        case authId = "auth_id"
         case message
     }
 }

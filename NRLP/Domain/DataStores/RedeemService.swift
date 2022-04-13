@@ -81,4 +81,12 @@ class RedeemService: BaseDataStore, RedeemServiceProtocol {
             responseHandler(response.result)
         }
     }
+    
+    func submitRedemptionRating(requestModel: RedemptionRatingModel, responseHandler: @escaping RedemptionRatingCallback) {
+
+        let request = RequestBuilder(path: APIPathBuilder(endPoint: .redemptionRating), parameters: requestModel)
+        networking.post(request: request) { (response: APIResponse<RedemptionRatingResponseModel>) in
+            responseHandler(response.result)
+        }
+    }
 }

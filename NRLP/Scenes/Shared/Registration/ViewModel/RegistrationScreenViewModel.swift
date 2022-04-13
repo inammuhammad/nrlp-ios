@@ -44,6 +44,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         case userType
         case fullName
         case motherName
+        case fatherName
         case birthPlace
         case countryOfResidence
         case cnic
@@ -222,6 +223,8 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
             }
 //            router.navigateToBeneficiaryFormScreen(model: registerModel)
         case .remitter:
+            registerModel.fatherName = fatherName
+            
             self.output?(.showActivityIndicator(show: true))
             appKeyService.dispatchForKey(cnic: registerModel.cnicNicop, type: .remitter, configType: .randomKey) { (error) in
                 if let error = error {
@@ -363,6 +366,14 @@ extension RegistrationViewModel {
             output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .motherName))
             isValid = false
             errorTopField = errorTopField ?? .motherName
+        }
+        
+        if fatherName?.isValid(for: RegexConstants.nameRegex) ?? false {
+            output?(.textField(errorState: false, error: nil, textfieldType: .fatherName))
+        } else {
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fatherName))
+            isValid = false
+            errorTopField = errorTopField ?? .fatherName
         }
         
         if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {

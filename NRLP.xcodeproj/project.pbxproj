@@ -569,6 +569,7 @@
 		DBECD16928066E0E005A123C /* RedemptionRatingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16828066E0E005A123C /* RedemptionRatingRouter.swift */; };
 		DBECD16B28066F2E005A123C /* RedemptionRatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16A28066F2E005A123C /* RedemptionRatingViewModel.swift */; };
 		DBECD16E28067B8C005A123C /* RedemptionRatingTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16D28067B8C005A123C /* RedemptionRatingTypes.swift */; };
+		DBECD1702806B344005A123C /* RedemptionRatingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16F2806B344005A123C /* RedemptionRatingModel.swift */; };
 		DBF4699A27FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */; };
 		DBF4699C27FDA35E00E1D9A6 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */; };
 		DBF4699F27FDA5A100E1D9A6 /* SelfAwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */; };
@@ -1353,6 +1354,7 @@
 		DBECD16828066E0E005A123C /* RedemptionRatingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingRouter.swift; sourceTree = "<group>"; };
 		DBECD16A28066F2E005A123C /* RedemptionRatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewModel.swift; sourceTree = "<group>"; };
 		DBECD16D28067B8C005A123C /* RedemptionRatingTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingTypes.swift; sourceTree = "<group>"; };
+		DBECD16F2806B344005A123C /* RedemptionRatingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingModel.swift; sourceTree = "<group>"; };
 		DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerItemModel.swift; sourceTree = "<group>"; };
 		DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewModel.swift; sourceTree = "<group>"; };
@@ -4827,6 +4829,7 @@
 			isa = PBXGroup;
 			children = (
 				DBECD16D28067B8C005A123C /* RedemptionRatingTypes.swift */,
+				DBECD16F2806B344005A123C /* RedemptionRatingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -6736,6 +6739,7 @@
 				E111C8A127D6949A00D185CD /* BankListinViewModel.swift in Sources */,
 				9F6D735624B5C56800B45F0F /* ManageBeneficiariesViewController.swift in Sources */,
 				E114C31E27A4420C00697D73 /* ComplaintSuccessBuilder.swift in Sources */,
+				DBECD1702806B344005A123C /* RedemptionRatingModel.swift in Sources */,
 				E13F319227B2A39100B763BD /* ProfileVerificationBuilder.swift in Sources */,
 				20F551AB24E2A81A00F75866 /* NRLPUserDefaults.swift in Sources */,
 				E1F232C326D9FC49000F8051 /* SelfAwardViewController.swift in Sources */,
@@ -7197,7 +7201,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 136;
+				CURRENT_PROJECT_VERSION = 139;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -7572,7 +7576,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 136;
+				CURRENT_PROJECT_VERSION = 139;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -7601,7 +7605,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 136;
+				CURRENT_PROJECT_VERSION = 139;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
