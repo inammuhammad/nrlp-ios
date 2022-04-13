@@ -19,4 +19,13 @@ class RedeemSuccessRouter {
     func navigateToHome() {
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    func navigateToRedemptionRating() {
+        // TODO: Implementation
+        fatalError()
+//        self.navigationController?.pushViewController(
+//            RedemptionRatingBuilder().build(),
+//            animated: true
+//        )
+    }
 }

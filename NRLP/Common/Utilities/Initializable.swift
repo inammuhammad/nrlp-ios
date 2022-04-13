@@ -86,5 +86,6 @@ extension UIStoryboard {
         case receiverListing = "ReceiverListing"
         case receiverDetails = "ReceiverDetails"
         case bankListing = "BankListing"
+        case redemptionRating = "RedemptionRating"
     }
 }

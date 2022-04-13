@@ -563,6 +563,12 @@
 		DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */; };
 		DB57AB8427F1E09700A94353 /* CancelRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */; };
 		DB9E3E822805737900B1F842 /* TransactionAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */; };
+		DBECD163280662F5005A123C /* RedemptionRatingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */; };
+		DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16428066590005A123C /* RedemptionRatingViewController.swift */; };
+		DBECD16728066731005A123C /* RedemptionRating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECD16628066731005A123C /* RedemptionRating.storyboard */; };
+		DBECD16928066E0E005A123C /* RedemptionRatingRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16828066E0E005A123C /* RedemptionRatingRouter.swift */; };
+		DBECD16B28066F2E005A123C /* RedemptionRatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16A28066F2E005A123C /* RedemptionRatingViewModel.swift */; };
+		DBECD16E28067B8C005A123C /* RedemptionRatingTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16D28067B8C005A123C /* RedemptionRatingTypes.swift */; };
 		DBF4699A27FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */; };
 		DBF4699C27FDA35E00E1D9A6 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */; };
 		DBF4699F27FDA5A100E1D9A6 /* SelfAwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */; };
@@ -1341,6 +1347,12 @@
 		DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterUserService.swift; sourceTree = "<group>"; };
 		DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterModel.swift; sourceTree = "<group>"; };
 		DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountFormatter.swift; sourceTree = "<group>"; };
+		DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingBuilder.swift; sourceTree = "<group>"; };
+		DBECD16428066590005A123C /* RedemptionRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewController.swift; sourceTree = "<group>"; };
+		DBECD16628066731005A123C /* RedemptionRating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionRating.storyboard; sourceTree = "<group>"; };
+		DBECD16828066E0E005A123C /* RedemptionRatingRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingRouter.swift; sourceTree = "<group>"; };
+		DBECD16A28066F2E005A123C /* RedemptionRatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewModel.swift; sourceTree = "<group>"; };
+		DBECD16D28067B8C005A123C /* RedemptionRatingTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingTypes.swift; sourceTree = "<group>"; };
 		DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerItemModel.swift; sourceTree = "<group>"; };
 		DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewModel.swift; sourceTree = "<group>"; };
@@ -4769,6 +4781,7 @@
 		DB9E3E8328057F4200B1F842 /* RedeemRating */ = {
 			isa = PBXGroup;
 			children = (
+				DBECD16C28067B76005A123C /* Model */,
 				DB9E3E8428057F5C00B1F842 /* Builder */,
 				DB9E3E8528057F6200B1F842 /* Router */,
 				DB9E3E8628057F6700B1F842 /* View */,
@@ -4780,6 +4793,7 @@
 		DB9E3E8428057F5C00B1F842 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -4787,6 +4801,7 @@
 		DB9E3E8528057F6200B1F842 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				DBECD16828066E0E005A123C /* RedemptionRatingRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -4794,6 +4809,8 @@
 		DB9E3E8628057F6700B1F842 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DBECD16428066590005A123C /* RedemptionRatingViewController.swift */,
+				DBECD16628066731005A123C /* RedemptionRating.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4801,8 +4818,17 @@
 		DB9E3E8728057F7100B1F842 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				DBECD16A28066F2E005A123C /* RedemptionRatingViewModel.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		DBECD16C28067B76005A123C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBECD16D28067B8C005A123C /* RedemptionRatingTypes.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DBF4699827FDA32300E1D9A6 /* Entity */ = {
@@ -6195,6 +6221,7 @@
 				20A0FBAE24F788860075201D /* Registration.storyboard in Resources */,
 				E15BF319277B32DC0038EA81 /* CityListTableViewCell.xib in Resources */,
 				E19D8B56270C50D600FFA1B3 /* sni-cloudflaressl-com.der in Resources */,
+				DBECD16728066731005A123C /* RedemptionRating.storyboard in Resources */,
 				20AC740924EEBC220094D3C1 /* MarkaziText-SemiBold.ttf in Resources */,
 				E18454D42774858400FE5793 /* BeneficiaryForm.storyboard in Resources */,
 				9F653AC424CB0CD300810DBD /* RedeemListTableViewCell.xib in Resources */,
@@ -6623,6 +6650,7 @@
 				9FF6F0D124BDC47700E375A2 /* TransferSuccessBuilder.swift in Sources */,
 				9FF2C85F24D2B7A800527CD3 /* Category.swift in Sources */,
 				207C3DD024B5D9FA00298C0C /* CheckBox.swift in Sources */,
+				DBECD16B28066F2E005A123C /* RedemptionRatingViewModel.swift in Sources */,
 				E1FC3F0826EA202D009B76FB /* RedemptionFBRBuilder.swift in Sources */,
 				9F75D45F24E5F5EC0082364E /* BenefitsCategoriesRouter.swift in Sources */,
 				E1995E0327BFE12B00B44793 /* ReceiverTypeViewModel.swift in Sources */,
@@ -6722,6 +6750,7 @@
 				208EF7E424E13DFB00E43B0B /* Initializable.swift in Sources */,
 				9F8D824F24C86AA900BB1C26 /* ForgotPasswordViewController.swift in Sources */,
 				E1E5F86327A1754100413FB4 /* ComplaintFormViewModel.swift in Sources */,
+				DBECD16928066E0E005A123C /* RedemptionRatingRouter.swift in Sources */,
 				E1995E1F27C3CA5500B44793 /* ReceiverSuccessViewModel.swift in Sources */,
 				20F7B195250896290014FC67 /* ProfileUpdateModel.swift in Sources */,
 				204CFB8C24D2DA1200583060 /* NSMutableAttributedStringExtensions.swift in Sources */,
@@ -6764,6 +6793,7 @@
 				9F8D828124C8742800BB1C26 /* ForgotPasswordService.swift in Sources */,
 				E15BF31F277B37BB0038EA81 /* CityService.swift in Sources */,
 				2030724E24C9F58200C0DC67 /* RadialGradientLayer.swift in Sources */,
+				DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */,
 				204A6BD224B82FF2001E4E74 /* OTPService.swift in Sources */,
 				207C3DA124B5B01400298C0C /* AccountTypePickerItemModel.swift in Sources */,
 				E1E1EF1327A2CF7500D69EAD /* PaddedTextArea.swift in Sources */,
@@ -6807,6 +6837,7 @@
 				9F8D827D24C86BEF00BB1C26 /* ForgotPasswordOTPViewController.swift in Sources */,
 				E1E5F85627A153EC00413FB4 /* ComplaintTypeBuilder.swift in Sources */,
 				E15BF31B277B35C50038EA81 /* CityListViewModel.swift in Sources */,
+				DBECD16E28067B8C005A123C /* RedemptionRatingTypes.swift in Sources */,
 				9F8565D724C01F85001B68CE /* ForgotPasswordModel.swift in Sources */,
 				9FDA3AB424E0A20400B2AB67 /* LanguageViewModel.swift in Sources */,
 				20FAD8EC24E800B600126367 /* BeneficiaryVerificationViewModel.swift in Sources */,
@@ -6833,6 +6864,7 @@
 				9F75D44324E544C60082364E /* BenefitsViewController.swift in Sources */,
 				207C3DEF24B6FCCF00298C0C /* UIViewExtensions.swift in Sources */,
 				9FB1DD2424B6F6B1002BF688 /* AddBeneficiaryViewController.swift in Sources */,
+				DBECD163280662F5005A123C /* RedemptionRatingBuilder.swift in Sources */,
 				2074D60224D174A700006731 /* DateExtension.swift in Sources */,
 				E13F319A27B2B0E200B763BD /* ProfileVerificationRouter.swift in Sources */,
 				9F8D826D24C86AB500BB1C26 /* ForgotPasswordNewPassViewController.swift in Sources */,

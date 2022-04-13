@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Redemption Rating View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="RedemptionRatingViewController" id="Y6W-OH-hqX" customClass="RedemptionRatingViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate Your Redemption Experience" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFC-Vc-f4t">
+                                <rect key="frame" x="16" y="76" width="382" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="complaints" translatesAutoresizingMaskIntoConstraints="NO" id="m9B-Hn-05I">
+                                <rect key="frame" x="16" y="128.5" width="382" height="191"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="m9B-Hn-05I" secondAttribute="height" multiplier="2:1" id="QuD-cV-Cy1"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9S-Ne-78X" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="796" width="382" height="50"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Rtz-Yp-5iE"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                            </button>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="412.5" translatesAutoresizingMaskIntoConstraints="NO" id="6a5-XS-VdE" customClass="RadioButtonView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="16" y="351.5" width="382" height="412.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sFC-Vc-f4t" secondAttribute="trailing" constant="16" id="0fq-OY-yK6"/>
+                            <constraint firstItem="sFC-Vc-f4t" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="32" id="BmQ-MF-etT"/>
+                            <constraint firstItem="m9B-Hn-05I" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="CSe-VW-nkY"/>
+                            <constraint firstItem="m9B-Hn-05I" firstAttribute="top" secondItem="sFC-Vc-f4t" secondAttribute="bottom" constant="32" id="GkL-y9-DpR"/>
+                            <constraint firstItem="u9S-Ne-78X" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="Odp-uQ-65z"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="m9B-Hn-05I" secondAttribute="trailing" constant="16" id="ZAB-NP-LM0"/>
+                            <constraint firstItem="sFC-Vc-f4t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="ZQr-rj-vrk"/>
+                            <constraint firstItem="6a5-XS-VdE" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="16" id="bOE-2H-v2C"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="u9S-Ne-78X" secondAttribute="bottom" constant="16" id="hzn-Tl-dya"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="u9S-Ne-78X" secondAttribute="trailing" constant="16" id="jlK-mZ-F8E"/>
+                            <constraint firstItem="6a5-XS-VdE" firstAttribute="top" secondItem="m9B-Hn-05I" secondAttribute="bottom" constant="32" id="qay-vr-CMJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="6a5-XS-VdE" secondAttribute="trailing" constant="16" id="xk3-ru-ED7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="u9S-Ne-78X" id="VEz-dR-yuw"/>
+                        <outlet property="ratingTypeRadioButton" destination="6a5-XS-VdE" id="53P-yt-AXP"/>
+                        <outlet property="titleLabel" destination="sFC-Vc-f4t" id="PZp-QR-pOQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="70"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="6a5-XS-VdE">
+            <size key="intrinsicContentSize" width="382" height="412.5"/>
+        </designable>
+        <designable name="u9S-Ne-78X">
+            <size key="intrinsicContentSize" width="37" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="complaints" width="102.5" height="78"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -26,6 +26,9 @@ class RedeemViewController: BaseViewController {
         self.setupView()
         self.bindViewModel()
         self.viewModel.viewDidLoad()
+        
+        // FIXME: Remove
+        (self.viewModel as? RedeemViewModel)?.openRatingsScreen()
     }
 
     private func setupView() {

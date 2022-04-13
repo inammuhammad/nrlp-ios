@@ -48,6 +48,7 @@ class RedeemSuccessViewModel: OperationCompletedViewModelProtocol {
     }
 
     func didTapCTAButton() {
+        // TODO: Navigate to Rating Screen
         self.router.navigateToHome()
     }
 
