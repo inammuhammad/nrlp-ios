@@ -197,8 +197,8 @@ class LoginViewModelOutputHandler {
                 self.didSetCNICLabelError = errorMsg
             case .passwordLabelState(_, let errorMsg):
                 self.didSetPasswordError = errorMsg
-//            case .jailBroken:
-//                break
+            case .jailBroken:
+                break
             }
         }
     }
