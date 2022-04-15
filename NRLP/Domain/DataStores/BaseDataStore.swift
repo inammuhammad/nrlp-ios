@@ -36,12 +36,10 @@ class BaseDataStore {
         sessionConfigurations.httpAdditionalHeaders = APIRequestHeader().processRequestHeader()
         
         //SSL Pinning Certificate
-        let certificate = CertificateManager.certificate(filename: Constants.certificateName.rawValue)
+         let certificate = CertificateManager.certificate(filename: Constants.certificateName.rawValue)
 
-        let serverTrustManager = ServerTrustPolicyManager(certificates: [certificate!], isToPinnedPublicKey: false, hostEvaluators: [Constants.evaluator.rawValue])
-        
-        // REMOVED SSL Pinning TO ENABLE LOGIN
-        
+         let serverTrustManager = ServerTrustPolicyManager(certificates: [certificate!], isToPinnedPublicKey: false, hostEvaluators: [Constants.evaluator.rawValue])
+                
          let configurations = Configuration(sessionConfigurations: .default, serverTrustPolicyManager: serverTrustManager)
         // let configurations = Configuration()
       
