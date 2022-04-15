@@ -61,33 +61,54 @@ class Defaults {
     
     static var persistanUUID: String? {
         get {
-            var deviceId =  UserDefaults.standard.string(forKey: keyPersistantUUID)
+            // check from keychain
+            // if available in keychain, then return
+            // else check in userdefaults
+            // if avaliable in userdefaults, then copy that to keycahin and return
+            // else return nil
             
-            if deviceId == nil {
-                // Get Device Id from Keychain
-                if let data = KeyChain.load(key: keyPersistantUUID) {
-                    deviceId = String(data: data, encoding: .utf8)
-                    
-                    UserDefaults.standard.set(deviceId, forKey: keyPersistantUUID)
-                    UserDefaults.standard.synchronize()
+            if let data = KeyChain.load(key: keyPersistantUUID),
+               let deviceId = String(data: data, encoding: .utf8) {
+                
+                if AppConstants.isDev {
+                    print("DeviceId found in Keychain")
+                    print(deviceId)
                 }
+                
+                return deviceId
+            }
+            
+            // device id was not found in keychain
+            let deviceId =  UserDefaults.standard.string(forKey: keyPersistantUUID)
+            
+            if let deviceId = deviceId {
+                let status = KeyChain.save(key: keyPersistantUUID, data: Data(deviceId.utf8))
+                if AppConstants.isDev {
+                    print("DeviceId found in UserDefaults")
+                    print(deviceId)
+                    
+                    if status == noErr {
+                        print("DeviceId saved in keychain")
+                    } else {
+                        print("failed to save DeviceId in keychain")
+                    }
+                }
+            } else {
+                print("DeviceId not found")
             }
             
             return deviceId
         }
+        
         set {
             UserDefaults.standard.set(newValue, forKey: keyPersistantUUID)
             UserDefaults.standard.synchronize()
             
-            // Update in Keychain
-            let status = KeyChain.save(key: keyPersistantUUID, data: Data((newValue ?? "").utf8))
             if AppConstants.isDev {
-                if status == noErr {
-                    print("device id saved in keychain")
-                } else {
-                    print("failed to save device id in keychain")
-                }
+                print("Device id new created")
+                print(newValue as Any)
             }
+            
         }
     }
 }
