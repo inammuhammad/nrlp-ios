@@ -35,7 +35,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
     }
     @IBOutlet weak var cnicLabelTextView: LabelledTextview! {
         didSet {
-            cnicLabelTextView.titleLabelText = "CNIC/NICOP".localized
+            cnicLabelTextView.titleLabelText = "CNIC/NICOP *".localized
             cnicLabelTextView.editTextKeyboardType = .asciiCapableNumberPad
             cnicLabelTextView.formatter = CNICFormatter()
             cnicLabelTextView.formatValidator = CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
@@ -57,7 +57,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         didSet {
             passwordLabelTextView.editTextKeyboardType = .asciiCapable
             passwordLabelTextView.isPasswordField = true
-            passwordLabelTextView.titleLabelText = "Password".localized
+            passwordLabelTextView.titleLabelText = "Password *".localized
             passwordLabelTextView.placeholderText = "Password@123".localized
             passwordLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.paasswordRegex, invalidFormatError: StringConstants.ErrorString.paasswordError.localized)
         }

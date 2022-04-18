@@ -14,7 +14,7 @@ class LanguageViewController: BaseViewController {
     @IBOutlet weak var headingLabel: UILabel! {
         didSet {
             headingLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
-            headingLabel.text = "Select your language you are comfortable to work with.".localized
+            headingLabel.text = "Select your language you are comfortable with".localized
         }
     }
     @IBOutlet private weak var saveCTAButton: PrimaryCTAButton! {

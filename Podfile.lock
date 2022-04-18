@@ -1,82 +1,108 @@
 PODS:
-  - Alamofire (5.2.2)
-  - Firebase (6.31.0):
-    - Firebase/Core (= 6.31.0)
-  - Firebase/Analytics (6.31.0):
+  - Alamofire (5.6.1)
+  - Firebase (8.15.0):
+    - Firebase/Core (= 8.15.0)
+  - Firebase/Analytics (8.15.0):
     - Firebase/Core
-  - Firebase/Core (6.31.0):
+  - Firebase/Core (8.15.0):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.8.0)
-  - Firebase/CoreOnly (6.31.0):
-    - FirebaseCore (= 6.10.1)
-  - Firebase/Crashlytics (6.31.0):
+    - FirebaseAnalytics (~> 8.15.0)
+  - Firebase/CoreOnly (8.15.0):
+    - FirebaseCore (= 8.15.0)
+  - Firebase/Crashlytics (8.15.0):
     - Firebase/CoreOnly
-    - FirebaseCrashlytics (~> 4.5.0)
-  - FirebaseAnalytics (6.8.0):
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstallations (~> 1.6)
-    - GoogleAppMeasurement (= 6.8.0)
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/MethodSwizzler (~> 6.7)
-    - GoogleUtilities/Network (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
-    - nanopb (~> 1.30906.0)
-  - FirebaseCore (6.10.1):
-    - FirebaseCoreDiagnostics (~> 1.6)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-  - FirebaseCoreDiagnostics (1.6.0):
-    - GoogleDataTransport (~> 7.2)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/Logger (~> 6.7)
-    - nanopb (~> 1.30906.0)
-  - FirebaseCrashlytics (4.5.0):
-    - FirebaseCore (~> 6.10)
-    - FirebaseInstallations (~> 1.6)
-    - GoogleDataTransport (~> 7.2)
-    - nanopb (~> 1.30906.0)
-    - PromisesObjC (~> 1.2)
-  - FirebaseInstallations (1.7.0):
-    - FirebaseCore (~> 6.10)
-    - GoogleUtilities/Environment (~> 6.7)
-    - GoogleUtilities/UserDefaults (~> 6.7)
-    - PromisesObjC (~> 1.2)
-  - GoogleAppMeasurement (6.8.0):
-    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
-    - GoogleUtilities/MethodSwizzler (~> 6.7)
-    - GoogleUtilities/Network (~> 6.7)
-    - "GoogleUtilities/NSData+zlib (~> 6.7)"
-    - nanopb (~> 1.30906.0)
-  - GoogleDataTransport (7.3.0):
-    - nanopb (~> 1.30906.0)
-  - GoogleUtilities/AppDelegateSwizzler (6.7.2):
+    - FirebaseCrashlytics (~> 8.15.0)
+  - FirebaseAnalytics (8.15.0):
+    - FirebaseAnalytics/AdIdSupport (= 8.15.0)
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (~> 2.30908.0)
+  - FirebaseAnalytics/AdIdSupport (8.15.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleAppMeasurement (= 8.15.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (~> 2.30908.0)
+  - FirebaseCore (8.15.0):
+    - FirebaseCoreDiagnostics (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+  - FirebaseCoreDiagnostics (8.15.0):
+    - GoogleDataTransport (~> 9.1)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Logger (~> 7.7)
+    - nanopb (~> 2.30908.0)
+  - FirebaseCrashlytics (8.15.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.1)
+    - GoogleUtilities/Environment (~> 7.7)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseInstallations (8.15.0):
+    - FirebaseCore (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/UserDefaults (~> 7.7)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleAppMeasurement (8.15.0):
+    - GoogleAppMeasurement/AdIdSupport (= 8.15.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (8.15.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 8.15.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (~> 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (8.15.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (~> 2.30908.0)
+  - GoogleDataTransport (9.1.2):
+    - GoogleUtilities/Environment (~> 7.2)
+    - nanopb (~> 2.30908.0)
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/AppDelegateSwizzler (7.7.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (6.7.2):
-    - PromisesObjC (~> 1.2)
-  - GoogleUtilities/Logger (6.7.2):
+  - GoogleUtilities/Environment (7.7.0):
+    - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUtilities/Logger (7.7.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (6.7.2):
+  - GoogleUtilities/MethodSwizzler (7.7.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (6.7.2):
+  - GoogleUtilities/Network (7.7.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (6.7.2)"
-  - GoogleUtilities/Reachability (6.7.2):
+  - "GoogleUtilities/NSData+zlib (7.7.0)"
+  - GoogleUtilities/Reachability (7.7.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (6.7.2):
+  - GoogleUtilities/UserDefaults (7.7.0):
     - GoogleUtilities/Logger
-  - IQKeyboardManagerSwift (6.5.6)
-  - nanopb (1.30906.0):
-    - nanopb/decode (= 1.30906.0)
-    - nanopb/encode (= 1.30906.0)
-  - nanopb/decode (1.30906.0)
-  - nanopb/encode (1.30906.0)
-  - netfox (1.19.0)
-  - PromisesObjC (1.2.10)
-  - SwiftLint (0.40.0)
+  - IQKeyboardManagerSwift (6.5.9)
+  - nanopb (2.30908.0):
+    - nanopb/decode (= 2.30908.0)
+    - nanopb/encode (= 2.30908.0)
+  - nanopb/decode (2.30908.0)
+  - nanopb/encode (2.30908.0)
+  - netfox (1.21.0)
+  - PromisesObjC (2.1.0)
+  - SwiftLint (0.47.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -106,21 +132,21 @@ SPEC REPOS:
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
-  Firebase: 87483fa19acfdf99244523f2389e931927b91457
-  FirebaseAnalytics: 0ca9aa2af7cc4dc92392b7a78bfc49feaa2eb60f
-  FirebaseCore: 6fb954e350af0885803d5aa49865d15d9a6b264c
-  FirebaseCoreDiagnostics: 7415bfb3883b3500c5a95c42b6ba66baae78f600
-  FirebaseCrashlytics: d2a350ec7fd4a332031b906b0802a7a73697630b
-  FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
-  GoogleAppMeasurement: ecc30d0ab5b66d7d18e85ce1b8e2b345db60626d
-  GoogleDataTransport: e85fb700c9b027079ce182c3d08e12e0f9618bb4
-  GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
-  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
-  nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
-  netfox: efeec1d23406df6cd605212f09a40957bb5654eb
-  PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
-  SwiftLint: 4154893c73a4c52d6240195507eb7a3e3c64087e
+  Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
+  Firebase: 5f8193dff4b5b7c5d5ef72ae54bb76c08e2b841d
+  FirebaseAnalytics: 7761cbadb00a717d8d0939363eb46041526474fa
+  FirebaseCore: 5743c5785c074a794d35f2fff7ecc254a91e08b1
+  FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
+  FirebaseCrashlytics: feb07e4e9187be3c23c6a846cce4824e5ce2dd0b
+  FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
+  GoogleAppMeasurement: 4c19f031220c72464d460c9daa1fb5d1acce958e
+  GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
+  GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  netfox: 9d5cc727fe7576c4c7688a2504618a156b7d44b7
+  PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
+  SwiftLint: d41cc46a2ae58ac6d9f26954bc89f1d72e71fdef
 
 PODFILE CHECKSUM: beda790ffa18abc21dfea5fdf5b19312460f3599
 
