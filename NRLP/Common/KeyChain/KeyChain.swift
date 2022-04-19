@@ -79,9 +79,11 @@ class Defaults {
             }
             
             // device id was not found in keychain
+            // backward compatibity operation
             let deviceId =  UserDefaults.standard.string(forKey: keyPersistantUUID)
             
             if let deviceId = deviceId {
+
                 let status = KeyChain.save(key: keyPersistantUUID, data: Data(deviceId.utf8))
                 if AppConstants.isDev {
                     print("DeviceId found in UserDefaults")
@@ -101,14 +103,24 @@ class Defaults {
         }
         
         set {
-            UserDefaults.standard.set(newValue, forKey: keyPersistantUUID)
-            UserDefaults.standard.synchronize()
-            
+            guard let devideId = newValue else {
+                if AppConstants.isDev {
+                    print("Invalid DeviceId set operation")
+                }
+                return
+            }
+
+            let status = KeyChain.save(key: keyPersistantUUID, data: Data(devideId.utf8))
             if AppConstants.isDev {
                 print("Device id new created")
-                print(newValue as Any)
+                print(devideId)
+                
+                if status == noErr {
+                    print("DeviceId saved in keychain")
+                } else {
+                    print("failed to save DeviceId in keychain")
+                }
             }
-            
         }
     }
 }

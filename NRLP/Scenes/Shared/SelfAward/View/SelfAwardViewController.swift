@@ -165,8 +165,15 @@ class SelfAwardViewController: BaseViewController {
             transactionTypeTextView.titleLabelText = "Remittance Transaction Type".localized
             transactionTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
             transactionTypeTextView.placeholderText = "Select Transaction Type".localized
+            transactionTypeTextView.showHelpBtn = true
+            transactionTypeTextView.helpPopupIcon = .selfAward
+            transactionTypeTextView.helpLabelText = "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent".localized
             transactionTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             transactionTypeTextView.inputTextFieldInputPickerView = itemPickerView
+            transactionTypeTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     @IBOutlet private weak var ibanTextView: LabelledTextview! {
@@ -175,10 +182,8 @@ class SelfAwardViewController: BaseViewController {
             ibanTextView.placeholderText = "xxxxxxxxxxxxx".localized
             ibanTextView.editTextKeyboardType = .default
             ibanTextView.inputFieldMinLength = 1
-            ibanTextView.showHelpBtn = true
             ibanTextView.isEditable = true
-            ibanTextView.helpPopupIcon = .selfAward
-            ibanTextView.helpLabelText = "Enter Beneficiary Account Number/ IBAN on which remittance is sent".localized
+            ibanTextView.formatValidator = FormatValidator(regex: RegexConstants.ibanRegex, invalidFormatError: "Please enter a valid Account Number/IBAN".localized)
             ibanTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.iban = updatedText
@@ -238,15 +243,26 @@ class SelfAwardViewController: BaseViewController {
         if referenceNumber?.isBlank ?? true || transactionAmount?.isBlank ?? true || remittanceDateString?.isBlank ?? true || transactionType == nil {
             proceedBtn.isEnabled = false
         } else {
-            if transactionType == .cnic,
-               !(cnic?.isBlank ?? true),
-               cnic?.isValid(for: RegexConstants.cnicRegex) ?? true {
-                proceedBtn.isEnabled = true
-            } else if transactionType == .bank,
-                      !(iban?.isBlank ?? true),
-                      iban?.isValid(for: RegexConstants.ibanRegex) ?? true {
-                proceedBtn.isEnabled = true
+            if transactionType == .cnic, !(cnic?.isBlank ?? true) {
+                // do cnic stuff
+                if !(cnic?.isBlank ?? true), cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+                    proceedBtn.isEnabled = true
+                } else {
+                    proceedBtn.isEnabled = false
+                }
+                
+            } else if transactionType == .bank, !(iban?.isBlank ?? true) {
+                // do bank stuff
+                if !(iban?.isBlank ?? true), iban?.isValid(for: RegexConstants.ibanRegex) ?? false {
+                    ibanTextView.updateStateTo(isError: false)
+                    proceedBtn.isEnabled = true
+                } else {
+                    ibanTextView.updateStateTo(isError: true, error: "Please enter a valid Account Number/IBAN".localized)
+                    proceedBtn.isEnabled = false
+                }
             } else {
+                // do nothing stuff
+                ibanTextView.updateStateTo(isError: false)
                 proceedBtn.isEnabled = false
             }
         }

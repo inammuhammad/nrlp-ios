@@ -484,3 +484,6 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Unsatisfactory" = "Unsatisfactory";
 "Father Name *" = "Father Name *";
 "Please enter a valid Account Number/IBAN" = "Please enter a valid Account Number/IBAN";
+"Remittance Transaction Type" = "Remittance Transaction Type";
+"Beneficiary CNIC" = "Beneficiary CNIC";
+"Beneficiary Account Number/ IBAN" = "Beneficiary Account Number/ IBAN";

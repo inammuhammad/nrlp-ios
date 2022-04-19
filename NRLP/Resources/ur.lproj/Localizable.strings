@@ -498,3 +498,6 @@
 "Unsatisfactory" = "غیر اطمینان بخش";
 "Father Name *" = "والد کا نام *";
 "Please enter a valid Account Number/IBAN" = "براہ کرم صحیح اکاؤنٹ نمبر/  بین الاقوامی بینک اکاؤنٹ   نمبر درج کریں";
+"Remittance Transaction Type" = "ترسیلات زر کی قسم";
+"Beneficiary CNIC" = "وصول کنندہ کا قومی شناختی کارڈ نمبر";
+"Beneficiary Account Number/ IBAN" = "وصول کنندہ کا اکاونٹ نمر/ بین الاقوامی بینک اکاؤنٹ نمبر";
