@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Thread.sleep(forTimeInterval: 1.5)
         
-        //Launch Controller
+        // Launch Controller
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = AppRouter().getTopViewController()
         self.window?.rootViewController = viewController
