@@ -11,12 +11,14 @@ typealias RedemptionRatingViewModelOutput = (RedemptionRatingViewModel.Output) -
 
 protocol RedemptionRatingViewModelProtocol {
     
-    var ratingType: RedemptionRatingTypes? {get set}
+//    var ratingType: RedemptionRatingTypes? {get set}
 
+    var stars: Int? { get set }
     var output: RedemptionRatingViewModelOutput? { get set}
-    var ratingTypeItemModel: [RadioButtonItemModel] { get }
+//    var ratingTypeItemModel: [RadioButtonItemModel] { get }
     func viewDidLoad()
-    func doneButtonPressed()
+    func submitRating()
+    // func doneButtonPressed()
 }
 
 class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
@@ -25,37 +27,44 @@ class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
     private var service: RedeemService
     var output: RedemptionRatingViewModelOutput?
     
-    var ratingTypeItemModel: [RadioButtonItemModel] = []
+//    var ratingTypeItemModel: [RadioButtonItemModel] = []
     
-    var ratingType: RedemptionRatingTypes? {
+//    var ratingType: RedemptionRatingTypes? {
+//        didSet {
+//            checkDoneButtonState()
+//        }
+//    }
+    
+    var stars: Int? {
         didSet {
-            checkDoneButtonState()
+            submitRating()
+            // checkDoneButtonState()
         }
     }
     
     private var transactionId: String
     
     func viewDidLoad() {
-        output?(.doneButtonState(state: false))
+        stars = 0
         checkDoneButtonState()
     }
     
-    private func setupRatingType() {
-        ratingTypeItemModel = [
-            RadioButtonItemModel(title: RedemptionRatingTypes.good.getTitle(), key: RedemptionRatingTypes.good.rawValue),
-            RadioButtonItemModel(title: RedemptionRatingTypes.satisfactory.getTitle(), key: RedemptionRatingTypes.satisfactory.rawValue),
-            RadioButtonItemModel(title: RedemptionRatingTypes.unsatisfactory.getTitle(), key: RedemptionRatingTypes.unsatisfactory.rawValue)
-        ]
-        
-        ratingType = RedemptionRatingTypes(rawValue: ratingTypeItemModel.first?.key ?? "")
-    }
+//    private func setupRatingType() {
+//        ratingTypeItemModel = [
+//            RadioButtonItemModel(title: RedemptionRatingTypes.good.getTitle(), key: RedemptionRatingTypes.good.rawValue),
+//            RadioButtonItemModel(title: RedemptionRatingTypes.satisfactory.getTitle(), key: RedemptionRatingTypes.satisfactory.rawValue),
+//            RadioButtonItemModel(title: RedemptionRatingTypes.unsatisfactory.getTitle(), key: RedemptionRatingTypes.unsatisfactory.rawValue)
+//        ]
+//
+//        ratingType = RedemptionRatingTypes(rawValue: ratingTypeItemModel.first?.key ?? "")
+//    }
 
     init(router: RedemptionRatingRouter, transactionId: String, service: RedeemService) {
         self.router = router
         self.transactionId = transactionId
         self.service = service
         
-        setupRatingType()
+//        setupRatingType()
     }
 
     enum Output {
@@ -64,14 +73,19 @@ class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
         case doneButtonState(state: Bool)
     }
     
-    func doneButtonPressed() {
-        guard let ratingType = ratingType else {
+    func submitRating() { // doneButtonPressed() {
+//        guard let ratingType = ratingType else {
+//            return
+//        }
+        
+        guard let stars = stars, stars > 0 else {
             return
         }
 
         self.output?(.showActivityIndicator(show: true))
+        let comments = "\(stars)" // ratingType.rawValue
 
-        service.submitRedemptionRating(requestModel: RedemptionRatingModel(transactionId: transactionId, comments: ratingType.rawValue)) {[weak self] (result) in
+        service.submitRedemptionRating(requestModel: RedemptionRatingModel(transactionId: transactionId, comments: comments)) {[weak self] (result) in
             self?.output?(.showActivityIndicator(show: false))
             switch result {
             case .success(let response):
@@ -87,10 +101,10 @@ class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
     }
     
     private func checkDoneButtonState() {
-        if ratingType == nil {
-            output?(.doneButtonState(state: false))
-        } else {
+        if let stars = stars, stars > 0 {
             output?(.doneButtonState(state: true))
+        } else {
+            output?(.doneButtonState(state: false))
         }
     }
 

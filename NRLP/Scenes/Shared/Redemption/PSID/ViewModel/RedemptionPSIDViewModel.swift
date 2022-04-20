@@ -155,7 +155,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
             let attributePart6 = NSMutableAttributedString(string: "OPF", attributes: boldAttributes)
             alertDesctiption.append(attributePart6)
         } else if flowType == .SLIC {
-            let attributePart6 = NSMutableAttributedString(string: "State\nLife?", attributes: boldAttributes)
+            let attributePart6 = NSMutableAttributedString(string: "SLIC.", attributes: boldAttributes)
             alertDesctiption.append(attributePart6)
             
         }
@@ -229,7 +229,7 @@ extension RedemptionPSIDViewModel {
                 output?(.nextButtonState(enableState: true))
             }
         } else if flowType == .OPF {
-            if psidText?.isEmpty ?? false || psidText?.count ?? 0 > 24 || psidText?.count ?? 0 < 1 {
+            if psidText?.isEmpty ?? false || psidText?.count ?? 0 > 24 || psidText?.count ?? 0 < 1 || !(psidText?.isValid(for: RegexConstants.alphanuericRegex) ?? false) {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))

@@ -239,7 +239,7 @@
 "Pending" = "Pending";
 "Application has monitored a change in language, continuing with it will restart the application. Do you want to continue?" = "Application has monitored a change in language, continuing with it will restart the application. Do you want to continue?";
 "View NRLP Benefits" = "View Benefits";
-"Urdu" = "اردو";
+"Urdu" = "اُردُو";
 "English" = "English";
 "NRLP Redemption Partners" = "Sohni Dharti Redemption Partners";
 "Benefits for NRLP users" = "Benefits for users";
@@ -368,7 +368,9 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)";
 
 
-"Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "Please enter following details of remittance receiver in Pakistan  1. In case of receiving cash-CNIC 2. In case of credits in bank account-complete bank account number";
+"Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "Please enter following details of remittance receiver in Pakistan
+1. In case of receiving cash-CNIC
+2. In case of credits in bank account-complete bank account no.";
 "Beneficiary Account Number/ IBAN/CNIC" = "Beneficiary Account Number/IBAN/CNIC/POC";
 
 "CNIC/NICOP Issuance Date *" = "CNIC/NICOP/POC Issuance Date *";

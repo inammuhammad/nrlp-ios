@@ -37,6 +37,7 @@ class RedeemViewModel: RedeemViewModelProtocol {
 
     func viewDidLoad() {
         fetchLoyaltyPartners()
+        // router.navigateToRedemptionRating()
     }
 
     private func fetchLoyaltyPartners() {

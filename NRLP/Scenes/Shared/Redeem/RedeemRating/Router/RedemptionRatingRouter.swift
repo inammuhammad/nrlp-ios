@@ -19,4 +19,3 @@ class RedemptionRatingRouter {
         self.navigationController?.popToRootViewController(animated: true)
     }
 }
-

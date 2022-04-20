@@ -58,9 +58,25 @@ class RedemptionOTPRouter {
             let dateStr = formatter.string(from: date)
             return "Receipt No. \(transactionID)\nYou have redeemed \(points) Points at Passport\n\(dateStr)".localized
         case .SLIC:
-            return "Receipt No. \(transactionID)\n\nYou have redeemed \(points) Points against Policy No.\n \(psid) successfully at State Life.\n\n\(finalStrDate)".localized
+            return "Receipt No. \(transactionID)\n\nYou have redeemed \(points) Points against Policy No.\n \(psid) successfully at SLIC on \(generateSLICDateToday())".localized
         case .BEOE:
             return "Receipt No. \(transactionID)\n\nYou have redeemed \(points) Points against \(inputModel.pseChild ?? "") successfully at Bureau of Emigration & Overseas Employment.\n\n\(finalStrDate)".localized
         }
+    }
+    
+    private func generateSLICDateToday() -> String {
+        let date = Date()
+
+        let day = Calendar.current.component(.day, from: date)
+
+        let dayString = "\(day)\(day == 1 ? "st" : day == 2 ? "nd" : day == 3 ? "rd" : "th")"
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL YYYY"
+        let monthYearString = dateFormatter.string(from: date)
+
+        let dateString = "\(dayString) \(monthYearString)"
+
+        return dateString
     }
 }

@@ -29,4 +29,5 @@ struct RegexConstants {
     static let residentId = "^[a-zA-Z0-9]{1,}$"
     static let beneficiaryRelation = "[a-zA-Z]+( [a-zA-Z]+)*$"
     static let alphanuericRegex = "^[a-zA-Z0-9]+$"
+    static let mobileNumberRegexPK = "^(0)(3)([0-9]{9})$"
 }

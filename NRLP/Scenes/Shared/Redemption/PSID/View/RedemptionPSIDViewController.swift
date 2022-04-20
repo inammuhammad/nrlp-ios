@@ -73,6 +73,7 @@ class RedemptionPSIDViewController: BaseViewController {
                     psidTextView.editTextKeyboardType = .default
                     psidTextView.inputFieldMinLength = 1
                     psidTextView.inputFieldMaxLength = 24
+                    psidTextView.formatValidator = FormatValidator(regex: RegexConstants.alphanuericRegex, invalidFormatError: "Please enter a valid Voucher Number for Redemption.")
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
                         guard let self = self else { return }
                         self.viewModel.psidText = updatedText
