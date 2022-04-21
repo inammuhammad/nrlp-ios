@@ -171,7 +171,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         var topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .asciiCapableNumberPad, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
             cnic = text
         }
-        var midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, editKeyboardType: .numbersAndPunctuation, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
+        var midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, inputFieldMaxLength: 15, editKeyboardType: .numberPad, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError)) { text in
             mobileNumber = text
         }
         let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optioxnal)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, isOptional: true) { text in

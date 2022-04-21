@@ -118,7 +118,7 @@ struct SelfAwardModel: Codable {
         case beneficiaryCnic = "beneficiary_nic_nicop"
         case responseTransactionID = "sp_respone_row_id"
         case remittanceDate = "transaction_date"
-        case type = "self_award_type"
+        case type = "transaction_type"
     }
     
     func encode(to encoder: Encoder) throws {

@@ -182,6 +182,7 @@ class SelfAwardViewController: BaseViewController {
             ibanTextView.placeholderText = "xxxxxxxxxxxxx".localized
             ibanTextView.editTextKeyboardType = .default
             ibanTextView.inputFieldMinLength = 1
+            ibanTextView.inputFieldMaxLength = 24
             ibanTextView.isEditable = true
             ibanTextView.formatValidator = FormatValidator(regex: RegexConstants.ibanRegex, invalidFormatError: "Please enter a valid Account Number/IBAN".localized)
             ibanTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -273,7 +274,7 @@ class SelfAwardViewController: BaseViewController {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
 
-            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType?.rawValue ?? "-")
+            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType?.getTitle() ?? "-")
             
             if transactionType == .cnic, let cnic = cnic {
                 model.beneficiaryCnic = cnic
