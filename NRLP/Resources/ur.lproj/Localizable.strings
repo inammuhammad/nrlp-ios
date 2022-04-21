@@ -98,6 +98,7 @@
 "Enter CNIC/NICOP"="CNIC/NICOP/POC کا اندراج کریں";
 "User Type"="یوزر کی اقسام";
 "Select account"="یوزر منتخب کریں";
+"Please enter your registered CNIC/NICOP/POC" = "Please enter your registered CNIC/NICOP/POC";
 "A verification code has been sent to your registered mobile number."="ایک تصدیقی SMS آپ کے رجسڑڈ موبائل نمبر پر بھیج دیا گیا ہے";
 "OTP Code will expire in"="او ٹی پی کوڈ کی میعاد ختم ہونے کا وَقت";
 "Code will expire in"="کوڈ کی میعاد ختم ہونے کا وَقت";
@@ -154,7 +155,7 @@
 "Enter a valid name"="درست نام درج کریں";
 "Enter a valid CNIC/NICOP Number"="درست CNIC / NICOP نمبر درج کریں";
 "Select a Country"="ملک منتخب کریں";
-"Please enter a valid Mobile number"="براہ کرم درست موبائل نمبر درج کریں";
+"Please enter valid Mobile No"="براہ کرم درست موبائل نمبر درج کریں";
 "Enter a valid email address"="درست ای میل کا اندراج کریں";
 "We have sent you a code on your phone number  %@" = "\U200E کوڈ اپ کے  موبائل نمبر %@ پربھیجا گیا ہے";
 "Please enter a valid password"="براہ کرم صحیح پاسورڈ درج کریں";
@@ -258,7 +259,7 @@
 "Unique ID *" = "منفرد آئی ڈی *";
 "Unique ID" = "منفرد آئی ڈی";
 "Please enter your Full Name as per CNIC/NICOP" = " براہ مہربانی شناختی کارڈ پر درج شناخت کا نمبر داخل کریں";
-
+"Please enter your Full Name as per CNIC/NICOP/POC" = " براہ مہربانی شناختی کارڈ پر درج شناخت کا نمبر داخل کریں";
 "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)" = "اپنا منفرد شناخت کا نمبر درج کریں جو آپ رقوم کی ترسیل کے لئے استعمال کرتے ہوں، بشمول آپ کے رہائشی حکومت کی طرف سے جاری کردہ نمبر (مثلا؛ اقامہ نمبر، رجسٹریشن نمبر، عماراتی آئی ڈی، ڈرائیونگ لائسنس، پاسپورٹ نمبر، وغیرہ)";
 
 "Passport Type *" = "پاسپورٹ کی قسم *";
@@ -266,6 +267,7 @@
 "Please select your passport type" = "براہ مہربانی اپنے پاسپورٹ کے قسم کا انتخاب کریں";
 "Enter Passport Number *" = "اپنا پاسپورٹ نمبر درج کریں*";
 "Passport Number" = "پاسپورٹ نمبر";
+"Enter Passport No." = "پاسپورٹ نمبر درج کریں";
 "Please enter your passport number" = "براہ مہربانی اپنا پاسپورٹ نمبر درج کریں";
 
 "Please enter your Mobile Number" = "براہ مہربانی اپنا موبائل نمبر درج کریں";
@@ -280,7 +282,7 @@
 "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds" = "براہ مہربانی منتخب کریں کہ آپ رقم بھیجنے والے یا وصول کرنے والے ہیں";
 
 "Country of Residence *"=  "* قیام کا ملک";
-"Full Name *" = "* کے مطابق پورا نام CNIC/NICOP";
+"Full Name *" = "* کے مطابق پورا نام CNIC/NICOP/POC";
 "Passport Type" = "پاسپورٹ کی قسم";
 "Enter Passport Number" = "اپنا پاسپورٹ نمبر درج کریں";
 "Mobile Number *" = "* موبائل نمبر";
@@ -314,6 +316,7 @@
 //PSID
 "Enter PSID for Redemption" = "پی ایس آئی ڈی نمبر درج کریں";
 "PSID Number" = "پی ایس آئی ڈی نمبر";
+"Enter PSID" = "پی ایس آئی ڈی نمبر درج کریں";
 "Enter other Amount Here" = "مختلف رقم ادائیگی کے لئے درج کریں";
 
 "You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
@@ -348,12 +351,14 @@
 // OPF
 "Enter Voucher Number for Redemption" = "واؤچر نمبر درج کریں";
 "Voucher Number" = "واؤچر نمبر";
+"Enter Voucher No" = "واؤچر نمبر درج کریں";
 "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF";
 "Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 // SLIC
 "Enter your State Life Policy No." = "اپنی اسٹیٹ لائف پالیسی نمبر درج کریں";
 "Policy Number" = "پالیسی نمبر";
+"Enter Policy No" = "پالیسی نمبر درج کریں";
 "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 "Redeem your points"="پوائنٹس استعمال کریں";
@@ -467,9 +472,11 @@
 "Bank Account Number/IBAN *" = "* بینک اکاؤنٹ نمبر /بین الاقوامی بینک اکاؤنٹ نمبر";
 "Bank Account Number/IBAN" = "بینک اکاؤنٹ نمبر /بین الاقوامی بینک اکاؤنٹ نمبر";
 "Please enter Receiver Name as per CNIC/NICOP" = "کے مطابق درج کریں NICOP/ CNIC براہ کرم وصول کنندہ کا نام";
+"Please enter Receiver Name as per CNIC/NICOP/POC" = "کے مطابق درج کریں NICOP/ CNIC/ POC براہ کرم وصول کنندہ کا نام";
 "Please enter Receiver Bank Account Number/IBAN" = "براہ کرم وصول کنندہ کا بینک اکاؤنٹ نمبر/بین الاقوامی بینک اکاؤنٹ نمبر درج کریں";
 "Please enter Receiver Bank Name" = "براہ کرم وصول کنندہ  کے  بینک کا نام درج کریں۔";
 "Please enter Receiver Place of Birth as per NADRA record" = "نادرا کے ریکارڈ کے مطابق براہ کرم وصول کنندہ کی جائے پیدائش درج کریں۔";
+"Please enter Receiver Country of Residence" = "Please enter Receiver Country of Residence";
 "Please enter Receiver Mother Name as per NADRA record" = "براہ کرم نادرا کے ریکارڈ کے مطابق وصول کنندہ کی والدہ کا نام درج کریں";
 "Are you sure want to delete the Receiver?" = "کیا آپ واقعی وصول کنندہ کو  نکلنا چاہتے ہیں ";
 "Your Remittance Receiver will be added upon NADRA verification" = "آپ کی ترسیلات زر وصول کرنے والا  نادرا کی تصدیق کے بعد شامل کر دیا جائے گا۔";
@@ -489,7 +496,7 @@
 "Beneficiary Relation Type *" = "وصول کنندہ کا رشتہ منتخب کریں *";
 "Beneficiary Relation *" = "وصول کنندہ کا رشتہ *";
 "CNIC/ NICOP *"="شناختی کارڈ/ نیشنل آئیڈنٹٹی کارڈ فور اوورسیز پاکستانی *";
-"Full Name *"= "کے مطابق پورا نام * CNIC/NICOP";
+"Full Name *"= "کے مطابق پورا نام * CNIC/NICOP/POC";
 "Country of Residence *"=  "قیام کا ملک *";
 "Beneficiary Mobile Number *" = "وصول کنندہ کا موبائل نمبر *";
 

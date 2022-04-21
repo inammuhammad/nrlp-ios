@@ -22,10 +22,11 @@ class RedemptionPSIDRouter {
     }
     
     func navigateBack() {
-        if let navController = self.navigationController {
-            let viewControllers: [UIViewController] = navController.viewControllers as [UIViewController]
-            navController.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
-        }
+        self.navigationController?.popViewController(animated: true)
+//        if let navController = self.navigationController {
+//            let viewControllers: [UIViewController] = navController.viewControllers as [UIViewController]
+//            navController.popToViewController(viewControllers[viewControllers.count - 3], animated: true)
+//        }
     }
     
 }

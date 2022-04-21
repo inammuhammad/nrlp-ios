@@ -35,7 +35,7 @@ class ReceiverFormViewController: BaseViewController {
             fullNameTextView.autoCapitalizationType = .words
             fullNameTextView.inputFieldMaxLength = 50
             fullNameTextView.showHelpBtn = true
-            fullNameTextView.helpLabelText = "Please enter Receiver Name as per CNIC/NICOP".localized
+            fullNameTextView.helpLabelText = "Please enter Receiver Name as per CNIC/NICOP/POC".localized
             fullNameTextView.editTextKeyboardType = .asciiCapable
             fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
             fullNameTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -102,8 +102,8 @@ class ReceiverFormViewController: BaseViewController {
             birthPlaceTextView.placeholderText = "Islamabad".localized
             birthPlaceTextView.autoCapitalizationType = .words
             birthPlaceTextView.inputFieldMaxLength = 50
-            birthPlaceTextView.showHelpBtn = false
-            birthPlaceTextView.helpLabelText = "Please select your place of birth".localized // change select to enter
+            birthPlaceTextView.showHelpBtn = true
+            birthPlaceTextView.helpLabelText = "Please enter Receiver Place of Birth as per NADRA record".localized // change select to enter
             birthPlaceTextView.editTextKeyboardType = .asciiCapable
             birthPlaceTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
             birthPlaceTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -123,11 +123,17 @@ class ReceiverFormViewController: BaseViewController {
             countryTextView.placeholderText = "Select Country".localized
             countryTextView.isEditable = false
             countryTextView.isTappable = true
+            countryTextView.showHelpBtn = true
+            countryTextView.helpLabelText = "Please enter Receiver Country of Residence".localized
             countryTextView.editTextKeyboardType = .asciiCapable
             countryTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             countryTextView.onTextFieldTapped = { [weak self] in
                 guard let self = self else { return }
                 self.viewModel.countryTextFieldTapped()
+            }
+            countryTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
             }
         }
     }

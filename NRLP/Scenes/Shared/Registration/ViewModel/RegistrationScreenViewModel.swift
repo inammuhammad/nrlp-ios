@@ -261,7 +261,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
     func didSelectPassportType(passportType: PassportTypePickerItemModel?) {
         self.passportType = passportType?.passportType
         output?(.updatePassportType(passportType: self.passportType?.getTitle() ?? ""))
-        output?(.showPassportNumberField(isVisible: true))
+        // output?(.showPassportNumberField(isVisible: true))
     }
     
     func didSelect(accountType: AccountTypePickerItemModel?) {
@@ -303,7 +303,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
         case textField(errorState: Bool, error: String?, textfieldType: RegistrationFormInputFieldType)
         case updateAccountType(accountType: String)
         case updatePassportType(passportType: String)
-        case showPassportNumberField(isVisible: Bool)
+        // case showPassportNumberField(isVisible: Bool)
         case updateProgressBar(toProgress: Float)
         case focusField(type: RegistrationFormInputFieldType)
         case showNewFields(isRemitter: Bool)
@@ -449,7 +449,7 @@ extension RegistrationViewModel {
                 output?(.textField(errorState: false, error: nil, textfieldType: .passportType))
             } else {
                 output?(.textField(errorState: true, error: StringConstants.ErrorString.passortTypeError.localized, textfieldType: .passportType))
-                output?(.showPassportNumberField(isVisible: false))
+                // output?(.showPassportNumberField(isVisible: false))
                 isValid = false
             }
 

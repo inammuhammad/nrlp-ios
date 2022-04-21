@@ -17,6 +17,13 @@ class ForgotPasswordViewController: BaseViewController {
         return pickerView
     }()
 
+    @IBOutlet weak var headingLabel: UILabel! {
+        didSet {
+            headingLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
+            headingLabel.text = "Please enter your registered CNIC/NICOP/POC".localized
+        }
+    }
+    
     @IBOutlet private weak var nextButton: PrimaryCTAButton! {
         didSet {
             nextButton.setTitle("Send Code".localized, for: .normal)
@@ -27,7 +34,7 @@ class ForgotPasswordViewController: BaseViewController {
 
     @IBOutlet private weak var cnicTextView: LabelledTextview! {
         didSet {
-            cnicTextView.titleLabelText = "CNIC/NICOP".localized
+            cnicTextView.titleLabelText = "CNIC/NICOP/POC *".localized
             cnicTextView.editTextKeyboardType = .asciiCapableNumberPad
             cnicTextView.formatValidator = CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
             cnicTextView.formatter = CNICFormatter()
@@ -41,7 +48,7 @@ class ForgotPasswordViewController: BaseViewController {
 
     @IBOutlet private weak var accountTypeTextView: LabelledTextview! {
         didSet {
-            accountTypeTextView.titleLabelText = "User Type".localized
+            accountTypeTextView.titleLabelText = "User Type *".localized
             accountTypeTextView.editTextKeyboardType = .numberPad
             accountTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
             accountTypeTextView.placeholderText = "Select User Type".localized

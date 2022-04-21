@@ -32,7 +32,7 @@ class RedemptionPSIDViewController: BaseViewController {
     @IBOutlet weak var psidTextView: LabelledTextview! {
         didSet {
             psidTextView.titleLabelText = "Enter PSID for Redemption".localized
-            psidTextView.placeholderText = "PSID Number".localized
+            psidTextView.placeholderText = "Enter PSID".localized
             psidTextView.editTextKeyboardType = .asciiCapableNumberPad
             psidTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
@@ -69,8 +69,8 @@ class RedemptionPSIDViewController: BaseViewController {
             case .setupTextField(flowType: let flowType):
                 if flowType == .OPF {
                     psidTextView.titleLabelText = "Enter Voucher Number for Redemption".localized
-                    psidTextView.placeholderText = "Voucher Number".localized
-                    psidTextView.editTextKeyboardType = .default
+                    psidTextView.placeholderText = "Enter Voucher No".localized
+                    psidTextView.editTextKeyboardType = .numberPad
                     psidTextView.inputFieldMinLength = 1
                     psidTextView.inputFieldMaxLength = 24
                     psidTextView.formatValidator = FormatValidator(regex: RegexConstants.alphanuericRegex, invalidFormatError: "Please enter a valid Voucher Number for Redemption.")
@@ -80,8 +80,8 @@ class RedemptionPSIDViewController: BaseViewController {
                     }
                 } else if flowType == .SLIC {
                     psidTextView.titleLabelText = "Enter your State Life Policy No.".localized
-                    psidTextView.placeholderText = "Policy Number".localized
-                    psidTextView.editTextKeyboardType = .asciiCapable
+                    psidTextView.placeholderText = "Enter Policy No".localized
+                    psidTextView.editTextKeyboardType = .numberPad
                     psidTextView.inputFieldMinLength = 8
                     psidTextView.inputFieldMaxLength = 24
                     psidTextView.formatValidator = FormatValidator(regex: RegexConstants.alphanuericRegex, invalidFormatError: "Please enter a valid State Life Policy No.")

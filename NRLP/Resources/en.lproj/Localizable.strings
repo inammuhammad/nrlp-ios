@@ -105,6 +105,7 @@
 "xxxxx - xxxxxxx - x" = "xxxxx - xxxxxxx - x";
 "User Type" = "User Type";
 "Select account" = "Select account";
+"Please enter your registered CNIC/NICOP/POC" = "Please enter your registered CNIC/NICOP/POC";
 //Forgot password OTP
 "05:00" = "05:00";
 "OTP Code will expire in" = "OTP Code will expire in";
@@ -187,6 +188,7 @@
 "Select a Country" = "Select a Country";
 "Enter a valid mobile number" = "Enter a valid mobile number";
 "Enter a valid email address" = "Enter a valid email address";
+"Please enter valid Mobile No"="Please enter valid Mobile No";
 "Enter a valid password" = "Enter a valid password";
 "Old password is not correct" = "Old password is not correct";
 "Password criteria does not match" = "Password criteria does not match";
@@ -250,6 +252,7 @@
 "Unique ID *" = "Unique ID *";
 "Unique ID" = "Unique ID";
 "Please enter your Full Name as per CNIC/NICOP" = "Please enter your Full Name as per CNIC/NICOP";
+"Please enter your Full Name as per CNIC/NICOP/POC" = "Please enter your Full Name as per CNIC/NICOP/POC";
 "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)" = "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)";
 
 "Passport Type *" = "Passport Type *";
@@ -258,6 +261,7 @@
 
 "Enter Passport Number *" = "Enter Passport Number *";
 "Passport Number" = "Passport Number";
+"Enter Passport No." = "Enter Passport No.";
 "Please enter your passport number" = "Please enter your passport number";
 
 "Please enter your Mobile Number" = "Please enter your Mobile Number";
@@ -304,6 +308,7 @@
 //PSID
 "Enter PSID for Redemption" = "Enter PSID for Redemption";
 "PSID Number" = "PSID Number";
+"Enter PSID" = "Enter PSID";
 "Enter other Amount Here" = "Enter other Amount Here";
 
 "You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR" = "You have redeemed %1$@ Points against\nPSID %2$@ successfully at FBR";
@@ -339,6 +344,7 @@
 // OPF
 "Enter Voucher Number for Redemption" = "Enter Voucher Number for Redemption";
 "Voucher Number" = "Voucher Number";
+"Enter Voucher No" = "Enter Voucher No";
 "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF";
 
 "Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@" = "Receipt No. %1$@\n\nYour amount against Voucher No.\n%2$@ for %3$@ Points is redeemed successfully at OPF\n\n%4$@";
@@ -346,6 +352,7 @@
 // SLIC
 "Enter your State Life Policy No." = "Enter your State Life Policy No.";
 "Policy Number" = "Policy Number";
+"Enter Policy No" = "Enter Policy No";
 "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@" = "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against Policy No.\n %3$@ successfully at State Life.\n\n%4$@";
 
 "Member since" = "MEMBER SINCE";
@@ -456,9 +463,11 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Bank Account Number/IBAN *" = "Bank Account Number/IBAN *";
 "Bank Account Number/IBAN" = "Bank Account Number/IBAN";
 "Please enter Receiver Name as per CNIC/NICOP" = "Please enter Receiver Name as per CNIC/NICOP";
+"Please enter Receiver Name as per CNIC/NICOP/POC" = "Please enter Receiver Name as per CNIC/NICOP/POC";
 "Please enter Receiver Bank Account Number/IBAN" = "Please enter Receiver Bank Account Number/IBAN";
 "Please enter Receiver Bank Name" = "Please enter Receiver Bank Name";
 "Please enter Receiver Place of Birth as per NADRA record" = "Please enter Receiver Place of Birth as per NADRA record";
+"Please enter Receiver Country of Residence" = "Please enter Receiver Country of Residence";
 "Please enter Receiver Mother Name as per NADRA record" = "Please enter Receiver Mother Name as per NADRA record";
 "Are you sure want to delete the Receiver?" = "Are you sure want to delete the Receiver?";
 "Your Remittance Receiver will be added upon NADRA verification" = "Your Remittance Receiver will be added upon NADRA verification";

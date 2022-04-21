@@ -52,7 +52,7 @@ class RegistrationViewController: BaseViewController {
             fullNameTextView.autoCapitalizationType = .words
             fullNameTextView.inputFieldMaxLength = 50
             fullNameTextView.showHelpBtn = true
-            fullNameTextView.helpLabelText = "Please enter your Full Name as per CNIC/NICOP".localized
+            fullNameTextView.helpLabelText = "Please enter your Full Name as per CNIC/NICOP/POC".localized
             fullNameTextView.editTextKeyboardType = .asciiCapable
             fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
             fullNameTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -197,7 +197,7 @@ class RegistrationViewController: BaseViewController {
     @IBOutlet weak var passportNumberTextView: LabelledTextview! {
         didSet {
             passportNumberTextView.titleLabelText = "Enter Passport Number *".localized
-            passportNumberTextView.placeholderText = "Passport Number".localized
+            passportNumberTextView.placeholderText = "Enter Passport No.".localized
             passportNumberTextView.showHelpBtn = true
             passportNumberTextView.helpLabelText = "Please enter your passport number".localized
 //            passportNumberTextView.textViewDescription = StringConstants.ErrorString.passportNumberError.localized
@@ -209,7 +209,7 @@ class RegistrationViewController: BaseViewController {
                 guard let self = self else { return }
                 self.viewModel.passportNumber = updatedText
             }
-            self.passportNumberTextView.isHidden = true
+            // self.passportNumberTextView.isHidden = true
             passportNumberTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
                 self.showAlert(with: model)
@@ -357,9 +357,9 @@ extension RegistrationViewController {
                 self.showAlert(with: error)
             case .nextButtonState(let enableState):
                 self.registrationCTAButton.isEnabled = enableState
-            case .showPassportNumberField(isVisible: let isVisible):
-                self.passportNumberTextView.isHidden = !isVisible
-                self.passportNumberTextView.inputText = ""
+//            case .showPassportNumberField(isVisible: let isVisible):
+//                self.passportNumberTextView.isHidden = !isVisible
+//                self.passportNumberTextView.inputText = ""
             case .updateCountry(let name):
                 self.countryTextView.inputText = name
             case .updateAccountType(let accountType):
@@ -504,6 +504,7 @@ extension RegistrationViewController {
     
     private func setupView() {
         self.title = "Register an account".localized
+        self.codeTextView.isHidden = true
     }
 
     private func setupKeyboardNotification() {
