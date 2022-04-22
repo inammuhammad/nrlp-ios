@@ -104,7 +104,7 @@ class RedemptionPSIDViewController: BaseViewController {
                     psidTextView.titleLabelText = "Enter PSID for Redemption".localized
                     psidTextView.inputFieldMinLength = 8
                     psidTextView.inputFieldMaxLength = 24
-                    psidTextView.placeholderText = "PSID Number".localized
+                    psidTextView.placeholderText = "Enter PSID".localized
                     psidTextView.editTextKeyboardType = .asciiCapableNumberPad
                     psidTextView.onTextFieldChanged = { [weak self] updatedText in
                         guard let self = self else { return }

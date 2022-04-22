@@ -560,6 +560,7 @@
 		BC7E7E9824C055A10026F341 /* GenerateStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9724C055A10026F341 /* GenerateStatementViewController.swift */; };
 		BC7E7E9B24C068590026F341 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */; };
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
+		DB14608728127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */; };
 		DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */; };
 		DB57AB8427F1E09700A94353 /* CancelRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */; };
 		DB9E3E822805737900B1F842 /* TransactionAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */; };
@@ -1345,6 +1346,7 @@
 		BC7E7E9724C055A10026F341 /* GenerateStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateStatementViewController.swift; sourceTree = "<group>"; };
 		BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
+		DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterUserService.swift; sourceTree = "<group>"; };
 		DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterModel.swift; sourceTree = "<group>"; };
 		DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountFormatter.swift; sourceTree = "<group>"; };
@@ -1936,6 +1938,7 @@
 				20F551AA24E2A81A00F75866 /* NRLPUserDefaults.swift */,
 				208EF7E324E13DFB00E43B0B /* Initializable.swift */,
 				20FAD90224EA725200126367 /* AppUtility.swift */,
+				DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -6790,6 +6793,7 @@
 				9F653AC724CB0CD300810DBD /* RedeemServiceBuilder.swift in Sources */,
 				207C3E1B24B73F8B00298C0C /* HomeCollectionViewCellDataModelProtocol.swift in Sources */,
 				207C3E3824B8512800298C0C /* CNICFormatter.swift in Sources */,
+				DB14608728127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift in Sources */,
 				E1FE16BD27833F910062D4E6 /* NadraVerifficationFormViewController.swift in Sources */,
 				2046B91124D9550E00E2C4CB /* FAQRequestModel.swift in Sources */,
 				200912C624BD5FB8002E204B /* Networking.swift in Sources */,

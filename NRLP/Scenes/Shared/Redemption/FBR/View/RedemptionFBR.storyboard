@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina3_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -22,30 +22,30 @@
             <objects>
                 <viewController storyboardIdentifier="RedemptionFBRViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="RedemptionFBRViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kp-mT-IJ9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="626"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jii-Cf-gIN">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="456.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="307.33333333333331"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYl-9L-AAO" customClass="LoyaltyCardView" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="33" width="280" height="107.5"/>
+                                                <rect key="frame" x="20" y="33.000000000000007" width="374" height="107.66666666666669"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="107.5" placeholder="YES" id="PNE-3B-N95"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Federal Bureau of Revenue" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyS-Ru-g0S">
-                                                <rect key="frame" x="20" y="160.5" width="280" height="28"/>
+                                                <rect key="frame" x="20" y="160.66666666666666" width="374" height="28"/>
                                                 <fontDescription key="fontDescription" name="HPSimplified-Bold" family="HP Simplified" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zvS-oK-qGz">
-                                                <rect key="frame" x="20" y="208.5" width="280" height="138"/>
+                                                <rect key="frame" x="20" y="208.66666666666666" width="374" height="98.666666666666657"/>
                                                 <string key="text">To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.
 
 If you already have a PSID please continue.</string>
@@ -53,49 +53,18 @@ If you already have a PSID please continue.</string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="amk-y9-jRq">
-                                                <rect key="frame" x="20" y="366.5" width="280" height="50"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPs-HL-WwA" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="123" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="awk-Iv-6Ht"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Next"/>
-                                                        <connections>
-                                                            <action selector="nextBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="r4Q-VU-fbl"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rt-5j-3kP" customClass="SecondaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="157" y="0.0" width="123" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="eE2-an-LEw"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Cancel"/>
-                                                        <connections>
-                                                            <action selector="cancelBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bVO-GR-p2r"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="5rt-5j-3kP" firstAttribute="width" secondItem="hPs-HL-WwA" secondAttribute="width" id="Zb8-eQ-EJy"/>
-                                                </constraints>
-                                            </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="YYl-9L-AAO" firstAttribute="leading" secondItem="jii-Cf-gIN" secondAttribute="leading" constant="20" id="3W5-WJ-LTl"/>
                                             <constraint firstAttribute="trailing" secondItem="YYl-9L-AAO" secondAttribute="trailing" constant="20" id="5Hx-8c-dYp"/>
                                             <constraint firstItem="YYl-9L-AAO" firstAttribute="top" secondItem="jii-Cf-gIN" secondAttribute="top" constant="33" id="6fM-7Z-JHT"/>
-                                            <constraint firstAttribute="bottom" secondItem="amk-y9-jRq" secondAttribute="bottom" constant="40" id="8Yl-HI-aXg"/>
                                             <constraint firstItem="zvS-oK-qGz" firstAttribute="leading" secondItem="jii-Cf-gIN" secondAttribute="leading" constant="20" id="FAF-X6-xgN"/>
-                                            <constraint firstAttribute="trailing" secondItem="amk-y9-jRq" secondAttribute="trailing" constant="20" id="IBl-vw-PAa"/>
                                             <constraint firstItem="lyS-Ru-g0S" firstAttribute="top" secondItem="YYl-9L-AAO" secondAttribute="bottom" constant="20" id="MhB-x9-ZSx"/>
                                             <constraint firstItem="lyS-Ru-g0S" firstAttribute="leading" secondItem="jii-Cf-gIN" secondAttribute="leading" constant="20" id="OZ0-h1-dhs"/>
                                             <constraint firstAttribute="trailing" secondItem="zvS-oK-qGz" secondAttribute="trailing" constant="20" id="OwD-gj-KiK"/>
-                                            <constraint firstItem="amk-y9-jRq" firstAttribute="top" secondItem="zvS-oK-qGz" secondAttribute="bottom" constant="20" id="cRD-WU-QTL"/>
+                                            <constraint firstAttribute="bottom" secondItem="zvS-oK-qGz" secondAttribute="bottom" id="Zo1-Ky-JEN"/>
                                             <constraint firstItem="zvS-oK-qGz" firstAttribute="top" secondItem="lyS-Ru-g0S" secondAttribute="bottom" constant="20" id="e7p-ze-Ndu"/>
-                                            <constraint firstItem="amk-y9-jRq" firstAttribute="leading" secondItem="jii-Cf-gIN" secondAttribute="leading" constant="20" id="mZ4-Hb-nF2"/>
                                             <constraint firstAttribute="trailing" secondItem="lyS-Ru-g0S" secondAttribute="trailing" constant="20" id="n73-pZ-vEa"/>
                                         </constraints>
                                     </view>
@@ -110,14 +79,45 @@ If you already have a PSID please continue.</string>
                                 <viewLayoutGuide key="contentLayoutGuide" id="ove-z9-I7H"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="ZSE-ZH-CFU"/>
                             </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="amk-y9-jRq">
+                                <rect key="frame" x="20" y="646" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPs-HL-WwA" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="awk-Iv-6Ht"/>
+                                        </constraints>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="nextBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="r4Q-VU-fbl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5rt-5j-3kP" customClass="SecondaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="204" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="eE2-an-LEw"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="cancelBtnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bVO-GR-p2r"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="5rt-5j-3kP" firstAttribute="width" secondItem="hPs-HL-WwA" secondAttribute="width" id="Zb8-eQ-EJy"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="1kp-mT-IJ9" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3dd-OJ-rys"/>
                             <constraint firstItem="1kp-mT-IJ9" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="4GR-0C-1Ua"/>
+                            <constraint firstItem="amk-y9-jRq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="mLx-Xu-3x4"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="amk-y9-jRq" secondAttribute="trailing" constant="20" id="qq8-a3-7UX"/>
                             <constraint firstItem="1kp-mT-IJ9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rJE-xB-D7w"/>
-                            <constraint firstItem="1kp-mT-IJ9" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="tRb-MY-oxj"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="amk-y9-jRq" secondAttribute="bottom" constant="40" id="rcT-ls-mdx"/>
+                            <constraint firstItem="1kp-mT-IJ9" firstAttribute="bottom" secondItem="amk-y9-jRq" secondAttribute="top" constant="-20" id="tRb-MY-oxj"/>
                         </constraints>
                     </view>
                     <connections>

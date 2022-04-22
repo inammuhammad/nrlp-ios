@@ -38,8 +38,16 @@ class HomeViewController: BaseViewController {
     private func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.collectionViewLayout = LeftAlignedCollectionViewFlowLayout()
+        // collectionView.collectionViewLayout = LeftAlignedCollectionViewFlowLayout()
         setupCollectionViewNibs()
+        
+        let alignLayout = AlignedCollectionViewFlowLayout()
+        alignLayout.horizontalAlignment = .right
+        collectionView.collectionViewLayout = alignLayout
+        
+        if AppConstants.appLanguage == .english {
+            collectionView.transform = CGAffineTransform(scaleX: -1, y: 1)
+        }
     }
 
     private func setupCollectionViewNibs() {
@@ -49,7 +57,7 @@ class HomeViewController: BaseViewController {
     }
 }
 
-//Setup Navigaition Hamburger Menu
+// Setup Navigaition Hamburger Menu
 extension HomeViewController {
     private func setupHamburgerItem() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburgerIcon"), style: .plain, target: self, action: #selector(hamburgerButtonTapped))
@@ -71,7 +79,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let model = viewModel.getItem(at: indexPath.row)
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.cellIdentifier, for: indexPath) as? HomeCollectionViewCellProtocol
         cell?.populate(with: model, controller: self)
-        return (cell as? UICollectionViewCell) ?? UICollectionViewCell()
+        
+        if let cell = cell as? UICollectionViewCell {
+            if AppConstants.appLanguage == .english {
+                cell.transform = CGAffineTransform(scaleX: -1, y: 1)
+            }
+            return cell
+        }
+        
+        return UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

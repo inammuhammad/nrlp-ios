@@ -98,7 +98,7 @@
 "Enter CNIC/NICOP"="CNIC/NICOP/POC کا اندراج کریں";
 "User Type"="یوزر کی اقسام";
 "Select account"="یوزر منتخب کریں";
-"Please enter your registered CNIC/NICOP/POC" = "Please enter your registered CNIC/NICOP/POC";
+"Please enter your registered CNIC/NICOP/POC" = "برائے مہربانی اپنا رجسٹرڈ CNIC/NICOP/POC درج کریں";
 "A verification code has been sent to your registered mobile number."="ایک تصدیقی SMS آپ کے رجسڑڈ موبائل نمبر پر بھیج دیا گیا ہے";
 "OTP Code will expire in"="او ٹی پی کوڈ کی میعاد ختم ہونے کا وَقت";
 "Code will expire in"="کوڈ کی میعاد ختم ہونے کا وَقت";
@@ -259,7 +259,7 @@
 "Unique ID *" = "منفرد آئی ڈی *";
 "Unique ID" = "منفرد آئی ڈی";
 "Please enter your Full Name as per CNIC/NICOP" = " براہ مہربانی شناختی کارڈ پر درج شناخت کا نمبر داخل کریں";
-"Please enter your Full Name as per CNIC/NICOP/POC" = " براہ مہربانی شناختی کارڈ پر درج شناخت کا نمبر داخل کریں";
+"Please enter your Full Name as per CNIC/NICOP/POC" = " براہ مہربانی شناختی کارڈ پر درج نام داخل کریں";
 "Please enter the unique ID you use for sending remittance to Pakistan through your bank or Money Transfer agent, including any  ID provided by your country of residence (Iqama No, Registration No., Emirati ID, Driving License, etc.)" = "اپنا منفرد شناخت کا نمبر درج کریں جو آپ رقوم کی ترسیل کے لئے استعمال کرتے ہوں، بشمول آپ کے رہائشی حکومت کی طرف سے جاری کردہ نمبر (مثلا؛ اقامہ نمبر، رجسٹریشن نمبر، عماراتی آئی ڈی، ڈرائیونگ لائسنس، پاسپورٹ نمبر، وغیرہ)";
 
 "Passport Type *" = "پاسپورٹ کی قسم *";
@@ -278,15 +278,15 @@
 "Re-Enter Password *" = "* پاس ورڈ کا دوبارہ اندراج کریں";
 "Please re-enter the Password" = "براہ مہربانی پاس ورڈ دوبارہ درج کریں";
 
-"User Type *" = "* یوزر کی اقسام";
+"User Type *" = "یوزر کی اقسام *";
 "Please select if you are a Remitter (Sender) Or Beneficiary (Receiver) of remittance funds" = "براہ مہربانی منتخب کریں کہ آپ رقم بھیجنے والے یا وصول کرنے والے ہیں";
 
 "Country of Residence *"=  "* قیام کا ملک";
 "Full Name *" = "* کے مطابق پورا نام CNIC/NICOP/POC";
 "Passport Type" = "پاسپورٹ کی قسم";
 "Enter Passport Number" = "اپنا پاسپورٹ نمبر درج کریں";
-"Mobile Number *" = "* موبائل نمبر";
-"CNIC/NICOP *"="CNIC/NICOP/POC *";
+"Mobile Number *" = "موبائل نمبر *";
+"CNIC/NICOP/POC *"="* CNIC/NICOP/POC";
 
 // SELF AWARD
 "Proceed" = "آگے بڑھیں";
