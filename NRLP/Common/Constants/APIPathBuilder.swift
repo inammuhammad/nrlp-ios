@@ -8,7 +8,7 @@
 
 import Foundation
 
-//1. Define entire app endpoints and envirment
+// 1. Define entire app endpoints and envirment
 struct APIPathBuilder {
     
     let url: String
@@ -39,7 +39,7 @@ struct APIPathBuilder {
             switch self {
             case .production, .staging:
                 let sign: [UInt8] =  [60, 17, 6, 29, 0, 123, 65, 75, 34, 31, 7, 74, 7, 6, 5, 31, 64, 48, 10, 31, 88, 25, 8, 74, 33, 61, 42, 14, 3, 11, 8, 91, 58, 23, 30, 29, 92]
-                //[60, 17, 6, 29, 0, 123, 65, 75, 45, 29, 2, 20, 71, 23, 6, 2, 64, 35, 14, 93, 25, 7, 6, 9, 39, 61, 36, 77, 4, 23, 15, 4, 123]
+                // [60, 17, 6, 29, 0, 123, 65, 75, 45, 29, 2, 20, 71, 23, 6, 2, 64, 35, 14, 93, 25, 7, 6, 9, 39, 61, 36, 77, 4, 23, 15, 4, 123]
                 return Replacer().deformatString(string: sign)
                 
             case .dev:

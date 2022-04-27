@@ -78,7 +78,7 @@ extension NetworkManager: Networking {
             return DefaultAPIRequest(request: dataRequest)
         } catch {
             completion(APIResponse(result: .failure(.unknown)))
-            return nil //For time but will be replace by actual working
+            return nil // For time but will be replace by actual working
         }
         
     }

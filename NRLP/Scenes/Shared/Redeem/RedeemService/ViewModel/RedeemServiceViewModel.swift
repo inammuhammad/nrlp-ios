@@ -168,18 +168,46 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         var mobileNumber = ""
         var email = ""
         
-        var topTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Applicant's CNIC/NICOP", placeHolderTextColor: .black, inputFieldMaxLength: 13, inputFieldMinLength: 13, editKeyboardType: .asciiCapableNumberPad, formatValidator: CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError), formatter: CNICFormatter()) { text in
-            cnic = text
-        }
-        var midTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Mobile Number", placeHolderTextColor: .black, inputFieldMaxLength: 15, editKeyboardType: .numberPad, formatValidator: FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: "Please enter valid Mobile No".localized)) { text in
-            mobileNumber = text
-        }
+        let topTextfieldViewModel = AlertTextFieldModel(
+            placeholderText: "Enter Applicant's CNIC/NICOP",
+            placeHolderTextColor: .black,
+            inputFieldMaxLength: 13,
+            inputFieldMinLength: 13,
+            editKeyboardType: .asciiCapableNumberPad,
+            formatValidator: CNICFormatValidator(
+                regex: RegexConstants.cnicRegex,
+                invalidFormatError: StringConstants.ErrorString.cnicError
+            ),
+            formatter: CNICFormatter(),
+            onTextFieldChanged: { text in
+                cnic = text
+            },
+            errorMessage: StringConstants.ErrorString.cnicError,
+            onError: nil
+        )
+        let midTextfieldViewModel = AlertTextFieldModel(
+            placeholderText: "Enter Mobile No.",
+            placeHolderTextColor: .black,
+            inputFieldMaxLength: 15,
+            editKeyboardType: .numberPad,
+            formatValidator: FormatValidator(
+                regex: RegexConstants.mobileNumberRegex,
+                invalidFormatError: "Please enter valid Mobile No".localized
+            ),
+            onTextFieldChanged: { text in
+                mobileNumber = text
+            },
+            errorMessage: "Please enter valid Mobile No".localized,
+            onError: nil
+        )
         let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optional)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, isOptional: true) { text in
             email = text
         }
         
         let confirmButton = AlertActionButtonModel(buttonTitle: "Confirm") {
-            print("\(cnic) \(mobileNumber) \(email)")
+            if AppConstants.isDev {
+                print("\(cnic) \(mobileNumber) \(email)")
+            }
             if !email.isEmpty {
                 if !email.isValid(for: RegexConstants.emailRegex) {
                     let alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "Error", alertDescription: "Please enter a valid email address", alertAttributedDescription: nil, primaryButton: AlertActionButtonModel(buttonTitle: "OK"))
@@ -195,7 +223,17 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             self.showNewAlert(index: index, cnic: cnic, mobileNo: mobileNumber, email: email)
         }
         let cancelButton = AlertActionButtonModel(buttonTitle: "Cancel", buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points", alertDescription: nil, alertAttributedDescription: getAlertDescription(index: index), primaryButton: confirmButton, secondaryButton: cancelButton, topTextField: topTextfieldViewModel, middleTextField: midTextfieldViewModel, bottomTextField: bottomTextfieldViewModel)
+        alert = AlertViewModel(
+            alertHeadingImage: .redeemPoints,
+            alertTitle: "Redeem Points",
+            alertDescription: nil,
+            alertAttributedDescription: getAlertDescription(index: index),
+            primaryButton: confirmButton,
+            secondaryButton: cancelButton,
+            topTextField: topTextfieldViewModel,
+            middleTextField: midTextfieldViewModel,
+            bottomTextField: bottomTextfieldViewModel
+        )
         output?(.showAlert(alert: alert))
     }
     
