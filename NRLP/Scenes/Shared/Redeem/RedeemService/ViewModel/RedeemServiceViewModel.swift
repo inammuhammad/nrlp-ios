@@ -189,7 +189,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             placeholderText: "Enter Mobile No.",
             placeHolderTextColor: .black,
             inputFieldMaxLength: 15,
-            editKeyboardType: .numberPad,
+            editKeyboardType: .asciiCapableNumberPad,
             formatValidator: FormatValidator(
                 regex: RegexConstants.mobileNumberRegex,
                 invalidFormatError: "Please enter valid Mobile No".localized
@@ -200,7 +200,12 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
             errorMessage: "Please enter valid Mobile No".localized,
             onError: nil
         )
-        let bottomTextfieldViewModel = AlertTextFieldModel(placeholderText: "Enter Email Address (Optional)", placeHolderTextColor: .black, editKeyboardType: .emailAddress, isOptional: true) { text in
+        let bottomTextfieldViewModel = AlertTextFieldModel(
+            placeholderText: "Enter Email Address (Optional)",
+            placeHolderTextColor: .black,
+            editKeyboardType: .emailAddress,
+            isOptional: true
+        ) { text in
             email = text
         }
         

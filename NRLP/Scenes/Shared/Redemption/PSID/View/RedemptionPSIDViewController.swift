@@ -70,7 +70,7 @@ class RedemptionPSIDViewController: BaseViewController {
                 if flowType == .OPF {
                     psidTextView.titleLabelText = "Enter Voucher Number for Redemption".localized
                     psidTextView.placeholderText = "Enter Voucher No".localized
-                    psidTextView.editTextKeyboardType = .numberPad
+                    psidTextView.editTextKeyboardType = .asciiCapable
                     psidTextView.inputFieldMinLength = 1
                     psidTextView.inputFieldMaxLength = 24
                     psidTextView.formatValidator = FormatValidator(regex: RegexConstants.alphanuericRegex, invalidFormatError: "Please enter a valid Voucher Number for Redemption.")
@@ -81,7 +81,7 @@ class RedemptionPSIDViewController: BaseViewController {
                 } else if flowType == .SLIC {
                     psidTextView.titleLabelText = "Enter your State Life Policy No.".localized
                     psidTextView.placeholderText = "Enter Policy No".localized
-                    psidTextView.editTextKeyboardType = .numberPad
+                    psidTextView.editTextKeyboardType = .asciiCapableNumberPad
                     psidTextView.inputFieldMinLength = 8
                     psidTextView.inputFieldMaxLength = 24
                     psidTextView.formatValidator = FormatValidator(regex: RegexConstants.alphanuericRegex, invalidFormatError: "Please enter a valid State Life Policy No.")

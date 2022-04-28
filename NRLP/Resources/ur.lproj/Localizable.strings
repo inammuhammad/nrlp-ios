@@ -266,6 +266,7 @@
 "Select Passport Type" = "اپنے پاسپورٹ کے قسم کا انتخاب کریں";
 "Please select your passport type" = "براہ مہربانی اپنے پاسپورٹ کے قسم کا انتخاب کریں";
 "Enter Passport Number *" = "اپنا پاسپورٹ نمبر درج کریں*";
+"Passport No. *" = "پاسپورٹ نمبر *";
 "Passport Number" = "پاسپورٹ نمبر";
 "Enter Passport No." = "پاسپورٹ نمبر درج کریں";
 "Please enter your passport number" = "براہ مہربانی اپنا پاسپورٹ نمبر درج کریں";
@@ -307,7 +308,7 @@
 
 //FBR
 "Federal Board of Revenue" = "Federal Board of Revenue";
-"To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID please continue." = "اپنے پوائنٹس کو ایف بی آر کی سروس کے لۓ استعمال کرنا ہو تو www.fbr.gov.pk پر جا کر اپنی منتخب شدہ سروس کی پی ایس آی ڈی حاصل کریں۔\n\nپی ایس آی ڈی پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
+"To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID,please continue." = "اپنے پوائنٹس کو ایف بی آر کی سروس کے لۓ استعمال کرنا ہو تو www.fbr.gov.pk پر جا کر اپنی منتخب شدہ سروس کی پی ایس آی ڈی حاصل کریں۔\n\nپی ایس آی ڈی پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
 
 //PIA
 "PIA" = "PIA";

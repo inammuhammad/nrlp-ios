@@ -196,7 +196,7 @@ class RegistrationViewController: BaseViewController {
     
     @IBOutlet weak var passportNumberTextView: LabelledTextview! {
         didSet {
-            passportNumberTextView.titleLabelText = "Enter Passport Number *".localized
+            passportNumberTextView.titleLabelText = "Passport No. *".localized
             passportNumberTextView.placeholderText = "Enter Passport No.".localized
             passportNumberTextView.showHelpBtn = true
             passportNumberTextView.helpLabelText = "Please enter your passport number".localized
