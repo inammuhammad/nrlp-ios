@@ -61,11 +61,17 @@ class HomeViewController: BaseViewController {
 extension HomeViewController {
     private func setupHamburgerItem() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburgerIcon"), style: .plain, target: self, action: #selector(hamburgerButtonTapped))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "email-icon"), style: .plain, target: self, action: #selector(notificationsBellTapped))
     }
 
     @objc
     private func hamburgerButtonTapped() {
         sideMenuDelegate.toggleNavigationPanel()
+    }
+    
+    @objc
+    private func notificationsBellTapped() {
+        self.viewModel.notificationsBellTapped()
     }
 }
 

@@ -11,6 +11,8 @@ import UIKit
 
 struct AppRouter {
     func getTopViewController() -> UIViewController {
+        // return NotificationsBuilder().build(with: nil)
+        
         if AppConstants.appLanguage == nil {
             return LanguageBuilder().build(navigationController: nil)
         }

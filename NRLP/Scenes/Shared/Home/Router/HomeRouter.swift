@@ -90,4 +90,7 @@ class HomeRouter {
         self.navigationController?.pushViewController(ReceiverLandingBuilder().build(with: self.navigationController), animated: true)
     }
     
+    func navigateToNotifications() {
+        self.navigationController?.pushViewController(NotificationsBuilder().build(with: self.navigationController), animated: true)
+    }
 }

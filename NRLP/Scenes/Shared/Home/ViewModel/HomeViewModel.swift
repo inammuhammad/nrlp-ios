@@ -22,6 +22,7 @@ protocol HomeViewModelProtocol {
     func didTapItem(at index: Int)
     func didTapSideMenu(item: SideMenuItem)
     func getUserModel() -> UserModel
+    func notificationsBellTapped()
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -163,6 +164,10 @@ class HomeViewModel: HomeViewModelProtocol {
            !(userModel.accountType == .beneficiary) {
             self.router.navigateToRemitterReceiverManagement(showListing: false)
         }
+    }
+    
+    func notificationsBellTapped() {
+        self.router.navigateToNotifications()
     }
     
     enum Output {

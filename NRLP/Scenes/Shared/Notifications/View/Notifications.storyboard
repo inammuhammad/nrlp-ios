@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Notifications View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="NotificationsViewController" id="Y6W-OH-hqX" customClass="NotificationsViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Tf-md-xQH" customClass="TopTabBarView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JOi-5m-JE5"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Ui4-dr-5v0"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7rd-tN-KXb">
+                                <rect key="frame" x="0.0" y="104" width="414" height="758"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xyc-4Z-RLH">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="7rd-tN-KXb" firstAttribute="top" secondItem="6Tf-md-xQH" secondAttribute="bottom" constant="20" id="0f3-ov-DyY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7rd-tN-KXb" secondAttribute="trailing" id="967-dx-LTI"/>
+                            <constraint firstItem="6Tf-md-xQH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RY4-9M-ioD"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7rd-tN-KXb" secondAttribute="bottom" id="TSc-Ai-cOx"/>
+                            <constraint firstItem="6Tf-md-xQH" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="XY9-yo-NeD"/>
+                            <constraint firstItem="7rd-tN-KXb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ooD-qe-BBN"/>
+                            <constraint firstItem="6Tf-md-xQH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="sPA-Mp-wxn"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="7rd-tN-KXb" id="JkA-qg-DM7"/>
+                        <outlet property="topTabBarView" destination="6Tf-md-xQH" id="taR-x9-fDv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="98"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
