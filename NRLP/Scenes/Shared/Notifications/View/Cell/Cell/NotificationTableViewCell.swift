@@ -40,11 +40,20 @@ class NotificationTableViewCell: UITableViewCell {
 
 private extension Date {
     var notificationsFormatted: String {
-        var date = "\(day()) \(months()) at \(time())"
-        return date
+        "\(day()) \(monthSuffix()) at \(time())"
     }
     
+    func monthSuffix() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let monthSuff = dateFormatter.string(from: self)
+        return monthSuff.stringPrefix(3)
+   }
+    
     func time() -> String {
-        ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm a"
+        let time = dateFormatter.string(from: self)
+        return time.lowercased()
     }
 }
