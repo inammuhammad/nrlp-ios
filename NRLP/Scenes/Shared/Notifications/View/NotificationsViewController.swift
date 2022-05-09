@@ -28,12 +28,13 @@ class NotificationsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "NotificationZ"
+        self.title = "Notifications"
     }
     
     private func setupTopTabBarView() {
         self.topTabBarView.titles = categories
         self.topTabBarView.delegate = self
+        // self.topTabBarView.disabled = [1]
     }
     
     private func setupCollectionView() {

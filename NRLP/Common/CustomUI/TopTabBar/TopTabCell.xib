@@ -31,12 +31,20 @@
                                 <rect key="frame" x="10" y="43" width="102" height="5"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view hidden="YES" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gnt-yQ-PFc">
+                                <rect key="frame" x="0.0" y="0.0" width="122" height="48"/>
+                                <color key="backgroundColor" systemColor="systemGray2Color"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ykf-n2-r2k" firstAttribute="top" relation="greaterThanOrEqual" secondItem="jPC-7u-8ur" secondAttribute="top" constant="5" id="1dH-w7-zaw"/>
+                            <constraint firstAttribute="bottom" secondItem="Gnt-yQ-PFc" secondAttribute="bottom" id="9Am-Le-Ggj"/>
                             <constraint firstItem="1lM-uF-J1N" firstAttribute="top" secondItem="ykf-n2-r2k" secondAttribute="bottom" constant="5" id="9bK-V2-qwx"/>
                             <constraint firstAttribute="bottom" secondItem="1lM-uF-J1N" secondAttribute="bottom" id="Jco-Zc-GGw"/>
+                            <constraint firstItem="Gnt-yQ-PFc" firstAttribute="leading" secondItem="jPC-7u-8ur" secondAttribute="leading" id="KyR-R7-RsE"/>
+                            <constraint firstAttribute="trailing" secondItem="Gnt-yQ-PFc" secondAttribute="trailing" id="Soh-k8-GyG"/>
+                            <constraint firstItem="Gnt-yQ-PFc" firstAttribute="top" secondItem="jPC-7u-8ur" secondAttribute="top" id="U0g-jl-UJW"/>
                             <constraint firstAttribute="trailing" secondItem="ykf-n2-r2k" secondAttribute="trailing" constant="5" id="dCE-uT-fNO"/>
                             <constraint firstItem="1lM-uF-J1N" firstAttribute="leading" secondItem="jPC-7u-8ur" secondAttribute="leading" constant="10" id="gwR-9l-jG3"/>
                             <constraint firstAttribute="trailing" secondItem="1lM-uF-J1N" secondAttribute="trailing" constant="10" id="hmK-mP-qwo"/>
@@ -64,6 +72,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

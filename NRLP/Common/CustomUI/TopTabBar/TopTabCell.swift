@@ -23,15 +23,23 @@ class TopTabCell: UICollectionViewCell {
         }
     }
     
+//    @IBOutlet private weak var overlayView: UIView! {
+//        didSet {
+//
+//        }
+//    }
+    
     private var tabSelected: Bool = false {
         didSet {
             selectionBar.backgroundColor = tabSelected ? UIColor(commonColor: .appGreen) : UIColor(commonColor: .appLightGray)
         }
     }
 
-    func populate(title: String, isSelected: Bool) {
+    func populate(title: String, isSelected: Bool, isDisabled: Bool) {
         self.label.text = title
         self.tabSelected = isSelected
+        
+        // self.overlayView.isHidden = !isDisabled
     }
 
 }

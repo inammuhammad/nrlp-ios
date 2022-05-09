@@ -16,6 +16,7 @@ class TopTabBarView: CustomNibView {
     
     private var selection = 0
     var titles = [String]()
+    var disabled = [Int]()
     var delegate: TopTabBarViewDelegate?
     
     @IBOutlet weak var collectionView: UICollectionView! {
@@ -59,11 +60,13 @@ extension TopTabBarView: UICollectionViewDataSource, UICollectionViewDelegate, U
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TopTabCell", for: indexPath) as? TopTabCell
-        cell?.populate(title: titles[indexPath.item], isSelected: indexPath.item == selection)
+        cell?.populate(title: titles[indexPath.item], isSelected: indexPath.item == selection, isDisabled: disabled.contains(indexPath.item))
         return (cell) ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard !disabled.contains(indexPath.item) else { return }
+        
         selection = indexPath.item
         delegate?.topTabBarView(selected: selection)
         collectionView.reloadData()

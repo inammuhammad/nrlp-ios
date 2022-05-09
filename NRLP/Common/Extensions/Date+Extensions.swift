@@ -25,6 +25,10 @@ extension Date {
         self.get(.month)
     }
     
+    func day() -> String {
+        self.get(.day)
+    }
+    
     func firstCenturyCharacter() -> String {
         String(self.get(.year).prefix(1))
     }
