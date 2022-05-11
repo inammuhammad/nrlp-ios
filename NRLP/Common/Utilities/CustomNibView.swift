@@ -28,7 +28,7 @@ class CustomNibView: UIView {
     }
 
     func setupView() {
-        //Should be overridden by other classes of custom nib.
+        // Should be overridden by other classes of custom nib.
     }
 
     private func setupXIB() {
