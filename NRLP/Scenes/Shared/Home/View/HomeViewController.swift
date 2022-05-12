@@ -26,7 +26,7 @@ class HomeViewController: BaseViewController {
         viewModel.viewModelDidLoad()
         setupHamburgerItem()
         
-        notificationsBellTapped()
+        // notificationsBellTapped()
     }
 
     override func viewWillAppear(_ animated: Bool) {

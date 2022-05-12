@@ -9,10 +9,11 @@
 import Firebase
 import FirebaseCore
 import netfox
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
     var lastViewController: UIViewController?
     let session: SessionContract = SessionManager()
@@ -41,6 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = AppRouter().getTopViewController()
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
+        
+        registerForPushNotifications()
         return true
     }
     
@@ -61,8 +64,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         backgroundWindow.isHidden = false
     }
-
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         backgroundWindow.isHidden = true
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Fail to Register: \(error)")
+    }
+    
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
+                if AppConstants.isDev {
+                    print("Notifications Permission Granted: \(granted)")
+                }
+                
+                guard granted else { return }
+                self?.getNotificationSettings()
+            }
+    }
+    
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            if AppConstants.isDev {
+                print("Notification settings: \(settings)")
+                guard settings.authorizationStatus == .authorized else { return }
+                
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
     }
 }

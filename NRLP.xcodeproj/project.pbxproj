@@ -1386,6 +1386,8 @@
 		DBF4699927FDA33400E1D9A6 /* TransactionTypePickerItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTypePickerItemModel.swift; sourceTree = "<group>"; };
 		DBF4699B27FDA35E00E1D9A6 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		DBF4699E27FDA5A100E1D9A6 /* SelfAwardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardViewModel.swift; sourceTree = "<group>"; };
+		DBF4DC5B282B9463004C1341 /* NRLPDev.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NRLPDev.entitlements; sourceTree = "<group>"; };
+		DBF4DC5C282B981C004C1341 /* NRLP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NRLP.entitlements; sourceTree = "<group>"; };
 		E10924BE26C7C8BF004D19A6 /* PassportType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportType.swift; sourceTree = "<group>"; };
 		E10924BF26C7C8BF004D19A6 /* PassportTypePickerItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassportTypePickerItemModel.swift; sourceTree = "<group>"; };
 		E111C89C27D692C100D185CD /* BankListing.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BankListing.storyboard; sourceTree = "<group>"; };
@@ -4457,6 +4459,8 @@
 		A1B9A1B424B2FF0B00CAAA32 /* NRLP */ = {
 			isa = PBXGroup;
 			children = (
+				DBF4DC5C282B981C004C1341 /* NRLP.entitlements */,
+				DBF4DC5B282B9463004C1341 /* NRLPDev.entitlements */,
 				20782D3D24B46AE300422AEB /* Resources */,
 				A1B9A1F424B3037E00CAAA32 /* Common */,
 				A1B9A1F324B3037300CAAA32 /* Domain */,
@@ -7327,6 +7331,7 @@
 			baseConfigurationReference = 6FB1AAD7495DB589CEC212D6 /* Pods-NRLP.staging.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NRLP/NRLP.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
@@ -7702,6 +7707,7 @@
 			baseConfigurationReference = 4A8A84CC83A49B6947E968B0 /* Pods-NRLP.dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NRLP/NRLPDev.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
@@ -7718,7 +7724,7 @@
 				MARKETING_VERSION = 3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelink.sohnidharti.app.dev;
 				PRODUCT_NAME = "Sohni Dharti";
-				PROVISIONING_PROFILE_SPECIFIER = "NRLP Ad-Hoc";
+				PROVISIONING_PROFILE_SPECIFIER = "NRLP-AdHoc";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				UDS_APP_NAME = "NRLP-DEV";
@@ -7731,6 +7737,7 @@
 			baseConfigurationReference = 81F2F9D1EE084118F6BDE45C /* Pods-NRLP.prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NRLP/NRLP.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 5;
