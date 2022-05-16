@@ -12,6 +12,21 @@ import UIKit
 class HomeViewController: BaseViewController {
     var viewModel: HomeViewModelProtocol!
     weak var sideMenuDelegate: HomeSideMenuViewControllerDelegate!
+    private lazy var notificationBellView: NotificationBellView = {
+        var navBarHeight = self.navigationController?.navigationBar.bounds.height ?? 0
+        
+        // normalise bell icon height
+        navBarHeight *= 0.6
+
+        let notificationBellView = NotificationBellView(
+            frame: CGRect(origin: .zero, size: CGSize(width: navBarHeight, height: navBarHeight))
+        )
+        notificationBellView.onTap = {
+            self.notificationsBellTapped()
+        }
+        
+        return notificationBellView
+    }()
 
     @IBOutlet private weak var collectionView: UICollectionView! {
         didSet {
@@ -26,7 +41,8 @@ class HomeViewController: BaseViewController {
         viewModel.viewModelDidLoad()
         setupHamburgerItem()
         
-        // notificationsBellTapped()
+        // FIXME: Test Code
+        notificationsBellTapped()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,63 +79,8 @@ extension HomeViewController {
     private func setupHamburgerItem() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "hamburgerIcon"), style: .plain, target: self, action: #selector(hamburgerButtonTapped))
         
-        let uiButton = UIButton(type: .system)
-        uiButton.setTitle("", for: .normal)
-        uiButton.setImage(#imageLiteral(resourceName: "bell"), for: .normal)
-        uiButton.addTarget(self, action: #selector(notificationsBellTapped), for: .touchUpInside)
-        uiButton.tintColor = UIColor(commonColor: .appGreen)
-        uiButton.translatesAutoresizingMaskIntoConstraints = false
-        uiButton.imageView?.sizeToFit()
-        
-        let customView = UIView()
-//        customView.backgroundColor = .yellow
-        customView.addSubview(uiButton)
-        
-        NSLayoutConstraint.activate([
-            uiButton.topAnchor.constraint(equalTo: customView.topAnchor),
-            uiButton.leftAnchor.constraint(equalTo: customView.leftAnchor),
-            uiButton.rightAnchor.constraint(equalTo: customView.rightAnchor),
-            uiButton.bottomAnchor.constraint(equalTo: customView.bottomAnchor),
-            uiButton.widthAnchor.constraint(equalToConstant: 28),
-            uiButton.heightAnchor.constraint(equalToConstant: 28)
-        ])
-        
-        showBadge(notificationsButton: uiButton, withCount: 5)
-        
-        let rightBarButtonItem = UIBarButtonItem(customView: customView)
+        let rightBarButtonItem = UIBarButtonItem(customView: notificationBellView)
         self.navigationItem.rightBarButtonItem = rightBarButtonItem
-        
-    }
-    
-    func badgeLabel(withCount count: Int) -> UILabel {
-        let badgeSize: CGFloat = 20
-        let badgeTag = 9830384
-        
-        let badgeCount = UILabel(frame: CGRect(x: 0, y: 0, width: badgeSize, height: badgeSize))
-        badgeCount.translatesAutoresizingMaskIntoConstraints = false
-        badgeCount.tag = badgeTag
-        badgeCount.layer.cornerRadius = badgeCount.bounds.size.height / 2
-        badgeCount.textAlignment = .center
-        badgeCount.layer.masksToBounds = true
-        badgeCount.textColor = .white
-        badgeCount.font = badgeCount.font.withSize(12)
-        badgeCount.backgroundColor = .systemRed
-        badgeCount.text = String(count)
-        return badgeCount
-    }
-    
-    func showBadge(notificationsButton: UIButton, withCount count: Int) {
-        let badgeSize: CGFloat = 20
-
-        let badge = badgeLabel(withCount: count)
-        notificationsButton.addSubview(badge)
-
-        NSLayoutConstraint.activate([
-            badge.leftAnchor.constraint(equalTo: notificationsButton.leftAnchor, constant: 14),
-            badge.topAnchor.constraint(equalTo: notificationsButton.topAnchor, constant: 4),
-            badge.widthAnchor.constraint(equalToConstant: badgeSize),
-            badge.heightAnchor.constraint(equalToConstant: badgeSize)
-        ])
     }
 
     @objc

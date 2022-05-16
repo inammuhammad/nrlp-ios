@@ -11,7 +11,7 @@ import UIKit
 class NotificationsViewController: BaseViewController {
     var viewModel: NotificationsViewModelProtocol!
     
-    private let categories = ["Complaint", "Activity", "Announcement"]
+    private let categories = ["Complaint"] //, "Activity", "Announcement"]
     
     @IBOutlet private weak var topTabBarView: TopTabBarView! {
         didSet {
@@ -34,7 +34,6 @@ class NotificationsViewController: BaseViewController {
     private func setupTopTabBarView() {
         self.topTabBarView.titles = categories
         self.topTabBarView.delegate = self
-        // self.topTabBarView.disabled = [1]
     }
     
     private func setupCollectionView() {

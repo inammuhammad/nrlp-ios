@@ -577,6 +577,8 @@
 		DB874145281D0F720097AE63 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB874143281D0F720097AE63 /* NotificationTableViewCell.swift */; };
 		DB874146281D0F720097AE63 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB874144281D0F720097AE63 /* NotificationTableViewCell.xib */; };
 		DB9E3E822805737900B1F842 /* TransactionAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */; };
+		DBC38E3828323208006B3E9B /* VerticalCenterTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */; };
+		DBC38E3A28323248006B3E9B /* NotificationBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3928323248006B3E9B /* NotificationBellView.swift */; };
 		DBECD163280662F5005A123C /* RedemptionRatingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */; };
 		DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16428066590005A123C /* RedemptionRatingViewController.swift */; };
 		DBECD16728066731005A123C /* RedemptionRating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECD16628066731005A123C /* RedemptionRating.storyboard */; };
@@ -1376,6 +1378,8 @@
 		DB874143281D0F720097AE63 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		DB874144281D0F720097AE63 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountFormatter.swift; sourceTree = "<group>"; };
+		DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCenterTextLayer.swift; sourceTree = "<group>"; };
+		DBC38E3928323248006B3E9B /* NotificationBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBellView.swift; sourceTree = "<group>"; };
 		DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingBuilder.swift; sourceTree = "<group>"; };
 		DBECD16428066590005A123C /* RedemptionRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewController.swift; sourceTree = "<group>"; };
 		DBECD16628066731005A123C /* RedemptionRating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionRating.storyboard; sourceTree = "<group>"; };
@@ -2619,6 +2623,8 @@
 				20782D3024B44E6A00422AEB /* LabelledTextView */,
 				207C3DE024B620CA00298C0C /* PaddedTextView.swift */,
 				E1E1EF1227A2CF7500D69EAD /* PaddedTextArea.swift */,
+				DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */,
+				DBC38E3928323248006B3E9B /* NotificationBellView.swift */,
 			);
 			path = CustomUI;
 			sourceTree = "<group>";
@@ -6782,6 +6788,7 @@
 				9F75D45F24E5F5EC0082364E /* BenefitsCategoriesRouter.swift in Sources */,
 				E1995E0327BFE12B00B44793 /* ReceiverTypeViewModel.swift in Sources */,
 				E1FE169E277DD8ED0062D4E6 /* KeyChain.swift in Sources */,
+				DBC38E3828323208006B3E9B /* VerticalCenterTextLayer.swift in Sources */,
 				208EF7F024E144C600E43B0B /* ChangePasswordViewController.swift in Sources */,
 				20E56FBE24B4AE0E00BF3B15 /* PrimaryCTAButton.swift in Sources */,
 				E114C30827A4016900697D73 /* RedemptionPartnerPickerItemModel.swift in Sources */,
@@ -7087,6 +7094,7 @@
 				207C3DC024B5C08B00298C0C /* TermsAndConditionsRouter.swift in Sources */,
 				E1FE16AD27832D240062D4E6 /* NadraVerificationViewController.swift in Sources */,
 				20901BEB24FFC29A00D13931 /* NRLPPartners.swift in Sources */,
+				DBC38E3A28323248006B3E9B /* NotificationBellView.swift in Sources */,
 				9F8565CB24BF43CE001B68CE /* LoyaltyPointsBuilder.swift in Sources */,
 				20167F1524C6F50400E0989E /* Replacer.swift in Sources */,
 				9FC6F83E24CB1F6600ADA038 /* RedeemServiceCell.swift in Sources */,
@@ -7708,8 +7716,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = NRLP/NRLPDev.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 5;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
@@ -7724,7 +7732,7 @@
 				MARKETING_VERSION = 3.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelink.sohnidharti.app.dev;
 				PRODUCT_NAME = "Sohni Dharti";
-				PROVISIONING_PROFILE_SPECIFIER = "NRLP-AdHoc";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				UDS_APP_NAME = "NRLP-DEV";

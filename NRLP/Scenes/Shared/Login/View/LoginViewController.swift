@@ -138,10 +138,10 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         
         // Prefill testing
 //        self.viewModel.cnic = "4220157985955"
-//        self.viewModel.cnic = "2222200000000"
+        self.viewModel.cnic = "2222200000000"
 //        self.viewModel.cnic = "2220000000000"
-//        self.viewModel.paassword = "Abcd@1234"
-//        self.viewModel.loginButtonPressed()
+        self.viewModel.paassword = "Abcd@1234"
+        self.viewModel.loginButtonPressed()
     }
 
     override func viewWillAppear(_ animated: Bool) {

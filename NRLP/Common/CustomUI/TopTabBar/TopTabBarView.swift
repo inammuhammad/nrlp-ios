@@ -15,7 +15,22 @@ protocol TopTabBarViewDelegate: AnyObject {
 class TopTabBarView: CustomNibView {
     
     private var selection = 0
-    var titles = [String]()
+    var titles = [String]() {
+        didSet {
+            // Configure Here
+            if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                let width = collectionView.bounds.width
+                
+                layout.sectionInset = UIEdgeInsets(
+                    top: 0,
+                    left: titles.count < 3 ? width * (1 - CGFloat(titles.count)/3.0) : 5,
+                    bottom: 0,
+                    right: 0
+                )
+            }
+            
+        }
+    }
     var disabled = [Int]()
     var delegate: TopTabBarViewDelegate?
     
@@ -39,11 +54,14 @@ class TopTabBarView: CustomNibView {
         flowLayout.minimumLineSpacing = .zero
         flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
         collectionView.collectionViewLayout = flowLayout
-        
+
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.bounces = false
         collectionView.alwaysBounceHorizontal = false
+        
+        print("CollectionView Width: \(collectionView.bounds.width)")
+        print("Titles: \(titles)")
         
         setupCollectionViewNibs()
     }
@@ -82,7 +100,7 @@ extension TopTabBarView: UICollectionViewDataSource, UICollectionViewDelegate, U
             collectionViewWidth -= sectionInset.right
         }
         
-        let width = titles.count > 3 ? collectionViewWidth / 3.5 : collectionViewWidth / CGFloat(titles.count)
+        let width = titles.count > 3 ? collectionViewWidth / 3.5 : collectionViewWidth / 3.0 // CGFloat(titles.count)
         
         return CGSize(width: width, height: collectionView.bounds.height)
     }
