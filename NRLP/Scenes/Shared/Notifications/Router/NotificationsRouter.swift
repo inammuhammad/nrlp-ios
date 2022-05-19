@@ -15,7 +15,7 @@ class NotificationsRouter {
         self.navigationController = navigationController
     }
     
-    func popToPreviousScreen() {
-        self.navigationController?.popViewController(animated: true)
-    }
+//    func popToPreviousScreen() {
+//        self.navigationController?.popViewController(animated: true)
+//    }
 }

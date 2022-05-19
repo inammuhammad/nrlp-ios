@@ -53,9 +53,6 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="dotsMenu" symbolScale="large" renderingMode="template"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="menuTapped" destination="KGk-i7-Jjw" eventType="touchUpInside" id="QiB-VU-L4C"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -89,6 +86,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateTimeLabel" destination="X2K-CQ-Lbh" id="FNm-dE-6I4"/>
+                <outlet property="menuButton" destination="lAK-aH-iTy" id="f5C-Dd-igq"/>
                 <outlet property="notificationTextLabel" destination="6yC-7m-7QK" id="fcA-oI-n9z"/>
                 <outlet property="notificationTextView" destination="KHx-pL-zFH" id="Kuk-JW-gEv"/>
             </connections>

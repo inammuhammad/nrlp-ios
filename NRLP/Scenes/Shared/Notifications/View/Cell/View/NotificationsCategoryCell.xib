@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NotificationsCategoryCollectionViewCell" customModule="Sohni_Dharti" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NotificationsCategoryCell" customModule="Sohni_Dharti" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="450" height="900"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -22,16 +22,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="900"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="q3O-yk-4Xg">
-                                <rect key="frame" x="10" y="0.0" width="430" height="890"/>
+                                <rect key="frame" x="10" y="0.0" width="430" height="810"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfX-ct-Q3p" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="20" y="830" width="410" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="83M-jq-MSa"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="q3O-yk-4Xg" secondAttribute="trailing" constant="10" id="H3M-UR-xgp"/>
+                            <constraint firstItem="lfX-ct-Q3p" firstAttribute="leading" secondItem="1gh-Sc-1f6" secondAttribute="leading" constant="20" id="PSL-6S-USZ"/>
+                            <constraint firstAttribute="bottom" secondItem="lfX-ct-Q3p" secondAttribute="bottom" constant="20" id="d9m-EV-b9d"/>
                             <constraint firstItem="q3O-yk-4Xg" firstAttribute="top" secondItem="1gh-Sc-1f6" secondAttribute="top" id="mQg-kg-G65"/>
-                            <constraint firstAttribute="bottom" secondItem="q3O-yk-4Xg" secondAttribute="bottom" constant="10" id="pA8-st-c5L"/>
+                            <constraint firstItem="lfX-ct-Q3p" firstAttribute="top" secondItem="q3O-yk-4Xg" secondAttribute="bottom" constant="20" id="pA8-st-c5L"/>
                             <constraint firstItem="q3O-yk-4Xg" firstAttribute="leading" secondItem="1gh-Sc-1f6" secondAttribute="leading" constant="10" id="tuH-VY-VbL"/>
+                            <constraint firstAttribute="trailing" secondItem="lfX-ct-Q3p" secondAttribute="trailing" constant="20" id="xU1-4F-Y3q"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -45,11 +55,17 @@
             </constraints>
             <connections>
                 <outlet property="containerView" destination="1gh-Sc-1f6" id="hnx-Ji-BUm"/>
+                <outlet property="loadMoreBtn" destination="lfX-ct-Q3p" id="5cG-Lv-uSc"/>
                 <outlet property="tableView" destination="q3O-yk-4Xg" id="sJq-pz-ypx"/>
             </connections>
             <point key="canvasLocation" x="139" y="66"/>
         </collectionViewCell>
     </objects>
+    <designables>
+        <designable name="lfX-ct-Q3p">
+            <size key="intrinsicContentSize" width="46" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -10,14 +10,14 @@ import UIKit
 
 class NotificationsBuilder {
     
-    func build(with navigationController: UINavigationController?) -> UIViewController {
+    func build(with navigationController: UINavigationController?, cnicNicop: String) -> UIViewController {
 
         let viewController = NotificationsViewController.getInstance()
         
-//        let coordinator = NotificationsRouter(navigationController: navigationController)
+        let coordinator = NotificationsRouter(navigationController: navigationController)
         let viewModel = NotificationsViewModel(
-//            with: BankListingService(),
-//            router: coordinator
+            router: coordinator,
+            cnicNicop: cnicNicop
         )
 
         viewController.viewModel = viewModel

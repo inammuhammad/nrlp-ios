@@ -15,22 +15,7 @@ protocol TopTabBarViewDelegate: AnyObject {
 class TopTabBarView: CustomNibView {
     
     private var selection = 0
-    var titles = [String]() {
-        didSet {
-            // Configure Here
-            if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-                let width = collectionView.bounds.width
-                
-                layout.sectionInset = UIEdgeInsets(
-                    top: 0,
-                    left: titles.count < 3 ? width * (1 - CGFloat(titles.count)/3.0) : 5,
-                    bottom: 0,
-                    right: 0
-                )
-            }
-            
-        }
-    }
+    var titles = [String]()
     var disabled = [Int]()
     var delegate: TopTabBarViewDelegate?
     

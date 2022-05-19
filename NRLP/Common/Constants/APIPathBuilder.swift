@@ -104,6 +104,9 @@ struct APIPathBuilder {
         case fetchBanks
         case cancelRegister
         case redemptionRating
+        case notificationList
+        case notificationRead
+        case notificationDelete
         
         var rawValue: String {
             switch self {
@@ -267,6 +270,15 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .redemptionRating:
                 let sign: [UInt8] = [58, 23, 30, 29, 94, 51, 11, 0, 38, 2, 30, 16, 0, 27, 7, 66, 28, 50, 17, 27, 24, 14, 76]
+                return Replacer().deformatString(string: sign)
+            case .notificationList:
+                let sign: [UInt8] = [58, 23, 30, 29, 94, 47, 1, 16, 42, 9, 7, 7, 8, 0, 0, 0, 0, 126, 9, 27, 5, 29, 76]
+                return Replacer().deformatString(string: sign)
+            case .notificationRead:
+                let sign: [UInt8] = [58, 23, 30, 29, 94, 47, 1, 16, 42, 9, 7, 7, 8, 0, 0, 0, 0, 126, 23, 23, 23, 13, 76]
+                return Replacer().deformatString(string: sign)
+            case .notificationDelete:
+                let sign: [UInt8] = [58, 23, 30, 29, 94, 47, 1, 16, 42, 9, 7, 7, 8, 0, 0, 0, 0, 126, 1, 23, 26, 12, 23, 0, 97]
                 return Replacer().deformatString(string: sign)
             }
         }

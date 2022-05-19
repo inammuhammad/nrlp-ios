@@ -42,7 +42,7 @@ class HomeViewController: BaseViewController {
         setupHamburgerItem()
         
         // FIXME: Test Code
-        notificationsBellTapped()
+        // notificationsBellTapped()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -164,6 +164,8 @@ extension HomeViewController {
                 self.showAlert(with: alertModel)
             case .showAlert(let alertModel):
                 self.showAlert(with: alertModel)
+            case .updateNotificationCount(let count):
+                notificationBellView.count = count
             }
         }
     }

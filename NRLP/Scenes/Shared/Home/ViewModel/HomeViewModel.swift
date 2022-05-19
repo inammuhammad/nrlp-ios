@@ -73,6 +73,7 @@ class HomeViewModel: HomeViewModelProtocol {
                     self?.checkReceiverManagement()
                     self?.setupCollectionViewData()
                     self?.output?(.reloadCollectionView)
+                    self?.output?(.updateNotificationCount(count: data.notificationCount ?? 0))
                 }
             case .failure(let error):
                 print("Request Fail With Error: \(error)")
@@ -167,7 +168,7 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     func notificationsBellTapped() {
-        self.router.navigateToNotifications()
+        self.router.navigateToNotifications(cnicNicop: userModel.cnicNicop.toString())
     }
     
     enum Output {
@@ -176,6 +177,7 @@ class HomeViewModel: HomeViewModelProtocol {
         case showError(error: APIResponseError)
         case showLogoutAlert(alertModel: AlertViewModel)
         case showAlert(alertModel: AlertViewModel)
+        case updateNotificationCount(count: Int)
     }
     
     deinit {

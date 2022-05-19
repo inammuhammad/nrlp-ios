@@ -79,6 +79,8 @@ struct UserModel: Codable {
     var formattedCnicIssueDate: String {
         return DateFormat().formatDateString(dateString: cnicIssueDateStr ?? "", fromFormat: .dateTimeMilis, toFormat: .shortDateFormat) ?? ""
     }
+    
+    var notificationCount: Int?
 
     enum CodingKeys: String, CodingKey {
         case type = "user_type"
@@ -106,6 +108,7 @@ struct UserModel: Codable {
         case nadraVerifiedStr = "nadra_verified"
         case requiresNadraVerification = "require_nadra_verification"
         case receiverCount = "receiver_count"
+        case notificationCount = "notification_count"
     }
     
     init() {
@@ -134,6 +137,7 @@ struct UserModel: Codable {
         self.nadraVerifiedStr = ""
         self.requiresNadraVerification = false
         self.receiverCount = 1
+        self.notificationCount = 0
     }
 
     mutating func update(from userModel: UserModel) {
@@ -162,6 +166,7 @@ struct UserModel: Codable {
         self.nadraVerifiedStr = userModel.nadraVerifiedStr
         self.requiresNadraVerification = userModel.requiresNadraVerification ?? requiresNadraVerification
         self.receiverCount = userModel.receiverCount ?? receiverCount
+        self.notificationCount = userModel.notificationCount ?? notificationCount
         
     }
     

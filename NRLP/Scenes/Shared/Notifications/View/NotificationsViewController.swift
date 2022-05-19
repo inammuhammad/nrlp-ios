@@ -11,7 +11,7 @@ import UIKit
 class NotificationsViewController: BaseViewController {
     var viewModel: NotificationsViewModelProtocol!
     
-    private let categories = ["Complaint"] //, "Activity", "Announcement"]
+    private let categories = NotificationCategory.allCases // ["Complaint"] // , "Activity", "Announcement"]
     
     @IBOutlet private weak var topTabBarView: TopTabBarView! {
         didSet {
@@ -32,7 +32,7 @@ class NotificationsViewController: BaseViewController {
     }
     
     private func setupTopTabBarView() {
-        self.topTabBarView.titles = categories
+        self.topTabBarView.titles = categories.map { $0.rawValue }
         self.topTabBarView.delegate = self
     }
     
@@ -46,9 +46,9 @@ class NotificationsViewController: BaseViewController {
         flowLayout.minimumLineSpacing = .zero
         flowLayout.sectionInset = .zero
         collectionView.collectionViewLayout = flowLayout
-
+        
         collectionView.isPagingEnabled = true
-    
+        
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.bounces = false
@@ -60,7 +60,7 @@ class NotificationsViewController: BaseViewController {
     }
     
     private func setupCollectionViewNibs() {
-        collectionView.register(nibName: "NotificationsCategoryCollectionViewCell")
+        collectionView.register(nibName: "NotificationsCategoryCell")
     }
 }
 
@@ -75,17 +75,18 @@ extension NotificationsViewController: UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         categories.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotificationsCategoryCollectionViewCell", for: indexPath) as? NotificationsCategoryCollectionViewCell
-        
-        return (cell) ?? UICollectionViewCell()
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotificationsCategoryCell", for: indexPath) as? NotificationsCategoryCell
+        viewModel.populate(cell: cell, indexPath: indexPath)
+        // cell?.populate(with: self.viewModel, category: .complaints)
+        return cell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         return collectionView.bounds.size

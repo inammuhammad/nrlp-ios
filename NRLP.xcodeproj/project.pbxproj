@@ -572,13 +572,15 @@
 		DB874133281CDEC40097AE63 /* TopTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB874132281CDEC40097AE63 /* TopTabBarView.swift */; };
 		DB87413B281CE40D0097AE63 /* TopTabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB874139281CE40D0097AE63 /* TopTabCell.swift */; };
 		DB87413C281CE40D0097AE63 /* TopTabCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB87413A281CE40D0097AE63 /* TopTabCell.xib */; };
-		DB874140281D00EF0097AE63 /* NotificationsCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87413E281D00EE0097AE63 /* NotificationsCategoryCollectionViewCell.swift */; };
-		DB874141281D00EF0097AE63 /* NotificationsCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB87413F281D00EE0097AE63 /* NotificationsCategoryCollectionViewCell.xib */; };
+		DB874140281D00EF0097AE63 /* NotificationsCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB87413E281D00EE0097AE63 /* NotificationsCategoryCell.swift */; };
+		DB874141281D00EF0097AE63 /* NotificationsCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB87413F281D00EE0097AE63 /* NotificationsCategoryCell.xib */; };
 		DB874145281D0F720097AE63 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB874143281D0F720097AE63 /* NotificationTableViewCell.swift */; };
 		DB874146281D0F720097AE63 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB874144281D0F720097AE63 /* NotificationTableViewCell.xib */; };
 		DB9E3E822805737900B1F842 /* TransactionAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */; };
 		DBC38E3828323208006B3E9B /* VerticalCenterTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */; };
 		DBC38E3A28323248006B3E9B /* NotificationBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3928323248006B3E9B /* NotificationBellView.swift */; };
+		DBC38E3C28325E1E006B3E9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3B28325E1E006B3E9B /* NotificationService.swift */; };
+		DBC38E3E28325F36006B3E9B /* NotificationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */; };
 		DBECD163280662F5005A123C /* RedemptionRatingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */; };
 		DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16428066590005A123C /* RedemptionRatingViewController.swift */; };
 		DBECD16728066731005A123C /* RedemptionRating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECD16628066731005A123C /* RedemptionRating.storyboard */; };
@@ -1373,13 +1375,15 @@
 		DB874132281CDEC40097AE63 /* TopTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarView.swift; sourceTree = "<group>"; };
 		DB874139281CE40D0097AE63 /* TopTabCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabCell.swift; sourceTree = "<group>"; };
 		DB87413A281CE40D0097AE63 /* TopTabCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopTabCell.xib; sourceTree = "<group>"; };
-		DB87413E281D00EE0097AE63 /* NotificationsCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
-		DB87413F281D00EE0097AE63 /* NotificationsCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		DB87413E281D00EE0097AE63 /* NotificationsCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCategoryCell.swift; sourceTree = "<group>"; };
+		DB87413F281D00EE0097AE63 /* NotificationsCategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsCategoryCell.xib; sourceTree = "<group>"; };
 		DB874143281D0F720097AE63 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		DB874144281D0F720097AE63 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountFormatter.swift; sourceTree = "<group>"; };
 		DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCenterTextLayer.swift; sourceTree = "<group>"; };
 		DBC38E3928323248006B3E9B /* NotificationBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBellView.swift; sourceTree = "<group>"; };
+		DBC38E3B28325E1E006B3E9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListModel.swift; sourceTree = "<group>"; };
 		DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingBuilder.swift; sourceTree = "<group>"; };
 		DBECD16428066590005A123C /* RedemptionRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewController.swift; sourceTree = "<group>"; };
 		DBECD16628066731005A123C /* RedemptionRating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionRating.storyboard; sourceTree = "<group>"; };
@@ -2668,6 +2672,7 @@
 				E114C30B27A417DF00697D73 /* ComplaintService.swift */,
 				E156F1C227D1313B00491B65 /* RemitterReceiverService.swift */,
 				E111C8A227D695BB00D185CD /* BankListingService.swift */,
+				DBC38E3B28325E1E006B3E9B /* NotificationService.swift */,
 			);
 			path = DataStores;
 			sourceTree = "<group>";
@@ -4836,6 +4841,7 @@
 		DB874120281C720B0097AE63 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -4889,8 +4895,7 @@
 			isa = PBXGroup;
 			children = (
 				DB874142281D0F4B0097AE63 /* Cell */,
-				DB87413E281D00EE0097AE63 /* NotificationsCategoryCollectionViewCell.swift */,
-				DB87413F281D00EE0097AE63 /* NotificationsCategoryCollectionViewCell.xib */,
+				DBE096122834D42600EBA05F /* View */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -4947,6 +4952,15 @@
 				DBECD16A28066F2E005A123C /* RedemptionRatingViewModel.swift */,
 			);
 			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		DBE096122834D42600EBA05F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB87413E281D00EE0097AE63 /* NotificationsCategoryCell.swift */,
+				DB87413F281D00EE0097AE63 /* NotificationsCategoryCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DBECD16C28067B76005A123C /* Model */ = {
@@ -6402,7 +6416,7 @@
 				A1B9A1BF24B2FF0D00CAAA32 /* Assets.xcassets in Resources */,
 				207D5E5E24BC60AB00222594 /* Garamond-bold.ttf in Resources */,
 				207D5E6B24BC60DF00222594 /* HPSimplified-light-italic.ttf in Resources */,
-				DB874141281D00EF0097AE63 /* NotificationsCategoryCollectionViewCell.xib in Resources */,
+				DB874141281D00EF0097AE63 /* NotificationsCategoryCell.xib in Resources */,
 				E15BF302277A05780038EA81 /* CardImageButton.xib in Resources */,
 				9F8AE2B024DAD6EE00F1E468 /* ProfileOTP.storyboard in Resources */,
 				9F653ACE24CB0CD300810DBD /* RedeemConfirm.storyboard in Resources */,
@@ -6932,6 +6946,7 @@
 				E15BF31F277B37BB0038EA81 /* CityService.swift in Sources */,
 				2030724E24C9F58200C0DC67 /* RadialGradientLayer.swift in Sources */,
 				DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */,
+				DBC38E3E28325F36006B3E9B /* NotificationListModel.swift in Sources */,
 				204A6BD224B82FF2001E4E74 /* OTPService.swift in Sources */,
 				207C3DA124B5B01400298C0C /* AccountTypePickerItemModel.swift in Sources */,
 				E1E1EF1327A2CF7500D69EAD /* PaddedTextArea.swift in Sources */,
@@ -7005,7 +7020,7 @@
 				DBECD163280662F5005A123C /* RedemptionRatingBuilder.swift in Sources */,
 				2074D60224D174A700006731 /* DateExtension.swift in Sources */,
 				E13F319A27B2B0E200B763BD /* ProfileVerificationRouter.swift in Sources */,
-				DB874140281D00EF0097AE63 /* NotificationsCategoryCollectionViewCell.swift in Sources */,
+				DB874140281D00EF0097AE63 /* NotificationsCategoryCell.swift in Sources */,
 				9F8D826D24C86AB500BB1C26 /* ForgotPasswordNewPassViewController.swift in Sources */,
 				E1E5F85227A1538F00413FB4 /* ComplaintTypeViewModel.swift in Sources */,
 				9FF2C86624D352FB00527CD3 /* RedeemService.swift in Sources */,
@@ -7195,6 +7210,7 @@
 				E1C7F6DC279AC3810047AB6B /* IntExtension.swift in Sources */,
 				20E56FC224B4B6AF00BF3B15 /* RegistrationModuleBuilder.swift in Sources */,
 				E1995E2727C4D7C400B44793 /* ReceiverListingViewController.swift in Sources */,
+				DBC38E3C28325E1E006B3E9B /* NotificationService.swift in Sources */,
 				9F8AE2B324DAD6EE00F1E468 /* ProfileSuccessBuilder.swift in Sources */,
 				20D8403F24B4942A00F5D749 /* BaseNavigationController.swift in Sources */,
 				9FD4EE6924EA859C0078C373 /* BenefitCategoryCellProtocol.swift in Sources */,

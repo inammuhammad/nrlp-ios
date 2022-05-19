@@ -38,20 +38,41 @@ class NotificationTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet private weak var menuButton: UIButton! {
+        didSet {
+            if #available(iOS 14, *) {
+                menuButton.showsMenuAsPrimaryAction = true
+                menuButton.menu = UIMenu(
+                    title: "",
+                    children: [
+                        UIAction(title: "Delete", image: UIImage(systemName: "trash.fill"), attributes: [.destructive]) { _ in
+                            self.onMenuTap?()
+                        }
+                    ]
+                )
+            }
+        }
+    }
+    
     public func populate(
-        text: String,
-        datetime: Date,
-        isRead: Bool,
+        notificationRecord: NotificationRecordModel,
+//        text: String,
+//        datetime: Date,
+//        isRead: Bool,
         onMessageTap: (() -> Void)?,
         onMenuTap: (() -> Void)?
     ) {
-        notificationTextView.backgroundColor = UIColor(commonColor: isRead ? .appLightGray : .appGreen)
-        notificationTextLabel.text = text
-        dateTimeLabel.text = datetime.notificationsFormatted
-        
-        self.isRead = isRead
+        self.isRead = notificationRecord.isReadFlag == 1
         self.onMenuTap = onMenuTap
         self.onMessageTap = onMessageTap
+        
+        notificationTextView.backgroundColor = UIColor(commonColor: isRead ? .appLightGray : .appGreen)
+        notificationTextLabel.text = notificationRecord.notificationMessage
+        if let date = DateFormat().formatDate(dateString: notificationRecord.notificationDatetime, formatter: .dateTimeMilis) {
+            dateTimeLabel.text = date.notificationsFormatted
+        } else {
+            dateTimeLabel.text = ""
+        }
     }
     
     @objc private func messageTapped() {
