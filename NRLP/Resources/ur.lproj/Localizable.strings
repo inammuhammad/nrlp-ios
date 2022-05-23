@@ -38,7 +38,7 @@
 "Add Beneficiaries"="وصول کنندہ درج کریں";
 "Create Beneficiary"="وصول کنندہ بنائیں";
 "Beneficiary registered successfully."="وصول کنندہ کامیابی کے ساتھ اندراج ہو گیا";
-// "Beneficiary created successfully, we have sent a SMS to the Beneficiary."="وصول کنندہ کامیابی کے ساتھ تشکیل دیا گیا ہے ، ہم نے وصول کنندہ کو ایک SMS بھیجا ہے۔";
+"Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry." = "وصول کنندہ کامیابی کے ساتھ تشکیل دیا گیا ہے، ہم نے وصول کنندہ کو ایک SMS بھیجا ہے جس میں لنک اور رجسٹریشن کوڈ موجود ہیں براہ کرم اپنے وصول کنندہ سے کوڈ کی میعاد ختم ہونے سے پہلے 3 دن کے اندر اندراج کرنے کو کہیں";
 "Your beneficiary has not activated the account yet. Once the account is active you will be able to transfer the points."="آپ کے وصول کنندہ نے ابھی تک اکاؤنٹ کو رجسٹر نہیں کیا ہے۔ یوزر فعال ہو جائے تو آپ پوائنٹس کو منتقل کرنے کے قابل ہوجائیں گے۔";
 "No beneficiary found"="کوئی وصول کنندہ نہیں ملا";
 "Select Beneficiary"="وصول کنندہ کو منتخب کریں";
@@ -495,7 +495,7 @@
 "USDtext" = "USD
 میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں تاہم موجودہ سال کے لیے اس کا اطلاق یکم اکتوبر 2021 سے ہوگا اور اسی کے مطابق آپ کی لائلٹی کیٹیگری کا حساب لگایا جائے گا۔
 ";
-// "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "روشن ڈیجیٹل اکائونٹ کے صارفین صرف اس رقم کے مقابلے میں پوائنٹس کی آٹو ایوارڈنگ کے اہل ہوں گے جو مقامی طور پر استعمال کی جاتی ہے اور اسے واپس نہیں کیا جاسکتا";
+"1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "۱۔ پوائنٹس خود دینے کے لیے، براہ کرم 3 کاروباری دنوں تک انتظار کریں جب آپ کی رقم اکاؤنٹ میں جمع ہو جائے یا آپ کے وصول کنندہ کو موصول ہو جائے۔ \n\n۲۔ RDA کسٹمر صرف اس رقم کے بدلے آٹو ایوارڈنگ پوائنٹس کا اہل ہو گا جو مقامی طور پر استعمال ہوتی ہے اور اسے واپس نہیں لایا جا سکتا";
 // Add Beneficiary
 
 "Beneficiary Relation Type *" = "وصول کنندہ کا رشتہ منتخب کریں *";
