@@ -14,6 +14,7 @@ typealias RedemptionPSIDViewModelOutput = (RedemptionPSIDViewModel.Output) -> Vo
 protocol RedemptionPSIDViewModelProtocol {
     var output: RedemptionPSIDViewModelOutput? { get set }
     var psidText: String? { get set }
+    var partner: Partner { get }
     
     func nextButtonPressed()
     func cancelButtonPressed()
@@ -27,10 +28,10 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         }
     }
     
+    var partner: Partner
     private var router: RedemptionPSIDRouter
     private var user: UserModel
     private var flowType: RedemptionFlowType
-    private var partner: Partner
     private var service: RedemptionService
     private var category: Category?
     
@@ -55,9 +56,18 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         
             var inputModel: InitRedemptionTransactionModel
             if let categoryName = category?.categoryName {
-                inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText, pseChild: categoryName)
+                inputModel = InitRedemptionTransactionModel(
+                    code: getPartnerCode(for: partner.partnerName), // partner.partnerName,
+                    pse: partner.partnerName,
+                    consumerNo: psidText,
+                    pseChild: categoryName
+                )
             } else {
-                inputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText)
+                inputModel = InitRedemptionTransactionModel(
+                    code: getPartnerCode(for: partner.partnerName), // partner.partnerName,
+                    pse: partner.partnerName,
+                    consumerNo: psidText
+                )
             }
             service.initRedemptionTransaction(requestModel: inputModel) { [weak self] result in
                 self?.output?(.showActivityIndicator(show: false))
@@ -184,10 +194,23 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         let point = PointsFormatter().format(string: pointStr)
         
         let newInputModel: InitRedemptionTransactionModel
-        if let _ = category?.categoryName {
-            newInputModel = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: self.psidText, amount: amount, sotp: 1, pseChild: category?.categoryName ?? "", point: point)
+        if let categoryName = category?.categoryName {
+            newInputModel = InitRedemptionTransactionModel(
+                code: getPartnerCode(for: self.partner.partnerName), // self.partner.partnerName,
+                pse: self.partner.partnerName,
+                consumerNo: self.psidText, amount: amount,
+                sotp: 1,
+                pseChild: categoryName,
+                point: point
+            )
         } else {
-            newInputModel = InitRedemptionTransactionModel(code: partner.partnerName, pse: partner.partnerName, consumerNo: psidText, amount: amount, sotp: 1)
+            newInputModel = InitRedemptionTransactionModel(
+                code: getPartnerCode(for: partner.partnerName), // partner.partnerName,
+                pse: partner.partnerName,
+                consumerNo: psidText,
+                amount: amount,
+                sotp: 1
+            )
         }
         
         self.service.redemptionTransactionSendOTP(requestModel: newInputModel) { result in
@@ -277,5 +300,13 @@ class RedemptionPSIDSuccessViewModel: OperationCompletedViewModelProtocol {
             RedemptionRatingBuilder().build(with: self.navigationController, transactionId: self.transactionID),
             animated: true
         )
+    }
+}
+
+extension RedemptionPSIDViewModel {
+    private func getPartnerCode(for name: String) -> String {
+        let partners = ["FBR", "CAA", "Passport", "PIA", "NADRA", "USC", "OPF", "SLIC", "BEOE"]
+        
+        return partners.filter { name.lowercased().contains($0.lowercased()) }.first ?? "-"
     }
 }

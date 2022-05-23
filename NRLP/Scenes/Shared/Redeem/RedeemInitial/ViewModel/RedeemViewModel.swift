@@ -48,6 +48,13 @@ class RedeemViewModel: RedeemViewModelProtocol {
             case .success(let response):
                 let sortedArr = response.data.sorted(by: { $0.partnerName < $1.partnerName })
                 self?.partners = sortedArr
+                
+                // FIXME: -
+//                for i in 0..<(self?.partners.count ?? 0) {
+//                    self?.partners[i].partnerName = "\(self?.partners[i].partnerName ?? "") Modified"
+//                }
+                // self?.partners[0].partnerName = "BEOE Modified"
+                
                 self?.output?(.dataReload)
             case .failure(let error):
                 self?.output?(.showError(error: error))
@@ -67,51 +74,51 @@ class RedeemViewModel: RedeemViewModelProtocol {
         // NAVIGATE TO FBR TRIGGER
         
 //        router.navigateToFBR(user: user)
-        if partner.partnerName.lowercased() == "FBR".lowercased() {
+        if partner.partnerName.lowercased().contains("FBR".lowercased()) {
 //            if partner.categoryCount == 0 {
                 router.navigateToFBR(partner: partner, user: user)
 //            } else {
 //                router.navigateToCategory(partner: partner, user: user)
 //            }
-        } else if partner.partnerName.lowercased() == "CAA".lowercased() {
+        } else if partner.partnerName.lowercased().contains("CAA".lowercased()) {
             if partner.categoryCount != 0 {
                 router.navigateToCategory(partner: partner, user: user)
             }
-        } else if partner.partnerName.lowercased() == "Passport".lowercased() {
+        } else if partner.partnerName.lowercased().contains("Passport".lowercased()) {
             if partner.categoryCount != 0 {
                 router.navigateToCategory(partner: partner, user: user)
             } else {
                 router.navigateToCategory(partner: partner, user: user)
             }
-        } else if partner.partnerName.lowercased() == "PIA".lowercased() {
+        } else if partner.partnerName.lowercased().contains("PIA".lowercased()) {
 //            if partner.categoryCount != 0 {
 //                router.navigateToCategory(partner: partner, user: user)
 //            } else {
                 router.navigateToPIA(partner: partner, user: user)
 //            }
-        } else if partner.partnerName.lowercased() == "NADRA".lowercased() {
+        } else if partner.partnerName.lowercased().contains("NADRA".lowercased()) {
 //            if partner.categoryCount != 0 {
 //                router.navigateToCategory(partner: partner, user: user)
 //            } else {
                 router.navigateToNadra(partner: partner, user: user)
 //            }
-        } else if partner.partnerName.lowercased() == "USC".lowercased() {
+        } else if partner.partnerName.lowercased().contains("USC".lowercased()) {
 //            if partner.categoryCount != 0 {
 //                router.navigateToCategory(partner: partner, user: user)
 //            } else {
                 router.navigateToUSC(partner: partner, user: user)
 //            }
-        } else if partner.partnerName.lowercased() == "OPF".lowercased() {
+        } else if partner.partnerName.lowercased().contains("OPF".lowercased()) {
 //            if partner.categoryCount != 0 {
 //                router.navigateToCategory(partner: partner, user: user)
 //            } else {
                 router.navigateToOPF(partner: partner, user: user)
 //            }
-        } else if partner.partnerName.lowercased() == "SLIC".lowercased() {
+        } else if partner.partnerName.lowercased().contains("SLIC".lowercased()) {
             if partner.categoryCount != 0 {
                 router.navigateToCategory(partner: partner, user: user)
             }
-        } else if partner.partnerName.lowercased() == "BEOE".lowercased() {
+        } else if partner.partnerName.lowercased().contains("BEOE".lowercased()) {
             if partner.categoryCount != 0 {
                 router.navigateToCategory(partner: partner, user: user)
             }

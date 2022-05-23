@@ -353,6 +353,7 @@
 
 // OPF
 "Enter Voucher Number for Redemption" = "واؤچر نمبر درج کریں";
+"Enter %@ Voucher Number for Redemption" = "واؤچر نمبر درج کریں %@";
 "Voucher Number" = "واؤچر نمبر";
 "Enter Voucher No" = "واؤچر نمبر درج کریں";
 "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF";

@@ -10,7 +10,7 @@ import Foundation
 
 struct Partner: Codable {
     let id: Int
-    let partnerName: String
+    var partnerName: String
     let categories: [Category]
     var categoryCount: Int {
         return categories.count
