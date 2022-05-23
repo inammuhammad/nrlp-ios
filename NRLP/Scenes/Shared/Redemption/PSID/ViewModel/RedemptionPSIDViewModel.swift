@@ -58,14 +58,14 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
             if let categoryName = category?.categoryName {
                 inputModel = InitRedemptionTransactionModel(
                     code: getPartnerCode(for: partner.partnerName), // partner.partnerName,
-                    pse: partner.partnerName,
+                    pse: getPartnerCode(for: partner.partnerName), // partner.partnerName,
                     consumerNo: psidText,
                     pseChild: categoryName
                 )
             } else {
                 inputModel = InitRedemptionTransactionModel(
                     code: getPartnerCode(for: partner.partnerName), // partner.partnerName,
-                    pse: partner.partnerName,
+                    pse: getPartnerCode(for: partner.partnerName), // partner.partnerName,
                     consumerNo: psidText
                 )
             }
@@ -197,7 +197,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         if let categoryName = category?.categoryName {
             newInputModel = InitRedemptionTransactionModel(
                 code: getPartnerCode(for: self.partner.partnerName), // self.partner.partnerName,
-                pse: self.partner.partnerName,
+                pse: getPartnerCode(for: partner.partnerName), // partner.partnerName,
                 consumerNo: self.psidText, amount: amount,
                 sotp: 1,
                 pseChild: categoryName,
@@ -206,7 +206,7 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
         } else {
             newInputModel = InitRedemptionTransactionModel(
                 code: getPartnerCode(for: partner.partnerName), // partner.partnerName,
-                pse: partner.partnerName,
+                pse: getPartnerCode(for: partner.partnerName), // partner.partnerName,
                 consumerNo: psidText,
                 amount: amount,
                 sotp: 1

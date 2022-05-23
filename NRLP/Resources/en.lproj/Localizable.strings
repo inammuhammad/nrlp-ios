@@ -43,7 +43,7 @@
 "Add Beneficiary" = "Add Beneficiary";
 "Create Beneficiary" = "Create Beneficiary";
 "Beneficiary registered successfully." = "Beneficiary registered successfully.";
-"Beneficiary created successfully, we have sent a SMS to the Beneficiary." = "Beneficiary created successfully, we have sent a SMS to the Beneficiary.";
+"Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry." = "Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry.";
 "Your beneficiaries have not activated their accounts yet. Once they are active you will be able to transfer the points." = "Your beneficiaries have not activated their accounts yet. Once they are active you will be able to transfer the points.";
 "No beneficiary found" = "No beneficiary found";
 "Select Beneficiary" = "Select Beneficiary";
@@ -484,7 +484,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Please enter Receiver Information" = "Please enter Receiver Information";
 "Add Receiver" = "Add Receiver";
 "USDtext" = "The Annual Remittance to-date in USD is accumulated from 1st July of each year, however for current year it shall be applicable from 1st October 2021 and your loyalty category will be calculated accordingly. For further details please visit FAQs";
-"RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.";
+"1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.";
 // Add Beneficiary
 "Beneficiary Relation Type *" = "Beneficiary Relation Type *";
 "Beneficiary Relation *" = "Beneficiary Relation *";

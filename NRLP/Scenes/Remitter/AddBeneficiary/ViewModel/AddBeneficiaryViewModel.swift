@@ -113,7 +113,7 @@ class AddBeneficiaryViewModel: AddBeneficiaryViewModelProtocol {
             
             switch result {
             case .success:
-                let model = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Beneficiary Added".localized, alertDescription: "Beneficiary created successfully, we have sent a SMS to the Beneficiary.".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
+                let model = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Beneficiary Added".localized, alertDescription: "Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry.".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
                     self.router.popToPreviousScreen()
                 }), secondaryButton: nil)
                 

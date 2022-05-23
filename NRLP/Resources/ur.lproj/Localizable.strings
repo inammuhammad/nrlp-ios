@@ -38,7 +38,7 @@
 "Add Beneficiaries"="وصول کنندہ درج کریں";
 "Create Beneficiary"="وصول کنندہ بنائیں";
 "Beneficiary registered successfully."="وصول کنندہ کامیابی کے ساتھ اندراج ہو گیا";
-"Beneficiary created successfully, we have sent a SMS to the Beneficiary."="وصول کنندہ کامیابی کے ساتھ تشکیل دیا گیا ہے ، ہم نے وصول کنندہ کو ایک SMS بھیجا ہے۔";
+// "Beneficiary created successfully, we have sent a SMS to the Beneficiary."="وصول کنندہ کامیابی کے ساتھ تشکیل دیا گیا ہے ، ہم نے وصول کنندہ کو ایک SMS بھیجا ہے۔";
 "Your beneficiary has not activated the account yet. Once the account is active you will be able to transfer the points."="آپ کے وصول کنندہ نے ابھی تک اکاؤنٹ کو رجسٹر نہیں کیا ہے۔ یوزر فعال ہو جائے تو آپ پوائنٹس کو منتقل کرنے کے قابل ہوجائیں گے۔";
 "No beneficiary found"="کوئی وصول کنندہ نہیں ملا";
 "Select Beneficiary"="وصول کنندہ کو منتخب کریں";
@@ -495,7 +495,7 @@
 "USDtext" = "USD
 میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں تاہم موجودہ سال کے لیے اس کا اطلاق یکم اکتوبر 2021 سے ہوگا اور اسی کے مطابق آپ کی لائلٹی کیٹیگری کا حساب لگایا جائے گا۔
 ";
-"RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "روشن ڈیجیٹل اکائونٹ کے صارفین صرف اس رقم کے مقابلے میں پوائنٹس کی آٹو ایوارڈنگ کے اہل ہوں گے جو مقامی طور پر استعمال کی جاتی ہے اور اسے واپس نہیں کیا جاسکتا";
+// "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "روشن ڈیجیٹل اکائونٹ کے صارفین صرف اس رقم کے مقابلے میں پوائنٹس کی آٹو ایوارڈنگ کے اہل ہوں گے جو مقامی طور پر استعمال کی جاتی ہے اور اسے واپس نہیں کیا جاسکتا";
 // Add Beneficiary
 
 "Beneficiary Relation Type *" = "وصول کنندہ کا رشتہ منتخب کریں *";

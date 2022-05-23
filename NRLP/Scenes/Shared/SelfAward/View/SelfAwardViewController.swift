@@ -41,7 +41,7 @@ class SelfAwardViewController: BaseViewController {
     
     var datePickerViewModel: CustomDatePickerViewModel {
         var datePickerViewModel = CustomDatePickerViewModel()
-        datePickerViewModel.maxDate = Date().local?.yesterday ?? Date()
+        datePickerViewModel.maxDate = Date().adding(days: -3) ?? Date()
         datePickerViewModel.minDate = DateFormat().formatDate(dateString: "20211001", formatter: .advanceStatementFormat)
         
         return datePickerViewModel
@@ -241,7 +241,7 @@ class SelfAwardViewController: BaseViewController {
     private func showInitialAlert() {
         let alert: AlertViewModel
         let okButton = AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "".localized, alertDescription: "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.".localized, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "".localized, alertDescription: "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.".localized, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         self.showAlert(with: alert)
     }
     

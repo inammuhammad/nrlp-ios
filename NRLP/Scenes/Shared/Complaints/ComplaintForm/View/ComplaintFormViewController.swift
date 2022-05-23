@@ -28,6 +28,7 @@ class ComplaintFormViewController: BaseViewController {
     private lazy var transactionDatePicker: CustomDatePickerView = {
         var pickerView = CustomDatePickerView()
         pickerView.toolbarDelegate = self
+        pickerView.isSelfAward = true
         pickerView.viewModel = viewModel.datePickerViewModel
         return pickerView
     }()

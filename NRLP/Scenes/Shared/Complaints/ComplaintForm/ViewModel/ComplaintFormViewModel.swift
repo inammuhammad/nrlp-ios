@@ -174,7 +174,11 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     }
     
     var datePickerViewModel: CustomDatePickerViewModel {
-        return CustomDatePickerViewModel(maxDate: Date())
+        var datePickerViewModel = CustomDatePickerViewModel()
+        datePickerViewModel.maxDate = Date().adding(days: -3) ?? Date()
+        datePickerViewModel.minDate = DateFormat().formatDate(dateString: "20211001", formatter: .advanceStatementFormat)
+        
+        return datePickerViewModel
     }
     
     private var transactionDateString: String? {
