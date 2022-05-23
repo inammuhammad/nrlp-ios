@@ -51,6 +51,15 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseMessaging (8.15.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleDataTransport (~> 9.1)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/Environment (~> 7.7)
+    - GoogleUtilities/Reachability (~> 7.7)
+    - GoogleUtilities/UserDefaults (~> 7.7)
+    - nanopb (~> 2.30908.0)
   - GoogleAppMeasurement (8.15.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.15.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
@@ -109,6 +118,7 @@ DEPENDENCIES:
   - Firebase
   - Firebase/Analytics
   - Firebase/Crashlytics
+  - FirebaseMessaging
   - IQKeyboardManagerSwift
   - netfox
   - SwiftLint
@@ -122,6 +132,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCrashlytics
     - FirebaseInstallations
+    - FirebaseMessaging
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleUtilities
@@ -139,6 +150,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 92e07a649aeb66352b319d43bdd2ee3942af84cb
   FirebaseCrashlytics: feb07e4e9187be3c23c6a846cce4824e5ce2dd0b
   FirebaseInstallations: 40bd9054049b2eae9a2c38ef1c3dd213df3605cd
+  FirebaseMessaging: 5e5118a2383b3531e730d974680954c679ca0a13
   GoogleAppMeasurement: 4c19f031220c72464d460c9daa1fb5d1acce958e
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
@@ -148,6 +160,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   SwiftLint: d41cc46a2ae58ac6d9f26954bc89f1d72e71fdef
 
-PODFILE CHECKSUM: beda790ffa18abc21dfea5fdf5b19312460f3599
+PODFILE CHECKSUM: 9a7dea11cebda7bd79341c92aa0e5b94f3cd2954
 
 COCOAPODS: 1.11.2

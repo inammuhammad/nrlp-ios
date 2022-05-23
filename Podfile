@@ -11,6 +11,7 @@ target 'NRLP' do
   pod 'SwiftLint'
   pod 'netfox'
   pod 'IQKeyboardManagerSwift'
+  pod 'FirebaseMessaging'
 
   target 'NRLPTests' do
     inherit! :search_paths
