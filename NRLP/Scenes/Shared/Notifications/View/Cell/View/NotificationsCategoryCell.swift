@@ -10,8 +10,7 @@ import UIKit
 
 enum NotificationCategory: String, CaseIterable {
     case complaints = "Complaints"
-    // /8
-    case activity = "Activity"
+    // case activity = "Activity"
 }
 
 class NotificationsCategoryCell: UICollectionViewCell {
