@@ -188,7 +188,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         let midTextfieldViewModel = AlertTextFieldModel(
             placeholderText: "Enter Mobile No.",
             placeHolderTextColor: .black,
-            inputFieldMaxLength: 15,
+            inputFieldMaxLength: 20,
             editKeyboardType: .asciiCapableNumberPad,
             formatValidator: FormatValidator(
                 regex: RegexConstants.mobileNumberRegex,

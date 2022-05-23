@@ -9,6 +9,15 @@
 import Foundation
 
 extension Date {
+    var local: Date? {
+        let offset = TimeZone.current.secondsFromGMT()
+        return Calendar.current.date(byAdding: .second, value: offset, to: self)
+    }
+    
+    var yesterday: Date? {
+        return Calendar.current.date(byAdding: .day, value: -1, to: self)
+    }
+    
     func minutes() -> String {
         self.get(.minute)
     }

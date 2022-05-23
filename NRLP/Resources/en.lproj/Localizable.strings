@@ -18,6 +18,8 @@
 "Login" = "Login";
 "About NRLP" = "About Sohni Dharti Remittance Program";
 "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti." = "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti.";
+"Forgot Password/Unlock Account" = "Forgot Password/Unlock Account";
+
 //Beneficiary Verification
 "Enter registration code received on SMS" = "Enter registration code received on SMS";
 "Registration code"= "Registration code";
@@ -434,6 +436,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Unable to self award points" = "Unable to self award points";
 "Redemption Issues" = "Redemption Issues";
 "Redemption Partner" = "Redemption Partner";
+"Receiving Entity" = "Receiving Entity";
 "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number" = "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number";
 "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757" = "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757";
 

@@ -47,7 +47,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             let attributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize),
                 .foregroundColor: UIColor.init(commonColor: .appGreen)]
-            let attributeString = NSMutableAttributedString(string: "Forgot Password".localized,
+            let attributeString = NSMutableAttributedString(string: "Forgot Password/Unlock Account".localized,
                                                             attributes: attributes)
             forgotPasswordButton.setAttributedTitle(attributeString, for: .normal)
 

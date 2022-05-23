@@ -40,12 +40,17 @@ class SelfAwardViewController: BaseViewController {
     var user: UserModel?
     
     var datePickerViewModel: CustomDatePickerViewModel {
-        return CustomDatePickerViewModel(maxDate: Date())
+        var datePickerViewModel = CustomDatePickerViewModel()
+        datePickerViewModel.maxDate = Date().local?.yesterday ?? Date()
+        datePickerViewModel.minDate = DateFormat().formatDate(dateString: "20211001", formatter: .advanceStatementFormat)
+        
+        return datePickerViewModel
     }
     
     private lazy var remittanceDatePicker: CustomDatePickerView = {
         var pickerView = CustomDatePickerView()
         pickerView.toolbarDelegate = self
+        pickerView.isSelfAward = true
         pickerView.viewModel = datePickerViewModel
         return pickerView
     }()
@@ -274,7 +279,7 @@ class SelfAwardViewController: BaseViewController {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
 
-            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType?.getTitle() ?? "-")
+            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType == .cnic ? "COC" : "ACC")
             
             if transactionType == .cnic, let cnic = cnic {
                 model.beneficiaryCnic = cnic

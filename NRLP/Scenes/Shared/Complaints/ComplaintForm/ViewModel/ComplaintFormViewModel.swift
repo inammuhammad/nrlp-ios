@@ -590,7 +590,7 @@ extension ComplaintFormViewModel {
     
     private func validateOthers() {
         if loginState == .loggedIn {
-            if specifyDetails?.isBlank ?? true {
+            if specifyDetails?.isBlank ?? true || specifyDetails?.count ?? Int.max < 15 {
                 output?(.nextButtonState(state: false))
             } else {
                 output?(.nextButtonState(state: true))
@@ -762,7 +762,7 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Redemption Issues
     
     private func validateRedemptionIssues() {
-        if partner?.isBlank ?? true || specifyDetails?.isBlank ?? true {
+        if partner?.isBlank ?? true || specifyDetails?.isBlank ?? true || specifyDetails?.count ?? Int.max < 15 {
             output?(.nextButtonState(state: false))
         } else {
             output?(.nextButtonState(state: true))

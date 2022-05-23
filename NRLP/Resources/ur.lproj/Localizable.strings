@@ -18,6 +18,8 @@
 "Login"="لاگ ان کریں";
 "About NRLP" = "\U200E سوہنی دھرتی ریمیٹنس پروگرام کے بارے میں جانیں";
 "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti." = "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti.";
+"Forgot Password/Unlock Account" = "پاس ورڈ بھول گئے/اکاؤنٹ ان لاک کریں۔";
+
 "Please enter registration code received on SMS"="براہ کرم ایس ایم ایس پر موصولہ رجسٹریشن کوڈ درج کریں";
 "Registration Code"="رجسٹریشن کوڈ";
 "Beneficiary Verification"="وصول کنندہ کی توثیق";
@@ -443,6 +445,7 @@
 "Unable to self award points" = "خود ایوارڈ دینے سے قاصر";
 "Redemption Issues" = "پوائنٹ استمال کرنے سے قاصر";
 "Redemption Partner" = "ریڈیمشن پاٹنر";
+"Receiving Entity" = "ترسیلات زر کا ادارہ";
 "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number" = "معزز صارف, اپ کی شکائت درج کرلی گئ ہے براہ کرم ٹریکنگ نمبر نوٹ کریں۔";
 "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757" = "مسئلہ 5 کاروباری دنوں میں حل ہو جائے گا، اگر شکایت حل نہیں ہوئی تو آپ sdrpsupport@1link.net.pk یا 757-116-111 پر رابطہ کرسکتے ہیں";
 
