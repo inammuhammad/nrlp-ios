@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ComplaintFormViewController: BaseViewController {
-    
+    let uNotificationCenter = UNUserNotificationCenter.current()
     // MARK: Properties
     
     var viewModel: ComplaintFormViewModel!
@@ -309,6 +310,8 @@ class ComplaintFormViewController: BaseViewController {
         super.viewDidLoad()
 
         viewModel.viewDidLoad()
+        
+        uNotificationCenter.delegate = self
     }
     
     private func bindViewModelOutput() {
@@ -363,6 +366,26 @@ class ComplaintFormViewController: BaseViewController {
                 transactionTypesTextView.inputText = type
             case .updateTransactionDate(dateStr: let dateStr):
                 transactionDateTextView.inputText = dateStr
+            case .requestNotification(let complaintId, let message):
+                requestLocalNotification(complaintId: complaintId, message: message)
+            }
+        }
+    }
+    
+    private func requestLocalNotification(complaintId: String, message: String) {
+        let notificationContent = UNMutableNotificationContent()
+        
+        // notificationContent.title = complaintId
+        notificationContent.body = message
+        notificationContent.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.2, repeats: false)
+        let request = UNNotificationRequest(identifier: "complaint-local-notification", content: notificationContent, trigger: trigger)
+        
+        uNotificationCenter.add(request) { error in
+            if let error = error, AppConstants.isDev {
+                print("Notification Error")
+                print(error)
             }
         }
     }
@@ -636,6 +659,16 @@ extension ComplaintFormViewController: ItemPickerViewDelegate, CustomDatePickerV
         default:
             break
         }
+    }
+}
+
+extension ComplaintFormViewController: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound, .badge])
     }
 }
 

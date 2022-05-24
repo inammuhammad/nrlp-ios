@@ -220,6 +220,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case updateRedemptionPartner(partnerName: String)
         case updateTransactionType(type: String)
         case updateTransactionDate(dateStr: String)
+        case requestNotification(complaintId: String, message: String)
     }
     
     // MARK: Lifecycle Methods
@@ -392,6 +393,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             self?.output?(.showActivityIndicator(show: false))
             switch result {
             case .success(let response):
+                self?.output?(.requestNotification(complaintId: response.complaintId, message: response.message))
                 self?.router.navigateToSuccessScreen(complaintID: response.complaintId)
             case .failure(let error):
                 self?.output?(.showError(error: error))
