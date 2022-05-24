@@ -68,7 +68,7 @@ class RedemptionPSIDViewController: BaseViewController {
                 self.showAlert(with: alert)
             case .setupTextField(flowType: let flowType):
                 if flowType == .OPF {
-                    psidTextView.titleLabelText = "Enter %@ Voucher No. for Redemption".localized(with: [viewModel.partner.partnerName])
+                    psidTextView.titleLabelText = "Enter OPF School Fee Voucher No. for Redemption".localized(with: [viewModel.partner.partnerName])
                     psidTextView.placeholderText = "Enter Voucher No".localized
                     psidTextView.editTextKeyboardType = .asciiCapable
                     psidTextView.inputFieldMinLength = 1

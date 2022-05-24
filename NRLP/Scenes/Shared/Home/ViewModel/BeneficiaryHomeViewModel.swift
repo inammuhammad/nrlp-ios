@@ -21,11 +21,13 @@ class BeneficiaryHomeViewModel: HomeViewModel {
     }
     
     private func setupDataForUrdu() {
+        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .redemption))
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
     }
     
     private func setupDataForEnglish() {
+        collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .redemption))
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
         collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
     }
@@ -34,11 +36,14 @@ class BeneficiaryHomeViewModel: HomeViewModel {
         let model = getItem(at: index)
         switch model.cardType {
         case .loyalty:
-            super.didTapItem(at: index)
+            return
+            // super.didTapItem(at: index)
         case .viewStatement:
             router.navigateToViewStatement(userModel: userModel)
         case .nrlpBenefits:
             router.navigateToNRLPBenefits()
+        case .redemption:
+            super.didTapItem(at: index)
         default:
             break
         }

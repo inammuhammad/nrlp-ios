@@ -345,8 +345,7 @@
 "Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@" = "Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@";
 
 // OPF
-"Enter Voucher No. for Redemption" = "Enter Voucher No. for Redemption";
-"Enter %@ Voucher No. for Redemption" = "Enter %@ Voucher No. for Redemption";
+"Enter OPF School Fee Voucher No. for Redemption" = "Enter OPF School Fee Voucher No. for Redemption";
 "Voucher Number" = "Voucher Number";
 "Enter Voucher No" = "Enter Voucher No";
 "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF";

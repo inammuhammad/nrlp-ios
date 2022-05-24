@@ -433,7 +433,7 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Unable to Register Complaint
     
     private func validateUnableToRegisterComplaint() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || specifyDetails?.isBlank ?? true {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || specifyDetails?.isBlank ?? true || specifyDetails?.count ?? Int.max < 15 {
             output?(.nextButtonState(state: false))
         } else {
             output?(.nextButtonState(state: true))
