@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -29,20 +29,14 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="platinumCard" translatesAutoresizingMaskIntoConstraints="NO" id="NbX-D0-qbE">
                         <rect key="frame" x="0.0" y="20" width="500" height="299"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your loyalty points" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnv-Jb-QYP">
-                        <rect key="frame" x="382" y="100" width="92" height="14"/>
-                        <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="12"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fakhar Mazher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9r-Za-x5q">
-                        <rect key="frame" x="26" y="265.5" width="121" height="23.5"/>
+                        <rect key="frame" x="26" y="259.5" width="121" height="23.5"/>
                         <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25,000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQj-68-XZ1">
-                        <rect key="frame" x="382" y="118" width="92" height="23.5"/>
+                        <rect key="frame" x="414.5" y="267.5" width="59.5" height="23.5"/>
                         <fontDescription key="fontDescription" name="HPSimplified-Bold" family="HP Simplified" pointSize="20"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -66,9 +60,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aA-fx-xoa">
                                 <rect key="frame" x="0.0" y="0.0" width="82.5" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <connections>
-                                    <action selector="redeemBtnAction:" destination="4PQ-EN-ZZF" eventType="touchUpInside" id="ln4-wg-fFt"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -147,30 +138,40 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your loyalty points" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnv-Jb-QYP">
+                        <rect key="frame" x="351.5" y="244.5" width="122.5" height="19"/>
+                        <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="NbX-D0-qbE" firstAttribute="leading" secondItem="Uv3-MY-F19" secondAttribute="leading" id="3Q2-Pt-WQx"/>
-                    <constraint firstItem="EQj-68-XZ1" firstAttribute="leading" secondItem="Dnv-Jb-QYP" secondAttribute="leading" id="487-rC-5cT"/>
                     <constraint firstItem="h0i-Tc-Ob4" firstAttribute="leading" secondItem="Uv3-MY-F19" secondAttribute="leading" constant="12" id="8Vl-Eo-k6j"/>
                     <constraint firstItem="TlI-M6-DSy" firstAttribute="leading" secondItem="l42-MB-Y8y" secondAttribute="leading" id="J1L-lQ-6Nu"/>
                     <constraint firstItem="l42-MB-Y8y" firstAttribute="leading" secondItem="Uv3-MY-F19" secondAttribute="leading" constant="26" id="JIO-tp-X7I"/>
+                    <constraint firstItem="EQj-68-XZ1" firstAttribute="bottom" secondItem="NbX-D0-qbE" secondAttribute="bottom" constant="-28" id="Jfu-h7-xDZ"/>
                     <constraint firstItem="l42-MB-Y8y" firstAttribute="centerY" secondItem="NbX-D0-qbE" secondAttribute="centerY" id="Ju0-Xm-Fsb"/>
-                    <constraint firstItem="Dnv-Jb-QYP" firstAttribute="top" secondItem="Uv3-MY-F19" secondAttribute="top" constant="100" id="LLm-Cq-VWx"/>
                     <constraint firstItem="GkK-ZS-mg3" firstAttribute="trailing" secondItem="Dnv-Jb-QYP" secondAttribute="trailing" id="Pxp-zW-UnE"/>
                     <constraint firstItem="h0i-Tc-Ob4" firstAttribute="top" secondItem="NbX-D0-qbE" secondAttribute="bottom" constant="12" id="TKp-Fj-J7a"/>
-                    <constraint firstItem="EQj-68-XZ1" firstAttribute="top" secondItem="Dnv-Jb-QYP" secondAttribute="bottom" constant="4" id="Zcd-h4-DpB"/>
                     <constraint firstAttribute="trailing" secondItem="NbX-D0-qbE" secondAttribute="trailing" id="ad8-FB-TkH"/>
-                    <constraint firstItem="Dnv-Jb-QYP" firstAttribute="trailing" secondItem="NbX-D0-qbE" secondAttribute="trailing" constant="-26" id="dDn-et-Veb"/>
                     <constraint firstItem="NbX-D0-qbE" firstAttribute="top" secondItem="Uv3-MY-F19" secondAttribute="top" constant="20" id="edn-K1-211"/>
                     <constraint firstItem="TlI-M6-DSy" firstAttribute="top" secondItem="l42-MB-Y8y" secondAttribute="bottom" constant="4" id="gJB-1t-F3b"/>
                     <constraint firstAttribute="trailing" secondItem="h0i-Tc-Ob4" secondAttribute="trailing" constant="12" id="iPy-pn-L32"/>
                     <constraint firstAttribute="bottom" secondItem="h0i-Tc-Ob4" secondAttribute="bottom" constant="12" id="kfE-p2-30x"/>
+                    <constraint firstItem="EQj-68-XZ1" firstAttribute="top" secondItem="Dnv-Jb-QYP" secondAttribute="bottom" constant="4" id="lIt-AA-bHc"/>
                     <constraint firstItem="U9r-Za-x5q" firstAttribute="leading" secondItem="l42-MB-Y8y" secondAttribute="leading" id="n04-zr-yTl"/>
                     <constraint firstItem="GkK-ZS-mg3" firstAttribute="top" secondItem="EQj-68-XZ1" secondAttribute="bottom" constant="20" id="p8w-X8-T8Z"/>
-                    <constraint firstItem="U9r-Za-x5q" firstAttribute="bottom" secondItem="NbX-D0-qbE" secondAttribute="bottom" constant="-30" id="rWn-uw-qYp"/>
-                    <constraint firstItem="EQj-68-XZ1" firstAttribute="trailing" secondItem="Dnv-Jb-QYP" secondAttribute="trailing" id="vTa-0C-5dr"/>
+                    <constraint firstItem="U9r-Za-x5q" firstAttribute="bottom" secondItem="NbX-D0-qbE" secondAttribute="bottom" constant="-36" id="rWn-uw-qYp"/>
+                    <constraint firstAttribute="trailing" secondItem="EQj-68-XZ1" secondAttribute="trailing" constant="26" id="uhC-qh-c7y"/>
+                    <constraint firstItem="EQj-68-XZ1" firstAttribute="trailing" secondItem="Dnv-Jb-QYP" secondAttribute="trailing" id="v3y-lW-fuE"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="subviews">
+                        <exclude reference="GkK-ZS-mg3"/>
+                    </mask>
+                </variation>
             </collectionViewCellContentView>
             <size key="customSize" width="500" height="389"/>
             <connections>
@@ -183,7 +184,6 @@
                 <outlet property="loyaltyTypeImageIcon" destination="NbX-D0-qbE" id="sla-BM-aeE"/>
                 <outlet property="memberSinceTxtLbl" destination="l42-MB-Y8y" id="FwD-nS-UCW"/>
                 <outlet property="nameLabel" destination="U9r-Za-x5q" id="Mf8-Kj-BYO"/>
-                <outlet property="redeemYourPointsTxtLbl" destination="J4f-FI-f1r" id="UPF-tz-RFx"/>
                 <outlet property="remittanceToDateView" destination="h0i-Tc-Ob4" id="phE-C2-uDk"/>
             </connections>
             <point key="canvasLocation" x="42.028985507246382" y="170.42410714285714"/>

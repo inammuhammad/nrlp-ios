@@ -63,21 +63,21 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
 
     func cellDidTap(index: Int) {
         
-        if self.partner.partnerName.lowercased() == "passport".lowercased() {
+        if self.partner.partnerName.lowercased().contains("passport".lowercased()) {
             executePassportFlow(index: index)
-        } else if self.partner.partnerName.lowercased() == "Fbr".lowercased() {
+        } else if self.partner.partnerName.lowercased().contains("Fbr".lowercased()) {
             executeFBRFlow(index: index)
-        } else if self.partner.partnerName.lowercased() == "nadra".lowercased() {
+        } else if self.partner.partnerName.lowercased().contains("nadra".lowercased()) {
             executeNadraFlow(index: index)
-        } else if self.partner.partnerName.lowercased() == "PIA".lowercased() {
+        } else if self.partner.partnerName.lowercased().contains("PIA".lowercased()) {
             executePIAFlow(index: index)
-        } else if self.partner.partnerName.lowercased() == "usc".lowercased() {
+        } else if self.partner.partnerName.lowercased().contains("usc".lowercased()) {
             executeUSCFlow(index: index)
-        } else if self.partner.partnerName.lowercased() == "opf".lowercased() {
+        } else if self.partner.partnerName.lowercased().contains("opf".lowercased()) {
             executeOPFFlow(index: index)
-        } else if self.partner.partnerName.lowercased() == "SLIC".lowercased() {
+        } else if self.partner.partnerName.lowercased().contains("SLIC".lowercased()) {
             executeSLICFlow(index: index)
-        } else if self.partner.partnerName.lowercased() == "BEOE".lowercased() {
+        } else if self.partner.partnerName.lowercased().contains("BEOE".lowercased()) {
             executeBEOEFlow(index: index)
         } else {
             let alert: AlertViewModel
@@ -188,7 +188,7 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
         let midTextfieldViewModel = AlertTextFieldModel(
             placeholderText: "Enter Mobile No.",
             placeHolderTextColor: .black,
-            inputFieldMaxLength: 15,
+            inputFieldMaxLength: 20,
             editKeyboardType: .asciiCapableNumberPad,
             formatValidator: FormatValidator(
                 regex: RegexConstants.mobileNumberRegex,

@@ -47,7 +47,7 @@ extension String {
         let htmlData = self.data(using: .unicode)
         let attributedString = try? NSMutableAttributedString(data: htmlData!, options: options, documentAttributes: nil)
         attributedString?.setFontFace(font: UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.lightOnlyEnglish, size: .mediumFontSize))
-        return attributedString//htmlString
+        return attributedString // htmlString
     }
     
     func isHTML() -> Bool {
@@ -65,6 +65,10 @@ extension String {
     
     func localized(withComment: String) -> String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: withComment)
+    }
+    
+    public func localized(with arguments: [CVarArg]) -> String {
+        return String(format: self.localized, locale: nil, arguments: arguments)
     }
     
     subscript(i: Int) -> String {

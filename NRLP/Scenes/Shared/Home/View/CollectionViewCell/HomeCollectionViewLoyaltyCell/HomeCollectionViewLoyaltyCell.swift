@@ -20,17 +20,17 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             loyaltyTypeImageIcon.image = icon
         }
     }
-    @IBOutlet weak var loyaltyPointTextLbl: UILabel!{
+    @IBOutlet weak var loyaltyPointTextLbl: UILabel! {
         didSet {
             loyaltyPointTextLbl.textColor = .white
         }
     }
-    @IBOutlet weak var redeemYourPointsTxtLbl: UILabel! {
-        didSet {
-            redeemYourPointsTxtLbl.textColor = .white
-            redeemYourPointsTxtLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: CommonFontSizes.largeFontSize)
-        }
-    }
+//    @IBOutlet weak var redeemYourPointsTxtLbl: UILabel! {
+//        didSet {
+//            redeemYourPointsTxtLbl.textColor = .white
+//            redeemYourPointsTxtLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: CommonFontSizes.largeFontSize)
+//        }
+//    }
     @IBOutlet weak var memberSinceTxtLbl: UILabel! {
         didSet {
             memberSinceTxtLbl.textColor = .white
@@ -68,8 +68,8 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
         super.awakeFromNib()
     }
 
-    @IBAction func redeemBtnAction(_ sender: Any) {
-    }
+//    @IBAction func redeemBtnAction(_ sender: Any) {
+//    }
     
     @IBAction func infoBtnAction(_ sender: Any) {
         let alert: AlertViewModel
@@ -90,7 +90,7 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             amountRemittanceLbl.text = data.remittedAmount
             dateRemittanceLbl.text = data.remittedDate
             
-            redeemYourPointsTxtLbl.text = "Redeem your points".localized
+            // redeemYourPointsTxtLbl.text = "Redeem your points".localized
             memberSinceTxtLbl.text = "Member since".localized
             loyaltyPointTextLbl.text = "Your loyalty points".localized
             

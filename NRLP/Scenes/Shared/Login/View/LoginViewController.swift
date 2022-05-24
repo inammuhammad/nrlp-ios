@@ -47,7 +47,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
             let attributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize),
                 .foregroundColor: UIColor.init(commonColor: .appGreen)]
-            let attributeString = NSMutableAttributedString(string: "Forgot Password".localized,
+            let attributeString = NSMutableAttributedString(string: "Forgot Password/Unlock Account".localized,
                                                             attributes: attributes)
             forgotPasswordButton.setAttributedTitle(attributeString, for: .normal)
 
@@ -142,6 +142,13 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
 //        self.viewModel.cnic = "2220000000000"
 //        self.viewModel.paassword = "Abcd@1234"
 //        self.viewModel.loginButtonPressed()
+        
+        // bene
+//        self.viewModel.cnic = "1110000000000"
+//        self.viewModel.paassword = "Abcd@1234"
+//        self.viewModel.accountType = AccountType.beneficiary.rawValue
+//        self.viewModel.loginButtonPressed()
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -58,13 +58,13 @@ class HomeViewController: BaseViewController {
         // collectionView.collectionViewLayout = LeftAlignedCollectionViewFlowLayout()
         setupCollectionViewNibs()
         
-        let alignLayout = AlignedCollectionViewFlowLayout()
-        alignLayout.horizontalAlignment = .right
-        collectionView.collectionViewLayout = alignLayout
+//        let alignLayout = AlignedCollectionViewFlowLayout()
+//        alignLayout.horizontalAlignment = .right
+//        collectionView.collectionViewLayout = alignLayout
         
-        if AppConstants.appLanguage == .english {
-            collectionView.transform = CGAffineTransform(scaleX: -1, y: 1)
-        }
+//        if AppConstants.appLanguage == .english {
+//            collectionView.transform = CGAffineTransform(scaleX: -1, y: 1)
+//        }
     }
 
     private func setupCollectionViewNibs() {
@@ -105,14 +105,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.cellIdentifier, for: indexPath) as? HomeCollectionViewCellProtocol
         cell?.populate(with: model, controller: self)
         
-        if let cell = cell as? UICollectionViewCell {
-            if AppConstants.appLanguage == .english {
-                cell.transform = CGAffineTransform(scaleX: -1, y: 1)
-            }
-            return cell
-        }
+//        if let cell = cell as? UICollectionViewCell {
+//            if AppConstants.appLanguage == .english {
+//                cell.transform = CGAffineTransform(scaleX: -1, y: 1)
+//            }
+//            return cell
+//        }
         
-        return UICollectionViewCell()
+        return cell as? UICollectionViewCell ?? UICollectionViewCell()
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

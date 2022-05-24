@@ -18,6 +18,8 @@
 "Login" = "Login";
 "About NRLP" = "About Sohni Dharti Remittance Program";
 "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti." = "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti.";
+"Forgot Password/Unlock Account" = "Forgot Password/Unlock Account";
+
 //Beneficiary Verification
 "Enter registration code received on SMS" = "Enter registration code received on SMS";
 "Registration code"= "Registration code";
@@ -41,7 +43,7 @@
 "Add Beneficiary" = "Add Beneficiary";
 "Create Beneficiary" = "Create Beneficiary";
 "Beneficiary registered successfully." = "Beneficiary registered successfully.";
-"Beneficiary created successfully, we have sent a SMS to the Beneficiary." = "Beneficiary created successfully, we have sent a SMS to the Beneficiary.";
+"Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry." = "Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry.";
 "Your beneficiaries have not activated their accounts yet. Once they are active you will be able to transfer the points." = "Your beneficiaries have not activated their accounts yet. Once they are active you will be able to transfer the points.";
 "No beneficiary found" = "No beneficiary found";
 "Select Beneficiary" = "Select Beneficiary";
@@ -343,7 +345,7 @@
 "Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@" = "Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@";
 
 // OPF
-"Enter Voucher Number for Redemption" = "Enter Voucher Number for Redemption";
+"Enter OPF School Fee Voucher No. for Redemption" = "Enter OPF School Fee Voucher No. for Redemption";
 "Voucher Number" = "Voucher Number";
 "Enter Voucher No" = "Enter Voucher No";
 "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n\(psid) for \(amount) Points is redeemed successfully at OPF";
@@ -434,6 +436,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Unable to self award points" = "Unable to self award points";
 "Redemption Issues" = "Redemption Issues";
 "Redemption Partner" = "Redemption Partner";
+"Receiving Entity" = "Receiving Entity";
 "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number" = "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number";
 "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757" = "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757";
 
@@ -480,7 +483,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Please enter Receiver Information" = "Please enter Receiver Information";
 "Add Receiver" = "Add Receiver";
 "USDtext" = "The Annual Remittance to-date in USD is accumulated from 1st July of each year, however for current year it shall be applicable from 1st October 2021 and your loyalty category will be calculated accordingly. For further details please visit FAQs";
-"RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.";
+"1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.";
 // Add Beneficiary
 "Beneficiary Relation Type *" = "Beneficiary Relation Type *";
 "Beneficiary Relation *" = "Beneficiary Relation *";

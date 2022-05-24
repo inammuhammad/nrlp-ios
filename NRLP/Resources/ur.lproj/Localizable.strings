@@ -18,6 +18,8 @@
 "Login"="لاگ ان کریں";
 "About NRLP" = "\U200E سوہنی دھرتی ریمیٹنس پروگرام کے بارے میں جانیں";
 "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti." = "Dear Remitter,\nPlease wait at least 05\nworking days after your\nremittance has been\nproceed to register for\n Sohni Dharti.";
+"Forgot Password/Unlock Account" = "پاس ورڈ بھول گئے/اکاؤنٹ ان لاک کریں۔";
+
 "Please enter registration code received on SMS"="براہ کرم ایس ایم ایس پر موصولہ رجسٹریشن کوڈ درج کریں";
 "Registration Code"="رجسٹریشن کوڈ";
 "Beneficiary Verification"="وصول کنندہ کی توثیق";
@@ -36,7 +38,7 @@
 "Add Beneficiaries"="وصول کنندہ درج کریں";
 "Create Beneficiary"="وصول کنندہ بنائیں";
 "Beneficiary registered successfully."="وصول کنندہ کامیابی کے ساتھ اندراج ہو گیا";
-"Beneficiary created successfully, we have sent a SMS to the Beneficiary."="وصول کنندہ کامیابی کے ساتھ تشکیل دیا گیا ہے ، ہم نے وصول کنندہ کو ایک SMS بھیجا ہے۔";
+"Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry." = "وصول کنندہ کامیابی کے ساتھ تشکیل دیا گیا ہے، ہم نے وصول کنندہ کو ایک SMS بھیجا ہے جس میں لنک اور رجسٹریشن کوڈ موجود ہیں براہ کرم اپنے وصول کنندہ سے کوڈ کی میعاد ختم ہونے سے پہلے 3 دن کے اندر اندراج کرنے کو کہیں";
 "Your beneficiary has not activated the account yet. Once the account is active you will be able to transfer the points."="آپ کے وصول کنندہ نے ابھی تک اکاؤنٹ کو رجسٹر نہیں کیا ہے۔ یوزر فعال ہو جائے تو آپ پوائنٹس کو منتقل کرنے کے قابل ہوجائیں گے۔";
 "No beneficiary found"="کوئی وصول کنندہ نہیں ملا";
 "Select Beneficiary"="وصول کنندہ کو منتخب کریں";
@@ -350,7 +352,7 @@
 "Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 // OPF
-"Enter Voucher Number for Redemption" = "واؤچر نمبر درج کریں";
+"Enter OPF School Fee Voucher No. for Redemption" = "او پی ایف سکول فیس واؤچر نمبر درج کریں";
 "Voucher Number" = "واؤچر نمبر";
 "Enter Voucher No" = "واؤچر نمبر درج کریں";
 "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF";
@@ -443,6 +445,7 @@
 "Unable to self award points" = "خود ایوارڈ دینے سے قاصر";
 "Redemption Issues" = "پوائنٹ استمال کرنے سے قاصر";
 "Redemption Partner" = "ریڈیمشن پاٹنر";
+"Receiving Entity" = "ترسیلات زر کا ادارہ";
 "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number" = "معزز صارف, اپ کی شکائت درج کرلی گئ ہے براہ کرم ٹریکنگ نمبر نوٹ کریں۔";
 "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757" = "مسئلہ 5 کاروباری دنوں میں حل ہو جائے گا، اگر شکایت حل نہیں ہوئی تو آپ sdrpsupport@1link.net.pk یا 757-116-111 پر رابطہ کرسکتے ہیں";
 
@@ -491,7 +494,7 @@
 "USDtext" = "USD
 میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں تاہم موجودہ سال کے لیے اس کا اطلاق یکم اکتوبر 2021 سے ہوگا اور اسی کے مطابق آپ کی لائلٹی کیٹیگری کا حساب لگایا جائے گا۔
 ";
-"RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "روشن ڈیجیٹل اکائونٹ کے صارفین صرف اس رقم کے مقابلے میں پوائنٹس کی آٹو ایوارڈنگ کے اہل ہوں گے جو مقامی طور پر استعمال کی جاتی ہے اور اسے واپس نہیں کیا جاسکتا";
+"1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "۱۔ پوائنٹس خود دینے کے لیے، براہ کرم 3 کاروباری دنوں تک انتظار کریں جب آپ کی رقم اکاؤنٹ میں جمع ہو جائے یا آپ کے وصول کنندہ کو موصول ہو جائے۔ \n\n۲۔ RDA کسٹمر صرف اس رقم کے بدلے آٹو ایوارڈنگ پوائنٹس کا اہل ہو گا جو مقامی طور پر استعمال ہوتی ہے اور اسے واپس نہیں لایا جا سکتا";
 // Add Beneficiary
 
 "Beneficiary Relation Type *" = "وصول کنندہ کا رشتہ منتخب کریں *";

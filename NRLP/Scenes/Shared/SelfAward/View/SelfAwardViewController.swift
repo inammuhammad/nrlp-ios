@@ -40,12 +40,17 @@ class SelfAwardViewController: BaseViewController {
     var user: UserModel?
     
     var datePickerViewModel: CustomDatePickerViewModel {
-        return CustomDatePickerViewModel(maxDate: Date())
+        var datePickerViewModel = CustomDatePickerViewModel()
+        datePickerViewModel.maxDate = Date().adding(days: -3) ?? Date()
+        datePickerViewModel.minDate = DateFormat().formatDate(dateString: "20211001", formatter: .advanceStatementFormat)
+        
+        return datePickerViewModel
     }
     
     private lazy var remittanceDatePicker: CustomDatePickerView = {
         var pickerView = CustomDatePickerView()
         pickerView.toolbarDelegate = self
+        pickerView.isSelfAward = true
         pickerView.viewModel = datePickerViewModel
         return pickerView
     }()
@@ -236,7 +241,7 @@ class SelfAwardViewController: BaseViewController {
     private func showInitialAlert() {
         let alert: AlertViewModel
         let okButton = AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil)
-        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "".localized, alertDescription: "RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.".localized, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        alert = AlertViewModel(alertHeadingImage: .selfAward, alertTitle: "".localized, alertDescription: "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.".localized, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         self.showAlert(with: alert)
     }
     
@@ -274,7 +279,7 @@ class SelfAwardViewController: BaseViewController {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
 
-            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType?.getTitle() ?? "-")
+            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType == .cnic ? "COC" : "ACC")
             
             if transactionType == .cnic, let cnic = cnic {
                 model.beneficiaryCnic = cnic

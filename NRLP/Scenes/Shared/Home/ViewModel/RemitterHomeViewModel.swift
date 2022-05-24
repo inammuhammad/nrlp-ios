@@ -22,33 +22,37 @@ class RemitterHomeViewModel: HomeViewModel {
     
     private func setupDataForUrdu() {
         if AppConstants.isDev {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .redemption))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
-            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
-            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
         } else {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .redemption))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
-            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
-            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
         }
     }
     
     private func setupDataForEnglish() {
         if AppConstants.isDev {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .redemption))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
-            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
-            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
         } else {
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .redemption))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .managePoints))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .manageBeneficiary))
-            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .nrlpBenefits))
-            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
             collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .selfAward))
+            collectionViewItemData.append(HomeCollectionViewCardCellDataModel(with: .viewStatement))
         }
     }
 
@@ -56,7 +60,8 @@ class RemitterHomeViewModel: HomeViewModel {
         let model = getItem(at: index)
         switch model.cardType {
         case .loyalty:
-            super.didTapItem(at: index)
+            return
+            // super.didTapItem(at: index)
         case .manageBeneficiary:
             router.navigateToManageBeneficiariesScreen(userModel: userModel)
         case .managePoints:
@@ -67,7 +72,9 @@ class RemitterHomeViewModel: HomeViewModel {
            router.navigateToNRLPBenefits()
         case .selfAward:
             router.navigateToSelfAward(user: userModel)
-            //showComingSoonAlert()
+            // showComingSoonAlert()
+        case .redemption:
+            super.didTapItem(at: index)
         }
     }
 

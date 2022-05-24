@@ -174,7 +174,11 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     }
     
     var datePickerViewModel: CustomDatePickerViewModel {
-        return CustomDatePickerViewModel(maxDate: Date())
+        var datePickerViewModel = CustomDatePickerViewModel()
+        datePickerViewModel.maxDate = Date().adding(days: -3) ?? Date()
+        datePickerViewModel.minDate = DateFormat().formatDate(dateString: "20211001", formatter: .advanceStatementFormat)
+        
+        return datePickerViewModel
     }
     
     private var transactionDateString: String? {
@@ -431,7 +435,7 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Unable to Register Complaint
     
     private func validateUnableToRegisterComplaint() {
-        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || specifyDetails?.isBlank ?? true {
+        if name?.isBlank ?? true || cnic?.isBlank ?? true || country == nil || mobileNumber?.isBlank ?? true || specifyDetails?.isBlank ?? true || specifyDetails?.count ?? Int.max < 15 {
             output?(.nextButtonState(state: false))
         } else {
             output?(.nextButtonState(state: true))
@@ -592,7 +596,7 @@ extension ComplaintFormViewModel {
     
     private func validateOthers() {
         if loginState == .loggedIn {
-            if specifyDetails?.isBlank ?? true {
+            if specifyDetails?.isBlank ?? true || specifyDetails?.count ?? Int.max < 15 {
                 output?(.nextButtonState(state: false))
             } else {
                 output?(.nextButtonState(state: true))
@@ -764,7 +768,7 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Redemption Issues
     
     private func validateRedemptionIssues() {
-        if partner?.isBlank ?? true || specifyDetails?.isBlank ?? true {
+        if partner?.isBlank ?? true || specifyDetails?.isBlank ?? true || specifyDetails?.count ?? Int.max < 15 {
             output?(.nextButtonState(state: false))
         } else {
             output?(.nextButtonState(state: true))
