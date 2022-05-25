@@ -13,12 +13,21 @@ struct NotificationListRequestModel: Codable {
     let perPage: String
     let nicNicop: String
     let notificationType: String
-
+    
     enum CodingKeys: String, CodingKey {
         case page = "page"
         case perPage = "per_page"
         case nicNicop = "nic_nicop"
         case notificationType = "notification_type"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(page, forKey: .page)
+        try container.encode(perPage, forKey: .perPage)
+        try container.encode(nicNicop.aesEncrypted(), forKey: .nicNicop)
+        try container.encode(notificationType, forKey: .notificationType)
+        
     }
 }
 
@@ -53,7 +62,7 @@ struct NotificationRecordModel: Codable {
     let updatedAt: String
     let isDeleted: Int
     let notificationType, notificationID: String
-
+    
     enum CodingKeys: String, CodingKey {
         case id, cnic
         case notificationMessage = "notification_message"
@@ -98,4 +107,3 @@ struct NotificationDeleteRequestModel: Codable {
 struct NotificationDeleteResponseModel: Codable {
     
 }
-

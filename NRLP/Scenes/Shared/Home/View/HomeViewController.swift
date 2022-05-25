@@ -166,6 +166,7 @@ extension HomeViewController {
                 self.showAlert(with: alertModel)
             case .updateNotificationCount(let count):
                 notificationBellView.count = count
+                UIApplication.shared.applicationIconBadgeNumber = count
             }
         }
     }

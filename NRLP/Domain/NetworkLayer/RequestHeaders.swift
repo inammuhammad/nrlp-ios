@@ -13,7 +13,7 @@ protocol RequestHeader {
     var contentType: String { get set }
 }
 
-//enum HeaderType
+// enum HeaderType
 
 final class DefaultRequestHeader: RequestHeader {
     var accept: String = ParameterConstants.contentTypeJson.rawValue

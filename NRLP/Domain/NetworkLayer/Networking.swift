@@ -8,7 +8,7 @@
 
 import Foundation
 
-//2. Request Builder
+// 2. Request Builder
 struct RequestBuilder<Parameter: Encodable> {
     
     let path: APIPathBuilder

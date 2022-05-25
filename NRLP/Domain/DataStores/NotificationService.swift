@@ -36,7 +36,7 @@ class NotificationService: BaseDataStore, NotificationServiceProtocol {
         
         let model = NotificationListRequestModel(page: "\(page)", perPage: "10", nicNicop: cnicNicop, notificationType: mappedCategory(for: category))
 
-        let request = RequestBuilder(path: .init(endPoint: .notificationList), parameters: model, shouldHash: false)
+        let request = RequestBuilder(path: .init(endPoint: .notificationList), parameters: model, shouldHash: true)
         
         networking.post(request: request) { (response: APIResponse<NotificationListResponseModel>) in
             completion(response.result)
