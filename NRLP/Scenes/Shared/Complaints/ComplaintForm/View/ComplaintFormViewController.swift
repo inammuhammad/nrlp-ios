@@ -235,7 +235,7 @@ class ComplaintFormViewController: BaseViewController {
     }
     @IBOutlet weak var remittanceEntityTextView: LabelledTextview! {
         didSet {
-            remittanceEntityTextView.titleLabelText = "Receiving Entity".localized
+            remittanceEntityTextView.titleLabelText = "Receiving Entity (Banks & Exchange Company)".localized
             remittanceEntityTextView.autoCapitalizationType = .words
             remittanceEntityTextView.editTextKeyboardType = .asciiCapable
             remittanceEntityTextView.showHelpBtn = true
@@ -255,6 +255,7 @@ class ComplaintFormViewController: BaseViewController {
             transactionIDTextView.titleLabelText = "Transaction ID".localized
             transactionIDTextView.placeholderText = "xxxxxxxxxxxxxx"
             transactionIDTextView.inputFieldMaxLength = 25
+            transactionIDTextView.inputFieldMinLength = 5
             transactionIDTextView.editTextKeyboardType = .asciiCapable
             transactionIDTextView.formatValidator = FormatValidator(regex: RegexConstants.referenceNumberRegex, invalidFormatError: StringConstants.ErrorString.referenceNumberError.localized)
             transactionIDTextView.onTextFieldChanged = { [weak self] updatedText in

@@ -709,7 +709,25 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Unable to Self Award Points
     
     private func validateUnableToSelfAwardPoints() {
-        if beneficiaryCnic?.isBlank ?? true || remittanceEntity?.isBlank ?? true || transactionID?.isBlank ?? true || transactionDateString?.isBlank ?? true || transactionAmount?.isBlank ?? true || !(transactionAmount?.isValid(for: RegexConstants.transactionAmountRegex) ?? false) || !(beneficiaryCnic?.isValid(for: RegexConstants.alphanuericRegex) ?? false) {
+        guard let beneficiaryCnic = beneficiaryCnic,
+              let remittanceEntity = remittanceEntity,
+              let transactionID = transactionID,
+              let transactionDateString = transactionDateString,
+              let transactionAmount = transactionAmount
+        else {
+            output?(.nextButtonState(state: false))
+            return
+        }
+        
+        if beneficiaryCnic.isBlank ||
+            remittanceEntity.isBlank ||
+            transactionID.isBlank ||
+            transactionID.count < 5 ||
+            transactionID.count > 25 ||
+            transactionDateString.isBlank ||
+            transactionAmount.isBlank ||
+            !transactionAmount.isValid(for: RegexConstants.transactionAmountRegex) ||
+            !beneficiaryCnic.isValid(for: RegexConstants.alphanuericRegex) {
             output?(.nextButtonState(state: false))
         } else {
             output?(.nextButtonState(state: true))
