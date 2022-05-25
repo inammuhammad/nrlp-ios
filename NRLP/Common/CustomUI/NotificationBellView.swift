@@ -39,15 +39,16 @@ class NotificationBellView: UIView {
         bellLayer.frame = CGRect(
             origin: CGPoint(
                 x: 0,
-                y: width * (1 - bellMultiplier)
+                y: height * (1 - bellMultiplier)
             ),
             size: CGSize(
                 width: width * bellMultiplier,
-                height: height * bellMultiplier
+                height: height //  * bellMultiplier
             )
         )
         
         bellLayer.contents = UIImage(named: "bell")?.cgImage
+        // bellLayer.backgroundColor = UIColor.purple.cgColor
         
         self.layer.addSublayer(bellLayer)
         
@@ -64,7 +65,8 @@ class NotificationBellView: UIView {
         )
         countTextLayer.string = "\(count)"
         countTextLayer.alignmentMode = .center
-        countTextLayer.backgroundColor = UIColor.red.cgColor
+        countTextLayer.backgroundColor = UIColor.clear.cgColor
+        countTextLayer.foregroundColor = UIColor.black.cgColor
         countTextLayer.cornerRadius = width * countMultiplier * 0.5
         countTextLayer.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.bold, size: .smallFontSize)
         countTextLayer.fontSize = CommonFontSizes.smallFontSize.rawValue

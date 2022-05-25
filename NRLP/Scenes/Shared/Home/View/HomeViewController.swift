@@ -19,7 +19,7 @@ class HomeViewController: BaseViewController {
         navBarHeight *= 0.6
 
         let notificationBellView = NotificationBellView(
-            frame: CGRect(origin: .zero, size: CGSize(width: navBarHeight, height: navBarHeight))
+            frame: CGRect(origin: .zero, size: CGSize(width: navBarHeight * 1.5, height: navBarHeight))
         )
         notificationBellView.onTap = {
             self.notificationsBellTapped()
