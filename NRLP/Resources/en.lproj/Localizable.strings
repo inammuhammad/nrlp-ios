@@ -502,3 +502,6 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Remittance Transaction Type" = "Remittance Transaction Type";
 "Beneficiary CNIC" = "Beneficiary CNIC";
 "Beneficiary Account Number/ IBAN" = "Beneficiary Account Number/ IBAN";
+
+// Notifications
+"Notifications" = "Notifications";

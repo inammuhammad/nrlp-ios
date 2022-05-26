@@ -8,6 +8,7 @@
 
 import Firebase
 import FirebaseCore
+import FirebaseMessaging
 import netfox
 import UserNotifications
 
@@ -31,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        registerForPushNotifications()
+        registerForRemotePushNotifications(application)
+        
         if AppConstants.isDev {
             NFX.sharedInstance().start()
         }
@@ -42,8 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = AppRouter().getTopViewController()
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
-        
-        registerForPushNotifications()
+
         return true
     }
     
@@ -78,8 +81,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("Fail to Register: \(error)")
     }
-    
-    func registerForPushNotifications() {
+}
+
+// MARK: - Push Notification Config
+extension AppDelegate {
+    private func registerForPushNotifications() {
         UNUserNotificationCenter.current()
             .requestAuthorization(options: [.alert, .sound, .badge]) { [weak self] granted, _ in
                 if AppConstants.isDev {
@@ -91,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
     }
     
-    func getNotificationSettings() {
+    private func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             if AppConstants.isDev {
                 print("Notification settings: \(settings)")
@@ -101,6 +107,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     UIApplication.shared.registerForRemoteNotifications()
                 }
             }
+        }
+    }
+}
+
+// MARK: - Remote Push Notification Config
+extension AppDelegate: MessagingDelegate, UNUserNotificationCenterDelegate {
+    private func registerForRemotePushNotifications(_ application: UIApplication) {
+        Messaging.messaging().delegate = self
+        
+        if #available(iOS 10.0, *) {
+          UNUserNotificationCenter.current().delegate = self
+
+          let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+          UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { _, _ in }
+          )
+        } else {
+          let settings: UIUserNotificationSettings =
+            UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+          application.registerUserNotificationSettings(settings)
+        }
+
+        application.registerForRemoteNotifications()
+    }
+    
+    // Messaging
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        if AppConstants.isDev {
+            print("fcmToken: \(fcmToken ?? "nil")")
         }
     }
 }

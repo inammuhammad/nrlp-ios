@@ -22,6 +22,24 @@ class NotificationBellView: UIView {
         setupUI()
     }
     
+    init(title: String, frame: CGRect) {
+        // Workaround to get Text Width
+        titleLabel.text = title.localized
+        
+        super.init(
+            frame:
+                CGRect(
+                    origin: frame.origin,
+                    size: CGSize(
+                        width: frame.width + titleLabel.intrinsicContentSize.width,
+                        height: frame.height
+                    )
+                )
+        )
+        
+        self.setupUI()
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -29,48 +47,79 @@ class NotificationBellView: UIView {
     }
     
     private var bellLayer = CALayer()
-    private var countTextLayer = VerticalCenterTextLayer()
-
+    private var countTextLayer = CATextLayer()
+    private var titleTextLayer = VerticalCenterTextLayer()
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
+        return label
+    }()
+    
     private func setupUI() {
-        let height = self.bounds.height
-        let width = self.bounds.width
+        let layoutDir = UIView.appearance().semanticContentAttribute
         
-        let bellMultiplier = 0.9
-        bellLayer.frame = CGRect(
+        let height = self.bounds.height
+        var width = self.titleLabel.intrinsicContentSize.width
+        
+        titleTextLayer.frame = CGRect(
             origin: CGPoint(
-                x: 0,
-                y: height * (1 - bellMultiplier)
+                x: layoutDir == .forceRightToLeft ? self.frame.width - width : 0,
+                y: 0
             ),
             size: CGSize(
-                width: width * bellMultiplier,
-                height: height //  * bellMultiplier
+                width: width,
+                height: height
+            )
+        )
+        titleTextLayer.string = titleLabel.text
+        titleTextLayer.alignmentMode = layoutDir == .forceRightToLeft ? .left : .right
+        titleTextLayer.backgroundColor = UIColor.clear.cgColor
+        titleTextLayer.foregroundColor = UIColor.black.cgColor
+        titleTextLayer.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
+        titleTextLayer.fontSize = CommonFontSizes.largeFontSize.rawValue
+        titleTextLayer.contentsScale = UIScreen.main.scale
+        
+        var x = width
+        width = self.frame.width - width
+        
+        bellLayer.frame = CGRect(
+            origin: CGPoint(
+                x: layoutDir == .forceRightToLeft ? width * 0.4 : x,
+                y: height * 0.2
+            ),
+            size: CGSize(
+                width: width * 0.6,
+                height: height * 0.8
             )
         )
         
         bellLayer.contents = UIImage(named: "bell")?.cgImage
-        // bellLayer.backgroundColor = UIColor.purple.cgColor
         
-        self.layer.addSublayer(bellLayer)
+        x += width * 0.6
         
-        let countMultiplier = 0.6
         countTextLayer.frame = CGRect(
             origin: CGPoint(
-                x: width * (1 - countMultiplier),
+                x: layoutDir == .forceRightToLeft ? 0 : x,
                 y: 0
             ),
             size: CGSize(
-                width: width * countMultiplier,
-                height: height * countMultiplier
+                width: width * 0.4,
+                height: height
             )
         )
         countTextLayer.string = "\(count)"
-        countTextLayer.alignmentMode = .center
+        countTextLayer.alignmentMode = layoutDir == .forceRightToLeft ? .right : .left
         countTextLayer.backgroundColor = UIColor.clear.cgColor
         countTextLayer.foregroundColor = UIColor.black.cgColor
-        countTextLayer.cornerRadius = width * countMultiplier * 0.5
-        countTextLayer.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.bold, size: .smallFontSize)
+        countTextLayer.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
         countTextLayer.fontSize = CommonFontSizes.smallFontSize.rawValue
+        countTextLayer.contentsScale = UIScreen.main.scale
+        
+        // titleTextLayer.
+        
+        self.layer.addSublayer(bellLayer)
         self.layer.addSublayer(countTextLayer)
+        self.layer.addSublayer(titleTextLayer)
         
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(

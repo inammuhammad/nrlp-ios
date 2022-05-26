@@ -514,3 +514,6 @@
 "Remittance Transaction Type" = "ترسیلات زر کی قسم";
 "Beneficiary CNIC" = "وصول کنندہ کا قومی شناختی کارڈ نمبر";
 "Beneficiary Account Number/ IBAN" = "وصول کنندہ کا اکاونٹ نمر/ بین الاقوامی بینک اکاؤنٹ نمبر";
+
+// Notifications
+"Notifications" = "نوٹیفیکیشن";

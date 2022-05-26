@@ -146,10 +146,10 @@ extension NetworkManager: Networking {
         case 200:
             do {
                 guard let data = response.data else {
-                    //Handle HTTP related errors
+                    // Handle HTTP related errors
                     return APIResponse(result: .failure(.requestError(response.error)))
                 }
-                //Response object parse
+                // Response object parse
                 let responseObject: T = try translator.toObject(withData: data)
                 return APIResponse(result: .success(responseObject))
             } catch {
@@ -168,12 +168,12 @@ extension NetworkManager: Networking {
             return APIResponse(result: .failure(.internetOffline))
         }
         guard let data = response.data else {
-            //Handle HTTP related errors
+            // Handle HTTP related errors
             return APIResponse(result: .failure(.unknown))
         }
         
         do {
-            //Server Error parse
+            // Server Error parse
             let serverError: ErrorResponse = try translator.toObject(withData: data)
             if serverError.errorCode == ErrorConstants.sessionExpire.rawValue {
                 remove(headerKeys: ["Authorization"])

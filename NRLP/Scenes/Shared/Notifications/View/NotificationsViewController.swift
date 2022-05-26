@@ -28,7 +28,45 @@ class NotificationsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Notifications"
+        // self.title = "Notifications"
+
+        let view = UIView()
+        let label = UILabel()
+        label.text = "Notifications".localized
+        label.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
+        let imageView = UIImageView(image: UIImage(named: "bell"))
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(label)
+        view.addSubview(imageView)
+        
+        if AppConstants.isAppLanguageUrdu {
+            NSLayoutConstraint.activate([
+                view.topAnchor.constraint(equalTo: imageView.topAnchor),
+                view.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+                view.leftAnchor.constraint(equalTo: imageView.leftAnchor),
+                
+                view.centerYAnchor.constraint(equalTo: label.centerYAnchor),
+                view.rightAnchor.constraint(equalTo: label.rightAnchor),
+                label.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8)
+            ])
+        } else {
+            NSLayoutConstraint.activate([
+                view.topAnchor.constraint(equalTo: imageView.topAnchor),
+                view.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+                view.rightAnchor.constraint(equalTo: imageView.rightAnchor),
+                
+                view.centerYAnchor.constraint(equalTo: label.centerYAnchor),
+                view.leftAnchor.constraint(equalTo: label.leftAnchor),
+                label.rightAnchor.constraint(equalTo: imageView.leftAnchor, constant: -8)
+            ])
+        }
+        
+        self.navigationItem.titleView = view
+        //        self.setTitle(title: "Notifications", with: UIImage(named: "bell"))
+//        self.navigationItem.titleView = UIImageView(image: UIImage(named: "bell"))
     }
     
     private func setupTopTabBarView() {

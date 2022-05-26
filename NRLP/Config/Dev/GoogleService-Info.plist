@@ -3,34 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>291230126841-8mkmnucm2oglf9ljmhune1gvq4ufppvs.apps.googleusercontent.com</string>
+	<string>929965236340-hqn8m066pdir1fvsdr8k9cqhcbdss63g.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.291230126841-8mkmnucm2oglf9ljmhune1gvq4ufppvs</string>
+	<string>com.googleusercontent.apps.929965236340-hqn8m066pdir1fvsdr8k9cqhcbdss63g</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCYWBS_42nZXTK_L2rNc4u2T3cx6nD2CUw</string>
+	<string>AIzaSyDiuHopskcqlEZ6q2QcUz-VxN_o-bYc8CA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>291230126841</string>
+	<string>929965236340</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.onelink.sohnidharti.app.dev</string>
 	<key>PROJECT_ID</key>
-	<string>link-nrlp</string>
+	<string>sdrp-dev</string>
 	<key>STORAGE_BUCKET</key>
-	<string>link-nrlp.appspot.com</string>
+	<string>sdrp-dev.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:291230126841:ios:ba03407f568c7cb70ac828</string>
-	<key>DATABASE_URL</key>
-	<string>https://link-nrlp.firebaseio.com</string>
+	<string>1:929965236340:ios:0205b99314c45ab0ee3121</string>
 </dict>
 </plist>

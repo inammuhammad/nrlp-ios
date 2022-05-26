@@ -39,7 +39,7 @@ struct RequestBuilder<Parameter: Encodable> {
     }
 }
 
-//3. API Response
+// 3. API Response
 struct APIResponse<T> {
     
     let result: Result<T, APIResponseError>
@@ -61,13 +61,13 @@ public enum Result<T, U> {
     case failure(U)
 }
 
-//4. Cancelable Request
+// 4. Cancelable Request
 protocol APIRequest {
     
     func cancel()
 }
 
-//5. Perferm API request using differnt restful methods
+// 5. Perferm API request using differnt restful methods
 protocol Networking {
     
     typealias Completion<T> = (APIResponse<T>) -> Void
