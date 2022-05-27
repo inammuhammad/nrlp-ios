@@ -112,6 +112,7 @@ class LoginViewModel: LoginViewModelProtocol {
             
             if requestModel.cnicNicop == TestConstants.CNIC1.rawValue || requestModel.cnicNicop == TestConstants.CNIC2.rawValue || requestModel.cnicNicop == TestConstants.CNIC3.rawValue {
                 let newRequestModel = getLoginRequestModel(isDummyLogin: true)
+                
                 service.decoratee.login(requestModel: newRequestModel) { [weak self] (result) in
                     guard let self = self else { return }
                     self.output?(.showActivityIndicator(show: false))
@@ -161,6 +162,7 @@ class LoginViewModel: LoginViewModelProtocol {
         AESConfigs.currentConfiguration = .updateUUID
         output?(.showActivityIndicator(show: true))
         let requestModel = getLoginRequestModel()
+        
         service.decoratee.login(requestModel: requestModel) {[weak self] (result) in
             guard let self = self else { return }
             AESConfigs.currentConfiguration = .normal
@@ -217,7 +219,7 @@ class LoginViewModel: LoginViewModelProtocol {
     private func validateData() -> Bool {
         
         var isValid = true
-        //cnic label validations
+        // cnic label validations
         
         if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
             output?(.cnicLabelState(error: false, errorMsg: nil))
