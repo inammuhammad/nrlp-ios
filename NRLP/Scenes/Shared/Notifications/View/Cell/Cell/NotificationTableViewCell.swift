@@ -9,10 +9,6 @@
 import UIKit
 
 class NotificationTableViewCell: UITableViewCell {
-    private var onMessageTap: (() -> Void)?
-    private var onMenuTap: (() -> Void)?
-    private var isRead = false
-    
     @IBOutlet private weak var notificationTextView: UIView! {
         didSet {
             notificationTextView.backgroundColor = UIColor(commonColor: .appGreen)
@@ -26,7 +22,7 @@ class NotificationTableViewCell: UITableViewCell {
         didSet {
             notificationTextLabel.textColor = .white
             notificationTextLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
-
+            
         }
     }
     
@@ -34,36 +30,44 @@ class NotificationTableViewCell: UITableViewCell {
         didSet {
             dateTimeLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.bold, size: .mediumFontSize)
             dateTimeLabel.textColor = UIColor.init(commonColor: .appLightGray)
-
+            
         }
     }
     
     @IBOutlet private weak var menuButton: UIButton! {
         didSet {
-            if #available(iOS 14, *) {
-                menuButton.showsMenuAsPrimaryAction = true
-                menuButton.menu = UIMenu(
-                    title: "",
-                    children: [
-                        UIAction(title: "Delete", image: UIImage(systemName: "trash.fill"), attributes: [.destructive]) { _ in
-                            self.onMenuTap?()
-                        }
-                    ]
-                )
-            }
+            
         }
     }
     
+    @IBOutlet private weak var deleteView: UIView! {
+        didSet {
+            deleteView.isHidden = true
+            deleteView.addGestureRecognizer(
+                UITapGestureRecognizer(target: self, action: #selector(deleteItem))
+            )
+        }
+    }
+
+    @IBOutlet private weak var deleteViewText: UILabel! {
+        didSet {
+            deleteViewText.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
+        }
+    }
+    
+    private var onMessageTap: (() -> Void)?
+    private var onMenuTap: (() -> Void)?
+    private var onDeleteTap: (() -> Void)?
+    private var isRead = false
+    
     public func populate(
         notificationRecord: NotificationRecordModel,
-//        text: String,
-//        datetime: Date,
-//        isRead: Bool,
         onMessageTap: (() -> Void)?,
-        onMenuTap: (() -> Void)?
+        onMenuTap: (() -> Void)?,
+        onDeleteTap: (() -> Void)?
     ) {
         self.isRead = notificationRecord.isReadFlag == 1
-        self.onMenuTap = onMenuTap
+        self.onDeleteTap = onDeleteTap
         self.onMessageTap = onMessageTap
         
         notificationTextView.backgroundColor = UIColor(commonColor: isRead ? .appLightGray : .appGreen)
@@ -81,8 +85,13 @@ class NotificationTableViewCell: UITableViewCell {
         }
     }
     
+    @objc private func deleteItem() {
+        onDeleteTap?()
+    }
+    
     @IBAction private func menuTapped() {
-        onMenuTap?()
+        deleteView.isHidden.toggle()
+        // onMenuTap?()
     }
 }
 
@@ -96,7 +105,7 @@ private extension Date {
         dateFormatter.dateFormat = "LLLL"
         let monthSuff = dateFormatter.string(from: self)
         return monthSuff.stringPrefix(3)
-   }
+    }
     
     func time() -> String {
         let dateFormatter = DateFormatter()
@@ -105,3 +114,4 @@ private extension Date {
         return time.lowercased()
     }
 }
+

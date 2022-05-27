@@ -36,6 +36,8 @@ class NotificationsCategoryCell: UICollectionViewCell {
         }
     }
     
+    
+    private var menuIndex: Int?
     private var notificationService: NotificationService?
     private var catagory: NotificationCategory?
     private var latestResponse: NotificationListResponseModel? {
@@ -148,7 +150,7 @@ extension NotificationsCategoryCell: UITableViewDataSource, UITableViewDelegate 
                     print(error)
                 }
             })
-        } onMenuTap: {
+        } onDeleteTap: {
             ProgressHUD.show()
             self.notificationService?.delete(notificationId: self.sortedNotifications[index].id, completion: { result in
                 ProgressHUD.dismiss()
@@ -167,18 +169,4 @@ extension NotificationsCategoryCell: UITableViewDataSource, UITableViewDelegate 
         cell.selectionStyle = .none
         return cell
     }
-    
-    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    //        80
-    //    }
-}
-
-extension NotificationsCategoryCell {
-    // dummy data
-    
-    static var data = [
-        ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget consequat tortor. Phasellus non risus consectetur, suscipit ipsum et, iaculis neque. Fusce erat quam, sagittis a ullamcorper eu, gravida eu leo. Mauris sodales, dolor eget tincidunt commodo, nulla massa sollicitudin orci, quis semper sem quam a erat. Nunc pretium massa sit amet massa pharetra, ac aliquet ligula luctus. Duis dignissim congue orci, in venenatis elit blandit vitae. Maecenas tempor erat vel nulla vestibulum, sed venenatis dui laoreet. Aenean vitae interdum elit. Etiam sed quam at orci pretium rhoncus et ut leo. Fusce dolor erat, feugiat a turpis vitae, tempus ullamcorper eros.", Date(), false),
-        ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dolor erat, feugiat a turpis vitae, tempus ullamcorper eros.", Date(), true),
-        ("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget consequat tortor. Phasellus non risus consectetur, suscipit ipsum et, iaculis neque. Fusce erat quam, sagittis a ullamcorper eu, gravida eu leo. Mauris sodales, dolor eget tincidunt commodo, nulla massa sollicitudin orci.", Date(), false)
-    ]
 }
