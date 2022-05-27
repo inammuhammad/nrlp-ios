@@ -36,8 +36,11 @@ class NotificationsCategoryCell: UICollectionViewCell {
         }
     }
     
-    
-    private var menuIndex: Int?
+    private var menuIndex: Int? {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     private var notificationService: NotificationService?
     private var catagory: NotificationCategory?
     private var latestResponse: NotificationListResponseModel? {
@@ -62,10 +65,10 @@ class NotificationsCategoryCell: UICollectionViewCell {
     
     private var sortedNotifications = [NotificationRecordModel]() {
         didSet {
-            let unRead = sortedNotifications.filter { $0.isReadFlag == 0 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
-            let isRead = sortedNotifications.filter { $0.isReadFlag == 1 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
-            
-            sortedNotifications = unRead + isRead
+//            let unRead = sortedNotifications.filter { $0.isReadFlag == 0 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
+//            let isRead = sortedNotifications.filter { $0.isReadFlag == 1 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
+//            
+//            sortedNotifications = unRead + isRead
             
             tableView.reloadData()
         }
@@ -135,7 +138,8 @@ extension NotificationsCategoryCell: UITableViewDataSource, UITableViewDelegate 
         let cell = tableView.dequeueReusableCell(withClass: NotificationTableViewCell.self, for: indexPath)
         let index = indexPath.item
         cell.populate(
-            notificationRecord: self.sortedNotifications[index]
+            notificationRecord: self.sortedNotifications[index],
+            menuExtended: index == menuIndex
         ) {
             ProgressHUD.show()
             self.notificationService?.markRead(notificationId: self.sortedNotifications[index].id, completion: { result in
@@ -150,12 +154,15 @@ extension NotificationsCategoryCell: UITableViewDataSource, UITableViewDelegate 
                     print(error)
                 }
             })
+        } onMenuTap: {
+            self.menuIndex = index
         } onDeleteTap: {
             ProgressHUD.show()
             self.notificationService?.delete(notificationId: self.sortedNotifications[index].id, completion: { result in
                 ProgressHUD.dismiss()
                 switch result {
                 case .success(let model):
+                    self.menuIndex = nil
                     if AppConstants.isDev {
                         print(model)
                     }

@@ -42,6 +42,11 @@ class NotificationTableViewCell: UITableViewCell {
     
     @IBOutlet private weak var deleteView: UIView! {
         didSet {
+            deleteView.shadowColor = .black
+            deleteView.shadowOffset = .zero
+            deleteView.shadowRadius = 2
+            deleteView.shadowOpacity = 0.5
+            
             deleteView.isHidden = true
             deleteView.addGestureRecognizer(
                 UITapGestureRecognizer(target: self, action: #selector(deleteItem))
@@ -62,13 +67,17 @@ class NotificationTableViewCell: UITableViewCell {
     
     public func populate(
         notificationRecord: NotificationRecordModel,
+        menuExtended: Bool,
         onMessageTap: (() -> Void)?,
         onMenuTap: (() -> Void)?,
         onDeleteTap: (() -> Void)?
     ) {
         self.isRead = notificationRecord.isReadFlag == 1
         self.onDeleteTap = onDeleteTap
+        self.onMenuTap = onMenuTap
         self.onMessageTap = onMessageTap
+        
+        deleteView.isHidden = !menuExtended
         
         notificationTextView.backgroundColor = UIColor(commonColor: isRead ? .appLightGray : .appGreen)
         notificationTextLabel.text = notificationRecord.notificationMessage
@@ -90,8 +99,8 @@ class NotificationTableViewCell: UITableViewCell {
     }
     
     @IBAction private func menuTapped() {
-        deleteView.isHidden.toggle()
-        // onMenuTap?()
+        // deleteView.isHidden.toggle()
+        onMenuTap?()
     }
 }
 
@@ -114,4 +123,3 @@ private extension Date {
         return time.lowercased()
     }
 }
-
