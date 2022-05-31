@@ -43,7 +43,7 @@
 "Add Beneficiary" = "Add Beneficiary";
 "Create Beneficiary" = "Create Beneficiary";
 "Beneficiary registered successfully." = "Beneficiary registered successfully.";
-"Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry." = "Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry.";
+"Beneficiary created successfully\nWe have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry." = "Beneficiary created successfully\nWe have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry.";
 "Your beneficiaries have not activated their accounts yet. Once they are active you will be able to transfer the points." = "Your beneficiaries have not activated their accounts yet. Once they are active you will be able to transfer the points.";
 "No beneficiary found" = "No beneficiary found";
 "Select Beneficiary" = "Select Beneficiary";
@@ -436,7 +436,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Unable to self award points" = "Unable to self award points";
 "Redemption Issues" = "Redemption Issues";
 "Redemption Partner" = "Redemption Partner";
-"Receiving Entity (Banks & Exchange Company)" = "Receiving Entity (Banks & Exchange Company)";
+"Receiving Entity (Bank & Exchange Company)" = "Receiving Entity (Bank & Exchange Company)";
 "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number" = "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number";
 "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757" = "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757";
 
@@ -452,7 +452,10 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Transaction ID" = "Transaction ID";
 "Transaction Date" = "Transaction Date";
 "Transaction Amount (PKR)" = "Transaction Amount (PKR)";
-"Please specify Bank/Exchange company from where remittance is sent" = "Please specify Bank/Exchange company from where remittance is sent";
+"Please mention the Bank and Exchange Company where the remittance was sent." = "Please mention the Bank and Exchange Company where the remittance was sent.";
+"Please use at least 15 characters to describe the problem in detail." = "Please use at least 15 characters to describe the problem in detail.";
+
+
 "Beneficiary details have been updated successfully" = "Beneficiary details have been updated successfully";
 "Registration code has been resent" = "Registration code has been resent";
 
