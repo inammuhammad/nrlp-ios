@@ -23,8 +23,6 @@ class CancelRegisterUserService: BaseDataStore, CancelRegisterUserServiceProtoco
             return
         }
 
-     //   completion(.success(RegisterResponseModel(message: "user created successfully")))
-
         // request building
         let request = RequestBuilder(path: .init(endPoint: .cancelRegister), parameters: requestModel)
 
