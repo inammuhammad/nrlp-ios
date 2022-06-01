@@ -217,7 +217,7 @@ class LoginViewModel: LoginViewModelProtocol {
     private func validateData() -> Bool {
         
         var isValid = true
-        //cnic label validations
+        // cnic label validations
         
         if cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
             output?(.cnicLabelState(error: false, errorMsg: nil))
