@@ -75,7 +75,7 @@ class NotificationService: BaseDataStore, NotificationServiceProtocol {
     
     private func mappedCategory(for category: NotificationCategory) -> String {
         switch category {
-        case .complaints:
+        case .complaint:
             return "COMPLAINT"
 //        case .activity:
 //            return ""

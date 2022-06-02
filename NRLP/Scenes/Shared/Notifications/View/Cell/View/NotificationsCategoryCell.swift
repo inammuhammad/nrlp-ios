@@ -9,7 +9,7 @@
 import UIKit
 
 enum NotificationCategory: String, CaseIterable {
-    case complaints = "Complaints"
+    case complaint = "Complaint"
     // case activity = "Activity"
 }
 
@@ -67,7 +67,7 @@ class NotificationsCategoryCell: UICollectionViewCell {
         didSet {
 //            let unRead = sortedNotifications.filter { $0.isReadFlag == 0 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
 //            let isRead = sortedNotifications.filter { $0.isReadFlag == 1 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
-//            
+//
 //            sortedNotifications = unRead + isRead
             
             tableView.reloadData()
@@ -88,7 +88,7 @@ class NotificationsCategoryCell: UICollectionViewCell {
     
     private func fetchNotification(page: Int) {
         ProgressHUD.show()
-        self.notificationService?.fetchNotifications(category: .complaints, page: page, completion: { result in
+        self.notificationService?.fetchNotifications(category: .complaint, page: page, completion: { result in
             ProgressHUD.dismiss()
             switch result {
                 
@@ -155,7 +155,7 @@ extension NotificationsCategoryCell: UITableViewDataSource, UITableViewDelegate 
                 }
             })
         } onMenuTap: {
-            self.menuIndex = index
+            self.menuIndex = self.menuIndex == index ? nil : index
         } onDeleteTap: {
             ProgressHUD.show()
             self.notificationService?.delete(notificationId: self.sortedNotifications[index].id, completion: { result in

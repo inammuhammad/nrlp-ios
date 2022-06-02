@@ -71,7 +71,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Gvy-RN-jxj" secondAttribute="bottom" id="Awp-fV-jqk"/>
                             <constraint firstItem="R1y-8j-XQH" firstAttribute="leading" secondItem="ODh-JY-ssO" secondAttribute="leading" constant="4" id="FVv-Ee-cS2"/>
@@ -113,9 +113,6 @@
     <resources>
         <image name="delete" width="23" height="23"/>
         <image name="dotsMenu" width="21.5" height="5.5"/>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

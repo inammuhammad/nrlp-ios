@@ -70,7 +70,7 @@ class NotificationsViewController: BaseViewController {
     }
     
     private func setupTopTabBarView() {
-        self.topTabBarView.titles = categories.map { $0.rawValue }
+        self.topTabBarView.titles = categories.map { $0.rawValue.localized }
         self.topTabBarView.delegate = self
     }
     

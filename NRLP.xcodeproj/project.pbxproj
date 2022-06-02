@@ -1384,6 +1384,7 @@
 		DBC38E3928323248006B3E9B /* NotificationBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBellView.swift; sourceTree = "<group>"; };
 		DBC38E3B28325E1E006B3E9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListModel.swift; sourceTree = "<group>"; };
+		DBD6C49D2847A7BB00F26FB5 /* NRLPProd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NRLPProd.entitlements; sourceTree = "<group>"; };
 		DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingBuilder.swift; sourceTree = "<group>"; };
 		DBECD16428066590005A123C /* RedemptionRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewController.swift; sourceTree = "<group>"; };
 		DBECD16628066731005A123C /* RedemptionRating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionRating.storyboard; sourceTree = "<group>"; };
@@ -4470,6 +4471,7 @@
 		A1B9A1B424B2FF0B00CAAA32 /* NRLP */ = {
 			isa = PBXGroup;
 			children = (
+				DBD6C49D2847A7BB00F26FB5 /* NRLPProd.entitlements */,
 				DBF4DC5C282B981C004C1341 /* NRLP.entitlements */,
 				DBF4DC5B282B9463004C1341 /* NRLPDev.entitlements */,
 				20782D3D24B46AE300422AEB /* Resources */,
@@ -7358,7 +7360,7 @@
 				CODE_SIGN_ENTITLEMENTS = NRLP/NRLP.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -7368,7 +7370,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.9;
+				MARKETING_VERSION = 3.10;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ventureddive.-Link-NRLP.staging";
 				PRODUCT_NAME = "Sohni Dharti";
@@ -7734,7 +7736,7 @@
 				CODE_SIGN_ENTITLEMENTS = NRLP/NRLPDev.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
@@ -7745,7 +7747,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.9;
+				MARKETING_VERSION = 3.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelink.sohnidharti.app.dev;
 				PRODUCT_NAME = "Sohni Dharti";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -7761,10 +7763,10 @@
 			baseConfigurationReference = 81F2F9D1EE084118F6BDE45C /* Pods-NRLP.prod.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NRLP/NRLP.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CODE_SIGN_ENTITLEMENTS = NRLP/NRLPProd.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J2MFXH26UA;
 				ENABLE_BITCODE = YES;
 				ENABLE_TESTABILITY = NO;
@@ -7776,11 +7778,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.9;
+				MARKETING_VERSION = 3.10;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelink.sohnidharti.app;
 				PRODUCT_NAME = "Sohni Dharti";
-				PROVISIONING_PROFILE_SPECIFIER = "Sohnni Dharti Distribution Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

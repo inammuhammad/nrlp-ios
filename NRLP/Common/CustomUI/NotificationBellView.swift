@@ -67,7 +67,7 @@ class NotificationBellView: UIView {
                 y: 0
             ),
             size: CGSize(
-                width: width,
+                width: self.frame.width,
                 height: height
             )
         )
