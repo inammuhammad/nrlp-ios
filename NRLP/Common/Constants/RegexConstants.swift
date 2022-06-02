@@ -30,4 +30,6 @@ struct RegexConstants {
     static let beneficiaryRelation = "[a-zA-Z]+( [a-zA-Z]+)*$"
     static let alphanuericRegex = "^[a-zA-Z0-9]+$"
     static let mobileNumberRegexPK = "^(0)(3)([0-9]{9})$"
+    static let minFifteenCharacters = "^.{15,}$"
+    
 }

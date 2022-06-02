@@ -73,7 +73,7 @@ class AddBeneficiaryViewModelTests: XCTestCase {
         XCTAssertNotNil(outputHandler.showAlert)
         
         XCTAssertEqual(outputHandler.showAlert?.alertTitle, "Beneficiary Added")
-        XCTAssertEqual(outputHandler.showAlert?.alertDescription, "Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry.")
+        XCTAssertEqual(outputHandler.showAlert?.alertDescription, "Beneficiary created successfully\nWe have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry.")
         
         outputHandler.showAlert?.primaryButton.buttonAction?()
         

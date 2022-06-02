@@ -38,7 +38,7 @@
 "Add Beneficiaries"="وصول کنندہ درج کریں";
 "Create Beneficiary"="وصول کنندہ بنائیں";
 "Beneficiary registered successfully."="وصول کنندہ کامیابی کے ساتھ اندراج ہو گیا";
-"Beneficiary created successfully; we have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry." = "وصول کنندہ کامیابی کے ساتھ تشکیل دیا گیا ہے، ہم نے وصول کنندہ کو ایک SMS بھیجا ہے جس میں لنک اور رجسٹریشن کوڈ موجود ہیں براہ کرم اپنے وصول کنندہ سے کوڈ کی میعاد ختم ہونے سے پہلے 3 دن کے اندر اندراج کرنے کو کہیں";
+"Beneficiary created successfully\nWe have sent an SMS to the Beneficiary with SDRP Link to download & Registration Code. Kindly ask your beneficiary to register within 3 days before the code expiry." = "وصول کنندہ کامیابی کے ساتھ تشکیل دیا گیا ہے، ہم نے وصول کنندہ کو ایک SMS بھیجا ہے جس میں لنک اور رجسٹریشن کوڈ موجود ہیں براہ کرم اپنے وصول کنندہ سے کوڈ کی میعاد ختم ہونے سے پہلے 3 دن کے اندر اندراج کرنے کو کہیں";
 "Your beneficiary has not activated the account yet. Once the account is active you will be able to transfer the points."="آپ کے وصول کنندہ نے ابھی تک اکاؤنٹ کو رجسٹر نہیں کیا ہے۔ یوزر فعال ہو جائے تو آپ پوائنٹس کو منتقل کرنے کے قابل ہوجائیں گے۔";
 "No beneficiary found"="کوئی وصول کنندہ نہیں ملا";
 "Select Beneficiary"="وصول کنندہ کو منتخب کریں";
@@ -352,7 +352,7 @@
 "Receipt No. %1$@\n\nYou have redeemed  %2$@ Points against\nPSID  %3$@ successfully at Utility Stores.\n\n %4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
 // OPF
-"Enter OPF School Fee Voucher No. for Redemption" = "او پی ایف سکول فیس واؤچر نمبر درج کریں";
+"Enter OPF School Fee Voucher No. for Redemption" = "او پی ایف اسکول فیس واؤچر نمبر درج کریں";
 "Voucher Number" = "واؤچر نمبر";
 "Enter Voucher No" = "واؤچر نمبر درج کریں";
 "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF" = "Your amount against Voucher No.\n%1$@ for %2$@ Points is redeemed successfully at OPF";
@@ -445,7 +445,7 @@
 "Unable to self award points" = "خود ایوارڈ دینے سے قاصر";
 "Redemption Issues" = "پوائنٹ استمال کرنے سے قاصر";
 "Redemption Partner" = "ریڈیمشن پاٹنر";
-"Receiving Entity" = "ترسیلات زر کا ادارہ";
+"Receiving Entity (Banks & Exchange Company)" = "وصولی ادارہ (بینک اینڈ ایکسچینج کمپنی)";
 "Dear Customer,\n\nYour complaint has been logged\nplease note the Tracking number" = "معزز صارف, اپ کی شکائت درج کرلی گئ ہے براہ کرم ٹریکنگ نمبر نوٹ کریں۔";
 "Your issue will be resolved within 5 working days. In case complaint remains unresolved, you may contact us at sdrpsupport@1link.net.pk or 111-116-757" = "مسئلہ 5 کاروباری دنوں میں حل ہو جائے گا، اگر شکایت حل نہیں ہوئی تو آپ sdrpsupport@1link.net.pk یا 757-116-111 پر رابطہ کرسکتے ہیں";
 
@@ -461,7 +461,9 @@
 "Transaction ID" = "ٹرانزیکشن آئی ڈی";
 "Transaction Date" = "ٹرانزیکشن کی تاریخ";
 "Transaction Amount (PKR)" = "ٹرانزیکشن  کی رقم( پاکستانی روپے)";
-"Please specify Bank/Exchange company from where remittance is sent" = "براہ کرم بینک/ایکسچینج کمپنی  بتائیں جہاں سے ترسیلات زر بھیجی گئی ہیں";
+"Please mention the Bank and Exchange Company where the remittance was sent." = "براہ کرم بینک اینڈ ایکسچینج کمپنی کا بتائیں    جہاں ترسیلات زر بھیجی گئی ہیں۔";
+"Please use at least 15 characters to describe the problem in detail." = "مسئلے کو تفصیل سے بیان کرنے کے لیے کم از کم 15 حروف استعمال کریں";
+
 "Beneficiary details have been updated successfully" = "وصول کنندہ کی تفصیلات کو کامیابی سے اپ ڈیٹ  کر دیا گیا ہے";
 "Registration code has been resent" = "رجسٹریشن کوڈ دوبارہ بھیج دیا گیا ہے";
 

@@ -236,11 +236,11 @@ class ComplaintFormViewController: BaseViewController {
     }
     @IBOutlet weak var remittanceEntityTextView: LabelledTextview! {
         didSet {
-            remittanceEntityTextView.titleLabelText = "Receiving Entity".localized
+            remittanceEntityTextView.titleLabelText = "Receiving Entity (Banks & Exchange Company)".localized
             remittanceEntityTextView.autoCapitalizationType = .words
             remittanceEntityTextView.editTextKeyboardType = .asciiCapable
             remittanceEntityTextView.showHelpBtn = true
-            remittanceEntityTextView.helpLabelText = "Please specify Bank/Exchange company from where remittance is sent".localized
+            remittanceEntityTextView.helpLabelText = "Please mention the Bank and Exchange Company where the remittance was sent.".localized
             remittanceEntityTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.remittanceEntity = updatedText
@@ -256,6 +256,7 @@ class ComplaintFormViewController: BaseViewController {
             transactionIDTextView.titleLabelText = "Transaction ID".localized
             transactionIDTextView.placeholderText = "xxxxxxxxxxxxxx"
             transactionIDTextView.inputFieldMaxLength = 25
+            transactionIDTextView.inputFieldMinLength = 5
             transactionIDTextView.editTextKeyboardType = .asciiCapable
             transactionIDTextView.formatValidator = FormatValidator(regex: RegexConstants.referenceNumberRegex, invalidFormatError: StringConstants.ErrorString.referenceNumberError.localized)
             transactionIDTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -293,6 +294,10 @@ class ComplaintFormViewController: BaseViewController {
         didSet {
             specifyDetailsTextArea.titleLabelText = "Specify Details".localized
             specifyDetailsTextArea.inputTextAreaMaxLength = 300
+            specifyDetailsTextArea.formatValidator = FormatValidator(
+                regex: RegexConstants.minFifteenCharacters,
+                invalidFormatError: "Please use at least 15 characters to describe the problem in detail.".localized
+            )
             specifyDetailsTextArea.isEditable = true
             specifyDetailsTextArea.inputText = ""
             specifyDetailsTextArea.editTextKeyboardType = .asciiCapable

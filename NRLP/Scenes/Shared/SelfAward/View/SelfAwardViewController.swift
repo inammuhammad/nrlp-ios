@@ -111,6 +111,7 @@ class SelfAwardViewController: BaseViewController {
             referenceNumberLabelTextView.helpLabelText = "Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)".localized
             referenceNumberLabelTextView.helpPopupIcon = .selfAward
             referenceNumberLabelTextView.inputFieldMaxLength = 25
+            referenceNumberLabelTextView.inputFieldMinLength = 5
             referenceNumberLabelTextView.editTextKeyboardType = .asciiCapable
             referenceNumberLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.referenceNumberRegex, invalidFormatError: StringConstants.ErrorString.referenceNumberError.localized)
             referenceNumberLabelTextView.onTextFieldChanged = { [weak self] updatedText in
@@ -246,7 +247,20 @@ class SelfAwardViewController: BaseViewController {
     }
     
     private func validateFields() {
-        if referenceNumber?.isBlank ?? true || transactionAmount?.isBlank ?? true || remittanceDateString?.isBlank ?? true || transactionType == nil {
+        guard let referenceNumber = referenceNumber,
+              let transactionAmount = transactionAmount,
+              let remittanceDateString = remittanceDateString,
+              let transactionType = transactionType
+        else {
+            proceedBtn.isEnabled = false
+            return
+        }
+        
+        if  referenceNumber.isBlank ||
+                referenceNumber.count < 5 ||
+                referenceNumber.count > 25 ||
+                transactionAmount.isBlank ||
+                remittanceDateString.isBlank {
             proceedBtn.isEnabled = false
         } else {
             if transactionType == .cnic, !(cnic?.isBlank ?? true) {
@@ -278,7 +292,7 @@ class SelfAwardViewController: BaseViewController {
         if let amount = self.transactionAmount, let referenceNo = self.referenceNumber, let date = self.remittanceDateString {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
-
+            
             var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType == .cnic ? "COC" : "ACC")
             
             if transactionType == .cnic, let cnic = cnic {
