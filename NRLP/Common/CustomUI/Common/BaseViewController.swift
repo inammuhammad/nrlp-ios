@@ -44,6 +44,13 @@ class BaseViewController: UIViewController {
             AlertViewController.presentAlert(with: alertViewModel, from: self)
         }
     }
+    
+    func showAlert(with alertViewModel: AlertViewModel, onCompletion: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            AlertViewController.presentAlert(with: alertViewModel, from: self)
+            onCompletion()
+        }
+    }
 
     func showAlert(with error: APIResponseError) {
         if case APIResponseError.sessionExpire = error {

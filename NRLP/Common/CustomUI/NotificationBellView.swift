@@ -67,7 +67,7 @@ class NotificationBellView: UIView {
                 y: 0
             ),
             size: CGSize(
-                width: self.frame.width,
+                width: layoutDir == .forceRightToLeft ? self.frame.width : width,
                 height: height
             )
         )

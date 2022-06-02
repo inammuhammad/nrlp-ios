@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import StoreKit
 
 class HomeViewController: BaseViewController {
     var viewModel: HomeViewModelProtocol!
@@ -162,7 +163,9 @@ extension HomeViewController {
             case .showError(let error):
                 self.showAlert(with: error)
             case .showLogoutAlert(let alertModel):
-                self.showAlert(with: alertModel)
+                self.showAlert(with: alertModel) {
+                    self.requestReview()
+                }
             case .showAlert(let alertModel):
                 self.showAlert(with: alertModel)
             case .updateNotificationCount(let count):
@@ -183,5 +186,11 @@ extension HomeViewController: SideMenuNavigationDelegate {
 extension HomeViewController: Initializable {
     static var storyboardName: UIStoryboard.Name {
         return UIStoryboard.Name.home
+    }
+}
+
+extension HomeViewController {
+    private func requestReview() {
+        SKStoreReviewController.requestReview()
     }
 }
