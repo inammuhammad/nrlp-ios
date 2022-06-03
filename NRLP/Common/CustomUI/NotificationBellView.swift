@@ -9,6 +9,8 @@
 import UIKit
 
 class NotificationBellView: UIView {
+    private static let BUFFER = 4.0
+    
     var onTap: (() -> Void)?
     var count: Int = 0 {
         didSet {
@@ -31,7 +33,7 @@ class NotificationBellView: UIView {
                 CGRect(
                     origin: frame.origin,
                     size: CGSize(
-                        width: frame.width + titleLabel.intrinsicContentSize.width,
+                        width: frame.width + titleLabel.intrinsicContentSize.width + Self.BUFFER,
                         height: frame.height
                     )
                 )
@@ -75,7 +77,7 @@ class NotificationBellView: UIView {
         titleTextLayer.alignmentMode = layoutDir == .forceRightToLeft ? .left : .right
         titleTextLayer.backgroundColor = UIColor.clear.cgColor
         titleTextLayer.foregroundColor = UIColor.black.cgColor
-        titleTextLayer.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
+        titleTextLayer.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
         titleTextLayer.fontSize = CommonFontSizes.largeFontSize.rawValue
         titleTextLayer.contentsScale = UIScreen.main.scale
         
@@ -84,7 +86,7 @@ class NotificationBellView: UIView {
         
         bellLayer.frame = CGRect(
             origin: CGPoint(
-                x: layoutDir == .forceRightToLeft ? width * 0.4 : x,
+                x: layoutDir == .forceRightToLeft ? width * 0.4 : x + Self.BUFFER,
                 y: height * 0.2
             ),
             size: CGSize(
@@ -99,7 +101,7 @@ class NotificationBellView: UIView {
         
         countTextLayer.frame = CGRect(
             origin: CGPoint(
-                x: layoutDir == .forceRightToLeft ? 0 : x,
+                x: layoutDir == .forceRightToLeft ? 0 : x + Self.BUFFER,
                 y: 0
             ),
             size: CGSize(

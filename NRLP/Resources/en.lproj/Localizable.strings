@@ -509,3 +509,6 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 // Notifications
 "Notifications" = "Notifications";
 "Complaint" = "Complaint";
+"Delete" = "Delete";
+"Activity" = "Activity";
+"Announcement" = "Announcement";

@@ -45,7 +45,8 @@ class NotificationsViewModel: NotificationsViewModelProtocol {
     }
     
     enum Output {
-        
+        case showError(error: APIResponseError)
+        case showActivityIndicator(show: Bool)
     }
 }
 

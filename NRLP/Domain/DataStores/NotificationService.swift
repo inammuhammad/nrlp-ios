@@ -74,11 +74,14 @@ class NotificationService: BaseDataStore, NotificationServiceProtocol {
     }
     
     private func mappedCategory(for category: NotificationCategory) -> String {
-        switch category {
-        case .complaint:
-            return "COMPLAINT"
+        return category.rawValue.uppercased()
+//        switch category {
+//        case .complaint:
+//            return "COMPLAINT"
 //        case .activity:
-//            return ""
-        }
+//            return "ACTIVITY"
+//        case .announcement:
+//            return "ANNOUNCEMENT"
+//        }
     }
 }

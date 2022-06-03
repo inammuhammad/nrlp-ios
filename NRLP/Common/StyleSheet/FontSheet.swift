@@ -23,6 +23,14 @@ public enum CommonFont {
             case .bold: return "Garamond-bold"
             }
         }
+        
+        var nameNonTranslated: String {
+            switch self {
+            case .regular: return "Garamond"
+            case .italic: return "Garamond-italic"
+            case .bold: return "Garamond-bold"
+            }
+        }
     }
 
     enum HpSimplifiedFontStyle: FontStyle {
@@ -53,17 +61,34 @@ public enum CommonFont {
             case .bold: return (AppConstants.appLanguage != .urdu ? "HPSimplified-bold" : HpSimplifiedFontStyle.markaziTextBold.name)
             }
         }
+        
+        var nameNonTranslated: String {
+            switch self {
+            case .boldItalic: return "HPSimplified-bold-italic"
+            case .italic: return "HPSimplified-italic"
+            case .lightItalic: return "HPSimplified-light-italic"
+            case .regularOnlyEnglish: return "HPSimplified-regular"
+            case .lightOnlyEnglish: return "HPSimplified-light"
+            case .boldOnlyEnglish: return "HPSimplified-bold"
+            case .markaziTextRegular: return "MarkaziText-Regular"
+            case .markaziTextBold: return "MarkaziText-Bold"
+            case .light: return "HPSimplified-light"
+            case .regular: return "HPSimplified-regular"
+            case .bold: return "HPSimplified-bold"
+            }
+        }
     }
 }
 
 protocol FontStyle {
     var name: String { get }
+    var nameNonTranslated: String { get }
 }
 
 // MARK: - UIFont extension
 extension UIFont {
 
-    convenience init(commonFont: FontStyle, size: CGFloat) {
+    convenience init(commonFont: FontStyle, size: CGFloat, shouldTranslate: Bool = true) {
         
         let scaleSize = UIFont.getFontSizeForUrdu(commonFont: commonFont, size: size)
         self.init(name: commonFont.name, size: scaleSize * AppConstants.scaleRatio)!
@@ -78,11 +103,11 @@ extension UIFont {
         }
     }
 
-    convenience init(commonFont: FontStyle, size: CommonFontSizes) {
+    convenience init(commonFont: FontStyle, size: CommonFontSizes, shouldTranslate: Bool = true) {
         
         let scaleSize = UIFont.getFontSizeForUrdu(commonFont: commonFont, size: size.rawValue)
         
-        self.init(name: commonFont.name, size: scaleSize * AppConstants.scaleRatio)!
+        self.init(name: shouldTranslate ? commonFont.name : commonFont.nameNonTranslated, size: scaleSize * AppConstants.scaleRatio)!
     }
 
 }

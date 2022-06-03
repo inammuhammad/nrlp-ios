@@ -10,7 +10,8 @@ import UIKit
 
 enum NotificationCategory: String, CaseIterable {
     case complaint = "Complaint"
-    // case activity = "Activity"
+    case activity = "Activity"
+    case announcement = "Announcement"
 }
 
 class NotificationsCategoryCell: UICollectionViewCell {
@@ -35,6 +36,9 @@ class NotificationsCategoryCell: UICollectionViewCell {
             loadMoreBtn.addTarget(self, action: #selector(loadMoreBtnAction), for: .touchUpInside)
         }
     }
+    
+    private var showError: ((APIResponseError) -> Void)?
+    private var activityIndicator: ((Bool) -> Void)?
     
     private var menuIndex: Int? {
         didSet {
@@ -74,7 +78,9 @@ class NotificationsCategoryCell: UICollectionViewCell {
         }
     }
 
-    func populate(with notificationService: NotificationService, category: NotificationCategory) {
+    func populate(with notificationService: NotificationService, category: NotificationCategory, showError: ((APIResponseError) -> Void)?, activityIndicator: ((Bool) -> Void)?) {
+        self.showError = showError
+        self.activityIndicator = activityIndicator
         self.notificationService  = notificationService
         fetchNotification(page: 1)
     }
@@ -87,17 +93,15 @@ class NotificationsCategoryCell: UICollectionViewCell {
     }
     
     private func fetchNotification(page: Int) {
-        ProgressHUD.show()
+        self.activityIndicator?(true)
         self.notificationService?.fetchNotifications(category: .complaint, page: page, completion: { result in
-            ProgressHUD.dismiss()
+            self.activityIndicator?(false)
             switch result {
                 
             case .success(let response):
                 self.latestResponse = response
             case .failure(let error):
-                print(error)
-                // or ignore
-                // self?.output?(.showError(error: error))
+                self.showError?(error)
             }
         })
     }

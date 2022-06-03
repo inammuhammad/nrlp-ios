@@ -34,6 +34,7 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
     @IBOutlet weak var memberSinceTxtLbl: UILabel! {
         didSet {
             memberSinceTxtLbl.textColor = .white
+            memberSinceTxtLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
         }
     }
     
@@ -50,6 +51,7 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
     @IBOutlet private weak var loyaltyPointTitleLabel: UILabel! {
         didSet {
             loyaltyPointTitleLabel.textColor = .white
+            loyaltyPointTitleLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
         }
     }
     @IBOutlet weak var amountRemittanceLbl: UILabel! {
@@ -62,7 +64,11 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
             dateRemittanceLbl.textColor = .white
         }
     }
-    @IBOutlet weak var annualRemittanceTxtLbl: UILabel!
+    @IBOutlet weak var annualRemittanceTxtLbl: UILabel! {
+        didSet {
+            annualRemittanceTxtLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

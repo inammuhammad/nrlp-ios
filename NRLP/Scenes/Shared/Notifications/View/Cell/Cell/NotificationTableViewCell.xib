@@ -101,6 +101,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="dateTimeLabel" destination="X2K-CQ-Lbh" id="FNm-dE-6I4"/>
+                <outlet property="deleteLabel" destination="Gvy-RN-jxj" id="5ip-Ss-Wu0"/>
                 <outlet property="deleteView" destination="ODh-JY-ssO" id="ec7-mO-MQX"/>
                 <outlet property="deleteViewText" destination="Gvy-RN-jxj" id="Woe-hk-1om"/>
                 <outlet property="menuButton" destination="lAK-aH-iTy" id="f5C-Dd-igq"/>

@@ -32,17 +32,20 @@ class LoyaltyCardView: CustomNibView {
     @IBOutlet weak var memberSinceLabel: UILabel! {
         didSet {
             memberSinceLabel.textColor = .white
+            memberSinceLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
         }
     }
     
-    @IBOutlet weak var loyaltyPointTextLbl: UILabel!{
+    @IBOutlet weak var loyaltyPointTextLbl: UILabel! {
         didSet {
             loyaltyPointTextLbl.textColor = .white
+            loyaltyPointTextLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
         }
     }
-    @IBOutlet weak var memberSinceTxtLbl: UILabel!{
+    @IBOutlet weak var memberSinceTxtLbl: UILabel! {
         didSet {
             memberSinceTxtLbl.textColor = .white
+            memberSinceTxtLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
         }
     }
     

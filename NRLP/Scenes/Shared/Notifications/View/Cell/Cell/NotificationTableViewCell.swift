@@ -21,7 +21,7 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet private weak var notificationTextLabel: UILabel! {
         didSet {
             notificationTextLabel.textColor = .white
-            notificationTextLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
+            notificationTextLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize, shouldTranslate: false)
             
         }
     }
@@ -34,11 +34,7 @@ class NotificationTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet private weak var menuButton: UIButton! {
-        didSet {
-            
-        }
-    }
+    @IBOutlet private weak var menuButton: UIButton!
     
     @IBOutlet private weak var deleteView: UIView! {
         didSet {
@@ -51,6 +47,13 @@ class NotificationTableViewCell: UITableViewCell {
             deleteView.addGestureRecognizer(
                 UITapGestureRecognizer(target: self, action: #selector(deleteItem))
             )
+        }
+    }
+    
+    @IBOutlet private weak var deleteLabel: UILabel! {
+        didSet {
+            deleteLabel.text = "Delete".localized
+            deleteLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
         }
     }
 
@@ -106,20 +109,23 @@ class NotificationTableViewCell: UITableViewCell {
 
 private extension Date {
     var notificationsFormatted: String {
-        "\(day()) \(monthSuffix()) at \(time())"
+        !AppConstants.isAppLanguageUrdu
+        ? "\(day()) \(monthSuffix()) at \(time())"
+        :  "\(day()) \(monthSuffix()) وقت \(time())"
     }
     
     func monthSuffix() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"
-        let monthSuff = dateFormatter.string(from: self)
-        return monthSuff.stringPrefix(3)
+        dateFormatter.locale = Locale(identifier: AppConstants.isAppLanguageUrdu ? "ur" : "en")
+        let monthSuff = dateFormatter.string(from: self.local ?? self)
+        return AppConstants.isAppLanguageUrdu ? monthSuff : monthSuff.stringPrefix(3)
     }
     
     func time() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "hh:mm a"
-        let time = dateFormatter.string(from: self)
-        return time.lowercased()
+        let time = dateFormatter.string(from: self.local ?? self)
+        return time.uppercased()
     }
 }

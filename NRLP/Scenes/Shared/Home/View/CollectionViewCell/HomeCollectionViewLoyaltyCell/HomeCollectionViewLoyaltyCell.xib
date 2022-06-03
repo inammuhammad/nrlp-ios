@@ -190,7 +190,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="arrowtriangle.right.fill" catalog="system" width="128" height="113"/>
+        <image name="arrowtriangle.right.fill" catalog="system" width="32" height="32"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="platinumCard" width="396.5" height="272.5"/>
         <systemColor name="systemBlueColor">

@@ -65,12 +65,22 @@ class NotificationsViewController: BaseViewController {
         }
         
         self.navigationItem.titleView = view
-        //        self.setTitle(title: "Notifications", with: UIImage(named: "bell"))
-//        self.navigationItem.titleView = UIImageView(image: UIImage(named: "bell"))
+    }
+    
+    private func bindViewModelOutput() {
+        viewModel.output = { [unowned self] output in
+            switch output {
+            case .showError(error: let error):
+                self.showAlert(with: error)
+            case .showActivityIndicator(show: let show):
+                show ? ProgressHUD.show() : ProgressHUD.dismiss()
+            }
+        }
     }
     
     private func setupTopTabBarView() {
         self.topTabBarView.titles = categories.map { $0.rawValue.localized }
+        self.topTabBarView.disabled = [1, 2]
         self.topTabBarView.delegate = self
     }
     
