@@ -41,7 +41,11 @@ class NotificationsViewModel: NotificationsViewModelProtocol {
     }
     
     func populate(cell: NotificationsCategoryCell?, indexPath: IndexPath) {
-        cell?.populate(with: self.notificationListService, category: categories[indexPath.item])
+        cell?.populate(with: self.notificationListService, category: categories[indexPath.item], showError: { error in
+            self.output?(.showError(error: error))
+        }, activityIndicator: { show in
+            self.output?(.showActivityIndicator(show: show))
+        })
     }
     
     enum Output {

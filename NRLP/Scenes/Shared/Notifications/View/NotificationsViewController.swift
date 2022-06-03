@@ -65,6 +65,7 @@ class NotificationsViewController: BaseViewController {
         }
         
         self.navigationItem.titleView = view
+        bindViewModelOutput()
     }
     
     private func bindViewModelOutput() {
