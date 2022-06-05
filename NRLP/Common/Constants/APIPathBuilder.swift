@@ -107,6 +107,7 @@ struct APIPathBuilder {
         case notificationList
         case notificationRead
         case notificationDelete
+        case fatherVerification
         
         var rawValue: String {
             switch self {
@@ -279,6 +280,9 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .notificationDelete:
                 let sign: [UInt8] = [58, 23, 30, 29, 94, 47, 1, 16, 42, 9, 7, 7, 8, 0, 0, 0, 0, 126, 1, 23, 26, 12, 23, 0, 97]
+                return Replacer().deformatString(string: sign)
+            case .fatherVerification:
+                let sign: [UInt8] = [58, 23, 30, 29, 21, 32, 26, 12, 38, 29, 67, 18, 12, 6, 0, 9, 7, 48, 4, 6, 31, 6, 13, 74]
                 return Replacer().deformatString(string: sign)
             }
         }

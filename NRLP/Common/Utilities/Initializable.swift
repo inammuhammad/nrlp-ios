@@ -88,5 +88,6 @@ extension UIStoryboard {
         case bankListing = "BankListing"
         case redemptionRating = "RedemptionRating"
         case notifocations = "Notifications"
+        case fatherName = "FatherName"
     }
 }

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HPSimplified-regular.ttf">
+            <string>HPSimplified-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Father Name View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="FatherNameViewController" id="Y6W-OH-hqX" customClass="FatherNameViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction within 1 year is eligible for self awarding" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HSc-tF-vXM">
+                                <rect key="frame" x="20" y="64" width="374" height="20"/>
+                                <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPl-Lp-Bn6" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="20" y="104" width="374" height="86"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="45G-Hb-kK8"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="dhw-Xx-BTv">
+                                <rect key="frame" x="20" y="772" width="374" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MRQ-oc-QBj" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="685-7I-28G"/>
+                                        </constraints>
+                                        <state key="normal" title="Next"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oy5-lV-DiV" customClass="SecondaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                        <rect key="frame" x="204" y="0.0" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="5LS-Ad-cpi"/>
+                                        </constraints>
+                                        <state key="normal" title="Cancel"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Oy5-lV-DiV" firstAttribute="width" secondItem="MRQ-oc-QBj" secondAttribute="width" id="zqJ-KX-NDb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dhw-Xx-BTv" secondAttribute="trailing" constant="20" id="8vo-w6-yoU"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dhw-Xx-BTv" secondAttribute="bottom" constant="40" id="FlW-TR-Zyc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HSc-tF-vXM" secondAttribute="trailing" constant="20" id="J2b-xh-YHh"/>
+                            <constraint firstItem="HSc-tF-vXM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="JMO-Wp-gcy"/>
+                            <constraint firstItem="CPl-Lp-Bn6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="VZ6-Dr-cKZ"/>
+                            <constraint firstItem="dhw-Xx-BTv" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="20" id="X9r-I0-rgB"/>
+                            <constraint firstItem="HSc-tF-vXM" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="fzg-qJ-Rxi"/>
+                            <constraint firstItem="CPl-Lp-Bn6" firstAttribute="top" secondItem="HSc-tF-vXM" secondAttribute="bottom" constant="20" id="mEF-mA-PK8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CPl-Lp-Bn6" secondAttribute="trailing" constant="20" id="pZO-av-hV6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="Oy5-lV-DiV" id="T5f-lY-2Y0"/>
+                        <outlet property="fatherNameTextView" destination="CPl-Lp-Bn6" id="i97-ta-SpJ"/>
+                        <outlet property="nextBtn" destination="MRQ-oc-QBj" id="4eI-P2-LrR"/>
+                        <outlet property="titleLbl" destination="HSc-tF-vXM" id="y3z-1n-8Ro"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="64"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="MRQ-oc-QBj">
+            <size key="intrinsicContentSize" width="32" height="30"/>
+        </designable>
+        <designable name="Oy5-lV-DiV">
+            <size key="intrinsicContentSize" width="48" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

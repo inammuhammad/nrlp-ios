@@ -93,4 +93,8 @@ class HomeRouter {
     func navigateToNotifications(cnicNicop: String) {
         self.navigationController?.pushViewController(NotificationsBuilder().build(with: self.navigationController, cnicNicop: cnicNicop), animated: true)
     }
+    
+    func navigateToFatherNameScreen(userModel: UserModel) {
+        UIApplication.shared.keyWindow?.switchRoot(withRootController: FatherNameBuilder().build(userModel: userModel))
+    }
 }

@@ -561,6 +561,12 @@
 		BC7E7E9B24C068590026F341 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */; };
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
 		DB11128B284CF44F000B1A4D /* FatherNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11128A284CF44F000B1A4D /* FatherNameViewController.swift */; };
+		DB11128D284CF4AA000B1A4D /* FatherName.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB11128C284CF4A9000B1A4D /* FatherName.storyboard */; };
+		DB111290284CF5C3000B1A4D /* FatherNameRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11128F284CF5C3000B1A4D /* FatherNameRouter.swift */; };
+		DB111293284CF5E5000B1A4D /* FatherNameBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB111292284CF5E5000B1A4D /* FatherNameBuilder.swift */; };
+		DB111296284D069A000B1A4D /* FatherNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB111295284D069A000B1A4D /* FatherNameViewModel.swift */; };
+		DB111298284D0D77000B1A4D /* FatherNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB111297284D0D77000B1A4D /* FatherNameService.swift */; };
+		DB11129B284D0DB4000B1A4D /* FatherNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11129A284D0DB4000B1A4D /* FatherNameModel.swift */; };
 		DB14608728127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */; };
 		DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */; };
 		DB57AB8427F1E09700A94353 /* CancelRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */; };
@@ -1365,6 +1371,12 @@
 		BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
 		DB11128A284CF44F000B1A4D /* FatherNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameViewController.swift; sourceTree = "<group>"; };
+		DB11128C284CF4A9000B1A4D /* FatherName.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FatherName.storyboard; sourceTree = "<group>"; };
+		DB11128F284CF5C3000B1A4D /* FatherNameRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameRouter.swift; sourceTree = "<group>"; };
+		DB111292284CF5E5000B1A4D /* FatherNameBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameBuilder.swift; sourceTree = "<group>"; };
+		DB111295284D069A000B1A4D /* FatherNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameViewModel.swift; sourceTree = "<group>"; };
+		DB111297284D0D77000B1A4D /* FatherNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameService.swift; sourceTree = "<group>"; };
+		DB11129A284D0DB4000B1A4D /* FatherNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameModel.swift; sourceTree = "<group>"; };
 		DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterUserService.swift; sourceTree = "<group>"; };
 		DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterModel.swift; sourceTree = "<group>"; };
@@ -2676,6 +2688,7 @@
 				E156F1C227D1313B00491B65 /* RemitterReceiverService.swift */,
 				E111C8A227D695BB00D185CD /* BankListingService.swift */,
 				DBC38E3B28325E1E006B3E9B /* NotificationService.swift */,
+				DB111297284D0D77000B1A4D /* FatherNameService.swift */,
 			);
 			path = DataStores;
 			sourceTree = "<group>";
@@ -4834,6 +4847,10 @@
 		DB111288284CF426000B1A4D /* FatherName */ = {
 			isa = PBXGroup;
 			children = (
+				DB111299284D0DA5000B1A4D /* Entity */,
+				DB111294284D068F000B1A4D /* ViewModel */,
+				DB111291284CF5D6000B1A4D /* Builder */,
+				DB11128E284CF5AA000B1A4D /* Router */,
 				DB111289284CF432000B1A4D /* View */,
 			);
 			path = FatherName;
@@ -4843,8 +4860,41 @@
 			isa = PBXGroup;
 			children = (
 				DB11128A284CF44F000B1A4D /* FatherNameViewController.swift */,
+				DB11128C284CF4A9000B1A4D /* FatherName.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DB11128E284CF5AA000B1A4D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DB11128F284CF5C3000B1A4D /* FatherNameRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DB111291284CF5D6000B1A4D /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DB111292284CF5E5000B1A4D /* FatherNameBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		DB111294284D068F000B1A4D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB111295284D069A000B1A4D /* FatherNameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DB111299284D0DA5000B1A4D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DB11129A284D0DB4000B1A4D /* FatherNameModel.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		DB87411F281C71FC0097AE63 /* Notifications */ = {
@@ -6336,6 +6386,7 @@
 				9F6D735424B5C54100B45F0F /* ManageBeneficiaries.storyboard in Resources */,
 				E1995E0C27C2F6A300B44793 /* ReceiverForm.storyboard in Resources */,
 				E1995E4027C5158F00B44793 /* ReceiverDetails.storyboard in Resources */,
+				DB11128D284CF4AA000B1A4D /* FatherName.storyboard in Resources */,
 				207D5E6A24BC60DF00222594 /* HPSimplified-light.ttf in Resources */,
 				207C3DBC24B5C07500298C0C /* TermsAndConditions.storyboard in Resources */,
 				207D5E5F24BC60AB00222594 /* Garamond-italic.ttf in Resources */,
@@ -6968,6 +7019,7 @@
 				2030724E24C9F58200C0DC67 /* RadialGradientLayer.swift in Sources */,
 				DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */,
 				DBC38E3E28325F36006B3E9B /* NotificationListModel.swift in Sources */,
+				DB111293284CF5E5000B1A4D /* FatherNameBuilder.swift in Sources */,
 				204A6BD224B82FF2001E4E74 /* OTPService.swift in Sources */,
 				207C3DA124B5B01400298C0C /* AccountTypePickerItemModel.swift in Sources */,
 				E1E1EF1327A2CF7500D69EAD /* PaddedTextArea.swift in Sources */,
@@ -7029,8 +7081,10 @@
 				207C3D9824B5AE7400298C0C /* CountryListViewController.swift in Sources */,
 				E122CDB226FD42EC00BEAE18 /* RedemptionOTPRouter.swift in Sources */,
 				E1E5F86727A176C300413FB4 /* ComplaintFormBuilder.swift in Sources */,
+				DB111296284D069A000B1A4D /* FatherNameViewModel.swift in Sources */,
 				E168AB0126F9CBD9002D1083 /* NadraTrackingIDBuilder.swift in Sources */,
 				9F00F9A924B4771F008AA81E /* AddBeneficiaryModel.swift in Sources */,
+				DB111290284CF5C3000B1A4D /* FatherNameRouter.swift in Sources */,
 				200912C424BD5F43002E204B /* APIPathBuilder.swift in Sources */,
 				207C3E1D24B73FA900298C0C /* HomeCollectionViewLoyaltyCellDataModel.swift in Sources */,
 				9F0435BD24B4CE3C00439FC0 /* RemitterVerificationRouter.swift in Sources */,
@@ -7136,6 +7190,7 @@
 				20167F1524C6F50400E0989E /* Replacer.swift in Sources */,
 				9FC6F83E24CB1F6600ADA038 /* RedeemServiceCell.swift in Sources */,
 				9F0435C524B4CE7C00439FC0 /* RemitterVerificationViewController.swift in Sources */,
+				DB11129B284D0DB4000B1A4D /* FatherNameModel.swift in Sources */,
 				BC7E7E9224C054F80026F341 /* GenerateStatementRouter.swift in Sources */,
 				2030725424C9F58200C0DC67 /* ProgressAnimatedView.swift in Sources */,
 				20D8403D24B493F200F5D749 /* BaseViewController.swift in Sources */,
@@ -7225,6 +7280,7 @@
 				DB87413B281CE40D0097AE63 /* TopTabCell.swift in Sources */,
 				E122CDAD26FD400400BEAE18 /* RedemptionOTPViewModel.swift in Sources */,
 				207C3DA324B5B06D00298C0C /* AccountType.swift in Sources */,
+				DB111298284D0D77000B1A4D /* FatherNameService.swift in Sources */,
 				2074D60624D195A800006731 /* ErrorConstants.swift in Sources */,
 				20D8402A24B4734B00F5D749 /* ResendOTPModel.swift in Sources */,
 				E1FE16C927839E430062D4E6 /* NadraVerificationModel.swift in Sources */,

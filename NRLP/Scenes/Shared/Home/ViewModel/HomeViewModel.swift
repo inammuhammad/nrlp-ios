@@ -64,7 +64,9 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     private func fetchUserProfile() {
+        output?(.showActivityIndicator(show: true))
         userProfileService.getUserProfile { [weak self] (response) in
+            self?.output?(.showActivityIndicator(show: false))
             switch response {
             case .success(let response):
                 if let data = response.data {
@@ -74,7 +76,12 @@ class HomeViewModel: HomeViewModelProtocol {
                     self?.setupCollectionViewData()
                     self?.output?(.reloadCollectionView)
                     self?.output?(.updateNotificationCount(count: data.notificationCount ?? 0))
+                    
+                    if let userModel = self?.userModel, data.fatherName?.isEmpty ?? true {
+                        self?.router.navigateToFatherNameScreen(userModel: userModel)
+                    }
                 }
+
             case .failure(let error):
                 print("Request Fail With Error: \(error)")
                 //                self?.output?(.showError(error: error))

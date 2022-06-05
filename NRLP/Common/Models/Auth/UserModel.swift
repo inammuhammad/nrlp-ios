@@ -30,6 +30,7 @@ struct UserModel: Codable {
     var passportTypeValue: String?
     
     var birthPlace: String?
+    var fatherName: String?
     var motherMaidenName: String?
     var cnicIssueDateStr: String?
     private var nadraVerifiedStr: String?
@@ -103,6 +104,7 @@ struct UserModel: Codable {
         case memberSince = "member_since"
         case countryName = "country"
         case birthPlace = "place_of_birth"
+        case fatherName = "father_name"
         case motherMaidenName = "mother_maiden_name"
         case cnicIssueDateStr = "cnic_nicop_issuance_date"
         case nadraVerifiedStr = "nadra_verified"
@@ -132,6 +134,7 @@ struct UserModel: Codable {
         self.memberSince = ""
         self.countryName = ""
         self.birthPlace = ""
+        self.fatherName = ""
         self.motherMaidenName = ""
         self.cnicIssueDateStr = ""
         self.nadraVerifiedStr = ""
@@ -161,6 +164,7 @@ struct UserModel: Codable {
         self.usdBalance = userModel.usdBalance ?? usdBalance
         self.countryName = userModel.countryName ?? countryName
         self.birthPlace = userModel.birthPlace ?? birthPlace
+        self.fatherName = userModel.fatherName ?? fatherName
         self.motherMaidenName = userModel.motherMaidenName ?? motherMaidenName
         self.cnicIssueDateStr = userModel.cnicIssueDateStr
         self.nadraVerifiedStr = userModel.nadraVerifiedStr
