@@ -560,6 +560,7 @@
 		BC7E7E9824C055A10026F341 /* GenerateStatementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9724C055A10026F341 /* GenerateStatementViewController.swift */; };
 		BC7E7E9B24C068590026F341 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */; };
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
+		DB11128B284CF44F000B1A4D /* FatherNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11128A284CF44F000B1A4D /* FatherNameViewController.swift */; };
 		DB14608728127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */; };
 		DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */; };
 		DB57AB8427F1E09700A94353 /* CancelRegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */; };
@@ -1363,6 +1364,7 @@
 		BC7E7E9724C055A10026F341 /* GenerateStatementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateStatementViewController.swift; sourceTree = "<group>"; };
 		BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
+		DB11128A284CF44F000B1A4D /* FatherNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameViewController.swift; sourceTree = "<group>"; };
 		DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		DB57AB8127F1DFD000A94353 /* CancelRegisterUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterUserService.swift; sourceTree = "<group>"; };
 		DB57AB8327F1E09700A94353 /* CancelRegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CancelRegisterModel.swift; sourceTree = "<group>"; };
@@ -4518,6 +4520,7 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DB111288284CF426000B1A4D /* FatherName */,
 				DB87411F281C71FC0097AE63 /* Notifications */,
 				E111C89727D6929700D185CD /* BankListing */,
 				E1E5F83527A0724400413FB4 /* Complaints */,
@@ -4826,6 +4829,22 @@
 				BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */,
 			);
 			path = CustomDatePickerView;
+			sourceTree = "<group>";
+		};
+		DB111288284CF426000B1A4D /* FatherName */ = {
+			isa = PBXGroup;
+			children = (
+				DB111289284CF432000B1A4D /* View */,
+			);
+			path = FatherName;
+			sourceTree = "<group>";
+		};
+		DB111289284CF432000B1A4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB11128A284CF44F000B1A4D /* FatherNameViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		DB87411F281C71FC0097AE63 /* Notifications */ = {
@@ -7112,6 +7131,7 @@
 				E1FE16AD27832D240062D4E6 /* NadraVerificationViewController.swift in Sources */,
 				20901BEB24FFC29A00D13931 /* NRLPPartners.swift in Sources */,
 				DBC38E3A28323248006B3E9B /* NotificationBellView.swift in Sources */,
+				DB11128B284CF44F000B1A4D /* FatherNameViewController.swift in Sources */,
 				9F8565CB24BF43CE001B68CE /* LoyaltyPointsBuilder.swift in Sources */,
 				20167F1524C6F50400E0989E /* Replacer.swift in Sources */,
 				9FC6F83E24CB1F6600ADA038 /* RedeemServiceCell.swift in Sources */,
