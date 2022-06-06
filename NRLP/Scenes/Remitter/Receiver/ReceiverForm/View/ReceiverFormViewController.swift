@@ -37,7 +37,7 @@ class ReceiverFormViewController: BaseViewController {
             fullNameTextView.showHelpBtn = true
             fullNameTextView.helpLabelText = "Please enter Receiver Name as per CNIC/NICOP/POC".localized
             fullNameTextView.editTextKeyboardType = .asciiCapable
-            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             fullNameTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.name = updatedText
@@ -58,7 +58,7 @@ class ReceiverFormViewController: BaseViewController {
             motherNameTextView.showHelpBtn = true
             motherNameTextView.helpLabelText = "Please enter Receiver Mother Name as per NADRA record".localized
             motherNameTextView.editTextKeyboardType = .asciiCapable
-            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             motherNameTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.motherMaidenName = updatedText
@@ -105,7 +105,7 @@ class ReceiverFormViewController: BaseViewController {
             birthPlaceTextView.showHelpBtn = true
             birthPlaceTextView.helpLabelText = "Please enter Receiver Place of Birth as per NADRA record".localized // change select to enter
             birthPlaceTextView.editTextKeyboardType = .asciiCapable
-            birthPlaceTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            birthPlaceTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             birthPlaceTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.birthPlace = updatedText

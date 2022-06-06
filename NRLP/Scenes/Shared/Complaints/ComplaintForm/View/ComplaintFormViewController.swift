@@ -73,7 +73,7 @@ class ComplaintFormViewController: BaseViewController {
             fullNameTextView.autoCapitalizationType = .words
             fullNameTextView.inputFieldMaxLength = 50
             fullNameTextView.editTextKeyboardType = .asciiCapable
-            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             fullNameTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.name = updatedText

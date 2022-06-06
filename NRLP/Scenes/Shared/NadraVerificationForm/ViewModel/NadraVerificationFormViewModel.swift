@@ -128,7 +128,7 @@ class NadraVerificationFormViewModel: NadraVerificationFormViewModelProtocol {
         if fullName?.isValid(for: RegexConstants.nameRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .fullName))
         } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fullName))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.fullNameError.localized, textfieldType: .fullName))
             isValid = false
             errorTopField = errorTopField ?? .fullName
         }
@@ -136,7 +136,7 @@ class NadraVerificationFormViewModel: NadraVerificationFormViewModelProtocol {
         if motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .motherMaidenName))
         } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .motherMaidenName))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.fullNameError.localized, textfieldType: .motherMaidenName))
             isValid = false
             errorTopField = errorTopField ?? .motherMaidenName
         }

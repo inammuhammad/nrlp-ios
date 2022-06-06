@@ -54,7 +54,7 @@ class RegistrationViewController: BaseViewController {
             fullNameTextView.showHelpBtn = true
             fullNameTextView.helpLabelText = "Please enter your Full Name as per CNIC/NICOP/POC".localized
             fullNameTextView.editTextKeyboardType = .asciiCapable
-            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             fullNameTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.name = updatedText
@@ -74,7 +74,7 @@ class RegistrationViewController: BaseViewController {
             fatherNameTextView.showHelpBtn = true
             fatherNameTextView.helpLabelText = "Please enter your Father Name as per CNIC/NICOP".localized
             fatherNameTextView.editTextKeyboardType = .asciiCapable
-            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             fatherNameTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.fatherName = updatedText
@@ -94,7 +94,7 @@ class RegistrationViewController: BaseViewController {
             motherNameTextView.showHelpBtn = false
             motherNameTextView.helpLabelText = "Please enter your Full Name as per CNIC/NICOP".localized
             motherNameTextView.editTextKeyboardType = .asciiCapable
-            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             motherNameTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.motherMaidenName = updatedText
@@ -146,7 +146,7 @@ class RegistrationViewController: BaseViewController {
             birthPlaceTextView.showHelpBtn = false
             birthPlaceTextView.helpLabelText = "Please select your place of birth".localized // change select to enter
             birthPlaceTextView.editTextKeyboardType = .asciiCapable
-            birthPlaceTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            birthPlaceTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             birthPlaceTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.birthPlace = updatedText

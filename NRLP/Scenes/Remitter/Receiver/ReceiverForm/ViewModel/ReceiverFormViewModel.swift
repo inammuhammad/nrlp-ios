@@ -219,7 +219,7 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         if name?.isValid(for: RegexConstants.nameRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .fullName))
         } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fullName))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.fullNameError.localized, textfieldType: .fullName))
             isValid = false
             errorTopField = errorTopField ?? .fullName
         }
@@ -227,7 +227,7 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
         if motherMaidenName?.isValid(for: RegexConstants.nameRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .motherName))
         } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .motherName))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.fullNameError.localized, textfieldType: .motherName))
             isValid = false
             errorTopField = errorTopField ?? .motherName
         }

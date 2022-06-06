@@ -96,7 +96,7 @@ class ProfileVerificationViewModel: ProfileVerificationViewModelProtocol {
             output?(.updateMotherTextFieldState(errorState: false, errorMessage: nil))
         } else {
             isValid = false
-            output?(.updateMotherTextFieldState(errorState: true, errorMessage: StringConstants.ErrorString.nameError.localized))
+            output?(.updateMotherTextFieldState(errorState: true, errorMessage: StringConstants.ErrorString.fullNameError.localized))
         }
         return isValid
     }

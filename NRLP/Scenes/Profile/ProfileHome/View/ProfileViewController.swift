@@ -30,7 +30,7 @@ class ProfileViewController: BaseViewController {
             fullNameTextView.editTextKeyboardType = .asciiCapable
             fullNameTextView.autoCapitalizationType = .words
             fullNameTextView.isEditable = false
-            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            fullNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
         }
     }
     
@@ -42,7 +42,7 @@ class ProfileViewController: BaseViewController {
             motherNameTextView.inputFieldMaxLength = 50
             motherNameTextView.isEditable = false
             motherNameTextView.editTextKeyboardType = .asciiCapable
-            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
         }
     }
     

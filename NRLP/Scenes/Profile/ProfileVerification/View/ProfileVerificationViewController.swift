@@ -24,7 +24,7 @@ class ProfileVerificationViewController: BaseViewController {
             motherNameTextView.autoCapitalizationType = .words
             motherNameTextView.inputFieldMaxLength = 50
             motherNameTextView.editTextKeyboardType = .asciiCapable
-            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            motherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             motherNameTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.motherName = updatedText

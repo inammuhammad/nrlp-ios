@@ -450,7 +450,7 @@ extension ComplaintFormViewModel {
         if name?.isValid(for: RegexConstants.nameRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .fullName))
         } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fullName))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.fullNameError.localized, textfieldType: .fullName))
             isValid = false
             errorTopField = errorTopField ?? .fullName
         }
@@ -550,7 +550,7 @@ extension ComplaintFormViewModel {
                 if name?.isValid(for: RegexConstants.nameRegex) ?? false {
                     output?(.textField(errorState: false, error: nil, textfieldType: .fullName))
                 } else {
-                    output?(.textField(errorState: true, error: StringConstants.ErrorString.nameError.localized, textfieldType: .fullName))
+                    output?(.textField(errorState: true, error: StringConstants.ErrorString.fullNameError.localized, textfieldType: .fullName))
                     isValid = false
                     errorTopField = errorTopField ?? .fullName
                 }

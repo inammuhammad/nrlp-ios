@@ -23,7 +23,7 @@ class FatherNameViewController: BaseViewController {
             fatherNameTextView.autoCapitalizationType = .words
             fatherNameTextView.inputFieldMaxLength = 50
             fatherNameTextView.editTextKeyboardType = .asciiCapable
-            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             fatherNameTextView.onTextFieldChanged = { text in
                 self.viewModel.fatherName = text
             }

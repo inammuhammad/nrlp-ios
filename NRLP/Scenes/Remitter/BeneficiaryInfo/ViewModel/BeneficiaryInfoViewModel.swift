@@ -334,7 +334,7 @@ extension BeneficiaryInfoViewModel {
         //        if name?.isValid(for: RegexConstants.nameRegex) ?? false {
         //            output?(.nameTextField(errorState: false, errorMessage: nil))
         //        } else {
-        //            output?(.nameTextField(errorState: true, errorMessage: StringConstants.ErrorString.nameError.localized))
+        //            output?(.nameTextField(errorState: true, errorMessage: StringConstants.ErrorString.fullNameError.localized))
         //            isValid = false
         //        }
         

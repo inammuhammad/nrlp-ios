@@ -42,7 +42,7 @@ class AddBeneficiaryViewController: BaseViewController {
             aliasTextField.inputFieldMaxLength = 50
             aliasTextField.editTextKeyboardType = .asciiCapable
             aliasTextField.autoCapitalizationType = .words
-            aliasTextField.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
+            aliasTextField.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
             aliasTextField.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.name = updatedText
