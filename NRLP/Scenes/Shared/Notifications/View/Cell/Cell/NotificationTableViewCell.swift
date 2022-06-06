@@ -29,7 +29,7 @@ class NotificationTableViewCell: UITableViewCell {
     @IBOutlet private weak var dateTimeLabel: UILabel! {
         didSet {
             dateTimeLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.bold, size: .mediumFontSize)
-            dateTimeLabel.textColor = UIColor.init(commonColor: .appLightGray)
+            dateTimeLabel.textColor = UIColor.init(commonColor: .appNotificationGray)
             
         }
     }
@@ -82,8 +82,9 @@ class NotificationTableViewCell: UITableViewCell {
         
         deleteView.isHidden = !menuExtended
         
-        notificationTextView.backgroundColor = UIColor(commonColor: isRead ? .appLightGray : .appGreen)
+        notificationTextView.backgroundColor = UIColor(commonColor: isRead ? .appNotificationGray : .appGreen)
         notificationTextLabel.text = notificationRecord.notificationMessage
+        
         if let date = DateFormat().formatDate(dateString: notificationRecord.notificationDatetime, formatter: .dateTimeMilis) {
             dateTimeLabel.text = date.notificationsFormatted
         } else {

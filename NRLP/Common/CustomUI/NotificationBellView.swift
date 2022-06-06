@@ -65,7 +65,7 @@ class NotificationBellView: UIView {
         
         titleTextLayer.frame = CGRect(
             origin: CGPoint(
-                x: layoutDir == .forceRightToLeft ? self.frame.width - width : 0,
+                x: layoutDir == .forceRightToLeft ? self.frame.width - width + Self.BUFFER : 0,
                 y: 0
             ),
             size: CGSize(
@@ -113,7 +113,7 @@ class NotificationBellView: UIView {
         countTextLayer.alignmentMode = layoutDir == .forceRightToLeft ? .right : .left
         countTextLayer.backgroundColor = UIColor.clear.cgColor
         countTextLayer.foregroundColor = UIColor.black.cgColor
-        countTextLayer.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize)
+        countTextLayer.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .smallFontSize, shouldTranslate: false)
         countTextLayer.fontSize = CommonFontSizes.smallFontSize.rawValue
         countTextLayer.contentsScale = UIScreen.main.scale
         

@@ -52,6 +52,8 @@ public enum CommonColor {
     case appRedemptionRatingYellow
     case appRedemptionRatingGray
     
+    case appNotificationGray
+    
     var rgba: [CGFloat] {
         switch self {
         case .appBlue: return colorInfoWith(red: 31.0, green: 135.0, blue: 229.0)
@@ -93,6 +95,7 @@ public enum CommonColor {
         case .appLoyaltyGradientDark: return colorInfoWith(red: 0.99 * 255, green: 0.64 * 255, blue: 0.0 * 255, alpha: 1)
         case .appRedemptionRatingYellow: return colorInfoWith(red: 0.996 * 255, green: 0.835 * 255, blue: 0.004 * 255, alpha: 1)
         case .appRedemptionRatingGray: return colorInfoWith(red: 0.8 * 255, green: 0.8 * 255, blue: 0.8 * 255, alpha: 1)
+        case .appNotificationGray: return colorInfoWith(red: 196, green: 196, blue: 196, alpha: 1)
         }
     }
     
