@@ -13,6 +13,7 @@ class FatherNameViewController: BaseViewController {
     
     @IBOutlet weak var titleLbl: UILabel! {
         didSet {
+            titleLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
             titleLbl.text = "To update your profile please provide below mentioned information.".localized
         }
     }
