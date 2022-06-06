@@ -77,7 +77,7 @@ class HomeViewModel: HomeViewModelProtocol {
                     self?.output?(.reloadCollectionView)
                     self?.output?(.updateNotificationCount(count: data.notificationCount ?? 0))
                     
-                    if let userModel = self?.userModel, data.fatherName?.isEmpty ?? true {
+                    if let userModel = self?.userModel, userModel.accountType == .remitter, data.fatherName?.isEmpty ?? true {
                         self?.router.navigateToFatherNameScreen(userModel: userModel)
                     }
                 }
