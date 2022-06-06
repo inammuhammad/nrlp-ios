@@ -194,5 +194,6 @@ any queries regarding any of our terms, please contact us.</p>
         static var serverErrorTitle = "Oh Snap!"
         static var sessionExpireMessage = "Your session has been expired kindly relogin to avail our service"
         static var jailbrokenMsg = "Sorry, you can't use this app as we've detected that your device has been jailbroken/rooted or altered in some other way."
+        static var fatherPopupError = "Please provide the information to proceed further"
     }
 }

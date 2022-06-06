@@ -74,7 +74,7 @@ class RegistrationViewController: BaseViewController {
             fatherNameTextView.showHelpBtn = true
             fatherNameTextView.helpLabelText = "Please enter your Father Name as per CNIC/NICOP".localized
             fatherNameTextView.editTextKeyboardType = .asciiCapable
-            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
+            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
             fatherNameTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.fatherName = updatedText

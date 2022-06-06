@@ -17,7 +17,7 @@ typealias HelpButtonTappedCallBack = ((AlertViewModel) -> Void)
 @IBDesignable
 class LabelledTextview: CustomNibView {
     
-    //IBOutlets
+    // IBOutlets
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private  weak var inputTextField: UITextFieldPadding!
     @IBOutlet private  weak var errorIconImageView: UIImageView!
@@ -43,7 +43,7 @@ class LabelledTextview: CustomNibView {
     //Regex validator
     var formatValidator: FormatValidatorProtocol?
     
-    //IBInspectable
+    // IBInspectable
     @IBInspectable
     var showHelpBtn: Bool = false {
         didSet {

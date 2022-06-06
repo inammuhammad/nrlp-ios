@@ -13,7 +13,7 @@ class FatherNameViewController: BaseViewController {
     
     @IBOutlet weak var titleLbl: UILabel! {
         didSet {
-            titleLbl.text = "To update your profile, please provide below mentioned information:".localized
+            titleLbl.text = "To update your profile please provide below mentioned information.".localized
         }
     }
 
@@ -23,7 +23,7 @@ class FatherNameViewController: BaseViewController {
             fatherNameTextView.autoCapitalizationType = .words
             fatherNameTextView.inputFieldMaxLength = 50
             fatherNameTextView.editTextKeyboardType = .asciiCapable
-            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fullNameError.localized)
+            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fatherPopupError.localized)
             fatherNameTextView.onTextFieldChanged = { text in
                 self.viewModel.fatherName = text
             }
@@ -55,6 +55,12 @@ class FatherNameViewController: BaseViewController {
         super.viewDidLoad()
         
         self.title = "Home"
+        
+        if (AppConstants.appLanguage == .urdu && !AppConstants.isSystemLanguageUrdu()) || AppConstants.appLanguage == .english && AppConstants.isSystemLanguageUrdu() {
+            titleLbl.textAlignment = .right
+        } else {
+            titleLbl.textAlignment = .left
+        }
         
         bindViewModel()
     }

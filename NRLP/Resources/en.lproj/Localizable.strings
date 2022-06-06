@@ -512,3 +512,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Delete" = "Delete";
 "Activity" = "Activity";
 "Announcement" = "Announcement";
+
+// Father Verification
+"To update your profile please provide below mentioned information." = "To update your profile please provide below mentioned information.";
+"Please provide the information to proceed further" = "Please provide the information to proceed further";

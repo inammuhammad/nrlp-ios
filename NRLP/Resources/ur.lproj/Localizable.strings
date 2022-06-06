@@ -524,3 +524,7 @@
 "Delete" = "حذف کریں";
 "Activity" = "سرگرمی";
 "Announcement" = "اعلان";
+
+// Father Verification
+"To update your profile please provide below mentioned information." = "اپنے پروفائل کو اپ ڈیٹ کرنے کے لیے براہ کرم ذیل میں دی گئی معلومات فراہم کریں۔";
+"Please provide the information to proceed further" = "براہ کرم مزید آگے بڑھنے کے لیے معلومات فراہم کریں";
