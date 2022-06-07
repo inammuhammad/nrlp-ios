@@ -45,7 +45,7 @@ class FatherNameViewModel: FatherNameViewModelProtocol {
     }
     
     func nextTapped() {
-        guard let fatherName = fatherName else {
+        guard let fatherName = fatherName, fatherName.count >= 3 else {
             return
         }
 
@@ -85,7 +85,7 @@ extension FatherNameViewModel {
             return
         }
         
-        if fatherName.isEmpty || !(fatherName.isValid(for: RegexConstants.nameRegex)) {
+        if fatherName.count < 3 || !(fatherName.isValid(for: RegexConstants.nameRegex)) {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))

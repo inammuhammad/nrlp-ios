@@ -23,6 +23,7 @@ class FatherNameViewController: BaseViewController {
             fatherNameTextView.titleLabelText = "Father Name *".localized
             fatherNameTextView.autoCapitalizationType = .words
             fatherNameTextView.inputFieldMaxLength = 50
+            fatherNameTextView.inputFieldMinLength = 3
             fatherNameTextView.editTextKeyboardType = .asciiCapable
             fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fatherPopupError.localized)
             fatherNameTextView.onTextFieldChanged = { text in

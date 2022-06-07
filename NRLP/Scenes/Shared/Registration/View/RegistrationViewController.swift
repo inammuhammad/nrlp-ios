@@ -71,6 +71,7 @@ class RegistrationViewController: BaseViewController {
             fatherNameTextView.placeholderText = "Muhammad Ali".localized
             fatherNameTextView.autoCapitalizationType = .words
             fatherNameTextView.inputFieldMaxLength = 50
+            fatherNameTextView.inputFieldMinLength = 3
             fatherNameTextView.showHelpBtn = true
             fatherNameTextView.helpLabelText = "Please enter your Father Name as per CNIC/NICOP".localized
             fatherNameTextView.editTextKeyboardType = .asciiCapable

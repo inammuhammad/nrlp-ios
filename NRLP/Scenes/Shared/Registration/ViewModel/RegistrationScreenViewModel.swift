@@ -368,7 +368,7 @@ extension RegistrationViewModel {
             errorTopField = errorTopField ?? .motherName
         }
         
-        if fatherName?.isValid(for: RegexConstants.nameRegex) ?? false {
+        if fatherName?.count ?? 0 >= 3, fatherName?.isValid(for: RegexConstants.nameRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .fatherName))
         } else {
             output?(.textField(errorState: true, error: StringConstants.ErrorString.fullNameError.localized, textfieldType: .fatherName))
