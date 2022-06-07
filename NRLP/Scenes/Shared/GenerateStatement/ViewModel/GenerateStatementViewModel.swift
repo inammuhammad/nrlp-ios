@@ -6,7 +6,7 @@ typealias GenerateStatementViewModelOutput = (GenerateStatementViewModel.Output)
 protocol GenerateStatementViewModelProtocol {
     var output: GenerateStatementViewModelOutput? { get set}
     
-    var email: String? { get set }
+//    var email: String? { get set }
     var toDate: Date? { get set }
     var fromDate: Date? { get set }
     var datePickerViewModel: CustomDatePickerViewModel { get }
@@ -29,11 +29,11 @@ class GenerateStatementViewModel: GenerateStatementViewModelProtocol {
     private var service: LoyaltyPointsServiceProtocol?
     private var userModel: UserModel
     
-    var email: String? {
-        didSet {
-            self.validateRequiredFields()
-        }
-    }
+//    var email: String? {
+//        didSet {
+//            self.validateRequiredFields()
+//        }
+//    }
     
     var toDate: Date? {
         didSet {
@@ -80,7 +80,7 @@ class GenerateStatementViewModel: GenerateStatementViewModelProtocol {
         
         service?.fetchStatementPDF(
             requestModel: FetchLoyaltyAdvanceStatementRequestModel(
-                email: self.email ?? "",
+                email: "-",
                 fromDate: fromDate,
                 toDate: toDate
             )
@@ -97,19 +97,19 @@ class GenerateStatementViewModel: GenerateStatementViewModelProtocol {
     }
     
     func viewModelDidLoad() {
-        email = userModel.email
-        output?(.setUserEmail(email: userModel.email ?? ""))
+//        email = userModel.email
+//        output?(.setUserEmail(email: userModel.email ?? ""))
     }
     
     private func validateDataWithRegex() -> Bool {
         var isValid = true
         
-        if email?.isValid(for: RegexConstants.emailRegex) ?? false {
-            output?(.emailTextField(errorState: false, error: nil))
-        } else {
-            isValid = false
-            output?(.emailTextField(errorState: true, error: StringConstants.ErrorString.emailError.localized))
-        }
+//        if email?.isValid(for: RegexConstants.emailRegex) ?? false {
+//            output?(.emailTextField(errorState: false, error: nil))
+//        } else {
+//            isValid = false
+//            output?(.emailTextField(errorState: true, error: StringConstants.ErrorString.emailError.localized))
+//        }
         
         if toDate != nil {
             output?(.toDateTextField(errorState: false, error: nil))
@@ -144,8 +144,8 @@ class GenerateStatementViewModel: GenerateStatementViewModelProtocol {
         case showError(error: APIResponseError)
         case showActivityIndicator(show: Bool)
         case nextButtonState(enableState: Bool)
-        case setUserEmail(email: String)
-        case emailTextField(errorState: Bool, error: String?)
+//        case setUserEmail(email: String)
+//        case emailTextField(errorState: Bool, error: String?)
         case toDateTextField(errorState: Bool, error: String?)
         case fromDateTextField(errorState: Bool, error: String?)
         case setFromDateLimit(from: Date?, to: Date?)
@@ -154,7 +154,7 @@ class GenerateStatementViewModel: GenerateStatementViewModelProtocol {
     }
     
     private func validateRequiredFields() {
-        if email?.isBlank ?? true || toDate == nil || fromDate == nil {
+        if toDate == nil || fromDate == nil {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ns5-oq-6qq">
-                                <rect key="frame" x="16" y="44" width="382" height="374"/>
+                                <rect key="frame" x="16" y="44" width="382" height="278"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9m-gb-H5W">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="86"/>
@@ -34,14 +34,14 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0w7-w7-CII" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="192" width="382" height="86"/>
+                                        <rect key="frame" x="0.0" y="96" width="382" height="86"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="86" placeholder="YES" id="x1R-eE-pBa"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xkz-qd-ppr" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="288" width="382" height="86"/>
+                                        <rect key="frame" x="0.0" y="192" width="382" height="86"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="86" placeholder="YES" id="TLN-FA-Cjl"/>
@@ -58,6 +58,11 @@
                                     <constraint firstAttribute="trailing" secondItem="0w7-w7-CII" secondAttribute="trailing" id="wKj-AK-ecD"/>
                                     <constraint firstItem="0w7-w7-CII" firstAttribute="leading" secondItem="Ns5-oq-6qq" secondAttribute="leading" id="yoG-kE-uCe"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="EKz-VY-YAe"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bw2-GH-yxN" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
                                 <rect key="frame" x="16" y="796" width="382" height="50"/>
@@ -85,7 +90,6 @@
                     </view>
                     <connections>
                         <outlet property="btnRequestStatement" destination="Bw2-GH-yxN" id="pDz-Nh-kHt"/>
-                        <outlet property="emailTextView" destination="EKz-VY-YAe" id="hHD-g2-qNb"/>
                         <outlet property="fromDateTextView" destination="0w7-w7-CII" id="Lsv-2V-J9h"/>
                         <outlet property="lblStatementTitle" destination="x9m-gb-H5W" id="EE6-Uj-Wpf"/>
                         <outlet property="toDateTextView" destination="Xkz-qd-ppr" id="ESG-Gt-FNP"/>
