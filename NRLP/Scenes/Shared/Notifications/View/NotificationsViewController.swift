@@ -81,7 +81,7 @@ class NotificationsViewController: BaseViewController {
     
     private func setupTopTabBarView() {
         self.topTabBarView.titles = categories.map { $0.rawValue.localized }
-        self.topTabBarView.disabled = [1, 2]
+        // self.topTabBarView.disabled = [1, 2]
         self.topTabBarView.delegate = self
     }
     
@@ -116,7 +116,6 @@ class NotificationsViewController: BaseViewController {
 extension NotificationsViewController: TopTabBarViewDelegate {
     func topTabBarView(selected index: Int) {
         collectionView.scrollToItem(indexPath: IndexPath(item: index, section: 0))
-        // collectionView.scrollToItem(indexPath: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
     }
 }
 
