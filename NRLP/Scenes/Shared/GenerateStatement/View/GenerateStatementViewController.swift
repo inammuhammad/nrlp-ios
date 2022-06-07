@@ -120,8 +120,22 @@ extension GenerateStatementViewController {
                     self.toDatePicker.minimumDate = from
                 }
 
+            case .sharePDF(url: let url):
+                self.presentShareSheet(url)
             }
         }
+    }
+    
+    private func presentShareSheet(_ url: URL) {
+        let google = URL(string: "https://www.google.com")!
+        
+        let shareSheet = UIActivityViewController(
+            activityItems: [
+                url
+            ],
+            applicationActivities: nil
+        )
+        self.present(shareSheet, animated: true)
     }
 }
 

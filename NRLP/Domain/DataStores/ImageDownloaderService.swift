@@ -25,7 +25,7 @@ class ImageDownloaderService: BaseDataStore, ImageDownloaderServiceProtocol {
         
         // request building
         let request = RequestBuilder(path: .init(endPoint: .fileDownload), parameters: FileRequestModel())
-        networking.download(request: request) { (response: APIResponse<Data>) in
+        networking.download(request: request, method: .get) { (response: APIResponse<Data>) in
             
             completion(response.result)
         }

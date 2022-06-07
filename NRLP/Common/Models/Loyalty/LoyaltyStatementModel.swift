@@ -37,7 +37,8 @@ struct FetchLoyaltyStatementResponseModel: Codable {
 }
 
 struct AdvanceLoyaltyStatementResponseModel: Codable {
-    let message: String
+//    let message: String
+    let data: Data?
 }
 
 struct LoyaltyStatementResponseData: Codable {

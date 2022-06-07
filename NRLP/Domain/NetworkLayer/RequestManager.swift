@@ -42,10 +42,16 @@ extension NetworkManager: Networking {
         return dispatch(with: request.path.url, method: .delete, task: task, completion: completion)
     }
     
-    func download<R>(request: RequestBuilder<R>, completion: @escaping (APIResponse<Data>) -> Void) -> APIRequest? where R: Encodable {
+    func download<R>(request: RequestBuilder<R>, method: HTTPMethod = .get, completion: @escaping (APIResponse<Data>) -> Void) -> APIRequest? where R: Encodable {
         
-        let task = HTTPTask.requestParametersAndHeaders(bodyParameters: nil, bodyEncoding: .urlAndJsonEncoding, urlParameters: request.urlParamaters(), additionHeaders: request.headers)
-        return dispatchDownloadData(with: request.path.url, method: .get, task: task, completion: completion)
+        var bodyParameter: Encodable?
+        
+        if method == .post {
+            bodyParameter = request.hashedParamaters ?? request.parameters
+        }
+        
+        let task = HTTPTask.requestParametersAndHeaders(bodyParameters: bodyParameter, bodyEncoding: .urlAndJsonEncoding, urlParameters: request.urlParamaters(), additionHeaders: request.headers)
+        return dispatchDownloadData(with: request.path.url, method: method, task: task, completion: completion)
     }
     
     func patch<T, R>(request: RequestBuilder<R>, completion: @escaping (APIResponse<T>) -> Void) -> APIRequest? where T: Decodable, R: Encodable {
@@ -67,8 +73,43 @@ extension NetworkManager: Networking {
         do {
             let urlRequest = try buildRequest(with: request, method: method, task: task)
             
+            if AppConstants.isDev {
+                print("\n🔷🔷🔷🔷🔷 REQUEST STARTED 🔷🔷🔷🔷🔷\n")
+                
+                if let method = urlRequest.httpMethod {
+                    print("===== URL TO HIT =====")
+                    print("\n\(method):   " + String(urlRequest.url?.absoluteString ?? ""))
+                }
+                if let headers = urlRequest.allHTTPHeaderFields {
+                    print("\n=====HEADERS=====")
+                    print("\n\(AppUtility.getPrettyJson(dictionary: headers))\n")
+                }
+                if let params = urlRequest.httpBody {
+                    print("=====PARAMETERS=====")
+                    print("\n \(AppUtility.getPrettyJson(data: params))")
+                }
+            }
+
             let dataRequest = sessionManager.request(urlRequest)
-                .responseData(completionHandler: { (response) in
+//                .response { response in
+                .response(completionHandler: { (response) in
+                    if AppConstants.isDev {
+                        if let error = response.error {
+                            print("\n❌❌❌❌❌ ERROR ❌❌❌❌❌\n")
+                            print(error)
+                            print("\n🔷🔷🔷🔷🔷 REQUEST END 🔷🔷🔷🔷🔷\n")
+                        } else {
+                            print("\n✅✅✅✅✅ SUCCESS ✅✅✅✅✅\n")
+                            if let data = response.data {
+                                print(AppUtility.getPrettyJson(data: data))
+                                print("\n🔷🔷🔷🔷🔷 REQUEST END 🔷🔷🔷🔷🔷\n")
+                            } else {
+                                print("DATA NOT AVAILABLE")
+                                print("\n🔷🔷🔷🔷🔷 REQUEST END 🔷🔷🔷🔷🔷\n")
+                            }
+                        }
+                    }
+                    
                     if let data = response.data {
                         completion(APIResponse(result: .success(data)))
                     } else {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Alamofire
 
 // 2. Request Builder
 struct RequestBuilder<Parameter: Encodable> {
@@ -86,5 +87,5 @@ protocol Networking {
     @discardableResult
     func delete<T: Decodable, R: Encodable>(request: RequestBuilder<R>, completion: @escaping Completion<T>) -> APIRequest?
     @discardableResult
-    func download<R>(request: RequestBuilder<R>, completion: @escaping (APIResponse<Data>) -> Void) -> APIRequest?
+    func download<R>(request: RequestBuilder<R>, method: HTTPMethod, completion: @escaping (APIResponse<Data>) -> Void) -> APIRequest?
 }
