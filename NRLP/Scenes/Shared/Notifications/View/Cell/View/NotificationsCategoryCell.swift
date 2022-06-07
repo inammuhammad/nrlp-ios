@@ -37,6 +37,20 @@ class NotificationsCategoryCell: UICollectionViewCell {
         }
     }
     
+    @IBOutlet private weak var comingSoonLbl: UILabel! {
+        didSet {
+            comingSoonLbl.text = "This Feature will be available soon".localized
+            comingSoonLbl.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: CommonFontSizes.largeFontSize.rawValue)
+            comingSoonLbl.textColor = UIColor.init(commonColor: .appGreen)
+        }
+    }
+    
+    @IBOutlet private weak var comingSoonStack: UIStackView! {
+        didSet {
+            comingSoonStack.isHidden = true
+        }
+    }
+    
     private var showError: ((APIResponseError) -> Void)?
     private var activityIndicator: ((Bool) -> Void)?
     
@@ -50,12 +64,20 @@ class NotificationsCategoryCell: UICollectionViewCell {
     private var latestResponse: NotificationListResponseModel? {
         didSet {
             if let response = latestResponse?.data {
-                self.notifications.append(contentsOf: response.records)
-                
                 if let totalPages = response.totalPages,
-                   let page = Int(response.page),
-                   page == totalPages {
-                    loadMoreBtn.isEnabled = false
+                   let page = Int(response.page) {
+                    
+                    if page == 1 {
+                        self.notifications = []
+                    }
+                    
+                    self.notifications.append(contentsOf: response.records)
+                    
+                    if page == totalPages {
+                        loadMoreBtn.isEnabled = false
+                    } else {
+                        loadMoreBtn.isEnabled = true
+                    }
                 }
             }
         }
@@ -69,20 +91,26 @@ class NotificationsCategoryCell: UICollectionViewCell {
     
     private var sortedNotifications = [NotificationRecordModel]() {
         didSet {
-//            let unRead = sortedNotifications.filter { $0.isReadFlag == 0 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
-//            let isRead = sortedNotifications.filter { $0.isReadFlag == 1 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
-//
-//            sortedNotifications = unRead + isRead
+            //            let unRead = sortedNotifications.filter { $0.isReadFlag == 0 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
+            //            let isRead = sortedNotifications.filter { $0.isReadFlag == 1 }.sorted { r0, r1 in notificationSort(r0: r0, r1: r1) }
+            //
+            //            sortedNotifications = unRead + isRead
             
             tableView.reloadData()
         }
     }
-
+    
     func populate(with notificationService: NotificationService, category: NotificationCategory, showError: ((APIResponseError) -> Void)?, activityIndicator: ((Bool) -> Void)?) {
         self.showError = showError
         self.activityIndicator = activityIndicator
         self.notificationService  = notificationService
-        fetchNotification(page: 1)
+        
+        if category == .complaint {
+            fetchNotification(page: 1)
+        } else {
+            comingSoonStack.isHidden = false
+            loadMoreBtn.isHidden = true
+        }
     }
     
     private func setupTableView() {
@@ -176,7 +204,7 @@ extension NotificationsCategoryCell: UITableViewDataSource, UITableViewDelegate 
                 }
             })
         }
-
+        
         cell.selectionStyle = .none
         return cell
     }
