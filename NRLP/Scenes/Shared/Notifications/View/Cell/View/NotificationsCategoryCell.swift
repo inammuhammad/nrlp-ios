@@ -63,22 +63,23 @@ class NotificationsCategoryCell: UICollectionViewCell {
     private var catagory: NotificationCategory?
     private var latestResponse: NotificationListResponseModel? {
         didSet {
-            if let response = latestResponse?.data {
-                if let totalPages = response.totalPages,
-                   let page = Int(response.page) {
-                    
-                    if page == 1 {
-                        self.notifications = []
-                    }
-                    
-                    self.notifications.append(contentsOf: response.records)
-                    
-                    if page == totalPages {
-                        loadMoreBtn.isEnabled = false
-                    } else {
-                        loadMoreBtn.isEnabled = true
-                    }
+            if let response = latestResponse?.data,
+               let totalPages = response.totalPages,
+               let page = Int(response.page) {
+                
+                if page == 1 {
+                    self.notifications = []
                 }
+                
+                self.notifications.append(contentsOf: response.records)
+                
+                if page == totalPages {
+                    loadMoreBtn.isEnabled = false
+                } else {
+                    loadMoreBtn.isEnabled = true
+                }
+            } else {
+                loadMoreBtn.isEnabled = false
             }
         }
     }
