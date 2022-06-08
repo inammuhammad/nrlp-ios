@@ -11,30 +11,28 @@ import Foundation
 typealias FetchLoyaltyPointsCallBack = (Result<FetchLoyaltyStatementResponseModel, APIResponseError>) -> Void
 typealias TransferLoyaltyPointsCallBack = (Result<LoyaltyPointsResponseModel, APIResponseError>) -> Void
 typealias FetchAdvanceLoyaltyPointsCallBack = (Result<AdvanceLoyaltyStatementResponseModel, APIResponseError>) -> Void
+typealias FetchStatementPDFCallback = (Result<Data, APIResponseError>) -> Void
 
 protocol LoyaltyPointsServiceProtocol {
 
     func fetchLoyaltyStatement(requestModel: FetchLoyaltyStatementRequestModel, responseHandler: @escaping FetchLoyaltyPointsCallBack)
-    func fetchLoyaltyAdvanceStatement(requestModel: FetchLoyaltyAdvanceStatementRequestModel, responseHandler: @escaping FetchAdvanceLoyaltyPointsCallBack)
+//     func fetchLoyaltyAdvanceStatement(requestModel: FetchLoyaltyAdvanceStatementRequestModel, responseHandler: @escaping FetchAdvanceLoyaltyPointsCallBack)
     func transferLoyaltyPoints(requestModel: LoyaltyPointsRequestModel, responseHandler: @escaping TransferLoyaltyPointsCallBack)
+    
+    func fetchStatementPDF(requestModel: FetchLoyaltyAdvanceStatementRequestModel, responseHandler: @escaping FetchStatementPDFCallback)
 }
 
 class LoyaltyPointsService: BaseDataStore, LoyaltyPointsServiceProtocol {
 
-    func fetchLoyaltyAdvanceStatement(requestModel: FetchLoyaltyAdvanceStatementRequestModel, responseHandler: @escaping FetchAdvanceLoyaltyPointsCallBack) {
-//        let responseData = LoyaltyStatementResponseData(currentpointbalance: "4100", statements: statements)
-//        responseHandler(.success(FetchLoyaltyStatementResponseModel(data: responseData, message: "Response received successfully")))
-        
-        let request = RequestBuilder(path: .init(endPoint: .loyaltyStatement), parameters: requestModel)
-        networking.post(request: request) { (response: APIResponse<AdvanceLoyaltyStatementResponseModel>) in
-            responseHandler(response.result)
-        }
-    }
+//    func fetchLoyaltyAdvanceStatement(requestModel: FetchLoyaltyAdvanceStatementRequestModel, responseHandler: @escaping FetchAdvanceLoyaltyPointsCallBack) {
+//
+//        let request = RequestBuilder(path: .init(endPoint: .loyaltyStatement), parameters: requestModel)
+//        networking.post(request: request) { (response: APIResponse<AdvanceLoyaltyStatementResponseModel>) in
+//            responseHandler(response.result)
+//        }
+//    }
 
     func fetchLoyaltyStatement(requestModel: FetchLoyaltyStatementRequestModel, responseHandler: @escaping FetchLoyaltyPointsCallBack) {
-
-//        let responseData = LoyaltyStatementResponseData(currentpointbalance: 4100, statements: statements)
-//        responseHandler(.success(FetchLoyaltyStatementResponseModel(data: responseData, message: "Response received successfully")))
         
         let request = RequestBuilder(path: .init(endPoint: .loyaltyStatement), parameters: requestModel)
         networking.post(request: request) { (response: APIResponse<FetchLoyaltyStatementResponseModel>) in
@@ -43,10 +41,18 @@ class LoyaltyPointsService: BaseDataStore, LoyaltyPointsServiceProtocol {
     }
 
     func transferLoyaltyPoints(requestModel: LoyaltyPointsRequestModel, responseHandler: @escaping TransferLoyaltyPointsCallBack) {
-//        responseHandler(.success(LoyaltyPointsResponseModel(message: "Transferred successfully", points: "\(requestModel.points)", beneficiary: "\(requestModel.beneficiaryId)")))
-
+        
         let request = RequestBuilder(path: .init(endPoint: .transferPoints), parameters: requestModel)
         networking.post(request: request) { (response: APIResponse<LoyaltyPointsResponseModel>) in
+            responseHandler(response.result)
+        }
+    }
+    
+    func fetchStatementPDF(requestModel: FetchLoyaltyAdvanceStatementRequestModel, responseHandler: @escaping FetchStatementPDFCallback) {
+        
+        let request = RequestBuilder(path: .init(endPoint: .loyaltyStatement), parameters: requestModel)
+        
+        networking.download(request: request, method: .post) { response in
             responseHandler(response.result)
         }
     }

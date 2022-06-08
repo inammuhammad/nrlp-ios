@@ -12,18 +12,18 @@ class GenerateStatementViewController: BaseViewController {
         }
     }
 
-    @IBOutlet private weak var emailTextView: LabelledTextview! {
-        didSet {
-            emailTextView.titleLabelText = "Email Address".localized
-            emailTextView.placeholderText = "abc@abc.com".localized
-//            emailTextView.inputFieldMaxLength = 50
-            emailTextView.editTextKeyboardType = .emailAddress
-            emailTextView.formatValidator = FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError.localized)
-            emailTextView.onTextFieldChanged = { updatedText in
-                self.viewModel.email = updatedText
-            }
-        }
-    }
+//    @IBOutlet private weak var emailTextView: LabelledTextview! {
+//        didSet {
+//            emailTextView.titleLabelText = "Email Address".localized
+//            emailTextView.placeholderText = "abc@abc.com".localized
+////            emailTextView.inputFieldMaxLength = 50
+//            emailTextView.editTextKeyboardType = .emailAddress
+//            emailTextView.formatValidator = FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError.localized)
+//            emailTextView.onTextFieldChanged = { updatedText in
+//                self.viewModel.email = updatedText
+//            }
+//        }
+//    }
 
     @IBOutlet private weak var fromDateTextView: LabelledTextview! {
         didSet {
@@ -46,7 +46,8 @@ class GenerateStatementViewController: BaseViewController {
     @IBOutlet private weak var btnRequestStatement: PrimaryCTAButton! {
         didSet {
             btnRequestStatement.titleLabel?.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
-            btnRequestStatement.setTitle("Request Statement".localized, for: .normal)
+//            btnRequestStatement.setTitle("Request Statement".localized, for: .normal)
+            btnRequestStatement.setTitle("Next".localized, for: .normal)
         }
     }
 
@@ -95,16 +96,16 @@ extension GenerateStatementViewController {
                 self.fromDateTextView.inputText = date
             case .nextButtonState(let state):
                 self.btnRequestStatement.isEnabled = state
-            case .emailTextField(let errorState, let errorMsg):
-                self.emailTextView.updateStateTo(isError: errorState, error: errorMsg)
+//            case .emailTextField(let errorState, let errorMsg):
+//                self.emailTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .toDateTextField(let errorState, let errorMsg):
                 self.toDateTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .fromDateTextField(let errorState, let errorMsg):
                 self.fromDateTextView.updateStateTo(isError: errorState, error: errorMsg)
             case .showError(let error):
                 self.showAlert(with: error)
-            case .setUserEmail(let email):
-                self.emailTextView.inputText = email
+//            case .setUserEmail(let email):
+//                self.emailTextView.inputText = email
             case .setFromDateLimit(let from, let to):
                 if to != nil {
                     self.fromDatePicker.maximumDate = to
@@ -120,8 +121,20 @@ extension GenerateStatementViewController {
                     self.toDatePicker.minimumDate = from
                 }
 
+            case .sharePDF(url: let url):
+                self.presentShareSheet(url)
             }
         }
+    }
+    
+    private func presentShareSheet(_ url: URL) {        
+        let shareSheet = UIActivityViewController(
+            activityItems: [
+                url
+            ],
+            applicationActivities: nil
+        )
+        self.present(shareSheet, animated: true)
     }
 }
 
