@@ -517,3 +517,4 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 // Father Verification
 "To update your profile please provide below mentioned information." = "To update your profile please provide below mentioned information.";
 "Please provide the information to proceed further" = "Please provide the information to proceed further";
+"Without providing verification, you will not be able to login. Are you sure, you want to exit the Application?" = "Without providing verification, you will not be able to login. Are you sure, you want to exit the Application?";

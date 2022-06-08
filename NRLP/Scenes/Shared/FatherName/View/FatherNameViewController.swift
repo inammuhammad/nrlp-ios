@@ -88,6 +88,8 @@ extension FatherNameViewController {
                 show ? ProgressHUD.show() : ProgressHUD.dismiss()
             case .nextButtonState(enableState: let enableState):
                 nextBtn.isEnabled = enableState
+            case .showAlert(let alertModel):
+                self.showAlert(with: alertModel)
             }
         }
     }

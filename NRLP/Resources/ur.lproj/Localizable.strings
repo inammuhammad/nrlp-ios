@@ -529,3 +529,4 @@
 // Father Verification
 "To update your profile please provide below mentioned information." = "اپنے پروفائل کو اپ ڈیٹ کرنے کے لیے براہ کرم ذیل میں دی گئی معلومات فراہم کریں۔";
 "Please provide the information to proceed further" = "براہ کرم مزید آگے بڑھنے کے لیے معلومات فراہم کریں";
+"Without providing verification, you will not be able to login. Are you sure, you want to exit the Application?" = "تصدیق فراہم کیے بغیر، آپ لاگ ان نہیں کر سکیں گے\n کیا آپ کو یقین ہے، آپ باہر نکلنا چاہتے ہیں";

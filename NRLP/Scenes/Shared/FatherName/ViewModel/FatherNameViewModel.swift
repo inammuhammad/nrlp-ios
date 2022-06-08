@@ -45,9 +45,8 @@ class FatherNameViewModel: FatherNameViewModelProtocol {
     }
     
     func nextTapped() {
-        guard let fatherName = fatherName, fatherName.count >= 3 else {
-            return
-        }
+        guard validatedWithRegex() else { return }
+        guard let fatherName = fatherName else { return }
 
         output?(.showActivityIndicator(show: true))
         fatherNameService.updateFatherName(
@@ -63,32 +62,68 @@ class FatherNameViewModel: FatherNameViewModelProtocol {
     }
     
     func cancelTapped() {
-        output?(.showActivityIndicator(show: true))
-        logoutService.logoutUser { [weak self] (_) in
-            guard let self = self else { return }
-            self.output?(.showActivityIndicator(show: false))
-            self.router.navigateToLoginScreen()
-        }
+        let alertModel = AlertViewModel(
+            alertHeadingImage: .comingSoon,
+            alertTitle: "Logout".localized,
+            alertDescription: "Without providing verification, you will not be able to login. Are you sure, you want to exit the Application?".localized,
+            alertAttributedDescription: nil,
+            primaryButton: AlertActionButtonModel(
+                buttonTitle: "Yes".localized,
+                buttonAction: {
+                    self.output?(.showActivityIndicator(show: true))
+                    self.logoutService.logoutUser { [weak self] (_) in
+                        guard let self = self else { return }
+                        self.output?(.showActivityIndicator(show: false))
+                        self.router.navigateToLoginScreen()
+                    }
+                }
+            ),
+            secondaryButton: AlertActionButtonModel(
+                buttonTitle: "No".localized,
+                buttonAction: nil
+            )
+        )
+        
+        output?(.showAlert(alertModel: alertModel))
     }
     
     enum Output {
         case nextButtonState(enableState: Bool)
         case showError(error: APIResponseError)
         case showActivityIndicator(show: Bool)
+        case showAlert(alertModel: AlertViewModel)
     }
 }
 
 extension FatherNameViewModel {
     private func validateRequiredFields() {
-        guard let fatherName = fatherName else {
-            output?(.nextButtonState(enableState: false))
-            return
-        }
-        
-        if fatherName.count < 3 || !(fatherName.isValid(for: RegexConstants.nameRegex)) {
+        if fatherName?.isEmpty ?? true {
             output?(.nextButtonState(enableState: false))
         } else {
             output?(.nextButtonState(enableState: true))
         }
+        
+//        guard let fatherName = fatherName else {
+//            output?(.nextButtonState(enableState: false))
+//            return
+//        }
+//
+//        if fatherName.count < 3 || !(fatherName.isValid(for: RegexConstants.nameRegex)) {
+//            output?(.nextButtonState(enableState: false))
+//        } else {
+//            output?(.nextButtonState(enableState: true))
+//        }
+    }
+    
+    private func validatedWithRegex() -> Bool {
+        guard let fatherName = fatherName else { return false }
+        
+        var isValid = true
+        
+        if fatherName.count < 3 || !(fatherName.isValid(for: RegexConstants.nameRegex)) {
+            isValid = false
+        }
+        
+        return isValid
     }
 }

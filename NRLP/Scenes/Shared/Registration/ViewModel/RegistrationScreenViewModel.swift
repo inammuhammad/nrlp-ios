@@ -320,7 +320,7 @@ class RegistrationViewModel: RegistrationViewModelProtocol {
 extension RegistrationViewModel {
     private func validateRequiredFields() {
         if self.accountType == .remitter {
-            if name?.isBlank ?? true || country == nil || cnic?.isBlank ?? true || cnicIssueDate == nil || passportType == nil || passportNumber?.isBlank ?? true || residentID?.isBlank ?? true || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true || !(birthPlace?.isValid(for: RegexConstants.nameRegex) ?? false) {
+            if name?.isBlank ?? true || fatherName?.isBlank ?? true || country == nil || cnic?.isBlank ?? true || cnicIssueDate == nil || passportType == nil || passportNumber?.isBlank ?? true || residentID?.isBlank ?? true || mobileNumber?.isBlank ?? true || paassword?.isBlank ?? true || rePaassword?.isBlank ?? true || !(birthPlace?.isValid(for: RegexConstants.nameRegex) ?? false) {
                 output?(.nextButtonState(enableState: false))
             } else {
                 output?(.nextButtonState(enableState: true))
