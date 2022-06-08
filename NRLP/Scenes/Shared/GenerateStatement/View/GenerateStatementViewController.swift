@@ -46,7 +46,8 @@ class GenerateStatementViewController: BaseViewController {
     @IBOutlet private weak var btnRequestStatement: PrimaryCTAButton! {
         didSet {
             btnRequestStatement.titleLabel?.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
-            btnRequestStatement.setTitle("Request Statement".localized, for: .normal)
+//            btnRequestStatement.setTitle("Request Statement".localized, for: .normal)
+            btnRequestStatement.setTitle("Next".localized, for: .normal)
         }
     }
 

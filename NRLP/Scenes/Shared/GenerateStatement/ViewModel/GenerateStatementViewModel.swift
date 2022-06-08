@@ -44,11 +44,15 @@ class GenerateStatementViewModel: GenerateStatementViewModelProtocol {
     }
     
     var datePickerViewModel: CustomDatePickerViewModel {
-        let date = "2020-01-01"
+//        let date = "2020-01-01"
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = Date().adding(days: -365) {
+            return CustomDatePickerViewModel(minDate: date)
+        }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return CustomDatePickerViewModel(minDate: dateFormatter.date(from: date)!)
+        return CustomDatePickerViewModel()
     }
     
     var fromDate: Date? {
