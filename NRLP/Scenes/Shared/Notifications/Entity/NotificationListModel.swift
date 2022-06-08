@@ -40,7 +40,7 @@ struct NotificationListDataModel: Codable {
     let records: [NotificationRecordModel]
     let totalPages: Int?
     let perPage: String?
-    let totalRecords: Int
+    let totalRecords: Int?
     let page: String
     
     enum CodingKeys: String, CodingKey {
