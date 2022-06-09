@@ -137,6 +137,7 @@ class LoginViewController: BaseViewController, UITextFieldDelegate {
         viewModel.viewDidLoad()
         
         // Prefill testing
+        
 //        self.viewModel.cnic = "4220157985955"
 //         self.viewModel.cnic = "2222200000000"
 //        self.viewModel.cnic = "2220000000000"
