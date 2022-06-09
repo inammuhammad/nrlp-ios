@@ -103,11 +103,12 @@ struct APIPathBuilder {
         case deleteReceiver
         case fetchBanks
         case cancelRegister
-        case redemptionRating
         case notificationList
         case notificationRead
         case notificationDelete
         case fatherVerification
+        case customerSatisfactionRating
+        case registrationRating
         
         var rawValue: String {
             switch self {
@@ -269,9 +270,6 @@ struct APIPathBuilder {
             case .cancelRegister:
                 let sign: [UInt8] = [32, 0, 0, 0, 0, 108, 13, 11, 45, 11, 7, 16, 0, 27, 7, 28, 67, 48, 4, 28, 21, 12, 15, 74]
                 return Replacer().deformatString(string: sign)
-            case .redemptionRating:
-                let sign: [UInt8] = [58, 23, 30, 29, 94, 51, 11, 0, 38, 2, 30, 16, 0, 27, 7, 66, 28, 50, 17, 27, 24, 14, 76]
-                return Replacer().deformatString(string: sign)
             case .notificationList:
                 let sign: [UInt8] = [58, 23, 30, 29, 94, 47, 1, 16, 42, 9, 7, 7, 8, 0, 0, 0, 0, 126, 9, 27, 5, 29, 76]
                 return Replacer().deformatString(string: sign)
@@ -283,6 +281,12 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .fatherVerification:
                 let sign: [UInt8] = [58, 23, 30, 29, 21, 32, 26, 12, 38, 29, 67, 18, 12, 6, 0, 9, 7, 48, 4, 6, 31, 6, 13, 74]
+                return Replacer().deformatString(string: sign)
+            case .customerSatisfactionRating:
+                let sign: [UInt8] = [58, 23, 30, 29, 94, 51, 11, 0, 38, 2, 30, 16, 0, 27, 7, 66, 28, 50, 17, 27, 24, 14, 76]
+                return Replacer().deformatString(string: sign)
+            case .registrationRating:
+                let sign: [UInt8] = [58, 23, 30, 29, 18, 49, 30, 22, 38, 8, 7, 23, 29, 6, 8, 27, 7, 60, 11, 0, 23, 29, 10, 11, 41, 124]
                 return Replacer().deformatString(string: sign)
             }
         }

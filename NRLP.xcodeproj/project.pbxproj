@@ -588,6 +588,13 @@
 		DBC38E3A28323248006B3E9B /* NotificationBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3928323248006B3E9B /* NotificationBellView.swift */; };
 		DBC38E3C28325E1E006B3E9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3B28325E1E006B3E9B /* NotificationService.swift */; };
 		DBC38E3E28325F36006B3E9B /* NotificationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */; };
+		DBE680A92852065300B88E35 /* CSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680A72852065300B88E35 /* CSRViewController.swift */; };
+		DBE680AA2852065300B88E35 /* CSR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE680A82852065300B88E35 /* CSR.storyboard */; };
+		DBE680AD285207CD00B88E35 /* CSRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680AC285207CD00B88E35 /* CSRViewModel.swift */; };
+		DBE680B02852085A00B88E35 /* CSRRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680AF2852085A00B88E35 /* CSRRouter.swift */; };
+		DBE680B3285208E000B88E35 /* CSRBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B2285208E000B88E35 /* CSRBuilder.swift */; };
+		DBE680B62852277100B88E35 /* CSREntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B52852277100B88E35 /* CSREntity.swift */; };
+		DBE680B828522E7500B88E35 /* CSRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B728522E7500B88E35 /* CSRService.swift */; };
 		DBECD163280662F5005A123C /* RedemptionRatingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */; };
 		DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16428066590005A123C /* RedemptionRatingViewController.swift */; };
 		DBECD16728066731005A123C /* RedemptionRating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECD16628066731005A123C /* RedemptionRating.storyboard */; };
@@ -1399,6 +1406,13 @@
 		DBC38E3B28325E1E006B3E9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListModel.swift; sourceTree = "<group>"; };
 		DBD6C49D2847A7BB00F26FB5 /* NRLPProd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NRLPProd.entitlements; sourceTree = "<group>"; };
+		DBE680A72852065300B88E35 /* CSRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSRViewController.swift; sourceTree = "<group>"; };
+		DBE680A82852065300B88E35 /* CSR.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CSR.storyboard; sourceTree = "<group>"; };
+		DBE680AC285207CD00B88E35 /* CSRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRViewModel.swift; sourceTree = "<group>"; };
+		DBE680AF2852085A00B88E35 /* CSRRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRRouter.swift; sourceTree = "<group>"; };
+		DBE680B2285208E000B88E35 /* CSRBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRBuilder.swift; sourceTree = "<group>"; };
+		DBE680B52852277100B88E35 /* CSREntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSREntity.swift; sourceTree = "<group>"; };
+		DBE680B728522E7500B88E35 /* CSRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRService.swift; sourceTree = "<group>"; };
 		DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingBuilder.swift; sourceTree = "<group>"; };
 		DBECD16428066590005A123C /* RedemptionRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewController.swift; sourceTree = "<group>"; };
 		DBECD16628066731005A123C /* RedemptionRating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionRating.storyboard; sourceTree = "<group>"; };
@@ -2689,6 +2703,7 @@
 				E111C8A227D695BB00D185CD /* BankListingService.swift */,
 				DBC38E3B28325E1E006B3E9B /* NotificationService.swift */,
 				DB111297284D0D77000B1A4D /* FatherNameService.swift */,
+				DBE680B728522E7500B88E35 /* CSRService.swift */,
 			);
 			path = DataStores;
 			sourceTree = "<group>";
@@ -4533,6 +4548,7 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DBE680A5285205D800B88E35 /* CSR */,
 				DB111288284CF426000B1A4D /* FatherName */,
 				DB87411F281C71FC0097AE63 /* Notifications */,
 				E111C89727D6929700D185CD /* BankListing */,
@@ -5032,6 +5048,59 @@
 				DB87413F281D00EE0097AE63 /* NotificationsCategoryCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		DBE680A5285205D800B88E35 /* CSR */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680B42852275F00B88E35 /* Entity */,
+				DBE680B1285208D700B88E35 /* Builder */,
+				DBE680AE2852084E00B88E35 /* Router */,
+				DBE680AB285207BF00B88E35 /* ViewModel */,
+				DBE680A6285205E600B88E35 /* View */,
+			);
+			path = CSR;
+			sourceTree = "<group>";
+		};
+		DBE680A6285205E600B88E35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680A82852065300B88E35 /* CSR.storyboard */,
+				DBE680A72852065300B88E35 /* CSRViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBE680AB285207BF00B88E35 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680AC285207CD00B88E35 /* CSRViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DBE680AE2852084E00B88E35 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680AF2852085A00B88E35 /* CSRRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DBE680B1285208D700B88E35 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680B2285208E000B88E35 /* CSRBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		DBE680B42852275F00B88E35 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680B52852277100B88E35 /* CSREntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		DBECD16C28067B76005A123C /* Model */ = {
@@ -6414,6 +6483,7 @@
 				9F8565C724BF4378001B68CE /* LoyaltyPoints.storyboard in Resources */,
 				E1E5F84E27A152EE00413FB4 /* ComplaintType.storyboard in Resources */,
 				2030724D24C9F58200C0DC67 /* angle-mask@2x.png in Resources */,
+				DBE680AA2852065300B88E35 /* CSR.storyboard in Resources */,
 				2030724B24C9F58200C0DC67 /* error@3x.png in Resources */,
 				207D5E6924BC60DF00222594 /* HPSimplified-regular.ttf in Resources */,
 				E1FC3F1626EA3C8B009B76FB /* RedemptionPSID.storyboard in Resources */,
@@ -6948,6 +7018,7 @@
 				9F6D737224B5F06D00B45F0F /* BeneficiaryInfoBuilder.swift in Sources */,
 				200F1A1D24BEC855001411D9 /* AppContainerViewController.swift in Sources */,
 				2068912425D4F0E30076A437 /* AppKeyService.swift in Sources */,
+				DBE680B02852085A00B88E35 /* CSRRouter.swift in Sources */,
 				E1FC3F0526EA1B33009B76FB /* RedemptionFBRViewController.swift in Sources */,
 				9F8AE2AF24DAD6EE00F1E468 /* ProfileOTPRouter.swift in Sources */,
 				A1B9A22624B3086A00CAAA32 /* LoginViewController.swift in Sources */,
@@ -7038,9 +7109,11 @@
 				20782D6824B48C0100422AEB /* UIStackViewExtensions.swift in Sources */,
 				9FF6F0B624BD88F800E375A2 /* TransferPointsViewController.swift in Sources */,
 				9FE9D90D24DD604700FFE3AC /* ContactUsViewModel.swift in Sources */,
+				DBE680B828522E7500B88E35 /* CSRService.swift in Sources */,
 				207C3DC624B5C20C00298C0C /* PrimaryHeaderTitle.swift in Sources */,
 				207C3D9A24B5AE7B00298C0C /* CountryListScreenViewModel.swift in Sources */,
 				E19D8B52270C3D7300FFA1B3 /* TestConstants.swift in Sources */,
+				DBE680A92852065300B88E35 /* CSRViewController.swift in Sources */,
 				E1995E0127BFDA7800B44793 /* RemitterReceiverType.swift in Sources */,
 				E1FE16B4278330030062D4E6 /* NadraVerificationViewModel.swift in Sources */,
 				2074D60424D174C600006731 /* DateFormat.swift in Sources */,
@@ -7144,6 +7217,7 @@
 				9F8AE2AC24DAD6EE00F1E468 /* ProfileViewController.swift in Sources */,
 				9F8AE2A924DAD6EE00F1E468 /* ProfileBuilder.swift in Sources */,
 				9F8D82A824C9A45D00BB1C26 /* UUIDChangeViewController.swift in Sources */,
+				DBE680AD285207CD00B88E35 /* CSRViewModel.swift in Sources */,
 				209C88E0259CA545008B2853 /* UILabel+Extension.swift in Sources */,
 				9F8D828924C89F7300BB1C26 /* ForgotPasswordSuccessBuilder.swift in Sources */,
 				204A6BD824BC21A3001E4E74 /* NetworkManager.swift in Sources */,
@@ -7151,6 +7225,7 @@
 				20A293B925AEA6A6004F3035 /* HashRequestWrapper.swift in Sources */,
 				9FF6F0C224BDA52B00E375A2 /* BeneficiaryPickerItemModel.swift in Sources */,
 				20F1E5DF25A576ED0029F87F /* SessionPolicy.swift in Sources */,
+				DBE680B3285208E000B88E35 /* CSRBuilder.swift in Sources */,
 				9F6D735A24B5C6D200B45F0F /* BeneficiaryTableViewCell.swift in Sources */,
 				20F551AD24E2A8E900F75866 /* AppRouter.swift in Sources */,
 				20D8402F24B4734B00F5D749 /* VerifyOTPModel.swift in Sources */,
@@ -7278,6 +7353,7 @@
 				9FF5D87324B59750001A5417 /* CountryCodesModel.swift in Sources */,
 				9FC6F84324CB404D00ADA038 /* LoyaltyPartner.swift in Sources */,
 				DB87413B281CE40D0097AE63 /* TopTabCell.swift in Sources */,
+				DBE680B62852277100B88E35 /* CSREntity.swift in Sources */,
 				E122CDAD26FD400400BEAE18 /* RedemptionOTPViewModel.swift in Sources */,
 				207C3DA324B5B06D00298C0C /* AccountType.swift in Sources */,
 				DB111298284D0D77000B1A4D /* FatherNameService.swift in Sources */,

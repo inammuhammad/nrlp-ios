@@ -18,9 +18,13 @@ class TransferSuccessViewModel: OperationCompletedViewModelProtocol {
     lazy var illustrationImageName: String = operationCompletedType.getIllustrationName()
     lazy var description = operationCompletedType.getDescription()
     lazy var ctaButtonTitle: String = operationCompletedType.getCTAButtonTitle()
+    private let customerRating: Bool
+    private let nicNicop: String
 
-    init(with router: TransferSuccessRouter, points: String, beneficiary: BeneficiaryModel) {
+    init(with router: TransferSuccessRouter, points: String, beneficiary: BeneficiaryModel, customerRating: Bool, nicNicop: String) {
         self.router = router
+        self.customerRating = customerRating
+        self.nicNicop = nicNicop
         self.description = getAlertDescription(points: points, beneficiary: beneficiary)
     }
 
@@ -48,7 +52,16 @@ class TransferSuccessViewModel: OperationCompletedViewModelProtocol {
     }
 
     func didTapCTAButton() {
-        router.navigateToHomeScreen()
+        if customerRating {
+            router.navigateToCSRScreen(
+                model: CSRModel(
+                    nicNicop: nicNicop,
+                    transactionType: .transferPoints
+                )
+            )
+        } else {
+            router.navigateToHomeScreen()
+        }
     }
 
     deinit {

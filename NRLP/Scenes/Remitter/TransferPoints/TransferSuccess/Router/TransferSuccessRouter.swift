@@ -19,4 +19,12 @@ class TransferSuccessRouter {
     func navigateToHomeScreen() {
         self.navigationController?.popToRootViewController(animated: true)
     }
+    
+    func navigateToCSRScreen(model: CSRModel) {
+        let vc = CSRBuilder().build(
+            with: self.navigationController,
+            model: model
+        )
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

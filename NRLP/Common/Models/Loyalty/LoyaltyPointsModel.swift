@@ -28,7 +28,10 @@ struct LoyaltyPointsRequestModel: Codable {
 struct LoyaltyPointsResponseModel: Codable {
 
     let message: String
-   // let points: String
- //   let beneficiary: String
-
+    let customerRating: Bool
+ 
+    enum CodingKeys: String, CodingKey {
+        case message
+        case customerRating = "customer_rating"
+    }
 }

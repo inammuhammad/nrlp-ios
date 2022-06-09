@@ -292,13 +292,13 @@ class RedeemServiceViewModel: RedeemServiceViewModelProtocol {
                 let model = InitRedemptionTransactionModel(code: self.partner.partnerName, pse: self.partner.partnerName, consumerNo: cnic, amount: formattedPoints, sotp: 1, pseChild: self.partner.categories[index].categoryName, mobileNo: mobileNo, email: email)
                 self.redemptionService.redemptionTransactionSendOTP(requestModel: model) { result in
                     self.output?(.showActivityIndicator(show: false))
-                    self.router.navigateToOTPScreen(transactionID: "-", partner: self.partner, user: self.user, inputModel: model, flowType: .DGIP)
-//                    switch result {
-//                    case .success(let response):
-//                        self.router.navigateToOTPScreen(transactionID: response.transactionId, partner: self.partner, user: self.user, inputModel: model, flowType: .DGIP)
-//                    case .failure(let error):
-//                        self.output?(.showError(error: error))
-//                    }
+//                    self.router.navigateToOTPScreen(transactionID: "-", partner: self.partner, user: self.user, inputModel: model, flowType: .DGIP)
+                    switch result {
+                    case .success(let response):
+                        self.router.navigateToOTPScreen(transactionID: response.transactionId, partner: self.partner, user: self.user, inputModel: model, flowType: .DGIP)
+                    case .failure(let error):
+                        self.output?(.showError(error: error))
+                    }
                 }
             }
             alert = AlertViewModel(alertHeadingImage: .redeemPoints, alertTitle: "Redeem Points", alertDescription: nil, alertAttributedDescription: self.getAlertDescription(index: index), primaryButton: confirmButton, secondaryButton: cancelButton)

@@ -66,7 +66,7 @@ class RedemptionOTPViewModel: NRLPOTPViewModel, RedemptionOTPViewModelProtocol {
         service.redemptionTransactionVerifyOTP(requestModel: model) { result in
             self.output?(.showActivityIndicator(show: false))
             switch result {
-            case .success(let response):
+            case .success:
                 self.executeCompleteTransaction(transactionID: self.transactionId)
             case .failure(let error):
                 self.output?(.showError(error: error))

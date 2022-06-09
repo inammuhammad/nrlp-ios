@@ -136,8 +136,8 @@ class TransferPointsViewModel: TransferPointsViewModelProtocol {
                 guard let self = self else { return }
                 self.output?(.showActivityIndicator(show: false))
                 switch result {
-                case .success:
-                    self.router?.navigateToSuccessScreen(points: self.transferPoints ?? "0", beneficiary: self.beneficiary!)
+                case .success(let data):
+                    self.router?.navigateToSuccessScreen(points: self.transferPoints ?? "0", beneficiary: self.beneficiary!, customerRating: data.customerRating, nicNicop: "\(self.user.cnicNicop)")
                 case .failure(let error):
                     self.output?(.showError(error: error))
                 }

@@ -89,5 +89,6 @@ extension UIStoryboard {
         case redemptionRating = "RedemptionRating"
         case notifocations = "Notifications"
         case fatherName = "FatherName"
+        case csr = "CSR"
     }
 }

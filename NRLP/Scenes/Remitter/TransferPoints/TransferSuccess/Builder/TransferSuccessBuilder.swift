@@ -11,12 +11,18 @@ import UIKit
 
 class TransferSuccessModuleBuilder {
 
-    func build(with navigationController: UINavigationController?, points: String, beneficiary: BeneficiaryModel) -> UIViewController {
+    func build(with navigationController: UINavigationController?, points: String, beneficiary: BeneficiaryModel, customerRating: Bool, nicNicop: String) -> UIViewController {
 
         let viewController = OperationCompletedViewController.getInstance()
 
         let coordinator = TransferSuccessRouter(navigationController: navigationController)
-        let viewModel = TransferSuccessViewModel(with: coordinator, points: points, beneficiary: beneficiary)
+        let viewModel = TransferSuccessViewModel(
+            with: coordinator,
+            points: points,
+            beneficiary: beneficiary,
+            customerRating: customerRating,
+            nicNicop: nicNicop
+        )
 
         viewController.viewModel = viewModel
 
