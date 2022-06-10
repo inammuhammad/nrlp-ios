@@ -15,6 +15,11 @@ class CSRRouter {
         self.navigationController = navigationController
     }
     
+    func navigateToLoginScreen() {
+        AESConfigs.resetIV()
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
     func navigateToHome() {
         self.navigationController?.popToRootViewController(animated: true)
     }

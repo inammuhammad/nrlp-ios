@@ -16,8 +16,8 @@ class TermsAndConditionRouter {
         self.navigationController = navigationController
     }
     
-    func navigateToRegistrationCompletionScreen(accountType: AccountType) {
-        self.navigationController?.pushViewController(RegistrationCompletedModuleBuilder().build(with: self.navigationController, accountType: accountType), animated: true)
+    func navigateToRegistrationCompletionScreen(accountType: AccountType, nicNicop: String) {
+        self.navigationController?.pushViewController(RegistrationCompletedModuleBuilder().build(with: self.navigationController, accountType: accountType, nicNicop: nicNicop), animated: true)
     }
 
     func navigateToLoginScreen() {

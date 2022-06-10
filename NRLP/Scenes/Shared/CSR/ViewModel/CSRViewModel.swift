@@ -58,33 +58,52 @@ class CSRViewModel: CSRViewModelProtocol {
             return
         }
         
-        let responseHandler: (Result<CSRResponseModel, APIResponseError>) -> Void = { [weak self] result in
-            self?.output?(.showActivityIndicator(show: false))
-            switch result {
-            case .success(let response):
-                print("response: \(response)")
-                self?.router.navigateToHome()
-            case .failure(let error):
-                self?.output?(.showError(error: error))
-            }
-        }
-        
         self.output?(.showActivityIndicator(show: true))
         
-        if model.transactionType == .transferPoints || model.transactionType == .selfAward,
-            let nicNicop = model.nicNicop,
-            let transactionType = model.transactionType {
-                
-                let requestModel = CSRRequestModel(
-                    nicNicop: nicNicop,
-                    transactionId: "-",
-                    transactionType: transactionType.rawValue,
-                    comments: "\(stars)"
-                )
-                
-                service.submitRating(requestModel: requestModel, responseHandler: responseHandler)
+        if model.transactionType == .transferPoints ||
+            model.transactionType == .selfAward,
+           let nicNicop = model.nicNicop,
+           let transactionType = model.transactionType {
+            
+            let requestModel = CSRRequestModel(
+                nicNicop: nicNicop,
+                transactionId: "-",
+                transactionType: transactionType.rawValue,
+                comments: "\(stars)"
+            )
+            
+            service.submitRating(requestModel: requestModel) { [weak self] result in
+                self?.output?(.showActivityIndicator(show: false))
+                switch result {
+                case .success:
+                    self?.router.navigateToHome()
+                case .failure(let error):
+                    self?.output?(.showError(error: error))
+                }
             }
-        
+            
+        } else if model.transactionType == .registration,
+                  let nicNicop = model.nicNicop,
+                  let transactionType = model.transactionType,
+                  let userType = model.userType {
+            
+            let requestModel = RegistrationCSRRequestModel(
+                nicNicop: nicNicop,
+                userType: userType,
+                transactionType: transactionType.rawValue,
+                comments: "\(stars)"
+            )
+            
+            service.submitRegistrationRating(requestModel: requestModel) { [weak self] result in
+                self?.output?(.showActivityIndicator(show: false))
+                switch result {
+                case .success:
+                    self?.router.navigateToLoginScreen()
+                case .failure(let error):
+                    self?.output?(.showError(error: error))
+                }
+            }
+        }
     }
     
     private func checkDoneButtonState() {

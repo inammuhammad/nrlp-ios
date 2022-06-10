@@ -346,6 +346,20 @@ class RegistrationViewController: BaseViewController {
         setupView()
         bindViewModelOutput()
         setupKeyboardNotification()
+        // testDataSetup()
+    }
+    
+    private func testDataSetup() {
+        viewModel.didSelect(accountType: viewModel.accountTypePickerViewModel.data[0] as? AccountTypePickerItemModel)
+        viewModel.name = "TestUser EN"
+        viewModel.fatherName = "Father of Test User EN"
+        viewModel.motherMaidenName = "MMN"
+        viewModel.birthPlace = "Pak"
+        viewModel.cnic = "2222222000000"
+        viewModel.paassword = "Abcd@1234"
+        viewModel.rePaassword = "Abcd@1234"
+        viewModel.residentID = "8008gfjhgjhg"
+        viewModel.passportNumber = "mm879879879798798"
     }
 }
 

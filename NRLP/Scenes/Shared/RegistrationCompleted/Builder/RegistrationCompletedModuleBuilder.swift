@@ -11,12 +11,12 @@ import UIKit
 
 class RegistrationCompletedModuleBuilder {
 
-    func build(with navigationController: UINavigationController?, accountType: AccountType) -> UIViewController {
+    func build(with navigationController: UINavigationController?, accountType: AccountType, nicNicop: String) -> UIViewController {
 
         let viewController = OperationCompletedViewController.getInstance()
 
         let coordinator = RegistrationCompletedRouter(navigationController: navigationController)
-        let viewModel = RegistrationCompletedViewModel(with: coordinator, accountType: accountType)
+        let viewModel = RegistrationCompletedViewModel(with: coordinator, accountType: accountType, nicNicop: nicNicop)
 
         viewController.viewModel = viewModel
 

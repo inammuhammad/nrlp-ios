@@ -16,14 +16,24 @@ class RegistrationCompletedViewModel: OperationCompletedViewModelProtocol {
     lazy var title: String =  operationCompletedType.getTitle()
     lazy var illustrationImageName: String = operationCompletedType.getIllustrationName()
     lazy var ctaButtonTitle: String = operationCompletedType.getCTAButtonTitle()
+    private let accountType: AccountType
+    private let nicNicop: String
 
-    init(with router: RegistrationCompletedRouter, accountType: AccountType) {
+    init(with router: RegistrationCompletedRouter, accountType: AccountType, nicNicop: String) {
         self.router = router
+        self.accountType = accountType
+        self.nicNicop = nicNicop
         self.operationCompletedType = .registrationCompleted(accountType: accountType)
     }
 
     func didTapCTAButton() {
-        router.navigateToLoginScreen()
+        router.navigateToCSRScreen(
+            model: CSRModel(
+                nicNicop: nicNicop,
+                userType: accountType.rawValue.lowercased(),
+                transactionType: .registration
+            )
+        )
     }
 
     deinit {

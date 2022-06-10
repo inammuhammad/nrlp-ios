@@ -16,8 +16,11 @@ class RegistrationCompletedRouter {
         self.navigationController = navigationController
     }
     
-    func navigateToLoginScreen() {
-        AESConfigs.resetIV()
-        self.navigationController?.popToRootViewController(animated: true)
+    func navigateToCSRScreen(model: CSRModel) {
+        let vc = CSRBuilder().build(
+            with: self.navigationController,
+            model: model
+        )
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

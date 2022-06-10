@@ -84,7 +84,7 @@ class TermsAndConditionViewModel: TermsAndConditionViewModelProtocol {
             self.output?(.showActivityIndicator(show: false))
             switch response {
             case .success:
-                self.router.navigateToRegistrationCompletionScreen(accountType: AccountType(rawValue: self.model.accountType)!)
+                self.router.navigateToRegistrationCompletionScreen(accountType: AccountType(rawValue: self.model.accountType)!, nicNicop: self.model.cnicNicop)
             case .failure(let error):
                 self.output?(.showError(error: error))
             }

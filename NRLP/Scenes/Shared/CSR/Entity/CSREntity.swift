@@ -8,12 +8,11 @@
 
 import Foundation
 
-
 // MARK: Data Store
-
 enum CSRTransactionType: String {
     case transferPoints = "transfer-point"
     case selfAward = "self-award"
+    case registration = "registration"
 }
 
 struct CSRModel {
