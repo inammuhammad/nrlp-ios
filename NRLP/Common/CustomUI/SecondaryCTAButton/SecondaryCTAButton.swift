@@ -46,6 +46,7 @@ class SecondaryCTAButton: UIButton {
         super.awakeFromNib()
         updateButtonStyleBasedOnState()
         self.cornerRadius = CommonDimens.unit1x.rawValue
+        self.titleLabel?.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize)
     }
 
     private func updateButtonStyleBasedOnState() {

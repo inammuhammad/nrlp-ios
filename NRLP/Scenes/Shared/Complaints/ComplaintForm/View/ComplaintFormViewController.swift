@@ -236,7 +236,7 @@ class ComplaintFormViewController: BaseViewController {
     }
     @IBOutlet weak var remittanceEntityTextView: LabelledTextview! {
         didSet {
-            remittanceEntityTextView.titleLabelText = "Receiving Entity (Banks & Exchange Company)".localized
+            remittanceEntityTextView.titleLabelText = "Receiving Entity (Bank & Exchange Company)".localized
             remittanceEntityTextView.autoCapitalizationType = .words
             remittanceEntityTextView.editTextKeyboardType = .asciiCapable
             remittanceEntityTextView.showHelpBtn = true

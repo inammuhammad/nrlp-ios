@@ -22,7 +22,8 @@ class NotificationTableViewCell: UITableViewCell {
         didSet {
             notificationTextLabel.textColor = .white
             notificationTextLabel.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .mediumFontSize, shouldTranslate: false)
-            
+            // force left, as it'll always be english
+            notificationTextLabel.textAlignment = .left
         }
     }
     
@@ -125,6 +126,7 @@ private extension Date {
     
     func time() -> String {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en")
         dateFormatter.dateFormat = "hh:mm a"
         let time = dateFormatter.string(from: self.local ?? self)
         return time.uppercased()
