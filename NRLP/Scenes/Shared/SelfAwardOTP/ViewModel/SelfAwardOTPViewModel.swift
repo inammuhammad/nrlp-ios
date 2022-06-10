@@ -53,10 +53,10 @@ class SelfAwardOTPViewModel: NRLPOTPViewModel {
         self.responseModel = responseModel
     }
 
-    func navigateToSuccess(message: String) {
+    func navigateToSuccess(message: String, customerRating: Bool, nicNicop: String) {
         if let nav = navigationController {
             let vc = OperationCompletedViewController.getInstance()
-            vc.viewModel = SelfAwardSuccessViewModel(with: nav, message: message)
+            vc.viewModel = SelfAwardSuccessViewModel(with: nav, message: message, customerRating: customerRating, nicNicop: nicNicop)
             nav.pushViewController(vc, animated: true)
         }
     }
@@ -89,12 +89,16 @@ class SelfAwardOTPViewModel: NRLPOTPViewModel {
         output?(.showActivityIndicator(show: true))
         let requestModel = SelfAwardVerifyOTPRequestModel(otp: getVerificationCode(), responseTransactionID: responseModel.transactionID)
         service.verifyOTP(requestModel: requestModel) { [weak self] (result) in
-            self?.output?(.showActivityIndicator(show: false))
+            guard let self = self else {
+                return
+            }
+            
+            self.output?(.showActivityIndicator(show: false))
             switch result {
             case .success(let response):
-                self?.navigateToSuccess(message: response.message)
+                self.navigateToSuccess(message: response.message, customerRating: response.customerRating, nicNicop: "\(self.user.cnicNicop)")
             case .failure(let error):
-                self?.output?(.showError(error: error))
+                self.output?(.showError(error: error))
             }
         }
     }

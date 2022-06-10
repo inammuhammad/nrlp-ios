@@ -71,7 +71,7 @@ class CSRViewModel: CSRViewModelProtocol {
         
         self.output?(.showActivityIndicator(show: true))
         
-        if model.transactionType == .transferPoints,
+        if model.transactionType == .transferPoints || model.transactionType == .selfAward,
             let nicNicop = model.nicNicop,
             let transactionType = model.transactionType {
                 

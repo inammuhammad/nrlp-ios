@@ -18,18 +18,39 @@ class SelfAwardSuccessViewModel: OperationCompletedViewModelProtocol {
     lazy var ctaButtonTitle: String = operationCompletedType.getCTAButtonTitle()
 
     private var operationCompletedType: OperationCompletedType!
+    private var customerRating: Bool
+    private var nicNicop: String
 
-    init(with navigationController: UINavigationController, message: String) {
+    init(with navigationController: UINavigationController, message: String, customerRating: Bool, nicNicop: String) {
         self.navigationController = navigationController
+        self.customerRating = customerRating
+        self.nicNicop = nicNicop
         operationCompletedType = .selfAwardCompleted(message: message)
     }
 
     func didTapCTAButton() {
-        self.navigateToHome()
+        if customerRating {
+            navigateToCSR()
+        } else {
+            self.navigateToHome()
+        }
     }
     
     private func navigateToHome() {
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    private func navigateToCSR() {
+        func navigateToCSRScreen(model: CSRModel) {
+            let vc = CSRBuilder().build(
+                with: self.navigationController,
+                model: CSRModel(
+                    nicNicop: nicNicop,
+                    transactionType: .selfAward
+                )
+            )
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     deinit {

@@ -13,6 +13,7 @@ import Foundation
 
 enum CSRTransactionType: String {
     case transferPoints = "transfer-point"
+    case selfAward = "self-award"
 }
 
 struct CSRModel {

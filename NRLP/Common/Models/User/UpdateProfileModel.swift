@@ -105,7 +105,6 @@ struct SelfAwardVerifyOTPRequestModel: Codable {
     }
 }
 
-
 // Update User Profile
 struct UpdateProfileVerificationRequestModel: Codable {
     let motherMaidenName: String
