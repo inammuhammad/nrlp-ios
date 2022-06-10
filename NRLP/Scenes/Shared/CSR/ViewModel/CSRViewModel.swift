@@ -36,6 +36,14 @@ class CSRViewModel: CSRViewModelProtocol {
     func viewDidLoad() {
         stars = 0
         checkDoneButtonState()
+        
+        if model.transactionType == .registration {
+            self.output?(.updateTitleText(text: "How would you rate registration process"))
+        } else if model.transactionType == .selfAward {
+            self.output?(.updateTitleText(text: "How would you rate self-awarding process"))
+        } else if model.transactionType == .transferPoints {
+            self.output?(.updateTitleText(text: "How would you rate transfer point process"))
+        }
     }
     
     init(
@@ -48,6 +56,7 @@ class CSRViewModel: CSRViewModelProtocol {
     }
     
     enum Output {
+        case updateTitleText(text: String)
         case showActivityIndicator(show: Bool)
         case showError(error: APIResponseError)
         case doneButtonState(state: Bool)

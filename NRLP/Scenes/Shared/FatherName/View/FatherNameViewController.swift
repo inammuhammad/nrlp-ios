@@ -15,6 +15,11 @@ class FatherNameViewController: BaseViewController {
         didSet {
             titleLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
             titleLbl.text = "To update your profile please provide below mentioned information.".localized
+            if AppConstants.isAppLanguageUrdu {
+                titleLbl.textAlignment = .right
+            } else {
+                titleLbl.textAlignment = .left
+            }
         }
     }
 
@@ -58,11 +63,11 @@ class FatherNameViewController: BaseViewController {
         
         self.title = "Home".localized
         
-        if (AppConstants.appLanguage == .urdu && !AppConstants.isSystemLanguageUrdu()) || AppConstants.appLanguage == .english && AppConstants.isSystemLanguageUrdu() {
-            titleLbl.textAlignment = .right
-        } else {
-            titleLbl.textAlignment = .left
-        }
+//        if (AppConstants.appLanguage == .urdu && !AppConstants.isSystemLanguageUrdu()) || AppConstants.appLanguage == .english && AppConstants.isSystemLanguageUrdu() {
+//            titleLbl.textAlignment = .right
+//        } else {
+//            titleLbl.textAlignment = .left
+//        }
         
         bindViewModel()
     }

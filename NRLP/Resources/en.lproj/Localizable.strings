@@ -519,3 +519,9 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "To update your profile please provide below mentioned information." = "To update your profile please provide below mentioned information.";
 "Please provide the information to proceed further" = "Please provide the information to proceed further";
 "Without providing verification, you will not be able to login. Are you sure, you want to exit the Application?" = "Without providing verification, you will not be able to login. Are you sure, you want to exit the Application?";
+
+// Customer Satisfaction Rating
+"Submit" = "Submit";
+"How would you rate registration process" = "How would you rate registration process";
+"How would you rate self-awarding process" = "How would you rate self-awarding process";
+"How would you rate transfer point process" = "How would you rate transfer point process";

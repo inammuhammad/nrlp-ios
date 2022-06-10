@@ -72,7 +72,7 @@ class CSRViewController: BaseViewController {
     
     @IBOutlet weak var doneButton: PrimaryCTAButton! {
         didSet {
-            doneButton.setTitle("Done".localized, for: .normal)
+            doneButton.setTitle("Submit".localized, for: .normal)
         }
     }
     
@@ -96,6 +96,8 @@ class CSRViewController: BaseViewController {
     private func bindViewModelOutput() {
         viewModel.output = { [unowned self] output in
             switch output {
+            case .updateTitleText(text: let text):
+                titleLabel.text = text.localized
             case .doneButtonState(state: let state):
                 self.doneButton.isEnabled = state
             case .showActivityIndicator(let show):

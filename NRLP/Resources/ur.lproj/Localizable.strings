@@ -531,3 +531,9 @@
 "To update your profile please provide below mentioned information." = "اپنے پروفائل کو اپ ڈیٹ کرنے کے لیے براہ کرم ذیل میں دی گئی معلومات فراہم کریں۔";
 "Please provide the information to proceed further" = "براہ کرم مزید آگے بڑھنے کے لیے معلومات فراہم کریں";
 "Without providing verification, you will not be able to login. Are you sure, you want to exit the Application?" = "تصدیق فراہم کیے بغیر، آپ لاگ ان نہیں کر سکیں گے\n کیا آپ کو یقین ہے، آپ باہر نکلنا چاہتے ہیں";
+
+// Customer Satisfaction Rating
+"Submit" = "جمع کرائیں";
+"How would you rate registration process" = "آپ رجسٹریشن کے عمل کی درجہ بندی کیسے کریں گے۔";
+"How would you rate self-awarding process" = "آپ خود ایوارڈ دینے کے عمل کو کس طرح درجہ دیں گے۔";
+"How would you rate transfer point process" = "آپ ٹرانسفر پوائنٹ کے عمل کو کس طرح درجہ دیں گے۔";
