@@ -101,6 +101,7 @@ class SelfAwardViewController: BaseViewController {
     @IBOutlet weak var titleLbl: UILabel! {
         didSet {
             titleLbl.text = "Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)".localized
+            titleLbl.font = UIFont(commonFont: CommonFont.HpSimplifiedFontStyle.regular, size: .largeFontSize)
         }
     }
     @IBOutlet private weak var referenceNumberLabelTextView: LabelledTextview! {
@@ -229,7 +230,8 @@ class SelfAwardViewController: BaseViewController {
     
     private func setupUI() {
         self.title = "Self Award Points".localized
-        if (AppConstants.appLanguage == .urdu && !AppConstants.isSystemLanguageUrdu()) || AppConstants.appLanguage == .english && AppConstants.isSystemLanguageUrdu() {
+//        if (AppConstants.appLanguage == .urdu && !AppConstants.isSystemLanguageUrdu()) || AppConstants.appLanguage == .english && AppConstants.isSystemLanguageUrdu() {
+        if AppConstants.isAppLanguageUrdu {
             titleLbl.textAlignment = .right
         } else {
             titleLbl.textAlignment = .left
