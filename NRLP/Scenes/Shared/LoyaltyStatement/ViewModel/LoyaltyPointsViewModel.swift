@@ -94,7 +94,7 @@ class LoyaltyPointsViewModel: LoyaltyPointsViewModelProtocol {
                     return false
             }
             return firstDate > secondDate
-        }).prefix(10)
+        }) // .prefix(10)
 
         return Array(arraySliceStatement)
     }

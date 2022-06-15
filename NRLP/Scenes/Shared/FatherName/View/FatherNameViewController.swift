@@ -30,7 +30,7 @@ class FatherNameViewController: BaseViewController {
             fatherNameTextView.inputFieldMaxLength = 50
             fatherNameTextView.inputFieldMinLength = 3
             fatherNameTextView.editTextKeyboardType = .asciiCapable
-            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.fatherPopupError.localized)
+            fatherNameTextView.formatValidator = FormatValidator(regex: RegexConstants.nameRegex, invalidFormatError: StringConstants.ErrorString.nameError.localized)
             fatherNameTextView.onTextFieldChanged = { text in
                 self.viewModel.fatherName = text
             }

@@ -10,8 +10,8 @@ import Foundation
 
 class DateFormat {
     enum Formatter: String {
-        case daySuffixFullMonth = "dd%@ MMMM yyyy" //23th July 2020
-        case dateTimeMilis = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" //2020-07-17T11:20:22.040Z
+        case daySuffixFullMonth = "dd%@ MMMM yyyy" // 23th July 2020
+        case dateTimeMilis = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'" // 2020-07-17T11:20:22.040Z
         case pickerFormat = "d MMMM yyyy"
         case advanceStatementFormat = "YYYYMMdd"
         case reverseYearMonthDayFormat = "yyyy-MM-dd"

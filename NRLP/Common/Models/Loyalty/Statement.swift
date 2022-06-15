@@ -20,6 +20,7 @@ struct Statement: Codable {
     lazy var formattedCreatedDate: String = {
         return DateFormat().formatDateString(dateString: date) ?? ""
     }()
+    
     lazy var createdDate: Date? = {
         return DateFormat().formatDate(dateString: date)
     }()

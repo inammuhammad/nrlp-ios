@@ -70,7 +70,7 @@ class LoyaltyPointsTableViewCell: UITableViewCell {
     func populate(with cellViewModel: LoyaltyPointsTableCellViewModel) {
         
         self.viewModel = cellViewModel
-        remittanceInfoLabel.text = viewModel.infoTitle  //statement.status
+        remittanceInfoLabel.text = viewModel.infoTitle  // statement.status
         dateLabel.text = viewModel.getCreatedData()
         transactionIDLabel.text = viewModel.transactionIDTitle
         setAs(earned: viewModel.isEarned, amount: viewModel.formattedPoints)
