@@ -11,6 +11,7 @@ import FirebaseCore
 import FirebaseMessaging
 import netfox
 import UserNotifications
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -46,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let viewController = AppRouter().getTopViewController()
         self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
+        
+        IQKeyboardManager.shared.enable = true
 
         return true
     }

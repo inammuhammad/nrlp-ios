@@ -57,11 +57,11 @@ class AlertViewController: UIViewController {
             }
         })
         
-        IQKeyboardManager.shared.enable = true
+        // IQKeyboardManager.shared.enable = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        IQKeyboardManager.shared.enable = false
+        // IQKeyboardManager.shared.enable = false
     }
 
     deinit {
