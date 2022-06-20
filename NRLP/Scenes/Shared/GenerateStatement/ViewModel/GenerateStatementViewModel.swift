@@ -44,12 +44,17 @@ class GenerateStatementViewModel: GenerateStatementViewModelProtocol {
     }
     
     var datePickerViewModel: CustomDatePickerViewModel {
-//        let date = "2020-01-01"
-//
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-        if let date = Date().adding(days: -365) {
-            return CustomDatePickerViewModel(minDate: date)
+        let octOne = DateFormat().formatDate(dateString: "20211001", formatter: .advanceStatementFormat)
+        let oneYearAgo = Date().adding(days: -365)
+        
+        if let octOne = octOne,
+           let oneYearAgo = oneYearAgo {
+            
+            if oneYearAgo < octOne {
+                return CustomDatePickerViewModel(minDate: octOne)
+            }
+            
+            return CustomDatePickerViewModel(minDate: oneYearAgo)
         }
         
         return CustomDatePickerViewModel()

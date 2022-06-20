@@ -16,7 +16,7 @@ class GenerateStatementViewController: BaseViewController {
 //        didSet {
 //            emailTextView.titleLabelText = "Email Address".localized
 //            emailTextView.placeholderText = "abc@abc.com".localized
-////            emailTextView.inputFieldMaxLength = 50
+//            emailTextView.inputFieldMaxLength = 50
 //            emailTextView.editTextKeyboardType = .emailAddress
 //            emailTextView.formatValidator = FormatValidator(regex: RegexConstants.emailRegex, invalidFormatError: StringConstants.ErrorString.emailError.localized)
 //            emailTextView.onTextFieldChanged = { updatedText in
