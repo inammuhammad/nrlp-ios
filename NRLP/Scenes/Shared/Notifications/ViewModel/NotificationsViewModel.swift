@@ -13,14 +13,8 @@ typealias NotificationsViewModelOutput = (NotificationsViewModel.Output) -> Void
 protocol NotificationsViewModelProtocol {
     var output: NotificationsViewModelOutput? { get set }
     var numberOfRows: Int { get }
-    
-    func populate(cell: NotificationsCategoryCell?, indexPath: IndexPath)
 
-    // func viewModelWillAppear()
-    // func getReceiver(at index: Int) -> ReceiverModel
-    // func didTapNotification(indexPath: IndexPath)
-   //  func notificationMenuClicked()
-   //  func deleteNotificationClicked()
+    func populate(view: NotificationsCategoryView, index: Int)
 }
 
 class NotificationsViewModel: NotificationsViewModelProtocol {
@@ -40,8 +34,8 @@ class NotificationsViewModel: NotificationsViewModelProtocol {
         self.notificationListService = NotificationService(cnicNicop: cnicNicop)
     }
     
-    func populate(cell: NotificationsCategoryCell?, indexPath: IndexPath) {
-        cell?.populate(with: self.notificationListService, category: categories[indexPath.item], showError: { error in
+    func populate(view: NotificationsCategoryView, index: Int) {
+        view.populate(with: self.notificationListService, category: categories[index], showError: { error in
             self.output?(.showError(error: error))
         }, activityIndicator: { show in
             self.output?(.showActivityIndicator(show: show))

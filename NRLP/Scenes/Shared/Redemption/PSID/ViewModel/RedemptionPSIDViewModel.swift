@@ -217,8 +217,13 @@ class RedemptionPSIDViewModel: RedemptionPSIDViewModelProtocol {
             self.output?(.showActivityIndicator(show: false))
             switch result {
             case .success(let model):
-                print(model)
-                self.router.navigateToOTPScreen(transactionID: model.transactionId, partner: self.partner, user: self.user, inputModel: newInputModel, flowType: self.flowType)
+                self.router.navigateToOTPScreen(
+                    transactionID: model.transactionId,
+                    partner: self.partner,
+                    user: self.user,
+                    inputModel: newInputModel,
+                    flowType: self.flowType
+                )
             case .failure(let error):
                 self.output?(.showError(error: error))
             }

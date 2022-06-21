@@ -17,7 +17,14 @@ class RedemptionPSIDRouter {
     }
     
     func navigateToOTPScreen(transactionID: String, partner: Partner, user: UserModel, inputModel: InitRedemptionTransactionModel, flowType: RedemptionFlowType) {
-        let vc = RedemptionOTPBuilder().build(with: self.navigationController, transactionId: transactionID, partner: partner, user: user, inputModel: inputModel, flowType: flowType)
+        let vc = RedemptionOTPBuilder().build(
+            with: self.navigationController,
+            transactionId: transactionID,
+            partner: partner,
+            user: user,
+            inputModel: inputModel,
+            flowType: flowType
+        )
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

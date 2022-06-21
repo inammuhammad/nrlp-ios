@@ -64,9 +64,12 @@ class HomeRouter {
     }
 
     func navigateToSelfAward(user: UserModel) {
-        let viewController = SelfAwardViewController.getInstance()
-        viewController.user = user
-        self.navigationController?.pushViewController(viewController, animated: true)
+//        let viewController = SelfAwardViewController.getInstance()
+//        viewController.user = user
+        self.navigationController?.pushViewController(
+            SelfAwardBuilder().build(with: navigationController, userModel: user),
+            animated: true
+        )
     }
     
     func navigateToGuide(link: String, error: (String) -> Void) {

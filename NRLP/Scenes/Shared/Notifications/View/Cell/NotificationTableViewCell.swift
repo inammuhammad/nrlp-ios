@@ -94,9 +94,9 @@ class NotificationTableViewCell: UITableViewCell {
     }
     
     @objc private func messageTapped() {
-        if !isRead {
+//        if !isRead {
             onMessageTap?()
-        }
+//        }
     }
     
     @objc private func deleteItem() {

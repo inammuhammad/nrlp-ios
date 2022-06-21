@@ -1,8 +1,8 @@
 //
-//  NotificationsCategoryCell.swift
+//  NotificationsCategoryView.swift
 //  NRLP
 //
-//  Created by Muhammad Shahid Shakeel on 30/04/2022.
+//  Created by Muhammad Shahid Shakeel on 21/06/2022.
 //  Copyright © 2022 Systems Ltd. All rights reserved.
 //
 
@@ -14,7 +14,7 @@ enum NotificationCategory: String, CaseIterable {
     case announcement = "Announcement"
 }
 
-class NotificationsCategoryCell: UICollectionViewCell {
+class NotificationsCategoryView: CustomNibView {
     @IBOutlet weak var containerView: UIView! {
         didSet {
             
@@ -114,6 +114,10 @@ class NotificationsCategoryCell: UICollectionViewCell {
         }
     }
     
+    func resetSelection() {
+        self.menuIndex = nil
+    }
+    
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -158,10 +162,12 @@ class NotificationsCategoryCell: UICollectionViewCell {
         } else {
             fetchNotification(page: 1)
         }
+        
+        resetSelection()
     }
 }
 
-extension NotificationsCategoryCell: UITableViewDataSource, UITableViewDelegate {
+extension NotificationsCategoryView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sortedNotifications.count
     }
@@ -174,19 +180,22 @@ extension NotificationsCategoryCell: UITableViewDataSource, UITableViewDelegate 
             notificationRecord: self.sortedNotifications[index],
             menuExtended: index == menuIndex
         ) {
-            ProgressHUD.show()
-            self.notificationService?.markRead(notificationId: self.sortedNotifications[index].id, completion: { result in
-                ProgressHUD.dismiss()
-                switch result {
-                case .success(let model):
-                    if AppConstants.isDev {
-                        print(model)
+            if self.sortedNotifications[index].isReadFlag != 1 {
+                ProgressHUD.show()
+                self.notificationService?.markRead(notificationId: self.sortedNotifications[index].id, completion: { result in
+                    ProgressHUD.dismiss()
+                    switch result {
+                    case .success(let model):
+                        if AppConstants.isDev {
+                            print(model)
+                        }
+                        self.sortedNotifications[index].isReadFlag = 1
+                    case .failure(let error):
+                        print(error)
                     }
-                    self.sortedNotifications[index].isReadFlag = 1
-                case .failure(let error):
-                    print(error)
-                }
-            })
+                })
+            }
+            self.resetSelection()
         } onMenuTap: {
             self.menuIndex = self.menuIndex == index ? nil : index
         } onDeleteTap: {

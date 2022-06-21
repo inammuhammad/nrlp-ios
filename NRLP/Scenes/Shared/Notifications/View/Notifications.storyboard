@@ -25,43 +25,76 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="Ui4-dr-5v0"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7rd-tN-KXb">
-                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Xyc-4Z-RLH">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                            </collectionView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOf-8N-NSg">
+                                <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="4xG-A2-TNU">
+                                        <rect key="frame" x="0.0" y="0.0" width="1242" height="778"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NP3-me-qqs" customClass="NotificationsCategoryView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
+                                                <color key="backgroundColor" systemColor="systemCyanColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UmJ-bJ-MJD" customClass="NotificationsCategoryView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="414" y="0.0" width="414" height="778"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tdt-Uv-lIU" customClass="NotificationsCategoryView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="828" y="0.0" width="414" height="778"/>
+                                                <color key="backgroundColor" systemColor="systemTealColor"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Tdt-Uv-lIU" firstAttribute="width" secondItem="UmJ-bJ-MJD" secondAttribute="width" id="FSn-Al-7xa"/>
+                                            <constraint firstItem="UmJ-bJ-MJD" firstAttribute="width" secondItem="NP3-me-qqs" secondAttribute="width" id="mWz-Cu-f0d"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="4xG-A2-TNU" firstAttribute="leading" secondItem="kOf-8N-NSg" secondAttribute="leading" id="IuF-QN-S8P"/>
+                                    <constraint firstAttribute="trailing" secondItem="4xG-A2-TNU" secondAttribute="trailing" id="Qk4-Rp-K3v"/>
+                                    <constraint firstItem="4xG-A2-TNU" firstAttribute="top" secondItem="kOf-8N-NSg" secondAttribute="top" id="Udh-qf-PI9"/>
+                                    <constraint firstAttribute="bottom" secondItem="4xG-A2-TNU" secondAttribute="bottom" id="erH-g2-E9v"/>
+                                    <constraint firstItem="NP3-me-qqs" firstAttribute="width" secondItem="kOf-8N-NSg" secondAttribute="width" id="giz-5s-1bl"/>
+                                    <constraint firstItem="4xG-A2-TNU" firstAttribute="height" secondItem="kOf-8N-NSg" secondAttribute="height" id="yO0-aZ-X4L"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7rd-tN-KXb" firstAttribute="top" secondItem="6Tf-md-xQH" secondAttribute="bottom" constant="10" id="0f3-ov-DyY"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="7rd-tN-KXb" secondAttribute="trailing" id="967-dx-LTI"/>
+                            <constraint firstItem="kOf-8N-NSg" firstAttribute="top" secondItem="6Tf-md-xQH" secondAttribute="bottom" id="24y-80-LZZ"/>
+                            <constraint firstItem="kOf-8N-NSg" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="47n-l5-mXw"/>
+                            <constraint firstItem="kOf-8N-NSg" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="8kg-e6-XQ3"/>
+                            <constraint firstItem="kOf-8N-NSg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Dc1-PK-i2p"/>
                             <constraint firstItem="6Tf-md-xQH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="RY4-9M-ioD"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="7rd-tN-KXb" secondAttribute="bottom" id="TSc-Ai-cOx"/>
                             <constraint firstItem="6Tf-md-xQH" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="XY9-yo-NeD"/>
-                            <constraint firstItem="7rd-tN-KXb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ooD-qe-BBN"/>
                             <constraint firstItem="6Tf-md-xQH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="sPA-Mp-wxn"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collectionView" destination="7rd-tN-KXb" id="JkA-qg-DM7"/>
+                        <outlet property="scrollView" destination="kOf-8N-NSg" id="2DX-9o-f0e"/>
+                        <outlet property="stackView" destination="4xG-A2-TNU" id="pVR-Nk-dai"/>
                         <outlet property="topTabBarView" destination="6Tf-md-xQH" id="taR-x9-fDv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="98"/>
+            <point key="canvasLocation" x="137.68115942028987" y="97.767857142857139"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemCyanColor">
+            <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

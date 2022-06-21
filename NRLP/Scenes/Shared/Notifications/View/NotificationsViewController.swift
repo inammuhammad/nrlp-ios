@@ -11,25 +11,38 @@ import UIKit
 class NotificationsViewController: BaseViewController {
     var viewModel: NotificationsViewModelProtocol!
     
-    private let categories = NotificationCategory.allCases // ["Complaint"] // , "Activity", "Announcement"]
-    
     @IBOutlet private weak var topTabBarView: TopTabBarView! {
         didSet {
             setupTopTabBarView()
         }
     }
     
-    @IBOutlet private weak var collectionView: UICollectionView! {
+    @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
-            setupCollectionView()
+            
         }
     }
     
+    @IBOutlet private weak var stackView: UIStackView! {
+        didSet {
+            
+        }
+    }
+    
+    private let categories = NotificationCategory.allCases
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindViewModelOutput()
+        configTitleView()
+        configCategories()
         
-        // self.title = "Notifications"
-
+        self.scrollView.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(screenTapped))
+        )
+    }
+    
+    private func configTitleView() {
         let view = UIView()
         let label = UILabel()
         label.text = "Notifications".localized
@@ -65,7 +78,28 @@ class NotificationsViewController: BaseViewController {
         }
         
         self.navigationItem.titleView = view
-        bindViewModelOutput()
+    }
+    
+    private func configCategories() {
+        assert(stackView.subviews.count == categories.count)
+        
+        for i in 0..<categories.count {
+            guard let view = stackView.subviews[i] as? NotificationsCategoryView else {
+                break
+            }
+            
+            viewModel.populate(view: view, index: i)
+        }
+    }
+    
+    @objc private func screenTapped() {
+        for view in stackView.subviews {
+            guard let view = view as? NotificationsCategoryView else {
+                return
+            }
+            
+            view.resetSelection()
+        }
     }
     
     private func bindViewModelOutput() {
@@ -85,59 +119,23 @@ class NotificationsViewController: BaseViewController {
         self.topTabBarView.delegate = self
     }
     
-    private func setupCollectionView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.scrollDirection = .horizontal
-        flowLayout.minimumInteritemSpacing = .zero
-        flowLayout.minimumLineSpacing = .zero
-        flowLayout.sectionInset = .zero
-        collectionView.collectionViewLayout = flowLayout
-        
-        collectionView.isPagingEnabled = true
-        
-        collectionView.showsHorizontalScrollIndicator = false
-        collectionView.showsVerticalScrollIndicator = false
-        collectionView.bounces = false
-        collectionView.alwaysBounceHorizontal = false
-        
-        collectionView.isScrollEnabled = false
-        
-        setupCollectionViewNibs()
-    }
-    
-    private func setupCollectionViewNibs() {
-        collectionView.register(nibName: "NotificationsCategoryCell")
+    private func scrollTo(index: Int) {
+        let width = scrollView.bounds.width
+        let contentOffsetX = CGFloat(index) * width
+        scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: false)
     }
 }
 
 extension NotificationsViewController: TopTabBarViewDelegate {
     func topTabBarView(selected index: Int) {
-        collectionView.scrollToItem(indexPath: IndexPath(item: index, section: 0))
-    }
-}
-
-extension NotificationsViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categories.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NotificationsCategoryCell", for: indexPath) as? NotificationsCategoryCell
-        viewModel.populate(cell: cell, indexPath: indexPath)
-        // cell?.populate(with: self.viewModel, category: .complaints)
-        return cell ?? UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return collectionView.bounds.size
+        for view in stackView.subviews {
+            guard let view = view as? NotificationsCategoryView else {
+                return
+            }
+            
+            view.resetSelection()
+        }
+        scrollTo(index: index)
     }
 }
 
