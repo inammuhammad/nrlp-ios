@@ -726,7 +726,7 @@ extension ComplaintFormViewModel {
             transactionID.count > 25 ||
             transactionDateString.isBlank ||
             transactionAmount.isBlank ||
-            !transactionAmount.isValid(for: RegexConstants.transactionAmountRegex) ||
+            !transactionAmount.isValid(for: RegexConstants.transactionAmointDecimalRegex) ||
             !beneficiaryCnic.isValid(for: RegexConstants.alphanuericRegex) {
             output?(.nextButtonState(state: false))
         } else {
