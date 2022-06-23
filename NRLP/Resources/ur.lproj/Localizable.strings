@@ -130,12 +130,17 @@
 "Are you sure you want to Logout?"="کیا اپ یقینی طور پر لاگ آوٹ کرنا چاہتے ہیں";
 "Yes"="ہاں";
 "No"="نہیں";
+
+// Home
 "Welcome,"="خوش آمدید";
 "Loyalty Points"="لوائلٹی پوائنٹس";
 "Redeem Your Points"="پوائنٹس استعمال کریں";
 "Beneficiaries"="وصول کنندہ";
 "Loyalty Statements"="لوائلٹی اسٹیٹمنٹ";
 "Home"="گھر";
+"Thank you for registering. Your account is in NADRA verification process and will be completed in next 48 hours. Upon verification your account will be marked active & you will be able to enjoy SDRP benefits (Loyalty Points, Transfer Points, Redemption, etc.)" = "اندراج کے لئے آپ کا شکریہ. آپ کا اکاؤنٹ نادر ا تصدیقی عمل میں ہے اور اگلے 48 گھنٹوں میں مکمل ہو جائے گا۔ تصدیق کرنے پر آپ کا اکاؤنٹ فعال ہو جائے گا - آپ ایس ڈی آر پی کے فوائد استعمال کر سکیں گے (پوائنٹس حاصل کریں، ٹرانسفر پوائنٹس، ریڈیمپشن وغیرہ";
+
+
 "Next"="اگلا";
 "Verify your device"="اپنے ڈیوائس کی تصدیق کریں";
 "A verification code has been sent to your registered mobile number. \nPlease enter the code below" = "تصدیقی کوڈ اپ کے رجسٹرڈ موبائل نمبر پر بھیجا گیا ہے/n براہ کرم نیچے کوڈ درج کریں";

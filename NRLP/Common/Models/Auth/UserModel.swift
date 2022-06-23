@@ -20,8 +20,6 @@ struct UserModel: Codable {
     
     var createdAt: String?
     var updatedAt: String?
-//    var isActive: Int?
-//    var isDeleted: Int?
     var loyaltyType: String
     private var currentPointsBalance: String?
     var userCountry: Country?
@@ -79,14 +77,14 @@ struct UserModel: Codable {
     var formattedCnicIssueDate: String {
         return DateFormat().formatDateString(dateString: cnicIssueDateStr ?? "", fromFormat: .dateTimeMilis, toFormat: .shortDateFormat) ?? ""
     }
+    
+    var nadraStatusCode: String?
 
     enum CodingKeys: String, CodingKey {
         case type = "user_type"
         case cnicNicop = "nic_nicop"
         case fullName = "full_name"
         case id = "id"
-//        case isActive = "is_active"
-//        case isDeleted = "is_deleted"
         case loyaltyType = "loyalty_level"
         case points = "loyalty_points"
         case mobileNo = "mobile_no"
@@ -106,6 +104,7 @@ struct UserModel: Codable {
         case nadraVerifiedStr = "nadra_verified"
         case requiresNadraVerification = "require_nadra_verification"
         case receiverCount = "receiver_count"
+        case nadraStatusCode = "nadra_status_code"
     }
     
     init() {
