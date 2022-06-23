@@ -16,11 +16,14 @@ class SelfAwardViewController: BaseViewController {
         didSet {
             cnicTextView.isHidden = true
             ibanTextView.isHidden = true
+            passportNumberTextView.isHidden = true
             
             if transactionType == .cnic {
                 cnicTextView.isHidden = false
             } else if transactionType == .bank {
                 ibanTextView.isHidden = false
+            } else if transactionType == .passport {
+                passportNumberTextView.isHidden = false
             }
             
             validateFields()
@@ -37,6 +40,7 @@ class SelfAwardViewController: BaseViewController {
     var transactionAmount: String?
     var iban: String?
     var cnic: String?
+    var passport: String?
     var user: UserModel?
     
     var datePickerViewModel: CustomDatePickerViewModel {
@@ -80,6 +84,10 @@ class SelfAwardViewController: BaseViewController {
                 TransactionTypePickerItemModel(
                     title: TransactionType.bank.getTitle(),
                     key: TransactionType.bank.rawValue
+                ),
+                TransactionTypePickerItemModel(
+                    title: TransactionType.passport.getTitle(),
+                    key: TransactionType.passport.rawValue
                 )
             ]
         )
@@ -219,6 +227,28 @@ class SelfAwardViewController: BaseViewController {
         }
     }
     
+    @IBOutlet weak var passportNumberTextView: LabelledTextview! {
+        didSet {
+            passportNumberTextView.titleLabelText = "Passport No. *".localized
+            passportNumberTextView.placeholderText = "Enter Passport No.".localized
+            passportNumberTextView.showHelpBtn = true
+            passportNumberTextView.helpLabelText = "Please enter your passport number".localized
+            passportNumberTextView.inputFieldMinLength = 3
+            passportNumberTextView.inputFieldMaxLength = 20
+            passportNumberTextView.editTextKeyboardType = .default
+            passportNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.passportRegex, invalidFormatError: StringConstants.ErrorString.passportNumberError.localized)
+            passportNumberTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.passport = updatedText
+                self.validateFields()
+            }
+            passportNumberTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -237,6 +267,7 @@ class SelfAwardViewController: BaseViewController {
         
         ibanTextView.isHidden = true
         cnicTextView.isHidden = true
+        passportNumberTextView.isHidden = true
     }
     
     private func showInitialAlert() {
@@ -281,6 +312,14 @@ class SelfAwardViewController: BaseViewController {
                     ibanTextView.updateStateTo(isError: true, error: "Please enter a valid Account Number/IBAN".localized)
                     proceedBtn.isEnabled = false
                 }
+            } else if transactionType == .passport {
+                // do passport stuff
+                if !(passport?.isBlank ?? true), passport?.isValid(for: RegexConstants.passportRegex) ?? false {
+                    passportNumberTextView.updateStateTo(isError: false)
+                    proceedBtn.isEnabled = true
+                } else {
+                    proceedBtn.isEnabled = false
+                }
             } else {
                 // do nothing stuff
                 ibanTextView.updateStateTo(isError: false)
@@ -294,12 +333,17 @@ class SelfAwardViewController: BaseViewController {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
             
-            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType == .cnic ? "COC" : "ACC")
+            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: "-")
             
             if transactionType == .cnic, let cnic = cnic {
                 model.beneficiaryCnic = cnic
+                model.type = "COC"
             } else if transactionType == .bank, let iban = iban {
                 model.beneficiaryCnic = iban
+                model.type = "ACC"
+            } else if transactionType == .passport, let passport = passport {
+                model.beneficiaryCnic = passport
+                model.type = "PPT"
             }
             
             service.validateTransaction(requestModel: model) {[weak self] (result) in

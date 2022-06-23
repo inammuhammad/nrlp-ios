@@ -76,11 +76,11 @@ class HomeViewModel: HomeViewModelProtocol {
                     if let accountType = data.accountType,
                        let statusCode = data.nadraStatusCode,
                        accountType == .remitter,
-                        statusCode == "A" {
+                        statusCode == "R" {
                         // showpopup
                         let alertModel = AlertViewModel(
                             alertHeadingImage: .remitterInfo,
-                            alertTitle: "Thank you for registering. Your account is in NADRA verification process and will be completed in next 48 hours. Upon verification your account will be marked active & you will be able to enjoy SDRP benefits (Loyalty Points, Transfer Points, Redemption, etc.)".localized,
+                            alertDescription: "Thank you for registering. Your account is in NADRA verification process and will be completed in next 48 hours. Upon verification your account will be marked active & you will be able to enjoy SDRP benefits (Loyalty Points, Transfer Points, Redemption, etc.)".localized,
                             primaryButton: AlertActionButtonModel(buttonTitle: "Okay".localized)
                         )
                         
