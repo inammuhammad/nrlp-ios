@@ -221,7 +221,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case textField(errorState: Bool, error: String?, textfieldType: ComplaintFormTextFieldTypes)
         case focusField(type: ComplaintFormTextFieldTypes)
         case showError(error: APIResponseError)
-        case updateRedemptionPartner(partnerName: String)
+        case updateRedemptionPartner(partner: RedemptionPartnerPickerItemModel)
         case updateTransactionType(type: String)
         case updateTransactionDate(dateStr: String)
     }
@@ -289,8 +289,12 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     }
     
     func didSelectPartner(partner: RedemptionPartnerPickerItemModel?) {
-        self.partner = partner?.title
-        output?(.updateRedemptionPartner(partnerName: partner?.title ?? ""))
+        guard let partner = partner else {
+            return
+        }
+
+        self.partner = partner.title
+        output?(.updateRedemptionPartner(partner: partner))
     }
     
     func didSelectTransactionType(type: TransactionTypesPickerItemModel?) {

@@ -155,6 +155,27 @@ class ComplaintFormViewController: BaseViewController {
         }
     }
     
+    @IBOutlet private weak var branchTextView: LabelledTextview! {
+        didSet {
+            branchTextView.titleLabelText = "Branch/Center".localized
+            // branchTextView.placeholderText = "Select Country".localized
+            branchTextView.isEditable = false
+            branchTextView.isTappable = true
+            branchTextView.showHelpBtn = true
+            branchTextView.helpLabelText = "Mention visiting Branch/Center".localized
+            branchTextView.editTextKeyboardType = .asciiCapable
+            branchTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            branchTextView.onTextFieldTapped = { [weak self] in
+                guard let self = self else { return }
+                // self.viewModel.countryTextFieldTapped()
+            }
+            branchTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
     @IBOutlet weak var transactionTypesTextView: LabelledTextview! {
         didSet {
             transactionTypesTextView.titleLabelText = "Transaction Type".localized
@@ -361,8 +382,9 @@ class ComplaintFormViewController: BaseViewController {
                 redemptionIssueTextView.inputTextFieldInputPickerView = itemPickerView
             case .showActivityIndicator(show: let show):
                 show ? ProgressHUD.show() : ProgressHUD.dismiss()
-            case .updateRedemptionPartner(partnerName: let partner):
-                redemptionIssueTextView.inputText = partner
+            case .updateRedemptionPartner(let partner):
+                redemptionIssueTextView.inputText = partner.title
+                updateRedemptionFields(for: partner)
             case .showTransactionTypes:
                 transactionTypesTextView.inputTextFieldInputPickerView = transactionTypesItemPickerView
             case .updateTransactionType(type: let type):
@@ -488,6 +510,15 @@ extension ComplaintFormViewController {
             hideAllTextFields()
         }
     }
+    
+    private func updateRedemptionFields(for partner: RedemptionPartnerPickerItemModel) {
+        // based on key
+        if partner.key == "25" {
+            branchTextView.isHidden = false
+        } else {
+            branchTextView.isHidden = true
+        }
+    }
 }
 
 // MARK: Extension - TextField Functions
@@ -521,6 +552,7 @@ extension ComplaintFormViewController {
         mobileOperatorTextView.isHidden = true
         emailAddressTextView.isHidden = true
         redemptionIssueTextView.isHidden = true
+        branchTextView.isHidden = true
         transactionTypesTextView.isHidden = true
         beneficiaryCnicTextView.isHidden = true
         beneficiaryCountryTextView.isHidden = true
