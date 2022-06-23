@@ -138,8 +138,8 @@ class SelfAwardViewController: BaseViewController {
             transactionAmountLabelTextView.helpPopupIcon = .selfAward
             transactionAmountLabelTextView.helpLabelText = "Enter exact amount as per you transaction receipt".localized
             transactionAmountLabelTextView.inputFieldMaxLength = 13
-            transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
-            transactionAmountLabelTextView.formatter = TransactionAmountFormatter()
+            transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmointDecimalRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
+            transactionAmountLabelTextView.formatter = CurrencyFormatter()
             transactionAmountLabelTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.transactionAmount = updatedText
@@ -262,7 +262,8 @@ class SelfAwardViewController: BaseViewController {
                 referenceNumber.count < 5 ||
                 referenceNumber.count > 25 ||
                 transactionAmount.isBlank ||
-                remittanceDateString.isBlank {
+                remittanceDateString.isBlank ||
+                !transactionAmount.isValid(for: RegexConstants.transactionAmointDecimalRegex) {
             proceedBtn.isEnabled = false
         } else {
             if transactionType == .cnic, !(cnic?.isBlank ?? true) {

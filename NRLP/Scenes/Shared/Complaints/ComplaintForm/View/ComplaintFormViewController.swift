@@ -282,8 +282,8 @@ class ComplaintFormViewController: BaseViewController {
             transactionAmountLabelTextView.placeholderText = "xx,xxx".localized
             transactionAmountLabelTextView.leadingText = "PKR ".localized
             transactionAmountLabelTextView.inputFieldMaxLength = 13
-            transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmountRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
-            transactionAmountLabelTextView.formatter = TransactionAmountFormatter()
+            transactionAmountLabelTextView.formatValidator = FormatValidator(regex: RegexConstants.transactionAmointDecimalRegex, invalidFormatError: StringConstants.ErrorString.transactionAmountError.localized)
+            transactionAmountLabelTextView.formatter = CurrencyFormatter()
             transactionAmountLabelTextView.onTextFieldChanged = { [weak self] updatedText in
                 guard let self = self else { return }
                 self.viewModel.transactionAmount = updatedText
