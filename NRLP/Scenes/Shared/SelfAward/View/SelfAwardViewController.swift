@@ -315,9 +315,9 @@ class SelfAwardViewController: BaseViewController {
                             self?.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Oh Snap!".localized, alertDescription: "transactionNotFoundError".localized, alertAttributedDescription: nil, primaryButton: .init(buttonTitle: "Okay".localized, buttonAction: nil), secondaryButton: nil, topTextField: nil, middleTextField: nil, bottomTextField: nil))
                         } else if response?.errorCode.lowercased() == "AUTH-SA-22".lowercased() {
                             self?.showAlert(
-                                with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Oh Snap!".localized, primaryButton: .init(buttonTitle: "Okay".localized)))
+                                with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Dear Customer, You are not eligible to perform self award transaction against previous fiscal year".localized, primaryButton: .init(buttonTitle: "Okay".localized)))
                         } else if response?.errorCode.lowercased() == "AUTH-SA-23".lowercased() {
-                            self?.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Oh Snap!".localized, primaryButton: .init(buttonTitle: "Okay".localized)))
+                            self?.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Dear Customer, You are not allowed to claim the loyalty points against the provided transaction".localized, primaryButton: .init(buttonTitle: "Okay".localized)))
                         } else {
                             self?.showAlert(with: error)
                         }
