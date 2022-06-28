@@ -485,7 +485,7 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 "Note: You can add maximum 5 receivers." = "Note: You can add maximum 5 receivers.";
 "Please enter Receiver Information" = "Please enter Receiver Information";
 "Add Receiver" = "Add Receiver";
-"USDtext" = "The Annual Remittance to-date in USD is accumulated from 1st July of each year.";
+"USDtext" = "The Annual Remittance to date in USD is accumulated from 1st July of each year.";
 "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.";
 // Add Beneficiary
 "Beneficiary Relation Type *" = "Beneficiary Relation Type *";
