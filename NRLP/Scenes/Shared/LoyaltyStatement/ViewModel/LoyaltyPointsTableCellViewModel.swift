@@ -19,7 +19,6 @@ struct LoyaltyPointsTableCellViewModel {
         return  statement.transaction_id ?? ""
     }
 
-    
     var formattedPoints: String {
         let statementPoints = statement.points.double
         let formater = PointsFormatter()
@@ -37,6 +36,6 @@ struct LoyaltyPointsTableCellViewModel {
     }
     
     mutating func getCreatedData() -> String {
-        return statement.formattedCreatedDate
+        return statement.localFormattedCreatedDate
     }
 }

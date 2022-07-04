@@ -312,6 +312,8 @@
 
 "Points Awarded" = "پوائنٹس کا حصول کامیاب ہوا";
 "Redemption Successful" = "پوائنٹس کامیابی سے استعمال ہو چکے ہیں";
+"Dear Customer, You are not eligible to perform self award transaction against previous fiscal year" = "معزز صارف، آپ پچھلے سال کی ترسیلات زر پر پوائنٹس حاصل کرنے کے اہل نہیں ہیں";
+"Dear Customer, You are not allowed to claim the loyalty points against the provided transaction" = "معزز صارف، آپ کو فراہم کردہ ترسیلات زر کے خلاف پوائنٹس حاصل کرنے کی اجازت نہیں ہے";
 
 //FBR
 "Federal Board of Revenue" = "Federal Board of Revenue";
@@ -386,9 +388,7 @@
 
 "View Sohni Dharti Remittance Program Benefits" = "سوہنی دھرتی ریمیٹینس پروگرام کے فوائد دیکھیں";
 
-"Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)" = "اپنی ترسیلات  کا حوالہ نمبر درج کریں
-
-نوٹ:  خود پوائنٹس حاصل کرنے کے لیے  صرف موجودہ سال کیی ٹرانزیکشن ہی استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";
+"Enter your remittance transaction reference number." = "اپنی ترسیلات  کا حوالہ نمبر درج کریں";
 
 "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "پاکستان میں ترسیلات زر وصول کرنے والے کی درج ذیل تفصیلات درج کریں
 1.     نقد وصول کرنے کی صورت میں  : قومی شناختی کارڈ  نمبر
@@ -498,9 +498,7 @@
 "Note: You can add maximum 5 receivers." = "نوٹ: آپ 5 وصول کنندگان کو  شامل کر سکتے ہیں";
 "Please enter Receiver Information" = "براہ کرم وصول کنندہ  کی معلومات درج کریں";
 "Add Receiver" = "وصول کنندہ شامل کریں";
-"USDtext" = "USD
-میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں تاہم موجودہ سال کے لیے اس کا اطلاق یکم اکتوبر 2021 سے ہوگا اور اسی کے مطابق آپ کی لائلٹی کیٹیگری کا حساب لگایا جائے گا۔
-";
+"USDtext" = "ہUSD میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں";
 "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "۱۔ پوائنٹس خود دینے کے لیے، براہ کرم 3 کاروباری دنوں تک انتظار کریں جب آپ کی رقم اکاؤنٹ میں جمع ہو جائے یا آپ کے وصول کنندہ کو موصول ہو جائے۔ \n\n۲۔ RDA کسٹمر صرف اس رقم کے بدلے آٹو ایوارڈنگ پوائنٹس کا اہل ہو گا جو مقامی طور پر استعمال ہوتی ہے اور اسے واپس نہیں لایا جا سکتا";
 // Add Beneficiary
 

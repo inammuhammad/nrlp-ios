@@ -26,54 +26,55 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFq-Po-87P">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="868"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="mEK-zJ-ljv">
-                                                <rect key="frame" x="20" y="20" width="374" height="758"/>
+                                                <rect key="frame" x="20" y="40" width="374" height="610"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction within 1 year is eligible for self awarding" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfY-uN-VDq">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wo6-Mt-Dbh" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="44" width="374" height="80"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="37N-9P-iPH"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-m7-W4H" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="148" width="374" height="80"/>
+                                                        <rect key="frame" x="0.0" y="104" width="374" height="80"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="gIA-2a-2f4"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-wM-EhK" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="252" width="374" height="80"/>
+                                                        <rect key="frame" x="0.0" y="208" width="374" height="80"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="TPQ-X9-uRm"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9r-JI-2Kn" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="356" width="374" height="90"/>
+                                                        <rect key="frame" x="0.0" y="312" width="374" height="90"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="90" id="6Rv-qO-k0X"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-X6-gMU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="470" width="374" height="80"/>
+                                                        <rect key="frame" x="0.0" y="426" width="374" height="80"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="8e1-XX-g8O"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szT-YK-tUw" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="574" width="374" height="80"/>
+                                                        <rect key="frame" x="0.0" y="530" width="374" height="80"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" placeholder="YES" id="g8A-45-tGn"/>
@@ -87,9 +88,14 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="pfY-uN-VDq"/>
+                                                    </mask>
+                                                </variation>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iH-Vc-mM9" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="798" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="670" width="374" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="4Xc-VP-mAo"/>
                                                 </constraints>
@@ -104,7 +110,7 @@
                                             <constraint firstItem="mEK-zJ-ljv" firstAttribute="leading" secondItem="xFq-Po-87P" secondAttribute="leading" constant="20" id="Teb-iZ-4P9"/>
                                             <constraint firstAttribute="bottom" secondItem="5iH-Vc-mM9" secondAttribute="bottom" constant="20" id="cHG-o3-pTJ"/>
                                             <constraint firstItem="5iH-Vc-mM9" firstAttribute="leading" secondItem="xFq-Po-87P" secondAttribute="leading" constant="20" id="gnc-ji-M1h"/>
-                                            <constraint firstItem="mEK-zJ-ljv" firstAttribute="top" secondItem="xFq-Po-87P" secondAttribute="top" constant="20" id="qFg-zd-7ce"/>
+                                            <constraint firstItem="mEK-zJ-ljv" firstAttribute="top" secondItem="xFq-Po-87P" secondAttribute="top" constant="40" id="qFg-zd-7ce"/>
                                         </constraints>
                                     </view>
                                 </subviews>

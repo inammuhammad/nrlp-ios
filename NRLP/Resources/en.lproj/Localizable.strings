@@ -301,7 +301,8 @@
 
 "Points Awarded" = "Points Awarded";
 "Redemption Successful" = "Redemption Successful";
-
+"Dear Customer, You are not eligible to perform self award transaction against previous fiscal year" = "Dear Customer, You are not eligible to perform self award transaction against previous fiscal year";
+"Dear Customer, You are not allowed to claim the loyalty points against the provided transaction" = "Dear Customer, You are not allowed to claim the loyalty points against the provided transaction";
 //FBR
 "Federal Board of Revenue" = "Federal Board of Revenue";
 "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID,please continue." = "To redeem your points for NRLP Benefits offered by FBR, please visit www.fbr.gov.pk to generate Payment Slip ID (PSID) for your selected service.\n\nIf you already have a PSID,please continue.";
@@ -375,8 +376,7 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 
 "View Sohni Dharti Remittance Program Benefits" = "View Sohni Dharti Remittance Program Benefits";
 
-"Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)" = "Enter your remittance transaction reference number.
-Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)";
+"Enter your remittance transaction reference number." = "Enter your remittance transaction reference number.";
 
 
 "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "Please enter following details of remittance receiver in Pakistan
@@ -486,7 +486,7 @@ Note: (Current year Transaction can only be used for Self-Awarding, applicable f
 "Note: You can add maximum 5 receivers." = "Note: You can add maximum 5 receivers.";
 "Please enter Receiver Information" = "Please enter Receiver Information";
 "Add Receiver" = "Add Receiver";
-"USDtext" = "The Annual Remittance to-date in USD is accumulated from 1st July of each year, however for current year it shall be applicable from 1st October 2021 and your loyalty category will be calculated accordingly. For further details please visit FAQs";
+"USDtext" = "The Annual Remittance to date in USD is accumulated from 1st July of each year.";
 "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated.";
 // Add Beneficiary
 "Beneficiary Relation Type *" = "Beneficiary Relation Type *";
