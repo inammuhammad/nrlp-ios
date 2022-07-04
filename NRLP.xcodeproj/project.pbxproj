@@ -561,6 +561,9 @@
 		BC7E7E9B24C068590026F341 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */; };
 		BC7E7E9D24C068C10026F341 /* CustomDatePickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */; };
 		DB14608728127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */; };
+		DB191C0F2872FDDD00C5BBB3 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */; };
+		DB191C112872FDEA00C5BBB3 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */; };
+		DB191C142873029100C5BBB3 /* PopupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C132873029100C5BBB3 /* PopupEntity.swift */; };
 		DB45B82B2869F09E00CC932D /* sni-cloudflaressl-com-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8262869F09E00CC932D /* sni-cloudflaressl-com-dev.der */; };
 		DB45B82C2869F09E00CC932D /* sni-cloudflaressl-com-chain.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8272869F09E00CC932D /* sni-cloudflaressl-com-chain.der */; };
 		DB45B82D2869F09E00CC932D /* sni-cloudflaressl-com.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8282869F09E00CC932D /* sni-cloudflaressl-com.der */; };
@@ -1347,6 +1350,9 @@
 		BC7E7E9A24C068590026F341 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerViewModel.swift; sourceTree = "<group>"; };
 		DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		DB191C132873029100C5BBB3 /* PopupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEntity.swift; sourceTree = "<group>"; };
 		DB45B8262869F09E00CC932D /* sni-cloudflaressl-com-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-dev.der"; sourceTree = "<group>"; };
 		DB45B8272869F09E00CC932D /* sni-cloudflaressl-com-chain.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain.der"; sourceTree = "<group>"; };
 		DB45B8282869F09E00CC932D /* sni-cloudflaressl-com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com.der"; sourceTree = "<group>"; };
@@ -4474,6 +4480,7 @@
 		A1B9A1E724B3004F00CAAA32 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DB191C0C2872F20900C5BBB3 /* Popup */,
 				E111C89727D6929700D185CD /* BankListing */,
 				E1E5F83527A0724400413FB4 /* Complaints */,
 				E1FE16CA2784631A0062D4E6 /* NadraVerificationCompleted */,
@@ -4560,8 +4567,6 @@
 			children = (
 				204A6BD624BC218C001E4E74 /* NetworkLayer */,
 				20D8401824B4328100F5D749 /* DataStores */,
-				A1B9A1F824B303AB00CAAA32 /* Entities */,
-				A1B9A1F724B303A100CAAA32 /* API */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -4589,20 +4594,6 @@
 				20D8401224B4321600F5D749 /* Models */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		A1B9A1F724B303A100CAAA32 /* API */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = API;
-			sourceTree = "<group>";
-		};
-		A1B9A1F824B303AB00CAAA32 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		A1B9A1F924B303EA00CAAA32 /* View */ = {
@@ -4781,6 +4772,32 @@
 				BC7E7E9C24C068C10026F341 /* CustomDatePickerViewModel.swift */,
 			);
 			path = CustomDatePickerView;
+			sourceTree = "<group>";
+		};
+		DB191C0C2872F20900C5BBB3 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C122873027700C5BBB3 /* Entity */,
+				DB191C0D2872F21A00C5BBB3 /* View */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		DB191C0D2872F21A00C5BBB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */,
+				DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB191C122873027700C5BBB3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C132873029100C5BBB3 /* PopupEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		DB9E3E8328057F4200B1F842 /* RedeemRating */ = {
@@ -6192,6 +6209,7 @@
 				200E4A3524CF2AF90058D195 /* FAQ.storyboard in Resources */,
 				208EF7F124E144C600E43B0B /* ChangePassword.storyboard in Resources */,
 				A1B9A22424B307BB00CAAA32 /* Login.storyboard in Resources */,
+				DB191C0F2872FDDD00C5BBB3 /* Popup.storyboard in Resources */,
 				207D5E6824BC60DF00222594 /* HPSimplified-italic.ttf in Resources */,
 				20AC740D24EEC3D60094D3C1 /* MarkaziText-Bold.ttf in Resources */,
 				200F1A0C24BEC23A001411D9 /* SideMenu.storyboard in Resources */,
@@ -6802,6 +6820,7 @@
 				E15BF31F277B37BB0038EA81 /* CityService.swift in Sources */,
 				2030724E24C9F58200C0DC67 /* RadialGradientLayer.swift in Sources */,
 				DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */,
+				DB191C112872FDEA00C5BBB3 /* PopupViewController.swift in Sources */,
 				204A6BD224B82FF2001E4E74 /* OTPService.swift in Sources */,
 				207C3DA124B5B01400298C0C /* AccountTypePickerItemModel.swift in Sources */,
 				E1E1EF1327A2CF7500D69EAD /* PaddedTextArea.swift in Sources */,
@@ -7050,6 +7069,7 @@
 				E114C31627A43B7100697D73 /* ComplaintSuccessViewController.swift in Sources */,
 				9F8565C924BF4388001B68CE /* LoyaltyPointsViewController.swift in Sources */,
 				9FF5D87324B59750001A5417 /* CountryCodesModel.swift in Sources */,
+				DB191C142873029100C5BBB3 /* PopupEntity.swift in Sources */,
 				9FC6F84324CB404D00ADA038 /* LoyaltyPartner.swift in Sources */,
 				E122CDAD26FD400400BEAE18 /* RedemptionOTPViewModel.swift in Sources */,
 				207C3DA324B5B06D00298C0C /* AccountType.swift in Sources */,

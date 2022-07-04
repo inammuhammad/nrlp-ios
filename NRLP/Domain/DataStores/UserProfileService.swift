@@ -11,6 +11,7 @@ import Foundation
 typealias UserProfileServiceCompletionHandler = (Result<UserProfileResponseModel, APIResponseError>) -> Void
 typealias UpdateProfileServiceCompletionHandler = (Result<UpdateProfileSendOTPResponseModel, APIResponseError>) -> Void
 typealias UpdateProfileVerifyOTPCompletionHandler = (Result<UpdateProfileVerifyOTPResponseModel, APIResponseError>) -> Void
+typealias PopupCompletionHandler = (Result<PopupResponseModel, APIResponseError>) -> Void
 
 protocol UserProfileServiceProtocol {
 
@@ -20,6 +21,7 @@ protocol UserProfileServiceProtocol {
     func updateUserResendOTP(requestModel: UpdateProfileSendOTPRequestModel, responseHandler: @escaping UpdateProfileServiceCompletionHandler)
     func verifyProfile(requestModel: UpdateProfileVerificationRequestModel, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler)
     func updateProfile(requestModel: UpdateProfileSendOTPRequestModel, responseHandler: @escaping UpdateProfileVerifyOTPCompletionHandler)
+    func popupWindow(requestModel: PopupRequestModel, responseHandler: @escaping PopupCompletionHandler)
 }
 
 extension UserProfileServiceProtocol {
@@ -93,5 +95,12 @@ class UserProfileService: BaseDataStore, UserProfileServiceProtocol {
             responseHandler(response.result)
         }
     }
+    
+    func popupWindow(requestModel: PopupRequestModel, responseHandler: @escaping PopupCompletionHandler) {
+        let request = RequestBuilder(path: .init(endPoint: .popupWindow), parameters: requestModel)
 
+        networking.post(request: request) { (response: APIResponse<PopupResponseModel>) in
+            responseHandler(response.result)
+        }
+    }
 }
