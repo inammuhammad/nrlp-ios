@@ -564,6 +564,9 @@
 		DB191C0F2872FDDD00C5BBB3 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */; };
 		DB191C112872FDEA00C5BBB3 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */; };
 		DB191C142873029100C5BBB3 /* PopupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C132873029100C5BBB3 /* PopupEntity.swift */; };
+		DB191C17287329D500C5BBB3 /* PopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C16287329D500C5BBB3 /* PopupViewModel.swift */; };
+		DB191C1A28732A6800C5BBB3 /* PopupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C1928732A6800C5BBB3 /* PopupRouter.swift */; };
+		DB191C1D28732AAB00C5BBB3 /* PopupBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C1C28732AAB00C5BBB3 /* PopupBuilder.swift */; };
 		DB45B82B2869F09E00CC932D /* sni-cloudflaressl-com-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8262869F09E00CC932D /* sni-cloudflaressl-com-dev.der */; };
 		DB45B82C2869F09E00CC932D /* sni-cloudflaressl-com-chain.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8272869F09E00CC932D /* sni-cloudflaressl-com-chain.der */; };
 		DB45B82D2869F09E00CC932D /* sni-cloudflaressl-com.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8282869F09E00CC932D /* sni-cloudflaressl-com.der */; };
@@ -1353,6 +1356,9 @@
 		DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 		DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		DB191C132873029100C5BBB3 /* PopupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEntity.swift; sourceTree = "<group>"; };
+		DB191C16287329D500C5BBB3 /* PopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewModel.swift; sourceTree = "<group>"; };
+		DB191C1928732A6800C5BBB3 /* PopupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupRouter.swift; sourceTree = "<group>"; };
+		DB191C1C28732AAB00C5BBB3 /* PopupBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBuilder.swift; sourceTree = "<group>"; };
 		DB45B8262869F09E00CC932D /* sni-cloudflaressl-com-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-dev.der"; sourceTree = "<group>"; };
 		DB45B8272869F09E00CC932D /* sni-cloudflaressl-com-chain.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain.der"; sourceTree = "<group>"; };
 		DB45B8282869F09E00CC932D /* sni-cloudflaressl-com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com.der"; sourceTree = "<group>"; };
@@ -4777,6 +4783,9 @@
 		DB191C0C2872F20900C5BBB3 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
+				DB191C1B28732A9D00C5BBB3 /* Builder */,
+				DB191C1828732A5D00C5BBB3 /* Router */,
+				DB191C15287329C300C5BBB3 /* ViewModel */,
 				DB191C122873027700C5BBB3 /* Entity */,
 				DB191C0D2872F21A00C5BBB3 /* View */,
 			);
@@ -4798,6 +4807,30 @@
 				DB191C132873029100C5BBB3 /* PopupEntity.swift */,
 			);
 			path = Entity;
+			sourceTree = "<group>";
+		};
+		DB191C15287329C300C5BBB3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C16287329D500C5BBB3 /* PopupViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DB191C1828732A5D00C5BBB3 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C1928732A6800C5BBB3 /* PopupRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DB191C1B28732A9D00C5BBB3 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C1C28732AAB00C5BBB3 /* PopupBuilder.swift */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		DB9E3E8328057F4200B1F842 /* RedeemRating */ = {
@@ -6737,6 +6770,7 @@
 				9F8565DC24C027BF001B68CE /* ChangePasswordModel.swift in Sources */,
 				9F8D821B24C6F8EC00BB1C26 /* LoyaltyPointsModel.swift in Sources */,
 				E111C8AA27D6AA0600D185CD /* BankListingModel.swift in Sources */,
+				DB191C1A28732A6800C5BBB3 /* PopupRouter.swift in Sources */,
 				207C3DEB24B6F89E00298C0C /* AlertViewModel.swift in Sources */,
 				202BDDA424BD753B00335DBB /* BaseDataStore.swift in Sources */,
 				207C3E2B24B834CD00298C0C /* HomeCellCardType.swift in Sources */,
@@ -6980,6 +7014,7 @@
 				2068912D25D507D50076A437 /* RequestKeyGenerator.swift in Sources */,
 				E114C31827A43CD100697D73 /* ComplaintSuccessViewModel.swift in Sources */,
 				207C3DC024B5C08B00298C0C /* TermsAndConditionsRouter.swift in Sources */,
+				DB191C1D28732AAB00C5BBB3 /* PopupBuilder.swift in Sources */,
 				E1FE16AD27832D240062D4E6 /* NadraVerificationViewController.swift in Sources */,
 				20901BEB24FFC29A00D13931 /* NRLPPartners.swift in Sources */,
 				9F8565CB24BF43CE001B68CE /* LoyaltyPointsBuilder.swift in Sources */,
@@ -7004,6 +7039,7 @@
 				2073D2A624C043DC00897232 /* EncodableExtensions.swift in Sources */,
 				203238F125E8C58D00F045E7 /* Data+Extension.swift in Sources */,
 				E18454D72774859F00FE5793 /* BeneficiaryFormViewController.swift in Sources */,
+				DB191C17287329D500C5BBB3 /* PopupViewModel.swift in Sources */,
 				E1995E1227C2FD0500B44793 /* ReceiverFormRouter.swift in Sources */,
 				E1995E0E27C2F6B300B44793 /* ReceiverFormViewController.swift in Sources */,
 				2046B91B24D9556500E2C4CB /* SideMenuTableViewCell.swift in Sources */,

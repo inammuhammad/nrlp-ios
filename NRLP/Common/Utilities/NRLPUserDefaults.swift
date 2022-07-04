@@ -16,6 +16,7 @@ class NRLPUserDefaults {
         case maxInActiveDuration
         case maxBeneficiariesAllowed
         case receiverManagementSkipped
+        case popupWindowSkipped
     }
     
     static let shared = NRLPUserDefaults()
@@ -100,6 +101,15 @@ class NRLPUserDefaults {
     
     func receiverManagemntSkipped(_ skipped: Bool) {
         userDefaults.set(skipped, forKey: UserDefaultKeys.receiverManagementSkipped.rawValue)
+    }
+    
+    func popupWindowSkipped() -> Bool {
+        return userDefaults.bool(forKey: UserDefaultKeys.popupWindowSkipped.rawValue)
+    }
+    
+    func popupWindowSkipped(_ skipped: Bool) {
+        userDefaults.set(skipped, forKey: UserDefaultKeys.popupWindowSkipped.rawValue)
+        userDefaults.synchronize()
     }
 }
 

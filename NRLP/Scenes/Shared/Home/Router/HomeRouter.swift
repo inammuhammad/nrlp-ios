@@ -90,4 +90,11 @@ class HomeRouter {
         self.navigationController?.pushViewController(ReceiverLandingBuilder().build(with: self.navigationController), animated: true)
     }
     
+    func navigateToPopupScreen(with data: PopupResponseModel) {
+        let vc = PopupBuilder().build(with: self.navigationController, model: data)
+        vc.modalPresentationStyle = .currentContext
+        vc.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(vc, animated: true)
+    }
+    
 }

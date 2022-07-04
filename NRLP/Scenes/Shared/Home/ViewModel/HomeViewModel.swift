@@ -69,14 +69,10 @@ class HomeViewModel: HomeViewModelProtocol {
                 if let data = response.data {
                     self?.userModel.update(from: data)
                     self?.checkNadraVerificationStatus()
+                    self?.checkPopupWindow()
                     self?.checkReceiverManagement()
                     self?.setupCollectionViewData()
                     self?.output?(.reloadCollectionView)
-                    
-                    
-                    self?.userProfileService.popupWindow(requestModel: PopupRequestModel(custType: data.accountType?.rawValue ?? "-", accountStatus: data.nadraStatusCode ?? "-"), responseHandler: { response in
-                        print("-=-=-=-=-=-=-=-=")
-                    })
                 }
             case .failure(let error):
                 print("Request Fail With Error: \(error)")
@@ -172,6 +168,25 @@ class HomeViewModel: HomeViewModelProtocol {
            !NRLPUserDefaults.shared.receiverManagemntSkipped(),
            !(userModel.accountType == .beneficiary) {
             self.router.navigateToRemitterReceiverManagement(showListing: false)
+        }
+    }
+    
+    private func checkPopupWindow() {
+        if !NRLPUserDefaults.shared.popupWindowSkipped() {
+            let model = PopupRequestModel(
+                custType: userModel.accountType?.rawValue ?? "-",
+                accountStatus: userModel.nadraStatusCode ?? "-"
+            )
+            
+            self.userProfileService.popupWindow(requestModel: model, responseHandler: { response in
+                switch response {
+                    
+                case .success(let data):
+                    self.router.navigateToPopupScreen(with: data)
+                case .failure(_):
+                    break
+                }
+            })
         }
     }
     

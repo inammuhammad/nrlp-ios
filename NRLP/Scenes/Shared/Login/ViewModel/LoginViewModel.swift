@@ -95,6 +95,7 @@ class LoginViewModel: LoginViewModelProtocol {
             output?(.jailBroken)
         }
         NRLPUserDefaults.shared.receiverManagemntSkipped(false)
+        NRLPUserDefaults.shared.popupWindowSkipped(false)
     }
     
     func viewWillAppear() {
