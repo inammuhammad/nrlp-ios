@@ -27,5 +27,9 @@ enum ComplaintFormTextFieldTypes {
     case redemptionIssue
     case transactionType
     case specifyDetails
+    case selfAwardTransactionType
+    case iban
+    case selfAwardCnic
+    case passport
     
 }

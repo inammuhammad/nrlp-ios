@@ -30,6 +30,10 @@ protocol ComplaintFormViewModelProtocol {
     var transactionID: String? { get set }
     var transactionDate: Date? { get set }
     var transactionAmount: String? { get set }
+    var selfAwardTransactionType: TransactionType? { get set}
+    
+    var iban: String? { get set }
+    var passport: String? { get set }
     
     var partnerPickerViewModel: ItemPickerViewModel { get }
     var transactionTypesPickerViewModel: ItemPickerViewModel { get }
@@ -120,6 +124,12 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
+    var selfAwardTransactionType: TransactionType? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var beneficiaryCnic: String? {
         didSet {
             validateRequiredFields()
@@ -151,6 +161,18 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
+    var iban: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var passport: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var partnerPickerViewModel: ItemPickerViewModel {
         if complaintType == .redemptionIssues {
             var dataArray: [PickerItemModel] = []
@@ -158,6 +180,23 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
                 dataArray.append(RedemptionPartnerPickerItemModel(title: partner.partnerName, key: "\(partner.id)"))
             }
             return ItemPickerViewModel(data: dataArray)
+        } else if complaintType == .unableToSelfAwardPoints {
+            return ItemPickerViewModel(
+                data: [
+                    TransactionTypePickerItemModel(
+                        title: TransactionType.cnic.getTitle(),
+                        key: TransactionType.cnic.rawValue
+                    ),
+                    TransactionTypePickerItemModel(
+                        title: TransactionType.bank.getTitle(),
+                        key: TransactionType.bank.rawValue
+                    ),
+                    TransactionTypePickerItemModel(
+                        title: TransactionType.passport.getTitle(),
+                        key: TransactionType.passport.rawValue
+                    )
+                ]
+            )
         }
         return ItemPickerViewModel(data: [])
     }
@@ -224,6 +263,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case updateRedemptionPartner(partner: RedemptionPartnerPickerItemModel)
         case updateTransactionType(type: String)
         case updateTransactionDate(dateStr: String)
+        case updateSelfAwardTransactionType(type: TransactionType?)
     }
     
     // MARK: Lifecycle Methods
@@ -292,7 +332,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         guard let partner = partner else {
             return
         }
-
+        
         self.partner = partner.title
         output?(.updateRedemptionPartner(partner: partner))
     }
@@ -300,6 +340,11 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     func didSelectTransactionType(type: TransactionTypesPickerItemModel?) {
         self.transactionType = type?.title
         output?(.updateTransactionType(type: type?.title.localized ?? ""))
+    }
+    
+    func didSelectSelfAwardTransactionType(type: TransactionTypePickerItemModel?) {
+        self.selfAwardTransactionType = type?.transactionType
+        output?(.updateSelfAwardTransactionType(type: selfAwardTransactionType))
     }
     
     deinit {
@@ -407,14 +452,14 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
 }
-    
+
 // MARK: Extension - Validations
 
 extension ComplaintFormViewModel {
     private func validateRequiredFields() {
         
         switch complaintType {
-    
+            
         case .unableToRegister:
             validateUnableToRegisterComplaint()
         case .unableToReceiveRegistrationCode:
@@ -446,7 +491,7 @@ extension ComplaintFormViewModel {
     
     private func validateUnableToRegisterComplaintRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
         var isValid: Bool = true
-
+        
         var errorTopField: ComplaintFormTextFieldTypes?
         
         if name?.isValid(for: RegexConstants.nameRegex) ?? false {
@@ -464,14 +509,14 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .cnic
         }
-
+        
         if country != nil {
             output?(.textField(errorState: false, error: nil, textfieldType: .country))
         } else {
             output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .country))
             isValid = false
         }
-
+        
         if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .mobileNumber))
         } else {
@@ -479,7 +524,7 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .mobileNumber
         }
-
+        
         if email == nil || email?.isEmpty ?? true || email?.isValid(for: RegexConstants.emailRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .email))
         } else {
@@ -495,7 +540,7 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .specifyDetails
         }
-
+        
         return (isValid, errorTopField)
     }
     
@@ -557,14 +602,14 @@ extension ComplaintFormViewModel {
                     errorTopField = errorTopField ?? .fullName
                 }
             }
-
+            
             if country != nil {
                 output?(.textField(errorState: false, error: nil, textfieldType: .country))
             } else {
                 output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .country))
                 isValid = false
             }
-
+            
             if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
                 output?(.textField(errorState: false, error: nil, textfieldType: .mobileNumber))
             } else {
@@ -572,7 +617,7 @@ extension ComplaintFormViewModel {
                 isValid = false
                 errorTopField = errorTopField ?? .mobileNumber
             }
-
+            
             if mobileOperator != nil || mobileOperator?.isEmpty ?? true {
                 output?(.textField(errorState: false, error: nil, textfieldType: .mobileOperatorName))
             } else {
@@ -591,7 +636,7 @@ extension ComplaintFormViewModel {
         }
         
         return (isValid, errorTopField)
-
+        
     }
     
     // MARK: Validation - Others
@@ -620,7 +665,7 @@ extension ComplaintFormViewModel {
                 isValid = false
                 errorTopField = errorTopField ?? .specifyDetails
             }
-
+            
             return (isValid, errorTopField)
         }
         return validateUnableToRegisterComplaintRegex()
@@ -665,7 +710,7 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .beneficiaryCountry
         }
-
+        
         if beneficiaryCountry != nil && beneficiaryMobileNo?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .beneficiraryMobieNo))
         } else {
@@ -673,7 +718,7 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .beneficiraryMobieNo
         }
-
+        
         if beneficiaryMobileOperator != nil || beneficiaryMobileOperator?.isEmpty ?? true {
             output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryMobileOperator))
         } else {
@@ -712,8 +757,8 @@ extension ComplaintFormViewModel {
     
     // MARK: Validation - Unable to Self Award Points
     
-    private func validateUnableToSelfAwardPoints() {
-        guard let beneficiaryCnic = beneficiaryCnic,
+    private func validateUnableToSelfAwardPoints() {        
+        guard let transactionType = selfAwardTransactionType,
               let remittanceEntity = remittanceEntity,
               let transactionID = transactionID,
               let transactionDateString = transactionDateString,
@@ -723,18 +768,43 @@ extension ComplaintFormViewModel {
             return
         }
         
-        if beneficiaryCnic.isBlank ||
-            remittanceEntity.isBlank ||
+        if remittanceEntity.isBlank ||
             transactionID.isBlank ||
             transactionID.count < 5 ||
             transactionID.count > 25 ||
             transactionDateString.isBlank ||
             transactionAmount.isBlank ||
-            !transactionAmount.isValid(for: RegexConstants.transactionAmointDecimalRegex) ||
-            !beneficiaryCnic.isValid(for: RegexConstants.alphanuericRegex) {
+            !transactionAmount.isValid(for: RegexConstants.transactionAmointDecimalRegex) {
             output?(.nextButtonState(state: false))
         } else {
-            output?(.nextButtonState(state: true))
+            
+            // validate transaction type as selected
+            if transactionType == .cnic, !(cnic?.isBlank ?? true) {
+                // do cnic stuff
+                if !(cnic?.isBlank ?? true), cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+                    output?(.nextButtonState(state: true))
+                } else {
+                    output?(.nextButtonState(state: false))
+                }
+                
+            } else if transactionType == .bank, !(iban?.isBlank ?? true) {
+                // do bank stuff
+                if !(iban?.isBlank ?? true), iban?.isValid(for: RegexConstants.ibanRegex) ?? false {
+                    output?(.nextButtonState(state: true))
+                } else {
+                    output?(.nextButtonState(state: false))
+                }
+            } else if transactionType == .passport {
+                // do passport stuff
+                if !(passport?.isBlank ?? true), passport?.isValid(for: RegexConstants.passportRegex) ?? false {
+                    output?(.nextButtonState(state: true))
+                } else {
+                    output?(.nextButtonState(state: false))
+                }
+            } else {
+                // do nothing stuff
+                output?(.nextButtonState(state: false))
+            }
         }
     }
     
@@ -742,12 +812,41 @@ extension ComplaintFormViewModel {
         var isValid: Bool = true
         var errorTopField: ComplaintFormTextFieldTypes?
         
-        if !(beneficiaryCnic?.isBlank ?? true) {
-            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryAccount))
+        if let transactionType = selfAwardTransactionType {
+            // validate transaction type as selected
+            if transactionType == .cnic, !(cnic?.isBlank ?? true) {
+                // do cnic stuff
+                if !(cnic?.isBlank ?? true), cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+
+                } else {
+                    output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .selfAwardCnic))
+                    isValid = false
+                    errorTopField = errorTopField ?? .selfAwardCnic
+                }
+                
+            } else if transactionType == .bank, !(iban?.isBlank ?? true) {
+                // do bank stuff
+                if !(iban?.isBlank ?? true), iban?.isValid(for: RegexConstants.ibanRegex) ?? false {
+
+                } else {
+                    output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .iban))
+                    isValid = false
+                    errorTopField = errorTopField ?? .iban
+                }
+            } else if transactionType == .passport {
+                // do passport stuff
+                if !(passport?.isBlank ?? true), passport?.isValid(for: RegexConstants.passportRegex) ?? false {
+
+                } else {
+                    output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .passport))
+                    isValid = false
+                    errorTopField = errorTopField ?? .passport
+                }
+            }
         } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .beneficiaryAccount))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .selfAwardTransactionType))
             isValid = false
-            errorTopField = errorTopField ?? .beneficiaryAccount
+            errorTopField = errorTopField ?? .selfAwardTransactionType
         }
         
         if remittanceEntity != nil {
