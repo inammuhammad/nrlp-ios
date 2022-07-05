@@ -12,12 +12,7 @@ class ComplaintFormViewController: BaseViewController {
     // MARK: Properties
     
     var viewModel: ComplaintFormViewModel!
-    private lazy var itemPickerView: ItemPickerView! = {
-        var pickerView = ItemPickerView()
-        pickerView.toolbarDelegate = self
-        pickerView.viewModel = viewModel.partnerPickerViewModel
-        return pickerView
-    }()
+    
     private lazy var transactionTypesItemPickerView: ItemPickerView! = {
         var pickerView = ItemPickerView()
         pickerView.toolbarDelegate = self
@@ -194,7 +189,7 @@ class ComplaintFormViewController: BaseViewController {
             selfAwardTransactionTypeTextView.helpPopupIcon = .selfAward
             selfAwardTransactionTypeTextView.helpLabelText = "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent".localized
             selfAwardTransactionTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
-            selfAwardTransactionTypeTextView.inputTextFieldInputPickerView = itemPickerView
+            selfAwardTransactionTypeTextView.inputTextFieldInputPickerView = self.getItemPickerView()
             selfAwardTransactionTypeTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
                 self.showAlert(with: model)
@@ -450,7 +445,7 @@ class ComplaintFormViewController: BaseViewController {
             case .showError(error: let error):
                 self.showAlert(with: error)
             case .showRedemptionPartners:
-                redemptionIssueTextView.inputTextFieldInputPickerView = itemPickerView
+                redemptionIssueTextView.inputTextFieldInputPickerView = self.getItemPickerView()
             case .showActivityIndicator(show: let show):
                 show ? ProgressHUD.show() : ProgressHUD.dismiss()
             case .updateRedemptionPartner(let partner):
@@ -620,6 +615,13 @@ extension ComplaintFormViewController {
             passportNumberTextView.isHidden = false
         }
         
+    }
+    
+    private func getItemPickerView() -> ItemPickerView {
+        var pickerView = ItemPickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = viewModel.partnerPickerViewModel
+        return pickerView
     }
 }
 

@@ -415,27 +415,47 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         if let country = self.country, let mobileNumber = self.mobileNumber {
             newMobileNumber = "\(country.code)\(mobileNumber)"
         }
+        
+        var saTransactionType: String?
+        var saValue: String?
+        
+        if let selfAwardTransactionType = selfAwardTransactionType {
+            switch selfAwardTransactionType {
+            case .cnic:
+                saTransactionType = "COC"
+                saValue = cnic
+            case .bank:
+                saTransactionType = "ACC"
+                saValue = iban
+            case .passport:
+                saTransactionType = "PPT"
+                saValue = passport
+            }
+        }
+        
         let registered = loginState == .loggedIn ? 1 : 0
-        let requestModel = ComplaintRequestModel(registered: registered,
-                                                 userType: self.userType.rawValue,
-                                                 complaintTypeID: self.complaintType.getComplaintTypeCode(),
-                                                 mobileNo: self.currentUser?.mobileNo ?? newMobileNumber,
-                                                 email: self.currentUser?.email ?? self.email,
-                                                 countryOfResidence: self.currentUser?.countryName ?? self.country?.country,
-                                                 mobileOperatorName: self.mobileOperator,
-                                                 name: self.currentUser?.fullName ?? self.name,
-                                                 cnic: self.currentUser?.cnicNicop.toString() ?? self.cnic,
-                                                 transactionType: self.transactionType,
-                                                 beneficiaryCnic: self.beneficiaryCnic,
-                                                 beneficiaryCountryOfResidence: self.beneficiaryCountry?.country,
-                                                 beneficiaryMobileNo: beneficiaryMobile,
-                                                 beneficiaryMobileOperatorName: self.beneficiaryMobileOperator,
-                                                 remittingEntity: self.remittanceEntity,
-                                                 transactionID: self.transactionID,
-                                                 transactionDate: self.transactionDateString,
-                                                 transactionAmount: self.transactionAmount,
-                                                 redemptionPartners: self.partner,
-                                                 comments: self.specifyDetails)
+        let requestModel = ComplaintRequestModel(
+            registered: registered,
+            userType: self.userType.rawValue,
+            complaintTypeID: self.complaintType.getComplaintTypeCode(),
+            mobileNo: self.currentUser?.mobileNo ?? newMobileNumber,
+            email: self.currentUser?.email ?? self.email,
+            countryOfResidence: self.currentUser?.countryName ?? self.country?.country,
+            mobileOperatorName: self.mobileOperator,
+            name: self.currentUser?.fullName ?? self.name,
+            cnic: self.currentUser?.cnicNicop.toString() ?? self.cnic,
+            transactionType: complaintType == .unableToSelfAwardPoints ? saTransactionType ?? "-" : self.transactionType,
+            beneficiaryCnic: complaintType == .unableToSelfAwardPoints ? saValue ?? "-" : self.beneficiaryCnic,
+            beneficiaryCountryOfResidence: self.beneficiaryCountry?.country,
+            beneficiaryMobileNo: beneficiaryMobile,
+            beneficiaryMobileOperatorName: self.beneficiaryMobileOperator,
+            remittingEntity: self.remittanceEntity,
+            transactionID: self.transactionID,
+            transactionDate: self.transactionDateString,
+            transactionAmount: self.transactionAmount,
+            redemptionPartners: self.partner,
+            comments: self.specifyDetails
+        )
         return requestModel
     }
     
@@ -757,7 +777,7 @@ extension ComplaintFormViewModel {
     
     // MARK: Validation - Unable to Self Award Points
     
-    private func validateUnableToSelfAwardPoints() {        
+    private func validateUnableToSelfAwardPoints() {
         guard let transactionType = selfAwardTransactionType,
               let remittanceEntity = remittanceEntity,
               let transactionID = transactionID,
@@ -817,7 +837,7 @@ extension ComplaintFormViewModel {
             if transactionType == .cnic, !(cnic?.isBlank ?? true) {
                 // do cnic stuff
                 if !(cnic?.isBlank ?? true), cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
-
+                    
                 } else {
                     output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .selfAwardCnic))
                     isValid = false
@@ -827,7 +847,7 @@ extension ComplaintFormViewModel {
             } else if transactionType == .bank, !(iban?.isBlank ?? true) {
                 // do bank stuff
                 if !(iban?.isBlank ?? true), iban?.isValid(for: RegexConstants.ibanRegex) ?? false {
-
+                    
                 } else {
                     output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .iban))
                     isValid = false
@@ -836,7 +856,7 @@ extension ComplaintFormViewModel {
             } else if transactionType == .passport {
                 // do passport stuff
                 if !(passport?.isBlank ?? true), passport?.isValid(for: RegexConstants.passportRegex) ?? false {
-
+                    
                 } else {
                     output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .passport))
                     isValid = false
