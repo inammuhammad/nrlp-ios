@@ -31,5 +31,7 @@ enum ComplaintFormTextFieldTypes {
     case iban
     case selfAwardCnic
     case passport
-    
+    case branchCenter
+    case redemptionMobileNumber
+    case redemptionCountry
 }

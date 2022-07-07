@@ -148,12 +148,33 @@ class ComplaintFormViewController: BaseViewController {
             redemptionIssueTextView.editTextCursorColor = .init(white: 1, alpha: 0)
         }
     }
+    
+    @IBOutlet private weak var redemptionCountryTextView: LabelledTextview! {
+        didSet {
+            redemptionCountryTextView.titleLabelText = "Country".localized
+            redemptionCountryTextView.placeholderText = "Select Country".localized
+            redemptionCountryTextView.isEditable = false
+            redemptionCountryTextView.isTappable = true
+            redemptionCountryTextView.editTextKeyboardType = .asciiCapable
+            redemptionCountryTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            redemptionCountryTextView.onTextFieldTapped = { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.countryTextFieldTapped(isBeneficiary: false)
+            }
+            redemptionCountryTextView.showHelpBtn = true
+            redemptionCountryTextView.helpLabelText = "Mention the country from where the service was applied".localized
+            redemptionCountryTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
         
     // Branch Center for USC and BE&OE
     @IBOutlet private weak var branchTextView: LabelledTextview! {
         didSet {
             branchTextView.titleLabelText = "Branch/Center".localized
-            // branchTextView.placeholderText = "Select Country".localized
+             branchTextView.placeholderText = "Select Branch/Center".localized
             branchTextView.isEditable = false
             branchTextView.isTappable = true
             branchTextView.showHelpBtn = true
@@ -162,9 +183,30 @@ class ComplaintFormViewController: BaseViewController {
             branchTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             branchTextView.onTextFieldTapped = { [weak self] in
                 guard let self = self else { return }
-                // self.viewModel.countryTextFieldTapped()
+                self.viewModel.branchTextFieldTapped()
             }
             branchTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
+    @IBOutlet private weak var redemptionMobileTextView: LabelledTextview! {
+        didSet {
+            redemptionMobileTextView.titleLabelText = "Mobile Number".localized
+            redemptionMobileTextView.placeholderText = "xxx xxx xxxx".localized
+            redemptionMobileTextView.editTextKeyboardType = .asciiCapableNumberPad
+            redemptionMobileTextView.isEditable = true
+            redemptionMobileTextView.leadingText = "+92 - "
+            redemptionMobileTextView.inputFieldMaxLength = 10
+            redemptionMobileTextView.formatValidator = FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError.localized)
+            redemptionMobileTextView.onTextFieldChanged = { [weak self] updatedText in
+                self?.viewModel.mobileNumber = updatedText
+            }
+            redemptionMobileTextView.showHelpBtn = true
+            redemptionMobileTextView.helpLabelText = "Enter Pakistan Mobile Number".localized
+            redemptionMobileTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
                 self.showAlert(with: model)
             }
@@ -411,9 +453,12 @@ class ComplaintFormViewController: BaseViewController {
                 self.nextButton.isEnabled = state
             case .showTextFields(loggedInState: let state, complaintType: let complaint, userType: let user):
                 self.showTextFields(state: state, complaint: complaint, user: user)
-            case .updateCountry(name: let name, isBeneficiary: let isBeneficiary):
+            case .updateCountry(name: let name, isBeneficiary: let isBeneficiary, isRedemption: let isRedemption):
                 if isBeneficiary {
                     self.beneficiaryCountryTextView.inputText = name
+                    return
+                } else if isRedemption {
+                    redemptionCountryTextView.inputText = name
                     return
                 }
                 self.countryTextView.inputText = name
@@ -459,6 +504,8 @@ class ComplaintFormViewController: BaseViewController {
                 transactionDateTextView.inputText = dateStr
             case .updateSelfAwardTransactionType(type: let type):
                 updateSelfAwardFields(with: type)
+            case .updateBranch(name: let name):
+                branchTextView.inputText = name
             }
         }
     }
@@ -585,10 +632,16 @@ extension ComplaintFormViewController {
     
     private func updateRedemptionFields(for partner: RedemptionPartnerPickerItemModel) {
         // based on key
-        if partner.key == "25" {
+        if partner.title.lowercased().contains("usc") || partner.title.lowercased().contains("beoe") {
             branchTextView.isHidden = false
+            redemptionMobileTextView.isHidden = false
+        } else if partner.title.lowercased().contains("passport") || partner.title.lowercased().contains("nadra") {
+            branchTextView.isHidden = false
+            redemptionCountryTextView.isHidden = false
         } else {
             branchTextView.isHidden = true
+            redemptionMobileTextView.isHidden = true
+            redemptionCountryTextView.isHidden = true
         }
     }
     
@@ -672,6 +725,8 @@ extension ComplaintFormViewController {
         ibanTextView.isHidden = true
         selfAwardCnicTextView.isHidden = true
         passportNumberTextView.isHidden = true
+        redemptionMobileTextView.isHidden = true
+        redemptionCountryTextView.isHidden = true
     }
     
     private func setTextFieldErrorState(state: Bool, message: String?, textfield: ComplaintFormTextFieldTypes) {
@@ -720,6 +775,12 @@ extension ComplaintFormViewController {
             selfAwardCnicTextView.updateStateTo(isError: state, error: message)
         case .passport:
             passportNumberTextView.updateStateTo(isError: state, error: message)
+        case .branchCenter:
+            branchTextView.updateStateTo(isError: state, error: message)
+        case .redemptionMobileNumber:
+            redemptionMobileTextView.updateStateTo(isError: state, error: message)
+        case .redemptionCountry:
+            redemptionCountryTextView.updateStateTo(isError: state, error: message)
         }
     }
     
@@ -762,7 +823,7 @@ extension ComplaintFormViewController {
         case .redemptionIssue:
             redemptionIssueTextView.becomeFirstResponder()
         case .selfAwardTransactionType:
-            // selfAwardTransactionTypeTextView.becomeFirstResponder()
+            selfAwardTransactionTypeTextView.becomeFirstResponder()
             break
         case .selfAwardCnic:
             selfAwardCnicTextView.becomeFirstResponder()
@@ -770,6 +831,12 @@ extension ComplaintFormViewController {
             ibanTextView.becomeFirstResponder()
         case .passport:
             passportNumberTextView.becomeFirstResponder()
+        case .branchCenter:
+            branchTextView.becomeFirstResponder()
+        case .redemptionMobileNumber:
+            redemptionMobileTextView.becomeFirstResponder()
+        case .redemptionCountry:
+            redemptionCountryTextView.becomeFirstResponder()
         }
     }
 }

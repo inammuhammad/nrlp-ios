@@ -34,6 +34,7 @@ protocol ComplaintFormViewModelProtocol {
     
     var iban: String? { get set }
     var passport: String? { get set }
+    var branch: Branch? { get set }
     
     var partnerPickerViewModel: ItemPickerViewModel { get }
     var transactionTypesPickerViewModel: ItemPickerViewModel { get }
@@ -44,6 +45,7 @@ protocol ComplaintFormViewModelProtocol {
     func viewDidLoad()
     func nextButtonPressed()
     func countryTextFieldTapped(isBeneficiary: Bool)
+    func branchTextFieldTapped()
     func didSelectPartner(partner: RedemptionPartnerPickerItemModel?)
     func didSelectTransactionType(type: TransactionTypesPickerItemModel?)
 }
@@ -173,6 +175,12 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
+    var branch: Branch? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var partnerPickerViewModel: ItemPickerViewModel {
         if complaintType == .redemptionIssues {
             var dataArray: [PickerItemModel] = []
@@ -254,7 +262,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case showActivityIndicator(show: Bool)
         case nextButtonState(state: Bool)
         case showTextFields(loggedInState: UserLoginState, complaintType: ComplaintTypes, userType: AccountType)
-        case updateCountry(name: String, isBeneficiary: Bool)
+        case updateCountry(name: String, isBeneficiary: Bool, isRedemption: Bool)
         case updateMobileCode(code: String, length: Int, isBeneficiary: Bool)
         case updateMobilePlaceholder(placeholder: String, isBeneficiary: Bool)
         case textField(errorState: Bool, error: String?, textfieldType: ComplaintFormTextFieldTypes)
@@ -264,6 +272,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case updateTransactionType(type: String)
         case updateTransactionDate(dateStr: String)
         case updateSelfAwardTransactionType(type: TransactionType?)
+        case updateBranch(name: String)
     }
     
     // MARK: Lifecycle Methods
@@ -391,19 +400,34 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             if isBeneficiary {
                 if self?.beneficiaryCountry != selectedCountry {
                     self?.beneficiaryCountry = selectedCountry
-                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: true))
+                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: true, isRedemption: self?.complaintType == .redemptionIssues))
                     self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length, isBeneficiary: true))
                     self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined(), isBeneficiary: true))
                 }
             } else {
                 if self?.country != selectedCountry {
                     self?.country = selectedCountry
-                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: false))
+                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: false, isRedemption: self?.complaintType == .redemptionIssues))
                     self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length, isBeneficiary: false))
                     self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined(), isBeneficiary: false))
                 }
             }
         }, accountType: self.userType)
+    }
+    
+    func branchTextFieldTapped() {
+        guard let pseName = partner else {
+            return
+        }
+        
+        router.navigateToBranchPicker(with: { [weak self] selectedBranch in
+            self?.branch = selectedBranch
+            
+            guard let branch = self?.branch else {
+                return
+            }
+            self?.output?(.updateBranch(name: branch.countryName))
+        }, pseName: pseName)
     }
     
     func getRequestModel() -> ComplaintRequestModel {
@@ -454,7 +478,10 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             transactionDate: self.transactionDateString,
             transactionAmount: self.transactionAmount,
             redemptionPartners: self.partner,
-            comments: self.specifyDetails
+            comments: self.specifyDetails,
+            locMobileNo: "+92\(mobileNumber ?? "")",
+            branchCenter: branch?.countryName,
+            countryForNadra: country?.country
         )
         return requestModel
     }
@@ -907,11 +934,39 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Redemption Issues
     
     private func validateRedemptionIssues() {
-        if partner?.isBlank ?? true || specifyDetails?.isBlank ?? true || specifyDetails?.count ?? Int.max < 15 {
+        guard let partner = partner,
+              let specifyDetails = specifyDetails else {
             output?(.nextButtonState(state: false))
-        } else {
-            output?(.nextButtonState(state: true))
+            return
         }
+        
+        if partner.isBlank || specifyDetails.isBlank || specifyDetails.count < 15 {
+            output?(.nextButtonState(state: false))
+            return
+        }
+        
+        if partner.lowercased() == "beoe" {
+            guard let branch = branch,
+                  let mobileNumber = mobileNumber,
+                  !branch.countryName.isBlank,
+                  !mobileNumber.isBlank,
+                  mobileNumber.count == 10
+            else {
+                output?(.nextButtonState(state: false))
+                return
+            }
+        } else if partner.lowercased() == "passport" {
+            guard let branch = branch,
+                  let country = country,
+                  !branch.countryName.isBlank,
+                  !country.country.isBlank
+            else {
+                output?(.nextButtonState(state: false))
+                return
+            }
+        }
+        
+        output?(.nextButtonState(state: true))
     }
     
     private func validateRedemptionIssuesRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
@@ -932,6 +987,42 @@ extension ComplaintFormViewModel {
             output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .specifyDetails))
             isValid = false
             errorTopField = errorTopField ?? .specifyDetails
+        }
+        
+        let partner = partner?.lowercased() ?? ""
+        
+        if partner.contains("usc") || partner.contains("beoe") {
+            if !(branch?.countryName.isBlank ?? true) {
+                output?(.textField(errorState: false, error: nil, textfieldType: .branchCenter))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .branchCenter))
+                isValid = false
+                errorTopField = errorTopField ?? .branchCenter
+            }
+            
+            if !(mobileNumber?.isBlank ?? true) && mobileNumber?.count ?? 0 == 10 {
+                output?(.textField(errorState: false, error: nil, textfieldType: .redemptionMobileNumber))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .redemptionMobileNumber))
+                isValid = false
+                errorTopField = errorTopField ?? .redemptionMobileNumber
+            }
+        } else if partner.contains("passport") || partner.contains("nadra") {
+            if !(branch?.countryName.isBlank ?? true) {
+                output?(.textField(errorState: false, error: nil, textfieldType: .branchCenter))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .branchCenter))
+                isValid = false
+                errorTopField = errorTopField ?? .branchCenter
+            }
+            
+            if !(country?.country.isBlank ?? true) {
+                output?(.textField(errorState: false, error: nil, textfieldType: .redemptionCountry))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .redemptionCountry))
+                isValid = false
+                errorTopField = errorTopField ?? .redemptionCountry
+            }
         }
         
         return (isValid, errorTopField)

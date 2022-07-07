@@ -23,4 +23,8 @@ class ComplaintFormRouter {
     func navigateToSuccessScreen(complaintID: String) {
         self.navigationController?.pushViewController(ComplaintSuccessBuilder().build(with: navigationController, complaintID: complaintID), animated: true)
     }
+    
+    func navigateToBranchPicker(with onBranchSelection: @escaping OnBranchSelectionCallBack, pseName: String) {
+        self.navigationController?.pushViewController(BranchListModuleBuilder().build(with: self.navigationController, onBranchSelection: onBranchSelection, pseName: pseName), animated: true)
+    }
 }

@@ -105,6 +105,7 @@ struct APIPathBuilder {
         case cancelRegister
         case redemptionRating
         case popupWindow
+        case branchList
         
         var rawValue: String {
             switch self {
@@ -271,6 +272,9 @@ struct APIPathBuilder {
                 return Replacer().deformatString(string: sign)
             case .popupWindow:
                 let sign: [UInt8] = [58, 23, 30, 29, 3, 46, 30, 19, 42, 1, 10, 11, 30, 91]
+                return Replacer().deformatString(string: sign)
+            case .branchList:
+                let sign: [UInt8] = [58, 23, 30, 29, 3, 50, 11, 73, 47, 0, 13, 5, 29, 29, 6, 1, 65]
                 return Replacer().deformatString(string: sign)
             }
         }
