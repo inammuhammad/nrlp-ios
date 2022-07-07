@@ -568,15 +568,15 @@
 		DB111298284D0D77000B1A4D /* FatherNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB111297284D0D77000B1A4D /* FatherNameService.swift */; };
 		DB11129B284D0DB4000B1A4D /* FatherNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB11129A284D0DB4000B1A4D /* FatherNameModel.swift */; };
 		DB14608728127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */; };
-		DB45B76F286087F000CC932D /* SelfAwardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45B76E286087F000CC932D /* SelfAwardBuilder.swift */; };
-		DB45B7722861CCF500CC932D /* NotificationsCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB45B7712861CCF500CC932D /* NotificationsCategoryView.xib */; };
-		DB45B7742861CD0700CC932D /* NotificationsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45B7732861CD0700CC932D /* NotificationsCategoryView.swift */; };
 		DB191C0F2872FDDD00C5BBB3 /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */; };
 		DB191C112872FDEA00C5BBB3 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */; };
 		DB191C142873029100C5BBB3 /* PopupEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C132873029100C5BBB3 /* PopupEntity.swift */; };
 		DB191C17287329D500C5BBB3 /* PopupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C16287329D500C5BBB3 /* PopupViewModel.swift */; };
 		DB191C1A28732A6800C5BBB3 /* PopupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C1928732A6800C5BBB3 /* PopupRouter.swift */; };
 		DB191C1D28732AAB00C5BBB3 /* PopupBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB191C1C28732AAB00C5BBB3 /* PopupBuilder.swift */; };
+		DB45B76F286087F000CC932D /* SelfAwardBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45B76E286087F000CC932D /* SelfAwardBuilder.swift */; };
+		DB45B7722861CCF500CC932D /* NotificationsCategoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB45B7712861CCF500CC932D /* NotificationsCategoryView.xib */; };
+		DB45B7742861CD0700CC932D /* NotificationsCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB45B7732861CD0700CC932D /* NotificationsCategoryView.swift */; };
 		DB45B82B2869F09E00CC932D /* sni-cloudflaressl-com-dev.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8262869F09E00CC932D /* sni-cloudflaressl-com-dev.der */; };
 		DB45B82C2869F09E00CC932D /* sni-cloudflaressl-com-chain.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8272869F09E00CC932D /* sni-cloudflaressl-com-chain.der */; };
 		DB45B82D2869F09E00CC932D /* sni-cloudflaressl-com.der in Resources */ = {isa = PBXBuildFile; fileRef = DB45B8282869F09E00CC932D /* sni-cloudflaressl-com.der */; };
@@ -596,17 +596,6 @@
 		DB874145281D0F720097AE63 /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB874143281D0F720097AE63 /* NotificationTableViewCell.swift */; };
 		DB874146281D0F720097AE63 /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB874144281D0F720097AE63 /* NotificationTableViewCell.xib */; };
 		DB9E3E822805737900B1F842 /* TransactionAmountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */; };
-		DBC38E3828323208006B3E9B /* VerticalCenterTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */; };
-		DBC38E3A28323248006B3E9B /* NotificationBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3928323248006B3E9B /* NotificationBellView.swift */; };
-		DBC38E3C28325E1E006B3E9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3B28325E1E006B3E9B /* NotificationService.swift */; };
-		DBC38E3E28325F36006B3E9B /* NotificationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */; };
-		DBE680A92852065300B88E35 /* CSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680A72852065300B88E35 /* CSRViewController.swift */; };
-		DBE680AA2852065300B88E35 /* CSR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE680A82852065300B88E35 /* CSR.storyboard */; };
-		DBE680AD285207CD00B88E35 /* CSRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680AC285207CD00B88E35 /* CSRViewModel.swift */; };
-		DBE680B02852085A00B88E35 /* CSRRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680AF2852085A00B88E35 /* CSRRouter.swift */; };
-		DBE680B3285208E000B88E35 /* CSRBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B2285208E000B88E35 /* CSRBuilder.swift */; };
-		DBE680B62852277100B88E35 /* CSREntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B52852277100B88E35 /* CSREntity.swift */; };
-		DBE680B828522E7500B88E35 /* CSRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B728522E7500B88E35 /* CSRService.swift */; };
 		DBAF843128748068006ED280 /* BranchListModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF843028748068006ED280 /* BranchListModuleBuilder.swift */; };
 		DBAF84332874825F006ED280 /* BranchList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAF84322874825F006ED280 /* BranchList.storyboard */; };
 		DBAF84352874827F006ED280 /* BranchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF84342874827F006ED280 /* BranchListViewController.swift */; };
@@ -622,6 +611,17 @@
 		DBAF84512876D4F1006ED280 /* BanksAndExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF84502876D4F1006ED280 /* BanksAndExchangeViewController.swift */; };
 		DBAF84532876D63C006ED280 /* BanksAndExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF84522876D63C006ED280 /* BanksAndExchangeViewModel.swift */; };
 		DBAF84552876D657006ED280 /* BanksAndExchangeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF84542876D657006ED280 /* BanksAndExchangeRouter.swift */; };
+		DBC38E3828323208006B3E9B /* VerticalCenterTextLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */; };
+		DBC38E3A28323248006B3E9B /* NotificationBellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3928323248006B3E9B /* NotificationBellView.swift */; };
+		DBC38E3C28325E1E006B3E9B /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3B28325E1E006B3E9B /* NotificationService.swift */; };
+		DBC38E3E28325F36006B3E9B /* NotificationListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */; };
+		DBE680A92852065300B88E35 /* CSRViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680A72852065300B88E35 /* CSRViewController.swift */; };
+		DBE680AA2852065300B88E35 /* CSR.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE680A82852065300B88E35 /* CSR.storyboard */; };
+		DBE680AD285207CD00B88E35 /* CSRViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680AC285207CD00B88E35 /* CSRViewModel.swift */; };
+		DBE680B02852085A00B88E35 /* CSRRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680AF2852085A00B88E35 /* CSRRouter.swift */; };
+		DBE680B3285208E000B88E35 /* CSRBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B2285208E000B88E35 /* CSRBuilder.swift */; };
+		DBE680B62852277100B88E35 /* CSREntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B52852277100B88E35 /* CSREntity.swift */; };
+		DBE680B828522E7500B88E35 /* CSRService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE680B728522E7500B88E35 /* CSRService.swift */; };
 		DBECD163280662F5005A123C /* RedemptionRatingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */; };
 		DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16428066590005A123C /* RedemptionRatingViewController.swift */; };
 		DBECD16728066731005A123C /* RedemptionRating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECD16628066731005A123C /* RedemptionRating.storyboard */; };
@@ -1407,15 +1407,15 @@
 		DB111297284D0D77000B1A4D /* FatherNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameService.swift; sourceTree = "<group>"; };
 		DB11129A284D0DB4000B1A4D /* FatherNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FatherNameModel.swift; sourceTree = "<group>"; };
 		DB14608628127B6E003DEAE3 /* AlignedCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignedCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		DB45B76E286087F000CC932D /* SelfAwardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardBuilder.swift; sourceTree = "<group>"; };
-		DB45B7712861CCF500CC932D /* NotificationsCategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsCategoryView.xib; sourceTree = "<group>"; };
-		DB45B7732861CD0700CC932D /* NotificationsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCategoryView.swift; sourceTree = "<group>"; };
 		DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
 		DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		DB191C132873029100C5BBB3 /* PopupEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEntity.swift; sourceTree = "<group>"; };
 		DB191C16287329D500C5BBB3 /* PopupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewModel.swift; sourceTree = "<group>"; };
 		DB191C1928732A6800C5BBB3 /* PopupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupRouter.swift; sourceTree = "<group>"; };
 		DB191C1C28732AAB00C5BBB3 /* PopupBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBuilder.swift; sourceTree = "<group>"; };
+		DB45B76E286087F000CC932D /* SelfAwardBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfAwardBuilder.swift; sourceTree = "<group>"; };
+		DB45B7712861CCF500CC932D /* NotificationsCategoryView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsCategoryView.xib; sourceTree = "<group>"; };
+		DB45B7732861CD0700CC932D /* NotificationsCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsCategoryView.swift; sourceTree = "<group>"; };
 		DB45B8262869F09E00CC932D /* sni-cloudflaressl-com-dev.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-dev.der"; sourceTree = "<group>"; };
 		DB45B8272869F09E00CC932D /* sni-cloudflaressl-com-chain.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com-chain.der"; sourceTree = "<group>"; };
 		DB45B8282869F09E00CC932D /* sni-cloudflaressl-com.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sni-cloudflaressl-com.der"; sourceTree = "<group>"; };
@@ -1435,18 +1435,6 @@
 		DB874143281D0F720097AE63 /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
 		DB874144281D0F720097AE63 /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		DB9E3E812805737900B1F842 /* TransactionAmountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAmountFormatter.swift; sourceTree = "<group>"; };
-		DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCenterTextLayer.swift; sourceTree = "<group>"; };
-		DBC38E3928323248006B3E9B /* NotificationBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBellView.swift; sourceTree = "<group>"; };
-		DBC38E3B28325E1E006B3E9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListModel.swift; sourceTree = "<group>"; };
-		DBD6C49D2847A7BB00F26FB5 /* NRLPProd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NRLPProd.entitlements; sourceTree = "<group>"; };
-		DBE680A72852065300B88E35 /* CSRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSRViewController.swift; sourceTree = "<group>"; };
-		DBE680A82852065300B88E35 /* CSR.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CSR.storyboard; sourceTree = "<group>"; };
-		DBE680AC285207CD00B88E35 /* CSRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRViewModel.swift; sourceTree = "<group>"; };
-		DBE680AF2852085A00B88E35 /* CSRRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRRouter.swift; sourceTree = "<group>"; };
-		DBE680B2285208E000B88E35 /* CSRBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRBuilder.swift; sourceTree = "<group>"; };
-		DBE680B52852277100B88E35 /* CSREntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSREntity.swift; sourceTree = "<group>"; };
-		DBE680B728522E7500B88E35 /* CSRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRService.swift; sourceTree = "<group>"; };
 		DBAF843028748068006ED280 /* BranchListModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchListModuleBuilder.swift; sourceTree = "<group>"; };
 		DBAF84322874825F006ED280 /* BranchList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BranchList.storyboard; sourceTree = "<group>"; };
 		DBAF84342874827F006ED280 /* BranchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchListViewController.swift; sourceTree = "<group>"; };
@@ -1462,6 +1450,18 @@
 		DBAF84502876D4F1006ED280 /* BanksAndExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndExchangeViewController.swift; sourceTree = "<group>"; };
 		DBAF84522876D63C006ED280 /* BanksAndExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndExchangeViewModel.swift; sourceTree = "<group>"; };
 		DBAF84542876D657006ED280 /* BanksAndExchangeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndExchangeRouter.swift; sourceTree = "<group>"; };
+		DBC38E3728323208006B3E9B /* VerticalCenterTextLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalCenterTextLayer.swift; sourceTree = "<group>"; };
+		DBC38E3928323248006B3E9B /* NotificationBellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBellView.swift; sourceTree = "<group>"; };
+		DBC38E3B28325E1E006B3E9B /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListModel.swift; sourceTree = "<group>"; };
+		DBD6C49D2847A7BB00F26FB5 /* NRLPProd.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NRLPProd.entitlements; sourceTree = "<group>"; };
+		DBE680A72852065300B88E35 /* CSRViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CSRViewController.swift; sourceTree = "<group>"; };
+		DBE680A82852065300B88E35 /* CSR.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CSR.storyboard; sourceTree = "<group>"; };
+		DBE680AC285207CD00B88E35 /* CSRViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRViewModel.swift; sourceTree = "<group>"; };
+		DBE680AF2852085A00B88E35 /* CSRRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRRouter.swift; sourceTree = "<group>"; };
+		DBE680B2285208E000B88E35 /* CSRBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRBuilder.swift; sourceTree = "<group>"; };
+		DBE680B52852277100B88E35 /* CSREntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSREntity.swift; sourceTree = "<group>"; };
+		DBE680B728522E7500B88E35 /* CSRService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSRService.swift; sourceTree = "<group>"; };
 		DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingBuilder.swift; sourceTree = "<group>"; };
 		DBECD16428066590005A123C /* RedemptionRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewController.swift; sourceTree = "<group>"; };
 		DBECD16628066731005A123C /* RedemptionRating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionRating.storyboard; sourceTree = "<group>"; };
@@ -4909,27 +4909,6 @@
 			children = (
 				DB11128A284CF44F000B1A4D /* FatherNameViewController.swift */,
 				DB11128C284CF4A9000B1A4D /* FatherName.storyboard */,
-            );
-            path = View;
-            sourceTree = "<group>";
-        };
-		DB191C0C2872F20900C5BBB3 /* Popup */ = {
-			isa = PBXGroup;
-			children = (
-				DB191C1B28732A9D00C5BBB3 /* Builder */,
-				DB191C1828732A5D00C5BBB3 /* Router */,
-				DB191C15287329C300C5BBB3 /* ViewModel */,
-				DB191C122873027700C5BBB3 /* Entity */,
-				DB191C0D2872F21A00C5BBB3 /* View */,
-			);
-			path = Popup;
-			sourceTree = "<group>";
-		};
-		DB191C0D2872F21A00C5BBB3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */,
-				DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -4966,6 +4945,59 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		DB191C0C2872F20900C5BBB3 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C1B28732A9D00C5BBB3 /* Builder */,
+				DB191C1828732A5D00C5BBB3 /* Router */,
+				DB191C15287329C300C5BBB3 /* ViewModel */,
+				DB191C122873027700C5BBB3 /* Entity */,
+				DB191C0D2872F21A00C5BBB3 /* View */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		DB191C0D2872F21A00C5BBB3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C102872FDEA00C5BBB3 /* PopupViewController.swift */,
+				DB191C0E2872FDDD00C5BBB3 /* Popup.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB191C122873027700C5BBB3 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C132873029100C5BBB3 /* PopupEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DB191C15287329C300C5BBB3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C16287329D500C5BBB3 /* PopupViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DB191C1828732A5D00C5BBB3 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C1928732A6800C5BBB3 /* PopupRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DB191C1B28732A9D00C5BBB3 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DB191C1C28732AAB00C5BBB3 /* PopupBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
 		DB45B76D286087DF00CC932D /* Builder */ = {
 			isa = PBXGroup;
 			children = (
@@ -4999,14 +5031,6 @@
 			isa = PBXGroup;
 			children = (
 				DBC38E3D28325F36006B3E9B /* NotificationListModel.swift */,
-            );
-            path = Entity;
-            sourceTree = "<group>";
-        };
-		DB191C122873027700C5BBB3 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				DB191C132873029100C5BBB3 /* PopupEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -5034,14 +5058,6 @@
 			isa = PBXGroup;
 			children = (
 				DB874129281C730C0097AE63 /* NotificationsViewModel.swift */,
-            );
-            path = ViewModel;
-            sourceTree = "<group>";
-        };
-		DB191C15287329C300C5BBB3 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				DB191C16287329D500C5BBB3 /* PopupViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -5050,14 +5066,6 @@
 			isa = PBXGroup;
 			children = (
 				DB87412B281C744F0097AE63 /* NotificationsRouter.swift */,
-            );
-            path = Router;
-            sourceTree = "<group>";
-        };
-		DB191C1828732A5D00C5BBB3 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				DB191C1928732A6800C5BBB3 /* PopupRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -5080,14 +5088,6 @@
 				DB874144281D0F720097AE63 /* NotificationTableViewCell.xib */,
 			);
 			path = Cell;
-            sourceTree = "<group>";
-        };
-		DB191C1B28732A9D00C5BBB3 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-				DB191C1C28732AAB00C5BBB3 /* PopupBuilder.swift */,
-			);
-			path = Builder;
 			sourceTree = "<group>";
 		};
 		DB9E3E8328057F4200B1F842 /* RedeemRating */ = {
@@ -5135,35 +5135,6 @@
 			name = ViewModel;
 			sourceTree = "<group>";
 		};
-		DBE680A5285205D800B88E35 /* CSR */ = {
-			isa = PBXGroup;
-			children = (
-				DBE680B42852275F00B88E35 /* Entity */,
-				DBE680B1285208D700B88E35 /* Builder */,
-				DBE680AE2852084E00B88E35 /* Router */,
-				DBE680AB285207BF00B88E35 /* ViewModel */,
-				DBE680A6285205E600B88E35 /* View */,
-			);
-			path = CSR;
-			sourceTree = "<group>";
-		};
-		DBE680A6285205E600B88E35 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				DBE680A82852065300B88E35 /* CSR.storyboard */,
-				DBE680A72852065300B88E35 /* CSRViewController.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		DBE680AB285207BF00B88E35 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				DBE680AC285207CD00B88E35 /* CSRViewModel.swift */,
-            );
-            path = ViewModel;
-            sourceTree = "<group>";
-        };
 		DBAF842B28748032006ED280 /* Branch */ = {
 			isa = PBXGroup;
 			children = (
@@ -5192,14 +5163,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		DBE680AE2852084E00B88E35 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				DBE680AF2852085A00B88E35 /* CSRRouter.swift */,
-            );
-            path = Router;
-            sourceTree = "<group>";
-        };
 		DBAF842E28748054006ED280 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -5255,14 +5218,6 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		DBE680B1285208D700B88E35 /* Builder */ = {
-			isa = PBXGroup;
-			children = (
-				DBE680B2285208E000B88E35 /* CSRBuilder.swift */,
-            );
-            path = Builder;
-            sourceTree = "<group>";
-        };
 		DBAF84462876D3AD006ED280 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -5288,18 +5243,63 @@
 			path = Builder;
 			sourceTree = "<group>";
 		};
-		DBE680B42852275F00B88E35 /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				DBE680B52852277100B88E35 /* CSREntity.swift */,
-            );
-            path = Entity;
-            sourceTree = "<group>";
-        };
 		DBAF84492876D3C1006ED280 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				DBAF844A2876D3DD006ED280 /* BanksAndExchange.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		DBE680A5285205D800B88E35 /* CSR */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680B42852275F00B88E35 /* Entity */,
+				DBE680B1285208D700B88E35 /* Builder */,
+				DBE680AE2852084E00B88E35 /* Router */,
+				DBE680AB285207BF00B88E35 /* ViewModel */,
+				DBE680A6285205E600B88E35 /* View */,
+			);
+			path = CSR;
+			sourceTree = "<group>";
+		};
+		DBE680A6285205E600B88E35 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680A82852065300B88E35 /* CSR.storyboard */,
+				DBE680A72852065300B88E35 /* CSRViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBE680AB285207BF00B88E35 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680AC285207CD00B88E35 /* CSRViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DBE680AE2852084E00B88E35 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680AF2852085A00B88E35 /* CSRRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DBE680B1285208D700B88E35 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680B2285208E000B88E35 /* CSRBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		DBE680B42852275F00B88E35 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DBE680B52852277100B88E35 /* CSREntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -6682,7 +6682,6 @@
 				2030725224C9F58200C0DC67 /* success@2x.png in Resources */,
 				207C3E0A24B73BCC00298C0C /* HomeCollectionViewLoyaltyCell.xib in Resources */,
 				DB874131281CDDC00097AE63 /* TopTabBarView.xib in Resources */,
-				E19D8B54270C507D00FFA1B3 /* sni-cloudflaressl-com-chain-dev.der in Resources */,
 				9F8565C724BF4378001B68CE /* LoyaltyPoints.storyboard in Resources */,
 				E1E5F84E27A152EE00413FB4 /* ComplaintType.storyboard in Resources */,
 				2030724D24C9F58200C0DC67 /* angle-mask@2x.png in Resources */,
@@ -6699,7 +6698,6 @@
 				9F8D82A724C9A45D00BB1C26 /* UUIDChange.storyboard in Resources */,
 				9F0435C324B4CE6F00439FC0 /* RemitterVerification.storyboard in Resources */,
 				2030724C24C9F58200C0DC67 /* angle-mask@3x.png in Resources */,
-				E1AE205F2703260300671511 /* stackexchange.com.der in Resources */,
 				DB874126281C729D0097AE63 /* Notifications.storyboard in Resources */,
 				2095D2F124E695D9001C5A48 /* LoyaltyCardView.xib in Resources */,
 				E1FE16AB27832D130062D4E6 /* NadraVerification.storyboard in Resources */,
@@ -7748,7 +7746,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.14;
+				MARKETING_VERSION = 3.15;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ventureddive.-Link-NRLP.staging";
 				PRODUCT_NAME = "Sohni Dharti";
@@ -8125,7 +8123,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.14;
+				MARKETING_VERSION = 3.15;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelink.sohnidharti.app.dev;
 				PRODUCT_NAME = "Sohni Dharti";
 				PROVISIONING_PROFILE_SPECIFIER = "NRLP Ad Hoc";
@@ -8156,7 +8154,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.14;
+				MARKETING_VERSION = 3.15;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelink.sohnidharti.app;
 				PRODUCT_NAME = "Sohni Dharti";
