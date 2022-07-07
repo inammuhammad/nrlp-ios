@@ -495,6 +495,14 @@
 "Receiver Type" = "وصول کنندہ کی قسم";
 "Remittance sent to CNIC" = "قومی شناختی کارڈ پر بھیجی گئی ترسیلات";
 "Remittance sent to Bank Account" = "بینک اکاؤنٹ میں بھیجی گئی ترسیلات";
+"Remittance sent to Passport Number" = "پاسپورٹ نمبر پر بھیجی گئی ترسیلات زر";
+"Select the type of remittance service you use to send money" = "ترسیلات زر کی وہ قسم منتخب کریں جسے آپ رقم بھیجنے کے لیے استعمال کرتے ہیں";
+"Branch/Center" = "برانچ/سینٹر";
+"Mention visiting Branch/Center" = "وزٹنگ برانچ/سینٹر بتائیں";
+"Select Banks & Exchange Company" = "بینک اینڈ ایکسچینج کمپنی منتخب کریں";
+"Enter Pakistan Mobile Number" = "پاکستان موبائل نمبر درج کریں";
+"Country" = "ملک";
+"Mention the country from where the service was applied" = "اس ملک کا ذکر کریں جہاں سے سروس اپلائی کی گئ تھی۔";
 "Note: You can add maximum 5 receivers." = "نوٹ: آپ 5 وصول کنندگان کو  شامل کر سکتے ہیں";
 "Please enter Receiver Information" = "براہ کرم وصول کنندہ  کی معلومات درج کریں";
 "Add Receiver" = "وصول کنندہ شامل کریں";

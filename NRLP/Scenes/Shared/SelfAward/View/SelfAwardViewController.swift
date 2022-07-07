@@ -229,10 +229,10 @@ class SelfAwardViewController: BaseViewController {
     
     @IBOutlet weak var passportNumberTextView: LabelledTextview! {
         didSet {
-            passportNumberTextView.titleLabelText = "Passport No. *".localized
+            passportNumberTextView.titleLabelText = "Passport Number".localized
             passportNumberTextView.placeholderText = "Enter Passport No.".localized
             passportNumberTextView.showHelpBtn = true
-            passportNumberTextView.helpLabelText = "Please enter your passport number".localized
+            passportNumberTextView.helpLabelText = "Enter Beneficiary Passport Number".localized
             passportNumberTextView.inputFieldMinLength = 3
             passportNumberTextView.inputFieldMaxLength = 20
             passportNumberTextView.editTextKeyboardType = .default

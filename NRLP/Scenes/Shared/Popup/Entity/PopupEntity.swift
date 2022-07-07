@@ -31,6 +31,7 @@ struct PopupResponseRecord: Codable {
     let accStatus, updatedAt: String
     let isActive: Int
     let eventEndDatetime: String
+    let isShown: Int
 
     enum CodingKeys: String, CodingKey {
         case eventStartDatetime = "event_start_datetime"
@@ -43,5 +44,6 @@ struct PopupResponseRecord: Codable {
         case updatedAt = "updated_at"
         case isActive = "is_active"
         case eventEndDatetime = "event_end_datetime"
+        case isShown = "is_shown"
     }
 }

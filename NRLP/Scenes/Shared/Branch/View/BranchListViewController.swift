@@ -27,7 +27,7 @@ class BranchListViewController: BaseViewController {
     }
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
-            searchBar.placeholder = "Select Branch/Center"
+            searchBar.placeholder = "Search Branch/Center"
             searchBar.delegate = self
         }
     }

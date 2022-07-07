@@ -27,7 +27,7 @@ class BanksAndExchangeViewController: BaseViewController {
     }
     @IBOutlet weak var searchBar: UISearchBar! {
         didSet {
-            searchBar.placeholder = "Select Bank/Exchange"
+            searchBar.placeholder = "Search Banks & Exchange Company"
             searchBar.delegate = self
         }
     }
@@ -69,7 +69,7 @@ extension BanksAndExchangeViewController {
     }
     
     private func setupView() {
-        self.title = "Select Bank/Exchange".localized
+        self.title = "Select Banks & Exchange Company".localized
         searchBar.barStyle = .default
         searchBar.setTextFieldBackgroundColor(UIColor.green)
         searchBar.setTextFieldFont(UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.regularOnlyEnglish, size: .mediumFontSize))

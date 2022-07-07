@@ -36,11 +36,11 @@ class NRLPUserDefaults {
     
     func getSelectedLanguage() -> AppLanguage? {
         let selectedLanguage = userDefaults.string(forKey: UserDefaultKeys.language.rawValue)
-        return AppLanguage(rawValue: selectedLanguage ?? "")
+        // return AppLanguage(rawValue: selectedLanguage ?? "")
         
 //      Harcode Testing
 //        return AppLanguage.english
-//        return AppLanguage.urdu
+        return AppLanguage.urdu
     }
     
     func set(selectedLanguage: AppLanguage) {

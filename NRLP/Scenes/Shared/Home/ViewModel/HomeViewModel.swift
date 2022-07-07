@@ -182,8 +182,10 @@ class HomeViewModel: HomeViewModelProtocol {
                 switch response {
                     
                 case .success(let data):
-                    self.router.navigateToPopupScreen(with: data)
-                case .failure(_):
+                    if data.records.isShown == 1 {
+                        self.router.navigateToPopupScreen(with: data)
+                    }
+                case .failure:
                     break
                 }
             })

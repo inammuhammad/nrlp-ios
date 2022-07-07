@@ -483,6 +483,11 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 "Receiver Type" = "Receiver Type";
 "Remittance sent to CNIC" = "Remittance sent to CNIC";
 "Remittance sent to Bank Account" = "Remittance sent to Bank Account";
+"Remittance sent to Passport Number" = "Remittance sent to Passport Number";
+"Select Banks & Exchange Company" = "Select Banks & Exchange Company";
+"Select the type of remittance service you use to send money" = "Select the type of remittance service you use to send money";
+"Branch/Center" = "Branch/Center";
+"Mention visiting Branch/Center" = "Mention visiting Branch/Center";
 "Note: You can add maximum 5 receivers." = "Note: You can add maximum 5 receivers.";
 "Please enter Receiver Information" = "Please enter Receiver Information";
 "Add Receiver" = "Add Receiver";
