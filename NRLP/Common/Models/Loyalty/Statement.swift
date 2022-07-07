@@ -9,25 +9,26 @@
 import Foundation
 
 struct Statement: Codable {
-
+    
     let status: String?
     let type: String
     let points: String
     let date: String
     let name: String?
     let transaction_id: String?
-
+    
     lazy var formattedCreatedDate: String = {
         return DateFormat().formatDateString(dateString: date) ?? ""
     }()
-    lazy var createdDate: Date? = {
+    
+    var createdDate: Date? {
         return DateFormat().formatDate(dateString: date)
-
+    }
     var localFormattedCreatedDate: String {
         guard let createdDate = createdDate?.local else {
             return ""
         }
-
+        
         return DateFormat().formatDateString(to: createdDate, formatter: .daySuffixFullMonth) ?? ""
     }
 }

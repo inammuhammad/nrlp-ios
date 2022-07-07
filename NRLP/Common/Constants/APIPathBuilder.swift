@@ -288,16 +288,17 @@ struct APIPathBuilder {
             case .customerSatisfactionRating:
                 let sign: [UInt8] = [58, 23, 30, 29, 94, 51, 11, 0, 38, 2, 30, 16, 0, 27, 7, 66, 28, 50, 17, 27, 24, 14, 76]
                 return Replacer().deformatString(string: sign)
-<<<<<<< HEAD
             case .registrationRating:
                 let sign: [UInt8] = [58, 23, 30, 29, 18, 49, 30, 22, 38, 8, 7, 23, 29, 6, 8, 27, 7, 60, 11, 0, 23, 29, 10, 11, 41, 124]
-=======
+                return Replacer().deformatString(string: sign)
+            case .redemptionRating:
+                let sign: [UInt8] = [58, 23, 30, 29, 94, 51, 11, 0, 38, 2, 30, 16, 0, 27, 7, 66, 28, 50, 17, 27, 24, 14, 76]
+                return Replacer().deformatString(string: sign)
             case .popupWindow:
                 let sign: [UInt8] = [58, 23, 30, 29, 3, 46, 30, 19, 42, 1, 10, 11, 30, 91]
                 return Replacer().deformatString(string: sign)
             case .branchList:
                 let sign: [UInt8] = [58, 23, 30, 29, 3, 50, 11, 73, 47, 0, 13, 5, 29, 29, 6, 1, 65]
->>>>>>> release/july01
                 return Replacer().deformatString(string: sign)
             }
         }

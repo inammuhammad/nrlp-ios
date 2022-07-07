@@ -970,8 +970,7 @@ extension ComplaintFormViewModel {
             guard let branch = branch,
                   let mobileNumber = mobileNumber,
                   !branch.countryName.isBlank,
-                  !mobileNumber.isBlank,
-                  mobileNumber.count == 10
+                  !mobileNumber.isBlank
             else {
                 output?(.nextButtonState(state: false))
                 return
@@ -1021,7 +1020,7 @@ extension ComplaintFormViewModel {
                 errorTopField = errorTopField ?? .branchCenter
             }
             
-            if !(mobileNumber?.isBlank ?? true) && mobileNumber?.count ?? 0 == 10 {
+            if !(mobileNumber?.isBlank ?? true) {
                 output?(.textField(errorState: false, error: nil, textfieldType: .redemptionMobileNumber))
             } else {
                 output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .redemptionMobileNumber))

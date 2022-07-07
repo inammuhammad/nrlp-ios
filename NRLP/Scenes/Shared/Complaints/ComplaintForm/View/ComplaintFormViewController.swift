@@ -201,7 +201,7 @@ class ComplaintFormViewController: BaseViewController {
             redemptionMobileTextView.editTextKeyboardType = .asciiCapableNumberPad
             redemptionMobileTextView.isEditable = true
             redemptionMobileTextView.leadingText = "+92 - "
-            redemptionMobileTextView.inputFieldMaxLength = 10
+            // redemptionMobileTextView.inputFieldMaxLength = 10
             redemptionMobileTextView.formatValidator = FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError.localized)
             redemptionMobileTextView.onTextFieldChanged = { [weak self] updatedText in
                 self?.viewModel.mobileNumber = updatedText
