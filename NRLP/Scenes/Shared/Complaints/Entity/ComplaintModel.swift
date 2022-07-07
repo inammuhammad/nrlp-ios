@@ -33,6 +33,7 @@ struct ComplaintRequestModel: Codable {
     let locMobileNo: String?
     let branchCenter: String?
     let countryForNadra: String?
+    let selfAwardType: String?
     
     enum CodingKeys: String, CodingKey {
         case registered = "c_registered"
@@ -58,6 +59,7 @@ struct ComplaintRequestModel: Codable {
         case locMobileNo = "loc_mobile_no"
         case branchCenter = "branch_center"
         case countryForNadra = "country_for_nadra"
+        case selfAwardType = "self_award_type"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -85,6 +87,7 @@ struct ComplaintRequestModel: Codable {
         try container.encodeIfPresent(locMobileNo, forKey: .locMobileNo)
         try container.encodeIfPresent(branchCenter, forKey: .branchCenter)
         try container.encodeIfPresent(countryForNadra, forKey: .countryForNadra)
+        try container.encodeIfPresent(selfAwardType, forKey: .selfAwardType)
     }
 }
 

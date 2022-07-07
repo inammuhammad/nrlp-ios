@@ -468,7 +468,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             mobileOperatorName: self.mobileOperator,
             name: self.currentUser?.fullName ?? self.name,
             cnic: self.currentUser?.cnicNicop.toString() ?? self.cnic,
-            transactionType: complaintType == .unableToSelfAwardPoints ? saTransactionType ?? "-" : self.transactionType,
+            transactionType: self.transactionType,
             beneficiaryCnic: complaintType == .unableToSelfAwardPoints ? saValue ?? "-" : self.beneficiaryCnic,
             beneficiaryCountryOfResidence: self.beneficiaryCountry?.country,
             beneficiaryMobileNo: beneficiaryMobile,
@@ -481,7 +481,8 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             comments: self.specifyDetails,
             locMobileNo: "+92\(mobileNumber ?? "")",
             branchCenter: branch?.countryName,
-            countryForNadra: country?.country
+            countryForNadra: country?.country,
+            selfAwardType: saTransactionType
         )
         return requestModel
     }
