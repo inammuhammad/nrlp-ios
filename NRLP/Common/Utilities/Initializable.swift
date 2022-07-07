@@ -89,5 +89,6 @@ extension UIStoryboard {
         case redemptionRating = "RedemptionRating"
         case popup = "Popup"
         case branchList = "BranchList"
+        case banksAndExchange = "BanksAndExchange"
     }
 }

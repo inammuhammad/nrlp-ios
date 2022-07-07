@@ -584,6 +584,12 @@
 		DBAF843E287585B4006ED280 /* BranchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF843D287585B4006ED280 /* BranchModel.swift */; };
 		DBAF844228758CA8006ED280 /* BranchListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF844028758CA8006ED280 /* BranchListTableViewCell.swift */; };
 		DBAF844328758CA8006ED280 /* BranchListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBAF844128758CA8006ED280 /* BranchListTableViewCell.xib */; };
+		DBAF844B2876D3DD006ED280 /* BanksAndExchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF844A2876D3DD006ED280 /* BanksAndExchange.swift */; };
+		DBAF844D2876D40E006ED280 /* BanksAndExchangeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF844C2876D40E006ED280 /* BanksAndExchangeBuilder.swift */; };
+		DBAF844F2876D4D4006ED280 /* BanksAndExchange.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBAF844E2876D4D4006ED280 /* BanksAndExchange.storyboard */; };
+		DBAF84512876D4F1006ED280 /* BanksAndExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF84502876D4F1006ED280 /* BanksAndExchangeViewController.swift */; };
+		DBAF84532876D63C006ED280 /* BanksAndExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF84522876D63C006ED280 /* BanksAndExchangeViewModel.swift */; };
+		DBAF84552876D657006ED280 /* BanksAndExchangeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAF84542876D657006ED280 /* BanksAndExchangeRouter.swift */; };
 		DBECD163280662F5005A123C /* RedemptionRatingBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */; };
 		DBECD16528066590005A123C /* RedemptionRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBECD16428066590005A123C /* RedemptionRatingViewController.swift */; };
 		DBECD16728066731005A123C /* RedemptionRating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECD16628066731005A123C /* RedemptionRating.storyboard */; };
@@ -1385,6 +1391,12 @@
 		DBAF843D287585B4006ED280 /* BranchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchModel.swift; sourceTree = "<group>"; };
 		DBAF844028758CA8006ED280 /* BranchListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BranchListTableViewCell.swift; sourceTree = "<group>"; };
 		DBAF844128758CA8006ED280 /* BranchListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BranchListTableViewCell.xib; sourceTree = "<group>"; };
+		DBAF844A2876D3DD006ED280 /* BanksAndExchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndExchange.swift; sourceTree = "<group>"; };
+		DBAF844C2876D40E006ED280 /* BanksAndExchangeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndExchangeBuilder.swift; sourceTree = "<group>"; };
+		DBAF844E2876D4D4006ED280 /* BanksAndExchange.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BanksAndExchange.storyboard; sourceTree = "<group>"; };
+		DBAF84502876D4F1006ED280 /* BanksAndExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndExchangeViewController.swift; sourceTree = "<group>"; };
+		DBAF84522876D63C006ED280 /* BanksAndExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndExchangeViewModel.swift; sourceTree = "<group>"; };
+		DBAF84542876D657006ED280 /* BanksAndExchangeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BanksAndExchangeRouter.swift; sourceTree = "<group>"; };
 		DBECD162280662F5005A123C /* RedemptionRatingBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingBuilder.swift; sourceTree = "<group>"; };
 		DBECD16428066590005A123C /* RedemptionRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedemptionRatingViewController.swift; sourceTree = "<group>"; };
 		DBECD16628066731005A123C /* RedemptionRating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RedemptionRating.storyboard; sourceTree = "<group>"; };
@@ -4539,6 +4551,7 @@
 				207C3DA524B5BCE600298C0C /* OTP */,
 				207C3D8C24B5AE0700298C0C /* Country */,
 				DBAF842B28748032006ED280 /* Branch */,
+				DBAF84442876D392006ED280 /* BanksAndExchange */,
 				20E56FB324B4AB7100BF3B15 /* Registration */,
 				A1B9A1E824B302D300CAAA32 /* Login */,
 			);
@@ -4959,6 +4972,59 @@
 				DBAF844128758CA8006ED280 /* BranchListTableViewCell.xib */,
 			);
 			path = BranchCell;
+			sourceTree = "<group>";
+		};
+		DBAF84442876D392006ED280 /* BanksAndExchange */ = {
+			isa = PBXGroup;
+			children = (
+				DBAF84492876D3C1006ED280 /* Entity */,
+				DBAF84482876D3B7006ED280 /* Builder */,
+				DBAF84472876D3B2006ED280 /* View */,
+				DBAF84462876D3AD006ED280 /* ViewModel */,
+				DBAF84452876D3A8006ED280 /* Router */,
+			);
+			path = BanksAndExchange;
+			sourceTree = "<group>";
+		};
+		DBAF84452876D3A8006ED280 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				DBAF84542876D657006ED280 /* BanksAndExchangeRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		DBAF84462876D3AD006ED280 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DBAF84522876D63C006ED280 /* BanksAndExchangeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DBAF84472876D3B2006ED280 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBAF84502876D4F1006ED280 /* BanksAndExchangeViewController.swift */,
+				DBAF844E2876D4D4006ED280 /* BanksAndExchange.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DBAF84482876D3B7006ED280 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				DBAF844C2876D40E006ED280 /* BanksAndExchangeBuilder.swift */,
+			);
+			path = Builder;
+			sourceTree = "<group>";
+		};
+		DBAF84492876D3C1006ED280 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DBAF844A2876D3DD006ED280 /* BanksAndExchange.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		DBECD16C28067B76005A123C /* Model */ = {
@@ -6393,6 +6459,7 @@
 				20782D5C24B471F600422AEB /* RadioButtonView.xib in Resources */,
 				E1995E2527C4D7AF00B44793 /* ReceiverListing.storyboard in Resources */,
 				E1995DF027BFBB0C00B44793 /* ReceiverLanding.storyboard in Resources */,
+				DBAF844F2876D4D4006ED280 /* BanksAndExchange.storyboard in Resources */,
 				9FB1DD2224B6F6A1002BF688 /* AddBeneficiary.storyboard in Resources */,
 				2073D2B024C0778D00897232 /* FAQItemTableViewCell.xib in Resources */,
 				9F8D824E24C86AA900BB1C26 /* ForgotPassword.storyboard in Resources */,
@@ -6822,6 +6889,7 @@
 				2074D5F424CFEDA100006731 /* SideMenuTableHeaderViewModel.swift in Sources */,
 				2030721B24C87FDA00C0DC67 /* FaqService.swift in Sources */,
 				9F8AE2B524DAD6EE00F1E468 /* ProfileSuccessViewModel.swift in Sources */,
+				DBAF84532876D63C006ED280 /* BanksAndExchangeViewModel.swift in Sources */,
 				E1E5F84227A1385900413FB4 /* ComplaintUserTypeBuilder.swift in Sources */,
 				207C3D6D24B56A1200298C0C /* RegexConstants.swift in Sources */,
 				9F653AC524CB0CD300810DBD /* RedeemViewController.swift in Sources */,
@@ -6903,6 +6971,7 @@
 				E15BF310277B2EEF0038EA81 /* CityListViewController.swift in Sources */,
 				BC7E7E9B24C068590026F341 /* CustomDatePickerView.swift in Sources */,
 				203238F625E8C62700F045E7 /* Collection+Extension.swift in Sources */,
+				DBAF844B2876D3DD006ED280 /* BanksAndExchange.swift in Sources */,
 				207C3D7624B57EAA00298C0C /* ItemPickerViewModel.swift in Sources */,
 				9F8D827B24C86BEF00BB1C26 /* ForgotPasswordOTPRouter.swift in Sources */,
 				200F1A1124BEC2A6001411D9 /* HomeSideMenuDelegate.swift in Sources */,
@@ -6918,6 +6987,7 @@
 				207C3D6A24B5691B00298C0C /* StringExtension.swift in Sources */,
 				E15BF30E277B2EAF0038EA81 /* CityListModuleBuilder.swift in Sources */,
 				E1FE16C42783899E0062D4E6 /* NadraVerificationFormBuilder.swift in Sources */,
+				DBAF84552876D657006ED280 /* BanksAndExchangeRouter.swift in Sources */,
 				E1FE16D1278464FB0062D4E6 /* NadraVerificationCompletedRouter.swift in Sources */,
 				DB57AB8227F1DFD000A94353 /* CancelRegisterUserService.swift in Sources */,
 				2095D2EC24E692FB001C5A48 /* FileRequestModel.swift in Sources */,
@@ -7045,6 +7115,7 @@
 				20D3B0AF24B8802300F1E08C /* CurrencyFormatter.swift in Sources */,
 				E1FE16BF278342B10062D4E6 /* NadraVerificationFormViewModel.swift in Sources */,
 				207C3DC324B5C09800298C0C /* TermsAndConditionsModuleBuilder.swift in Sources */,
+				DBAF84512876D4F1006ED280 /* BanksAndExchangeViewController.swift in Sources */,
 				9FF6F0B824BD890D00E375A2 /* TransferPointsViewModel.swift in Sources */,
 				9F75D44724E544DC0082364E /* BenefitsRouter.swift in Sources */,
 				9F8D82A624C9A45D00BB1C26 /* UUIDChangeRouter.swift in Sources */,
@@ -7133,6 +7204,7 @@
 				E1995E0E27C2F6B300B44793 /* ReceiverFormViewController.swift in Sources */,
 				2046B91B24D9556500E2C4CB /* SideMenuTableViewCell.swift in Sources */,
 				9FB1DD2824B6F6D0002BF688 /* AddBeneficiaryRouter.swift in Sources */,
+				DBAF844D2876D40E006ED280 /* BanksAndExchangeBuilder.swift in Sources */,
 				9F8D821824C6F7B800BB1C26 /* LoyaltyPointsService.swift in Sources */,
 				9F00F9AD24B478B3008AA81E /* DeleteBeneficiaryModel.swift in Sources */,
 				20D8401F24B452B900F5D749 /* FontSheet.swift in Sources */,
