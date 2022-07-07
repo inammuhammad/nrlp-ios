@@ -366,16 +366,23 @@ class ComplaintFormViewController: BaseViewController {
         didSet {
             remittanceEntityTextView.titleLabelText = "Receiving Entity (Banks & Exchange Company)".localized
             remittanceEntityTextView.autoCapitalizationType = .words
-            remittanceEntityTextView.editTextKeyboardType = .asciiCapable
+            // remittanceEntityTextView.editTextKeyboardType = .asciiCapable
             remittanceEntityTextView.showHelpBtn = true
             remittanceEntityTextView.helpLabelText = "Please mention the Bank and Exchange Company where the remittance was sent.".localized
-            remittanceEntityTextView.onTextFieldChanged = { [weak self] updatedText in
-                guard let self = self else { return }
-                self.viewModel.remittanceEntity = updatedText
-            }
+//            remittanceEntityTextView.onTextFieldChanged = { [weak self] updatedText in
+//                guard let self = self else { return }
+//                self.viewModel.remittanceEntity = updatedText
+//            }
             remittanceEntityTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
                 self.showAlert(with: model)
+            }
+            remittanceEntityTextView.isEditable = false
+            remittanceEntityTextView.isTappable = true
+            remittanceEntityTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            remittanceEntityTextView.onTextFieldTapped = { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.banksAndExchangeTextFieldTapped()
             }
         }
     }
@@ -506,6 +513,8 @@ class ComplaintFormViewController: BaseViewController {
                 updateSelfAwardFields(with: type)
             case .updateBranch(name: let name):
                 branchTextView.inputText = name
+            case .updateRemitingEntity(name: let name):
+                remittanceEntityTextView.inputText = name
             }
         }
     }

@@ -46,6 +46,7 @@ protocol ComplaintFormViewModelProtocol {
     func nextButtonPressed()
     func countryTextFieldTapped(isBeneficiary: Bool)
     func branchTextFieldTapped()
+    func banksAndExchangeTextFieldTapped()
     func didSelectPartner(partner: RedemptionPartnerPickerItemModel?)
     func didSelectTransactionType(type: TransactionTypesPickerItemModel?)
 }
@@ -273,6 +274,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case updateTransactionDate(dateStr: String)
         case updateSelfAwardTransactionType(type: TransactionType?)
         case updateBranch(name: String)
+        case updateRemitingEntity(name: String)
     }
     
     // MARK: Lifecycle Methods
@@ -430,6 +432,17 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }, pseName: pseName)
     }
     
+    func banksAndExchangeTextFieldTapped() {
+        router.navigateToBanksAndExchangePicker(with: { [weak self] selectedBanksAndExchange in
+            self?.remittanceEntity = selectedBanksAndExchange.name
+            
+            guard let remittanceEntity = self?.remittanceEntity else {
+                return
+            }
+            self?.output?(.updateRemitingEntity(name: remittanceEntity))
+        })
+    }
+    
     func getRequestModel() -> ComplaintRequestModel {
         var beneficiaryMobile: String?
         var newMobileNumber: String?
@@ -457,6 +470,11 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             }
         }
         
+        var locMobileNo = ""
+        if complaintType == .redemptionIssues, let partner = partner, (partner.lowercased().contains("beoe") || partner.lowercased().contains("usc")) {
+            locMobileNo = "+92\(mobileNumber ?? "")"
+        }
+        
         let registered = loginState == .loggedIn ? 1 : 0
         let requestModel = ComplaintRequestModel(
             registered: registered,
@@ -479,7 +497,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             transactionAmount: self.transactionAmount,
             redemptionPartners: self.partner,
             comments: self.specifyDetails,
-            locMobileNo: "+92\(mobileNumber ?? "")",
+            locMobileNo: locMobileNo,
             branchCenter: branch?.countryName,
             countryForNadra: country?.country,
             selfAwardType: saTransactionType

@@ -9,15 +9,15 @@
 import UIKit
 
 class BanksAndExchangeBuilder {
-    func build(with navigationController: UINavigationController?, hideProgressBar: Bool = false, onBranchSelection: @escaping OnBranchSelectionCallBack, pseName: String) -> UIViewController {
+    func build(with navigationController: UINavigationController?, hideProgressBar: Bool = false, onBanksAndExchangeSelection: @escaping OnBankAndExchangeSelectionCallBack) -> UIViewController {
 
         let viewController = BanksAndExchangeViewController.getInstance()
 
-        let coordinator = BranchListRouter(navigationController: navigationController)
-        let viewModel = BranchListViewModel(router: coordinator, hideProgressBar: hideProgressBar, pseName: pseName)
+        let coordinator = BanksAndExchangeRouter(navigationController: navigationController)
+        let viewModel = BanksAndExchangeViewModel(router: coordinator, hideProgressBar: hideProgressBar)
 
         viewController.viewModel = viewModel
-        viewController.onBranchSelection = onBranchSelection
+        viewController.onBanksAndExchangeSelection = onBanksAndExchangeSelection
 
         return viewController
     }

@@ -14,7 +14,6 @@ protocol BanksAndExchangeViewModelProtocol {
     var output: BanksAndExchangeViewModelOutput? { get set }
     var numberOfRows: Int { get }
     var isSearching: Bool? { get set }
-    var pseName: String { get set }
     
     func searchTextDidChange(text: String)
     func viewModelDidLoad()
@@ -24,7 +23,6 @@ protocol BanksAndExchangeViewModelProtocol {
 
 class BanksAndExchangeViewModel: BanksAndExchangeViewModelProtocol {
     
-    var pseName: String
     var isSearching: Bool?
     
     var output: BanksAndExchangeViewModelOutput?
@@ -83,15 +81,14 @@ class BanksAndExchangeViewModel: BanksAndExchangeViewModelProtocol {
     private var filteredBanksAndExchanges: [String] = []
     
     init(router: BanksAndExchangeRouter,
-         hideProgressBar: Bool, pseName: String) {
+         hideProgressBar: Bool) {
         self.router = router
         self.hideProgressBar = hideProgressBar
-        self.pseName = pseName
     }
     
     func viewModelDidLoad() {
-        fetchBranches()
-        output?(.hideProgressBar(hide: hideProgressBar))
+//        fetchBranches()
+//        output?(.hideProgressBar(hide: hideProgressBar))
     }
     
     private func fetchBranches() {

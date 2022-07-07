@@ -26,4 +26,8 @@ class BranchListTableViewCell: UITableViewCell {
     func populate(with branch: Branch) {
         nameLabel.text = branch.countryName
     }
+    
+    func populate(with banksAndExchange: BanksAndExchange) {
+        nameLabel.text = banksAndExchange.name
+    }
 }

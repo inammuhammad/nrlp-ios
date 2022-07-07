@@ -12,7 +12,7 @@
         <!--Banks And Exchange View Controller-->
         <scene sceneID="MQd-eA-Ydd">
             <objects>
-                <viewController storyboardIdentifier="BranchListViewController" id="nOZ-09-CT7" customClass="BanksAndExchangeViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BanksAndExchangeViewController" id="nOZ-09-CT7" customClass="BanksAndExchangeViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Chv-kZ-pWz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

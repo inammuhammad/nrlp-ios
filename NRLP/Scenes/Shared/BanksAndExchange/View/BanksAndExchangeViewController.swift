@@ -12,8 +12,8 @@ typealias OnBankAndExchangeSelectionCallBack = (BanksAndExchange) -> Void
 
 class BanksAndExchangeViewController: BaseViewController {
     
-    var viewModel: BranchListViewModel!
-    var onBranchSelection: OnBranchSelectionCallBack?
+    var viewModel: BanksAndExchangeViewModel!
+    var onBanksAndExchangeSelection: OnBankAndExchangeSelectionCallBack?
     
     @IBOutlet private weak var tableView: UITableView! {
         didSet {
@@ -85,14 +85,14 @@ extension BanksAndExchangeViewController: UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withClass: BranchListTableViewCell.self, for: indexPath)
-        cell.populate(with: viewModel.getBranch(at: indexPath.row))
+        cell.populate(with: viewModel.getBanksAndExchange(at: indexPath.row))
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.searchBar.endEditing(true)
-        onBranchSelection?(viewModel.getBranch(at: indexPath.row))
-        viewModel.didSelectedBranch()
+        onBanksAndExchangeSelection?(viewModel.getBanksAndExchange(at: indexPath.row))
+        viewModel.didSelectedBanksAndExchange()
     }
 }
 
