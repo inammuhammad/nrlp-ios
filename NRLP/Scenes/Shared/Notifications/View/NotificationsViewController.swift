@@ -19,7 +19,7 @@ class NotificationsViewController: BaseViewController {
     
     @IBOutlet private weak var scrollView: UIScrollView! {
         didSet {
-            
+
         }
     }
     
@@ -40,6 +40,15 @@ class NotificationsViewController: BaseViewController {
         self.scrollView.addGestureRecognizer(
             UITapGestureRecognizer(target: self, action: #selector(screenTapped))
         )
+        
+        // Urdu Scrolling bug fix
+        if AppConstants.isAppLanguageUrdu {
+            let subViews = self.stackView.arrangedSubviews
+            for i in 1..<subViews.count {
+                subViews[i].removeFromSuperview()
+                self.stackView.insertArrangedSubview(subViews[i], at: 0)
+            }
+        }
     }
     
     private func configTitleView() {

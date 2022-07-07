@@ -137,7 +137,7 @@
 "Redeem Your Points"="پوائنٹس استعمال کریں";
 "Beneficiaries"="وصول کنندہ";
 "Loyalty Statements"="لوائلٹی اسٹیٹمنٹ";
-"Home"="گھر";
+"Home"="مرکزی صفحہ";
 "Thank you for registering. Your account is in NADRA verification process and will be completed in next 48 hours. Upon verification your account will be marked active & you will be able to enjoy SDRP benefits (Loyalty Points, Transfer Points, Redemption, etc.)" = "اندراج کے لئے آپ کا شکریہ. آپ کا اکاؤنٹ نادر ا تصدیقی عمل میں ہے اور اگلے 48 گھنٹوں میں مکمل ہو جائے گا۔ تصدیق کرنے پر آپ کا اکاؤنٹ فعال ہو جائے گا - آپ ایس ڈی آر پی کے فوائد استعمال کر سکیں گے (پوائنٹس حاصل کریں، ٹرانسفر پوائنٹس، ریڈیمپشن وغیرہ";
 "Next"="اگلا";
 "Verify your device"="اپنے ڈیوائس کی تصدیق کریں";
@@ -164,6 +164,7 @@
 "Enter a valid email address"="درست ای میل کا اندراج کریں";
 "We have sent you a code on your phone number  %@" = "\U200E کوڈ اپ کے  موبائل نمبر %@ پربھیجا گیا ہے";
 "Please enter a valid password"="براہ کرم صحیح پاسورڈ درج کریں";
+"Please enter a valid passport number" = "براہ کرم درست پاسپورٹ نمبر درج کریں";
 "Old password is not correct"="پرانا پاس ورڈ درست نہیں ہے";
 "Password criteria does not match"="پاس ورڈ کا معیار مماثل نہیں ہے";
 "Password criteria does not match"="پاس ورڈ کا معیار مماثل نہیں ہے";
@@ -298,7 +299,7 @@
 // SELF AWARD
 "Proceed" = "آگے بڑھیں";
 "Transaction within 1 year is eligible for self awarding" = "گذشتہ ایک سال میں کی گئ ترسیلات ذر پہ خود پوائنٹس حاصل کرنے کی سہولت ہے";
-"Transaction Amount \nEnter exact amount as per your transaction receipt" = "رسید پر موجود رقم عین مطابق درج کریں";
+"Transaction Amount \nEnter exact amount as per your transaction receipt" = "ٹرانزیکشن کی رقم (پاکستانی روپے)\nرسید پر موجود رقم عین مطابق درج کریں";
 "Enter exact amount as per you transaction receipt" = "رسید پر موجود رقم عین مطابق درج کریں";
 "Date of Remittance" = "ترسیل کی تاریخ";
 "YYYY-MM-DD" = "YYYY-MM-DD";
@@ -347,7 +348,8 @@
 
 "Receipt No. %1$@\n\nYou have redeemed %2$@ Points against\nPSID %3$@ successfully at PIA\n\n%4$@" = "آپ نے %3$@ پی ایس آئی ڈی کے عوض %1$@ پر %2$@ پوائنٹس بمورخہ %4$@ استعمال کر لئے ہیں۔";
 
-"Transaction Reference No. / TT No." = "ترسیل کی ٹرانزیکشن کا ٹی ٹی نمبر";
+"Transaction Reference No. / TT No." = "حوالہ نمبر";
+// "ترسیل کی ٹرانزیکشن کا ٹی ٹی نمبر";
 "Transactions from last one year, starting 1st Oct 2021 are eligible" = "1 اکتوبر 2021 کے بعد سے ایک سال پرانی ٹرانزیکشنز استعمال کی جا سکتی ہیں";
 
 // USC
