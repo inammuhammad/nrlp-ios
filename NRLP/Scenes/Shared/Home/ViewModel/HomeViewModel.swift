@@ -72,6 +72,7 @@ class HomeViewModel: HomeViewModelProtocol {
                 if let data = response.data {
                     self?.userModel.update(from: data)
                     self?.checkNadraVerificationStatus()
+                    self?.checkPopupWindow()
                     self?.checkReceiverManagement()
                     self?.setupCollectionViewData()
                     self?.output?(.reloadCollectionView)
@@ -181,6 +182,27 @@ class HomeViewModel: HomeViewModelProtocol {
     
     func notificationsBellTapped() {
         self.router.navigateToNotifications(cnicNicop: userModel.cnicNicop.toString())
+    }
+    
+    private func checkPopupWindow() {
+        if !NRLPUserDefaults.shared.popupWindowSkipped() {
+            let model = PopupRequestModel(
+                custType: userModel.accountType?.rawValue ?? "-",
+                accountStatus: userModel.nadraStatusCode ?? "-"
+            )
+            
+            self.userProfileService.popupWindow(requestModel: model, responseHandler: { response in
+                switch response {
+                    
+                case .success(let data):
+                    if data.records.isShown == 1 {
+                        self.router.navigateToPopupScreen(with: data)
+                    }
+                case .failure:
+                    break
+                }
+            })
+        }
     }
     
     enum Output {

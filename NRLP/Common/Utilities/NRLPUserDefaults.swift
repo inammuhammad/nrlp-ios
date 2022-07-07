@@ -16,6 +16,7 @@ class NRLPUserDefaults {
         case maxInActiveDuration
         case maxBeneficiariesAllowed
         case receiverManagementSkipped
+        case popupWindowSkipped
     }
     
     static let shared = NRLPUserDefaults()
@@ -36,6 +37,10 @@ class NRLPUserDefaults {
     func getSelectedLanguage() -> AppLanguage? {
         let selectedLanguage = userDefaults.string(forKey: UserDefaultKeys.language.rawValue)
         return AppLanguage(rawValue: selectedLanguage ?? "")
+        
+//      Harcode Testing
+//        return AppLanguage.english
+//        return AppLanguage.urdu
     }
     
     func set(selectedLanguage: AppLanguage) {
@@ -96,6 +101,15 @@ class NRLPUserDefaults {
     
     func receiverManagemntSkipped(_ skipped: Bool) {
         userDefaults.set(skipped, forKey: UserDefaultKeys.receiverManagementSkipped.rawValue)
+    }
+    
+    func popupWindowSkipped() -> Bool {
+        return userDefaults.bool(forKey: UserDefaultKeys.popupWindowSkipped.rawValue)
+    }
+    
+    func popupWindowSkipped(_ skipped: Bool) {
+        userDefaults.set(skipped, forKey: UserDefaultKeys.popupWindowSkipped.rawValue)
+        userDefaults.synchronize()
     }
 }
 

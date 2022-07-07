@@ -23,4 +23,12 @@ class ComplaintFormRouter {
     func navigateToSuccessScreen(complaintID: String) {
         self.navigationController?.pushViewController(ComplaintSuccessBuilder().build(with: navigationController, complaintID: complaintID), animated: true)
     }
+    
+    func navigateToBranchPicker(with onBranchSelection: @escaping OnBranchSelectionCallBack, pseName: String) {
+        self.navigationController?.pushViewController(BranchListModuleBuilder().build(with: self.navigationController, onBranchSelection: onBranchSelection, pseName: pseName), animated: true)
+    }
+    
+    func navigateToBanksAndExchangePicker(with onBanksAndExchangeSelection: @escaping OnBankAndExchangeSelectionCallBack) {
+        self.navigationController?.pushViewController(BanksAndExchangeBuilder().build(with: self.navigationController, onBanksAndExchangeSelection: onBanksAndExchangeSelection), animated: true)
+    }
 }

@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -22,94 +21,122 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ui-CD-abi">
-                                <rect key="frame" x="20" y="44" width="374" height="728"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ui-CD-abi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="mEK-zJ-ljv">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="654"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFq-Po-87P">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="844"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction within 1 year is eligible for self awarding" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfY-uN-VDq">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
-                                                <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wo6-Mt-Dbh" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44" width="374" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="mEK-zJ-ljv">
+                                                <rect key="frame" x="20" y="40" width="374" height="714"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction within 1 year is eligible for self awarding" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfY-uN-VDq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name="HPSimplified-Regular" family="HP Simplified" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wo6-Mt-Dbh" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="37N-9P-iPH"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-m7-W4H" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="104" width="374" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="gIA-2a-2f4"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-wM-EhK" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="208" width="374" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="TPQ-X9-uRm"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9r-JI-2Kn" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="312" width="374" height="90"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="90" id="6Rv-qO-k0X"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-X6-gMU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="426" width="374" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="8e1-XX-g8O"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szT-YK-tUw" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="530" width="374" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="g8A-45-tGn"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BmB-9o-EqO" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="634" width="374" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" placeholder="YES" id="ubz-qJ-Bs9"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="pfY-uN-VDq"/>
+                                                    </mask>
+                                                </variation>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iH-Vc-mM9" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="774" width="374" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="37N-9P-iPH"/>
+                                                    <constraint firstAttribute="height" constant="50" id="4Xc-VP-mAo"/>
                                                 </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-m7-W4H" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="148" width="374" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="gIA-2a-2f4"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ilv-wM-EhK" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="252" width="374" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="TPQ-X9-uRm"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9r-JI-2Kn" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="356" width="374" height="90"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="90" id="6Rv-qO-k0X"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kqo-X6-gMU" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="470" width="374" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="8e1-XX-g8O"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="szT-YK-tUw" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="574" width="374" height="80"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="g8A-45-tGn"/>
-                                                </constraints>
-                                            </view>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="5iH-Vc-mM9" firstAttribute="top" secondItem="mEK-zJ-ljv" secondAttribute="bottom" constant="20" id="7Al-RH-ETg"/>
+                                            <constraint firstAttribute="trailing" secondItem="mEK-zJ-ljv" secondAttribute="trailing" constant="20" id="Dmc-Vs-w1n"/>
+                                            <constraint firstAttribute="trailing" secondItem="5iH-Vc-mM9" secondAttribute="trailing" constant="20" id="TKC-2e-8nT"/>
+                                            <constraint firstItem="mEK-zJ-ljv" firstAttribute="leading" secondItem="xFq-Po-87P" secondAttribute="leading" constant="20" id="Teb-iZ-4P9"/>
+                                            <constraint firstAttribute="bottom" secondItem="5iH-Vc-mM9" secondAttribute="bottom" constant="20" id="cHG-o3-pTJ"/>
+                                            <constraint firstItem="5iH-Vc-mM9" firstAttribute="leading" secondItem="xFq-Po-87P" secondAttribute="leading" constant="20" id="gnc-ji-M1h"/>
+                                            <constraint firstItem="mEK-zJ-ljv" firstAttribute="top" secondItem="xFq-Po-87P" secondAttribute="top" constant="40" id="qFg-zd-7ce"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="mEK-zJ-ljv" secondAttribute="bottom" id="1I7-8Y-ogN"/>
-                                    <constraint firstItem="mEK-zJ-ljv" firstAttribute="width" secondItem="2ui-CD-abi" secondAttribute="width" id="490-A6-9tq"/>
-                                    <constraint firstAttribute="trailing" secondItem="mEK-zJ-ljv" secondAttribute="trailing" id="R7Y-ya-5al"/>
-                                    <constraint firstItem="mEK-zJ-ljv" firstAttribute="leading" secondItem="2ui-CD-abi" secondAttribute="leading" id="WCh-he-Oro"/>
-                                    <constraint firstItem="mEK-zJ-ljv" firstAttribute="top" secondItem="2ui-CD-abi" secondAttribute="top" id="upF-dh-1vk"/>
+                                    <constraint firstItem="xFq-Po-87P" firstAttribute="leading" secondItem="2ui-CD-abi" secondAttribute="leading" id="3xK-B3-UvI"/>
+                                    <constraint firstItem="xFq-Po-87P" firstAttribute="width" secondItem="2ui-CD-abi" secondAttribute="width" id="7IQ-tG-loa"/>
+                                    <constraint firstItem="xFq-Po-87P" firstAttribute="top" secondItem="2ui-CD-abi" secondAttribute="top" id="UWv-z4-CT1"/>
+                                    <constraint firstAttribute="trailing" secondItem="xFq-Po-87P" secondAttribute="trailing" id="d4r-uS-Dsd"/>
+                                    <constraint firstAttribute="bottom" secondItem="xFq-Po-87P" secondAttribute="bottom" id="rAM-Ev-RKz"/>
                                 </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="vli-ay-rvl"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="oYs-Tc-zQJ"/>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iH-Vc-mM9" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
-                                <rect key="frame" x="20" y="792" width="374" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="4Xc-VP-mAo"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2ui-CD-abi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" constant="-20" id="2Cn-Ay-Yfx"/>
-                            <constraint firstItem="2ui-CD-abi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="9Un-3k-SqV"/>
+                            <constraint firstItem="2ui-CD-abi" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="2Cn-Ay-Yfx"/>
+                            <constraint firstItem="2ui-CD-abi" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9Un-3k-SqV"/>
                             <constraint firstItem="2ui-CD-abi" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="Dn9-gb-sO1"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="5iH-Vc-mM9" secondAttribute="bottom" constant="20" id="PBa-CZ-xas"/>
-                            <constraint firstItem="5iH-Vc-mM9" firstAttribute="top" secondItem="2ui-CD-abi" secondAttribute="bottom" constant="20" id="eWg-8O-VWv"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="5iH-Vc-mM9" secondAttribute="trailing" constant="20" id="hZ8-Na-etE"/>
-                            <constraint firstItem="5iH-Vc-mM9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="lnr-Ji-Jq7"/>
+                            <constraint firstItem="2ui-CD-abi" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="sFT-ws-O0N"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cnicTextView" destination="szT-YK-tUw" id="SLK-h6-7aj"/>
                         <outlet property="ibanTextView" destination="kqo-X6-gMU" id="nfF-n1-zZP"/>
+                        <outlet property="passportNumberTextView" destination="BmB-9o-EqO" id="5Q8-Xr-MjI"/>
                         <outlet property="proceedBtn" destination="5iH-Vc-mM9" id="F4k-1A-axf"/>
                         <outlet property="referenceNumberLabelTextView" destination="wo6-Mt-Dbh" id="dj6-34-4m8"/>
                         <outlet property="remittanceDateTextView" destination="ilv-wM-EhK" id="Kdv-hm-pLV"/>
@@ -123,11 +150,6 @@
             <point key="canvasLocation" x="137.68115942028987" y="110.49107142857143"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="5iH-Vc-mM9">
-            <size key="intrinsicContentSize" width="46" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

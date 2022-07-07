@@ -11,6 +11,7 @@ import Foundation
 enum TransactionType: String {
     case cnic
     case bank
+    case passport
 
     func getTitle() -> String {
         switch self {
@@ -18,6 +19,8 @@ enum TransactionType: String {
             return "Remittance sent to CNIC".localized
         case .bank:
             return "Remittance sent to Bank Account".localized
+        case .passport:
+            return "Remittance sent to Passport Number".localized
         }
     }
     

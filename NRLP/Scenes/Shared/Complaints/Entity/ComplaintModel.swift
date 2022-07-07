@@ -30,6 +30,10 @@ struct ComplaintRequestModel: Codable {
     let transactionAmount: String?
     let redemptionPartners: String?
     let comments: String?
+    let locMobileNo: String?
+    let branchCenter: String?
+    let countryForNadra: String?
+    let selfAwardType: String?
     
     enum CodingKeys: String, CodingKey {
         case registered = "c_registered"
@@ -52,7 +56,10 @@ struct ComplaintRequestModel: Codable {
         case transactionAmount = "c_transaction_amount"
         case redemptionPartners = "c_redemption_partners"
         case comments = "c_comments"
-        
+        case locMobileNo = "loc_mobile_no"
+        case branchCenter = "branch_center"
+        case countryForNadra = "country_for_nadra"
+        case selfAwardType = "self_award_type"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -77,6 +84,10 @@ struct ComplaintRequestModel: Codable {
         try container.encodeIfPresent(transactionAmount, forKey: .transactionAmount)
         try container.encodeIfPresent(redemptionPartners, forKey: .redemptionPartners)
         try container.encodeIfPresent(comments, forKey: .comments)
+        try container.encodeIfPresent(locMobileNo, forKey: .locMobileNo)
+        try container.encodeIfPresent(branchCenter, forKey: .branchCenter)
+        try container.encodeIfPresent(countryForNadra, forKey: .countryForNadra)
+        try container.encodeIfPresent(selfAwardType, forKey: .selfAwardType)
     }
 }
 

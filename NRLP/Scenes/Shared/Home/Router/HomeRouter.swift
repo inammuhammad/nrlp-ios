@@ -100,4 +100,11 @@ class HomeRouter {
     func navigateToFatherNameScreen(userModel: UserModel) {
         UIApplication.shared.keyWindow?.switchRoot(withRootController: FatherNameBuilder().build(userModel: userModel))
     }
+    
+    func navigateToPopupScreen(with data: PopupResponseModel) {
+        let vc = PopupBuilder().build(with: self.navigationController, model: data)
+        vc.modalPresentationStyle = .currentContext
+        vc.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(vc, animated: true)
+    }
 }

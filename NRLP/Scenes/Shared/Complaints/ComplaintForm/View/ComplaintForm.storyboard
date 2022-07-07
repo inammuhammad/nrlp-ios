@@ -51,13 +51,13 @@
                                 <rect key="frame" x="0.0" y="268" width="414" height="508"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oaw-QT-zg0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1922"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2624"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iSU-BG-jFu">
-                                                <rect key="frame" x="20" y="0.0" width="374" height="1922"/>
+                                                <rect key="frame" x="20" y="0.0" width="374" height="2624"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Lho-aU-GWS">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="1786"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="2488"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIb-ez-7On" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="90"/>
@@ -136,8 +136,33 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRS-d2-A6q" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JUl-6D-Ju1" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="742" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="8Jt-1P-JtO"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="titleLabelText" value="CNIC/NICOP Number"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Bp-z7-ow8" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="848" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="JDS-Pj-Mcr"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8Y-m8-l5T" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="954" width="374" height="80"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="4yK-MS-rjz"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRS-d2-A6q" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="1050" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="f3h-ff-Vc0"/>
@@ -148,7 +173,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3i-eV-5RB" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="848" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="1156" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="Xr9-0K-N4l"/>
@@ -159,7 +184,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qAa-zk-YWQ" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="954" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="1262" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="OLE-oL-VjZ"/>
@@ -170,7 +195,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="irN-bx-sQc" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="1060" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="1368" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="xkb-wh-KAI"/>
@@ -181,7 +206,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a1Q-Ap-d9W" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="1166" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="1474" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="qQV-0w-TSz"/>
@@ -192,7 +217,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iKs-CQ-l0y" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="1272" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="1580" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="PD3-yV-Wzc"/>
@@ -202,8 +227,36 @@
                                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="42501805322901"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5g-Ft-xRN" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="1686" width="374" height="80"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="PR0-QM-mYV"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Min-h1-nfP" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="1782" width="374" height="90"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="90" id="AyZ-TJ-QGS"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sn7-q6-2v4" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="1888" width="374" height="80"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="E0Q-SC-mtn"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cMF-xc-gMk" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="1984" width="374" height="80"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="80" placeholder="YES" id="5WA-rG-1Qz"/>
+                                                                </constraints>
+                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6r-d6-GeQ" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="1378" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="2080" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="6L4-mQ-nrd"/>
@@ -214,7 +267,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W9v-RV-mMC" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="1484" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="2186" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="77G-yP-Tqj"/>
@@ -225,7 +278,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1o-10-Eei" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="1590" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="2292" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="nZN-T3-aik"/>
@@ -236,7 +289,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D2W-GP-kIK" customClass="LabelledTextview" customModule="Sohni_Dharti" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="1696" width="374" height="90"/>
+                                                                <rect key="frame" x="0.0" y="2398" width="374" height="90"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="dOg-fo-Z7H"/>
@@ -249,7 +302,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pE3-c7-7jB">
-                                                        <rect key="frame" x="0.0" y="1802" width="374" height="120"/>
+                                                        <rect key="frame" x="0.0" y="2504" width="374" height="120"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Idh-1g-uuX" customClass="LabelledTextArea" customModule="Sohni_Dharti" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
@@ -311,17 +364,24 @@
                         <outlet property="beneficiaryCountryTextView" destination="qAa-zk-YWQ" id="cNS-Yk-cnT"/>
                         <outlet property="beneficiaryMobileNumberTextView" destination="irN-bx-sQc" id="z2I-Sz-5BD"/>
                         <outlet property="beneficiaryMobileOperatorTextView" destination="a1Q-Ap-d9W" id="8PW-HT-Wbn"/>
+                        <outlet property="branchTextView" destination="6Bp-z7-ow8" id="OgT-iU-zfB"/>
                         <outlet property="cnicTextView" destination="3vc-JZ-lcx" id="g32-mm-HY6"/>
                         <outlet property="complaintLabel" destination="Gma-BW-W4r" id="b51-A6-BQP"/>
                         <outlet property="complaintTypeRadioButton" destination="Rno-TO-nhg" id="NWR-js-CDH"/>
                         <outlet property="countryTextView" destination="JNr-5o-i0m" id="A1A-d5-lJW"/>
                         <outlet property="emailAddressTextView" destination="uwo-NX-kba" id="GWZ-LH-ozU"/>
                         <outlet property="fullNameTextView" destination="gIb-ez-7On" id="UuX-Os-3CZ"/>
+                        <outlet property="ibanTextView" destination="Min-h1-nfP" id="p6w-Df-0ge"/>
                         <outlet property="mobileNumberTextView" destination="3dK-5R-MGe" id="iLe-ik-Tcx"/>
                         <outlet property="mobileOperatorTextView" destination="1qL-GN-SZO" id="GIa-jB-CVS"/>
                         <outlet property="nextButton" destination="ycd-Vr-vbE" id="VKl-di-pN5"/>
+                        <outlet property="passportNumberTextView" destination="cMF-xc-gMk" id="NBZ-i5-Vr6"/>
+                        <outlet property="redemptionCountryTextView" destination="JUl-6D-Ju1" id="G0W-1i-ea7"/>
                         <outlet property="redemptionIssueTextView" destination="gJX-i1-clF" id="fb0-GW-5IW"/>
+                        <outlet property="redemptionMobileTextView" destination="J8Y-m8-l5T" id="QKg-M6-bbN"/>
                         <outlet property="remittanceEntityTextView" destination="P6r-d6-GeQ" id="Trw-xj-YJ7"/>
+                        <outlet property="selfAwardCnicTextView" destination="sn7-q6-2v4" id="8L3-GN-ONU"/>
+                        <outlet property="selfAwardTransactionTypeTextView" destination="X5g-Ft-xRN" id="byr-MP-92J"/>
                         <outlet property="specifyDetailsTextArea" destination="Idh-1g-uuX" id="tGT-eZ-2L2"/>
                         <outlet property="titleLabel" destination="GYN-5S-LUh" id="b6J-tQ-Dtg"/>
                         <outlet property="transactionAmountLabelTextView" destination="D2W-GP-kIK" id="NIk-9d-9iA"/>

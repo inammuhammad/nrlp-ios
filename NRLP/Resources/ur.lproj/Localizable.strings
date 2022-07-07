@@ -130,12 +130,15 @@
 "Are you sure you want to Logout?"="کیا اپ یقینی طور پر لاگ آوٹ کرنا چاہتے ہیں";
 "Yes"="ہاں";
 "No"="نہیں";
+
+// Home
 "Welcome,"="خوش آمدید";
 "Loyalty Points"="لوائلٹی پوائنٹس";
 "Redeem Your Points"="پوائنٹس استعمال کریں";
 "Beneficiaries"="وصول کنندہ";
 "Loyalty Statements"="لوائلٹی اسٹیٹمنٹ";
-"Home"="مرکزی صفحہ";
+"Home"="گھر";
+"Thank you for registering. Your account is in NADRA verification process and will be completed in next 48 hours. Upon verification your account will be marked active & you will be able to enjoy SDRP benefits (Loyalty Points, Transfer Points, Redemption, etc.)" = "اندراج کے لئے آپ کا شکریہ. آپ کا اکاؤنٹ نادر ا تصدیقی عمل میں ہے اور اگلے 48 گھنٹوں میں مکمل ہو جائے گا۔ تصدیق کرنے پر آپ کا اکاؤنٹ فعال ہو جائے گا - آپ ایس ڈی آر پی کے فوائد استعمال کر سکیں گے (پوائنٹس حاصل کریں، ٹرانسفر پوائنٹس، ریڈیمپشن وغیرہ";
 "Next"="اگلا";
 "Verify your device"="اپنے ڈیوائس کی تصدیق کریں";
 "A verification code has been sent to your registered mobile number. \nPlease enter the code below" = "تصدیقی کوڈ اپ کے رجسٹرڈ موبائل نمبر پر بھیجا گیا ہے/n براہ کرم نیچے کوڈ درج کریں";
@@ -308,6 +311,8 @@
 
 "Points Awarded" = "پوائنٹس کا حصول کامیاب ہوا";
 "Redemption Successful" = "پوائنٹس کامیابی سے استعمال ہو چکے ہیں";
+"Dear Customer, You are not eligible to perform self award transaction against previous fiscal year" = "معزز صارف، آپ پچھلے سال کی ترسیلات زر پر پوائنٹس حاصل کرنے کے اہل نہیں ہیں";
+"Dear Customer, You are not allowed to claim the loyalty points against the provided transaction" = "معزز صارف، آپ کو فراہم کردہ ترسیلات زر کے خلاف پوائنٹس حاصل کرنے کی اجازت نہیں ہے";
 
 //FBR
 "Federal Board of Revenue" = "Federal Board of Revenue";
@@ -382,9 +387,7 @@
 
 "View Sohni Dharti Remittance Program Benefits" = "سوہنی دھرتی ریمیٹینس پروگرام کے فوائد دیکھیں";
 
-"Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)" = "اپنی ترسیلات  کا حوالہ نمبر درج کریں
-
-نوٹ:  خود پوائنٹس حاصل کرنے کے لیے  صرف موجودہ سال کیی ٹرانزیکشن ہی استعمال کی جاسکتی ہے ، یکم اکتوبر 2021 سے نافذ العمل ہے";
+"Enter your remittance transaction reference number." = "اپنی ترسیلات  کا حوالہ نمبر درج کریں";
 
 "Enter Beneficiary Account Number/ IBAN/CNIC  on which remittance is sent" = "پاکستان میں ترسیلات زر وصول کرنے والے کی درج ذیل تفصیلات درج کریں
 1.     نقد وصول کرنے کی صورت میں  : قومی شناختی کارڈ  نمبر
@@ -491,12 +494,18 @@
 "Receiver Type" = "وصول کنندہ کی قسم";
 "Remittance sent to CNIC" = "قومی شناختی کارڈ پر بھیجی گئی ترسیلات";
 "Remittance sent to Bank Account" = "بینک اکاؤنٹ میں بھیجی گئی ترسیلات";
+"Remittance sent to Passport Number" = "پاسپورٹ نمبر پر بھیجی گئی ترسیلات زر";
+"Select the type of remittance service you use to send money" = "ترسیلات زر کی وہ قسم منتخب کریں جسے آپ رقم بھیجنے کے لیے استعمال کرتے ہیں";
+"Branch/Center" = "برانچ/سینٹر";
+"Mention visiting Branch/Center" = "وزٹنگ برانچ/سینٹر بتائیں";
+"Select Banks & Exchange Company" = "بینک اینڈ ایکسچینج کمپنی منتخب کریں";
+"Enter Pakistan Mobile Number" = "پاکستان موبائل نمبر درج کریں";
+"Country" = "ملک";
+"Mention the country from where the service was applied" = "اس ملک کا ذکر کریں جہاں سے سروس اپلائی کی گئ تھی۔";
 "Note: You can add maximum 5 receivers." = "نوٹ: آپ 5 وصول کنندگان کو  شامل کر سکتے ہیں";
 "Please enter Receiver Information" = "براہ کرم وصول کنندہ  کی معلومات درج کریں";
 "Add Receiver" = "وصول کنندہ شامل کریں";
-"USDtext" = "USD
-میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں تاہم موجودہ سال کے لیے اس کا اطلاق یکم اکتوبر 2021 سے ہوگا اور اسی کے مطابق آپ کی لائلٹی کیٹیگری کا حساب لگایا جائے گا۔
-";
+"USDtext" = "ہUSD میں سالانہ ترسیلات زر ہر سال یکم جولائی سے جمع ہوتی ہیں";
 "1. For self- awarding of points, please wait for 3 working days after your remittance is credited in the account or received by your beneficiary.\n\n2. RDA customers shall only be eligible for auto awarding of points against the amount which is consumed locally and cannot be repatriated." = "۱۔ پوائنٹس خود دینے کے لیے، براہ کرم 3 کاروباری دنوں تک انتظار کریں جب آپ کی رقم اکاؤنٹ میں جمع ہو جائے یا آپ کے وصول کنندہ کو موصول ہو جائے۔ \n\n۲۔ RDA کسٹمر صرف اس رقم کے بدلے آٹو ایوارڈنگ پوائنٹس کا اہل ہو گا جو مقامی طور پر استعمال ہوتی ہے اور اسے واپس نہیں لایا جا سکتا";
 // Add Beneficiary
 

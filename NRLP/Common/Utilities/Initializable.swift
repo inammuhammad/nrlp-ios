@@ -90,5 +90,8 @@ extension UIStoryboard {
         case notifocations = "Notifications"
         case fatherName = "FatherName"
         case csr = "CSR"
+        case popup = "Popup"
+        case branchList = "BranchList"
+        case banksAndExchange = "BanksAndExchange"
     }
 }

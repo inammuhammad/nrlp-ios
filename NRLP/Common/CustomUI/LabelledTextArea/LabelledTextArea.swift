@@ -19,14 +19,39 @@ class LabelledTextArea: CustomNibView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet private  weak var inputTextArea: UITextViewPadding!
     @IBOutlet private weak var bottomDescriptionLabel: UILabel!
+    @IBOutlet private weak var helpBtn: UIButton!
+    
+    @IBAction func helpBtnAction(_ sender: Any) {
+        let alert: AlertViewModel
+        let okButton = AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil)
+        alert = AlertViewModel(alertHeadingImage: helpPopupIcon, alertTitle: helpLabelText, alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
+        onHelpBtnPressed?(alert)
+    }
+    
+    @IBInspectable
+    var showHelpBtn: Bool = false {
+        didSet {
+            if showHelpBtn {
+                helpBtn.isHidden = false
+            } else {
+                helpBtn.isHidden = true
+            }
+        }
+    }
+    
+    @IBInspectable
+    var helpLabelText: String?
+    
+    var helpPopupIcon: AlertIllustrationType = .remitterInfo
     
     var onTextAreaChanged: TextAreaChangedCallBack?
     var onTextAreaTapped: TextAreaTappedCallBack?
     var onTextAreaFocusChange: TextAreaFocusChangeCallBack?
-    
+    var onHelpBtnPressed: HelpButtonTappedCallBack?
+
     private var tap: UITapGestureRecognizer?
     
-    //Regex validator
+    // Regex validator
     var formatValidator: FormatValidatorProtocol?
     
     var editTextKeyboardType: UIKeyboardType {

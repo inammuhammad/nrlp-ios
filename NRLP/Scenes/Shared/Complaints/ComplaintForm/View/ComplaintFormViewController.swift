@@ -14,12 +14,7 @@ class ComplaintFormViewController: BaseViewController {
     // MARK: Properties
     
     var viewModel: ComplaintFormViewModel!
-    private lazy var itemPickerView: ItemPickerView! = {
-        var pickerView = ItemPickerView()
-        pickerView.toolbarDelegate = self
-        pickerView.viewModel = viewModel.partnerPickerViewModel
-        return pickerView
-    }()
+    
     private lazy var transactionTypesItemPickerView: ItemPickerView! = {
         var pickerView = ItemPickerView()
         pickerView.toolbarDelegate = self
@@ -35,7 +30,7 @@ class ComplaintFormViewController: BaseViewController {
     }()
     
     // MARK: IBOutlets
-
+    
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.text = "Complaint Management".localized
@@ -98,7 +93,7 @@ class ComplaintFormViewController: BaseViewController {
     @IBOutlet private weak var countryTextView: LabelledTextview! {
         didSet {
             countryTextView.titleLabelText = "Country of Residence".localized
-            countryTextView.placeholderText = "Select Country".localized
+            countryTextView.placeholderText = "Select Country"
             countryTextView.isEditable = false
             countryTextView.isTappable = true
             countryTextView.editTextKeyboardType = .asciiCapable
@@ -151,8 +146,72 @@ class ComplaintFormViewController: BaseViewController {
         didSet {
             redemptionIssueTextView.titleLabelText = "Redemption Partner".localized
             redemptionIssueTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
-            redemptionIssueTextView.placeholderText = "Select Redemption Partner".localized
+            redemptionIssueTextView.placeholderText = "Select Redemption Partner"
             redemptionIssueTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+        }
+    }
+    
+    @IBOutlet private weak var redemptionCountryTextView: LabelledTextview! {
+        didSet {
+            redemptionCountryTextView.titleLabelText = "Country".localized
+            redemptionCountryTextView.placeholderText = "Select Country"
+            redemptionCountryTextView.isEditable = false
+            redemptionCountryTextView.isTappable = true
+            redemptionCountryTextView.editTextKeyboardType = .asciiCapable
+            redemptionCountryTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            redemptionCountryTextView.onTextFieldTapped = { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.countryTextFieldTapped(isBeneficiary: false)
+            }
+            redemptionCountryTextView.showHelpBtn = true
+            redemptionCountryTextView.helpLabelText = "Mention the country from where the service was applied".localized
+            redemptionCountryTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+        
+    // Branch Center for USC and BE&OE
+    @IBOutlet private weak var branchTextView: LabelledTextview! {
+        didSet {
+            branchTextView.titleLabelText = "Branch/Center".localized
+             branchTextView.placeholderText = "Select Branch/Center".localized
+            branchTextView.isEditable = false
+            branchTextView.isTappable = true
+            branchTextView.showHelpBtn = true
+            branchTextView.helpLabelText = "Mention visiting Branch/Center".localized
+            branchTextView.editTextKeyboardType = .asciiCapable
+            branchTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            branchTextView.onTextFieldTapped = { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.branchTextFieldTapped()
+            }
+            branchTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
+    @IBOutlet private weak var redemptionMobileTextView: LabelledTextview! {
+        didSet {
+            redemptionMobileTextView.titleLabelText = "Mobile Number".localized
+            redemptionMobileTextView.placeholderText = "xxx xxx xxxx".localized
+            redemptionMobileTextView.editTextKeyboardType = .asciiCapableNumberPad
+            redemptionMobileTextView.isEditable = true
+            redemptionMobileTextView.leadingText = "+92 - "
+            redemptionMobileTextView.inputFieldMaxLength = 10
+            redemptionMobileTextView.formatValidator = FormatValidator(regex: RegexConstants.mobileNumberRegex, invalidFormatError: StringConstants.ErrorString.mobileNumberError.localized)
+            redemptionMobileTextView.onTextFieldChanged = { [weak self] updatedText in
+                self?.viewModel.mobileNumber = updatedText
+            }
+            redemptionMobileTextView.showHelpBtn = true
+            redemptionMobileTextView.helpLabelText = "Enter Pakistan Mobile Number".localized
+            redemptionMobileTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     
@@ -160,8 +219,79 @@ class ComplaintFormViewController: BaseViewController {
         didSet {
             transactionTypesTextView.titleLabelText = "Transaction Type".localized
             transactionTypesTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
-            transactionTypesTextView.placeholderText = "Select Transaction Type".localized
+            // transactionTypesTextView.placeholderText = "Select Transaction Type".localized
             transactionTypesTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+        }
+    }
+    
+    @IBOutlet weak var selfAwardTransactionTypeTextView: LabelledTextview! {
+        didSet {
+            selfAwardTransactionTypeTextView.titleLabelText = "Transaction Type".localized
+            selfAwardTransactionTypeTextView.trailingIcon = #imageLiteral(resourceName: "dropdownArrow")
+            selfAwardTransactionTypeTextView.placeholderText = "Select Transaction Type".localized
+            selfAwardTransactionTypeTextView.showHelpBtn = true
+            selfAwardTransactionTypeTextView.helpPopupIcon = .selfAward
+            selfAwardTransactionTypeTextView.helpLabelText = "Select the type of remittance service you use to send money".localized
+            selfAwardTransactionTypeTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            selfAwardTransactionTypeTextView.inputTextFieldInputPickerView = self.getItemPickerView()
+            selfAwardTransactionTypeTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    @IBOutlet private weak var ibanTextView: LabelledTextview! {
+        didSet {
+            ibanTextView.titleLabelText = "Beneficiary Account Number/ IBAN".localized
+            ibanTextView.placeholderText = "xxxxxxxxxxxxx".localized
+            ibanTextView.editTextKeyboardType = .default
+            ibanTextView.inputFieldMinLength = 1
+            ibanTextView.inputFieldMaxLength = 24
+            ibanTextView.isEditable = true
+            ibanTextView.formatValidator = FormatValidator(regex: RegexConstants.ibanRegex, invalidFormatError: "Please enter a valid Account Number/IBAN".localized)
+            ibanTextView.onTextFieldChanged = { [weak self] updatedText in
+                self?.viewModel.iban = updatedText
+            }
+            ibanTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
+    // - Unable to Self Award
+    @IBOutlet private weak var selfAwardCnicTextView: LabelledTextview! {
+        didSet {
+            selfAwardCnicTextView.titleLabelText = "Beneficiary CNIC".localized
+            selfAwardCnicTextView.placeholderText = "xxxxx-xxxxxxx-x".localized
+            selfAwardCnicTextView.editTextKeyboardType = .asciiCapableNumberPad
+            selfAwardCnicTextView.inputFieldMinLength = 13
+            selfAwardCnicTextView.inputFieldMaxLength = 13
+            selfAwardCnicTextView.formatValidator = CNICFormatValidator(regex: RegexConstants.cnicRegex, invalidFormatError: StringConstants.ErrorString.cnicError.localized)
+            selfAwardCnicTextView.formatter = CNICFormatter()
+            selfAwardCnicTextView.onTextFieldChanged = { [weak self] updatedText in
+                self?.viewModel.cnic = updatedText
+            }
+        }
+    }
+    
+    @IBOutlet weak var passportNumberTextView: LabelledTextview! {
+        didSet {
+            passportNumberTextView.titleLabelText = "Passport No. *".localized
+            passportNumberTextView.placeholderText = "Enter Passport No.".localized
+            passportNumberTextView.showHelpBtn = true
+            passportNumberTextView.helpLabelText = "Please enter your passport number".localized
+            passportNumberTextView.inputFieldMinLength = 3
+            passportNumberTextView.inputFieldMaxLength = 20
+            passportNumberTextView.editTextKeyboardType = .default
+            passportNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.passportRegex, invalidFormatError: StringConstants.ErrorString.passportNumberError.localized)
+                passportNumberTextView.onTextFieldChanged = { [weak self] updatedText in
+                    self?.viewModel.passport = updatedText
+                }
+            passportNumberTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     
@@ -184,7 +314,7 @@ class ComplaintFormViewController: BaseViewController {
     @IBOutlet private weak var beneficiaryCountryTextView: LabelledTextview! {
         didSet {
             beneficiaryCountryTextView.titleLabelText = "Beneficiary Country of Residence".localized
-            beneficiaryCountryTextView.placeholderText = "Select Country".localized
+            beneficiaryCountryTextView.placeholderText = "Select Country"
             beneficiaryCountryTextView.isEditable = false
             beneficiaryCountryTextView.isTappable = true
             beneficiaryCountryTextView.editTextKeyboardType = .asciiCapable
@@ -237,17 +367,21 @@ class ComplaintFormViewController: BaseViewController {
     @IBOutlet weak var remittanceEntityTextView: LabelledTextview! {
         didSet {
             remittanceEntityTextView.titleLabelText = "Receiving Entity (Bank & Exchange Company)".localized
+            remittanceEntityTextView.placeholderText = "Select Receiving Entity".localized
+
             remittanceEntityTextView.autoCapitalizationType = .words
-            remittanceEntityTextView.editTextKeyboardType = .asciiCapable
             remittanceEntityTextView.showHelpBtn = true
             remittanceEntityTextView.helpLabelText = "Please mention the Bank and Exchange Company where the remittance was sent.".localized
-            remittanceEntityTextView.onTextFieldChanged = { [weak self] updatedText in
-                guard let self = self else { return }
-                self.viewModel.remittanceEntity = updatedText
-            }
             remittanceEntityTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }
                 self.showAlert(with: model)
+            }
+            remittanceEntityTextView.isEditable = false
+            remittanceEntityTextView.isTappable = true
+            remittanceEntityTextView.editTextCursorColor = .init(white: 1, alpha: 0)
+            remittanceEntityTextView.onTextFieldTapped = { [weak self] in
+                guard let self = self else { return }
+                self.viewModel.banksAndExchangeTextFieldTapped()
             }
         }
     }
@@ -305,6 +439,12 @@ class ComplaintFormViewController: BaseViewController {
                 guard let self = self else { return }
                 self.viewModel.specifyDetails = updatedText
             }
+            specifyDetailsTextArea.showHelpBtn = true
+            specifyDetailsTextArea.helpLabelText = "Please use at least 15 characters to describe the problem in detail.".localized
+            specifyDetailsTextArea.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
         }
     }
     
@@ -314,7 +454,7 @@ class ComplaintFormViewController: BaseViewController {
         hideAllTextFields()
         bindViewModelOutput()
         super.viewDidLoad()
-
+        
         viewModel.viewDidLoad()
         
         uNotificationCenter.delegate = self
@@ -327,9 +467,12 @@ class ComplaintFormViewController: BaseViewController {
                 self.nextButton.isEnabled = state
             case .showTextFields(loggedInState: let state, complaintType: let complaint, userType: let user):
                 self.showTextFields(state: state, complaint: complaint, user: user)
-            case .updateCountry(name: let name, isBeneficiary: let isBeneficiary):
+            case .updateCountry(name: let name, isBeneficiary: let isBeneficiary, isRedemption: let isRedemption):
                 if isBeneficiary {
                     self.beneficiaryCountryTextView.inputText = name
+                    return
+                } else if isRedemption {
+                    redemptionCountryTextView.inputText = name
                     return
                 }
                 self.countryTextView.inputText = name
@@ -344,7 +487,7 @@ class ComplaintFormViewController: BaseViewController {
                 }
                 self.mobileNumberTextView.leadingText = code
                 self.mobileNumberTextView.inputFieldMinLength = 1
-//                self.mobileNumberTextView.inputFieldMaxLength = numberLength
+                //                self.mobileNumberTextView.inputFieldMaxLength = numberLength
                 self.mobileNumberTextView.isEditable = true
                 self.mobileNumberTextView.inputText = ""
                 self.mobileNumberTextView.becomeFirstResponder()
@@ -361,11 +504,12 @@ class ComplaintFormViewController: BaseViewController {
             case .showError(error: let error):
                 self.showAlert(with: error)
             case .showRedemptionPartners:
-                redemptionIssueTextView.inputTextFieldInputPickerView = itemPickerView
+                redemptionIssueTextView.inputTextFieldInputPickerView = self.getItemPickerView()
             case .showActivityIndicator(show: let show):
                 show ? ProgressHUD.show() : ProgressHUD.dismiss()
-            case .updateRedemptionPartner(partnerName: let partner):
-                redemptionIssueTextView.inputText = partner
+            case .updateRedemptionPartner(let partner):
+                redemptionIssueTextView.inputText = partner.title
+                updateRedemptionFields(for: partner)
             case .showTransactionTypes:
                 transactionTypesTextView.inputTextFieldInputPickerView = transactionTypesItemPickerView
             case .updateTransactionType(type: let type):
@@ -374,6 +518,12 @@ class ComplaintFormViewController: BaseViewController {
                 transactionDateTextView.inputText = dateStr
             case .requestNotification(let complaintId, let message):
                 requestLocalNotification(complaintId: complaintId, message: message)
+            case .updateSelfAwardTransactionType(type: let type):
+                updateSelfAwardFields(with: type)
+            case .updateBranch(name: let name):
+                branchTextView.inputText = name
+            case .updateRemitingEntity(name: let name):
+                remittanceEntityTextView.inputText = name
             }
         }
     }
@@ -451,7 +601,7 @@ extension ComplaintFormViewController {
         case .unableToTransferPointsToBeneficiary:
             beneficiaryCnicTextView.isHidden = false
         case .unableToSelfAwardPoints:
-            beneficaryAccountTextView.isHidden = false
+            selfAwardTransactionTypeTextView.isHidden = false
             remittanceEntityTextView.isHidden = false
             transactionIDTextView.isHidden = false
             transactionDateTextView.isHidden = false
@@ -470,7 +620,7 @@ extension ComplaintFormViewController {
     
     private func showUnregisteredBeneficiaryFields(complaint: ComplaintTypes) {
         switch complaint {
-        
+            
         case .unableToRegister:
             fullNameTextView.isHidden = false
             cnicTextView.isHidden = false
@@ -511,6 +661,55 @@ extension ComplaintFormViewController {
             hideAllTextFields()
         }
     }
+    
+    private func updateRedemptionFields(for partner: RedemptionPartnerPickerItemModel) {
+        // based on key
+        if partner.title.lowercased().contains("usc") || partner.title.lowercased().contains("beoe") {
+            branchTextView.isHidden = false
+            redemptionMobileTextView.isHidden = false
+            redemptionCountryTextView.isHidden = true
+        } else if partner.title.lowercased().contains("passport") || partner.title.lowercased().contains("nadra") {
+            branchTextView.isHidden = false
+            redemptionCountryTextView.isHidden = false
+            redemptionMobileTextView.isHidden = true
+        } else {
+            branchTextView.isHidden = true
+            redemptionMobileTextView.isHidden = true
+            redemptionCountryTextView.isHidden = true
+        }
+    }
+    
+    private func updateSelfAwardFields(with type: TransactionType?) {
+        guard let type = type else {
+            showAlert(with: .unknown)
+            return
+        }
+        selfAwardTransactionTypeTextView.inputText = type.getTitle()
+        
+        switch type {
+        case .cnic:
+            ibanTextView.isHidden = true
+            selfAwardCnicTextView.isHidden = false
+            passportNumberTextView.isHidden = true
+        case .bank:
+            ibanTextView.isHidden = false
+            selfAwardCnicTextView.isHidden = true
+            passportNumberTextView.isHidden = true
+        case .passport:
+            
+            ibanTextView.isHidden = true
+            selfAwardCnicTextView.isHidden = true
+            passportNumberTextView.isHidden = false
+        }
+        
+    }
+    
+    private func getItemPickerView() -> ItemPickerView {
+        let pickerView = ItemPickerView()
+        pickerView.toolbarDelegate = self
+        pickerView.viewModel = viewModel.partnerPickerViewModel
+        return pickerView
+    }
 }
 
 // MARK: Extension - TextField Functions
@@ -544,6 +743,7 @@ extension ComplaintFormViewController {
         mobileOperatorTextView.isHidden = true
         emailAddressTextView.isHidden = true
         redemptionIssueTextView.isHidden = true
+        branchTextView.isHidden = true
         transactionTypesTextView.isHidden = true
         beneficiaryCnicTextView.isHidden = true
         beneficiaryCountryTextView.isHidden = true
@@ -555,8 +755,14 @@ extension ComplaintFormViewController {
         transactionDateTextView.isHidden = true
         transactionAmountLabelTextView.isHidden = true
         specifyDetailsTextArea.isHidden = true
+        selfAwardTransactionTypeTextView.isHidden = true
+        ibanTextView.isHidden = true
+        selfAwardCnicTextView.isHidden = true
+        passportNumberTextView.isHidden = true
+        redemptionMobileTextView.isHidden = true
+        redemptionCountryTextView.isHidden = true
     }
-
+    
     private func setTextFieldErrorState(state: Bool, message: String?, textfield: ComplaintFormTextFieldTypes) {
         switch textfield {
         case .fullName:
@@ -595,6 +801,20 @@ extension ComplaintFormViewController {
             transactionAmountLabelTextView.updateStateTo(isError: state, error: message)
         case .redemptionIssue:
             redemptionIssueTextView.updateStateTo(isError: state, error: message)
+        case .selfAwardTransactionType:
+            selfAwardTransactionTypeTextView.updateStateTo(isError: state, error: message)
+        case .iban:
+            ibanTextView.updateStateTo(isError: state, error: message)
+        case .selfAwardCnic:
+            selfAwardCnicTextView.updateStateTo(isError: state, error: message)
+        case .passport:
+            passportNumberTextView.updateStateTo(isError: state, error: message)
+        case .branchCenter:
+            branchTextView.updateStateTo(isError: state, error: message)
+        case .redemptionMobileNumber:
+            redemptionMobileTextView.updateStateTo(isError: state, error: message)
+        case .redemptionCountry:
+            redemptionCountryTextView.updateStateTo(isError: state, error: message)
         }
     }
     
@@ -636,6 +856,21 @@ extension ComplaintFormViewController {
             transactionAmountLabelTextView.becomeFirstResponder()
         case .redemptionIssue:
             redemptionIssueTextView.becomeFirstResponder()
+        case .selfAwardTransactionType:
+            selfAwardTransactionTypeTextView.becomeFirstResponder()
+            break
+        case .selfAwardCnic:
+            selfAwardCnicTextView.becomeFirstResponder()
+        case .iban:
+            ibanTextView.becomeFirstResponder()
+        case .passport:
+            passportNumberTextView.becomeFirstResponder()
+        case .branchCenter:
+            branchTextView.becomeFirstResponder()
+        case .redemptionMobileNumber:
+            redemptionMobileTextView.becomeFirstResponder()
+        case .redemptionCountry:
+            redemptionCountryTextView.becomeFirstResponder()
         }
     }
 }
@@ -646,13 +881,17 @@ extension ComplaintFormViewController: ItemPickerViewDelegate, CustomDatePickerV
     func didTapCancelButton() {
         self.view.endEditing(true)
     }
-
+    
     func didTapDoneButton(with selectedItem: PickerItemModel?) {
         if let item = selectedItem as? RedemptionPartnerPickerItemModel {
             viewModel.didSelectPartner(partner: item)
         }
         if let item = selectedItem as? TransactionTypesPickerItemModel {
             viewModel.didSelectTransactionType(type: item)
+        }
+        
+        if let item = selectedItem as? TransactionTypePickerItemModel {
+            viewModel.didSelectSelfAwardTransactionType(type: item)
         }
         self.view.endEditing(true)
     }

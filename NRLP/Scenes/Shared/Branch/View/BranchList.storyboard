@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Branch List View Controller-->
+        <scene sceneID="OiN-qn-Zo6">
+            <objects>
+                <viewController storyboardIdentifier="BranchListViewController" id="kcl-HA-FYv" customClass="BranchListViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dC5-e9-NI5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="qfy-KZ-ZUa">
+                                <rect key="frame" x="0.0" y="64" width="414" height="51"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iiu-GO-27U" customClass="ProgressBarView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="8"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="yZW-tn-ib5"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sKT-ey-S09">
+                                <rect key="frame" x="16" y="115" width="382" height="747"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qLc-DL-WMV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qLc-DL-WMV" firstAttribute="trailing" secondItem="qfy-KZ-ZUa" secondAttribute="trailing" id="BPr-ou-sjd"/>
+                            <constraint firstItem="qfy-KZ-ZUa" firstAttribute="leading" secondItem="qLc-DL-WMV" secondAttribute="leading" id="TNg-CO-wGZ"/>
+                            <constraint firstItem="qLc-DL-WMV" firstAttribute="bottom" secondItem="sKT-ey-S09" secondAttribute="bottom" id="URj-Ug-hcI"/>
+                            <constraint firstItem="sKT-ey-S09" firstAttribute="top" secondItem="qfy-KZ-ZUa" secondAttribute="bottom" id="Vyv-5z-d8g"/>
+                            <constraint firstItem="Iiu-GO-27U" firstAttribute="leading" secondItem="qLc-DL-WMV" secondAttribute="leading" id="eFo-Sq-jDp"/>
+                            <constraint firstItem="qfy-KZ-ZUa" firstAttribute="top" secondItem="Iiu-GO-27U" secondAttribute="bottom" constant="12" id="lzb-JL-JoR"/>
+                            <constraint firstItem="qLc-DL-WMV" firstAttribute="trailing" secondItem="sKT-ey-S09" secondAttribute="trailing" constant="16" id="mwT-lO-Jnd"/>
+                            <constraint firstItem="qLc-DL-WMV" firstAttribute="trailing" secondItem="Iiu-GO-27U" secondAttribute="trailing" id="xaX-ql-Jxd"/>
+                            <constraint firstItem="sKT-ey-S09" firstAttribute="leading" secondItem="qLc-DL-WMV" secondAttribute="leading" constant="16" id="ymD-i5-WPv"/>
+                            <constraint firstItem="Iiu-GO-27U" firstAttribute="top" secondItem="qLc-DL-WMV" secondAttribute="top" id="zde-Fn-aGb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressBarView" destination="Iiu-GO-27U" id="R4v-aa-d7H"/>
+                        <outlet property="searchBar" destination="qfy-KZ-ZUa" id="nKM-Hq-Xfe"/>
+                        <outlet property="tableView" destination="sKT-ey-S09" id="GP3-7k-BGS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Bs-A3-LBj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-36.231884057971016" y="142.63392857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

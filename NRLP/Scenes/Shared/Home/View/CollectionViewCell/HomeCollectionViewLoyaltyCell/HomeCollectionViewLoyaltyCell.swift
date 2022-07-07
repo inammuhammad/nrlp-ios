@@ -79,7 +79,7 @@ class HomeCollectionViewLoyaltyCell: UICollectionViewCell, HomeCollectionViewCel
     
     @IBAction func infoBtnAction(_ sender: Any) {
         let alert: AlertViewModel
-        let okButton = AlertActionButtonModel(buttonTitle: "OK".localized, buttonAction: nil)
+        let okButton = AlertActionButtonModel(buttonTitle: "Okay".localized, buttonAction: nil)
         alert = AlertViewModel(alertHeadingImage: .noImage, alertTitle: "USDtext".localized, alertDescription: nil, alertAttributedDescription: nil, primaryButton: okButton, secondaryButton: nil)
         if let vc = homeController as? HomeViewController {
             vc.showAlert(with: alert)

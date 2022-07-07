@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Banks And Exchange View Controller-->
+        <scene sceneID="MQd-eA-Ydd">
+            <objects>
+                <viewController storyboardIdentifier="BanksAndExchangeViewController" id="nOZ-09-CT7" customClass="BanksAndExchangeViewController" customModule="Sohni_Dharti" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Chv-kZ-pWz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="RF5-TH-0os">
+                                <rect key="frame" x="0.0" y="64" width="414" height="51"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="circular" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8t-r0-SFZ" customClass="ProgressBarView" customModule="Sohni_Dharti" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="8"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="8" id="lwo-eE-WeG"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SbF-1g-fTg">
+                                <rect key="frame" x="16" y="115" width="382" height="747"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pjw-Ym-BVN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="a8t-r0-SFZ" firstAttribute="leading" secondItem="pjw-Ym-BVN" secondAttribute="leading" id="1xr-Qa-hDm"/>
+                            <constraint firstItem="pjw-Ym-BVN" firstAttribute="trailing" secondItem="SbF-1g-fTg" secondAttribute="trailing" constant="16" id="DZl-Qo-DDe"/>
+                            <constraint firstItem="pjw-Ym-BVN" firstAttribute="trailing" secondItem="a8t-r0-SFZ" secondAttribute="trailing" id="Wg2-s0-N62"/>
+                            <constraint firstItem="RF5-TH-0os" firstAttribute="leading" secondItem="pjw-Ym-BVN" secondAttribute="leading" id="Z7B-DV-f1R"/>
+                            <constraint firstItem="SbF-1g-fTg" firstAttribute="top" secondItem="RF5-TH-0os" secondAttribute="bottom" id="dqI-m5-2QV"/>
+                            <constraint firstItem="RF5-TH-0os" firstAttribute="top" secondItem="a8t-r0-SFZ" secondAttribute="bottom" constant="12" id="pnc-pq-wbI"/>
+                            <constraint firstItem="pjw-Ym-BVN" firstAttribute="trailing" secondItem="RF5-TH-0os" secondAttribute="trailing" id="rD7-dZ-8uh"/>
+                            <constraint firstItem="pjw-Ym-BVN" firstAttribute="bottom" secondItem="SbF-1g-fTg" secondAttribute="bottom" id="sbY-S1-2hO"/>
+                            <constraint firstItem="a8t-r0-SFZ" firstAttribute="top" secondItem="pjw-Ym-BVN" secondAttribute="top" id="u1H-H2-z6D"/>
+                            <constraint firstItem="SbF-1g-fTg" firstAttribute="leading" secondItem="pjw-Ym-BVN" secondAttribute="leading" constant="16" id="vnH-eL-tFq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="progressBarView" destination="a8t-r0-SFZ" id="p7r-1b-hnf"/>
+                        <outlet property="searchBar" destination="RF5-TH-0os" id="FP8-5L-3Tk"/>
+                        <outlet property="tableView" destination="SbF-1g-fTg" id="Z4W-8B-hhU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7wi-2a-jJz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="60"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

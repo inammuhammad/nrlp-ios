@@ -36,6 +36,6 @@ struct LoyaltyPointsTableCellViewModel {
     }
     
     mutating func getCreatedData() -> String {
-        return statement.formattedCreatedDate
+        return statement.localFormattedCreatedDate
     }
 }

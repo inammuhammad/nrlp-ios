@@ -16,11 +16,14 @@ class SelfAwardViewController: BaseViewController {
         didSet {
             cnicTextView.isHidden = true
             ibanTextView.isHidden = true
+            passportNumberTextView.isHidden = true
             
             if transactionType == .cnic {
                 cnicTextView.isHidden = false
             } else if transactionType == .bank {
                 ibanTextView.isHidden = false
+            } else if transactionType == .passport {
+                passportNumberTextView.isHidden = false
             }
             
             validateFields()
@@ -37,6 +40,7 @@ class SelfAwardViewController: BaseViewController {
     var transactionAmount: String?
     var iban: String?
     var cnic: String?
+    var passport: String?
     var user: UserModel?
     
     var datePickerViewModel: CustomDatePickerViewModel {
@@ -80,6 +84,10 @@ class SelfAwardViewController: BaseViewController {
                 TransactionTypePickerItemModel(
                     title: TransactionType.bank.getTitle(),
                     key: TransactionType.bank.rawValue
+                ),
+                TransactionTypePickerItemModel(
+                    title: TransactionType.passport.getTitle(),
+                    key: TransactionType.passport.rawValue
                 )
             ]
         )
@@ -109,7 +117,7 @@ class SelfAwardViewController: BaseViewController {
             referenceNumberLabelTextView.titleLabelText = "Transaction Reference No. / TT No.".localized
             referenceNumberLabelTextView.placeholderText = "xxxxxxxxxxxxxx"
             referenceNumberLabelTextView.showHelpBtn = true
-            referenceNumberLabelTextView.helpLabelText = "Enter your remittance transaction reference number. Note: (Current year Transaction can only be used for Self-Awarding, applicable from 1st Oct 2021)".localized
+            referenceNumberLabelTextView.helpLabelText = "Enter your remittance transaction reference number.".localized
             referenceNumberLabelTextView.helpPopupIcon = .selfAward
             referenceNumberLabelTextView.inputFieldMaxLength = 25
             referenceNumberLabelTextView.inputFieldMinLength = 5
@@ -220,6 +228,28 @@ class SelfAwardViewController: BaseViewController {
         }
     }
     
+    @IBOutlet weak var passportNumberTextView: LabelledTextview! {
+        didSet {
+            passportNumberTextView.titleLabelText = "Passport Number".localized
+            passportNumberTextView.placeholderText = "Enter Passport No.".localized
+            passportNumberTextView.showHelpBtn = true
+            passportNumberTextView.helpLabelText = "Enter Beneficiary Passport Number".localized
+            passportNumberTextView.inputFieldMinLength = 3
+            passportNumberTextView.inputFieldMaxLength = 20
+            passportNumberTextView.editTextKeyboardType = .default
+            passportNumberTextView.formatValidator = FormatValidator(regex: RegexConstants.passportRegex, invalidFormatError: StringConstants.ErrorString.passportNumberError.localized)
+            passportNumberTextView.onTextFieldChanged = { [weak self] updatedText in
+                guard let self = self else { return }
+                self.passport = updatedText
+                self.validateFields()
+            }
+            passportNumberTextView.onHelpBtnPressed = { [weak self] model in
+                guard let self = self else { return }
+                self.showAlert(with: model)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -239,6 +269,7 @@ class SelfAwardViewController: BaseViewController {
         
         ibanTextView.isHidden = true
         cnicTextView.isHidden = true
+        passportNumberTextView.isHidden = true
     }
     
     private func showInitialAlert() {
@@ -283,6 +314,14 @@ class SelfAwardViewController: BaseViewController {
                     ibanTextView.updateStateTo(isError: true, error: "Please enter a valid Account Number/IBAN".localized)
                     proceedBtn.isEnabled = false
                 }
+            } else if transactionType == .passport {
+                // do passport stuff
+                if !(passport?.isBlank ?? true), passport?.isValid(for: RegexConstants.passportRegex) ?? false {
+                    passportNumberTextView.updateStateTo(isError: false)
+                    proceedBtn.isEnabled = true
+                } else {
+                    proceedBtn.isEnabled = false
+                }
             } else {
                 // do nothing stuff
                 ibanTextView.updateStateTo(isError: false)
@@ -296,12 +335,17 @@ class SelfAwardViewController: BaseViewController {
             showActivityIndicator(show: true)
             let service = SelfAwardOTPService()
             
-            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: transactionType == .cnic ? "COC" : "ACC")
+            var model = SelfAwardModel(amount: amount, referenceNo: referenceNo, beneficiaryCnic: "-", remittanceDate: date, type: "-")
             
             if transactionType == .cnic, let cnic = cnic {
                 model.beneficiaryCnic = cnic
+                model.type = "COC"
             } else if transactionType == .bank, let iban = iban {
                 model.beneficiaryCnic = iban
+                model.type = "ACC"
+            } else if transactionType == .passport, let passport = passport {
+                model.beneficiaryCnic = passport
+                model.type = "PPT"
             }
             
             service.validateTransaction(requestModel: model) {[weak self] (result) in
@@ -315,6 +359,11 @@ class SelfAwardViewController: BaseViewController {
                     case .server(let response):
                         if response?.errorCode.lowercased() == "AUTH-VRN-06".lowercased() {
                             self?.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Oh Snap!".localized, alertDescription: "transactionNotFoundError".localized, alertAttributedDescription: nil, primaryButton: .init(buttonTitle: "Okay".localized, buttonAction: nil), secondaryButton: nil, topTextField: nil, middleTextField: nil, bottomTextField: nil))
+                        } else if response?.errorCode.lowercased() == "AUTH-SA-22".lowercased() {
+                            self?.showAlert(
+                                with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Dear Customer, You are not eligible to perform self award transaction against previous fiscal year".localized, primaryButton: .init(buttonTitle: "Okay".localized)))
+                        } else if response?.errorCode.lowercased() == "AUTH-SA-23".lowercased() {
+                            self?.showAlert(with: AlertViewModel(alertHeadingImage: .ohSnap, alertTitle: "Dear Customer, You are not allowed to claim the loyalty points against the provided transaction".localized, primaryButton: .init(buttonTitle: "Okay".localized)))
                         } else {
                             self?.showAlert(with: error)
                         }

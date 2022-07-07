@@ -30,6 +30,11 @@ protocol ComplaintFormViewModelProtocol {
     var transactionID: String? { get set }
     var transactionDate: Date? { get set }
     var transactionAmount: String? { get set }
+    var selfAwardTransactionType: TransactionType? { get set}
+    
+    var iban: String? { get set }
+    var passport: String? { get set }
+    var branch: Branch? { get set }
     
     var partnerPickerViewModel: ItemPickerViewModel { get }
     var transactionTypesPickerViewModel: ItemPickerViewModel { get }
@@ -40,6 +45,8 @@ protocol ComplaintFormViewModelProtocol {
     func viewDidLoad()
     func nextButtonPressed()
     func countryTextFieldTapped(isBeneficiary: Bool)
+    func branchTextFieldTapped()
+    func banksAndExchangeTextFieldTapped()
     func didSelectPartner(partner: RedemptionPartnerPickerItemModel?)
     func didSelectTransactionType(type: TransactionTypesPickerItemModel?)
 }
@@ -120,6 +127,12 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
+    var selfAwardTransactionType: TransactionType? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var beneficiaryCnic: String? {
         didSet {
             validateRequiredFields()
@@ -151,6 +164,24 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
+    var iban: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var passport: String? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
+    var branch: Branch? {
+        didSet {
+            validateRequiredFields()
+        }
+    }
+    
     var partnerPickerViewModel: ItemPickerViewModel {
         if complaintType == .redemptionIssues {
             var dataArray: [PickerItemModel] = []
@@ -158,6 +189,23 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
                 dataArray.append(RedemptionPartnerPickerItemModel(title: partner.partnerName, key: "\(partner.id)"))
             }
             return ItemPickerViewModel(data: dataArray)
+        } else if complaintType == .unableToSelfAwardPoints {
+            return ItemPickerViewModel(
+                data: [
+                    TransactionTypePickerItemModel(
+                        title: TransactionType.cnic.getTitle(),
+                        key: TransactionType.cnic.rawValue
+                    ),
+                    TransactionTypePickerItemModel(
+                        title: TransactionType.bank.getTitle(),
+                        key: TransactionType.bank.rawValue
+                    ),
+                    TransactionTypePickerItemModel(
+                        title: TransactionType.passport.getTitle(),
+                        key: TransactionType.passport.rawValue
+                    )
+                ]
+            )
         }
         return ItemPickerViewModel(data: [])
     }
@@ -215,16 +263,19 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case showActivityIndicator(show: Bool)
         case nextButtonState(state: Bool)
         case showTextFields(loggedInState: UserLoginState, complaintType: ComplaintTypes, userType: AccountType)
-        case updateCountry(name: String, isBeneficiary: Bool)
+        case updateCountry(name: String, isBeneficiary: Bool, isRedemption: Bool)
         case updateMobileCode(code: String, length: Int, isBeneficiary: Bool)
         case updateMobilePlaceholder(placeholder: String, isBeneficiary: Bool)
         case textField(errorState: Bool, error: String?, textfieldType: ComplaintFormTextFieldTypes)
         case focusField(type: ComplaintFormTextFieldTypes)
         case showError(error: APIResponseError)
-        case updateRedemptionPartner(partnerName: String)
+        case updateRedemptionPartner(partner: RedemptionPartnerPickerItemModel)
         case updateTransactionType(type: String)
         case updateTransactionDate(dateStr: String)
         case requestNotification(complaintId: String, message: String)
+        case updateSelfAwardTransactionType(type: TransactionType?)
+        case updateBranch(name: String)
+        case updateRemitingEntity(name: String)
     }
     
     // MARK: Lifecycle Methods
@@ -290,13 +341,22 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
     }
     
     func didSelectPartner(partner: RedemptionPartnerPickerItemModel?) {
-        self.partner = partner?.title
-        output?(.updateRedemptionPartner(partnerName: partner?.title ?? ""))
+        guard let partner = partner else {
+            return
+        }
+        
+        self.partner = partner.title
+        output?(.updateRedemptionPartner(partner: partner))
     }
     
     func didSelectTransactionType(type: TransactionTypesPickerItemModel?) {
         self.transactionType = type?.title
         output?(.updateTransactionType(type: type?.title.localized ?? ""))
+    }
+    
+    func didSelectSelfAwardTransactionType(type: TransactionTypePickerItemModel?) {
+        self.selfAwardTransactionType = type?.transactionType
+        output?(.updateSelfAwardTransactionType(type: selfAwardTransactionType))
     }
     
     deinit {
@@ -343,19 +403,45 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             if isBeneficiary {
                 if self?.beneficiaryCountry != selectedCountry {
                     self?.beneficiaryCountry = selectedCountry
-                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: true))
+                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: true, isRedemption: self?.complaintType == .redemptionIssues))
                     self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length, isBeneficiary: true))
                     self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined(), isBeneficiary: true))
                 }
             } else {
                 if self?.country != selectedCountry {
                     self?.country = selectedCountry
-                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: false))
+                    self?.output?(.updateCountry(name: selectedCountry.country, isBeneficiary: false, isRedemption: self?.complaintType == .redemptionIssues))
                     self?.output?(.updateMobileCode(code: selectedCountry.code + " - ", length: selectedCountry.length, isBeneficiary: false))
                     self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined(), isBeneficiary: false))
                 }
             }
         }, accountType: self.userType)
+    }
+    
+    func branchTextFieldTapped() {
+        guard let pseName = partner else {
+            return
+        }
+        
+        router.navigateToBranchPicker(with: { [weak self] selectedBranch in
+            self?.branch = selectedBranch
+            
+            guard let branch = self?.branch else {
+                return
+            }
+            self?.output?(.updateBranch(name: branch.countryName))
+        }, pseName: pseName)
+    }
+    
+    func banksAndExchangeTextFieldTapped() {
+        router.navigateToBanksAndExchangePicker(with: { [weak self] selectedBanksAndExchange in
+            self?.remittanceEntity = selectedBanksAndExchange.name
+            
+            guard let remittanceEntity = self?.remittanceEntity else {
+                return
+            }
+            self?.output?(.updateRemitingEntity(name: remittanceEntity))
+        })
     }
     
     func getRequestModel() -> ComplaintRequestModel {
@@ -367,27 +453,56 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         if let country = self.country, let mobileNumber = self.mobileNumber {
             newMobileNumber = "\(country.code)\(mobileNumber)"
         }
+        
+        var saTransactionType: String?
+        var saValue: String?
+        
+        if let selfAwardTransactionType = selfAwardTransactionType {
+            switch selfAwardTransactionType {
+            case .cnic:
+                saTransactionType = "COC"
+                saValue = cnic
+            case .bank:
+                saTransactionType = "ACC"
+                saValue = iban
+            case .passport:
+                saTransactionType = "PPT"
+                saValue = passport
+            }
+        }
+        
+        var locMobileNo = ""
+        if complaintType == .redemptionIssues, let partner = partner, (partner.lowercased().contains("beoe") || partner.lowercased().contains("usc")) {
+            locMobileNo = "+92\(mobileNumber ?? "")"
+        }
+        
         let registered = loginState == .loggedIn ? 1 : 0
-        let requestModel = ComplaintRequestModel(registered: registered,
-                                                 userType: self.userType.rawValue,
-                                                 complaintTypeID: self.complaintType.getComplaintTypeCode(),
-                                                 mobileNo: self.currentUser?.mobileNo ?? newMobileNumber,
-                                                 email: self.currentUser?.email ?? self.email,
-                                                 countryOfResidence: self.currentUser?.countryName ?? self.country?.country,
-                                                 mobileOperatorName: self.mobileOperator,
-                                                 name: self.currentUser?.fullName ?? self.name,
-                                                 cnic: self.currentUser?.cnicNicop.toString() ?? self.cnic,
-                                                 transactionType: self.transactionType,
-                                                 beneficiaryCnic: self.beneficiaryCnic,
-                                                 beneficiaryCountryOfResidence: self.beneficiaryCountry?.country,
-                                                 beneficiaryMobileNo: beneficiaryMobile,
-                                                 beneficiaryMobileOperatorName: self.beneficiaryMobileOperator,
-                                                 remittingEntity: self.remittanceEntity,
-                                                 transactionID: self.transactionID,
-                                                 transactionDate: self.transactionDateString,
-                                                 transactionAmount: self.transactionAmount,
-                                                 redemptionPartners: self.partner,
-                                                 comments: self.specifyDetails)
+        let requestModel = ComplaintRequestModel(
+            registered: registered,
+            userType: self.userType.rawValue,
+            complaintTypeID: self.complaintType.getComplaintTypeCode(),
+            mobileNo: self.currentUser?.mobileNo ?? newMobileNumber,
+            email: self.currentUser?.email ?? self.email,
+            countryOfResidence: self.currentUser?.countryName ?? self.country?.country,
+            mobileOperatorName: self.mobileOperator,
+            name: self.currentUser?.fullName ?? self.name,
+            cnic: self.currentUser?.cnicNicop.toString() ?? self.cnic,
+            transactionType: self.transactionType,
+            beneficiaryCnic: complaintType == .unableToSelfAwardPoints ? saValue ?? "-" : self.beneficiaryCnic,
+            beneficiaryCountryOfResidence: self.beneficiaryCountry?.country,
+            beneficiaryMobileNo: beneficiaryMobile,
+            beneficiaryMobileOperatorName: self.beneficiaryMobileOperator,
+            remittingEntity: self.remittanceEntity,
+            transactionID: self.transactionID,
+            transactionDate: self.transactionDateString,
+            transactionAmount: self.transactionAmount,
+            redemptionPartners: self.partner,
+            comments: self.specifyDetails,
+            locMobileNo: locMobileNo,
+            branchCenter: branch?.countryName,
+            countryForNadra: country?.country,
+            selfAwardType: saTransactionType
+        )
         return requestModel
     }
     
@@ -405,14 +520,14 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
 }
-    
+
 // MARK: Extension - Validations
 
 extension ComplaintFormViewModel {
     private func validateRequiredFields() {
         
         switch complaintType {
-    
+            
         case .unableToRegister:
             validateUnableToRegisterComplaint()
         case .unableToReceiveRegistrationCode:
@@ -444,7 +559,7 @@ extension ComplaintFormViewModel {
     
     private func validateUnableToRegisterComplaintRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
         var isValid: Bool = true
-
+        
         var errorTopField: ComplaintFormTextFieldTypes?
         
         if name?.isValid(for: RegexConstants.nameRegex) ?? false {
@@ -462,14 +577,14 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .cnic
         }
-
+        
         if country != nil {
             output?(.textField(errorState: false, error: nil, textfieldType: .country))
         } else {
             output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .country))
             isValid = false
         }
-
+        
         if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .mobileNumber))
         } else {
@@ -477,7 +592,7 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .mobileNumber
         }
-
+        
         if email == nil || email?.isEmpty ?? true || email?.isValid(for: RegexConstants.emailRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .email))
         } else {
@@ -493,7 +608,7 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .specifyDetails
         }
-
+        
         return (isValid, errorTopField)
     }
     
@@ -555,14 +670,14 @@ extension ComplaintFormViewModel {
                     errorTopField = errorTopField ?? .fullName
                 }
             }
-
+            
             if country != nil {
                 output?(.textField(errorState: false, error: nil, textfieldType: .country))
             } else {
                 output?(.textField(errorState: true, error: StringConstants.ErrorString.countryError.localized, textfieldType: .country))
                 isValid = false
             }
-
+            
             if country != nil && mobileNumber?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
                 output?(.textField(errorState: false, error: nil, textfieldType: .mobileNumber))
             } else {
@@ -570,7 +685,7 @@ extension ComplaintFormViewModel {
                 isValid = false
                 errorTopField = errorTopField ?? .mobileNumber
             }
-
+            
             if mobileOperator != nil || mobileOperator?.isEmpty ?? true {
                 output?(.textField(errorState: false, error: nil, textfieldType: .mobileOperatorName))
             } else {
@@ -589,7 +704,7 @@ extension ComplaintFormViewModel {
         }
         
         return (isValid, errorTopField)
-
+        
     }
     
     // MARK: Validation - Others
@@ -618,7 +733,7 @@ extension ComplaintFormViewModel {
                 isValid = false
                 errorTopField = errorTopField ?? .specifyDetails
             }
-
+            
             return (isValid, errorTopField)
         }
         return validateUnableToRegisterComplaintRegex()
@@ -663,7 +778,7 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .beneficiaryCountry
         }
-
+        
         if beneficiaryCountry != nil && beneficiaryMobileNo?.isValid(for: RegexConstants.mobileNumberRegex) ?? false {
             output?(.textField(errorState: false, error: nil, textfieldType: .beneficiraryMobieNo))
         } else {
@@ -671,7 +786,7 @@ extension ComplaintFormViewModel {
             isValid = false
             errorTopField = errorTopField ?? .beneficiraryMobieNo
         }
-
+        
         if beneficiaryMobileOperator != nil || beneficiaryMobileOperator?.isEmpty ?? true {
             output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryMobileOperator))
         } else {
@@ -711,7 +826,7 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Unable to Self Award Points
     
     private func validateUnableToSelfAwardPoints() {
-        guard let beneficiaryCnic = beneficiaryCnic,
+        guard let transactionType = selfAwardTransactionType,
               let remittanceEntity = remittanceEntity,
               let transactionID = transactionID,
               let transactionDateString = transactionDateString,
@@ -721,18 +836,43 @@ extension ComplaintFormViewModel {
             return
         }
         
-        if beneficiaryCnic.isBlank ||
-            remittanceEntity.isBlank ||
+        if remittanceEntity.isBlank ||
             transactionID.isBlank ||
             transactionID.count < 5 ||
             transactionID.count > 25 ||
             transactionDateString.isBlank ||
             transactionAmount.isBlank ||
-            !transactionAmount.isValid(for: RegexConstants.transactionAmointDecimalRegex) ||
-            !beneficiaryCnic.isValid(for: RegexConstants.alphanuericRegex) {
+            !transactionAmount.isValid(for: RegexConstants.transactionAmointDecimalRegex) {
             output?(.nextButtonState(state: false))
         } else {
-            output?(.nextButtonState(state: true))
+            
+            // validate transaction type as selected
+            if transactionType == .cnic, !(cnic?.isBlank ?? true) {
+                // do cnic stuff
+                if !(cnic?.isBlank ?? true), cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+                    output?(.nextButtonState(state: true))
+                } else {
+                    output?(.nextButtonState(state: false))
+                }
+                
+            } else if transactionType == .bank, !(iban?.isBlank ?? true) {
+                // do bank stuff
+                if !(iban?.isBlank ?? true), iban?.isValid(for: RegexConstants.ibanRegex) ?? false {
+                    output?(.nextButtonState(state: true))
+                } else {
+                    output?(.nextButtonState(state: false))
+                }
+            } else if transactionType == .passport {
+                // do passport stuff
+                if !(passport?.isBlank ?? true), passport?.isValid(for: RegexConstants.passportRegex) ?? false {
+                    output?(.nextButtonState(state: true))
+                } else {
+                    output?(.nextButtonState(state: false))
+                }
+            } else {
+                // do nothing stuff
+                output?(.nextButtonState(state: false))
+            }
         }
     }
     
@@ -740,12 +880,41 @@ extension ComplaintFormViewModel {
         var isValid: Bool = true
         var errorTopField: ComplaintFormTextFieldTypes?
         
-        if !(beneficiaryCnic?.isBlank ?? true) {
-            output?(.textField(errorState: false, error: nil, textfieldType: .beneficiaryAccount))
+        if let transactionType = selfAwardTransactionType {
+            // validate transaction type as selected
+            if transactionType == .cnic, !(cnic?.isBlank ?? true) {
+                // do cnic stuff
+                if !(cnic?.isBlank ?? true), cnic?.isValid(for: RegexConstants.cnicRegex) ?? false {
+                    
+                } else {
+                    output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .selfAwardCnic))
+                    isValid = false
+                    errorTopField = errorTopField ?? .selfAwardCnic
+                }
+                
+            } else if transactionType == .bank, !(iban?.isBlank ?? true) {
+                // do bank stuff
+                if !(iban?.isBlank ?? true), iban?.isValid(for: RegexConstants.ibanRegex) ?? false {
+                    
+                } else {
+                    output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .iban))
+                    isValid = false
+                    errorTopField = errorTopField ?? .iban
+                }
+            } else if transactionType == .passport {
+                // do passport stuff
+                if !(passport?.isBlank ?? true), passport?.isValid(for: RegexConstants.passportRegex) ?? false {
+                    
+                } else {
+                    output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .passport))
+                    isValid = false
+                    errorTopField = errorTopField ?? .passport
+                }
+            }
         } else {
-            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .beneficiaryAccount))
+            output?(.textField(errorState: true, error: StringConstants.ErrorString.genericEmptyFieldError.localized, textfieldType: .selfAwardTransactionType))
             isValid = false
-            errorTopField = errorTopField ?? .beneficiaryAccount
+            errorTopField = errorTopField ?? .selfAwardTransactionType
         }
         
         if remittanceEntity != nil {
@@ -786,11 +955,39 @@ extension ComplaintFormViewModel {
     // MARK: Validation - Redemption Issues
     
     private func validateRedemptionIssues() {
-        if partner?.isBlank ?? true || specifyDetails?.isBlank ?? true || specifyDetails?.count ?? Int.max < 15 {
+        guard let partner = partner,
+              let specifyDetails = specifyDetails else {
             output?(.nextButtonState(state: false))
-        } else {
-            output?(.nextButtonState(state: true))
+            return
         }
+        
+        if partner.isBlank || specifyDetails.isBlank || specifyDetails.count < 15 {
+            output?(.nextButtonState(state: false))
+            return
+        }
+        
+        if partner.lowercased() == "beoe" {
+            guard let branch = branch,
+                  let mobileNumber = mobileNumber,
+                  !branch.countryName.isBlank,
+                  !mobileNumber.isBlank,
+                  mobileNumber.count == 10
+            else {
+                output?(.nextButtonState(state: false))
+                return
+            }
+        } else if partner.lowercased() == "passport" {
+            guard let branch = branch,
+                  let country = country,
+                  !branch.countryName.isBlank,
+                  !country.country.isBlank
+            else {
+                output?(.nextButtonState(state: false))
+                return
+            }
+        }
+        
+        output?(.nextButtonState(state: true))
     }
     
     private func validateRedemptionIssuesRegex() -> (Bool, ComplaintFormTextFieldTypes?) {
@@ -811,6 +1008,42 @@ extension ComplaintFormViewModel {
             output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .specifyDetails))
             isValid = false
             errorTopField = errorTopField ?? .specifyDetails
+        }
+        
+        let partner = partner?.lowercased() ?? ""
+        
+        if partner.contains("usc") || partner.contains("beoe") {
+            if !(branch?.countryName.isBlank ?? true) {
+                output?(.textField(errorState: false, error: nil, textfieldType: .branchCenter))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .branchCenter))
+                isValid = false
+                errorTopField = errorTopField ?? .branchCenter
+            }
+            
+            if !(mobileNumber?.isBlank ?? true) && mobileNumber?.count ?? 0 == 10 {
+                output?(.textField(errorState: false, error: nil, textfieldType: .redemptionMobileNumber))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .redemptionMobileNumber))
+                isValid = false
+                errorTopField = errorTopField ?? .redemptionMobileNumber
+            }
+        } else if partner.contains("passport") || partner.contains("nadra") {
+            if !(branch?.countryName.isBlank ?? true) {
+                output?(.textField(errorState: false, error: nil, textfieldType: .branchCenter))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .branchCenter))
+                isValid = false
+                errorTopField = errorTopField ?? .branchCenter
+            }
+            
+            if !(country?.country.isBlank ?? true) {
+                output?(.textField(errorState: false, error: nil, textfieldType: .redemptionCountry))
+            } else {
+                output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .redemptionCountry))
+                isValid = false
+                errorTopField = errorTopField ?? .redemptionCountry
+            }
         }
         
         return (isValid, errorTopField)
