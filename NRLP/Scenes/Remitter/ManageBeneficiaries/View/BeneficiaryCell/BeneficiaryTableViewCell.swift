@@ -72,7 +72,7 @@ class BeneficiaryTableViewCell: UITableViewCell {
         fullNameLabel.text = beneficiary.alias
         cnicLabel.text = beneficiary.formattedCNIC
 
-        if beneficiary.isActive == 0 ? false : true {
+        if beneficiary.nadraStatusCode ?? "" == "A" { // beneficiary.isActive == 0 ? false : true {
             setAsActive()
         } else {
             setAsInactive()

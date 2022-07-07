@@ -20,6 +20,7 @@ struct BeneficiaryModel: Codable {
     let isDeleted: Int
     let beneficiaryRelation: String
     let country: String?
+    let nadraStatusCode: String?
 
     var formattedCNIC: String {
         if nicNicop != 0 {
@@ -50,6 +51,7 @@ struct BeneficiaryModel: Codable {
         case isDeleted = "is_deleted"
         case beneficiaryRelation = "relationship"
         case country = "country"
+        case nadraStatusCode = "nadra_status_code"
     }
 
 }
