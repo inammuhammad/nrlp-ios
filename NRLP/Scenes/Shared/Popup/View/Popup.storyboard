@@ -24,41 +24,46 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="WMd-fA-5S3">
-                                <rect key="frame" x="20" y="41" width="280" height="386"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remitterInfoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8Ie-RZ-eeV">
-                                        <rect key="frame" x="28" y="0.0" width="224" height="224"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="8Ie-RZ-eeV" secondAttribute="height" id="MTK-Ud-Ifd"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NCT-N8-1eN">
-                                        <rect key="frame" x="11" y="264" width="258.5" height="122"/>
-                                        <string key="text">Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum </string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ym2-rv-Nns" userLabel="divider">
+                                <rect key="frame" x="0.0" y="233.5" width="320" height="1"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="8Ie-RZ-eeV" firstAttribute="width" secondItem="WMd-fA-5S3" secondAttribute="width" multiplier="0.8" id="R0C-ZU-SdS"/>
+                                    <constraint firstAttribute="height" constant="1" id="nwK-eJ-0Ec"/>
                                 </constraints>
-                            </stackView>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remitterInfoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="8Ie-RZ-eeV">
+                                <rect key="frame" x="20" y="20" width="280" height="193.5"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rp7-tP-4QO">
+                                <rect key="frame" x="20" y="254.5" width="280" height="223.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="WMd-fA-5S3" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-50" id="1uK-jy-X3l"/>
-                            <constraint firstItem="WMd-fA-5S3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="A3F-hD-ONw"/>
-                            <constraint firstAttribute="trailing" secondItem="WMd-fA-5S3" secondAttribute="trailing" constant="20" id="HkX-3W-lN5"/>
+                            <constraint firstItem="rp7-tP-4QO" firstAttribute="top" secondItem="Ym2-rv-Nns" secondAttribute="bottom" constant="20" id="EcV-Qi-xdC"/>
+                            <constraint firstItem="uM0-eO-j6U" firstAttribute="top" secondItem="rp7-tP-4QO" secondAttribute="bottom" constant="20" id="JBS-Wm-5og"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8Ie-RZ-eeV" secondAttribute="trailing" constant="20" id="JdY-LZ-M0k"/>
+                            <constraint firstItem="rp7-tP-4QO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="OUk-0U-5jh"/>
+                            <constraint firstItem="8Ie-RZ-eeV" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="WsL-RP-J39"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ym2-rv-Nns" secondAttribute="trailing" id="XZl-vo-TbI"/>
+                            <constraint firstItem="Ym2-rv-Nns" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" constant="-50" id="Xnb-YY-ohy"/>
+                            <constraint firstItem="Ym2-rv-Nns" firstAttribute="top" secondItem="8Ie-RZ-eeV" secondAttribute="bottom" constant="20" id="eLJ-ga-iGu"/>
+                            <constraint firstItem="8Ie-RZ-eeV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="han-5h-Qna"/>
+                            <constraint firstItem="Ym2-rv-Nns" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="kJB-eq-myd"/>
                             <constraint firstItem="uM0-eO-j6U" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" constant="20" id="me2-4K-Ccm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="uM0-eO-j6U" secondAttribute="trailing" constant="20" id="mr1-Mc-e10"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rp7-tP-4QO" secondAttribute="trailing" constant="20" id="tSm-48-QoB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="uM0-eO-j6U" secondAttribute="bottom" constant="20" id="tw5-wG-Fnf"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="messageLabel" destination="NCT-N8-1eN" id="gGr-h8-51h"/>
+                        <outlet property="messageTextView" destination="rp7-tP-4QO" id="lX8-39-jat"/>
                         <outlet property="okayBtn" destination="uM0-eO-j6U" id="M4J-vz-ztJ"/>
                     </connections>
                 </viewController>
@@ -74,6 +79,9 @@
     </designables>
     <resources>
         <image name="remitterInfoIcon" width="121" height="90"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

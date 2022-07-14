@@ -11,9 +11,9 @@ import UIKit
 class PopupViewController: BaseViewController {
     var viewModel: PopupViewModelProtocol!
     
-    @IBOutlet private weak var messageLabel: UILabel! {
+    @IBOutlet private weak var messageTextView: UITextView! {
         didSet {
-            messageLabel.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
+            messageTextView.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
         }
     }
     
@@ -45,7 +45,7 @@ extension PopupViewController {
         viewModel.output = {  [unowned self] output in
             switch output {
             case .update(let message):
-                self.messageLabel.text = message
+                self.messageTextView.text = message
             }
         }
     }
