@@ -71,9 +71,7 @@ class HomeViewModel: HomeViewModelProtocol {
             case .success(let response):
                 if let data = response.data {
                     self?.userModel.update(from: data)
-                    self?.checkNadraVerificationStatus()
-                    self?.checkPopupWindow()
-                    self?.checkReceiverManagement()
+                    // self?.checkNadraVerificationStatus()
                     self?.setupCollectionViewData()
                     self?.output?(.reloadCollectionView)
                     self?.output?(.updateNotificationCount(count: data.notificationCount ?? 0))
@@ -81,6 +79,8 @@ class HomeViewModel: HomeViewModelProtocol {
                     if let userModel = self?.userModel, userModel.accountType == .remitter, data.fatherName?.isEmpty ?? true {
                         self?.router.navigateToFatherNameScreen(userModel: userModel)
                     }
+                    self?.checkPopupWindow()
+                    self?.checkReceiverManagement()
                 }
 
             case .failure(let error):

@@ -166,7 +166,8 @@ class TransferPointsViewModel: TransferPointsViewModelProtocol {
 
     private func processBeneficiary(serviceResponse: ManageBeneficiaryResponseModel) {
         self.beneficiaryItems = serviceResponse.data.filter({
-            $0.isActive == 0 ? false : true
+            $0.nadraStatusCode == "A"
+            // $0.isActive == 0 ? false : true
         }).compactMap({
             BeneficiaryPickerItemModel(title: $0.alias ?? "", key: "\($0.beneficiaryId)", beneficiary: $0)
         })

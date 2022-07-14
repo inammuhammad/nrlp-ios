@@ -677,6 +677,9 @@ extension ComplaintFormViewController {
             redemptionMobileTextView.isHidden = true
             redemptionCountryTextView.isHidden = true
         }
+        
+        branchTextView.inputText = ""
+        viewModel.branch = nil
     }
     
     private func updateSelfAwardFields(with type: TransactionType?) {
