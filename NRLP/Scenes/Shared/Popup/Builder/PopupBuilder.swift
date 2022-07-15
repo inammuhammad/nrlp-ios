@@ -10,12 +10,12 @@ import UIKit
 
 class PopupBuilder {
 
-    func build(with navigationController: UINavigationController?, model: PopupResponseModel) -> UIViewController {
+    func build(with navigationController: UINavigationController?, message: String) -> UIViewController {
 
         let viewController = PopupViewController.getInstance()
         
         let coordinator = PopupRouter(navigationController: navigationController)
-        let viewModel = PopupViewModel(router: coordinator, model: model)
+        let viewModel = PopupViewModel(router: coordinator, message: message)
 
         viewController.viewModel = viewModel
 

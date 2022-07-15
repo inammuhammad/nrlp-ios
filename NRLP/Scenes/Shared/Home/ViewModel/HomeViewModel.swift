@@ -195,18 +195,19 @@ class HomeViewModel: HomeViewModelProtocol {
                     
                 case .success(let popup):
                     if popup.records.isShown == 1 {
-                        let alertModel = AlertViewModel(
-                            alertHeadingImage: .remitterInfo,
-                            alertDescription: popup.records.displayText,
-                            primaryButton: AlertActionButtonModel(
-                                buttonTitle: "Okay".localized
-                            ) {
-                                NRLPUserDefaults.shared.popupWindowSkipped(true)
-                                self.checkReceiverManagement()
-                            }
-                        )
-                        
-                        self.output?(.showAlert(alertModel: alertModel))
+                        self.output?(.showPopup(message: popup.records.displayText))
+//                        let alertModel = AlertViewModel(
+//                            alertHeadingImage: .remitterInfo,
+//                            alertDescription: popup.records.displayText,
+//                            primaryButton: AlertActionButtonModel(
+//                                buttonTitle: "Okay".localized
+//                            ) {
+//                                NRLPUserDefaults.shared.popupWindowSkipped(true)
+//                                self.checkReceiverManagement()
+//                            }
+//                        )
+//
+//                        self.output?(.showAlert(alertModel: alertModel))
                     }
                 case .failure:
                     break
@@ -222,6 +223,7 @@ class HomeViewModel: HomeViewModelProtocol {
         case showLogoutAlert(alertModel: AlertViewModel)
         case showAlert(alertModel: AlertViewModel)
         case updateNotificationCount(count: Int)
+        case showPopup(message: String)
     }
     
     deinit {

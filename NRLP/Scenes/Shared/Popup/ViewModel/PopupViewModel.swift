@@ -20,15 +20,15 @@ protocol PopupViewModelProtocol {
 class PopupViewModel: PopupViewModelProtocol {
     var output: PopupViewModelOutput?
     private let router: PopupRouter
-    private let model: PopupResponseModel
+    private let message: String
 
-    init(router: PopupRouter, model: PopupResponseModel) {
+    init(router: PopupRouter, message: String) {
         self.router = router
-        self.model = model
+        self.message = message
     }
     
     func viewDidLoad() {
-        self.output?(.update(message: model.records.displayText))
+        self.output?(.update(message: message))
     }
 
     func didTapOkayButton() {

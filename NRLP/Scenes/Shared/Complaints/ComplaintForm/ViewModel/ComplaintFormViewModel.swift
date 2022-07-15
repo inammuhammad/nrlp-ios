@@ -970,7 +970,8 @@ extension ComplaintFormViewModel {
             guard let branch = branch,
                   let mobileNumber = mobileNumber,
                   !branch.isBlank,
-                  !mobileNumber.isBlank
+                  !mobileNumber.isBlank,
+                  branch.isValid(for: RegexConstants.nameRegex)
             else {
                 output?(.nextButtonState(state: false))
                 return
@@ -979,7 +980,8 @@ extension ComplaintFormViewModel {
             guard let branch = branch,
                   let country = country,
                   !branch.isBlank,
-                  !country.country.isBlank
+                  !country.country.isBlank,
+                  branch.isValid(for: RegexConstants.nameRegex)
             else {
                 output?(.nextButtonState(state: false))
                 return
@@ -1012,7 +1014,7 @@ extension ComplaintFormViewModel {
         let partner = partner?.lowercased() ?? ""
         
         if partner.contains("usc") || partner.contains("beoe") {
-            if !(branch?.isBlank ?? true) {
+            if !(branch?.isBlank ?? true) && branch?.isValid(for: RegexConstants.nameRegex) ?? false {
                 output?(.textField(errorState: false, error: nil, textfieldType: .branchCenter))
             } else {
                 output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .branchCenter))
@@ -1028,7 +1030,7 @@ extension ComplaintFormViewModel {
                 errorTopField = errorTopField ?? .redemptionMobileNumber
             }
         } else if partner.contains("passport") || partner.contains("nadra") {
-            if !(branch?.isBlank ?? true) {
+            if !(branch?.isBlank ?? true) && branch?.isValid(for: RegexConstants.nameRegex) ?? false {
                 output?(.textField(errorState: false, error: nil, textfieldType: .branchCenter))
             } else {
                 output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .branchCenter))

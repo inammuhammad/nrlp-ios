@@ -144,6 +144,10 @@ extension HomeViewController {
             case .updateNotificationCount(let count):
                 notificationBellView.count = count
                 UIApplication.shared.applicationIconBadgeNumber = count
+            case .showPopup(let message):
+                PopupViewController.presentPopup(with: message, from: self) {
+                    NRLPUserDefaults.shared.popupWindowSkipped(true)
+                }
             }
         }
     }

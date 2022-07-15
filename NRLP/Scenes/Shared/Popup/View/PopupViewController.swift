@@ -11,9 +11,16 @@ import UIKit
 class PopupViewController: BaseViewController {
     var viewModel: PopupViewModelProtocol!
     
-    @IBOutlet private weak var messageTextView: UITextView! {
+    @IBOutlet private weak var alertContainerView: UIView! {
+        didSet {
+            alertContainerView.cornerRadius = CommonDimens.unit1x.rawValue
+        }
+    }
+    
+    @IBOutlet weak var messageTextView: UITextView! {
         didSet {
             messageTextView.font = UIFont.init(commonFont: CommonFont.HpSimplifiedFontStyle.light, size: .mediumFontSize)
+            messageTextView.text = message
         }
     }
     
@@ -27,16 +34,39 @@ class PopupViewController: BaseViewController {
         }
     }
     
+    var message: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindViewModelOutput()
-        viewModel.viewDidLoad()
+        // bindViewModelOutput()
+        // viewModel.viewDidLoad()
+        alertContainerView.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
+        self.view.backgroundColor = UIColor.init(commonColor: .appBackgroundDarkOverlay)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        UIView.animate(withDuration: 0.3, animations: {
+            self.alertContainerView.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1)
+        }, completion: { _ in
+            UIView.animate(withDuration: 0.3) {
+                self.alertContainerView.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
+            }
+        })
+        
+        // IQKeyboardManager.shared.enable = true
     }
     
     @objc
     private func okayBtnAction() {
-        viewModel.didTapOkayButton()
+        dismiss {
+            self.onDismiss?()
+        }
+        // viewModel.didTapOkayButton()
     }
+    
+    private var onDismiss: (() -> Void)?
 }
 
 // MARK: BindViewModel and View binding
@@ -48,6 +78,36 @@ extension PopupViewController {
                 self.messageTextView.text = message
             }
         }
+    }
+}
+
+extension PopupViewController {
+    private static func presentPopup(on controller: UIViewController) -> PopupViewController {
+        let alertVC = PopupViewController.getInstance()
+
+        alertVC.modalPresentationStyle = UIModalPresentationStyle.overCurrentContext
+        alertVC.modalTransitionStyle = UIModalTransitionStyle.crossDissolve
+        DispatchQueue.main.async {
+            controller.present(alertVC, animated: true, completion: nil)
+        }
+        return alertVC
+    }
+
+    private func dismiss(with completion: @escaping (() -> Void)) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.alertContainerView.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
+            self.alertContainerView.alpha = 0
+        }, completion: { (_) in
+            self.dismiss(animated: true, completion: {
+                completion()
+            })
+        })
+    }
+
+    static func presentPopup(with message: String, from controller: UIViewController, onDismiss: @escaping () -> Void) {
+        let popupVC = presentPopup(on: controller)
+        popupVC.message = message
+        popupVC.onDismiss = onDismiss
     }
 }
 
