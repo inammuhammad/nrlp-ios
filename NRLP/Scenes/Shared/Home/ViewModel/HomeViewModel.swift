@@ -80,7 +80,6 @@ class HomeViewModel: HomeViewModelProtocol {
                         self?.router.navigateToFatherNameScreen(userModel: userModel)
                     }
                     self?.checkPopupWindow()
-                    self?.checkReceiverManagement()
                 }
 
             case .failure(let error):
@@ -194,9 +193,20 @@ class HomeViewModel: HomeViewModelProtocol {
             self.userProfileService.popupWindow(requestModel: model, responseHandler: { response in
                 switch response {
                     
-                case .success(let data):
-                    if data.records.isShown == 1 {
-                        self.router.navigateToPopupScreen(with: data)
+                case .success(let popup):
+                    if popup.records.isShown == 1 {
+                        let alertModel = AlertViewModel(
+                            alertHeadingImage: .remitterInfo,
+                            alertDescription: popup.records.displayText,
+                            primaryButton: AlertActionButtonModel(
+                                buttonTitle: "Okay".localized
+                            ) {
+                                NRLPUserDefaults.shared.popupWindowSkipped(true)
+                                self.checkReceiverManagement()
+                            }
+                        )
+                        
+                        self.output?(.showAlert(alertModel: alertModel))
                     }
                 case .failure:
                     break

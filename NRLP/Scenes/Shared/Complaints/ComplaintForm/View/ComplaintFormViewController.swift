@@ -176,16 +176,18 @@ class ComplaintFormViewController: BaseViewController {
     @IBOutlet private weak var branchTextView: LabelledTextview! {
         didSet {
             branchTextView.titleLabelText = "Branch/Center".localized
-             branchTextView.placeholderText = "Select Branch/Center".localized
-            branchTextView.isEditable = false
-            branchTextView.isTappable = true
+             branchTextView.placeholderText = "Enter Branch/Center".localized
+            branchTextView.isEditable = true
             branchTextView.showHelpBtn = true
             branchTextView.helpLabelText = "Mention visiting Branch/Center".localized
             branchTextView.editTextKeyboardType = .asciiCapable
             branchTextView.editTextCursorColor = .init(white: 1, alpha: 0)
-            branchTextView.onTextFieldTapped = { [weak self] in
-                guard let self = self else { return }
-                self.viewModel.branchTextFieldTapped()
+//            branchTextView.onTextFieldTapped = { [weak self] in
+//                guard let self = self else { return }
+//                self.viewModel.branchTextFieldTapped()
+//            }
+            branchTextView.onTextFieldChanged = { text in
+                self.viewModel.branch = text
             }
             branchTextView.onHelpBtnPressed = { [weak self] model in
                 guard let self = self else { return }

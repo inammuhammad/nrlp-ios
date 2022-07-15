@@ -34,7 +34,7 @@ protocol ComplaintFormViewModelProtocol {
     
     var iban: String? { get set }
     var passport: String? { get set }
-    var branch: Branch? { get set }
+    var branch: String? { get set }
     
     var partnerPickerViewModel: ItemPickerViewModel { get }
     var transactionTypesPickerViewModel: ItemPickerViewModel { get }
@@ -45,7 +45,7 @@ protocol ComplaintFormViewModelProtocol {
     func viewDidLoad()
     func nextButtonPressed()
     func countryTextFieldTapped(isBeneficiary: Bool)
-    func branchTextFieldTapped()
+//    func branchTextFieldTapped()
     func banksAndExchangeTextFieldTapped()
     func didSelectPartner(partner: RedemptionPartnerPickerItemModel?)
     func didSelectTransactionType(type: TransactionTypesPickerItemModel?)
@@ -176,7 +176,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         }
     }
     
-    var branch: Branch? {
+    var branch: String? {
         didSet {
             validateRequiredFields()
         }
@@ -415,23 +415,23 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
                     self?.output?(.updateMobilePlaceholder(placeholder: Array(repeating: "x".localized, count: selectedCountry.length).joined(), isBeneficiary: false))
                 }
             }
-        }, accountType: self.userType)
+        }, accountType: nil)
     }
     
-    func branchTextFieldTapped() {
-        guard let pseName = partner else {
-            return
-        }
-        
-        router.navigateToBranchPicker(with: { [weak self] selectedBranch in
-            self?.branch = selectedBranch
-            
-            guard let branch = self?.branch else {
-                return
-            }
-            self?.output?(.updateBranch(name: branch.countryName))
-        }, pseName: pseName)
-    }
+//    func branchTextFieldTapped() {
+//        guard let pseName = partner else {
+//            return
+//        }
+//
+//        router.navigateToBranchPicker(with: { [weak self] selectedBranch in
+//            self?.branch = selectedBranch
+//
+//            guard let branch = self?.branch else {
+//                return
+//            }
+//            self?.output?(.updateBranch(name: branch.countryName))
+//        }, pseName: pseName)
+//    }
     
     func banksAndExchangeTextFieldTapped() {
         router.navigateToBanksAndExchangePicker(with: { [weak self] selectedBanksAndExchange in
@@ -499,7 +499,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
             redemptionPartners: self.partner,
             comments: self.specifyDetails,
             locMobileNo: locMobileNo,
-            branchCenter: branch?.countryName,
+            branchCenter: branch, // ?.countryName,
             countryForNadra: country?.country,
             selfAwardType: saTransactionType
         )
@@ -969,7 +969,7 @@ extension ComplaintFormViewModel {
         if partner.lowercased() == "beoe" {
             guard let branch = branch,
                   let mobileNumber = mobileNumber,
-                  !branch.countryName.isBlank,
+                  !branch.isBlank,
                   !mobileNumber.isBlank
             else {
                 output?(.nextButtonState(state: false))
@@ -978,7 +978,7 @@ extension ComplaintFormViewModel {
         } else if partner.lowercased() == "passport" {
             guard let branch = branch,
                   let country = country,
-                  !branch.countryName.isBlank,
+                  !branch.isBlank,
                   !country.country.isBlank
             else {
                 output?(.nextButtonState(state: false))
@@ -1012,7 +1012,7 @@ extension ComplaintFormViewModel {
         let partner = partner?.lowercased() ?? ""
         
         if partner.contains("usc") || partner.contains("beoe") {
-            if !(branch?.countryName.isBlank ?? true) {
+            if !(branch?.isBlank ?? true) {
                 output?(.textField(errorState: false, error: nil, textfieldType: .branchCenter))
             } else {
                 output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .branchCenter))
@@ -1028,7 +1028,7 @@ extension ComplaintFormViewModel {
                 errorTopField = errorTopField ?? .redemptionMobileNumber
             }
         } else if partner.contains("passport") || partner.contains("nadra") {
-            if !(branch?.countryName.isBlank ?? true) {
+            if !(branch?.isBlank ?? true) {
                 output?(.textField(errorState: false, error: nil, textfieldType: .branchCenter))
             } else {
                 output?(.textField(errorState: true, error: StringConstants.ErrorString.specifyDetailsError.localized, textfieldType: .branchCenter))
