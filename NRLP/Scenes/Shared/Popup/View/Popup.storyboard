@@ -18,29 +18,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hpi-1g-k5l">
-                                <rect key="frame" x="40" y="103.5" width="240" height="361"/>
+                                <rect key="frame" x="40" y="150" width="240" height="268"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tjV-xp-Sw8">
-                                        <rect key="frame" x="16" y="44" width="208" height="235"/>
+                                        <rect key="frame" x="16" y="44" width="208" height="142"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="remitterInfoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="zas-CQ-siq">
-                                                <rect key="frame" x="0.0" y="0.0" width="208" height="113.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="208" height="114"/>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imL-O4-ZlD">
-                                                <rect key="frame" x="0.0" y="121.5" width="208" height="113.5"/>
+                                                <rect key="frame" x="0.0" y="122" width="208" height="20"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="20" id="gPk-VS-Eu1"/>
+                                                </constraints>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="imL-O4-ZlD" firstAttribute="height" secondItem="zas-CQ-siq" secondAttribute="height" id="6B7-NU-vgY"/>
-                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeQ-YA-Xnf" customClass="PrimaryCTAButton" customModule="Sohni_Dharti" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="295" width="208" height="50"/>
+                                        <rect key="frame" x="16" y="202" width="208" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="yn1-Lv-KCg"/>
                                         </constraints>
@@ -71,6 +71,7 @@
                     </view>
                     <connections>
                         <outlet property="alertContainerView" destination="Hpi-1g-k5l" id="742-X7-lSV"/>
+                        <outlet property="messageHeight" destination="gPk-VS-Eu1" id="s9r-UE-8IE"/>
                         <outlet property="messageTextView" destination="imL-O4-ZlD" id="k4W-nx-XLk"/>
                         <outlet property="okayBtn" destination="IeQ-YA-Xnf" id="zYY-Ix-FcM"/>
                     </connections>

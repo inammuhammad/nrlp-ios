@@ -24,6 +24,8 @@ class PopupViewController: BaseViewController {
         }
     }
     
+    @IBOutlet weak var messageHeight: NSLayoutConstraint!
+    
     @IBOutlet private weak var okayBtn: PrimaryCTAButton! {
         didSet {
             okayBtn.setTitle("Okay".localized, for: .normal)
@@ -42,6 +44,9 @@ class PopupViewController: BaseViewController {
         // viewModel.viewDidLoad()
         alertContainerView.transform = CGAffineTransform.identity.scaledBy(x: 0.1, y: 0.1)
         self.view.backgroundColor = UIColor.init(commonColor: .appBackgroundDarkOverlay)
+        
+        let contentHeight = messageTextView.contentSize.height
+        messageHeight.constant = contentHeight > view.bounds.height * 0.2 ? view.bounds.height * 0.2 : contentHeight
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,8 +59,6 @@ class PopupViewController: BaseViewController {
                 self.alertContainerView.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
             }
         })
-        
-        // IQKeyboardManager.shared.enable = true
     }
     
     @objc

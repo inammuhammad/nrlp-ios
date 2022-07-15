@@ -196,18 +196,6 @@ class HomeViewModel: HomeViewModelProtocol {
                 case .success(let popup):
                     if popup.records.isShown == 1 {
                         self.output?(.showPopup(message: popup.records.displayText))
-//                        let alertModel = AlertViewModel(
-//                            alertHeadingImage: .remitterInfo,
-//                            alertDescription: popup.records.displayText,
-//                            primaryButton: AlertActionButtonModel(
-//                                buttonTitle: "Okay".localized
-//                            ) {
-//                                NRLPUserDefaults.shared.popupWindowSkipped(true)
-//                                self.checkReceiverManagement()
-//                            }
-//                        )
-//
-//                        self.output?(.showAlert(alertModel: alertModel))
                     }
                 case .failure:
                     break
