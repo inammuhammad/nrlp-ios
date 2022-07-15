@@ -181,7 +181,6 @@ class ComplaintFormViewController: BaseViewController {
             branchTextView.showHelpBtn = true
             branchTextView.helpLabelText = "Mention visiting Branch/Center".localized
             branchTextView.editTextKeyboardType = .asciiCapable
-            branchTextView.editTextCursorColor = .init(white: 1, alpha: 0)
             // branchTextView.formatValidator = FormatValidator(regex: RegexConstants.textOnly, invalidFormatError: "Enter a valid name".localized)
 //            branchTextView.onTextFieldTapped = { [weak self] in
 //                guard let self = self else { return }
