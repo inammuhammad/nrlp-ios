@@ -531,3 +531,21 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 "How would you rate registration process" = "How would you rate registration process";
 "How would you rate self-awarding process" = "How would you rate self-awarding process";
 "How would you rate transfer point process" = "How would you rate transfer point process";
+
+
+// Errors
+"AUTH-CP-01" = "Dear customer,
+You shall be allowed to perform self award transaction, once your account is activated.";
+
+"AUTH-CP-02" = "Dear Customer, Points against the provided details are already awarded. For Further assistance, you may contact us at 111-116-757 or sdrpsupport@1link.net.pk";
+
+"AUTH-CP-03" = "Dear RDA Customer,
+You shall only be eligible for auto awarding of points against the amount which is consumed locally. In case you have not been auto awarded, please contact us at 111-116-757 or sdrpsupport@1link.net.pk";
+
+"AUTH-CP-04" = "Rejected –Customer registered in the current year
+Dear Customer, You are not eligible to perform self award transaction against previous fiscal year";
+
+"AUTH-CP-05" = "Rejected – due to validiaty expiry to claim the award
+Dear Customer, You are not allowed to claim the loyalty points against the provided transaction";
+
+"AUTH-CP-06" = "Dear Customer, Your provided transaction details does not found in our record.";

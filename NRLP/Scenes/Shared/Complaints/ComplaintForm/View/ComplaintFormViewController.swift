@@ -526,6 +526,8 @@ class ComplaintFormViewController: BaseViewController {
                 branchTextView.inputText = name
             case .updateRemitingEntity(name: let name):
                 remittanceEntityTextView.inputText = name
+            case .showAlert(let model):
+                self.showAlert(with: model)
             }
         }
     }

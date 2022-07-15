@@ -276,6 +276,7 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
         case updateSelfAwardTransactionType(type: TransactionType?)
         case updateBranch(name: String)
         case updateRemitingEntity(name: String)
+        case showAlert(model: AlertViewModel)
     }
     
     // MARK: Lifecycle Methods
@@ -515,7 +516,23 @@ class ComplaintFormViewModel: ComplaintFormViewModelProtocol {
                 self?.output?(.requestNotification(complaintId: response.complaintId, message: response.message))
                 self?.router.navigateToSuccessScreen(complaintID: response.complaintId)
             case .failure(let error):
-                self?.output?(.showError(error: error))
+                switch error {
+                case .server(let response):
+                    if let errorConst = ErrorConstants(rawValue: response?.errorCode ?? ""),
+                       ErrorConstants.allCases.contains(errorConst) {
+                        self?.output?(
+                            .showAlert(
+                                model: AlertViewModel(
+                                    alertHeadingImage: .ohSnap,
+                                    alertTitle: errorConst.localized,
+                                    primaryButton: .init(buttonTitle: "Okay".localized)
+                                )
+                            )
+                        )
+                    }
+                default:
+                    self?.output?(.showError(error: error))
+                }
             }
         }
     }
