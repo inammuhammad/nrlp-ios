@@ -77,7 +77,14 @@ class HomeViewModel: HomeViewModelProtocol {
                     self?.output?(.updateNotificationCount(count: data.notificationCount ?? 0))
                     
                     if let userModel = self?.userModel, userModel.accountType == .remitter, data.fatherName?.isEmpty ?? true {
-                        self?.router.navigateToFatherNameScreen(userModel: userModel)
+                        
+                        let nic = "\(userModel.cnicNicop)"
+                        
+                        if nic != TestConstants.CNIC1.rawValue,
+                           nic != TestConstants.CNIC2.rawValue,
+                           nic != TestConstants.CNIC3.rawValue {
+                            self?.router.navigateToFatherNameScreen(userModel: userModel)
+                        }
                     }
                     self?.checkPopupWindow()
                 }
