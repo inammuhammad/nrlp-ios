@@ -210,7 +210,8 @@ class HomeViewModel: HomeViewModelProtocol {
                         self?.checkReceiverManagement()
                     }
                 case .failure:
-                    break
+                    // also check receiverManagement
+                    self?.checkReceiverManagement()
                 }
             })
         }
