@@ -197,12 +197,17 @@ class HomeViewModel: HomeViewModelProtocol {
                 accountStatus: userModel.nadraStatusCode ?? "-"
             )
             
-            self.userProfileService.popupWindow(requestModel: model, responseHandler: { response in
+            self.userProfileService.popupWindow(requestModel: model, responseHandler: { [weak self] response in
                 switch response {
                     
                 case .success(let popup):
                     if popup.records.isShown == 1 {
-                        self.output?(.showPopup(message: popup.records.displayText))
+                        self?.output?(.showPopup(message: popup.records.displayText, onDismiss: {
+                            NRLPUserDefaults.shared.popupWindowSkipped(true)
+                            self?.checkReceiverManagement()
+                        }))
+                    } else {
+                        self?.checkReceiverManagement()
                     }
                 case .failure:
                     break
@@ -218,7 +223,7 @@ class HomeViewModel: HomeViewModelProtocol {
         case showLogoutAlert(alertModel: AlertViewModel)
         case showAlert(alertModel: AlertViewModel)
         case updateNotificationCount(count: Int)
-        case showPopup(message: String)
+        case showPopup(message: String, onDismiss: () -> Void)
     }
     
     deinit {
