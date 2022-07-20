@@ -10,8 +10,8 @@ import Foundation
 
 // MARK: Data Store
 enum CSRTransactionType: String {
-    case transferPoints = "transfer-point"
-    case selfAward = "self-award"
+    case transferPoints = "transferpoint"
+    case selfAward = "selfaward"
     case registration = "registration"
 }
 

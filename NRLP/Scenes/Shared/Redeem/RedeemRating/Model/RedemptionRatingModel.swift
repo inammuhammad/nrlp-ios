@@ -9,16 +9,19 @@ import Foundation
 
 struct RedemptionRatingModel: Codable {
     let transactionId: String
+    let transactionType: String
     let comments: String
 
     enum CodingKeys: String, CodingKey {
         case transactionId = "transaction_id"
+        case transactionType = "transaction_type"
         case comments = "comments"
     }
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(transactionId, forKey: .transactionId)
+        try container.encode(transactionType, forKey: .transactionType)
         try container.encode(comments, forKey: .comments)
     }
 }

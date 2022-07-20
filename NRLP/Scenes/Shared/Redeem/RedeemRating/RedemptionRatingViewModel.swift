@@ -85,7 +85,7 @@ class RedemptionRatingViewModel: RedemptionRatingViewModelProtocol {
         self.output?(.showActivityIndicator(show: true))
         let comments = "\(stars)" // ratingType.rawValue
 
-        service.submitRedemptionRating(requestModel: RedemptionRatingModel(transactionId: transactionId, comments: comments)) {[weak self] (result) in
+        service.submitRedemptionRating(requestModel: RedemptionRatingModel(transactionId: transactionId, transactionType: "redemption", comments: comments)) {[weak self] (result) in
             self?.output?(.showActivityIndicator(show: false))
             switch result {
             case .success(let response):
