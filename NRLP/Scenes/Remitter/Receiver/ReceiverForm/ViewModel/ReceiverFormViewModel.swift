@@ -183,7 +183,7 @@ class ReceiverFormViewModel: ReceiverFormViewModelProtocol {
             self.output?(.showActivityIndicator(show: false))
             switch response {
             case .success(_):
-                let model = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Request Received".localized, alertDescription: "Your Remittance Receiver will be added upon NADRA verification".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
+                let model = AlertViewModel(alertHeadingImage: .successAlert, alertTitle: "Request Received".localized, alertDescription: "Your Remittance Receiver will be added upon successful verification".localized, primaryButton: AlertActionButtonModel(buttonTitle: "Done".localized, buttonAction: {
                     self.router.popToHomeScreen()
                 }), secondaryButton: nil)
                 

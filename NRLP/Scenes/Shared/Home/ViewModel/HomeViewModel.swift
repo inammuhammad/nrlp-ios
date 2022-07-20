@@ -85,8 +85,9 @@ class HomeViewModel: HomeViewModelProtocol {
                            nic != TestConstants.CNIC3.rawValue {
                             self?.router.navigateToFatherNameScreen(userModel: userModel)
                         }
+                    } else {
+                        self?.checkReceiverManagement()
                     }
-                    self?.checkReceiverManagement()
                 }
 
             case .failure(let error):

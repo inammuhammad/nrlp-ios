@@ -326,7 +326,7 @@
 
 //NADRA
 "NADRA" = "NADRA";
-"To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue." = "To redeem your points for benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue.";
+"To redeem your points for SDRP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue." = "To redeem your points for benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue.";
 "Enter Tracking ID for Redemption" = "Enter Tracking ID for Redemption";
 "Tracking ID Number" = "Tracking ID Number";
 "Enter CNIC for Redemption" = "Enter CNIC for Redemption";
@@ -397,7 +397,7 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 "Place of Birth" = "Place of Birth";
 "Mother Maiden Name" = "Mother Maiden Name";
 
-"Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification" = "Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification";
+"Dear Customer, Your Verification is required to proceed further. Please click  accept for verification" = "Dear Customer, Your Verification is required to proceed further. Please click  accept for verification";
 "Accept" = "Accept";
 
 "Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?" = "Without providing verification, you will not be able to login\nAre you sure, you want to exit the Application?";
@@ -478,7 +478,7 @@ Note: (Current year Transaction can only be used for registration, applicable fr
 "Please enter Receiver Country of Residence" = "Please enter Receiver Country of Residence";
 "Please enter Receiver Mother Name as per NADRA record" = "Please enter Receiver Mother Name as per NADRA record";
 "Are you sure want to delete the Receiver?" = "Are you sure want to delete the Receiver?";
-"Your Remittance Receiver will be added upon NADRA verification" = "Your Remittance Receiver will be added upon NADRA verification";
+"Your Remittance Receiver will be added upon successful verification" = "Your Remittance Receiver will be added upon successful verification";
 "Select Receiver Type" = "Select Receiver Type";
 "Receiver Type" = "Receiver Type";
 "Remittance sent to CNIC" = "Remittance sent to CNIC";

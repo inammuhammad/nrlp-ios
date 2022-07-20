@@ -44,7 +44,7 @@ class NadraVerificationViewController: BaseViewController {
     }
     
     private func setupUI() {
-        titleLbl.text = "Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification".localized
+        titleLbl.text = "Dear Customer, Your Verification is required to proceed further. Please click  accept for verification".localized
     }
     
     private func bindViewModelOutput() {

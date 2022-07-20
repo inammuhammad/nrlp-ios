@@ -37,7 +37,7 @@ class ReceiverSuccessViewModel: ReceiverSuccessViewModelProtocol {
     }
     
     func viewDidLoad() {
-        let text = "Your Remittance Receiver will be added upon NADRA verification".localized
+        let text = "Your Remittance Receiver will be added upon successful verification".localized
         output?(.setSuccessMessage(text: text))
     }
     

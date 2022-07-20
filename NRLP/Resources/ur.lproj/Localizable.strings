@@ -337,7 +337,7 @@
 
 //NADRA
 "NADRA" = "NADRA";
-"To redeem your points for NRLP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue." = "اپنے پوائنٹس کو NADRA کی سروس کے لۓ استعمال کرنا ہو تو www.nadra.gov.pk پر جا کر اپنی منتخب شدہ سروس کی ٹریکنگ نمبرحاصل کریں۔\n\n ٹریکنگ نمبر پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
+"To redeem your points for SDRP Benefits offered by NADRA, please visit www.nadra.gov.pk to generate Tracking Number for your selected service.\n\nIf you already have a Tracking Number please continue." = "اپنے پوائنٹس کو NADRA کی سروس کے لۓ استعمال کرنا ہو تو www.nadra.gov.pk پر جا کر اپنی منتخب شدہ سروس کی ٹریکنگ نمبرحاصل کریں۔\n\n ٹریکنگ نمبر پہلے سے موجود ہونے کی صورت میں آگے بڑھیں";
 "Enter Tracking ID for Redemption" = "ٹریکنگ آئی ڈی درج کریں";
 "Tracking ID Number" = "ٹریکنگ آئی ڈی";
 "Enter CNIC for Redemption" = "CNIC نمبر درج کریں";
@@ -410,7 +410,7 @@
 "Place of Birth" = "جائے پیدائش";
 "Mother Maiden Name" = "ماں کا نام";
 
-"Dear Customer, Your NADRA Verification is required to proceed further. Please click  accept for verification" = "مزید آگے بڑھنے کے لئے آپ کی NADRA تصدیق درکار ہے۔ تصدیق کے لیے قبول کریں";
+"Dear Customer, Your Verification is required to proceed further. Please click  accept for verification" = "مزید آگے بڑھنے کے لئے آپ کی تصدیق درکار ہے۔ تصدیق کے لیے قبول کریں";
 
 "Accept" = "قبول کریں";
 
@@ -491,7 +491,7 @@
 "Please enter Receiver Country of Residence" = "Please enter Receiver Country of Residence";
 "Please enter Receiver Mother Name as per NADRA record" = "براہ کرم نادرا کے ریکارڈ کے مطابق وصول کنندہ کی والدہ کا نام درج کریں";
 "Are you sure want to delete the Receiver?" = "کیا آپ واقعی وصول کنندہ کو  نکلنا چاہتے ہیں ";
-"Your Remittance Receiver will be added upon NADRA verification" = "آپ کی ترسیلات زر وصول کرنے والا  نادرا کی تصدیق کے بعد شامل کر دیا جائے گا۔";
+"Your Remittance Receiver will be added upon successful verification" = "آپ کی ترسیلات زر وصول کرنے والا کامیاب تصدیق کے بعد شامل کر دیا جائے گا۔";
 "Select Receiver Type" = "وصول کنندہ کی قسم منتخب کریں۔";
 "Receiver Type" = "وصول کنندہ کی قسم";
 "Remittance sent to CNIC" = "قومی شناختی کارڈ پر بھیجی گئی ترسیلات";
