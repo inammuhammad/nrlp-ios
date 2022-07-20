@@ -86,7 +86,7 @@ class HomeViewModel: HomeViewModelProtocol {
                             self?.router.navigateToFatherNameScreen(userModel: userModel)
                         }
                     }
-                    self?.checkPopupWindow()
+                    self?.checkReceiverManagement()
                 }
 
             case .failure(let error):
@@ -183,6 +183,8 @@ class HomeViewModel: HomeViewModelProtocol {
            !NRLPUserDefaults.shared.receiverManagemntSkipped(),
            !(userModel.accountType == .beneficiary) {
             self.router.navigateToRemitterReceiverManagement(showListing: false)
+        } else {
+            self.checkPopupWindow()
         }
     }
     
@@ -204,14 +206,10 @@ class HomeViewModel: HomeViewModelProtocol {
                     if popup.records.isShown == 1 {
                         self?.output?(.showPopup(message: popup.records.displayText, onDismiss: {
                             NRLPUserDefaults.shared.popupWindowSkipped(true)
-                            self?.checkReceiverManagement()
                         }))
-                    } else {
-                        self?.checkReceiverManagement()
                     }
                 case .failure:
-                    // also check receiverManagement
-                    self?.checkReceiverManagement()
+                    break
                 }
             })
         }
